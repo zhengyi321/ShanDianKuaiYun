@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_mine_gerenxinxi_erweima_content_bg"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/tv_main_mine_gerenxinxi_erweima_yqm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的邀请码:273485"
+            android:textColor="@color/color_main_mine_gerenxinxi_erweima_content_black_word_textcolor"
+            android:textSize="@dimen/main_mine_gerenxinxi_erweima_content_word_size"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="3"
+        >
+        <RelativeLayout
+            android:layout_width="@dimen/main_mine_gerenxinxi_erweima_content_iv_width"
+            android:layout_height="@dimen/main_mine_gerenxinxi_erweima_content_iv_height"
+            android:background="@color/color_main_mine_gerenxinxi_erweima_content_item_bg"
+            android:padding="@dimen/main_mine_gerenxinxi_erweima_content_padding_iv_size"
+            android:layout_centerInParent="true"
+            >
+            <ImageView
+                android:id="@+id/iv_main_mine_gerenxinxi_erweima_ewm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/red"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/changanerweimakefuzhihuozhebaocunerweimatupian"
+            android:textColor="@color/color_main_mine_gerenxinxi_erweima_content_black_word_textcolor"
+            android:textSize="@dimen/main_mine_gerenxinxi_erweima_content_word_size"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+    <Button
+        android:id="@+id/bt_main_mine_gerenxinxi_erweima_yq"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_gerenxinxi_erweima_submit_height"
+
+        android:layout_marginLeft="@dimen/main_mine_gerenxinxi_erweima_submit_margin_left_right_size"
+        android:layout_marginRight="@dimen/main_mine_gerenxinxi_erweima_submit_margin_left_right_size"
+        android:background="@drawable/main_mine_gerenxinxi_erweima_shape"
+        android:text="@string/qutongxuanluyaoqing"
+        android:textColor="@color/color_main_mine_gerenxinxi_erweima_content_white_word_textcolor"
+        android:textSize="@dimen/main_mine_gerenxinxi_erweima_content_word_size"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="4"
+        >
+
+    </RelativeLayout>
+</LinearLayout>

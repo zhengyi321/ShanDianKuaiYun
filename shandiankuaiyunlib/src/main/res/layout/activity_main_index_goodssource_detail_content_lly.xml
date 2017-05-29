@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/color_main_index_goodssource_detail_content_bg"
+    >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_index_goodssource_detail_content_first_item_height"
+                android:background="@color/color_main_index_goodssource_detail_content_item_bg"
+                android:orientation="vertical"
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/zero"
+                    android:layout_weight="3"
+                    >
+                    <ImageView
+                        android:id="@+id/iv_main_index_goodssource_detail_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/aboutas"
+                        android:scaleType="fitXY"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/zero"
+                    android:layout_marginLeft="@dimen/main_index_goodssource_detail_content_item_margin_left_right_size"
+                    android:layout_marginRight="@dimen/main_index_goodssource_detail_content_item_margin_left_right_size"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="1"
+                        >
+                        <TextView
+                            android:id="@+id/tv_main_index_goodssource_detail_content_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="乐清至龙湾4米平板车"
+                            android:textColor="@color/color_main_index_goodssource_detail_content_black_word_textcolor"
+                            android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                            android:layout_centerVertical="true"
+                            android:textStyle="bold"
+                            />
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        >
+                        <RelativeLayout
+                            android:layout_width="@dimen/zero"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/release_time"
+                                android:textColor="@color/color_main_index_goodssource_detail_content_gray_word_textcolor"
+                                android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                                android:layout_centerVertical="true"
+                                android:textStyle="bold"
+                                />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/zero"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            >
+                            <TextView
+                                android:id="@+id/tv_main_index_goodssource_detail_content_release_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="04-12"
+                                android:textColor="@color/color_main_index_goodssource_detail_content_black_word_textcolor"
+                                android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                                android:layout_centerVertical="true"
+                                android:textStyle="bold"
+                                />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/zero"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            >
+                            <TextView
+                                android:id="@+id/tv_main_index_goodssource_detail_have_read_times"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="已有9人浏览"
+                                android:textColor="@color/color_main_index_goodssource_detail_content_gray_word_textcolor"
+                                android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:textStyle="bold"
+                                />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_index_goodssource_detail_content_second_item_height"
+        android:layout_marginTop="@dimen/main_index_goodssource_detail_content_item_margin_top_size"
+        android:background="@color/color_main_index_goodssource_detail_content_item_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/main_index_goodssource_detail_content_item_margin_left_right_size"
+            android:layout_marginRight="@dimen/main_index_goodssource_detail_content_item_margin_left_right_size"
+            android:orientation="vertical"
+
+            >
+
+
+            <LinearLayout
+                android:id="@+id/lly_main_index_goodssource_detail_renzheng"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_main_index_goodssource_detail_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="我二"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_black_word_textcolor"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4">
+
+                    <TextView
+                        android:id="@+id/tv_main_index_goodssource_detail_renzheng"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="(未认证)"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_gray_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"><!--
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=">"
+                    android:textColor="@color/color_main_index_goodssource_detail_content_gray_word_textcolor"
+                    android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    />-->
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/right_arrow" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/split_width_or_height"
+                android:background="@color/color_main_index_goodssource_detail_content_splite_line" />
+
+            <LinearLayout
+                android:id="@+id/lly_main_index_goodssource_detail_huowuzhongliang"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/huowuzhongliang"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_gray_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4">
+
+                    <TextView
+                        android:id="@+id/tv_main_index_goodssource_detail_huowuzhongliang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="10吨"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_black_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/split_width_or_height"
+                android:background="@color/color_main_index_goodssource_detail_content_splite_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/leibie"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_gray_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7">
+
+                    <TextView
+                        android:id="@+id/tv_main_index_goodssource_detail_leibie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="药品"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_black_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/split_width_or_height"
+                android:background="@color/color_main_index_goodssource_detail_content_splite_line" />
+
+            <LinearLayout
+                android:id="@+id/lly_main_index_goodssource_detail_tel"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/cal_no"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_gray_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5.5">
+
+                    <TextView
+                        android:id="@+id/tv_main_index_goodssource_detail_tel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="13506679965"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_black_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rly_main_index_goodssource_detail_calltel"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/dianhua"
+                        android:scaleType="fitXY" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/split_width_or_height"
+                android:background="@color/color_main_index_goodssource_detail_content_splite_line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/contacter"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_gray_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6.5">
+
+                    <TextView
+                        android:id="@+id/tv_main_index_goodssource_detail_lxr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="浙CS81M3"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_black_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/split_width_or_height"
+                android:background="@color/color_main_index_goodssource_detail_content_splite_line" />
+
+            <LinearLayout
+                android:id="@+id/lly_main_index_goodssource_detail_addr"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/addr"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_gray_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5.5">
+
+                    <TextView
+                        android:id="@+id/tv_main_index_goodssource_detail_addr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="浙江省温州市乐清市"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_black_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/dt"
+                        android:scaleType="fitXY" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/right_arrow" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_index_goodssource_detail_content_third_item_height"
+                android:layout_marginTop="@dimen/main_index_goodssource_detail_content_item_margin_top_size"
+                android:background="@color/color_main_index_goodssource_detail_content_item_bg"
+                android:orientation="horizontal"
+                >
+                <RelativeLayout
+                    android:id="@+id/rly_main_index_goodssource_detail_speak"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/direct_speak"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_black_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:layout_centerInParent="true"
+                        android:drawableLeft="@mipmap/chat"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                </RelativeLayout>
+                <ImageView
+                    android:layout_width="@dimen/split_width_or_height"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_main_index_goodssource_detail_content_vertical_splite_line"
+                    />
+                <RelativeLayout
+                    android:id="@+id/rly_main_index_goodssource_detail_pingjia"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:id="@+id/tv_main_index_goodssource_detail_pingjia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="评价(0)"
+                        android:textColor="@color/color_main_index_goodssource_detail_content_black_word_textcolor"
+                        android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                        android:textStyle="bold"
+                        android:layout_centerInParent="true"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_index_goodssource_detail_content_fourth_item_height"
+                android:layout_marginTop="@dimen/main_index_goodssource_detail_content_item_margin_top_size"
+                android:background="@color/color_main_index_goodssource_detail_content_item_bg"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/main_index_goodssource_detail_content_item_margin_left_right_size"
+                    android:layout_marginRight="@dimen/main_index_goodssource_detail_content_item_margin_left_right_size"
+                    android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="1"
+                        >
+                        <RelativeLayout
+                            android:layout_width="@dimen/zero"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="|"
+                                android:textColor="@color/color_main_index_goodssource_detail_content_orange"
+                                android:textSize="@dimen/main_index_goodssource_detail_content_item_small_word_size"
+                                android:layout_centerVertical="true"
+                                />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="@dimen/zero"
+                            android:layout_height="match_parent"
+                            android:layout_weight="20"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/detail_data"
+                                android:textColor="@color/color_main_index_goodssource_detail_content_gray_word_textcolor"
+                                android:textSize="@dimen/main_index_goodssource_detail_content_item_small_word_size"
+                                android:layout_centerVertical="true"
+                                android:textStyle="bold"
+                                />
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="1"
+                        >
+                        <TextView
+                            android:id="@+id/tv_main_index_goodssource_detail_remark"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="测试备注ssssss"
+                            android:textColor="@color/color_main_index_goodssource_detail_content_black_word_textcolor"
+                            android:textSize="@dimen/main_index_goodssource_detail_content_item_word_size"
+                            android:layout_centerVertical="true"
+                            android:textStyle="bold"
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+</LinearLayout>

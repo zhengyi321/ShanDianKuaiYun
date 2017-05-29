@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_mine_wodeyaoqing_content_bg"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:orientation="vertical"
+        android:background="@color/color_main_mine_wodeyaoqing_content_item_first_bg"
+        android:layout_weight="1.8"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="3"
+            >
+            <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
+                android:layout_width="@dimen/main_mine_wodeyaoqing_headimg_iv_width"
+                android:layout_height="@dimen/main_mine_wodeyaoqing_headimg_iv_height"
+                android:background="@mipmap/touxiang"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yaoqinghaoyou"
+                        android:textColor="@color/color_main_mine_wodeyaoqing_content_white_word_textcolor"
+                        android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                        android:layout_gravity="center_horizontal"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dejifen"
+                        android:textColor="@color/color_main_mine_wodeyaoqing_content_white_word_textcolor"
+                        android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                        android:layout_gravity="center_horizontal"
+                        />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <ImageView
+                android:layout_width="@dimen/split_width_or_height"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/main_mine_wodeyaoqing_splite_line_margin_top_bottom_size"
+                android:layout_marginBottom="@dimen/main_mine_wodeyaoqing_splite_line_margin_top_bottom_size"
+                android:background="@color/color_main_mine_wodeyaoqing_content_splite_line"
+                />
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/shuliang"
+                        android:textColor="@color/color_main_mine_wodeyaoqing_content_white_word_textcolor"
+                        android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                        android:layout_gravity="center_horizontal"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/color_main_mine_wodeyaoqing_content_white_word_textcolor"
+                        android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                        android:layout_gravity="center_horizontal"
+                        />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+            <ImageView
+                android:layout_width="@dimen/split_width_or_height"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/main_mine_wodeyaoqing_splite_line_margin_top_bottom_size"
+                android:layout_marginBottom="@dimen/main_mine_wodeyaoqing_splite_line_margin_top_bottom_size"
+                android:background="@color/color_main_mine_wodeyaoqing_content_splite_line"
+                />
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zongjifen"
+                        android:textColor="@color/color_main_mine_wodeyaoqing_content_white_word_textcolor"
+                        android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                        android:layout_gravity="center_horizontal"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/color_main_mine_wodeyaoqing_content_white_word_textcolor"
+                        android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                        android:layout_gravity="center_horizontal"
+                        />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:orientation="vertical"
+        android:layout_weight="1.5"
+        >
+        <LinearLayout
+            android:id="@+id/lly_main_mine_wodeyaoqing_wodetuijianren"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_marginTop="@dimen/main_mine_wodeyaoqing_content_item_margin_each_other_size"
+            android:layout_weight="1"
+            android:background="@color/color_main_mine_wodeyaoqing_content_item_first_bg"
+            >
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                >
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wodetuijianren"
+                    android:textColor="@color/color_main_mine_wodeyaoqing_content_white_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="2.5"
+                >
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                >
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/right_arrow"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lly_main_mine_wodeyaoqing_wodeyaoqingyi"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:background="@color/color_main_mine_wodeyaoqing_content_item_bg"
+            android:layout_marginTop="@dimen/main_mine_wodeyaoqing_content_item_margin_each_other_size"
+            android:layout_weight="1"
+            >
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                >
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+
+                android:layout_weight="2"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yaoqingyi"
+                    android:textColor="@color/color_main_mine_wodeyaoqing_content_gray_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="2.5"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/color_main_mine_wodeyaoqing_content_gray_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/color_main_mine_wodeyaoqing_content_item_orange_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/right_arrow"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lly_main_mine_wodeyaoqing_wodeyaoqinger"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:background="@color/color_main_mine_wodeyaoqing_content_item_bg"
+            android:layout_marginTop="@dimen/main_mine_wodeyaoqing_content_item_margin_each_other_size"
+            android:layout_weight="1"
+            >
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                >
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+
+                android:layout_weight="2"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yaoqinger"
+                    android:textColor="@color/color_main_mine_wodeyaoqing_content_gray_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="2.5"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/color_main_mine_wodeyaoqing_content_gray_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="0"
+                    android:textColor="@color/color_main_mine_wodeyaoqing_content_item_orange_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/right_arrow"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lly_main_mine_wodeyaoqing_wodeyaoqingsan"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:background="@color/color_main_mine_wodeyaoqing_content_item_bg"
+            android:layout_marginTop="@dimen/main_mine_wodeyaoqing_content_item_margin_each_other_size"
+            android:layout_weight="1"
+            >
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                >
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+
+                android:layout_weight="2"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yaoqingsan"
+                    android:textColor="@color/color_main_mine_wodeyaoqing_content_gray_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="2.5"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/color_main_mine_wodeyaoqing_content_gray_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/color_main_mine_wodeyaoqing_content_item_orange_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodeyaoqing_content_word_size"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/right_arrow"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        >
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="split_width_or_height">0.5dp</dimen>
+    <!--XRecycleView-->
+    <dimen name="textandiconmargin">10dp</dimen>
+    <dimen name="xrv_down_arrow_word_size">10sp</dimen>
+    <!--XRecycleView-->
+    <!--Main-->
+    <dimen name="main_bottom_height">46dp</dimen>
+    <!--Main-->
+    <!--Main index-->
+    <dimen name="main_index_topbar_height">54dp</dimen>
+    <dimen name="main_index_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_index_topbar_left_city_word_size">12sp</dimen>
+    <dimen name="main_index_topbar_right_sao_width">25dp</dimen>
+    <dimen name="main_index_topbar_right_sao_height">25dp</dimen>
+    <dimen name="main_index_content_kanner_height">160dp</dimen>
+    <dimen name="main_index_content_model_height">450dp</dimen>
+    <dimen name="main_index_content_model_bottom_height">80dp</dimen>
+    <dimen name="main_index_content_model_margin">5dp</dimen>
+    <dimen name="main_index_content_model_margin_each_other">2.5dp</dimen>
+    <!--Main index-->
+
+    <!--Main index common myselfloc-->
+    <dimen name="main_index_common_myselfloc_topbar_height">54dp</dimen>
+    <dimen name="main_index_common_myselfloc_topbar_title_word_size">15sp</dimen>
+    <!--Main index common myselfloc-->
+
+    <!--Main index common nearby driver-->
+    <dimen name="main_index_nearby_driver_topbar_height">54dp</dimen>
+    <dimen name="main_index_nearby_driver_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_index_nearby_driver_topbar_small_word_size">12sp</dimen>
+    <!--Main index common nearby driver-->
+
+    <!--Main index zhuanxianwuliu-->
+    <dimen name="main_index_zhuanxianwuliu_topbar_height">54dp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_tabbar_height">45dp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_tabbar_word_size">12sp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_content_word_size">12sp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_bottom_height">46dp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_bottom_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_tabbar_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_bottom_word_size">12sp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_xrv_item_height">120dp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_xrv_item_padding">15dp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_xrv_item_word_size">12sp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_xrv_item_tel_cal_width">40dp</dimen>
+    <dimen name="main_index_zhuanxianwuliu_xrv_item_tel_cal_height">40dp</dimen>
+    <!--Main index zhuanxianwuliu-->
+
+    <!--Main index peihuozhongxin-->
+    <dimen name="main_index_peihuozhongxin_topbar_height">54dp</dimen>
+    <dimen name="main_index_peihuozhongxin_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_index_peihuozhongxin_tabbar_height">45dp</dimen>
+    <dimen name="main_index_peihuozhongxin_tabbar_word_size">12sp</dimen>
+    <dimen name="main_index_peihuozhongxin_content_word_size">12sp</dimen>
+    <dimen name="main_index_peihuozhongxin_bottom_height">46dp</dimen>
+    <dimen name="main_index_peihuozhongxin_bottom_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_peihuozhongxin_tabbar_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_peihuozhongxin_bottom_word_size">12sp</dimen>
+    <dimen name="main_index_peihuozhongxin_xrv_item_height">120dp</dimen>
+    <dimen name="main_index_peihuozhongxin_xrv_item_padding">15dp</dimen>
+    <dimen name="main_index_peihuozhongxin_xrv_item_word_size">12sp</dimen>
+    <dimen name="main_index_peihuozhongxin_xrv_item_tel_cal_width">40dp</dimen>
+    <dimen name="main_index_peihuozhongxin_xrv_item_tel_cal_height">40dp</dimen>
+    <!--Main index peihuozhongxin-->
+
+    <!--Main index tezhongwuliu-->
+    <dimen name="main_index_tezhongwuliu_topbar_height">54dp</dimen>
+    <dimen name="main_index_tezhongwuliu_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_index_tezhongwuliu_tabbar_height">45dp</dimen>
+    <dimen name="main_index_tezhongwuliu_tabbar_word_size">12sp</dimen>
+    <dimen name="main_index_tezhongwuliu_content_word_size">12sp</dimen>
+    <dimen name="main_index_tezhongwuliu_bottom_height">46dp</dimen>
+    <dimen name="main_index_tezhongwuliu_bottom_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_tezhongwuliu_tabbar_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_tezhongwuliu_bottom_word_size">12sp</dimen>
+    <dimen name="main_index_tezhongwuliu_xrv_item_height">120dp</dimen>
+    <dimen name="main_index_tezhongwuliu_xrv_item_padding">15dp</dimen>
+    <dimen name="main_index_tezhongwuliu_xrv_item_word_size">12sp</dimen>
+    <dimen name="main_index_tezhongwuliu_xrv_item_tel_cal_width">40dp</dimen>
+    <dimen name="main_index_tezhongwuliu_xrv_item_tel_cal_height">40dp</dimen>
+    <!--Main index tezhongwuliu-->
+
+    <!--Main index zhengchehuoyun-->
+    <dimen name="main_index_zhengchehuoyun_topbar_height">54dp</dimen>
+    <dimen name="main_index_zhengchehuoyun_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_index_zhengchehuoyun_tabbar_height">45dp</dimen>
+    <dimen name="main_index_zhengchehuoyun_tabbar_word_size">12sp</dimen>
+    <dimen name="main_index_zhengchehuoyun_content_word_size">12sp</dimen>
+    <dimen name="main_index_zhengchehuoyun_bottom_height">46dp</dimen>
+    <dimen name="main_index_zhengchehuoyun_bottom_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_zhengchehuoyun_tabbar_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_zhengchehuoyun_bottom_word_size">12sp</dimen>
+    <dimen name="main_index_zhengchehuoyun_xrv_item_height">120dp</dimen>
+    <dimen name="main_index_zhengchehuoyun_xrv_item_padding">15dp</dimen>
+    <dimen name="main_index_zhengchehuoyun_xrv_item_word_size">12sp</dimen>
+    <dimen name="main_index_zhengchehuoyun_xrv_item_tel_cal_width">40dp</dimen>
+    <dimen name="main_index_zhengchehuoyun_xrv_item_tel_cal_height">40dp</dimen>
+    <!--Main index zhengchehuoyun-->
+    <!--Main index renrenwuliu-->
+    <dimen name="main_index_renrenwuliu_topbar_height">54dp</dimen>
+    <dimen name="main_index_renrenwuliu_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_index_renrenwuliu_tabbar_height">45dp</dimen>
+    <dimen name="main_index_renrenwuliu_tabbar_word_size">12sp</dimen>
+    <dimen name="main_index_renrenwuliu_content_word_size">12sp</dimen>
+    <dimen name="main_index_renrenwuliu_bottom_height">46dp</dimen>
+    <dimen name="main_index_renrenwuliu_bottom_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_renrenwuliu_tabbar_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_renrenwuliu_bottom_word_size">12sp</dimen>
+    <dimen name="main_index_renrenwuliu_xrv_item_height">120dp</dimen>
+    <dimen name="main_index_renrenwuliu_xrv_item_padding">15dp</dimen>
+    <dimen name="main_index_renrenwuliu_xrv_item_word_size">12sp</dimen>
+    <dimen name="main_index_renrenwuliu_xrv_item_tel_cal_width">40dp</dimen>
+    <dimen name="main_index_renrenwuliu_xrv_item_tel_cal_height">40dp</dimen>
+    <!--Main index renrenwuliu-->
+    <!--Main index banjia-->
+    <dimen name="main_index_banjia_topbar_height">54dp</dimen>
+    <dimen name="main_index_banjia_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_index_banjia_tabbar_height">45dp</dimen>
+    <dimen name="main_index_banjia_tabbar_word_size">12sp</dimen>
+    <dimen name="main_index_banjia_content_word_size">12sp</dimen>
+    <dimen name="main_index_banjia_bottom_height">46dp</dimen>
+    <dimen name="main_index_banjia_bottom_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_banjia_tabbar_split_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_index_banjia_bottom_word_size">12sp</dimen>
+    <dimen name="main_index_banjia_xrv_item_height">120dp</dimen>
+    <dimen name="main_index_banjia_xrv_item_padding">15dp</dimen>
+    <dimen name="main_index_banjia_xrv_item_word_size">12sp</dimen>
+    <dimen name="main_index_banjia_xrv_item_tel_cal_width">40dp</dimen>
+    <dimen name="main_index_banjia_xrv_item_tel_cal_height">40dp</dimen>
+    <!--Main index banjia-->
+
+    <!--Main index carsource xrv detail-->
+    <dimen name="main_index_carsource_detail_topbar_height">54dp</dimen>
+    <dimen name="main_index_carsource_detail_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_index_carsource_detail_content_first_item_height">280dp</dimen>
+    <dimen name="main_index_carsource_detail_content_second_item_height">260dp</dimen>
+    <dimen name="main_index_carsource_detail_content_third_item_height">70dp</dimen>
+    <dimen name="main_index_carsource_detail_content_fourth_item_height">70dp</dimen>
+    <dimen name="main_index_carsource_detail_content_ad_pic_height">180dp</dimen>
+    <dimen name="main_index_carsource_detail_content_item_margin_left_right_size">15dp</dimen>
+    <dimen name="main_index_carsource_detail_content_item_margin_top_size">15dp</dimen>
+    <dimen name="main_index_carsource_detail_content_item_word_size">13sp</dimen>
+    <dimen name="main_index_carsource_detail_content_item_small_word_size">10sp</dimen>
+    <!--Main index carsource detail-->
+    <!--Main index goodssource xrv detail-->
+    <dimen name="main_index_goodssource_detail_topbar_height">54dp</dimen>
+    <dimen name="main_index_goodssource_detail_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_index_goodssource_detail_content_first_item_height">280dp</dimen>
+    <dimen name="main_index_goodssource_detail_content_second_item_height">260dp</dimen>
+    <dimen name="main_index_goodssource_detail_content_third_item_height">70dp</dimen>
+    <dimen name="main_index_goodssource_detail_content_fourth_item_height">70dp</dimen>
+    <dimen name="main_index_goodssource_detail_content_ad_pic_height">180dp</dimen>
+    <dimen name="main_index_goodssource_detail_content_item_margin_left_right_size">15dp</dimen>
+    <dimen name="main_index_goodssource_detail_content_item_margin_top_size">15dp</dimen>
+    <dimen name="main_index_goodssource_detail_content_item_word_size">13sp</dimen>
+    <dimen name="main_index_goodssource_detail_content_item_small_word_size">10sp</dimen>
+    <!--Main index goodssource xrv detail-->
+    <!--Main release-->
+    <dimen name="main_release_topbar_height">54dp</dimen>
+    <dimen name="main_release_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_release_topbar_rightmenu_release_word_size">12sp</dimen>
+    <dimen name="main_release_content_word_size">12sp</dimen>
+    <dimen name="main_release_content_item_height">70dp</dimen>
+    <!--Main release-->
+
+    <!--Main release zhuanxianwuliu-->
+    <dimen name="main_release_zhuanxianwuliu_topbar_height">54dp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_content_word_size">13sp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_photo_pic_height">200dp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_item_margin_left_right_size">15dp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_first_item_height">450dp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_second_item_height">80dp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_margin_top_size">15dp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_submit_height">45dp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_submit_word_size">15dp</dimen>
+    <!--Main release zhuanxianwuliu-->
+    <!--Main release fabuhuoyuan-->
+    <dimen name="main_release_fabuhuoyuan_topbar_height">54dp</dimen>
+    <dimen name="main_release_fabuhuoyuan_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_release_fabuhuoyuan_content_word_size">13sp</dimen>
+    <dimen name="main_release_fabuhuoyuan_photo_pic_height">200dp</dimen>
+    <dimen name="main_release_fabuhuoyuan_item_margin_left_right_size">15dp</dimen>
+    <dimen name="main_release_fabuhuoyuan_first_item_height">450dp</dimen>
+    <dimen name="main_release_fabuhuoyuan_second_item_height">80dp</dimen>
+    <dimen name="main_release_fabuhuoyuan_margin_top_size">15dp</dimen>
+    <dimen name="main_release_fabuhuoyuan_submit_height">45dp</dimen>
+    <dimen name="main_release_fabuhuoyuan_submit_word_size">15dp</dimen>
+    <!--Main release fabuhuoyuan-->
+
+    <!--Main release renrenkuaidi-->
+    <dimen name="main_release_renrenkuaidi_topbar_height">54dp</dimen>
+    <dimen name="main_release_renrenkuaidi_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_release_renrenkuaidi_content_word_size">13sp</dimen>
+    <dimen name="main_release_renrenkuaidi_photo_pic_height">210dp</dimen>
+    <dimen name="main_release_renrenkuaidi_item_margin_left_right_size">15dp</dimen>
+    <dimen name="main_release_renrenkuaidi_first_item_height">450dp</dimen>
+    <dimen name="main_release_renrenkuaidi_second_item_height">80dp</dimen>
+    <dimen name="main_release_renrenkuaidi_margin_top_size">15dp</dimen>
+    <dimen name="main_release_renrenkuaidi_submit_height">45dp</dimen>
+    <dimen name="main_release_renrenkuaidi_submit_word_size">15dp</dimen>
+    <!--Main release renrenkuaidi-->
+    <!--Main release zuchehuoyun-->
+    <dimen name="main_release_zuchehuoyun_topbar_height">54dp</dimen>
+    <dimen name="main_release_zuchehuoyun_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_release_zuchehuoyun_content_word_size">13sp</dimen>
+    <dimen name="main_release_zuchehuoyun_photo_pic_height">210dp</dimen>
+    <dimen name="main_release_zuchehuoyun_item_margin_left_right_size">15dp</dimen>
+    <dimen name="main_release_zuchehuoyun_first_item_height">450dp</dimen>
+    <dimen name="main_release_zuchehuoyun_second_item_height">80dp</dimen>
+    <dimen name="main_release_zuchehuoyun_margin_top_size">15dp</dimen>
+    <dimen name="main_release_zuchehuoyun_submit_height">45dp</dimen>
+    <dimen name="main_release_zuchehuoyun_submit_word_size">15dp</dimen>
+    <!--Main release zuchehuoyun-->
+    <!--Main release tezhongyunshu-->
+    <dimen name="main_release_tezhongyunshu_topbar_height">54dp</dimen>
+    <dimen name="main_release_tezhongyunshu_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_release_tezhongyunshu_content_word_size">13sp</dimen>
+    <dimen name="main_release_tezhongyunshu_photo_pic_height">210dp</dimen>
+    <dimen name="main_release_tezhongyunshu_item_margin_left_right_size">15dp</dimen>
+    <dimen name="main_release_tezhongyunshu_first_item_height">450dp</dimen>
+    <dimen name="main_release_tezhongyunshu_second_item_height">80dp</dimen>
+    <dimen name="main_release_tezhongyunshu_margin_top_size">15dp</dimen>
+    <dimen name="main_release_tezhongyunshu_submit_height">45dp</dimen>
+    <dimen name="main_release_tezhongyunshu_submit_word_size">15dp</dimen>
+    <!--Main release tezhongyunshu-->
+    <!--Main release huitouche-->
+    <dimen name="main_release_huitouche_topbar_height">54dp</dimen>
+    <dimen name="main_release_huitouche_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_release_huitouche_content_word_size">13sp</dimen>
+    <dimen name="main_release_huitouche_photo_pic_height">210dp</dimen>
+    <dimen name="main_release_huitouche_item_margin_left_right_size">15dp</dimen>
+    <dimen name="main_release_huitouche_first_item_height">450dp</dimen>
+    <dimen name="main_release_huitouche_second_item_height">80dp</dimen>
+    <dimen name="main_release_huitouche_margin_top_size">15dp</dimen>
+    <dimen name="main_release_huitouche_submit_height">45dp</dimen>
+    <dimen name="main_release_huitouche_submit_word_size">15dp</dimen>
+    <!--Main release huitouche-->
+    <!--Main release banjia-->
+    <dimen name="main_release_banjia_topbar_height">54dp</dimen>
+    <dimen name="main_release_banjia_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_release_banjia_content_word_size">13sp</dimen>
+    <dimen name="main_release_banjia_photo_pic_height">210dp</dimen>
+    <dimen name="main_release_banjia_item_margin_left_right_size">15dp</dimen>
+    <dimen name="main_release_banjia_first_item_height">450dp</dimen>
+    <dimen name="main_release_banjia_second_item_height">80dp</dimen>
+    <dimen name="main_release_banjia_margin_top_size">15dp</dimen>
+    <dimen name="main_release_banjia_submit_height">45dp</dimen>
+    <dimen name="main_release_banjia_submit_word_size">15dp</dimen>
+    <!--Main release banjia-->
+
+    <!--Main release banjia leibie-->
+    <dimen name="main_release_banjia_leibie_topbar_height">54dp</dimen>
+    <dimen name="main_release_banjia_leibie_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_release_banjia_leibie_content_word_size">13sp</dimen>
+    <dimen name="main_release_banjia_leibie_margin_size">15dp</dimen>
+    <dimen name="main_release_banjia_leibie_content_rv_item_height">50dp</dimen>
+
+    <!--Main release banjia leibie-->
+    <!--Main release fabuhuowu huowuleibie-->
+    <dimen name="main_release_fabuhuowu_huowuleibie_topbar_height">54dp</dimen>
+    <dimen name="main_release_fabuhuowu_huowuleibie_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_release_fabuhuowu_huowuleibie_content_word_size">13sp</dimen>
+    <dimen name="main_release_fabuhuowu_huowuleibie_margin_size">15dp</dimen>
+    <dimen name="main_release_fabuhuowu_huowuleibie_content_rv_item_height">50dp</dimen>
+
+    <!--Main release fabuhuowu huowuleibie-->
+
+    <!--Main advice-->
+    <dimen name="main_advice_xrv_item_height">60dp</dimen>
+    <dimen name="main_advice_xrv_item_margin_size">5dp</dimen>
+    <dimen name="main_advice_xrv_item_word_size">12sp</dimen>
+    <!--Main advice-->
+    <!--Main advice detail-->
+    <dimen name="main_advice_detail_topbar_height">54dp</dimen>
+    <dimen name="main_advice_detail_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_advice_detail_content_title_word_size">15sp</dimen>
+    <dimen name="main_advice_detail_content_word_size">13sp</dimen>
+    <dimen name="main_advice_detail_content_item_margin_left_right_size">15dp</dimen>
+    <!--Main advice detail-->
+
+    <!--Main message-->
+    <dimen name="main_message_topbar_item_height">54dp</dimen>
+    <dimen name="main_message_topbar_item_title_word_size">15sp</dimen>
+    <!--Main message-->
+
+    <!--Main mine-->
+    <dimen name="main_mine_tophead_height">120dp</dimen>
+    <dimen name="main_mine_head_img_width">70dp</dimen>
+    <dimen name="main_mine_head_img_height">70dp</dimen>
+    <dimen name="main_mine_tophead_name_word_size">12sp</dimen>
+    <dimen name="main_mine_tophead_right_arrow_width">15dp</dimen>
+    <dimen name="main_mine_tophead_right_arrow_height">18dp</dimen>
+    <dimen name="main_mine_content_splite_margin_left">15dp</dimen>
+    <dimen name="main_mine_content_word_size">12sp</dimen>
+    <dimen name="main_mine_content_item_margin_top_size">20dp</dimen>
+    <!--Main mine-->
+
+    <!--Main mine Login-->
+    <dimen name="main_mine_login_topbar_height">54dp</dimen>
+    <dimen name="main_mine_login_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_login_content_title_word_size">15sp</dimen>
+    <dimen name="main_mine_login_content_word_size">12sp</dimen>
+    <dimen name="main_mine_login_content_item_margin_left_right_size">15dp</dimen>
+    <dimen name="main_mine_login_content_submit_word_size">15sp</dimen>
+    <dimen name="main_mine_login_content_submit_height">40dp</dimen>
+    <dimen name="main_mine_login_content_submit_margin_size">15dp</dimen>
+    <!--Main mine Login-->
+
+    <!--Main mine login reg-->
+    <dimen name="main_mine_login_reg_topbar_height">54dp</dimen>
+    <dimen name="main_mine_login_reg_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_login_reg_content_title_word_size">15sp</dimen>
+    <dimen name="main_mine_login_reg_content_word_size">13sp</dimen>
+    <dimen name="main_mine_login_reg_content_tel_item_margin_left_right_size">10dp</dimen>
+    <dimen name="main_mine_login_reg_content_read_agree_margin_left">14dp</dimen>
+    <dimen name="main_mine_login_reg_content_margin_left_right_size">18dp</dimen>
+    <dimen name="main_mine_login_reg_content_splite_line_margin_left">15dp</dimen>
+    <dimen name="main_mine_login_reg_content_submit_margin_size">15dp</dimen>
+    <dimen name="main_mine_login_reg_content_submit_height">40dp</dimen>
+    <!--Main mine login reg-->
+
+    <!--Main mine login findpass-->
+    <dimen name="main_mine_login_findpass_topbar_height">54dp</dimen>
+    <dimen name="main_mine_login_findpass_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_login_findpass_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_login_findpass_content_word_size">13sp</dimen>
+    <dimen name="main_mine_login_findpass_content_item_height">45dp</dimen>
+    <dimen name="main_mine_login_findpass_content_item_margin_left_right_size">20dp</dimen>
+    <dimen name="main_mine_login_findpass_content_item_margin_top_size">30dp</dimen>
+    <dimen name="main_mine_login_findpass_content_item_margin_each_other_size">15dp</dimen>
+    <dimen name="main_mine_login_findpass_content_submit_height">40dp</dimen>
+    <dimen name="main_mine_login_findpass_content_submit_margin_top">45dp</dimen>
+    <!--Main mine login findpass-->
+    
+    <!--Main mine login reg userdata-->
+    <dimen name="main_mine_login_reg_userdata_topbar_height">54dp</dimen>
+    <dimen name="main_mine_login_reg_userdata_content_title_word_size">15sp</dimen>
+    <dimen name="main_mine_login_reg_userdata_content_word_size">12sp</dimen>
+    <dimen name="main_mine_login_reg_userdata_content_margin_left_right_size">10dp</dimen>
+    <dimen name="main_mine_login_reg_userdata_content_submit_margin_size">15dp</dimen>
+    <dimen name="main_mine_login_reg_userdata_content_submit_height">40dp</dimen>
+    <!--Main mine login reg userdata-->
+    <!--Main mine renzheng-->
+    <dimen name="main_mine_renzheng_topbar_height">54dp</dimen>
+    <dimen name="main_mine_renzheng_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_renzheng_content_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_content_button_width">70dp</dimen>
+    <dimen name="main_mine_renzheng_content_button_height">35dp</dimen>
+    <dimen name="main_mine_renzheng_content_renzheng_button_padding_left_right">2dp</dimen>
+    <dimen name="main_mine_renzheng_content_renzheng_button_padding_top_bottom">1dp</dimen>
+    <dimen name="main_mine_renzheng_content_remark_word_size">12sp</dimen>
+    <!--<dimen name="main_mine_renzheng"-->
+    <!--Main mine renzheng-->
+    <!--Main mine renzheng shimingrenzheng-->
+    <dimen name="main_mine_renzheng_shimingrenzheng_topbar_height">54dp</dimen>
+    <dimen name="main_mine_renzheng_shimingrenzheng_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_shimingrenzheng_content_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_shimingrenzheng_content_item_each_other_dis">10dp</dimen>
+    <dimen name="main_mine_renzheng_shimingrenzheng_content_small_word_size">12sp</dimen>
+    <dimen name="main_mine_renzheng_shimingrenzheng_warn_margin_left_right_size">10dp</dimen>
+    <dimen name="main_mine_renzheng_shimingrenzheng_warn_splite_margin_left_right_size">18dp</dimen>
+    <dimen name="main_mine_renzheng_shimingrenzheng_submit_margin_left_right_size">18dp</dimen>
+    <dimen name="main_mine_renzheng_shimingrenzheng_submit_height">46dp</dimen>
+    <dimen name="main_mine_renzheng_shimingrenzheng_et_height">45dp</dimen>
+    <dimen name="main_mine_renzheng_shimingrenzheng_content_item_height">60dp</dimen>
+    <!--Main mine renzheng shimingrenzheng-->
+    <!--Main mine renzheng qiyerenzheng-->
+    <dimen name="main_mine_renzheng_qiyerenzheng_topbar_height">54dp</dimen>
+    <dimen name="main_mine_renzheng_qiyerenzheng_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_qiyerenzheng_content_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_qiyerenzheng_content_item_each_other_dis">10dp</dimen>
+    <dimen name="main_mine_renzheng_qiyerenzheng_content_small_word_size">12sp</dimen>
+    <dimen name="main_mine_renzheng_qiyerenzheng_warn_margin_left_right_size">10dp</dimen>
+    <dimen name="main_mine_renzheng_qiyerenzheng_warn_splite_margin_left_right_size">18dp</dimen>
+    <dimen name="main_mine_renzheng_qiyerenzheng_submit_margin_left_right_size">18dp</dimen>
+    <dimen name="main_mine_renzheng_qiyerenzheng_submit_height">46dp</dimen>
+    <dimen name="main_mine_renzheng_qiyerenzheng_et_height">45dp</dimen>
+    <dimen name="main_mine_renzheng_qiyerenzheng_content_item_height">60dp</dimen>
+    <!--Main mine renzheng qiyerenzheng-->
+
+    <!--Main mine renzheng jiashizhengrenzheng-->
+    <dimen name="main_mine_renzheng_jiashizhengrenzheng_topbar_height">54dp</dimen>
+    <dimen name="main_mine_renzheng_jiashizhengrenzheng_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_jiashizhengrenzheng_content_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_jiashizhengrenzheng_content_item_each_other_dis">10dp</dimen>
+    <dimen name="main_mine_renzheng_jiashizhengrenzheng_content_small_word_size">12sp</dimen>
+    <dimen name="main_mine_renzheng_jiashizhengrenzheng_warn_margin_left_right_size">10dp</dimen>
+    <dimen name="main_mine_renzheng_jiashizhengrenzheng_warn_splite_margin_left_right_size">18dp</dimen>
+    <dimen name="main_mine_renzheng_jiashizhengrenzheng_submit_margin_left_right_size">18dp</dimen>
+    <dimen name="main_mine_renzheng_jiashizhengrenzheng_submit_height">46dp</dimen>
+    <dimen name="main_mine_renzheng_jiashizhengrenzheng_et_height">45dp</dimen>
+    <dimen name="main_mine_renzheng_jiashizhengrenzheng_content_item_height">60dp</dimen>
+    <!--Main mine renzheng jiashizhengrenzheng-->
+
+    <!--Main mine renzheng xingshizhengrenzheng-->
+    <dimen name="main_mine_renzheng_xingshizhengrenzheng_topbar_height">54dp</dimen>
+    <dimen name="main_mine_renzheng_xingshizhengrenzheng_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_xingshizhengrenzheng_content_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_xingshizhengrenzheng_content_item_each_other_dis">10dp</dimen>
+    <dimen name="main_mine_renzheng_xingshizhengrenzheng_content_small_word_size">12sp</dimen>
+    <dimen name="main_mine_renzheng_xingshizhengrenzheng_warn_margin_left_right_size">10dp</dimen>
+    <dimen name="main_mine_renzheng_xingshizhengrenzheng_warn_splite_margin_left_right_size">18dp</dimen>
+    <dimen name="main_mine_renzheng_xingshizhengrenzheng_submit_margin_left_right_size">18dp</dimen>
+    <dimen name="main_mine_renzheng_xingshizhengrenzheng_submit_height">46dp</dimen>
+    <dimen name="main_mine_renzheng_xingshizhengrenzheng_et_height">45dp</dimen>
+    <dimen name="main_mine_renzheng_xingshizhengrenzheng_content_item_height">60dp</dimen>
+    <!--Main mine renzheng xingshizhengrenzheng-->
+
+    <!--Main mine renzheng cheliangrenzheng-->
+    <dimen name="main_mine_renzheng_cheliangrenzheng_topbar_height">54dp</dimen>
+    <dimen name="main_mine_renzheng_cheliangrenzheng_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_cheliangrenzheng_content_word_size">15sp</dimen>
+    <dimen name="main_mine_renzheng_cheliangrenzheng_content_item_each_other_dis">10dp</dimen>
+    <dimen name="main_mine_renzheng_cheliangrenzheng_content_small_word_size">12sp</dimen>
+    <dimen name="main_mine_renzheng_cheliangrenzheng_warn_margin_left_right_size">10dp</dimen>
+    <dimen name="main_mine_renzheng_cheliangrenzheng_warn_splite_margin_left_right_size">18dp</dimen>
+    <dimen name="main_mine_renzheng_cheliangrenzheng_submit_margin_left_right_size">18dp</dimen>
+    <dimen name="main_mine_renzheng_cheliangrenzheng_submit_height">46dp</dimen>
+    <dimen name="main_mine_renzheng_cheliangrenzheng_et_height">45dp</dimen>
+    <dimen name="main_mine_renzheng_cheliangrenzheng_content_item_height">60dp</dimen>
+    <dimen name="main_mine_renzheng_cheliangrenzheng_splite_margin_top_bottom_size">10dp</dimen>
+    <!--Main mine renzheng cheliangrenzheng-->
+
+
+    <!--Main mine wodecheyuan-->
+    <dimen name="main_mine_wodecheyuan_topbar_height">54dp</dimen>
+    <dimen name="main_mine_wodecheyuan_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_wodecheyuan_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_wodecheyuan_content_item_height">141.5dp</dimen>
+    <dimen name="main_mine_wodecheyuan_content_item_top_height">90dp</dimen>
+    <dimen name="main_mine_wodecheyuan_content_item_bottom_height">50dp</dimen>
+    <dimen name="main_mine_wodecheyuan_content_item_word_size">12sp</dimen>
+    <dimen name="main_mine_wodecheyuan_content_item_margin_size">6dp</dimen>
+    <dimen name="main_mine_wodecheyuan_content_item_button_padding_left_right_size">6dp</dimen>
+    <dimen name="main_mine_wodecheyuan_content_item_button_padding_top_bottom_size">3dp</dimen>
+    <dimen name="main_mine_wodecheyuan_content_item_button_width">60dp</dimen>
+    <dimen name="main_mine_wodecheyuan_content_item_button_height">35dp</dimen>
+    <dimen name="main_mine_wodecheyuan_content_item_margin_bottom">20dp</dimen>
+    <!--Main mine wodecheyuan-->
+
+    <!--Main mine wodehuoyuan-->
+    <dimen name="main_mine_wodehuoyuan_topbar_height">54dp</dimen>
+    <dimen name="main_mine_wodehuoyuan_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_wodehuoyuan_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_wodehuoyuan_content_item_height">141.5dp</dimen>
+    <dimen name="main_mine_wodehuoyuan_content_item_top_height">90dp</dimen>
+    <dimen name="main_mine_wodehuoyuan_content_item_bottom_height">50dp</dimen>
+    <dimen name="main_mine_wodehuoyuan_content_item_word_size">12sp</dimen>
+    <dimen name="main_mine_wodehuoyuan_content_item_margin_size">6dp</dimen>
+    <dimen name="main_mine_wodehuoyuan_content_item_button_padding_left_right_size">6dp</dimen>
+    <dimen name="main_mine_wodehuoyuan_content_item_button_padding_top_bottom_size">3dp</dimen>
+    <dimen name="main_mine_wodehuoyuan_content_item_button_width">60dp</dimen>
+    <dimen name="main_mine_wodehuoyuan_content_item_button_height">35dp</dimen>
+    <dimen name="main_mine_wodehuoyuan_content_item_margin_bottom">20dp</dimen>
+    <!--Main mine wodehuoyuan-->
+    
+    <!--Main mine aboutus-->
+    <dimen name="main_mine_aboutus_topbar_height">54dp</dimen>
+    <dimen name="main_mine_aboutus_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_aboutus_content_word_size">12sp</dimen>
+
+    <!--<dimen name="main_mine_aboutus"-->
+    <!--Main mine aboutus-->
+    <!--Main mine aboutus companyintroduce-->
+    <dimen name="main_mine_aboutus_companyintroduce_topbar_height">54dp</dimen>
+    <dimen name="main_mine_aboutus_companyintroduce_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_aboutus_companyintroduce_content_word_size">12sp</dimen>
+    <dimen name="main_mine_aboutus_companyintroduce_content_margin_size">10dp</dimen>
+    <!--Main mine aboutus companyintroduce-->
+
+    <!--Main mine aboutus yijianfankui-->
+    <dimen name="main_mine_aboutus_yijianfankui_topbar_height">54dp</dimen>
+    <dimen name="main_mine_aboutus_yijianfankui_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_aboutus_yijianfankui_content_word_size">13sp</dimen>
+    <dimen name="main_mine_aboutus_yijianfankui_content_margin_size">10dp</dimen>
+    <dimen name="main_mine_aboutus_yijianfankui_content_et_height">160dp</dimen>
+    <dimen name="main_mine_aboutus_yijianfankui_content_submit_height">50dp</dimen>
+    <dimen name="main_mine_aboutus_yijianfankui_content_submit_margin_top_height">10dp</dimen>
+    <!--Main mine aboutus yijianfankui-->
+
+    <!--Main mine aboutus yonghuxieyi-->
+    <dimen name="main_mine_aboutus_yonghuxieyi_topbar_height">54dp</dimen>
+    <dimen name="main_mine_aboutus_yonghuxieyi_tab_title_height">40dp</dimen>
+    <dimen name="main_mine_aboutus_yonghuxieyi_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_aboutus_yonghuxieyi_tab_title_word_size">11sp</dimen>
+    <dimen name="main_mine_aboutus_yonghuxieyi_content_word_size">14sp</dimen>
+    <dimen name="main_mine_aboutus_yonghuxieyi_content_margin_size">7dp</dimen>
+    <!--Main mine aboutus yonghuxieyi-->
+    <!--Main mine mengyou-->
+    <dimen name="main_mine_mengyou_topbar_height">54dp</dimen>
+    <dimen name="main_mine_mengyou_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_mengyou_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_mengyou_content_xrv_item_title_word_size">15sp</dimen>
+    <dimen name="main_mine_mengyou_content_xrv_item_word_size">15sp</dimen>
+    <dimen name="main_mine_mengyou_content_xrv_item_height">90dp</dimen>
+    <dimen name="main_mine_mengyou_content_xrv_item_padding">10dp</dimen>
+    <!--Main mine mengyou-->
+    <!--Main mine gerenxinxi-->
+    <dimen name="main_mine_gerenxinxi_topbar_height">54dp</dimen>
+    <dimen name="main_mine_gerenxinxi_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_gerenxinxi_content_padding">10dp</dimen>
+    <dimen name="main_mine_gerenxinxi_content_word_size">12sp</dimen>
+    <dimen name="main_mine_gerenxinxi_content_headimg_width">70dp</dimen>
+    <dimen name="main_mine_gerenxinxi_content_headimg_height">70dp</dimen>
+    <dimen name="main_mine_gerenxinxi_content_erweima_iv_width">40dp</dimen>
+    <dimen name="main_mine_gerenxinxi_content_erweima_iv_height">40dp</dimen>
+    <!--<dimen name="main_mine_gerenxinxi_"-->
+    <!--Main mine gerenxinxi-->
+
+    <!--Main mine gerenxinxi bianjinichen-->
+    <dimen name="main_mine_gerenxinxi_bianjinichen_topbar_height">54dp</dimen>
+    <dimen name="main_mine_gerenxinxi_bianjinichen_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_gerenxinxi_bianjinichen_content_word_size">13sp</dimen>
+    <dimen name="main_mine_gerenxinxi_bianjinichen_content_item_margin_top">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_bianjinichen_content_item_height">50dp</dimen>
+    <dimen name="main_mine_gerenxinxi_bianjinichen_content_padding_size">10dp</dimen>
+    <dimen name="main_mine_gerenxinxi_bianjinichen_submit_margin_top">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_bianjinichen_submit_margin_left_right_size">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_bianjinichen_submit_height">40dp</dimen>
+    <!--<dimen name="main_mine_gerenxinxi_bianjinichen"-->
+    <!--Main mine gerenxinxi bianjinichen-->
+
+    <!--Main mine gerenxinxi xingbie-->
+    <dimen name="main_mine_gerenxinxi_xingbie_topbar_height">54dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xingbie_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_gerenxinxi_xingbie_content_word_size">13sp</dimen>
+    <dimen name="main_mine_gerenxinxi_xingbie_content_item_margin_top">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xingbie_content_item_margin_each_other">10dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xingbie_content_checkbox_width">15dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xingbie_content_checkbox_height">15dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xingbie_content_item_height">50dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xingbie_content_padding_size">10dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xingbie_submit_margin_top">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xingbie_submit_margin_left_right_size">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xingbie_submit_height">40dp</dimen>
+    <!--Main mine gerenxinxi xingbie-->
+
+    <!--Main mine gerenxinxi erweima-->
+    <dimen name="main_mine_gerenxinxi_erweima_topbar_height">54dp</dimen>
+    <dimen name="main_mine_gerenxinxi_erweima_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_gerenxinxi_erweima_content_word_size">13sp</dimen>
+    <dimen name="main_mine_gerenxinxi_erweima_content_iv_width">120dp</dimen>
+    <dimen name="main_mine_gerenxinxi_erweima_content_iv_height">120dp</dimen>
+    <dimen name="main_mine_gerenxinxi_erweima_submit_margin_left_right_size">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_erweima_submit_height">40dp</dimen>
+    <dimen name="main_mine_gerenxinxi_erweima_content_padding_iv_size">5dp</dimen>
+    <!--Main mine gerenxinxi erweima-->
+
+    <!--Main mine gerenxinxi weizhi-->
+    <dimen name="main_mine_gerenxinxi_weizhi_topbar_height">54dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weizhi_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_gerenxinxi_weizhi_content_word_size">13sp</dimen>
+    <dimen name="main_mine_gerenxinxi_weizhi_content_item_height">50dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weizhi_content_item_top_height">35dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weizhi_item_margin_left_right_size">10dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weizhi_submit_margin_left_right_size">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weizhi_submit_height">40dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weizhi_submit_margin_top">20dp</dimen>
+
+    <!--Main mine gerenxinxi weizhi-->
+
+    <!--Main mine gerenxinxi xiugaishouji-->
+    <dimen name="main_mine_gerenxinxi_xiugaishouji_topbar_height">54dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xiugaishouji_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_gerenxinxi_xiugaishouji_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_gerenxinxi_xiugaishouji_content_word_size">13sp</dimen>
+    <dimen name="main_mine_gerenxinxi_xiugaishouji_content_item_height">45dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xiugaishouji_content_item_margin_left_right_size">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xiugaishouji_content_item_margin_top_size">30dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xiugaishouji_content_submit_height">40dp</dimen>
+    <dimen name="main_mine_gerenxinxi_xiugaishouji_content_submit_margin_top">30dp</dimen>
+    <!--Main mine gerenxinxi xiugaishouji-->
+
+    <!--Main mine gerenxinxi youxiang-->
+    <dimen name="main_mine_gerenxinxi_youxiang_topbar_height">54dp</dimen>
+    <dimen name="main_mine_gerenxinxi_youxiang_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_gerenxinxi_youxiang_content_word_size">13sp</dimen>
+    <dimen name="main_mine_gerenxinxi_youxiang_content_item_margin_top">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_youxiang_content_item_height">50dp</dimen>
+    <dimen name="main_mine_gerenxinxi_youxiang_content_padding_size">10dp</dimen>
+    <dimen name="main_mine_gerenxinxi_youxiang_submit_margin_top">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_youxiang_submit_margin_left_right_size">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_youxiang_submit_height">40dp</dimen>
+    <!--Main mine gerenxinxi youxiang-->
+    <!--Main mine gerenxinxi weixin-->
+    <dimen name="main_mine_gerenxinxi_weixin_topbar_height">54dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weixin_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_gerenxinxi_weixin_content_word_size">13sp</dimen>
+    <dimen name="main_mine_gerenxinxi_weixin_content_item_margin_top">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weixin_content_item_height">50dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weixin_content_padding_size">10dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weixin_submit_margin_top">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weixin_submit_margin_left_right_size">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_weixin_submit_height">40dp</dimen>
+    <!--Main mine gerenxinxi weixin-->
+    <!--Main mine gerenxinxi qq-->
+    <dimen name="main_mine_gerenxinxi_qq_topbar_height">54dp</dimen>
+    <dimen name="main_mine_gerenxinxi_qq_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_gerenxinxi_qq_content_word_size">13sp</dimen>
+    <dimen name="main_mine_gerenxinxi_qq_content_item_margin_top">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_qq_content_item_height">50dp</dimen>
+    <dimen name="main_mine_gerenxinxi_qq_content_padding_size">10dp</dimen>
+    <dimen name="main_mine_gerenxinxi_qq_submit_margin_top">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_qq_submit_margin_left_right_size">20dp</dimen>
+    <dimen name="main_mine_gerenxinxi_qq_submit_height">40dp</dimen>
+    <!--Main mine gerenxinxi qq-->
+
+
+    <!--Main mine shezhi-->
+    <dimen name="main_mine_shezhi_topbar_height">54dp</dimen>
+    <dimen name="main_mine_shezhi_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_shezhi_content_item_height">50dp</dimen>
+    <dimen name="main_mine_shezhi_content_word_size">13sp</dimen>
+    <dimen name="main_mine_shezhi_submit_margin_left_right_size">20dp</dimen>
+    <dimen name="main_mine_shezhi_submit_height">40dp</dimen>
+    <!--Main mine shezhi-->
+
+
+    <!--Main mine shezhi xiugaimima-->
+    <dimen name="main_mine_shezhi_xiugaimima_topbar_height">54dp</dimen>
+    <dimen name="main_mine_shezhi_xiugaimima_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_shezhi_xiugaimima_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_shezhi_xiugaimima_content_word_size">13sp</dimen>
+    <dimen name="main_mine_shezhi_xiugaimima_content_item_height">45dp</dimen>
+    <dimen name="main_mine_shezhi_xiugaimima_content_item_margin_left_right_size">20dp</dimen>
+    <dimen name="main_mine_shezhi_xiugaimima_content_item_margin_top_size">30dp</dimen>
+    <dimen name="main_mine_shezhi_xiugaimima_content_item_margin_each_other_size">15dp</dimen>
+    <dimen name="main_mine_shezhi_xiugaimima_content_submit_height">40dp</dimen>
+    <dimen name="main_mine_shezhi_xiugaimima_content_submit_margin_top">45dp</dimen>
+    <!--Main mine shezhi xiugaimima-->
+
+    <!--Main mine shezhi xiaoxishezhi-->
+    <dimen name="main_mine_shezhi_xiaoxishezhi_topbar_height">54dp</dimen>
+    <dimen name="main_mine_shezhi_xiaoxishezhi_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_shezhi_xiaoxishezhi_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_shezhi_xiaoxishezhi_content_item_height">60dp</dimen>
+    <!--Main mine shezhi xiaoxishezhi-->
+
+    <!--Main mine wodeyaoqing-->
+    <dimen name="main_mine_wodeyaoqing_topbar_height">54dp</dimen>
+    <dimen name="main_mine_wodeyaoqing_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_wodeyaoqing_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_wodeyaoqing_headimg_iv_width">60dp</dimen>
+    <dimen name="main_mine_wodeyaoqing_headimg_iv_height">60dp</dimen>
+    <dimen name="main_mine_wodeyaoqing_splite_line_margin_top_bottom_size">5dp</dimen>
+    <dimen name="main_mine_wodeyaoqing_content_word_size">13sp</dimen>
+    <dimen name="main_mine_wodeyaoqing_content_item_margin_each_other_size">10dp</dimen>
+    <!--Main mine wodeyaoqing-->
+
+    <!--Main mine wodeyaoqing wodetuijianren -->
+    <dimen name="main_mine_wodeyaoqing_wodetuijianren_topbar_height">54dp</dimen>
+    <dimen name="main_mine_wodeyaoqing_wodetuijianren_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_wodeyaoqing_wodetuijianren_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_wodeyaoqing_wodetuijianren_headimg_iv_width">60dp</dimen>
+    <dimen name="main_mine_wodeyaoqing_wodetuijianren_headimg_iv_height">60dp</dimen>
+    <dimen name="main_mine_wodeyaoqing_wodetuijianren_content_word_size">13sp</dimen>
+    <!--Main mine wodeyaoqing wodetuijianren -->
+
+    <!--Main mine wodeyaoqing wodeyaoqingdetail-->
+    <dimen name="main_mine_wodeyaoqing_wodeyaoqingdetail_topbar_height">54dp</dimen>
+    <dimen name="main_mine_wodeyaoqing_wodeyaoqingdetail_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_wodeyaoqing_wodeyaoqingdetail_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_wodeyaoqing_wodeyaoqingdetail_content_item_margin_top_bottom_size">10dp</dimen>
+    <dimen name="main_mine_wodeyaoqing_wodeyaoqingdetail_content_item_height">60dp</dimen>
+    <dimen name="main_mine_wodeyaoqing_wodeyaoqingdetail_content_word_size">13sp</dimen>
+    <!--Main mine wodeyaoqing wodeyaoqingdetail-->
+
+    <!--Main mine jifenshangcheng-->
+    <dimen name="main_mine_jifenshangcheng_topbar_height">54dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_content_word_size">10sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_xrv_gv_item_height">155dp</dimen>
+    <!--Main mine jifenshangcheng-->
+    <!--Main mine jifenshangcheng suoyoushangpin-->
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_topbar_height">54dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_topbar_word_size">12sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_content_word_size">11sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_xrv_gv_item_height">160dp</dimen>
+    <!--Main mine jifenshangcheng suoyoushangpin-->
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu-->
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_topbar_height">54dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_topbar_title_word_size">15sp</dimen>
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu-->
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu jifenmingxi-->
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_topbar_height">54dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_word_size">13sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_item_height">30dp</dimen>
+
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu jifenmingxi-->
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu jifenmingxi jifenshuoming-->
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_topbar_height">54dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_content_word_size">13sp</dimen>
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu jifenmingxi jifenshuoming-->
+    <!--Main mine jifenshangcheng shangpinxiangqing-->
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_topbar_height">54dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_content_word_size">11sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_content_word_title_size">15sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_submit_height">40dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_submit_item_height">70dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_submit_margin_left_right">10dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_iv_height">160dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_ceshi_item_height">120dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_shangpinxiangqing_item_height">300dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_shangpinxiangqing_item_margin_bottom">20dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_iv_margin_bottom_size">10dp</dimen>
+
+    <!--Main mine jifenshangcheng shangpinxiangqing-->
+    <!--Main mine jifenshangcheng shangpinxiangqing tianxieshouhuodizhi-->
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_topbar_height">54dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_content_word_size">13sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_item_height">60dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_submit_height">40dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_submit_item_height">70dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_item_padding">5dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_item_total">250dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_submit_margin_left_right">10dp</dimen>
+    <!--Main mine jifenshangcheng shangpinxiangqing tianxieshouhuodizhi-->
+
+    <!--Main mine jifenshangcheng jifentixian-->
+    <dimen name="main_mine_jifenshangcheng_jifentixian_topbar_height">54dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_jifentixian_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_jifentixian_content_word_size">13sp</dimen>
+    <dimen name="main_mine_jifenshangcheng_jifentixian_item_height">60dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_jifentixian_submit_height">40dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_jifentixian_submit_item_height">70dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_jifentixian_item_padding">5dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_jifentixian_item_margin_top">15dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_jifentixian_first_item_total">120dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_jifentixian_second_item_total">150dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_jifentixian_submit_margin_left_right">10dp</dimen>
+    <!--Main mine jifenshangcheng jifentixian-->
+
+    <!--Main mine jifenshangcheng qiandao-->
+    <dimen name="main_mine_jifenshangcheng_qiandao_topbar_height">54dp</dimen>
+    <dimen name="main_mine_jifenshangcheng_qiandao_topbar_title_word_size">15sp</dimen>
+    <!--Main mine jifenshangcheng qiandao-->
+</resources>

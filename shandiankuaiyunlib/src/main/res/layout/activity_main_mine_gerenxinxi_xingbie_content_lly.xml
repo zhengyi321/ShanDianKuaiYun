@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_mine_gerenxinxi_xingbie_content_bg"
+
+    >
+    <RelativeLayout
+        android:id="@+id/rly_main_mine_gerenxinxi_xingbie_nan"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_gerenxinxi_xingbie_content_item_height"
+        android:layout_marginTop="@dimen/main_mine_gerenxinxi_xingbie_content_item_margin_top"
+        android:background="@color/color_main_mine_gerenxinxi_xingbie_content_item_bg"
+        android:padding="@dimen/main_mine_gerenxinxi_xingbie_content_padding_size"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/nan"
+            android:textColor="@color/color_main_mine_gerenxinxi_xingbie_content_black_word_textcolor"
+            android:textSize="@dimen/main_mine_gerenxinxi_xingbie_content_word_size"
+            android:layout_centerVertical="true"
+            />
+        <CheckBox
+            android:id="@+id/cb_main_mine_gerenxinxi_xingbie_nan"
+            android:layout_width="@dimen/main_mine_gerenxinxi_xingbie_content_checkbox_width"
+            android:layout_height="@dimen/main_mine_gerenxinxi_xingbie_content_checkbox_height"
+            android:background="@mipmap/agree"
+            android:button="@null"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+
+
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rly_main_mine_gerenxinxi_xingbie_nv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_gerenxinxi_xingbie_content_item_height"
+        android:layout_marginTop="@dimen/main_mine_gerenxinxi_xingbie_content_item_margin_each_other"
+        android:background="@color/color_main_mine_gerenxinxi_xingbie_content_item_bg"
+        android:padding="@dimen/main_mine_gerenxinxi_xingbie_content_padding_size"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/nv"
+            android:textColor="@color/color_main_mine_gerenxinxi_xingbie_content_black_word_textcolor"
+            android:textSize="@dimen/main_mine_gerenxinxi_xingbie_content_word_size"
+            android:layout_centerVertical="true"
+            android:id="@+id/textView" />
+        <CheckBox
+            android:id="@+id/cb_main_mine_gerenxinxi_xingbie_nv"
+            android:layout_width="@dimen/main_mine_gerenxinxi_xingbie_content_checkbox_width"
+            android:layout_height="@dimen/main_mine_gerenxinxi_xingbie_content_checkbox_height"
+            android:background="@mipmap/notagree"
+            android:button="@null"
+
+
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bt_main_mine_gerenxinxi_xingbie_save"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_gerenxinxi_xingbie_submit_height"
+        android:layout_marginTop="@dimen/main_mine_gerenxinxi_xingbie_submit_margin_top"
+        android:layout_marginLeft="@dimen/main_mine_gerenxinxi_xingbie_submit_margin_left_right_size"
+        android:layout_marginRight="@dimen/main_mine_gerenxinxi_xingbie_submit_margin_left_right_size"
+        android:background="@drawable/main_mine_gerenxinxi_xingbie_shape"
+        android:text="@string/baocun"
+        android:textColor="@color/color_main_mine_gerenxinxi_xingbie_content_white_word_textcolor"
+        android:textSize="@dimen/main_mine_gerenxinxi_xingbie_content_word_size"
+        />
+</LinearLayout>

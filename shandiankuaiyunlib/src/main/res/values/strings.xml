@@ -1,0 +1,437 @@
+<resources>
+    <string name="app_name">ShanDianKuaiYunLib</string>
+    <!--XRecycleView-->
+    <string name="listview_header_hint_normal">下拉刷新</string>
+    <string name="listview_header_hint_release">释放立即刷新</string>
+    <string name="listview_loading">正在加载...</string>
+    <string name="nomore_loading">没有了</string>
+    <string name="refreshing">正在刷新...</string>
+    <string name="refresh_done">刷新完成</string>
+    <string name="loading_done">加载完成</string>
+    <string name="listview_header_last_time">上次更新时间：</string>
+    <!--XRecycleView-->
+    <!--Main-->
+    <string name="index">首页</string>
+    <string name="release">发布</string>
+    <string name="advice">咨询</string>
+    <string name="message">消息</string>
+    <string name="mine">我的</string>
+    <!--Main-->
+
+    <!--Main advice detail-->
+    <string name="advice_detail">咨讯详情</string>
+    <!--Main advice detail-->
+    <!--Main index-->
+    <string name="shandiankuaiyun">闪电快运</string>
+    <!--Main index-->
+    <!--Main index peihuozhongxin-->
+    <string name="sources_car">车源信息</string>
+    <!--Main index peihuozhongxin-->
+
+    <!--Main index banjia-->
+    <string name="type">类型</string>
+    <!--Main index banjia-->
+
+    <!--Main index tezhongwuliu-->
+
+    <!--Main index tezhongwuliu-->
+    <!--Main index zhengchehuoyun-->
+    <string name="goods_source">货源信息</string>
+    <!--Main index zhengchehuoyun-->
+
+    <!--Main index renrenwuliu-->
+    <string name="renrenkuaidi">人人快递</string>
+    <string name="renrenwuliu">人人物流</string>
+    <string name="begin_place">出发地</string>
+    <string name="dest_place">目的地</string>
+    <string name="car_type">车型</string>
+    <string name="car_length">车长</string>
+    <string name="the_whole_city">全城</string>
+    <string name="nearby">附近</string>
+    <!--Main index renrenwuliu-->
+    <!--Main index xrv detail-->
+    <string name="detail">详情</string>
+    <string name="release_time">发布时间</string>
+    <string name="not_identify">未认证</string>
+    <string name="cal_no">电话</string>
+    <string name="contacter">联系人</string>
+    <string name="addr">地址</string>
+    <string name="direct_speak">直接说话</string>
+    <string name="evalu">评价</string>
+    <string name="detail_data">详细信息</string>
+    <!--Main index xrv detail-->
+    <!--Main release-->
+    <string name="release_source_of_car">发布车源</string>
+    <string name="release_source_of_goods">发布货源</string>
+    <string name="special_of_logistics">专线物流</string>
+    <string name="every_body_express">人人快递</string>
+    <string name="car_rent_freight">租车货运</string>
+    <string name="special_trans">特种运输</string>
+    <string name="back_car">回头车</string>
+    <string name="carry_home">搬家</string>
+    <string name="qingtianxiexiangxidizhijiedaomenpaihao">请填写详细地址、街道、门牌号</string>
+    <!--Main release-->
+
+    <!--Main release zhuanxianwuliu-->
+    <string name="select_begin_place">请选择出发地</string>
+    <string name="reach_place">到达地</string>
+    <string name="select_reach_place">请选择到达地</string>
+    <string name="title">标题</string>
+    <string name="input_title">请输入标题</string>
+    <string name="select_car_type">请选择车型</string>
+    <string name="select_car_length">请选择车长</string>
+    <string name="select_leibie">请选择类别</string>
+    <string name="input_get_phone">输入收货电话</string>
+    <string name="input_contacter">输入联系人</string>
+    <string name="describ">描述</string>
+    <string name="input_other_request">输入其他要求</string>
+
+    <!--Main release zhuanxianwuliu-->
+
+    <!--Main release banjia leibie-->
+    <string name="leibie">类别</string>
+    <!--Main release banjia leibie-->
+    <!--Main release fabuhuoyuan-->
+    <string name="huowumingcheng">货物名称</string>
+    <string name="qingshuruhuowumingcheng">请输入货物名称</string>
+    <string name="huowuleibie">货物类别</string>
+    <string name="qingxuanzhehuowuleibie">请选择货物类别</string>
+    <string name="huowuzhongliang">货物重量</string>
+    <string name="qingshuruhuowuzhongliang">请输入货物重量</string>
+    <!--Main release fabuhuoyuan-->
+
+    <!--Main message-->
+
+    <!--Main message-->
+    <!--Main mine-->
+    <string name="mine_identify">我的认证</string>
+    <string name="mine_source_car">我的车源</string>
+    <string name="mine_source_goods">我的货源</string>
+    <string name="mine_invite">我的邀请</string>
+    <string name="ally">盟友</string>
+    <string name="integrate_city">积分商城</string>
+    <string name="share">分享</string>
+    <string name="setting">设置</string>
+    <string name="contact_kefu">联系客服</string>
+    <string name="about_us">关于我们</string>
+    <!--Main mine-->
+
+
+    <!--Main mine Login-->
+    <string name="cancel">取消</string>
+    <string name="register_now">立即注册</string>
+    <string name="use_phone_login">使用手机号登陆</string>
+    <string name="account">账号</string>
+    <string name="please_input_tel">请填写手机号码</string>
+    <string name="password">密码</string>
+    <string name="please_input_pass">请填写密码</string>
+    <string name="find_pass">找回密码</string>
+    <string name="login">登录</string>
+    <string name="custom_hotline">客服热线:13396963999</string>
+    <!--Main mine Login-->
+
+    <!--Main mine login reg-->
+    <string name="input_your_tel">请输入您的手机号码</string>
+    <string name="input_tel">请输入手机号</string>
+    <string name="read_and_agree">阅读并同意</string>
+    <string name="user_protocol">用户协议</string>
+
+    <!--Main mine login reg-->
+    <!--Main mine login resetpass-->
+    <!--<string name="find_pass">找回密码</string>-->
+    <string name="get_identify">获取验证码</string>
+    <string name="submit">提交</string>
+    <!--Main mine login resetpass-->
+
+    <!--Main mine login reg userdata-->
+    <string name="back">返回</string>
+    <string name="sms_sended_input">短信验证码已发送,请填写验证码</string>
+    <string name="tel">手机号</string>
+    <string name="identify">验证码</string>
+    <string name="input_identify">请输入验证码</string>
+    <string name="pass">密码</string>
+    <string name="input_pass">请输入密码</string>
+    <string name="username">用户名</string>
+    <string name="input_username">请输入用户名</string>
+    <string name="invite_code">邀请码</string>
+    <string name="input_invite_code">请输入邀请码(选填)</string>
+    <!--Main mine login reg userdata-->
+
+    <!--Main mine renzheng-->
+    <string name="renzheng">认证</string>
+    <string name="shimingrenzheng">实名认证</string>
+    <string name="qiyerenzheng">企业认证</string>
+    <string name="jiashizhengrenzheng">驾驶证认证</string>
+    <string name="xingshizhengrenzheng">行驶证认证</string>
+    <string name="cheliangrenzheng">车辆认证</string>
+    <string name="renzheng_remark">注:证件照片仅供审核使用,不公开给任何组织和个人</string>
+    <!--Main mine renzheng-->
+    <!--Main mine renzheng shimingrenzheng-->
+    <string name="xingming">姓名:</string>
+    <string name="input_person_name_example">输入个人姓名:如张三</string>
+    <string name="shenfengzheng">身份证号码:</string>
+    <string name="input_shenfenzheng">请输入身份证号码</string>
+    <string name="dizhi">地址:</string>
+    <string name="input_dizhi">请输入地址</string>
+    <string name="benrenzhaopian">本人照片</string>
+    <string name="shouchishenfenzhengzhengmian">手持身份证正面(必选)</string>
+    <string name="shouchishenfenzhengbeimian">手持身份证背面(必选)</string>
+    <string name="anquantishi">安全提示</string>
+    <string name="womendechengnuo">闪电物流每位用户都是实名加入,我们承诺不泄露用户的任何信息。</string>
+    <string name="wancheng">完成</string>
+    <!--Main mine renzheng shimingrenzheng-->
+
+    <!--Main mine renzheng qiyerenzheng-->
+    <string name="gongsimingchen">公司名称</string>
+    <string name="input_gongsimingchen">请输入公司名称</string>
+    <string name="yingyezhizhao">营业执照</string>
+    <string name="qiyexinxi">企业信息</string>
+    <string name="lianxiren">联系人</string>
+    <string name="input_lianxiren_example">输入联系人名称:如张三</string>
+    <!--Main mine renzheng qiyerenzheng-->
+
+    <!--Main mine renzheng jiashizhengrenzheng-->
+    <string name="jiashizhengxinxi">驾驶证信息</string>
+    <string name="touxiang">头像</string>
+    <string name="jiashizheng">驾驶证</string>
+    <!--Main mine renzheng jiashizhengrenzheng-->
+    <!--Main mine renzheng xingshizhengrenzheng-->
+    <string name="xingshizheng">行驶证</string>
+    <string name="xingshizhengxinxi">行驶证信息</string>
+    <!--Main mine renzheng xingshizhengrenzheng-->
+
+    <!--Main mine renzheng cheliangrenzheng-->
+    <string name="cheliangxinxi">车辆信息</string>
+    <string name="cheliangzhaopian">车辆照片</string>
+    <string name="chepaihao">车牌号</string>
+    <string name="selectshengfendaihao">请选择省份代号</string>
+    <string name="input_chepaihao">请输入车牌号</string>
+    <string name="chexing">车型</string>
+    <string name="selectchexing">请选择车型</string>
+    <string name="chechang">车长</string>
+    <string name="selectchechang">请选择车长</string>
+    <string name="zaizhong">载重</string>
+    <string name="input_cheliangzaizhong">请输入车辆载重</string>
+    <string name="dun">吨</string>
+    <!--Main mine renzheng cheliangrenzheng-->
+
+    <!--Main mine wodecheyuan-->
+    <string name="wodecheyuan">我的车源</string>
+    <string name="fabuxinxi">发布信息</string>
+    <string name="xianshizhong">显示中</string>
+    <string name="fabuyu">发布于</string>
+    <string name="shuaxin">刷新</string>
+    <string name="fenxiang">分享</string>
+    <string name="shenglvhao">...</string>
+    <string name="liulang">浏览</string>
+    <string name="ci">次</string>
+    <!--Main mine wodecheyuan-->
+    <!--Main mine wodehuoyuan-->
+    <string name="wodehuoyuan">我的货源</string>
+    <!--Main mine wodehuoyuan-->
+    <!--Main mine aboutus-->
+    <string name="aboutus">关于我们</string>
+    <string name="gongsijianjie">公司简介</string>
+    <string name="yijianfankui">意见反馈</string>
+    <string name="yonghuxieyi">用户协议</string>
+    <string name="banquansuoyou">闪电网络科技有限公司 版权所有</string>
+    <string name="lightning_network_limited">Lightning network limited</string>
+    <string name="all_rights_reserved">All rights reserved</string>
+    <!--Main mine aboutus-->
+    <!--Main mine aboutus companyintroduce-->
+    <string name="company_introduce">公司简介</string>
+    <string name="company_tel">手机：13396963999</string>
+    <string name="company_weixin">微信：13396963999</string>
+    <string name="company_qq">Q Q：13396963999</string>
+    <string name="company_kefuhotline">客服热线：上班时间8.00-18.00</string>
+    <!--Main mine aboutus companyintroduce-->
+
+
+    <!--Main mine aboutus yijianfankui-->
+    <string name="input_your_fankuiyijian">请输入你的反馈意见(字段300以内)</string>
+    <string name="tijiao">提交</string>
+    <!--Main mine aboutus yijianfankui-->
+    <!--Main mine aboutus xieyiyushengming-->
+    <string name="xieyiyushengming">协议与声明</string>
+    <string name="shandianwuliuzhucexieyi">闪电物流注册协议</string>
+    <!--Main mine aboutus xieyiyushengming-->
+    <!--Main mine mengyou-->
+    <string name="wodeshoucang">我的收藏</string>
+    <string name="bianji">编辑</string>
+    <!--Main mine mengyou-->
+
+    <!--Main mine gerenxinxi-->
+    <string name="gerenxinxi">个人信息</string>
+    <string name="yonghuming">用户名</string>
+    <string name="nicheng">昵称</string>
+    <string name="xingbie">性别</string>
+    <string name="wodeyaoqingma">我的邀请码</string>
+    <string name="wodeerweima">我的二维码</string>
+    <string name="weizhi">位置</string>
+    <string name="qingtianxieweizhi">请填写位置</string>
+    <string name="xiugaishouji">修改手机</string>
+    <string name="youxiang">邮箱</string>
+    <string name="qingtianxieyouxiang">请填写邮箱</string>
+    <string name="weixin">微信</string>
+    <string name="qingtianxieweixin">请填写微信号</string>
+    <string name="qq">QQ</string>
+    <string name="qingtianxieqqhao">请填写QQ号</string>
+    <!--Main mine gerenxinxi-->
+    <!--Main mine gerenxinxi bianjinichen-->
+    <string name="bianjinichen">编辑昵称</string>
+    <string name="shurunichen">输入昵称</string>
+    <string name="baocun">保存</string>
+    <!--Main mine gerenxinxi bianjinichen-->
+    <!--Main mine gerenxinxi xingbie-->
+    <string name="nan">男</string>
+    <string name="nv">女</string>
+    <!--Main mine gerenxinxi xingbie-->
+
+    <!--Main mine gerenxinxi erweima-->
+    <string name="erweima">二维码</string>
+    <string name="changanerweimakefuzhihuozhebaocunerweimatupian">长按二维码可复制链接或者保存二维码图片</string>
+    <string name="qutongxuanluyaoqing">去通讯录邀请</string>
+    <!--Main mine gerenxinxi erweima-->
+
+    <!--Main mine gerenxinxi weizhi-->
+    <string name="bianjiweizhi">编辑位置</string>
+    <string name="dangqianweizhi">当前位置</string>
+    <string name="wodeweizhi">我的位置</string>
+    <string name="qingtianxiexiangxidizhi">请填写详细地址、街道、门牌号</string>
+    <!--Main mine gerenxinxi weizhi-->
+    <!--Main mine gerenxinxi xiugaishouji-->
+    <string name="xiugaibangdingshouji">修改绑定手机</string>
+    <string name="qingshuruninyaoxiugaidebangdingshouji">请输入您要修改的绑定手机</string>
+    <string name="shuruyanzhengma">输入验证码</string>
+    <string name="huoquyanzhengma">获取验证码</string>
+    <string name="querenxiugai">确认修改</string>
+    <!--Main mine gerenxinxi xiugaishouji-->
+    <!--Main mine gerenxinxi youxiang-->
+    <string name="bianjiyouxiang">编辑邮箱</string>
+    <string name="shuruyouxiang">输入邮箱</string>
+    <!--Main mine gerenxinxi youxiang-->
+    <!--Main mine gerenxinxi weixin-->
+    <string name="bianjiweixin">编辑微信号</string>
+    <string name="shuruweixin">输入微信号</string>
+    <!--Main mine gerenxinxi weixin-->
+    <!--Main mine gerenxinxi qq-->
+    <string name="bianjiqq">编辑QQ号</string>
+    <string name="shuruqq">输入QQ号</string>
+    <!--Main mine gerenxinxi qq-->
+
+    <!--Main mine shezhi-->
+    <string name="shezhi">设置</string>
+    <string name="xiugaimima">修改密码</string>
+    <string name="zhaohuimima">找回密码</string>
+    <string name="xiaoxishezhi">消息设置</string>
+    <string name="qingchuhuancun">清除缓存</string>
+    <string name="dangqianbanben">当前版本</string>
+    <string name="tuichudenglu">退出登录</string>
+
+    <!--Main mine shezhi-->
+
+    <!--Main mine shezhi xiugaimima-->
+    <string name="jiumima">旧密码:</string>
+    <string name="xinmima">新密码:</string>
+    <string name="zaicishuru">再次输入:</string>
+    <string name="liudaoershigezifuhuoshuzi">6-20个字符或数字</string>
+    <!--Main mine shezhi xiugaimima-->
+
+    <!--Main mine shezhi xiaoxishezhi-->
+    <string name="xiaoxituisong">消息推送</string>
+    <!--Main mine shezhi xiaoxishezhi-->
+
+    <!--Main mine wodeyaoqing-->
+    <string name="wodeyaoqing">我的邀请</string>
+    <string name="yaoqinghaoyou">邀请好友</string>
+    <string name="dejifen">得积分</string>
+    <string name="shuliang">数量</string>
+    <string name="zongjifen">总积分</string>
+    <string name="wodetuijianren">我的推荐人</string>
+    <string name="yaoqingyi">邀请一</string>
+    <string name="yaoqinger">邀请二</string>
+    <string name="yaoqingsan">邀请三</string>
+    <!--Main mine wodeyaoqing-->
+
+    <!--Main mine wodeyaoqing wodetuijianren-->
+    <string name="shouji">手机</string>
+
+    <!--Main mine wodeyaoqing wodetuijianren-->
+
+    <!--Main mine jifenshangcheng-->
+    <string name="jifenshangcheng">积分商城</string>
+    <string name="qiandao">签到</string>
+    <string name="jifen">积分</string>
+    <string name="jifenduihuan">积分兑换</string>
+    <string name="jifentixing">积分提现</string>
+    <string name="suoyoushangpin">所有商品</string>
+    <string name="fenxiangyaoqing">分享邀请</string>
+    <string name="dajiadouzaikan">大家都在看</string>
+    <string name="duihuan">兑换</string>
+    <!--Main mine jifenshangcheng-->
+    <!--Main mine jifenshangcheng suoyou shangpin-->
+    <string name="duihuanjilu">兑换记录</string>
+    <!--Main mine jifenshangcheng suoyou shangpin-->
+    <!--Main mine jifenshangcheng suoyou shangpin duihuanjilu jifenmingxi-->
+    <string name="jifenmingxi">积分明细</string>
+    <string name="caozuo">操作</string>
+
+    <string name="jifenyuer">积分余额</string>
+    <!--Main mine jifenshangcheng suoyou shangpin duihuanjilu jifenmingxi-->
+    <!--Main mine jifenshangcheng suoyou shangpin duihuanjilu jifenmingxi jifenshuoming-->
+    <string name="jifenshuoming">积分说明</string>
+    <string name="jifenyongtu">积分用途</string>
+    <string name="shuomingyi">1.积分可以去积分商城兑换商品,还可以累积提现</string>
+    <string name="ruhehuode">如何获得</string>
+    <string name="shuominger">2.积分可以通过邀请好友并下载注册，还可以通过每日签到累积。</string>
+    <string name="duihuanbilie">兑换比例</string>
+    <string name="bilieyi">1.积分提现比例为</string>
+    <string name="yijifendengyuyifenqiang">【1积分 = 1分钱】</string>
+    <string name="bilieer">2.积分提现最低100元起</string>
+
+    <!--Main mine jifenshangcheng suoyou shangpin duihuanjilu jifenmingxi jifenshuoming-->
+    <!--Main mine jifenshangcheng shangpinxiangqing-->
+    <string name="shangpinxiangqing">商品详情</string>
+    <string name="yunfei">运费:</string>
+    <string name="shouhuodizhi">收货地址:</string>
+    <string name="ninhaiweitianxieshouhuodizhimashangqutianxie">您还未填写收货地址,马上去填写..</string>
+    <string name="pinpai">品牌:</string>
+    <string name="xinghao">型号:</string>
+    <string name="yanse">颜色:</string>
+    <string name="caizhi">材质:</string>
+    <string name="fengge">风格:</string>
+    <string name="huohao">货号:</string>
+    <string name="chicun">尺寸:</string>
+    <string name="duihuanliucheng">兑换流程</string>
+    <string name="liuchengyi">1.点击【立即兑换】,并填写收货地址信息</string>
+    <string name="liuchenger">2.确认收货信息无误之后,确认兑换。</string>
+    <string name="zhuyishixiang">注意事项</string>
+    <string name="shixiangyi">1.提供正确并可正常通信的手机号。提供错误信息导致损失由用户承担。</string>
+    <string name="shixianger">2.配送区域:仅限中国大陆地区(港澳台、西藏、新疆地区除外);</string>
+    <string name="shixiangsan">3.产品运费由闪电物流承担(包邮);</string>
+    <string name="shixiangsi">4.兑换商品将在1-7个工作日之内基础(自然灾害等不可抗力因素除外);</string>
+    <string name="shixiangwu">5.活动最终解释权归闪电科技所有。</string>
+    <string name="lijiduihuan">立即兑换</string>
+    <!--Main mine jifenshangcheng shangpinxiangqing-->
+    <!--Main mine jifenshangcheng shangpinxiangqing tianxieshouhuodizhi-->
+    <string name="tianxieshouhuodizhi">添写收货地址</string>
+    <string name="shouhuoren">收货人:</string>
+    <string name="qingshurushouhuorenmingcheng">请输入收货人名称</string>
+    <string name="shoujihao">手机号:</string>
+    <string name="qingshurushouhuorenshoujihao">请输入收货人手机号</string>
+    <string name="qingshurushengfenshixianjiedaomenpaihao">请输入省份/市县/街道门牌号</string>
+    <string name="baocundizhi">保存地址</string>
+
+    <!--Main mine jifenshangcheng shangpinxiangqing tianxieshouhuodizhi-->
+    <!--Main mine jifenshangcheng jifentixian-->
+    <string name="jifentixian">积分提现</string>
+    <string name="qingshuruzhifubaozhanghu">请输入支付宝账户</string>
+    <string name="qingshuruxingming">请输入姓名</string>
+    <string name="tixianjiner">提现金额</string>
+    <string name="yibaijifendengyuyiyuan">(100积分等于1元)</string>
+    <string name="qingshurutixianjiner">请输入提现金额</string>
+    <string name="dangqianjifen">当前积分:</string>
+    <string name="ketixian">可提现:</string>
+    <string name="tixian">提现</string>
+    <!--Main mine jifenshangcheng jifentixian-->
+</resources>

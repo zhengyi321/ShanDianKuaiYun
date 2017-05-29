@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_advice_detail_content_bg"
+    android:paddingLeft="@dimen/main_advice_detail_content_item_margin_left_right_size"
+    android:paddingRight="@dimen/main_advice_detail_content_item_margin_left_right_size"
+
+    >
+    <com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:id="@+id/tv_main_advice_detail_content_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="温州港首条至东南亚集装箱航线盛装首航"
+                    android:textColor="@color/color_main_advice_detail_content_black_word_textcolor"
+                    android:textSize="@dimen/main_advice_detail_content_title_word_size"
+                    android:layout_centerVertical="true"
+
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                >
+                <TextView
+                    android:id="@+id/tv_main_advice_detail_content_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2017-03-13 14:20:45"
+                    android:textColor="@color/color_main_advice_detail_content_gray_word_textcolor"
+                    android:textSize="@dimen/main_advice_detail_content_word_size"
+                    android:layout_centerVertical="true"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="8"
+                >
+                <TextView
+                    android:id="@+id/tv_main_advice_detail_content_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="温州港首条至东南亚集装箱航线盛装首航"
+                    android:textColor="@color/color_main_advice_detail_content_black_word_textcolor"
+                    android:textSize="@dimen/main_advice_detail_content_word_size"
+                    android:textStyle="bold"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="2"
+
+                >
+                <LinearLayout
+                    android:id="@+id/lly_main_advice_detail_content_shoucang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/activity_advice_detail_orange_edge_shape"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_centerInParent="true"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="收藏"
+                        android:textColor="@color/color_main_advice_detail_orange"
+                        android:textSize="@dimen/main_advice_detail_content_word_size"
+                        android:gravity="center_vertical"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/orange_star"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginRight="10dp"
+                        />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/lly_main_advice_detail_content_previus"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="上一篇："
+                        android:textColor="@color/color_main_advice_detail_content_black_word_textcolor"
+                        android:textSize="@dimen/main_advice_detail_content_title_word_size"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true"
+                        />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    >
+                    <TextView
+                        android:id="@+id/tv_main_advice_detail_content_previous"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="温州港首条至东南亚集装箱航线盛装首航"
+                        android:textColor="@color/color_main_advice_detail_content_black_word_textcolor"
+                        android:textSize="@dimen/main_advice_detail_content_word_size"
+                        android:layout_centerVertical="true"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lly_main_advice_detail_content_next"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1">
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="下一篇："
+                        android:textColor="@color/color_main_advice_detail_content_black_word_textcolor"
+                        android:textSize="@dimen/main_advice_detail_content_title_word_size"
+                        android:textStyle="bold"
+                        android:layout_centerVertical="true"
+                        />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    >
+                    <TextView
+                        android:id="@+id/tv_main_advice_detail_content_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="温州港首条至东南亚集装箱航线盛装首航"
+                        android:textColor="@color/color_main_advice_detail_content_black_word_textcolor"
+                        android:textSize="@dimen/main_advice_detail_content_word_size"
+                        android:layout_centerVertical="true"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>
+</LinearLayout>

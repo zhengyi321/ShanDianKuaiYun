@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_mine_gerenxinxi_qq_content_bg"
+
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_gerenxinxi_qq_content_item_height"
+        android:layout_marginTop="@dimen/main_mine_gerenxinxi_qq_content_item_margin_top"
+        android:background="@color/color_main_mine_gerenxinxi_qq_content_item_bg"
+        android:padding="@dimen/main_mine_gerenxinxi_qq_content_padding_size"
+        >
+        <EditText
+            android:id="@+id/et_main_mine_gerenxinxi_qq"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="@string/shuruqq"
+            android:textColorHint="@color/color_main_mine_gerenxinxi_qq_content_gray_word_textcolor"
+            android:textColor="@color/color_main_mine_gerenxinxi_qq_content_black_word_textcolor"
+            android:textSize="@dimen/main_mine_gerenxinxi_qq_content_word_size"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bt_main_mine_gerenxinxi_qq_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_gerenxinxi_qq_submit_height"
+        android:layout_marginTop="@dimen/main_mine_gerenxinxi_qq_submit_margin_top"
+        android:layout_marginLeft="@dimen/main_mine_gerenxinxi_qq_submit_margin_left_right_size"
+        android:layout_marginRight="@dimen/main_mine_gerenxinxi_qq_submit_margin_left_right_size"
+        android:background="@drawable/main_mine_gerenxinxi_qq_shape"
+        android:text="@string/baocun"
+        android:textColor="@color/color_main_mine_gerenxinxi_qq_content_white_word_textcolor"
+        android:textSize="@dimen/main_mine_gerenxinxi_qq_content_word_size"
+        />
+</LinearLayout>

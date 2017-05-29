@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_index_banjia_content_bg"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_index_banjia_tabbar_height"
+        android:orientation="horizontal"
+        >
+        <RelativeLayout
+            android:id="@+id/rly_main_index_banjia_city"
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                >
+                <TextView
+                    android:id="@+id/tv_main_index_banjia_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="乐清"
+                    android:textSize="@dimen/main_index_banjia_tabbar_word_size"
+                    android:textColor="@color/color_main_index_banjia_tabbar_black_word_textcolor"
+
+
+                    />
+                <ImageView
+                    android:id="@+id/iv_main_index_banjia_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/black_down"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_width="@dimen/split_width_or_height"
+            android:layout_height="match_parent"
+            android:background="@color/color_main_index_banjia_tabbar_splite_line"
+            android:layout_marginTop="@dimen/main_index_banjia_tabbar_split_margin_top_bottom_size"
+            android:layout_marginBottom="@dimen/main_index_banjia_tabbar_split_margin_top_bottom_size"
+            />
+        <RelativeLayout
+            android:id="@+id/rly_main_index_banjia_leixing"
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                >
+                <TextView
+                    android:id="@+id/tv_main_index_banjia_leixing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/type"
+                    android:textSize="@dimen/main_index_banjia_tabbar_word_size"
+                    android:textColor="@color/color_main_index_banjia_tabbar_black_word_textcolor"
+
+
+                    />
+                <ImageView
+                    android:id="@+id/iv_main_index_banjia_leixing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/black_down"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_main_index_banjia_tab_splite_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_width_or_height"
+        android:background="@color/color_main_index_banjia_tabbar_splite_line"
+        />
+
+    <com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView
+        android:id="@+id/xrv_main_index_banjia"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView>
+
+
+
+</LinearLayout>

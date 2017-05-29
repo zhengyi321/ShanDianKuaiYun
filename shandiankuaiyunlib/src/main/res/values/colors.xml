@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--常见颜色-->
+    <!--透明-->
+    <color name="transparent">#00000000</color>
+
+    <!--透明灰色-->
+    <color name="transparentgray">#00A9A9A9</color>
+    <!--米色-->
+    <color name="rice">#f5f0ec</color>
+    <!-- 棕紫色 -->
+    <color name="brown_puple">#310a05</color>
+    <!-- 登陆红 -->
+    <color name="login_red">#e72f17</color>
+    <color name="white">#FFFFFF</color>
+    <!-- 白色 -->
+    <color name="ivory">#FFFFF0</color>
+    <!-- 象牙色 -->
+    <color name="lightyellow">#FFFFE0</color>
+    <!-- 亮黄色 -->
+    <color name="yellow">#FFFF00</color>
+    <!-- 黄色 -->
+    <color name="snow">#FFFAFA</color>
+    <!-- 雪白色 -->
+    <color name="floralwhite">#FFFAF0</color>
+    <!-- 花白色 -->
+    <color name="lemonchiffon">#FFFACD</color>
+    <!-- 柠檬绸色 -->
+    <color name="cornsilk">#FFF8DC</color>
+    <!-- 米绸色 -->
+    <color name="seashell">#FFF5EE</color>
+    <!-- 海贝色 -->
+    <color name="lavenderblush">#FFF0F5</color>
+    <!-- 淡紫红 -->
+    <color name="papayawhip">#FFEFD5</color>
+    <!-- 番木色 -->
+    <color name="blanchedalmond">#FFEBCD</color>
+    <!-- 白杏色 -->
+    <color name="mistyrose">#FFE4E1</color>
+    <!-- 浅玫瑰色 -->
+    <color name="bisque">#FFE4C4</color>
+    <!-- 桔黄色 -->
+    <color name="moccasin">#FFE4B5</color>
+    <!-- 鹿皮色 -->
+    <color name="navajowhite">#FFDEAD</color>
+    <!-- 纳瓦白 -->
+    <color name="peachpuff">#FFDAB9</color>
+    <!-- 桃色 -->
+    <color name="gold">#FFD700</color>
+    <!-- 金色 -->
+    <color name="pink">#FFC0CB</color>
+    <!-- 粉红色 -->
+    <color name="lightpink">#FFB6C1</color>
+    <!-- 亮粉红色 -->
+    <color name="orange">#FFA500</color>
+    <!-- 橙色 -->
+    <color name="lightsalmon">#FFA07A</color>
+    <!-- 亮肉色 -->
+    <color name="darkorange">#FF8C00</color>
+    <!-- 暗桔黄色 -->
+    <color name="coral">#FF7F50</color>
+    <!-- 珊瑚色 -->
+    <color name="hotpink">#FF69B4</color>
+    <!-- 热粉红色 -->
+    <color name="tomato">#FF6347</color>
+    <!-- 西红柿色 -->
+    <color name="orangered">#FF4500</color>
+    <!-- 红橙色 -->
+    <color name="deeppink">#FF1493</color>
+    <!-- 深粉红色 -->
+    <color name="fuchsia">#FF00FF</color>
+    <!-- 紫红色 -->
+    <color name="magenta">#FF00FF</color>
+    <!-- 红紫色 -->
+    <color name="red">#FF0000</color>
+    <!-- 红色 -->
+    <color name="oldlace">#FDF5E6</color>
+    <!-- 老花色 -->
+    <color name="lightgoldenrodyellow">#FAFAD2</color>
+    <!-- 亮金黄色 -->
+    <color name="linen">#FAF0E6</color>
+    <!-- 亚麻色 -->
+    <color name="antiquewhite">#FAEBD7</color>
+    <!-- 古董白 -->
+    <color name="salmon">#FA8072</color>
+    <!-- 鲜肉色 -->
+    <color name="ghostwhite">#F8F8FF</color>
+    <!-- 幽灵白 -->
+    <color name="mintcream">#F5FFFA</color>
+    <!-- 薄荷色 -->
+    <color name="whitesmoke">#F5F5F5</color>
+    <!-- 烟白色 -->
+    <color name="beige">#F5F5DC</color>
+    <!-- 米色 -->
+    <color name="wheat">#F5DEB3</color>
+    <!-- 浅黄色 -->
+    <color name="sandybrown">#F4A460</color>
+    <!-- 沙褐色 -->
+    <color name="azure">#F0FFFF</color>
+    <!-- 天蓝色 -->
+    <color name="honeydew">#F0FFF0</color>
+    <!-- 蜜色 -->
+    <color name="aliceblue">#F0F8FF</color>
+    <!-- 艾利斯兰 -->
+    <color name="khaki">#F0E68C</color>
+    <!-- 黄褐色 -->
+    <color name="lightcoral">#F08080</color>
+    <!-- 亮珊瑚色 -->
+    <color name="palegoldenrod">#EEE8AA</color>
+    <!-- 苍麒麟色 -->
+    <color name="violet">#EE82EE</color>
+    <!-- 紫罗兰色 -->
+    <color name="darksalmon">#E9967A</color>
+    <!-- 暗肉色 -->
+    <color name="lavender">#E6E6FA</color>
+    <!-- 淡紫色 -->
+    <color name="lightcyan">#E0FFFF</color>
+    <!-- 亮青色 -->
+    <color name="burlywood">#DEB887</color>
+    <!-- 实木色 -->
+    <color name="plum">#DDA0DD</color>
+    <!-- 洋李色 -->
+    <color name="gainsboro">#DCDCDC</color>
+    <!-- 淡灰色 -->
+    <color name="crimson">#DC143C</color>
+    <!-- 暗深红色 -->
+    <color name="palevioletred">#DB7093</color>
+    <!-- 苍紫罗兰色 -->
+    <color name="goldenrod">#DAA520</color>
+    <!-- 金麒麟色 -->
+    <color name="orchid">#DA70D6</color>
+    <!-- 淡紫色 -->
+    <color name="thistle">#D8BFD8</color>
+    <!-- 蓟色 -->
+    <color name="lightgray">#D3D3D3</color>
+    <!-- 亮灰色 -->
+
+    <color name="tan">#D2B48C</color>
+    <!-- 茶色 -->
+    <color name="chocolate">#D2691E</color>
+    <!-- 巧可力色 -->
+    <color name="peru">#CD853F</color>
+    <!-- 秘鲁色 -->
+    <color name="indianred">#CD5C5C</color>
+    <!-- 印第安红 -->
+    <color name="mediumvioletred">#C71585</color>
+    <!-- 中紫罗兰色 -->
+    <color name="silver">#C0C0C0</color>
+    <!-- 银色 -->
+    <color name="darkkhaki">#BDB76B</color>
+    <!-- 暗黄褐色 -->
+    <color name="rosybrown">#BC8F8F</color>
+    <!-- 褐玫瑰红 -->
+    <color name="mediumorchid">#BA55D3</color>
+    <!-- 中粉紫色 -->
+    <color name="darkgoldenrod">#B8860B</color>
+    <!-- 暗金黄色 -->
+    <color name="firebrick">#B22222</color>
+    <!-- 火砖色 -->
+    <color name="powderblue">#B0E0E6</color>
+    <!-- 粉蓝色 -->
+    <color name="lightsteelblue">#B0C4DE</color>
+    <!-- 亮钢兰色 -->
+    <color name="paleturquoise">#AFEEEE</color>
+    <!-- 苍宝石绿 -->
+    <color name="greenyellow">#ADFF2F</color>
+    <!-- 黄绿色 -->
+    <color name="lightblue">#ADD8E6</color>
+    <!-- 亮蓝色 -->
+    <color name="darkgray">#A9A9A9</color>
+    <!-- 暗灰色 -->
+    <color name="darkgrey">#A9A9A9</color>
+    <!-- 暗灰色 -->
+    <color name="brown">#A52A2A</color>
+    <!-- 褐色 -->
+    <color name="sienna">#A0522D</color>
+    <!-- 赭色 -->
+    <color name="darkorchid">#9932CC</color>
+    <!-- 暗紫色 -->
+    <color name="palegreen">#98FB98</color>
+    <!-- 苍绿色 -->
+    <color name="darkviolet">#9400D3</color>
+    <!-- 暗紫罗兰色 -->
+    <color name="mediumpurple">#9370DB</color>
+    <!-- 中紫色 -->
+    <color name="lightgreen">#90EE90</color>
+    <!-- 亮绿色 -->
+    <color name="darkseagreen">#8FBC8F</color>
+    <!-- 暗海兰色 -->
+    <color name="saddlebrown">#8B4513</color>
+    <!-- 重褐色 -->
+    <color name="darkmagenta">#8B008B</color>
+    <!-- 暗洋红 -->
+    <color name="darkred">#8B0000</color>
+    <!-- 暗红色 -->
+    <color name="blueviolet">#8A2BE2</color>
+    <!-- 紫罗兰蓝色 -->
+    <color name="lightskyblue">#87CEFA</color>
+    <!-- 亮天蓝色 -->
+    <color name="skyblue">#87CEEB</color>
+    <!-- 天蓝色 -->
+    <color name="gray">#808080</color>
+    <!-- 灰色 -->
+    <color name="grey">#808080</color>
+    <!-- 灰色 -->
+    <color name="olive">#808000</color>
+    <!-- 橄榄色 -->
+    <color name="purple">#800080</color>
+    <!-- 紫色 -->
+    <color name="maroon">#800000</color>
+    <!-- 粟色 -->
+    <color name="aquamarine">#7FFFD4</color>
+    <!-- 碧绿色 -->
+    <color name="chartreuse">#7FFF00</color>
+    <!-- 黄绿色 -->
+    <color name="lawngreen">#7CFC00</color>
+    <!-- 草绿色 -->
+    <color name="mediumslateblue">#7B68EE</color>
+    <!-- 中暗蓝色 -->
+    <color name="lightslategray">#778899</color>
+    <!-- 亮蓝灰 -->
+    <color name="lightslategrey">#778899</color>
+    <!-- 亮蓝灰 -->
+    <color name="slategray">#708090</color>
+    <!-- 灰石色 -->
+    <color name="slategrey">#708090</color>
+    <!-- 灰石色 -->
+    <color name="olivedrab">#6B8E23</color>
+    <!-- 深绿褐色 -->
+    <color name="slateblue">#6A5ACD</color>
+    <!-- 石蓝色 -->
+    <color name="dimgray">#696969</color>
+    <!-- 暗灰色 -->
+    <color name="dimgrey">#696969</color>
+    <!-- 暗灰色 -->
+    <color name="mediumaquamarine">#66CDAA</color>
+    <!-- 中绿色 -->
+    <color name="cornflowerblue">#6495ED</color>
+    <!-- 菊兰色 -->
+    <color name="cadetblue">#5F9EA0</color>
+    <!-- 军兰色 -->
+    <color name="darkolivegreen">#556B2F</color>
+    <!-- 暗橄榄绿 -->
+    <color name="indigo">#4B0082</color>
+    <!-- 靛青色 -->
+    <color name="mediumturquoise">#48D1CC</color>
+    <!-- 中绿宝石 -->
+    <color name="darkslateblue">#483D8B</color>
+    <!-- 暗灰蓝色 -->
+    <color name="steelblue">#4682B4</color>
+    <!-- 钢兰色 -->
+    <color name="royalblue">#4169E1</color>
+    <!-- 皇家蓝 -->
+    <color name="turquoise">#40E0D0</color>
+    <!-- 青绿色 -->
+    <color name="mediumseagreen">#3CB371</color>
+    <!-- 中海蓝 -->
+    <color name="limegreen">#32CD32</color>
+    <!-- 橙绿色 -->
+    <color name="darkslategray">#2F4F4F</color>
+    <!-- 暗瓦灰色 -->
+    <color name="darkslategrey">#2F4F4F</color>
+    <!-- 暗瓦灰色 -->
+    <color name="seagreen">#2E8B57</color>
+    <!-- 海绿色 -->
+    <color name="forestgreen">#228B22</color>
+    <!-- 森林绿 -->
+    <color name="lightseagreen">#20B2AA</color>
+    <!-- 亮海蓝色 -->
+    <color name="dodgerblue">#1E90FF</color>
+    <!-- 闪兰色 -->
+    <color name="midnightblue">#191970</color>
+    <!-- 中灰兰色 -->
+    <color name="aqua">#00FFFF</color>
+    <!-- 浅绿色 -->
+    <color name="cyan">#00FFFF</color>
+    <!-- 青色 -->
+    <color name="springgreen">#00FF7F</color>
+    <!-- 春绿色 -->
+    <color name="lime">#00FF00</color>
+    <!-- 酸橙色 -->
+    <color name="mediumspringgreen">#00FA9A</color>
+    <!-- 中春绿色 -->
+    <color name="darkturquoise">#00CED1</color>
+    <!-- 暗宝石绿 -->
+    <color name="deepskyblue">#00BFFF</color>
+    <!-- 深天蓝色 -->
+    <color name="darkcyan">#008B8B</color>
+    <!-- 暗青色 -->
+    <color name="teal">#008080</color>
+    <!-- 水鸭色 -->
+    <color name="green">#008000</color>
+    <!-- 绿色 -->
+    <color name="darkgreen">#006400</color>
+    <!-- 暗绿色 -->
+    <color name="blue">#0000FF</color>
+    <!-- 蓝色 -->
+    <color name="mediumblue">#0000CD</color>
+    <!-- 中兰色 -->
+    <color name="darkblue">#00008B</color>
+    <!-- 暗蓝色 -->
+    <color name="navy">#000080</color>
+    <!-- 海军色 -->
+    <color name="black">#000000</color>
+    <!-- 黑色 -->
+    <!--常见颜色-->
+
+
+    <!--XRecyclerView-->
+    <color name="xrv_down_arrow_word_gray_bg">#9e9e9e</color>
+    <!--XRecyclerView-->
+    <!--Main-->
+    <!--Main_bottom_color-->
+    <color name="color_main_bottom_word_unselect">#c0c0c0</color>
+    <color name="color_main_bottom_word_select">#2a9cf5</color>
+    <color name="color_main_bottom_gray_bg">#f8f8f8</color>
+
+    <!--Main_bottom_color-->
+    <!--Main-->
+    <!--Main index-->
+    <color name="color_main_index_topbar_blue_bg">#00a0ea</color>
+    <color name="color_main_index_topbar_white_textcolor">#fff7e3</color>
+    <color name="color_main_index_content_gray_white_bg">#fffffb</color>
+    <!--Main index-->
+    <!--Main index common myselfloc-->
+    <color name="color_main_index_common_myselfloc_topbar_blue_bg">#00a0ea</color>
+    <color name="color_main_index_common_myselfloc_topbar_white_bg">#ffffff</color>
+    <!--Main index common myselfloc-->
+    <!--Main index nearbydriver-->
+    <color name="color_main_index_nearby_driver_topbar_blue_bg">#00a0ea</color>
+    <color name="color_main_index_nearby_driver_topbar_white_bg">#ffffff</color>
+    <!--Main index nearbydriver-->
+
+    <!--Main index zhuanxianwuliu-->
+
+    <color name="color_main_index_zhuanxianwuliu_topbar_bg">#137ee0</color>
+    <color name="color_main_index_zhuanxianwuliu_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_index_zhuanxianwuliu_content_bg">#ffffff</color>
+    <color name="color_main_index_zhuanxianwuliu_bottom_orange_word_textcolor">#ff6d11</color>
+    <color name="color_main_index_zhuanxianwuliu_bottom_black_word_textcolor">#030303</color>
+    <color name="color_main_index_zhuanxianwuliu_bottom_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_index_zhuanxianwuliu_tabbar_splite_line">#cacaca</color>
+    <color name="color_main_index_zhuanxianwuliu_tabbar_black_word_textcolor">#000000</color>
+    <color name="color_main_index_zhuanxianwuliu_xrv_item_split_line">#efefef</color>
+    <color name="color_main_index_zhuanxianwuliu_xrv_item_black_word_textcolor">#000000</color>
+    <!--Main index zhuanxianwuliu-->
+
+    <!--Main index peihuozhongxin-->
+
+    <color name="color_main_index_peihuozhongxin_topbar_bg">#137ee0</color>
+    <color name="color_main_index_peihuozhongxin_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_index_peihuozhongxin_content_bg">#ffffff</color>
+    <color name="color_main_index_peihuozhongxin_bottom_orange_word_textcolor">#ff6d11</color>
+    <color name="color_main_index_peihuozhongxin_bottom_black_word_textcolor">#030303</color>
+    <color name="color_main_index_peihuozhongxin_bottom_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_index_peihuozhongxin_tabbar_splite_line">#cacaca</color>
+    <color name="color_main_index_peihuozhongxin_tabbar_black_word_textcolor">#000000</color>
+    <color name="color_main_index_peihuozhongxin_xrv_item_split_line">#efefef</color>
+    <color name="color_main_index_peihuozhongxin_xrv_item_black_word_textcolor">#000000</color>
+
+    <!--Main index peihuozhongxin-->
+
+
+    <!--Main index tezhongwuliu-->
+
+    <color name="color_main_index_tezhongwuliu_topbar_bg">#137ee0</color>
+    <color name="color_main_index_tezhongwuliu_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_index_tezhongwuliu_content_bg">#ffffff</color>
+    <color name="color_main_index_tezhongwuliu_bottom_orange_word_textcolor">#ff6d11</color>
+    <color name="color_main_index_tezhongwuliu_bottom_black_word_textcolor">#030303</color>
+    <color name="color_main_index_tezhongwuliu_bottom_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_index_tezhongwuliu_tabbar_splite_line">#cacaca</color>
+    <color name="color_main_index_tezhongwuliu_tabbar_black_word_textcolor">#000000</color>
+    <color name="color_main_index_tezhongwuliu_xrv_item_split_line">#efefef</color>
+    <color name="color_main_index_tezhongwuliu_xrv_item_black_word_textcolor">#000000</color>
+    <!--Main index tezhongwuliu-->
+
+    <!--Main index zhengchehuoyun-->
+    <color name="color_main_index_zhengchehuoyun_topbar_bg">#137ee0</color>
+    <color name="color_main_index_zhengchehuoyun_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_index_zhengchehuoyun_content_bg">#ffffff</color>
+    <color name="color_main_index_zhengchehuoyun_bottom_orange_word_textcolor">#ff6d11</color>
+    <color name="color_main_index_zhengchehuoyun_bottom_black_word_textcolor">#030303</color>
+    <color name="color_main_index_zhengchehuoyun_bottom_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_index_zhengchehuoyun_tabbar_splite_line">#cacaca</color>
+    <color name="color_main_index_zhengchehuoyun_tabbar_black_word_textcolor">#000000</color>
+    <color name="color_main_index_zhengchehuoyun_xrv_item_split_line">#efefef</color>
+    <color name="color_main_index_zhengchehuoyun_xrv_item_black_word_textcolor">#000000</color>
+    <!--Main index zhengchehuoyun-->
+
+    <!--Main index renrenwuliu-->
+    <color name="color_main_index_renrenwuliu_topbar_bg">#137ee0</color>
+    <color name="color_main_index_renrenwuliu_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_index_renrenwuliu_content_bg">#ffffff</color>
+    <color name="color_main_index_renrenwuliu_bottom_orange_word_textcolor">#ff6d11</color>
+    <color name="color_main_index_renrenwuliu_bottom_black_word_textcolor">#030303</color>
+    <color name="color_main_index_renrenwuliu_bottom_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_index_renrenwuliu_tabbar_splite_line">#cacaca</color>
+    <color name="color_main_index_renrenwuliu_tabbar_black_word_textcolor">#000000</color>
+    <color name="color_main_index_renrenwuliu_xrv_item_split_line">#efefef</color>
+    <color name="color_main_index_renrenwuliu_xrv_item_black_word_textcolor">#000000</color>
+    <!--Main index renrenwuliu-->
+
+    <!--Main index banjia-->
+
+    <color name="color_main_index_banjia_topbar_bg">#137ee0</color>
+    <color name="color_main_index_banjia_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_index_banjia_content_bg">#ffffff</color>
+    <color name="color_main_index_banjia_bottom_orange_word_textcolor">#ff6d11</color>
+    <color name="color_main_index_banjia_bottom_black_word_textcolor">#030303</color>
+    <color name="color_main_index_banjia_bottom_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_index_banjia_tabbar_splite_line">#cacaca</color>
+    <color name="color_main_index_banjia_tabbar_black_word_textcolor">#000000</color>
+    <color name="color_main_index_banjia_xrv_item_split_line">#efefef</color>
+    <color name="color_main_index_banjia_xrv_item_black_word_textcolor">#000000</color>
+
+    <!--Main index banjia-->
+
+    <!--Main index carsource xrv detail-->
+    <color name="color_main_index_carsource_detail_topbar_bg">#137ee0</color>
+    <color name="color_main_index_carsource_detail_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_index_carsource_detail_content_item_bg">#ffffff</color>
+    <color name="color_main_index_carsource_detail_content_bg">#f2f7f1</color>
+    <color name="color_main_index_carsource_detail_content_splite_line">#f2f7f1</color>
+    <color name="color_main_index_carsource_detail_content_vertical_splite_line">#cacaca</color>
+    <color name="color_main_index_carsource_detail_content_black_word_textcolor">#17161e</color>
+    <color name="color_main_index_carsource_detail_content_gray_word_textcolor">#8b8b8b</color>
+    <color name="color_main_index_carsource_detail_content_orange">#f06628</color>
+    <!--Main index carsource xrv detail-->
+    <!--Main index goodssource xrv detail-->
+    <color name="color_main_index_goodssource_detail_topbar_bg">#137ee0</color>
+    <color name="color_main_index_goodssource_detail_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_index_goodssource_detail_content_item_bg">#ffffff</color>
+    <color name="color_main_index_goodssource_detail_content_bg">#f2f7f1</color>
+    <color name="color_main_index_goodssource_detail_content_splite_line">#f2f7f1</color>
+    <color name="color_main_index_goodssource_detail_content_vertical_splite_line">#cacaca</color>
+    <color name="color_main_index_goodssource_detail_content_black_word_textcolor">#17161e</color>
+    <color name="color_main_index_goodssource_detail_content_gray_word_textcolor">#8b8b8b</color>
+    <color name="color_main_index_goodssource_detail_content_orange">#f06628</color>
+    <!--Main index goodssource xrv detail-->
+
+
+    <!--Main release-->
+    <color name="color_main_release_topbar_blue_bg">#00a0ea</color>
+    <color name="color_main_release_topbar_white_textcolor">#fff7e3</color>
+    <color name="color_main_release_content_word_textcolor">#6b6868</color>
+    <color name="color_main_release_content_split_line_color">#cccccc</color>
+    <color name="color_main_release_content_white_bg">#ffffff</color>
+    <!--Main release-->
+
+    <!--Main release zhuanxianwuliu-->
+    <color name="color_main_release_zhuanxianwuliu_topbar_bg">#137ee0</color>
+    <color name="color_main_release_zhuanxianwuliu_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_release_zhuanxianwuliu_content_splite_line">#a2a2a2</color>
+    <color name="color_main_release_zhuanxianwuliu_content_black_word_textcolor">#000000</color>
+    <color name="color_main_release_zhuanxianwuliu_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_release_zhuanxianwuliu_content_item_bg">#ffffff</color>
+    <color name="color_main_release_zhuanxianwuliu_content_bg">#efeff4</color>
+    <color name="color_main_release_zhuanxianwuliu_content_submit_bg">#5885db</color>
+    <color name="color_main_release_zhuanxianwuliu_content_submit_white_word_textcolor">#f7fafe</color>
+    <!--Main release zhuanxianwuliu-->
+
+    <!--Main release fabuhuoyuan-->
+    <color name="color_main_release_fabuhuoyuan_topbar_bg">#137ee0</color>
+    <color name="color_main_release_fabuhuoyuan_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_release_fabuhuoyuan_content_splite_line">#a2a2a2</color>
+    <color name="color_main_release_fabuhuoyuan_content_black_word_textcolor">#000000</color>
+    <color name="color_main_release_fabuhuoyuan_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_release_fabuhuoyuan_content_item_bg">#ffffff</color>
+    <color name="color_main_release_fabuhuoyuan_content_bg">#efeff4</color>
+    <color name="color_main_release_fabuhuoyuan_content_submit_bg">#5885db</color>
+    <color name="color_main_release_fabuhuoyuan_content_submit_white_word_textcolor">#f7fafe</color>
+
+    <!--Main release fabuhuoyuan-->
+
+
+    <!--Main release renrenkuaidi-->
+    <color name="color_main_release_renrenkuaidi_topbar_bg">#137ee0</color>
+    <color name="color_main_release_renrenkuaidi_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_release_renrenkuaidi_content_splite_line">#a2a2a2</color>
+    <color name="color_main_release_renrenkuaidi_content_black_word_textcolor">#000000</color>
+    <color name="color_main_release_renrenkuaidi_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_release_renrenkuaidi_content_item_bg">#ffffff</color>
+    <color name="color_main_release_renrenkuaidi_content_bg">#efeff4</color>
+    <color name="color_main_release_renrenkuaidi_content_submit_bg">#5885db</color>
+    <color name="color_main_release_renrenkuaidi_content_submit_white_word_textcolor">#f7fafe</color>
+    <!--Main release renrenkuaidi-->
+    <!--Main release zuchehuoyun-->
+    <color name="color_main_release_zuchehuoyun_topbar_bg">#137ee0</color>
+    <color name="color_main_release_zuchehuoyun_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_release_zuchehuoyun_content_splite_line">#a2a2a2</color>
+    <color name="color_main_release_zuchehuoyun_content_black_word_textcolor">#000000</color>
+    <color name="color_main_release_zuchehuoyun_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_release_zuchehuoyun_content_item_bg">#ffffff</color>
+    <color name="color_main_release_zuchehuoyun_content_bg">#efeff4</color>
+    <color name="color_main_release_zuchehuoyun_content_submit_bg">#5885db</color>
+    <color name="color_main_release_zuchehuoyun_content_submit_white_word_textcolor">#f7fafe</color>
+    <!--Main release zuchehuoyun-->
+    <!--Main release tezhongyunshu-->
+    <color name="color_main_release_tezhongyunshu_topbar_bg">#137ee0</color>
+    <color name="color_main_release_tezhongyunshu_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_release_tezhongyunshu_content_splite_line">#a2a2a2</color>
+    <color name="color_main_release_tezhongyunshu_content_black_word_textcolor">#000000</color>
+    <color name="color_main_release_tezhongyunshu_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_release_tezhongyunshu_content_item_bg">#ffffff</color>
+    <color name="color_main_release_tezhongyunshu_content_bg">#efeff4</color>
+    <color name="color_main_release_tezhongyunshu_content_submit_bg">#5885db</color>
+    <color name="color_main_release_tezhongyunshu_content_submit_white_word_textcolor">#f7fafe</color>
+    <!--Main release tezhongyunshu-->
+    <!--Main release huitouche-->
+    <color name="color_main_release_huitouche_topbar_bg">#137ee0</color>
+    <color name="color_main_release_huitouche_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_release_huitouche_content_splite_line">#a2a2a2</color>
+    <color name="color_main_release_huitouche_content_black_word_textcolor">#000000</color>
+    <color name="color_main_release_huitouche_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_release_huitouche_content_item_bg">#ffffff</color>
+    <color name="color_main_release_huitouche_content_bg">#efeff4</color>
+    <color name="color_main_release_huitouche_content_submit_bg">#5885db</color>
+    <color name="color_main_release_huitouche_content_submit_white_word_textcolor">#f7fafe</color>
+    <!--Main release huitouche-->
+    <!--Main release banjia-->
+    <color name="color_main_release_banjia_topbar_bg">#137ee0</color>
+    <color name="color_main_release_banjia_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_release_banjia_content_splite_line">#a2a2a2</color>
+    <color name="color_main_release_banjia_content_black_word_textcolor">#000000</color>
+    <color name="color_main_release_banjia_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_release_banjia_content_item_bg">#ffffff</color>
+    <color name="color_main_release_banjia_content_bg">#efeff4</color>
+    <color name="color_main_release_banjia_content_submit_bg">#5885db</color>
+    <color name="color_main_release_banjia_content_submit_white_word_textcolor">#f7fafe</color>
+    <!--Main release banjia-->
+
+    <!--Main release banjia leibie-->
+    <color name="color_main_release_banjia_leibie_topbar_bg">#137ee0</color>
+    <color name="color_main_release_banjia_leibie_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_release_banjia_leibie_content_item_bg">#ffffff</color>
+    <color name="color_main_release_banjia_leibie_content_bg">#efeff4</color>
+    <color name="color_main_release_banjia_leibie_content_black_word_textcolor">#000000</color>
+    <color name="color_main_release_banjia_leibie_content_splite_line">#a2a2a2</color>
+    <!--Main release banjia leibie-->
+
+    <!--Main release fabuhuowu huowuleibie-->
+    <color name="color_main_release_fabuhuowu_huowuleibie_topbar_bg">#137ee0</color>
+    <color name="color_main_release_fabuhuowu_huowuleibie_topbar_title_textcolor">#fffcf5</color>
+    <color name="color_main_release_fabuhuowu_huowuleibie_content_item_bg">#ffffff</color>
+    <color name="color_main_release_fabuhuowu_huowuleibie_content_bg">#efeff4</color>
+    <color name="color_main_release_fabuhuowu_huowuleibie_content_black_word_textcolor">#000000</color>
+    <color name="color_main_release_fabuhuowu_huowuleibie_content_splite_line">#a2a2a2</color>
+    <!--Main release fabuhuowu huowuleibie-->
+
+
+
+    <!--Main advice-->
+    <color name="color_main_advice_content_white_bg">#ffffff</color>
+    <color name="color_main_advice_xrv_item_white_bg">#ffffff</color>
+    <color name="color_main_advice_xrv_item_word_textcolor">#7a7a7a</color>
+    <color name="color_main_advice_xrv_item_split_line">#e3e3e3</color>
+    <!--Main advice-->
+    <!--Main advice detail-->
+    <color name="color_main_advice_detail_topbar_bg">#00a1ea</color>
+    <color name="color_main_advice_detail_topbar_textcolor">#fcfeff</color>
+    <color name="color_main_advice_detail_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_advice_detail_content_black_word_textcolor">#0b0b0b</color>
+    <color name="color_main_advice_detail_orange">#ff7e00</color>
+    <color name="color_main_advice_detail_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_advice_detail_content_bg">#e8e8e8</color>
+
+    <!--Main advice detail-->
+    <!--Main message -->
+    <color name="color_main_message_topbar_title_word_textcolor">#333333</color>
+    <color name="color_main_message_topbar_white_bg">#f6f6f6</color>
+    <color name="color_main_message_content_white_bg">#fcfcfc</color>
+    <!--Main message -->
+
+    <!--Main mine-->
+    <color name="color_main_mine_tophead_green_bg">#56A85B</color>
+    <color name="color_main_mine_tophead_name_black_bg">#353b35</color>
+    <color name="color_main_mine_content_splite_line">#cdcdcd</color>
+    <color name="color_main_mine_content_word_textcolor">#383838</color>
+    <color name="color_main_mine_content_item_white_color">#ffffff</color>
+    <color name="color_main_mine_content_bg">#efeff4</color>
+    <!--Main mine-->
+    <!--Main mine Login-->
+    <color name="color_main_mine_login_submit_bg">#d9251d</color>
+    <color name="color_main_mine_login_submit_word_bg">#ffffff</color>
+    <color name="color_main_mine_login_content_blue_word_bg">#4750f8</color>
+    <color name="color_main_mine_login_content_black_word_bg">#4e4e4e</color>
+    <color name="color_main_mine_login_content_gray_word_bg">#838383</color>
+    <color name="color_main_mine_login_topbar_orange_word_bg">#e06b16</color>
+    <color name="color_main_mine_login_topbar_green_word_bg">#0cbe0b</color>
+    <color name="color_main_mine_login_bg">#ededed</color>
+    <color name="color_main_mine_login_split_line">#bbbbbb</color>
+    <!--Main mine Login-->
+
+    <!--Main mine login reg-->
+    <color name="color_main_mine_login_reg_submit_bg">#d9251d</color>
+    <color name="color_main_mine_login_reg_topbar_green_word_bg">#0cbe0b</color>
+    <color name="color_main_mine_login_reg_bg">#ebebeb</color>
+    <color name="color_main_mine_login_reg_content_black_word_bg">#4e4e4e</color>
+    <color name="color_main_mine_login_reg_content_gray_word_bg">#838383</color>
+    <color name="color_main_mine_login_reg_content_blue_word_bg">#4750f8</color>
+    <color name="color_main_mine_login_reg_content_light_blue_word_bg">#6daff5</color>
+    <color name="color_main_mine_login_reg_content_splite_line">#bbbbbb</color>
+    <color name="color_main_mine_login_reg_submit_word_bg">#ffffff</color>
+    <!--Main mine login reg-->
+
+    <!--Main mine login findpass-->
+    <color name="color_main_mine_login_findpass_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_login_findpass_topbar_title_textcolor">#fcfeff</color>
+    <color name="color_main_mine_login_findpass_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_login_findpass_content_black_word_textcolor">#0b0b0b</color>
+    <color name="color_main_mine_login_findpass_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_login_findpass_content_white_word_textcolor">#e3f1f9</color>
+    <color name="color_main_mine_login_findpass_content_light_blue_bg">#449fd5</color>
+    <color name="color_main_mine_login_findpass_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_login_findpass_content_blue_bg">#317ee7</color>
+
+    <color name="color_main_mine_login_findpass_content_item_edging">#aaaaaa</color>
+    <color name="color_main_mine_login_findpass_topbar_green_word_bg">#0cbe0b</color>
+    <!--Main mine login findpass-->
+
+
+    <!--Main mine login reg userdata-->
+    <color name="color_main_mine_login_reg_userdata_topbar_green_word_bg">#02bb00</color>
+    <color name="color_main_mine_login_reg_userdata_bg">#ffffff</color>
+    <color name="color_main_mine_login_reg_userdata_submit_word_bg">#ffffff</color>
+    <color name="color_main_mine_login_reg_userdata_submit_bg">#db241d</color>
+    <color name="color_main_mine_login_reg_userdata_content_black_word_textcolor">#333333</color>
+    <color name="color_main_mine_login_reg_userdata_content_splite_line">#bcbcbc</color>
+    <color name="color_main_mine_login_reg_userdata_content_gray_word_textcolor">#898989</color>
+    <!--Main mine login reg userdata-->
+
+    <!--Main mine renzheng-->
+    <color name="color_main_mine_renzheng_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_renzheng_topbar_word_textcolor">#fcfeff</color>
+    <color name="color_main_mine_renzheng_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_renzheng_content_black_word_textcolor">#000000</color>
+    <color name="color_main_mine_renzheng_content_button_word_textcolor">#ffefeb</color>
+    <color name="color_main_mine_renzheng_content_bg">#eeeeee</color>
+    <color name="color_main_mine_renzheng_content_button_bg">#ff704f</color>
+    <color name="color_main_mine_renzheng_content_remark_word_textcolor">#c1c1c1</color>
+    <!--Main mine renzheng-->
+
+    <!--Main mine renzheng shimingrenzheng-->
+    <color name="color_main_mine_renzheng_shimingrenzheng_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_renzheng_shimingrenzheng_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_renzheng_shimingrenzheng_content_word_black_textcolor">#010101</color>
+    <color name="color_main_mine_renzheng_shimingrenzheng_content_warn_word_textcolor">#1aa458</color>
+    <color name="color_main_mine_renzheng_shimingrenzheng_content_splite">#cccccc</color>
+    <color name="color_main_mine_renzheng_shimingrenzheng_content_item_bg">#f1f1f1</color>
+    <color name="color_main_mine_renzheng_shimingrenzheng_content_bg">#eeeeee</color>
+    <color name="color_main_mine_renzheng_shimingrenzheng_content_gray_word_textcolor">#5b5b5b</color>
+    <color name="color_main_mine_renzheng_shimingrenzheng_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_renzheng_shimingrenzheng_content_submit_bg">#007db8</color>
+    <!--Main mine renzheng shimingrenzheng-->
+
+    <!--Main mine renzheng qiyerenzheng-->
+    <color name="color_main_mine_renzheng_qiyerenzheng_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_renzheng_qiyerenzheng_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_renzheng_qiyerenzheng_content_word_black_textcolor">#010101</color>
+    <color name="color_main_mine_renzheng_qiyerenzheng_content_warn_word_textcolor">#1aa458</color>
+    <color name="color_main_mine_renzheng_qiyerenzheng_content_splite">#cccccc</color>
+    <color name="color_main_mine_renzheng_qiyerenzheng_content_item_bg">#f1f1f1</color>
+    <color name="color_main_mine_renzheng_qiyerenzheng_content_bg">#eeeeee</color>
+    <color name="color_main_mine_renzheng_qiyerenzheng_content_gray_word_textcolor">#5b5b5b</color>
+    <color name="color_main_mine_renzheng_qiyerenzheng_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_renzheng_qiyerenzheng_content_submit_bg">#007db8</color>
+    <!--Main mine renzheng qiyerenzheng-->
+    <!--Main mine renzheng jiashizhengrenzheng-->
+    <color name="color_main_mine_renzheng_jiashizhengrenzheng_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_renzheng_jiashizhengrenzheng_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_renzheng_jiashizhengrenzheng_content_word_black_textcolor">#010101</color>
+    <color name="color_main_mine_renzheng_jiashizhengrenzheng_content_warn_word_textcolor">#1aa458</color>
+    <color name="color_main_mine_renzheng_jiashizhengrenzheng_content_splite">#cccccc</color>
+    <color name="color_main_mine_renzheng_jiashizhengrenzheng_content_item_bg">#f1f1f1</color>
+    <color name="color_main_mine_renzheng_jiashizhengrenzheng_content_bg">#eeeeee</color>
+    <color name="color_main_mine_renzheng_jiashizhengrenzheng_content_gray_word_textcolor">#5b5b5b</color>
+    <color name="color_main_mine_renzheng_jiashizhengrenzheng_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_renzheng_jiashizhengrenzheng_content_submit_bg">#007db8</color>
+    <!--Main mine renzheng jiashizhengrenzheng-->
+
+
+    <!--Main mine renzheng xingshizhengrenzheng-->
+    <color name="color_main_mine_renzheng_xingshizhengrenzheng_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_renzheng_xingshizhengrenzheng_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_renzheng_xingshizhengrenzheng_content_word_black_textcolor">#010101</color>
+    <color name="color_main_mine_renzheng_xingshizhengrenzheng_content_warn_word_textcolor">#1aa458</color>
+    <color name="color_main_mine_renzheng_xingshizhengrenzheng_content_splite">#cccccc</color>
+    <color name="color_main_mine_renzheng_xingshizhengrenzheng_content_item_bg">#f1f1f1</color>
+    <color name="color_main_mine_renzheng_xingshizhengrenzheng_content_bg">#eeeeee</color>
+    <color name="color_main_mine_renzheng_xingshizhengrenzheng_content_gray_word_textcolor">#5b5b5b</color>
+    <color name="color_main_mine_renzheng_xingshizhengrenzheng_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_renzheng_xingshizhengrenzheng_content_submit_bg">#007db8</color>
+    <!--Main mine renzheng xingshizhengrenzheng-->
+
+
+    <!--Main mine renzheng cheliangrenzheng-->
+    <color name="color_main_mine_renzheng_cheliangrenzheng_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_renzheng_cheliangrenzheng_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_renzheng_cheliangrenzheng_content_word_black_textcolor">#010101</color>
+    <color name="color_main_mine_renzheng_cheliangrenzheng_content_warn_word_textcolor">#1aa458</color>
+    <color name="color_main_mine_renzheng_cheliangrenzheng_content_splite">#cccccc</color>
+    <color name="color_main_mine_renzheng_cheliangrenzheng_content_item_bg">#f1f1f1</color>
+    <color name="color_main_mine_renzheng_cheliangrenzheng_content_bg">#eeeeee</color>
+    <color name="color_main_mine_renzheng_cheliangrenzheng_content_gray_word_textcolor">#5b5b5b</color>
+    <color name="color_main_mine_renzheng_cheliangrenzheng_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_renzheng_cheliangrenzheng_content_submit_bg">#007db8</color>
+    <!--Main mine renzheng cheliangrenzheng-->
+
+    <!--Main mine wodecheyuan-->
+    <color name="color_main_mine_wodecheyuan_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_wodecheyuan_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_wodecheyuan_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_wodecheyuan_content_item_green_word_textcolor">#51c653</color>
+    <color name="color_main_mine_wodecheyuan_content_item_gray_word_textcolor">#acacac</color>
+    <color name="color_main_mine_wodecheyuan_content_item_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_wodecheyuan_content_item_orange_textcolor">#ff9866</color>
+    <color name="color_main_mine_wodecheyuan_content_item_splite">#aaaaaa</color>
+    <color name="color_main_mine_wodecheyuan_content_bg">#f2f2f2</color>
+    <!--
+    <color name="color_main_mine_wodecheyuan_"-->
+    <!--Main mine wodecheyuan-->
+    <!--Main mine wodehuoyuan-->
+    <color name="color_main_mine_wodehuoyuan_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_wodehuoyuan_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_wodehuoyuan_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_wodehuoyuan_content_item_green_word_textcolor">#51c653</color>
+    <color name="color_main_mine_wodehuoyuan_content_item_gray_word_textcolor">#acacac</color>
+    <color name="color_main_mine_wodehuoyuan_content_item_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_wodehuoyuan_content_item_orange_textcolor">#ff9866</color>
+    <color name="color_main_mine_wodehuoyuan_content_item_splite">#aaaaaa</color>
+    <color name="color_main_mine_wodehuoyuan_content_bg">#f2f2f2</color>
+    <!--Main mine wodehuoyuan-->
+
+    <!--Main mine aboutus-->
+    <color name="color_main_mine_aboutus_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_aboutus_content_bg">#f2f2f2</color>
+    <color name="color_main_mine_aboutus_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_aboutus_content_gray_word_textcolor">#acacac</color>
+    <color name="color_main_mine_aboutus_content_red_word_textcolor">#e22247</color>
+    <color name="color_main_mine_aboutus_content_split">#aaaaaa</color>
+    <color name="color_main_mine_aboutus_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_aboutus_content_item_bg">#ffffff</color>
+    <!--Main mine aboutus-->
+
+    <!--Main mine aboutus companyintroduce-->
+    <color name="color_main_mine_aboutus_companyintroduce_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_aboutus_companyintroduce_content_bg">#f2f2f2</color>
+    <color name="color_main_mine_aboutus_companyintroduce_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_aboutus_companyintroduce_content_gray_word_textcolor">#acacac</color>
+    <color name="color_main_mine_aboutus_companyintroduce_content_topbar_word_textcolor">#d8f1fc</color>
+    <!--Main mine aboutus companyintroduce-->
+
+    <!--Main mine aboutus yijianfankui-->
+    <color name="color_main_mine_aboutus_yijianfankui_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_aboutus_yijianfankui_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_aboutus_yijianfankui_content_bg">#f2f2f2</color>
+    <color name="color_main_mine_aboutus_yijianfankui_content_gray_word_textcolor">#acacac</color>
+    <color name="color_main_mine_aboutus_yijianfankui_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_aboutus_yijianfankui_content_et_bg">#ffffff</color>
+    <color name="color_main_mine_aboutus_yijianfankui_content_submit_orange_textcolor">#ff9866</color>
+    <color name="color_main_mine_aboutus_yijianfankui_content_black_word_textcolor">#2e2e2e</color>
+    <!--Main mine aboutus yijianfankui-->
+    <!--Main mine aboutus yonghuxieyi-->
+    <color name="color_main_mine_aboutus_yonghuxieyi_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_aboutus_yonghuxieyi_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_aboutus_yonghuxieyi_content_bg">#f2f2f2</color>
+    <color name="color_main_mine_aboutus_yonghuxieyi_content_tv_bg">#ffffff</color>
+    <color name="color_main_mine_aboutus_yonghuxieyi_content_black_word_textcolor">#2e2e2e</color>
+    <!--Main mine aboutus yonghuxieyi-->
+
+    <!--Main mine mengyou-->
+    <color name="color_main_mine_mengyou_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_mengyou_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_mengyou_content_xrv_item_bg">#ffffff</color>
+    <color name="color_main_mine_mengyou_content_xrv_item_splite">#cacaca</color>
+    <color name="color_main_mine_mengyou_content_bg">#f2f2f2</color>
+    <color name="color_main_mine_mengyou_content_tv_bg">#ffffff</color>
+    <color name="color_main_mine_mengyou_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_mengyou_content_gray_word_textcolor">#acacac</color>
+    <!--Main mine mengyou-->
+
+    <!--Main mine gerenxinxi-->
+    <color name="color_main_mine_gerenxinxi_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_gerenxinxi_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_gerenxinxi_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_gerenxinxi_content_gray_word_textcolor">#acacac</color>
+    <color name="color_main_mine_gerenxinxi_content_bg">#f2f2f2</color>
+    <color name="color_main_mine_gerenxinxi_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_content_item_splite">#cacaca</color>
+    <!--Main mine gerenxinxi-->
+
+    <!--Main mine gerenxinxi bianjinichen-->
+    <color name="color_main_mine_gerenxinxi_bianjinichen_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_gerenxinxi_bianjinichen_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_gerenxinxi_bianjinichen_content_gray_word_textcolor">#acacac</color>
+    <color name="color_main_mine_gerenxinxi_bianjinichen_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_gerenxinxi_bianjinichen_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_bianjinichen_content_submit_bg">#007db8</color>
+    <color name="color_main_mine_gerenxinxi_bianjinichen_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_bianjinichen_content_bg">#f2f2f2</color>
+    <!--<color name=""-->
+    <!--Main mine gerenxinxi bianjinichen-->
+
+    <!--Main mine gerenxinxi xingbie-->
+    <color name="color_main_mine_gerenxinxi_xingbie_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_gerenxinxi_xingbie_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_gerenxinxi_xingbie_content_gray_word_textcolor">#acacac</color>
+    <color name="color_main_mine_gerenxinxi_xingbie_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_gerenxinxi_xingbie_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_xingbie_content_submit_bg">#007db8</color>
+    <color name="color_main_mine_gerenxinxi_xingbie_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_xingbie_content_bg">#f2f2f2</color>
+    <!--Main mine gerenxinxi xingbie-->
+    <!--Main mine gerenxinxi erweima-->
+    <color name="color_main_mine_gerenxinxi_erweima_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_gerenxinxi_erweima_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_gerenxinxi_erweima_content_bg">#f2f2f2</color>
+    <color name="color_main_mine_gerenxinxi_erweima_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_erweima_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_gerenxinxi_erweima_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_erweima_content_submit_bg">#e62f16</color>
+    <!--Main mine gerenxinxi erweima-->
+    <!--Main mine gerenxinxi weizhi-->
+    <color name="color_main_mine_gerenxinxi_weizhi_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_gerenxinxi_weizhi_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_gerenxinxi_weizhi_content_bg">#f2f2f2</color>
+    <color name="color_main_mine_gerenxinxi_weizhi_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_weizhi_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_gerenxinxi_weizhi_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_weizhi_content_submit_bg">#007db8</color>
+    <color name="color_main_mine_gerenxinxi_weizhi_content_gray_word_textcolor">#acacac</color>
+    <!--Main mine gerenxinxi weizhi-->
+
+
+    <!--Main mine gerenxinxi xiugaishouji-->
+    <color name="color_main_mine_gerenxinxi_xiugaishouji_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_gerenxinxi_xiugaishouji_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_gerenxinxi_xiugaishouji_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_gerenxinxi_xiugaishouji_content_black_word_textcolor">#0b0b0b</color>
+    <color name="color_main_mine_gerenxinxi_xiugaishouji_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_gerenxinxi_xiugaishouji_content_white_word_textcolor">#e3f1f9</color>
+    <color name="color_main_mine_gerenxinxi_xiugaishouji_content_light_blue_bg">#449fd5</color>
+    <color name="color_main_mine_gerenxinxi_xiugaishouji_content_blue_bg">#317ee7</color>
+    <color name="color_main_mine_gerenxinxi_xiugaishouji_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_xiugaishouji_content_item_edging">#aaaaaa</color>
+    <!--Main mine gerenxinxi xiugaishouji-->
+
+    <!--Main mine gerenxinxi youxiang-->
+    <color name="color_main_mine_gerenxinxi_youxiang_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_gerenxinxi_youxiang_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_gerenxinxi_youxiang_content_gray_word_textcolor">#acacac</color>
+    <color name="color_main_mine_gerenxinxi_youxiang_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_gerenxinxi_youxiang_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_youxiang_content_submit_bg">#007db8</color>
+    <color name="color_main_mine_gerenxinxi_youxiang_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_youxiang_content_bg">#f2f2f2</color>
+    <!--Main mine gerenxinxi youxiang-->
+    <!--Main mine gerenxinxi weixin-->
+    <color name="color_main_mine_gerenxinxi_weixin_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_gerenxinxi_weixin_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_gerenxinxi_weixin_content_gray_word_textcolor">#acacac</color>
+    <color name="color_main_mine_gerenxinxi_weixin_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_gerenxinxi_weixin_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_weixin_content_submit_bg">#007db8</color>
+    <color name="color_main_mine_gerenxinxi_weixin_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_weixin_content_bg">#f2f2f2</color>
+    <!--Main mine gerenxinxi weixin-->
+    <!--Main mine gerenxinxi qq-->
+    <color name="color_main_mine_gerenxinxi_qq_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_gerenxinxi_qq_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_gerenxinxi_qq_content_gray_word_textcolor">#acacac</color>
+    <color name="color_main_mine_gerenxinxi_qq_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_gerenxinxi_qq_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_qq_content_submit_bg">#007db8</color>
+    <color name="color_main_mine_gerenxinxi_qq_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_gerenxinxi_qq_content_bg">#f2f2f2</color>
+    <!--Main mine gerenxinxi qq-->
+
+    <!--Main mine shezhi-->
+    <color name="color_main_mine_shezhi_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_shezhi_topbar_word_textcolor">#d8f1fc</color>
+    <color name="color_main_mine_shezhi_content_black_word_textcolor">#2e2e2e</color>
+    <color name="color_main_mine_shezhi_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_shezhi_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_mine_shezhi_content_bg">#f2f2f2</color>
+    <color name="color_main_mine_shezhi_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_shezhi_content_submit_bg">#da241d</color>
+    <!--Main mine shezhi-->
+
+    <!--Main mine shezhi xiugaimima-->
+    <color name="color_main_mine_shezhi_xiugaimima_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_shezhi_xiugaimima_topbar_title_textcolor">#fcfeff</color>
+    <color name="color_main_mine_shezhi_xiugaimima_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_shezhi_xiugaimima_content_black_word_textcolor">#0b0b0b</color>
+    <color name="color_main_mine_shezhi_xiugaimima_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_shezhi_xiugaimima_content_white_word_textcolor">#e3f1f9</color>
+    <color name="color_main_mine_shezhi_xiugaimima_content_light_blue_bg">#449fd5</color>
+    <color name="color_main_mine_shezhi_xiugaimima_content_blue_bg">#317ee7</color>
+    <color name="color_main_mine_shezhi_xiugaimima_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_shezhi_xiugaimima_content_item_edging">#aaaaaa</color>
+    <color name="color_main_mine_shezhi_xiugaimima_topbar_green_word_bg">#0cbe0b</color>
+    <!--Main mine shezhi xiugaimima-->
+
+    <!--Main mine shezhi xiaoxishezhi-->
+    <color name="color_main_mine_shezhi_xiaoxishezhi_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_shezhi_xiaoxishezhi_topbar_title_textcolor">#fcfeff</color>
+    <color name="color_main_mine_shezhi_xiaoxishezhi_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_shezhi_xiaoxishezhi_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_shezhi_xiaoxishezhi_content_black_word_textcolor">#0b0b0b</color>
+    <color name="color_main_mine_shezhi_xiaoxishezhi_gray_splite_line">#cbcbcb</color>
+    <!--Main mine shezhi xiaoxishezhi-->
+    <!--Main mine wodeyaoqing-->
+    <color name="color_main_mine_wodeyaoqing_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_wodeyaoqing_topbar_title_textcolor">#fcfeff</color>
+    <color name="color_main_mine_wodeyaoqing_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_wodeyaoqing_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_wodeyaoqing_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_wodeyaoqing_content_white_word_textcolor">#e3f1f9</color>
+    <color name="color_main_mine_wodeyaoqing_content_head_bg">#7636fe</color>
+    <color name="color_main_mine_wodeyaoqing_content_item_first_bg">#8d67fb</color>
+    <color name="color_main_mine_wodeyaoqing_content_item_orange_word_textcolor">#f6c1a1</color>
+    <color name="color_main_mine_wodeyaoqing_content_splite_line">#da90ff</color>
+    <!--Main mine wodeyaoqing-->
+
+    <!--Main mine wodeyaoqing wodetuijianren -->
+    <color name="color_main_mine_wodeyaoqing_wodetuijianren_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_wodeyaoqing_wodetuijianren_topbar_title_textcolor">#fcfeff</color>
+    <color name="color_main_mine_wodeyaoqing_wodetuijianren_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_wodeyaoqing_wodetuijianren_content_black_word_textcolor">#0b0b0b</color>
+    <color name="color_main_mine_wodeyaoqing_wodetuijianren_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_mine_wodeyaoqing_wodetuijianren_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_wodeyaoqing_wodetuijianren_content_bg">#e8e8e8</color>
+    <!--Main mine wodeyaoqing wodetuijianren -->
+
+    <!--Main mine wodeyaoqing wodeyaoqingdetail-->
+    <color name="color_main_mine_wodeyaoqing_wodeyaoqingdetail_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_wodeyaoqing_wodeyaoqingdetail_topbar_title_textcolor">#fcfeff</color>
+    <color name="color_main_mine_wodeyaoqing_wodeyaoqingdetail_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_wodeyaoqing_wodeyaoqingdetail_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_wodeyaoqing_wodeyaoqingdetail_content_black_word_textcolor">#0b0b0b</color>
+    <color name="color_main_mine_wodeyaoqing_wodeyaoqingdetail_content_item_orange_word_textcolor">#f6c1a1</color>
+    <!--Main mine wodeyaoqing wodeyaoqingdetail-->
+
+    <!--Main mine jifenshangcheng-->
+    <color name="color_main_mine_jifenshangcheng_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_jifenshangcheng_topbar_textcolor">#fcfeff</color>
+    <color name="color_main_mine_jifenshangcheng_content_item_orange_word_textcolor">#f6c1a1</color>
+    <color name="color_main_mine_jifenshangcheng_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_jifenshangcheng_content_light_green_word_textcolor">#69edd6</color>
+    <color name="color_main_mine_jifenshangcheng_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_jifenshangcheng_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_jifenshangcheng_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_mine_jifenshangcheng_red_edge">#e22247</color>
+    <!--Main mine jifenshangcheng-->
+    <!--Main mine jifenshangcheng suoyoushangpin-->
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_topbar_textcolor">#fcfeff</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_content_light_green_word_textcolor">#69edd6</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_red_edge">#e22247</color>
+    <!--Main mine jifenshangcheng suoyoushangpin-->
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu-->
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_topbar_textcolor">#fcfeff</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_content_bg">#e8e8e8</color>
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu-->
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu jifenmingxi-->
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_topbar_textcolor">#fcfeff</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_gray_splite_line">#cbcbcb</color>
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu jifenmingxi-->
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu jifenmingxi jifenshuoming-->
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_topbar_textcolor">#fcfeff</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_content_black_word_textcolor">#0b0b0b</color>
+    <color name="color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_content_blue_word_textcolor">#4097e5</color>
+    <!--Main mine jifenshangcheng suoyoushangpin duihuanjilu jifenmingxi jifenshuoming-->
+
+    <!--Main mine jifenshangcheng shangpinxiangqing-->
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_topbar_textcolor">#fcfeff</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_content_black_word_textcolor">#0b0b0b</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_orange">#ff7e00</color>
+    <!--Main mine jifenshangcheng shangpinxiangqing-->
+
+    <!--Main mine jifenshangcheng shangpinxiangqing tianxieshouhuodizhi-->
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_topbar_textcolor">#fcfeff</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_content_black_word_textcolor">#0b0b0b</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_orange">#ff7e00</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_gray_splite_line">#cbcbcb</color>
+    <color name="color_main_mine_jifenshangcheng_shangpinxiangqing_tianxieshouhuodizhi_content_white_word_textcolor">#ffffff</color>
+    <!--Main mine jifenshangcheng shangpinxiangqing tianxieshouhuodizhi-->
+    <!--Main mine jifenshangcheng jifentixing-->
+    <color name="color_main_mine_jifenshangcheng_jifentixian_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_jifenshangcheng_jifentixian_topbar_textcolor">#fcfeff</color>
+    <color name="color_main_mine_jifenshangcheng_jifentixian_content_gray_word_textcolor">#ababab</color>
+    <color name="color_main_mine_jifenshangcheng_jifentixian_content_black_word_textcolor">#0b0b0b</color>
+    <color name="color_main_mine_jifenshangcheng_jifentixian_orange">#ff7e00</color>
+    <color name="color_main_mine_jifenshangcheng_jifentixian_content_white_word_textcolor">#ffffff</color>
+    <color name="color_main_mine_jifenshangcheng_jifentixian_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_jifenshangcheng_jifentixian_content_item_bg">#ffffff</color>
+    <color name="color_main_mine_jifenshangcheng_jifentixian_gray_splite_line">#cbcbcb</color>
+    <!--Main mine jifenshangcheng jifentixing-->
+    <!--Main mine jifenshangcheng qiandao-->
+    <color name="color_main_mine_jifenshangcheng_qiandao_topbar_bg">#00a1ea</color>
+    <color name="color_main_mine_jifenshangcheng_qiandao_topbar_textcolor">#fcfeff</color>
+    <color name="color_main_mine_jifenshangcheng_qiandao_content_bg">#e8e8e8</color>
+    <color name="color_main_mine_jifenshangcheng_qiandao_content_item_bg">#ffffff</color>
+    <!--Main mine jifenshangcheng qiandao-->
+
+
+
+
+</resources>

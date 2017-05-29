@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_content_bg"
+    >
+
+    <include layout="@layout/activity_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_tp_lly"/>
+    <include layout="@layout/activity_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_ct_lly"/>
+
+<!--    activity_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_jifenshuoming_lly
+    -->
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/main_advice_xrv_item_height"
+    android:background="@color/color_main_advice_xrv_item_white_bg"
+    android:id="@+id/lly_main_advice_xrv_item"
+    >
+    <TextView
+        android:id="@+id/tv_main_advice_xrv_item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/main_advice_xrv_item_margin_size"
+        android:maxLines="2"
+        android:text="测试"
+        android:textColor="@color/color_main_advice_xrv_item_word_textcolor"
+        android:textSize="@dimen/main_advice_xrv_item_word_size"
+        android:gravity="center_vertical"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_height_or_width"
+        android:background="@color/lightgray"
+        />
+</LinearLayout>

@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:Android="http://schemas.android.com/apk/res-auto"
+    package="com.zhyan.shandiankuaiyun">
+
+    <!--权限-->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--内存清理-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <!-- 内存清理-->
+    <!-- mob短信 需要的权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- mob短信 需要的权限 -->
+
+    <!--极光推送-->
+    <!-- Required -->
+    <permission
+        android:name="com.zhyan.gototongcheng.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <!-- Required  一些系统要求的权限，如访问网络等-->
+    <uses-permission android:name="com.zhyan.gototongcheng.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+
+
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!--百度地图-->
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <!-- 用于读取手机当前的状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <!-- 访问网络，网络定位需要上网-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡读取权限，用户写入离线定位数据-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+    <!--百度地图-->
+
+    <!--极光推送-->
+    <!--打开相册 或者照相机权限-->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!--打开相册 或者照相机权限-->
+    <!--拨打电话-->
+    <!--添加可以向外拨打电话的权限  -->
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <!--拨打电话-->
+
+    <!--环信-->
+    <!-- Required -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--环信-->
+
+
+    <!--友盟-->
+    <uses-sdk
+        tools:overrideLibrary="com.umeng.socialize.evernote,com.umeng.socialize.pinterest"
+        />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
+    <!-- renren sso Permission for Unit Test -->
+    <!-- QQ、QQ空间所需权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--友盟-->
+
+    <!--必须的权限配置-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!--保存资源到SD卡-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--权限-->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:name=".Application.MyApplication"
+         >
+        <activity android:name=".Main.SplashActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--百度地图-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="SGOTr7Xti9Cq76SbMFyrGMOolGaGDDaR" />      <!-- //key:开发者申请的Key-->
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
+        </service>
+        <!--百度地图-->
+        <!-- 设置环信应用的AppKey -->
+        <meta-data android:name="EASEMOB_APPKEY"  android:value="330382274409#lightninglogistics" />
+        <!-- 声明SDK所需的service SDK核心功能-->
+        <!--<service android:name="com.hyphenate.chat.EMChatService" android:exported="true"/>
+        <service android:name="com.hyphenate.chat.EMJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="true"
+            />-->
+        <!-- 声明SDK所需的receiver -->
+       <!-- <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            &lt;!&ndash; 可选filter &ndash;&gt;
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>-->
+        <!-- 设置环信应用的AppKey -->
+        <!--必须配置-->
+
+        <!--<activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent"/>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.zhyan.shandiankuaiyun.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/provider_paths" />
+        </provider>-->
+        <!--友盟-->
+        <!--统计-->
+        <meta-data android:value="58b7c86df43e4865580004de" android:name="UMENG_APPKEY"/>
+       <!-- <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>-->
+    <!--    <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="2a3324025eccd5b67b339efdb395a95b" >
+        </meta-data>-->
+        <!--统计-->
+
+        <!--分享-->
+        <!-- 新浪微博的分享 -->
+        <!-- 新浪微博的分享 -->
+        <!--微信-->
+        <!-- 新浪微博的分享 -->
+       <!-- <activity
+            android:name=".WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+
+        <service
+            android:name="com.sina.weibo.sdk.net.DownloadService"
+            android:exported="false" >
+        </service>
+        &lt;!&ndash; 微信的分享 &ndash;&gt;
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        &lt;!&ndash; QQ的分享 &ndash;&gt;
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1105709541" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+-->
+        <!--      <activity android:name="com.umeng.fb.ConversationActivity" />
+              <activity android:name="com.umeng.fb.ContactActivity" />-->
+        <!--分享-->
+
+        <!--友盟-->
+
+
+        <!--相册多选 http://blog.csdn.net/yanzhenjie1003/article/details/52975922-->
+        <activity
+            android:name="com.yanzhenjie.album.AlbumActivity"
+            android:label="图库"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|stateHidden" />
+        <!--相册多选 http://blog.csdn.net/yanzhenjie1003/article/details/52975922-->
+
+        <!--mob短信-->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <!--mob短信-->
+
+
+
+
+
+
+
+        <activity
+            android:name=".Main.IndexFragment.PeiHuoZhongXin.PeiHuoZhongXinActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".Main.IndexFragment.ZhuanXianWuLiu.ZhuanXianWuLiuActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".Main.IndexFragment.TeZhongWuLiu.TeZhongWuLiuActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".Main.IndexFragment.ZhengCheHuoYun.ZhengCheHuoYunActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".Main.IndexFragment.RenRenWuLiu.RenRenWuLiuActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".Main.IndexFragment.BanJia.BanJiaActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".Main.IndexFragment.CommonXRVDetail.CarSourceXRVDetailActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".Main.ReleaseFragment.ZhuanXianWuLiu.ZhuanXianWuLiuReleaseActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".Main.MineFragment.Login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".Main.MineFragment.Login.FindPass.FindPassActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".Main.MineFragment.Login.Register.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".Main.MineFragment.Login.Register.UserData.UserDataActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.RenZheng.RenZhengActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.RenZheng.ShiMingRenZheng.ShiMingRenZhengActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".Main.MineFragment.RenZheng.QiYeRenZheng.QiYeRenZhengActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".Main.MineFragment.RenZheng.JiaShiZhengRenZheng.JiaShiZhengRenZhengActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".Main.MineFragment.RenZheng.XingShiZhengRenZheng.XingShiZhengRenZhengActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".Main.MineFragment.RenZheng.CheLiangRenZheng.CheLiangRenZhengActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".Main.MineFragment.WoDeCheYuan.WoDeCheYuanActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.WoDeHuoYuan.WoDeHuoYuanActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".Main.MineFragment.AboutUs.AboutUsActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".Main.MineFragment.AboutUs.CompanyIntroduce.CompanyIntroduceActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".Main.MineFragment.AboutUs.YiJianFanKui.YiJianFanKuiActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".Main.MineFragment.AboutUs.YongHuXieYi.YongHuXieYiActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.MengYou.MengYouActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.GeRenXinXi.GeRenXinXiActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.GeRenXinXi.BianJiNiChen.BianJiNiChenActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.GeRenXinXi.XingBie.XingBieActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.GeRenXinXi.ErWeiMa.ErWeiMaActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.GeRenXinXi.WeiZhi.WeiZhiActivity" />
+        <activity android:name=".Main.MineFragment.GeRenXinXi.Email.EmailActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.GeRenXinXi.QQ.QQActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.GeRenXinXi.WeiXin.WeiXinActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.GeRenXinXi.XiuGaiShouJi.XiuGaiShouJiActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.SheZhi.SheZhiActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.SheZhi.XiuGaiMiMa.XiuGaiMiMaActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.SheZhi.XiaoXiSheZhi.XiaoXiSheZhiActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.WoDeYaoQing.WoDeYaoQingActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.WoDeYaoQing.WoDeTuiJianRen.WoDeTuiJianRenActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.WoDeYaoQing.WoDeYaoQingDetail.WoDeYaoQingDetailActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.JiFenShangCheng.JiFenShangChengActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.JiFenShangCheng.SuoYouShangPin.SuoYouShangPinActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.JiFenShangCheng.ShangPinXiangQing.ShangPinXiangQingActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.JiFenShangCheng.ShangPinXiangQing.TianXieShouHuoDiZhi.TianXieShouHuoDiZhiActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.JiFenShangCheng.JiFenTiXian.JiFenTiXianActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.JiFenShangCheng.QianDao.QianDaoActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.JiFenShangCheng.SuoYouShangPin.DuiHuanJiLu.DuiHuanJiLuActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.JiFenShangCheng.SuoYouShangPin.DuiHuanJiLu.JiFenMingXi.JiFenMingXiActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.JiFenShangCheng.SuoYouShangPin.DuiHuanJiLu.JiFenMingXi.JiFenShuoMing.JiFenShuoMingActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.ZuCheHuoYun.ZuCheHuoYunActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.RenRenKuaiDi.RenRenKuaiDiActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.HuiTouChe.HuiTouCheActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.BanJia.ReleaseBanJiaActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.IndexFragment.CityChange.CityChangeActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.ZhuanXianWuLiu.SelectPicActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.ZhuanXianWuLiu.MiaoShu.MiaoShuActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.TeZhongYunShu.TeZhongYunShuActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.BanJia.CarType.CarTypeActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MainActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.FaBuHuoYuan.FaBuHuoYuanActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.FaBuHuoYuan.HuoWuLeiBie.GoodsTypeActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.IndexFragment.CommonXRVDetail.GoodsSourceXRVDetailActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.AdviceFragment.AdviceDetail.AdviceDetailActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.IndexFragment.Common.MySelfLocActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.IndexFragment.NearByDriver.NearByDriverActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MessageFragment.Chat.ChatActivity" />
+        <activity android:name=".Main.MessageFragment.SystemInfo.SystemInfoActivity" />
+       <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
+
+    </application>
+
+</manifest>

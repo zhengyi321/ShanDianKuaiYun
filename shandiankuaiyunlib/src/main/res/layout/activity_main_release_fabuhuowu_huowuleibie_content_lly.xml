@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_release_fabuhuowu_huowuleibie_content_bg"
+    >
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_main_release_fabuhuowu_huowuleibie_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/main_release_fabuhuowu_huowuleibie_margin_size"
+        >
+
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

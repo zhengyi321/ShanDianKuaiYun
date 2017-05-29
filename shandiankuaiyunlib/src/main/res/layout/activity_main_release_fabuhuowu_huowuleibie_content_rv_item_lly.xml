@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/main_release_fabuhuowu_huowuleibie_content_rv_item_height"
+    android:background="@color/color_main_release_fabuhuowu_huowuleibie_content_item_bg"
+    android:id="@+id/rly_main_release_fabuhuowu_huowuleibie_content_rv_item"
+    >
+    <TextView
+        android:id="@+id/tv_main_release_fabuhuowu_huowuleibie_content_rv_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/main_release_fabuhuowu_huowuleibie_content_word_size"
+        android:text="测试"
+        android:textColor="@color/color_main_release_fabuhuowu_huowuleibie_content_black_word_textcolor"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_height_or_width"
+        android:background="@color/color_main_release_fabuhuowu_huowuleibie_content_bg"
+        />
+</RelativeLayout>

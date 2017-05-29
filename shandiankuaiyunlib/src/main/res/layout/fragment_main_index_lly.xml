@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_main_index_content_gray_white_bg"
+    >
+    <include layout="@layout/main_index_topbar_lly"/>
+<!--    <com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fillViewport="true"
+        android:background="@color/color_main_index_content_gray_white_bg"
+        >-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="3.5"
+            >
+            <RelativeLayout
+                android:id="@+id/rly_main_content_loop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1">
+                <com.zhyan.shandiankuaiyunlib.Widget.ViewPage.ImageCycleView
+                    android:id="@+id/icv_main_index_ad_circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+
+                </com.zhyan.shandiankuaiyunlib.Widget.ViewPage.ImageCycleView>
+                <!--<android.support.v4.view.ViewPager
+                    android:id="@+id/vp_main_index_ad_circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </android.support.v4.view.ViewPager>
+                &lt;!&ndash; android:background="#33000000"&ndash;&gt;
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/vp_main_index_ad_circle"
+                    android:orientation="vertical"
+                    android:padding="5dip" >
+
+                    <TextView
+                        android:id="@+id/tv_image_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="第一个引导页面"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:visibility="invisible"
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/lly_main_index_content_points"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dip"
+                        android:layout_marginRight="28dip"
+                        android:layout_gravity="right"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </LinearLayout>-->
+
+            </RelativeLayout>
+
+            <!--
+        <com.zhyan.shandiankuaiyunlib.Widget.BannerWidget.Kanner
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="1"
+            android:background="@mipmap/guanggao2"
+            >-->
+
+<!--
+        </com.zhyan.shandiankuaiyunlib.Widget.BannerWidget.Kanner>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:orientation="vertical"
+            android:layout_weight="2.5"
+            android:layout_margin="@dimen/main_index_content_model_margin"
+            android:weightSum="3.5"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="2.7"
+                android:layout_marginBottom="@dimen/main_index_content_model_margin_each_other"
+                android:orientation="horizontal"
+                >
+                <LinearLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginRight="@dimen/main_index_content_model_margin_each_other"
+                    >
+                    <ImageButton
+                        android:id="@+id/ib_main_index_zchy"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="1"
+                        android:background="@mipmap/zchy"
+                        android:layout_marginTop="@dimen/main_index_content_model_margin_each_other"
+                        />
+                    <ImageButton
+                        android:id="@+id/ib_main_index_fjsj"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="1"
+                        android:background="@mipmap/fjsj"
+                        android:layout_marginTop="@dimen/main_index_content_model_margin_each_other"
+                        />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/main_index_content_model_margin_each_other"
+                    >
+                    <ImageButton
+                        android:id="@+id/ib_main_index_zxwl"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="1"
+                        android:background="@mipmap/zxwl"
+                        android:layout_marginBottom="@dimen/main_index_content_model_margin_each_other"
+                        />
+                    <ImageButton
+                        android:id="@+id/ib_main_index_tzwl"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="1"
+                        android:background="@mipmap/tzwl"
+                        android:layout_marginTop="@dimen/main_index_content_model_margin_each_other"
+                        android:layout_marginBottom="@dimen/main_index_content_model_margin_each_other"
+                        />
+
+
+                    <ImageButton
+                        android:id="@+id/ib_main_index_phzx"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="1"
+                        android:background="@mipmap/phzx"
+                        android:layout_marginBottom="@dimen/main_index_content_model_margin_each_other"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="0.8"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/main_index_content_model_margin_each_other"
+                >
+                <ImageButton
+                    android:id="@+id/ib_main_index_fx"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/fx"
+                    android:layout_marginRight="@dimen/main_index_content_model_margin_each_other"
+                    android:scaleType="fitXY"
+                    />
+                <ImageButton
+                    android:id="@+id/ib_main_index_rrwl"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/rrwl"
+                    android:layout_marginLeft="@dimen/main_index_content_model_margin_each_other"
+                    android:layout_marginRight="@dimen/main_index_content_model_margin_each_other"
+                    android:scaleType="fitXY"
+                    />
+                <ImageButton
+                    android:id="@+id/ib_main_index_bj"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/bj"
+                    android:layout_marginLeft="@dimen/main_index_content_model_margin_each_other"
+                    android:layout_marginRight="@dimen/main_index_content_model_margin_each_other"
+                    android:scaleType="fitXY"
+                    />
+                <ImageButton
+                    android:id="@+id/ib_main_index_kf"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@mipmap/kf"
+                    android:layout_marginLeft="@dimen/main_index_content_model_margin_each_other"
+                    android:scaleType="fitXY"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        </LinearLayout>
+   <!-- </com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>-->
+
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_mine_aboutus_yonghuxieyi_content_bg"
+    >
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/main_mine_aboutus_yonghuxieyi_tab_title_height"
+       android:background="@color/color_main_mine_aboutus_yonghuxieyi_content_bg"
+       >
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/shandianwuliuzhucexieyi"
+           android:textColor="@color/color_main_mine_aboutus_yonghuxieyi_content_black_word_textcolor"
+           android:textSize="@dimen/main_mine_aboutus_yonghuxieyi_tab_title_word_size"
+           android:layout_centerInParent="true"
+           />
+
+   </RelativeLayout>
+
+    <com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/color_main_mine_aboutus_yonghuxieyi_content_tv_bg"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/main_mine_aboutus_yonghuxieyi_content_margin_size"
+            android:background="@color/color_main_mine_aboutus_yonghuxieyi_content_tv_bg"
+            >
+            <TextView
+                android:id="@+id/tv_main_mine_aboutus_yonghuxieyi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_main_mine_aboutus_yonghuxieyi_content_black_word_textcolor"
+                android:textSize="@dimen/main_mine_aboutus_yonghuxieyi_content_word_size"
+                android:text="闪电物流平台，致力于互联网服务" />
+
+
+        </LinearLayout>
+
+    </com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>
+</LinearLayout>

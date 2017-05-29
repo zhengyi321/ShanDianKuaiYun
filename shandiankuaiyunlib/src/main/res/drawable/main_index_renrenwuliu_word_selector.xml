@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:color="@color/color_main_index_renrenwuliu_bottom_orange_word_textcolor"/>
+    <item android:state_focused="true" android:color="@color/color_main_index_renrenwuliu_bottom_orange_word_textcolor"/>
+    <item android:state_pressed="true" android:color="@color/color_main_index_renrenwuliu_bottom_orange_word_textcolor"/>
+    <item android:state_checked="true" android:color="@color/color_main_index_renrenwuliu_bottom_orange_word_textcolor"/>
+    <item android:color="@color/color_main_index_renrenwuliu_bottom_black_word_textcolor"/>
+</selector>

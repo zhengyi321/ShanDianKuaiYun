@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="5dp"/>
+    <stroke android:dashGap="0dp"
+        android:width="@dimen/split_width_or_height"
+        android:color="@color/color_main_mine_jifenshangcheng_suoyoushangpin_red_edge"/>
+    <solid android:color="@color/color_main_mine_jifenshangcheng_suoyoushangpin_content_item_bg"/>
+</shape>

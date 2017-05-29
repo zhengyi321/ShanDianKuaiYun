@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="@dimen/main_release_banjia_topbar_height"
+    android:background="@color/color_main_release_banjia_topbar_bg"
+    >
+    <RelativeLayout
+        android:id="@+id/rly_main_release_banjia_back"
+        android:layout_width="@dimen/zero"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/back"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="@dimen/zero"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/carry_home"
+            android:textSize="@dimen/main_release_banjia_topbar_title_word_size"
+            android:textColor="@color/color_main_release_banjia_topbar_title_textcolor"
+            android:layout_centerInParent="true"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="@dimen/zero"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+
+    </RelativeLayout>
+</LinearLayout>

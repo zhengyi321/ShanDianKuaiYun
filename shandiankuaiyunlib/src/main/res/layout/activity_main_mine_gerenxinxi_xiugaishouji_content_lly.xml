@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_mine_gerenxinxi_xiugaishouji_content_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_gerenxinxi_xiugaishouji_content_item_height"
+        android:layout_marginLeft="@dimen/main_mine_gerenxinxi_xiugaishouji_content_item_margin_left_right_size"
+        android:layout_marginRight="@dimen/main_mine_gerenxinxi_xiugaishouji_content_item_margin_left_right_size"
+        android:layout_marginTop="@dimen/main_mine_gerenxinxi_xiugaishouji_content_item_margin_top_size"
+        android:background="@drawable/main_mine_gerenxinxi_xiugaishouji_item_shape"
+        android:orientation="horizontal"
+        >
+
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            >
+            <EditText
+                android:id="@+id/et_main_mine_gerenxinxi_xiugaishouji_tel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="@string/qingshuruninyaoxiugaidebangdingshouji"
+                android:textColorHint="@color/color_main_mine_gerenxinxi_xiugaishouji_content_gray_word_textcolor"
+                android:textColor="@color/color_main_mine_gerenxinxi_xiugaishouji_content_gray_word_textcolor"
+                android:textSize="@dimen/main_mine_gerenxinxi_xiugaishouji_content_word_size"
+                android:maxLines="1"
+                android:layout_marginLeft="10dp"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_gerenxinxi_xiugaishouji_content_item_height"
+        android:layout_marginLeft="@dimen/main_mine_gerenxinxi_xiugaishouji_content_item_margin_left_right_size"
+        android:layout_marginRight="@dimen/main_mine_gerenxinxi_xiugaishouji_content_item_margin_left_right_size"
+        android:layout_marginTop="@dimen/main_mine_gerenxinxi_xiugaishouji_content_item_margin_top_size"
+        android:background="@drawable/main_mine_gerenxinxi_xiugaishouji_item_shape"
+        android:orientation="horizontal"
+        >
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            >
+            <EditText
+                android:id="@+id/et_main_mine_gerenxinxi_xiugaishouji_identify"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="@string/input_identify"
+                android:textColorHint="@color/color_main_mine_gerenxinxi_xiugaishouji_content_gray_word_textcolor"
+                android:textColor="@color/color_main_mine_gerenxinxi_xiugaishouji_content_gray_word_textcolor"
+                android:textSize="@dimen/main_mine_gerenxinxi_xiugaishouji_content_word_size"
+                android:maxLines="1"
+                android:layout_marginLeft="10dp"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rly_main_mine_gerenxinxi_xiugaishouji_get_identify"
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/color_main_mine_gerenxinxi_xiugaishouji_content_light_blue_bg"
+            >
+            <TextView
+                android:id="@+id/tv_main_mine_gerenxinxi_xiugaishouji_get_identify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/get_identify"
+                android:textColor="@color/color_main_mine_gerenxinxi_xiugaishouji_content_white_word_textcolor"
+                android:textSize="@dimen/main_mine_gerenxinxi_xiugaishouji_content_word_size"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rly_main_mine_gerenxinxi_xiugaishouji_update_tel_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_gerenxinxi_xiugaishouji_content_submit_height"
+        android:layout_marginTop="@dimen/main_mine_gerenxinxi_xiugaishouji_content_submit_margin_top"
+        android:layout_marginLeft="@dimen/main_mine_gerenxinxi_xiugaishouji_content_item_margin_left_right_size"
+        android:layout_marginRight="@dimen/main_mine_gerenxinxi_xiugaishouji_content_item_margin_left_right_size"
+        android:background="@color/color_main_mine_gerenxinxi_xiugaishouji_content_blue_bg"
+        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/querenxiugai"
+                android:textColor="@color/color_main_mine_gerenxinxi_xiugaishouji_content_white_word_textcolor"
+                android:textSize="@dimen/main_mine_gerenxinxi_xiugaishouji_content_word_size"
+                android:layout_centerInParent="true"
+                />
+
+    </RelativeLayout>
+
+</LinearLayout>

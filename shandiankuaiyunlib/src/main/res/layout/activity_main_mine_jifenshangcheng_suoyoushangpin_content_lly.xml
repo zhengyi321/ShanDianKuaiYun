@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_mine_jifenshangcheng_suoyoushangpin_content_bg"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="2.5"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@mipmap/image2"
+                android:scaleType="fitXY"
+                />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="3"
+        android:background="@color/color_main_mine_jifenshangcheng_suoyoushangpin_content_item_bg"
+        >
+        <com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView
+            android:id="@+id/xrv_main_mine_jifenshangcheng_suoyoushangpin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView>
+    </RelativeLayout>
+</LinearLayout>

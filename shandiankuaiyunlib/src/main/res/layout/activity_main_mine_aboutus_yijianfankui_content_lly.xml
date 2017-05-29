@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/color_main_mine_aboutus_yijianfankui_content_bg"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_aboutus_yijianfankui_content_et_height"
+        android:layout_margin="@dimen/main_mine_aboutus_yijianfankui_content_margin_size"
+        >
+        <EditText
+            android:id="@+id/et_main_mine_aboutus_yijianfankui_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/main_mine_aboutus_yijianfankui_et_shape"
+            android:hint="@string/input_your_fankuiyijian"
+            android:textColorHint="@color/color_main_mine_aboutus_yijianfankui_content_gray_word_textcolor"
+            android:textColor="@color/color_main_mine_aboutus_yijianfankui_content_black_word_textcolor"
+            android:textSize="@dimen/main_mine_aboutus_yijianfankui_content_word_size"
+            android:gravity="top"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rly_main_mine_aboutus_yijianfankui_content_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_aboutus_yijianfankui_content_submit_height"
+        android:layout_marginTop="@dimen/main_mine_aboutus_yijianfankui_content_submit_margin_top_height"
+        android:background="@drawable/main_mine_aboutus_yijianfankui_submit_shape"
+        android:layout_marginLeft="@dimen/main_mine_aboutus_yijianfankui_content_margin_size"
+        android:layout_marginRight="@dimen/main_mine_aboutus_yijianfankui_content_margin_size"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tijiao"
+            android:textColor="@color/color_main_mine_aboutus_yijianfankui_content_white_word_textcolor"
+            android:textSize="@dimen/main_mine_aboutus_yijianfankui_content_word_size"
+            android:layout_centerInParent="true"
+
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

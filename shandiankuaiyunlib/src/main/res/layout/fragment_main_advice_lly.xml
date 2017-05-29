@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_main_advice_content_white_bg"
+    >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        android:background="@mipmap/guanggao2"
+        />
+    <com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView
+        android:id="@+id/xrv_main_advice"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="2.5"
+        >
+
+
+    </com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView>
+</LinearLayout>

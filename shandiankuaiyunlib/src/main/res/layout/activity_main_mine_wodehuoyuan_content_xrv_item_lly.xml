@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/main_mine_wodehuoyuan_content_item_height"
+    android:background="@color/color_main_mine_wodehuoyuan_content_item_bg"
+
+    >
+    <!--android:layout_marginBottom="@dimen/main_mine_wodehuoyuan_content_item_margin_bottom"-->
+   <!-- <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_width_or_height"
+        android:background="@color/color_main_mine_wodehuoyuan_content_item_splite"
+
+
+        />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_wodehuoyuan_content_item_top_height"
+        android:orientation="horizontal"
+
+        >
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/main_mine_wodehuoyuan_content_item_margin_size"
+            android:layout_marginTop="@dimen/main_mine_wodehuoyuan_content_item_margin_size"
+            android:layout_marginBottom="@dimen/main_mine_wodehuoyuan_content_item_margin_size"
+            android:layout_marginRight="@dimen/main_mine_wodehuoyuan_content_item_margin_size"
+            >
+            <ImageView
+                android:id="@+id/iv_main_mine_wodehuoyuan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:background="@mipmap/sdwl"
+                />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="3"
+            android:layout_marginTop="@dimen/main_mine_wodehuoyuan_content_item_margin_size"
+            android:layout_marginBottom="@dimen/main_mine_wodehuoyuan_content_item_margin_size"
+            android:layout_marginRight="@dimen/main_mine_wodehuoyuan_content_item_margin_size"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:id="@+id/tv_main_mine_wodehuoyuan_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="城南 - 南芬"
+                    android:textColor="@color/color_main_mine_wodehuoyuan_content_item_black_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodehuoyuan_content_item_word_size"
+                    android:layout_centerVertical="true"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="2"
+                >
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/xianshizhong"
+                        android:textColor="@color/color_main_mine_wodehuoyuan_content_item_green_word_textcolor"
+                        android:textSize="@dimen/main_mine_wodehuoyuan_content_item_word_size"
+                        android:layout_centerVertical="true"
+                        />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fabuyu"
+                        android:textColor="@color/color_main_mine_wodehuoyuan_content_item_gray_word_textcolor"
+                        android:textSize="@dimen/main_mine_wodehuoyuan_content_item_word_size"
+                        android:layout_centerInParent="true"
+                        />
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    >
+                    <TextView
+                        android:id="@+id/tv_main_mine_wodehuoyuan_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2017-05-03"
+                        android:textColor="@color/color_main_mine_wodehuoyuan_content_item_gray_word_textcolor"
+                        android:textSize="@dimen/main_mine_wodehuoyuan_content_item_word_size"
+                        android:layout_centerVertical="true"
+                        />
+
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/liulang"
+                    android:textColor="@color/color_main_mine_wodehuoyuan_content_item_gray_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodehuoyuan_content_item_word_size"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/tv_main_mine_wodehuoyuan_times"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:textColor="@color/color_main_mine_wodehuoyuan_content_item_orange_textcolor"
+                    android:textSize="@dimen/main_mine_wodehuoyuan_content_item_word_size"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ci"
+                    android:textColor="@color/color_main_mine_wodehuoyuan_content_item_gray_word_textcolor"
+                    android:textSize="@dimen/main_mine_wodehuoyuan_content_item_word_size"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <!--<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_width_or_height"
+        android:background="@color/color_main_mine_wodehuoyuan_content_item_splite"
+
+
+        />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_wodehuoyuan_content_item_bottom_height"
+        android:orientation="horizontal"
+        android:layout_marginRight="@dimen/main_mine_wodehuoyuan_content_item_margin_size"
+        >
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            >
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <Button
+                android:id="@+id/bt_main_mine_wodehuoyuan_rfresh"
+                android:layout_width="@dimen/main_mine_wodehuoyuan_content_item_button_width"
+                android:layout_height="@dimen/main_mine_wodehuoyuan_content_item_button_height"
+                android:background="@drawable/main_mine_wodehuoyuan_orange_radius_shape"
+                android:text="@string/shuaxin"
+                android:textColor="@color/color_main_mine_wodehuoyuan_content_item_orange_textcolor"
+                android:textSize="@dimen/main_mine_wodehuoyuan_content_item_word_size"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <Button
+                android:layout_width="@dimen/main_mine_wodehuoyuan_content_item_button_width"
+                android:layout_height="@dimen/main_mine_wodehuoyuan_content_item_button_height"
+                android:background="@drawable/main_mine_wodehuoyuan_orange_radius_shape"
+                android:text="@string/fenxiang"
+                android:textColor="@color/color_main_mine_wodehuoyuan_content_item_orange_textcolor"
+                android:textSize="@dimen/main_mine_wodehuoyuan_content_item_word_size"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <Button
+                android:layout_width="@dimen/main_mine_wodehuoyuan_content_item_button_width"
+                android:layout_height="@dimen/main_mine_wodehuoyuan_content_item_button_height"
+                android:background="@drawable/main_mine_wodehuoyuan_orange_radius_shape"
+                android:text="@string/shenglvhao"
+                android:textColor="@color/color_main_mine_wodehuoyuan_content_item_orange_textcolor"
+                android:textSize="@dimen/main_mine_wodehuoyuan_content_item_word_size"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_width_or_height"
+        android:background="@color/color_main_mine_wodehuoyuan_content_item_splite"
+
+
+        />
+</LinearLayout>

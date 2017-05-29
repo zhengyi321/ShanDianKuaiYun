@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_mine_jifenshangcheng_qiandao_content_item_bg"
+   >
+
+
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/signin" />
+
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="5dp"
+        android:text="400"
+        android:textColor="#137fdf"
+        android:textSize="15sp" />
+
+
+
+    <FrameLayout
+        android:id="@+id/stepView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/iv_image">
+
+        <com.zhyan.shandiankuaiyuanwidgetlib.ProportionView
+            android:id="@+id/d"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            />
+
+
+    </FrameLayout>
+
+
+
+    <fragment
+        android:id="@+id/calendarView"
+        android:name="com.zhyan.shandiankuaiyuanwidgetlib.Fragment.MyFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlSign" >
+
+    </fragment>
+
+    <RelativeLayout
+        android:id="@+id/rlSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stepView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+
+        >
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:textColor="#666666"
+            android:text="一您已连续签到" />
+
+        <TextView
+            android:id="@+id/tvalwaysSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv"
+            android:textColor="#137fdf"
+            android:textSize="11sp"
+            android:text="1" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#666666"
+            android:textSize="11sp"
+            android:layout_toRightOf="@+id/tvalwaysSign"
+            android:text="天，可累计获得积分一" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_image"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/iv_image"
+        android:text="累计积分"
+        android:textColor="#666666"
+        android:textSize="14sp" />
+</RelativeLayout>

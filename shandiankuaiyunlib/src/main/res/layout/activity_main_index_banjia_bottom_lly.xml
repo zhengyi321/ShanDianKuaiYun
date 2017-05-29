@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="@dimen/main_index_banjia_bottom_height"
+    android:background="@color/color_main_index_banjia_content_bg"
+    android:layout_gravity="bottom"
+    >
+    <RelativeLayout
+        android:id="@+id/rly_main_index_banjia_bottom_all"
+        android:layout_width="@dimen/zero"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+        <CheckBox
+            android:id="@+id/cb_main_index_banjia_bottom_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:button="@null"
+            android:checked="true"
+            android:text="@string/the_whole_city"
+            android:textSize="@dimen/main_index_banjia_bottom_word_size"
+            android:textColor="@drawable/main_index_banjia_word_selector"
+            android:drawableLeft="@drawable/main_index_banjia_whole_city_pic_selector"
+            android:layout_centerInParent="true"
+            />
+
+    </RelativeLayout>
+    <ImageView
+        android:layout_width="@dimen/split_width_or_height"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/main_index_banjia_bottom_split_margin_top_bottom_size"
+        android:layout_marginBottom="@dimen/main_index_banjia_bottom_split_margin_top_bottom_size"
+        android:background="@color/color_main_index_banjia_bottom_gray_splite_line"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rly_main_index_banjia_bottom_near"
+        android:layout_width="@dimen/zero"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+        <CheckBox
+            android:id="@+id/cb_main_index_banjia_bottom_near"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:button="@null"
+
+            android:text="@string/nearby"
+            android:textSize="@dimen/main_index_banjia_bottom_word_size"
+            android:textColor="@drawable/main_index_banjia_word_selector"
+            android:drawableLeft="@drawable/main_index_banjia_nearby_pic_selector"
+            android:layout_centerInParent="true"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

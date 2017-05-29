@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_item_bg"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_item_height"
+        android:orientation="horizontal"
+        >
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/caozuo"
+                android:textColor="@color/color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_gray_word_textcolor"
+                android:textSize="@dimen/main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_word_size"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jifen"
+                android:textColor="@color/color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_gray_word_textcolor"
+                android:textSize="@dimen/main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_word_size"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jifenyuer"
+                android:textColor="@color/color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_gray_word_textcolor"
+                android:textSize="@dimen/main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_content_word_size"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_width_or_height"
+        android:background="@color/color_main_mine_jifenshangcheng_suoyoushangpin_duihuanjilu_jifenmingxi_gray_splite_line"
+        />
+</LinearLayout>
