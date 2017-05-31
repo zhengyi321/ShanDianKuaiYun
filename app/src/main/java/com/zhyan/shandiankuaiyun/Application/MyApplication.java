@@ -2,6 +2,7 @@ package com.zhyan.shandiankuaiyun.Application;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Config;
 import android.util.Log;
 
 
@@ -16,6 +17,9 @@ import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.common.SocializeConstants;*/
+import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.common.SocializeConstants;
 import com.zhyan.shandiankuaiyuanwidgetlib.Utils.AppThirdDataUtils;
 
 import cn.smssdk.SMSSDK;
@@ -105,18 +109,18 @@ public class MyApplication extends Application {
     private void initYouMeng(){
 
       /*  QueuedWork.isUseThreadPool = false;*/
-      /*  UMShareAPI.get(this);
+        UMShareAPI.get(this);
 
         //微信 wx12342956d1cab4f9,a5ae111de7d9ea137e88a5e02c07c94d
-    *//*    PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");*//*
+        PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
         PlatformConfig.setWeixin("wx45d0c1ee001c7272", "3f350d810683b0322a7fdffa2a905f64");
         //新浪微博
         PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad");
-    *//*    最新的版本需要加上这个回调地址，可以在微博开放平台申请的应用获取，必须要有*//*
-        Config.REDIRECT_URL="http://sns.whalecloud.com/sina2/callback";
+      /*  最新的版本需要加上这个回调地址，可以在微博开放平台申请的应用获取，必须要有*/
+      /*  Config.REDIRECT_URL="http://sns.whalecloud.com/sina2/callback";*/
         //QQ
-        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");*/
-      /*  UMShareAPI.get(instance);
+        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
+       /* UMShareAPI.get(instance);
         Config.DEBUG = true;
         Log.i("友盟的版本号", SocializeConstants.SDK_VERSION);
         MobclickAgent.setScenarioType(getContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);

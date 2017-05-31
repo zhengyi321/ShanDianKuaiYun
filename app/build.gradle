@@ -37,6 +37,11 @@ android {
             proguardFiles 'proguard-rules.pro'
         }*/
     }
+    //添加如下配置就ok了
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
    /* signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -130,7 +135,6 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.0.1'
     compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
     /*rx+rtf+ok*/
-    compile project(':shandiankuaiyunlib')
     /*mob短信*/
     /*Mob免费短信验证码http://www.mob.com/downloads/*/
     compile name: 'SMSSDK-2.1.4', ext: 'aar'
@@ -155,7 +159,7 @@ dependencies {
     /*环信聊天*/
     /*友盟*/
     /*友盟*/
-
+    compile project(':shandiankuaiyunlib')
 }
 /*// 依赖插件脚本
 apply from: 'tinker-support.gradle'*/

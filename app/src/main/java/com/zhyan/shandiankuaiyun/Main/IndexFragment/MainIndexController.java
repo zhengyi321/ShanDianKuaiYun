@@ -15,6 +15,11 @@ import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.utils.Log;*/
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.utils.Log;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.LianXiKeFuDialog;
@@ -177,16 +182,15 @@ public class MainIndexController extends BaseController{
     public void ibMainIndexFXOnclick(){
        /* CommonSharePopWindowActivity.getInstance().showBottomDialog((Activity)view.getContext());*/
         Defaultcontent defaultcontent = new Defaultcontent();
-       /* UMImage image=new UMImage(view.getContext(), R.mipmap.logo);
-        new ShareAction((Activity) view.getContext()).setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN,SHARE_MEDIA.WEIXIN_CIRCLE,SHARE_MEDIA.WEIXIN_FAVORITE,*//*SHARE_MEDIA.SMS,*//*SHARE_MEDIA.QZONE)
+        UMImage image=new UMImage(view.getContext(), R.mipmap.logo);
+        new ShareAction((Activity) view.getContext()).setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN,SHARE_MEDIA.WEIXIN_CIRCLE,SHARE_MEDIA.WEIXIN_FAVORITE/*,SHARE_MEDIA.SMS*/,SHARE_MEDIA.QZONE)
                 .withTitle(defaultcontent.title)
                 .withText(defaultcontent.text)
                 .withMedia(image)
                 .withTargetUrl(defaultcontent.url)
                 .setCallback(umShareListener)
-                .open();*/
+                .open();
     }
-/*
     private UMShareListener umShareListener = new UMShareListener() {
         @Override
         public void onResult(SHARE_MEDIA platform) {
@@ -210,7 +214,7 @@ public class MainIndexController extends BaseController{
         public void onCancel(SHARE_MEDIA platform) {
             Toast.makeText(view.getContext(),platform + " 分享取消了", Toast.LENGTH_SHORT).show();
         }
-    };*/
+    };
 
 
     public MainIndexController(View view1){
