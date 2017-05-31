@@ -31,7 +31,7 @@ import com.zhyan.shandiankuaiyunlib.Bean.MyMessageBean;
 import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
 import com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView;
 
-import net.tsz.afinal.FinalBitmap;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

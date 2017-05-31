@@ -42,6 +42,9 @@ import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.progressind
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.progressindicator.indicator.SquareSpinIndicator;
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.progressindicator.indicator.TriangleSkewSpinIndicator;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * Created by Jack on 2015/10/15
  *
@@ -138,6 +141,7 @@ public class AVLoadingIndicatorView extends View{
                     BallGridBeat,
                     SemiCircleSpin
             })
+    @Retention(RetentionPolicy.SOURCE)
     public @interface Indicator{}
 
     //Sizes (with defaults in DP)
@@ -157,7 +161,6 @@ public class AVLoadingIndicatorView extends View{
         super(context);
         init(null, 0);
     }
-
     public AVLoadingIndicatorView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);

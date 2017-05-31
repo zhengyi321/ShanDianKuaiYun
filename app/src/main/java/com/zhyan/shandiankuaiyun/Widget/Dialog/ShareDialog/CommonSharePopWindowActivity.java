@@ -8,10 +8,11 @@ import com.zhyan.shandiankuaiyuanwidgetlib.ShareDialog.ViewUtil;
 /*import com.shandian.lu.util.ViewUtil;
 import com.shandian.lu.weight.PageIndicatorView;
 import com.shandian.lu.weight.PageRecyclerView;*/
+/*
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
-import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMImage;*/
 import com.zhyan.shandiankuaiyun.R;
 
 import android.app.Activity;
@@ -30,6 +31,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 public class CommonSharePopWindowActivity extends Activity{
+/*
 	private Context context;
 	private Activity current_activity;
 	private static CommonSharePopWindowActivity instance;
@@ -207,5 +209,6 @@ public class CommonSharePopWindowActivity extends Activity{
 		}
 
 	}
+*/
 
 }

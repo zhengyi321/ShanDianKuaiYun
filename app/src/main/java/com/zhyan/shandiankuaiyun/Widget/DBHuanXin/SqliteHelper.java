@@ -1,5 +1,4 @@
 package com.zhyan.shandiankuaiyun.Widget.DBHuanXin;
-/*
 
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
@@ -35,10 +34,9 @@ public class SqliteHelper extends OrmLiteSqliteOpenHelper {
 		return mInstance;
 	}
 
-	*/
 /**
-	 * 鍒涘缓SQLite鏁版嵁搴�
-	 *//*
+	 * 鍒涘缓SQLite鏁版嵁搴�*/
+
 
 	@Override
 	public void onCreate(SQLiteDatabase sqliteDatabase, ConnectionSource connectionSource) {
@@ -51,10 +49,9 @@ public class SqliteHelper extends OrmLiteSqliteOpenHelper {
 		}
 	}
 
-	*/
 /**
 	 * 鏇存柊SQLite鏁版嵁搴�
-	 *//*
+	 */
 
 	@Override
 	public void onUpgrade(
@@ -87,4 +84,3 @@ public class SqliteHelper extends OrmLiteSqliteOpenHelper {
 	}
 
 }
-*/

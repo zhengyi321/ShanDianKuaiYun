@@ -12,7 +12,7 @@ import android.widget.RadioButton;
 import com.zhyan.shandiankuaiyun.BaseController;
 import com.zhyan.shandiankuaiyun.Main.AdviceFragment.MainAdviceFragment;
 import com.zhyan.shandiankuaiyun.Main.IndexFragment.MainIndexFragment;
-import com.zhyan.shandiankuaiyun.Main.MessageFragment.ChatMessageFragment;
+/*import com.zhyan.shandiankuaiyun.Main.MessageFragment.ChatMessageFragment;*/
 import com.zhyan.shandiankuaiyun.Main.MineFragment.MainMineFragment;
 import com.zhyan.shandiankuaiyun.Main.ReleaseFragment.MainReleaseFragment;
 import com.zhyan.shandiankuaiyun.R;

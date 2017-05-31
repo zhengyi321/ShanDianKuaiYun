@@ -3,14 +3,14 @@ package com.zhyan.shandiankuaiyun.Widget.DBHuanXin;
 
 import com.zhyan.shandiankuaiyun.Application.MyApplication;
 
-public class PrefUtils /*extends PreferencesUtils*/ {
-/*
+public class PrefUtils extends PreferencesUtils {
 
     // 这里的MainApplication、BaseApplication替换成自己项目的Application子类实例即可
 	public static final MyApplication mAppContext = (MyApplication)MyApplication.getContext();
 
-    */
-/*************************** 用户登录信息 ***********************************************//*
+/*
+************************** 用户登录信息 **********************************************
+*/
 
 
 	public static void setUserId(long userId) {
@@ -68,12 +68,11 @@ public class PrefUtils /*extends PreferencesUtils*/ {
 		return PrefUtils.getString(mAppContext,
 				SharePrefConstant.UserChatPwd);
 	}
-
-    */
-/**
+/*
+*
 	 * 用户是否已经登录
 	 * @return 如果已经登录，则返回true
-	 *//*
+	 */
 
 	public static boolean isLogin() {
 		long userId = getUserId();
@@ -88,9 +87,9 @@ public class PrefUtils /*extends PreferencesUtils*/ {
 		setUserChatId("");
 		setUserChatPwd("");
 	}
-	*/
-/*************************** 用户登录信息************end ***********************************//*
-
+/*
+************************** 用户登录信息************end **********************************
 
 */
+
 }

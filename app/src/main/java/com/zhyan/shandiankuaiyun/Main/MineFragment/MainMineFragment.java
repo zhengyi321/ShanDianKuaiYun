@@ -19,7 +19,7 @@ import com.umeng.socialize.utils.Log;*/
 import com.zhyan.shandiankuaiyun.Main.BaseFragment;
 import com.zhyan.shandiankuaiyun.R;
 /*import com.zhyan.shandiankuaiyun.Widget.Dialog.ShareDialog.CommonSharePopWindowActivity;*/
-import com.zhyan.shandiankuaiyun.Widget.Dialog.ShareDialog.CommonSharePopWindowActivity;
+/*import com.zhyan.shandiankuaiyun.Widget.Dialog.ShareDialog.CommonSharePopWindowActivity;*/
 import com.zhyan.shandiankuaiyun.Widget.Dialog.ShareDialog.DemoActivity;
 import com.zhyan.shandiankuaiyun.Widget.YouMeng.Defaultcontent;
 
@@ -41,7 +41,7 @@ public class MainMineFragment extends BaseFragment {
     @OnClick(R.id.lly_main_mine_fenxiang)
     public void llyMainMineFenXiangOnclick(){
        /* DemoActivity demoActivity = new DemoActivity(getActivity());*/
-        CommonSharePopWindowActivity.getInstance().showBottomDialog(getActivity());/*/*
+  /*      CommonSharePopWindowActivity.getInstance().showBottomDialog(getActivity());*//*/*
         Defaultcontent defaultcontent = new Defaultcontent();
         new ShareAction(getActivity()).setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN,SHARE_MEDIA.WEIXIN_CIRCLE)
                 .withTitle(defaultcontent.title)

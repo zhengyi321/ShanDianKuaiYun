@@ -51,7 +51,7 @@ public class DemoActivity {
         mRecyclerView.setPageMargin(30);
         initData();
         // 设置数据
-        mRecyclerView.setAdapter(myAdapter = mRecyclerView.new PageAdapter(dataList, new PageRecyclerView.CallBack() {
+       /* mRecyclerView.setAdapter(myAdapter = mRecyclerView.new PageAdapter(dataList, new PageRecyclerView.CallBack() {
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(activity).inflate(R.layout.item, parent, false);
@@ -63,7 +63,7 @@ public class DemoActivity {
                 ((MyHolder) holder).tv.setText(dataList.get(position));
             }
 
-/*            @Override
+*//*            @Override
             public void onItemClickListener(View view, int position) {
                 Toast.makeText(activity, "点击："
                         + dataList.get(position), Toast.LENGTH_SHORT).show();
@@ -74,8 +74,8 @@ public class DemoActivity {
                 Toast.makeText(activity, "删除："
                         + dataList.get(position), Toast.LENGTH_SHORT).show();
                 myAdapter.remove(position);
-            }*/
-        }));
+            }*//*
+        }));*/
 
     }
 

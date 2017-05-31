@@ -1,14 +1,14 @@
 package com.zhyan.shandiankuaiyun.Widget.DBHuanXin;
 
-import com.alibaba.fastjson.JSON;/*
+import com.alibaba.fastjson.JSON;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.io.Serializable;
+/*
+*
+ * Created by Administrator on 2016/4/18.*/
 
-*//**
- * Created by Administrator on 2016/4/18.
- *//*
 @DatabaseTable(tableName="UserApiModel")
 public class UserApiModel implements Serializable {
 
@@ -106,4 +106,3 @@ public class UserApiModel implements Serializable {
         EaseMobPassword = easeMobPassword;
     }
 }
-*/

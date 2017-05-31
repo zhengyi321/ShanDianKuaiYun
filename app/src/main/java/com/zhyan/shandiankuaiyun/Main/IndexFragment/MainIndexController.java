@@ -1,5 +1,6 @@
 package com.zhyan.shandiankuaiyun.Main.IndexFragment;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,6 +10,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
+/*import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.utils.Log;*/
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.LianXiKeFuDialog;
@@ -22,6 +28,8 @@ import com.zhyan.shandiankuaiyun.Main.IndexFragment.ZhengCheHuoYun.ZhengCheHuoYu
 import com.zhyan.shandiankuaiyun.Main.IndexFragment.ZhuanXianWuLiu.ZhuanXianWuLiuActivity;
 import com.zhyan.shandiankuaiyun.NetWork.MainIndexNetWork;
 import com.zhyan.shandiankuaiyun.R;
+import com.zhyan.shandiankuaiyun.Widget.Dialog.ShareDialog.CommonSharePopWindowActivity;
+import com.zhyan.shandiankuaiyun.Widget.YouMeng.Defaultcontent;
 import com.zhyan.shandiankuaiyunlib.Bean.MainIndexAdBean;
 import com.zhyan.shandiankuaiyunlib.Widget.ViewPage.ImageCycleView;
 
@@ -163,6 +171,47 @@ public class MainIndexController extends BaseController{
     public void ibMainIndexKFOnclick(){
         lianxikefuCall();
     }
+    @BindView(R.id.ib_main_index_fx)
+    ImageButton ibMainIndexFX;
+    @OnClick(R.id.ib_main_index_fx)
+    public void ibMainIndexFXOnclick(){
+       /* CommonSharePopWindowActivity.getInstance().showBottomDialog((Activity)view.getContext());*/
+        Defaultcontent defaultcontent = new Defaultcontent();
+       /* UMImage image=new UMImage(view.getContext(), R.mipmap.logo);
+        new ShareAction((Activity) view.getContext()).setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN,SHARE_MEDIA.WEIXIN_CIRCLE,SHARE_MEDIA.WEIXIN_FAVORITE,*//*SHARE_MEDIA.SMS,*//*SHARE_MEDIA.QZONE)
+                .withTitle(defaultcontent.title)
+                .withText(defaultcontent.text)
+                .withMedia(image)
+                .withTargetUrl(defaultcontent.url)
+                .setCallback(umShareListener)
+                .open();*/
+    }
+/*
+    private UMShareListener umShareListener = new UMShareListener() {
+        @Override
+        public void onResult(SHARE_MEDIA platform) {
+            Log.d("plat","platform"+platform);
+            if(platform.name().equals("WEIXIN_FAVORITE")){
+                Toast.makeText(view.getContext(),platform + " 收藏成功啦",Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(view.getContext(), platform + " 分享成功啦", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        @Override
+        public void onError(SHARE_MEDIA platform, Throwable t) {
+            Toast.makeText(view.getContext(),platform + " 分享失败啦", Toast.LENGTH_SHORT).show();
+            if(t!=null){
+                Log.d("throw","throw:"+t.getMessage());
+            }
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA platform) {
+            Toast.makeText(view.getContext(),platform + " 分享取消了", Toast.LENGTH_SHORT).show();
+        }
+    };*/
+
 
     public MainIndexController(View view1){
         view = view1;
