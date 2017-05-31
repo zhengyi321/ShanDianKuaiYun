@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/main_release_zhuanxianwuliu_miaoshu_topbar_height"
+    android:background="@color/color_main_zhuanxianwuliu_miaoshu_topbar_bg"
+    android:orientation="horizontal"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rly_main_release_zhuanxianwuliu_miaoshu_back"
+        android:layout_width="@dimen/zero"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+         >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/back"
+             />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/zero"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            android:text="描述"
+            android:textColor="@color/color_main_zhuanxianwuliu_miaoshu_topbar_word_white_bg"
+            android:textSize="@dimen/main_release_zhuanxianwuliu_miaoshu_topbar_title_word_size" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rly_main_release_zhuanxianwuliu_miaoshu_finish"
+        android:layout_width="@dimen/zero"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            android:text="完成"
+            android:textColor="@color/color_main_zhuanxianwuliu_miaoshu_topbar_word_white_bg"
+            android:textSize="@dimen/main_release_zhuanxianwuliu_miaoshu_topbar_word_size" />
+    </RelativeLayout>
+</LinearLayout>

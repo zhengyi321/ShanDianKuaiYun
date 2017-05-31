@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:layout_margin="10dp"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="200dip" 
+        android:background="@drawable/message_corners">
+        
+            
+        <com.zhyan.shandiankuaiyuanwidgetlib.ShareDialog.PageRecyclerView
+              android:id="@+id/myRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </com.zhyan.shandiankuaiyuanwidgetlib.ShareDialog.PageRecyclerView>
+        <com.zhyan.shandiankuaiyuanwidgetlib.ShareDialog.PageIndicatorView
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+             android:layout_marginTop="5dip"
+            >
+            
+        </com.zhyan.shandiankuaiyuanwidgetlib.ShareDialog.PageIndicatorView>
+
+        <com.zhyan.shandiankuaiyuanwidgetlib.ShareDialog.CustomViewpager
+            android:id="@+id/vp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+             />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="3dip"
+            android:visibility="gone"
+            android:orientation="horizontal" >
+
+            <View
+                android:id="@+id/dot1"
+                android:layout_width="5dip"
+                android:layout_height="5dip"
+                android:layout_marginLeft="3dip"
+                android:layout_marginRight="3dip"
+                android:background="@drawable/dot_focused" />
+            <View
+                android:id="@+id/dot2"
+                android:layout_width="5dip"
+                android:layout_height="5dip"
+                android:layout_marginLeft="3dip"
+                android:layout_marginRight="3dip"
+                android:background="@drawable/dot_normal" />
+
+          
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/message_corners"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="取消"
+        android:textColor="#067eff"
+        android:textSize="20sp" />
+
+</LinearLayout>

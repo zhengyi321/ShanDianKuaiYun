@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="split_height_or_width">0.5dp</dimen>
+    <dimen name="dialog_register_send_sms_height">120dp</dimen>
+    <dimen name="dialog_register_send_sms_title_word_size">15sp</dimen>
+    <dimen name="dialog_register_send_sms_word_size">12sp</dimen>
+    <dimen name="dialog_register_send_sms_margin_left_right_size">30dp</dimen>
+    <!--<dimen name="dialog_register_send_sms_"-->
+
+    <!--lianxikefu-->
+    <dimen name="dialog_lianxikefu_word_size">13sp</dimen>
+    <dimen name="dialog_lianxikefu_height">120dp</dimen>
+    <dimen name="dialog_lianxikefu_title_word_size">15sp</dimen>
+    <dimen name="dialog_lianxikefu_margin_left_right_size">30dp</dimen>
+    <!--lianxikefu-->
+
+    <!--call tel-->
+    <dimen name="dialog_call_tel_word_size">18sp</dimen>
+    <dimen name="dialog_call_tel_height">120dp</dimen>
+    <dimen name="dialog_call_tel_title_word_size">15sp</dimen>
+    <dimen name="dialog_call_tel_margin_left_right_size">30dp</dimen>
+    <!--call tel-->
+
+
+    <!--citychange-->
+    <dimen name="dialog_city_change_height">400dp</dimen>
+    <dimen name="dialog_city_margin_left_right_size">30dp</dimen>
+    <!--citychange-->
+
+    <!--main release zhuanxianwuliu selectphoto-->
+    <dimen name="main_release_zhuanxianwuliu_selectphoto_topbar_height">54dp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_selectphoto_topbar_word_size">15sp</dimen>
+    <dimen name="album_sp_14">14sp</dimen>
+    <dimen name="album_sp_16">16sp</dimen>
+    <dimen name="album_sp_18">18sp</dimen>
+    <dimen name="album_sp_20">20sp</dimen>
+
+    <dimen name="album_dp_1">1dp</dimen>
+    <dimen name="album_dp_2">2dp</dimen>
+    <dimen name="album_dp_4">4dp</dimen>
+    <dimen name="album_dp_6">6dp</dimen>
+    <dimen name="album_dp_10">10dp</dimen>
+    <dimen name="album_dp_15">15dp</dimen>
+    <dimen name="album_dp_50">50dp</dimen>
+    <dimen name="album_dp_80">80dp</dimen>
+    <dimen name="album_dp_100">100dp</dimen>
+    <dimen name="album_dp_200">200dp</dimen>
+    <dimen name="dp_5">5dp</dimen>
+    <!--main release zhuanxianwuliu selectphoto-->
+
+    <!--main release zhuanxianwuliu miaoshu-->
+    <dimen name="main_release_zhuanxianwuliu_miaoshu_topbar_height">54dp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_miaoshu_topbar_word_size">12sp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_miaoshu_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_miaoshu_content_title_word_size">15sp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_miaoshu_content_tel_item_margin_left_right_size">10dp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_miaoshu_content_word_size">13sp</dimen>
+    <dimen name="main_release_zhuanxianwuliu_miaoshu_content_miaoshu_height">260dp</dimen>
+    <!--main release zhuanxianwuliu miaoshu-->
+
+    <!--仿ios对话框-->
+    <!--alterview-->
+    <!--标题文字大小-->
+    <dimen name="textSize_alert_title">22sp</dimen>
+    <dimen name="textSize_actionsheet_title">14sp</dimen>
+    <!--标题文字高度-->
+    <dimen name="height_alert_title">60dp</dimen>
+    <dimen name="height_actionsheet_title">40dp</dimen>
+    <!--消息文字大小-->
+    <dimen name="textSize_alert_msg">15sp</dimen>
+    <dimen name="textSize_actionsheet_msg">14sp</dimen>
+    <!--消息距离底部间距-->
+    <dimen name="marginBottom_alert_msg">25dp</dimen>
+    <dimen name="marginBottom_actionsheet_msg">14dp</dimen>
+    <!--窗口模式左右两边到屏幕的间距-->
+    <dimen name="margin_alert_left_right">40dp</dimen>
+    <dimen name="margin_actionsheet_left_right">10dp</dimen>
+    <!--线条粗细-->
+    <dimen name="size_divier">1dp</dimen>
+    <!--按钮的高度-->
+    <dimen name="height_alert_button">48dp</dimen>
+    <!--按钮文字大小-->
+    <dimen name="textSize_alert_button">18sp</dimen>
+    <!--圆角-->
+    <dimen name="radius_alertview">15px</dimen>
+    <!--alterview-->
+    <!--仿ios对话框-->
+    <!--Main index changcity-->
+    <dimen name="dimen_main_index_changecity_topbar_height">54dp</dimen>
+    <dimen name="dimen_main_index_changecity_topbar_word_size">15sp</dimen>
+    <dimen name="dimen_main_index_changecity_content_word_size">12sp</dimen>
+    <dimen name="dimen_main_index_changecity_content_small_item_height">45dp</dimen>
+    <dimen name="dimen_main_index_changecity_content_item_height">70dp</dimen>
+    <dimen name="dimen_main_index_changecity_content_item_margin">20dp</dimen>
+    <dimen name="dimen_main_index_changecity_content_xrv_item_height">40dp</dimen>
+    <!--Main index changcity-->
+
+
+    <!--Main message chatmessage-->
+    <dimen name="dimen_main_chat_chatmessage_topbar_height">54dp</dimen>
+    <dimen name="dimen_main_chat_chatmessage_topbar_word_size">15sp</dimen>
+    <dimen name="dimen_main_chat_chatmessage_content_word_size">12sp</dimen>
+    <dimen name="dimen_main_chat_chatmessage_content_item_height">70dp</dimen>
+    <!--Main message chatmessage-->
+
+
+    <!--Main message systeminfo-->
+    <dimen name="main_message_systeminfo_topbar_height">54dp</dimen>
+    <dimen name="main_message_systeminfo_topbar_title_word_size">15sp</dimen>
+    <!--Main message systeminfo-->
+
+
+    <!--easyui-->
+
+    <!--easyui-->
+</resources>

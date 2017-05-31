@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        >
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_main_release_zhuanxianwuliu_select_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+        >
+    </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_submit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff" >
+
+        <Button
+            android:id="@+id/bt_main_release_zhuanxianwuliu_select_photo_finish"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@color/color_main_zhuanxianwuliu_selectphoto_content_blue_bg"
+            android:gravity="center"
+            android:onClick="ok"
+            android:padding="10dp"
+            android:text="完成"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</LinearLayout>

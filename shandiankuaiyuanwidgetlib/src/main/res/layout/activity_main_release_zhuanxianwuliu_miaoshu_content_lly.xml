@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_zhuanxianwuliu_miaoshu_content_bg"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_release_zhuanxianwuliu_miaoshu_content_miaoshu_height"
+        android:background="@drawable/activity_main_release_zhuanxianwuliu_miaoshu_white_radius_shape"
+        android:layout_margin="@dimen/main_release_zhuanxianwuliu_miaoshu_content_tel_item_margin_left_right_size"
+        >
+        <EditText
+            android:id="@+id/et_main_release_zhuanxianwuliu_miaoshu_desc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="@string/zhishaoshigezi"
+            android:textColor="@color/color_main_zhuanxianwuliu_miaoshu_content_black_word_bg"
+            android:textSize="@dimen/main_release_zhuanxianwuliu_miaoshu_content_word_size"
+            android:gravity="top"
+            android:textColorHint="@color/color_main_zhuanxianwuliu_miaoshu_content_word_gray_bg"
+            android:layout_margin="10dp"
+            />
+        <TextView
+            android:id="@+id/tv_main_release_zhuanxianwuliu_miaoshu_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/qingkongsuoyou"
+            android:textColor="@color/color_main_zhuanxianwuliu_miaoshu_content_word_gray_bg"
+            android:textSize="@dimen/main_release_zhuanxianwuliu_miaoshu_content_word_size"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

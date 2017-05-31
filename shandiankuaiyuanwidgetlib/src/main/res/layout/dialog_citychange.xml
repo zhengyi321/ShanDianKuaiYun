@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:id="@+id/rly_main_index_citychange_total"
+    >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dialog_city_change_height"
+        android:background="@drawable/dialog_citychange_white_radius_shape"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/dialog_city_margin_left_right_size"
+        android:layout_marginRight="@dimen/dialog_city_margin_left_right_size"
+        >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_main_index_citychange_citychange"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            />
+
+    </LinearLayout>
+</RelativeLayout>

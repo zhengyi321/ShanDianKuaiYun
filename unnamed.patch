@@ -1,0 +1,110 @@
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(revision )
++++ .idea/vcs.xml	(revision )
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: shandiankuaiyuanwidgetlib/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- shandiankuaiyuanwidgetlib/build.gradle	(revision )
++++ shandiankuaiyuanwidgetlib/build.gradle	(revision )
+@@ -0,0 +1,86 @@
++apply plugin: 'com.android.library'
++
++android {
++    compileSdkVersion 25
++    buildToolsVersion "25.0.3"
++
++    defaultConfig {
++        minSdkVersion 11
++        targetSdkVersion 25
++        versionCode 1
++        versionName "1.0.0"
++
++        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
++        ndk {
++            //设置支持的SO库架构
++            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
++        }
++    }
++    buildTypes {
++        release {
++            minifyEnabled false
++            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
++        }
++    }
++    sourceSets {
++        main {
++            jniLibs.srcDir 'libs'
++        }
++        //添加如下配置就ok了
++        lintOptions {
++            checkReleaseBuilds false
++            abortOnError false
++        }
++        // Move the tests to tests/java, tests/res, etc...
++     /*   instrumentTest.setRoot('tests')*/
++
++        // Move the build types to build-types/<type>
++        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
++        // This moves them out of them default location under src/<type>/... which would
++        // conflict with src/ being used by the main source set.
++        // Adding new build types or product flavors should be accompanied
++        // by a similar customization.
++/*        debug.setRoot('build-types/debug')
++        release.setRoot('build-types/release')*/
++    }
++    compileOptions {
++        sourceCompatibility JavaVersion.VERSION_1_7
++        targetCompatibility JavaVersion.VERSION_1_7
++    }
++}
++
++dependencies {
++    compile fileTree(include: ['*.jar'], dir: 'libs')
++    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
++        exclude group: 'com.android.support', module: 'support-annotations'
++    })
++    /* compile 'com.android.support:appcompat-v7:25.3.1'*/
++    compile 'com.android.support:appcompat-v7:25.3.1'
++    compile 'com.android.support:design:25.1.1'
++    testCompile 'junit:junit:4.12'
++    compile files('libs/afinal_0.5.1_bin.jar')
++      compile 'com.android.support:recyclerview-v7:25.1.1'
++    compile files('libs/android-async-http-1.4.9.jar')
++    compile 'com.google.android.gms:play-services-gcm:9.4.0'
++    compile files('libs/fastjson-1.2.2.jar')
++    compile files('libs/SocialSDK_QQ_Full.jar')
++    compile files('libs/SocialSDK_QQ_Simplify.jar')
++    compile files('libs/SocialSDK_Sina_Full.jar')
++    compile files('libs/SocialSDK_Sina_Simplify.jar')
++    compile files('libs/SocialSDK_sms.jar')
++    compile files('libs/SocialSDK_WeChat_Simplify.jar')
++    compile files('libs/SocialSDK_WeiXin_Full.jar')
++    compile files('libs/umeng-analytics-v6.0.9.jar')
++    compile files('libs/umeng_shareboard_widget.jar')
++    compile files('libs/umeng_social_api.jar')
++    compile files('libs/umeng_social_net.jar')
++    compile files('libs/umeng_social_shareboard.jar')
++    compile files('libs/umeng_social_shareview.jar')
++    compile files('libs/umeng_social_tool.jar')
++    compile files('libs/umeng_social_view.jar')
++    compile files('libs/wechat-sdk-android-with-mta-1.1.6.jar')
++    compile files('libs/weiboSDKCore_3.1.4.jar')
++    compile files('libs/open_sdk_r5781.jar')
++    compile files('libs/android-support-v7-recyclerview.jar')
++}
++

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    android:background="@color/transparent"
+    >
+    
+<LinearLayout  
+        android:layout_width="match_parent"  
+        android:layout_height="wrap_content"
+
+    android:orientation="vertical" >
+  
+        <Button  
+            android:id="@+id/button1"  
+            android:layout_width="match_parent"  
+            android:layout_height="wrap_content"  
+
+            android:background="@drawable/listview_selector"  
+            android:gravity="left|center_vertical"  
+            android:padding="10dp"  
+            android:text="保存图片到手机"  
+            android:textColor="#2a2a2a"  
+            android:textSize="15sp" />  
+  
+        <View  
+            android:layout_width="match_parent"  
+            android:layout_height="1px"  
+
+            android:background="#a6a6a6" />  
+  
+        <Button  
+            android:id="@+id/button2"  
+            android:layout_width="match_parent"  
+            android:layout_height="wrap_content"  
+
+            android:background="@drawable/listview_selector"  
+            android:gravity="left|center_vertical"  
+            android:padding="10dp"  
+            android:text="复制图片链接"  
+            android:textColor="#2a2a2a"  
+            android:textSize="15sp" />  
+  
+        <View  
+            android:layout_width="match_parent"  
+            android:layout_height="1px"  
+
+            android:background="#a6a6a6" />  
+  
+        <Button  
+            android:id="@+id/button3"  
+            android:layout_width="match_parent"  
+            android:layout_height="wrap_content"  
+
+            android:background="@drawable/listview_selector"  
+            android:gravity="left|center_vertical"  
+            android:padding="10dp"  
+            android:text="取消"  
+            android:textColor="#2a2a2a"  
+            android:textSize="15sp" />  
+    </LinearLayout>  
+</LinearLayout>
