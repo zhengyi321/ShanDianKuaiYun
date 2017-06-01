@@ -34,6 +34,7 @@
 
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rly_main_mine_wodecheyuan_fabucheyuan"
         android:layout_width="@dimen/zero"
         android:layout_height="match_parent"
         android:layout_weight="1"

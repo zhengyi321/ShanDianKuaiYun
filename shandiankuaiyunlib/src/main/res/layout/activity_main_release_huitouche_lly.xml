@@ -3,10 +3,28 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include layout="@layout/activity_main_release_huitouche_topbar_lly"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        >
+
+
     <com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <include layout="@layout/activity_main_release_huitouche_content_lly"/>
 
     </com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>
+
+        <com.zhyan.shandiankuaiyuanwidgetlib.ProgressBar.CustomClipLoading
+            android:id="@+id/ccl_main_release_huitouche_loading_wait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            >
+
+        </com.zhyan.shandiankuaiyuanwidgetlib.ProgressBar.CustomClipLoading>
+    </RelativeLayout>
 </LinearLayout>

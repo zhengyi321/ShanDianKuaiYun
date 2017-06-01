@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:Android="http://schemas.android.com/apk/res-auto"
-    package="com.zhyan.shandiankuaiyun">
+    package="com.shandian.lu">
+ <!--   package="com.shandian.lu">-->
 
     <!--权限-->
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -231,7 +232,7 @@
             android:theme="@android:style/Theme.Translucent"/>
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.zhyan.shandiankuaiyun.fileprovider"
+            android:authorities="com.shandian.lu.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
         <meta-data
@@ -593,7 +594,8 @@
             />
         <activity android:name=".Main.MessageFragment.Chat.ChatActivity" />
         <activity android:name=".Main.MessageFragment.SystemInfo.SystemInfoActivity" />
-       <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
+        <activity android:name=".Main.MineFragment.CommonFaBuCheYuan.FaBuCheYuanActivity" />
+        <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
 
     </application>
 

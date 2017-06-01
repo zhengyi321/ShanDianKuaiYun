@@ -581,6 +581,14 @@
     <color name="color_main_mine_content_item_white_color">#ffffff</color>
     <color name="color_main_mine_content_bg">#efeff4</color>
     <!--Main mine-->
+    <!--Main mine cheyuanxinxi fabucheyuan-->
+    <color name="color_main_mine_fabucheyuan_topbar_blue_bg">#00a0ea</color>
+    <color name="color_main_mine_fabucheyuan_topbar_white_textcolor">#fff7e3</color>
+    <color name="color_main_mine_fabucheyuan_content_word_textcolor">#6b6868</color>
+    <color name="color_main_mine_fabucheyuan_content_split_line_color">#cccccc</color>
+    <color name="color_main_mine_fabucheyuan_content_white_bg">#ffffff</color>
+    <!--Main mine cheyuanxinxi fabucheyuan-->
+
     <!--Main mine Login-->
     <color name="color_main_mine_login_submit_bg">#d9251d</color>
     <color name="color_main_mine_login_submit_word_bg">#ffffff</color>
@@ -789,6 +797,8 @@
     <color name="color_main_mine_gerenxinxi_content_bg">#f2f2f2</color>
     <color name="color_main_mine_gerenxinxi_content_item_bg">#ffffff</color>
     <color name="color_main_mine_gerenxinxi_content_item_splite">#cacaca</color>
+    <color name="color_main_mine_gerenxinxi_content_submit_bg">#da241d</color>
+    <color name="color_main_mine_gerenxinxi_content_white_word_textcolor">#ffffff</color>
     <!--Main mine gerenxinxi-->
 
     <!--Main mine gerenxinxi bianjinichen-->

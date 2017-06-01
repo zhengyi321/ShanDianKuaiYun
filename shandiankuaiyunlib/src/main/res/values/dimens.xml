@@ -299,7 +299,13 @@
     <dimen name="main_mine_content_word_size">12sp</dimen>
     <dimen name="main_mine_content_item_margin_top_size">20dp</dimen>
     <!--Main mine-->
-
+    <!--Main mine cheyuanxinxi fabucheyuan-->
+    <dimen name="main_mine_fabucheyuan_topbar_height">54dp</dimen>
+    <dimen name="main_mine_fabucheyuan_topbar_title_word_size">15sp</dimen>
+    <dimen name="main_mine_fabucheyuan_topbar_rightmenu_release_word_size">12sp</dimen>
+    <dimen name="main_mine_fabucheyuan_content_word_size">12sp</dimen>
+    <dimen name="main_mine_fabucheyuan_content_item_height">70dp</dimen>
+    <!--Main mine cheyuanxinxi fabucheyuan-->
     <!--Main mine Login-->
     <dimen name="main_mine_login_topbar_height">54dp</dimen>
     <dimen name="main_mine_login_topbar_word_size">12sp</dimen>
@@ -510,6 +516,8 @@
     <dimen name="main_mine_gerenxinxi_content_headimg_height">70dp</dimen>
     <dimen name="main_mine_gerenxinxi_content_erweima_iv_width">40dp</dimen>
     <dimen name="main_mine_gerenxinxi_content_erweima_iv_height">40dp</dimen>
+    <dimen name="main_mine_gerenxinxi_submit_margin_left_right_size">20dp</dimen>
+
     <!--<dimen name="main_mine_gerenxinxi_"-->
     <!--Main mine gerenxinxi-->
 
@@ -609,6 +617,8 @@
     <dimen name="main_mine_gerenxinxi_qq_submit_margin_top">20dp</dimen>
     <dimen name="main_mine_gerenxinxi_qq_submit_margin_left_right_size">20dp</dimen>
     <dimen name="main_mine_gerenxinxi_qq_submit_height">40dp</dimen>
+    <dimen name="main_mine_gerenxinxi_submit_height">40dp</dimen>
+
     <!--Main mine gerenxinxi qq-->
 
 

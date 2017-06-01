@@ -9,7 +9,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0.0"
-
+       /* multiDexEnabled true*/
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -58,5 +58,5 @@ dependencies {
     compile files('lib/weiboSDKCore_3.1.4.jar')
     compile files('lib/umeng_social_api.jar')
     compile files('lib/umeng_social_net.jar')
-
+    compile project(':myhuanxin')
 }

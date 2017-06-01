@@ -14,6 +14,7 @@
 
         />-->
     <LinearLayout
+        android:id="@+id/lly_main_mine_wodehuoyuan_xrv_item"
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_mine_wodehuoyuan_content_item_top_height"
         android:orientation="horizontal"
@@ -220,6 +221,7 @@
             android:layout_weight="1"
             >
             <Button
+                android:id="@+id/bt_main_mine_wodehuoyuan_select"
                 android:layout_width="@dimen/main_mine_wodehuoyuan_content_item_button_width"
                 android:layout_height="@dimen/main_mine_wodehuoyuan_content_item_button_height"
                 android:background="@drawable/main_mine_wodehuoyuan_orange_radius_shape"

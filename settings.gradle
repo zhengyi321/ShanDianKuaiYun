@@ -1,1 +1,1 @@
-include ':app', ':shandiankuaiyunlib', ':shandiankuaiyuanwidgetlib', ':myumenglibrary'
+include ':app', ':shandiankuaiyunlib', ':shandiankuaiyuanwidgetlib', ':myumenglibrary', ':myhuanxin'

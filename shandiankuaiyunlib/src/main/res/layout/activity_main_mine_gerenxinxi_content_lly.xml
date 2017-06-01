@@ -677,7 +677,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero"
-        android:layout_weight="2"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        >
+        <Button
+            android:id="@+id/bt_main_mine_gerenxinxi_exit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_mine_gerenxinxi_submit_height"
+            android:layout_marginLeft="@dimen/main_mine_gerenxinxi_submit_margin_left_right_size"
+            android:layout_marginRight="@dimen/main_mine_gerenxinxi_submit_margin_left_right_size"
+            android:background="@drawable/main_mine_gerenxinxi_shape"
+            android:text="@string/tuichudenglu"
+            android:textColor="@color/color_main_mine_gerenxinxi_content_white_word_textcolor"
+            android:textSize="@dimen/main_mine_gerenxinxi_content_word_size"
+            android:layout_centerInParent="true"
+            />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
         android:orientation="horizontal"
         >
 
