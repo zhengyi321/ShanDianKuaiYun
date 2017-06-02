@@ -40,11 +40,11 @@
     <!--极光推送-->
     <!-- Required -->
     <permission
-        android:name="com.zhyan.gototongcheng.permission.JPUSH_MESSAGE"
+        android:name="com.shandian.lu.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
 
     <!-- Required  一些系统要求的权限，如访问网络等-->
-    <uses-permission android:name="com.zhyan.gototongcheng.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="com.shandian.lu.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -241,7 +241,7 @@
         </provider>-->
         <!--友盟-->
         <!--统计-->
-        <meta-data android:value="58b7c86df43e4865580004de" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="58b508249f06fd262300013e" android:name="UMENG_APPKEY"/>
        <!-- <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>-->
     <!--    <meta-data
             android:name="UMENG_MESSAGE_SECRET"
@@ -271,10 +271,10 @@
             android:windowSoftInputMode="adjustResize" >
         </activity>
 
-        <service
+      <!--  <service
             android:name="com.sina.weibo.sdk.net.DownloadService"
             android:exported="false" >
-        </service>
+        </service>-->
         <!-- 微信的分享 -->
         <activity
             android:name=".wxapi.WXEntryActivity"
@@ -333,7 +333,7 @@
 
 
         <activity
-            android:name=".Main.IndexFragment.PeiHuoZhongXin.PeiHuoZhongXinActivity"
+            android:name="Main.IndexFragment.PeiHuoZhongXin.PeiHuoZhongXinActivity"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             />
@@ -592,9 +592,18 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             />
-        <activity android:name=".Main.MessageFragment.Chat.ChatActivity" />
-        <activity android:name=".Main.MessageFragment.SystemInfo.SystemInfoActivity" />
-        <activity android:name=".Main.MineFragment.CommonFaBuCheYuan.FaBuCheYuanActivity" />
+        <activity android:name=".Main.MessageFragment.Chat.ChatActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MessageFragment.SystemInfo.SystemInfoActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.MineFragment.CommonFaBuCheYuan.FaBuCheYuanActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
 
     </application>
