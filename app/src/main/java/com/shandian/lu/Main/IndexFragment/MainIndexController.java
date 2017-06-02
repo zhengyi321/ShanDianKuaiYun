@@ -179,6 +179,13 @@ public class MainIndexController extends BaseController{
     ImageButton ibMainIndexFX;
     @OnClick(R.id.ib_main_index_fx)
     public void ibMainIndexFXOnclick(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((login_id == null)||(login_id.isEmpty())){
+            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+            return;
+        }
        /* CommonSharePopWindowActivity.getInstance().showBottomDialog((Activity)view.getContext());*/
         Defaultcontent defaultcontent = new Defaultcontent();
         UMImage image=new UMImage(view.getContext(), R.mipmap.logo);

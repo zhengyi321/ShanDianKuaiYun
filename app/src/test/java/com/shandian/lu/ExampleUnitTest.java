@@ -1,4 +1,4 @@
-package com.zhyan.shandiankuaiyun;
+package com.shandian.lu;
 
 import org.junit.Test;
 

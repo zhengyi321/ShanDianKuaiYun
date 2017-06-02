@@ -1,4 +1,4 @@
-package com.zhyan.shandiankuaiyun;
+package com.shandian.lu;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

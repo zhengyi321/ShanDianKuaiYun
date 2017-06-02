@@ -333,7 +333,7 @@
 
 
         <activity
-            android:name="Main.IndexFragment.PeiHuoZhongXin.PeiHuoZhongXinActivity"
+            android:name=".Main.IndexFragment.PeiHuoZhongXin.PeiHuoZhongXinActivity"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             />
