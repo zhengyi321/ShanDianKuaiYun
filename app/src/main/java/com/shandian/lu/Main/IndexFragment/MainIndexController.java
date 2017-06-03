@@ -20,8 +20,10 @@ import com.shandian.lu.Main.IndexFragment.NearByDriver.NearByDriverActivity;
 import com.shandian.lu.Main.IndexFragment.PeiHuoZhongXin.PeiHuoZhongXinActivity;
 import com.shandian.lu.Main.IndexFragment.RenRenWuLiu.RenRenWuLiuActivity;
 import com.shandian.lu.Main.IndexFragment.TeZhongWuLiu.TeZhongWuLiuActivity;
+import com.shandian.lu.Main.IndexFragment.WebView.WebViewActivity;
 import com.shandian.lu.Main.IndexFragment.ZhengCheHuoYun.ZhengCheHuoYunActivity;
 import com.shandian.lu.Main.IndexFragment.ZhuanXianWuLiu.ZhuanXianWuLiuActivity;
+import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -51,9 +53,12 @@ import static com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils.options;
  */
 
 public class MainIndexController extends BaseController{
-
+    public MainIndexController(View view1){
+        view = view1;
+        init();
+    }
     LianXiKeFuDialog lianXiKeFuDialog;
-
+    private MainIndexAdBean mainIndexAdBean1;
     @BindView(R.id.icv_main_index_ad_circle)
     ImageCycleView icvMainIndexAdCircle;
 /*    @BindView(R.id.vp_main_index_ad_circle)
@@ -68,10 +73,10 @@ public class MainIndexController extends BaseController{
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
-        if((login_id == null)||(login_id.isEmpty())){
+        /*if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
-        }
+        }*/
         Intent intent = new Intent(view.getContext(), PeiHuoZhongXinActivity.class);
         view.getContext().startActivity(intent);
     }
@@ -83,10 +88,10 @@ public class MainIndexController extends BaseController{
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
-        if((login_id == null)||(login_id.isEmpty())){
+        /*if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
-        }
+        }*/
         Intent intent = new Intent(view.getContext(), ZhuanXianWuLiuActivity.class);
         view.getContext().startActivity(intent);
     }
@@ -98,10 +103,10 @@ public class MainIndexController extends BaseController{
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
-        if((login_id == null)||(login_id.isEmpty())){
+       /* if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
-        }
+        }*/
         Intent intent = new Intent(view.getContext(), TeZhongWuLiuActivity.class);
         view.getContext().startActivity(intent);
 
@@ -114,7 +119,9 @@ public class MainIndexController extends BaseController{
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((login_id == null)||(login_id.isEmpty())){
-            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+          /*  Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();*/
+          Intent intent = new Intent(view.getContext(), LoginActivity.class);
+          view.getContext().startActivity(intent);
             return;
         }
         Intent intent = new Intent(view.getContext(), NearByDriverActivity.class);
@@ -129,10 +136,10 @@ public class MainIndexController extends BaseController{
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
-        if((login_id == null)||(login_id.isEmpty())){
+       /* if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
-        }
+        }*/
         Intent intent = new Intent(view.getContext(), ZhengCheHuoYunActivity.class);
         view.getContext().startActivity(intent);
     }
@@ -144,10 +151,10 @@ public class MainIndexController extends BaseController{
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
-        if((login_id == null)||(login_id.isEmpty())){
+       /* if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
-        }
+        }*/
         Intent intent = new Intent(view.getContext(), RenRenWuLiuActivity.class);
         view.getContext().startActivity(intent);
 
@@ -157,15 +164,15 @@ public class MainIndexController extends BaseController{
     ImageButton ibMainIndexBJ;
     @OnClick(R.id.ib_main_index_bj)
     public void ibMainIndexBJOnclick(){
-        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+/*        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
-        if((login_id == null)||(login_id.isEmpty())){
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);*/
+      /*  if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
-        }
+        }*/
         Intent intent = new Intent(view.getContext(), BanJiaActivity.class);
-        view.getContext().startActivity(intent);
+        ((Activity)view.getContext()).startActivity(intent);
 
     }
 
@@ -182,10 +189,10 @@ public class MainIndexController extends BaseController{
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
-        if((login_id == null)||(login_id.isEmpty())){
+       /* if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
-        }
+        }*/
        /* CommonSharePopWindowActivity.getInstance().showBottomDialog((Activity)view.getContext());*/
         Defaultcontent defaultcontent = new Defaultcontent();
         UMImage image=new UMImage(view.getContext(), R.mipmap.logo);
@@ -223,10 +230,7 @@ public class MainIndexController extends BaseController{
     };
 
 
-    public MainIndexController(View view1){
-        view = view1;
-        init();
-    }
+
 
     @Override
     protected void init() {
@@ -270,6 +274,7 @@ public class MainIndexController extends BaseController{
                 for(int i = 0;i < size;i++){
                     picList.add(mainIndexAdBean.getContent().getSide().get(i).getImage());
                 }
+                mainIndexAdBean1 = mainIndexAdBean;
                 icvMainIndexAdCircle.setImageResources(picList,imgList2,imageCycleViewListener);
             }
         });
@@ -282,7 +287,13 @@ public class MainIndexController extends BaseController{
 
         @Override
         public void onImageClick(String info, int postion, View imageView) {
-
+            /*Toast.makeText(view.getContext(),""+postion+info,Toast.LENGTH_LONG).show();*/
+            if(mainIndexAdBean1 != null){
+                String url = mainIndexAdBean1.getContent().getSide().get(postion).getUrl().toString();
+                Intent intent = new Intent(view.getContext(), WebViewActivity.class);
+                intent.putExtra("url",url);
+                view.getContext().startActivity(intent);
+            }
         }
     };
 

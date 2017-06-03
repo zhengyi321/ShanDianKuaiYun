@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -13,6 +14,10 @@ import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.common.SocializeConstants;*/
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
 import com.shandian.lu.Main.AdviceFragment.MainAdviceFragment;
 import com.shandian.lu.Main.IndexFragment.MainIndexFragment;
 import com.shandian.lu.Main.MessageFragment.ChatMessageFragment;
@@ -20,6 +25,8 @@ import com.shandian.lu.Main.MineFragment.MainMineFragment;
 import com.shandian.lu.Main.ReleaseFragment.MainReleaseFragment;
 /*import ChatMessageFragment;*/
 import com.shandian.lu.R;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -77,7 +84,7 @@ public class MainActivity extends FragmentActivity {
     private void init(){
         ButterKnife.bind(this);
         initController();
-        initFragment();
+        /*initFragment();*/
         getFragment("index");
 
     /*    initYouMeng();*/
@@ -89,7 +96,7 @@ public class MainActivity extends FragmentActivity {
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.
      */
-    public native String stringFromJNI();
+  /*  public native String stringFromJNI();*/
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -211,8 +218,6 @@ public class MainActivity extends FragmentActivity {
 
         transaction.commit();
     }
-
-
 
 
 

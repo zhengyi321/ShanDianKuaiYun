@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.Main.IndexFragment.Common.MySelfLocActivity;
+import com.shandian.lu.Main.MessageFragment.Chat.ChatActivity;
+import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.zhyan.myhuanxin.EaseConstant;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
@@ -143,7 +146,14 @@ public class CarSourcesXRVDetailController extends BaseController {
     RelativeLayout rlyMainIndexCarSourceDetailSpeak;
     @OnClick(R.id.rly_main_index_carsource_detail_speak)
     public void  rlyMainIndexCarSourceDetailSpeakOnclick(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((login_id == null)||(login_id.isEmpty())){
+            activity.startActivity(new Intent(activity,LoginActivity.class));
 
+        }
+        activity.startActivity(new Intent(activity,ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, id));
     }
     @BindView(R.id.tv_main_index_carsource_detail_pingjia)
     TextView tvMainIndexCarSourceDetailPingJia;

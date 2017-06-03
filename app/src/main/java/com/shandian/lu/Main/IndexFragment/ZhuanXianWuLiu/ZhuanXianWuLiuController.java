@@ -108,7 +108,7 @@ public class ZhuanXianWuLiuController extends BaseController {
     XRecyclerView xrvMainIndexZhuanXianWuLiu;
     int page = 0;
     private ZhuanXianWuLiuXRVAdapter zhuanXianWuLiuXRVAdapter;
-
+    List<ZhuanXianWuliuCarSourceBean.ContentBean> stringList;
 
 
     public ZhuanXianWuLiuController(Activity activity1){
@@ -120,14 +120,14 @@ public class ZhuanXianWuLiuController extends BaseController {
     protected void init() {
         ButterKnife.bind(this,activity);
         initXRV();
-        isAllOrNear("all");
+        /*isAllOrNear("all");*/
     }
 
 
     private void initXRV() {
 
 
-        List<ZhuanXianWuliuCarSourceBean.ContentBean> stringList = new ArrayList<>();
+        stringList = new ArrayList<>();
         zhuanXianWuLiuXRVAdapter = new ZhuanXianWuLiuXRVAdapter(activity, stringList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(activity);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);

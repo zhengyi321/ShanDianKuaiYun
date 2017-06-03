@@ -176,14 +176,14 @@ public class BanJiaController extends BaseController implements TextWatcher{
                 }else{
                     getDataFromNet(true);
                 }
-                xrvMainIndexBanJia.refreshComplete();
+
             }
 
             @Override
             public void onLoadMore() {
                 page++;
                 getDataFromNet(true);
-                xrvMainIndexBanJia.loadMoreComplete();
+
             }
         });
     }
@@ -191,14 +191,17 @@ public class BanJiaController extends BaseController implements TextWatcher{
     public void getDataFromNet(boolean isXRVLoding){
         if(!isXRVLoding) {
             /*if(banJiaCityRVAdapter.getItemCount() > 20) {*/
+            if(banJiaXRVAdapter != null) {
                 banJiaXRVAdapter.clean();
+            }
             /*};*/
         }
         AboutHomeMovNetWork aboutHomeMovNetWork = new AboutHomeMovNetWork();
         aboutHomeMovNetWork.getHomeMovingDataFromNet(getParamMap(), new Observer<HomeMovingBean>() {
             @Override
             public void onCompleted() {
-
+                xrvMainIndexBanJia.refreshComplete();
+                xrvMainIndexBanJia.loadMoreComplete();
             }
 
             @Override

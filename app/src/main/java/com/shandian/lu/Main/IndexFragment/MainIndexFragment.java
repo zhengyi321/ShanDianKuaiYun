@@ -15,6 +15,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.shandian.lu.Main.BaseFragment;
+import com.shandian.lu.Main.MainActivity;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 
@@ -30,9 +31,8 @@ import butterknife.OnClick;
  */
 
 public class MainIndexFragment extends BaseFragment {
-    public LocationClient mLocationClient = null;
-    public BDLocationListener myListener = new MyLocationListener();
-    private boolean isFirst = true;
+
+/*    private boolean isFirst = true;*/
     public final int CITY_CHANGE_SELECTED = 99;
     @BindView(R.id.tv_main_index_city)
     TextView tvMainIndexCity;
@@ -44,6 +44,7 @@ public class MainIndexFragment extends BaseFragment {
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         Intent intent = new Intent(view1.getContext(), CityChangeActivity.class);
         String city = tvMainIndexCity.getText().toString();
+
         intent.putExtra("currentcity",city);
         xcCacheManager.writeCache(xcCacheSaveName.modlestatus,"index");
 
@@ -51,23 +52,25 @@ public class MainIndexFragment extends BaseFragment {
 
     }
     private MainIndexController mainIndexController;
-
+    public LocationClient mLocationClient = null;
+    public BDLocationListener myListener = new MyLocationListener();
     private View view1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_index_lly, container, false);
         init(view);
-        view1 = view;
+
         return view;
     }
 
 
 
     private void init(View view){
+        view1 = view;
         ButterKnife.bind(this,view);
         initController(view);
-        initBaidu(view);
+        initBaidu();
 
     }
     private void initController(View view){
@@ -76,20 +79,32 @@ public class MainIndexFragment extends BaseFragment {
 
 
 
-    private void initBaidu(View view){
-        mLocationClient = new LocationClient(view.getContext());
+
+
+
+    private void initBaidu( ){
+
+
+        mLocationClient = new LocationClient(view1.getContext());
+
+        if(mLocationClient == null){
+            return;
+        }
         //声明LocationClient类
         mLocationClient.registerLocationListener( myListener );
         //注册监听函数
         initLocation();
         mLocationClient.start();
+
+
+
     }
     private void initLocation(){
         LocationClientOption option = new LocationClientOption();
         option.setCoorType("bd09ll");
         //可选，默认gcj02，设置返回的定位结果坐标系
 
-        int span=3000;
+        int span=0;
         option.setScanSpan(span);
         //可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
 
@@ -124,8 +139,8 @@ public class MainIndexFragment extends BaseFragment {
 
         @Override
         public void onReceiveLocation(BDLocation location) {
-            if(location != null) {
 
+            if (location != null) {
 
 
                 //获取定位结果
@@ -133,27 +148,36 @@ public class MainIndexFragment extends BaseFragment {
 
                /* Toast.makeText(view1.getContext(),"city:"+ location.getLocType(),Toast.LENGTH_LONG).show();*/
                /* Toast.makeText(view1.getContext(),"city:"+city,Toast.LENGTH_LONG).show();*/
-                if(city == null){
+                if (city == null) {
                     return;
                 }
-                if(isFirst) {
-                    int indexCity = city.indexOf("市");
+         /*       if(isFirst) {*/
+                int indexCity = city.indexOf("市");
                     /*Toast.makeText(view1.getContext(),"indexcity:"+indexCity,Toast.LENGTH_LONG).show();*/
-                    if(indexCity >= 0){
-                        city = city.substring(0,indexCity);
-                    }
-                    int indexCity2 = city.indexOf("全");
-                    if(indexCity2 >= 0){
-                        city = city.substring(indexCity2+1,city.length());
-                    }
-                    String lat = location.getLatitude()+"";
-                    String lon = location.getLongitude()+"";
-                    XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-                    XCCacheManager xcCacheManager = XCCacheManager.getInstance(getContext());
-                    xcCacheManager.writeCache(xcCacheSaveName.currentCity,city);
-                    xcCacheManager.writeCache(xcCacheSaveName.currentLat,lat);
-                    xcCacheManager.writeCache(xcCacheSaveName.currentlon,lon);
-                    System.out.print("this is lat\n:"+lat);
+                if (indexCity >= 0) {
+                    city = city.substring(0, indexCity);
+                }
+                int indexCity2 = city.indexOf("全");
+                if (indexCity2 >= 0) {
+                    city = city.substring(indexCity2 + 1, city.length());
+                }
+                String lat = location.getLatitude() + "";
+                String lon = location.getLongitude() + "";
+                XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+                XCCacheManager xcCacheManager = XCCacheManager.getInstance(view1.getContext());
+                if (city == null) {
+                    return;
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentCity, city);
+                if (lat == null) {
+                    return;
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentLat, lat);
+                if (lon == null) {
+                    return;
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentlon, lon);
+              /*      System.out.print("this is lat\n:"+lat);
                     System.out.print("this is lon\n:"+lon);
                     Log.i("this is lat",lat);
                     Log.i("this is lat",lat);
@@ -165,11 +189,12 @@ public class MainIndexFragment extends BaseFragment {
                     Log.i("this is lon",lon);
                     Log.i("this is lon",lon);
                     Log.i("this is lon",lon);
-                    Log.i("this is lon",lon);
+                    Log.i("this is lon",lon);*/
                    /* tvMainIndexCity.setText(city);*/
-                    isFirst = false;
-                }
+             /*       isFirst = false;
+                }*/
             }
+
         }
 
     }
@@ -182,10 +207,10 @@ public class MainIndexFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
         mLocationClient.unRegisterLocationListener(myListener);
         mLocationClient.stop();   //添加这句就行了
     }
-
 
 
 
@@ -216,6 +241,7 @@ public class MainIndexFragment extends BaseFragment {
     public void onResume(){
         super.onResume();
         selectResult();
+
     }
     private void selectResult(){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view1.getContext());

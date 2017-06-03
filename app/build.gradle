@@ -156,14 +156,16 @@ dependencies {
     compile files('libs/locSDK_6.13.jar')
     /*百度地图*/
     /*相册多选http://blog.csdn.net/yanzhenjie1003/article/details/52975922*/
-
     /*相册多选http://blog.csdn.net/yanzhenjie1003/article/details/52975922*/
     /*环信聊天*/
     /*环信聊天*/
     /*友盟*/
     /*友盟*/
     compile project(':mynewslayoutlib')
-
+    /*compile 'com.android.support:multidex:1.0.1'*/
 }
 /*// 依赖插件脚本
 apply from: 'tinker-support.gradle'*/
+// ADD THIS AT THE BOTTOM
+/*
+apply plugin: 'com.google.gms.google-services'*/

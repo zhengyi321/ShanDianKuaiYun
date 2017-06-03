@@ -75,7 +75,8 @@ public class MainMineController extends BaseController{
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((login_id == null)||(login_id.isEmpty())){
-            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+          /*  Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();*/
+            view.getContext().startActivity(new Intent(view.getContext(),LoginActivity.class));
             return;
         }
         Intent intent = new Intent(view.getContext(), RenZhengActivity.class);
@@ -89,7 +90,8 @@ public class MainMineController extends BaseController{
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((login_id == null)||(login_id.isEmpty())){
-            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+            /*Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();*/
+            view.getContext().startActivity(new Intent(view.getContext(),LoginActivity.class));
             return;
         }
         Intent intent = new Intent(view.getContext(), WoDeCheYuanActivity.class);
@@ -103,7 +105,8 @@ public class MainMineController extends BaseController{
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((login_id == null)||(login_id.isEmpty())){
-            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+      /*      Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();*/
+            view.getContext().startActivity(new Intent(view.getContext(),LoginActivity.class));
             return;
         }
         Intent intent = new Intent(view.getContext(), WoDeHuoYuanActivity.class);
@@ -117,7 +120,8 @@ public class MainMineController extends BaseController{
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((login_id == null)||(login_id.isEmpty())){
-            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+        /*    Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();*/
+            view.getContext().startActivity(new Intent(view.getContext(),LoginActivity.class));
             return;
         }
         Intent intent = new Intent(view.getContext(), WoDeYaoQingActivity.class);
@@ -134,7 +138,8 @@ public class MainMineController extends BaseController{
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((login_id == null)||(login_id.isEmpty())){
-            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+            /*Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();*/
+            view.getContext().startActivity(new Intent(view.getContext(),LoginActivity.class));
             return;
         }
         Intent intent = new Intent(view.getContext(), MengYouActivity.class);
@@ -148,7 +153,8 @@ public class MainMineController extends BaseController{
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((login_id == null)||(login_id.isEmpty())){
-            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+            /*Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();*/
+            view.getContext().startActivity(new Intent(view.getContext(),LoginActivity.class));
             return;
         }
         Intent intent = new Intent(view.getContext(), JiFenShangChengActivity.class);
@@ -162,7 +168,8 @@ public class MainMineController extends BaseController{
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((login_id == null)||(login_id.isEmpty())){
-            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+            /*Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();*/
+            view.getContext().startActivity(new Intent(view.getContext(),LoginActivity.class));
             return;
         }
         Intent intent = new Intent(view.getContext(), SheZhiActivity.class);
@@ -176,7 +183,8 @@ public class MainMineController extends BaseController{
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((login_id == null)||(login_id.isEmpty())){
-            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+            /*Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();*/
+            view.getContext().startActivity(new Intent(view.getContext(),LoginActivity.class));
             return;
         }
         Intent intent = new Intent(view.getContext(), AboutUsActivity.class);

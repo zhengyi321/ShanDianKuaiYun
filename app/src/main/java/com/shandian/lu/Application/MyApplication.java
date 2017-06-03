@@ -1,6 +1,8 @@
 package com.shandian.lu.Application;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 
 import com.baidu.mapapi.SDKInitializer;
@@ -64,7 +66,11 @@ public class MyApplication extends Application {
         *//*友盟第三方登录*/
     }
 
-
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
     public  MyApplication getInstance() {
         return instance;
@@ -98,7 +104,7 @@ public class MyApplication extends Application {
         options.setAcceptInvitationAlways(false);
 
         EaseUI.getInstance().init(this, null);
-        EMClient.getInstance().setDebugMode(true);
+       /* EMClient.getInstance().setDebugMode(true);*/
 
     }
     /*环信初始化*/

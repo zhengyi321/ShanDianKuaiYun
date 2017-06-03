@@ -44,6 +44,6 @@ dependencies {
     compile project(':shandiankuaiyuanwidgetlib')
     compile files('libs/thumbnailator-0.4.2.jar')
     compile 'com.google.code.gson:gson:2.6.1'
-
+    compile 'com.android.support:recyclerview-v7:25.1.1'
 
 }
