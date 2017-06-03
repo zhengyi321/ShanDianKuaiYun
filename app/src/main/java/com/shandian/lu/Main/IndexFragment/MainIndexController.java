@@ -70,9 +70,9 @@ public class MainIndexController extends BaseController{
     ImageButton ibMainIndexPHZX;
     @OnClick(R.id.ib_main_index_phzx)
     public void ibMainIndexPHZXOnclick(){
-        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+       /* XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);*/
         /*if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
@@ -85,9 +85,9 @@ public class MainIndexController extends BaseController{
     ImageButton ibMainIndexZXWL;
     @OnClick(R.id.ib_main_index_zxwl)
     public void ibMainIndexZXWLOnclick(){
-        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+       /* XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);*/
         /*if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
@@ -100,9 +100,9 @@ public class MainIndexController extends BaseController{
     ImageButton ibMainIndexTZWL;
     @OnClick(R.id.ib_main_index_tzwl)
     public void ibMainIndexTZWLOnclick(){
-        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+     /*   XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);*/
        /* if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
@@ -133,9 +133,9 @@ public class MainIndexController extends BaseController{
     ImageButton ibMainIndexZCHY;
     @OnClick(R.id.ib_main_index_zchy)
     public void ibMainIndexZCHYOnclick(){
-        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+      /*  XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);*/
        /* if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
@@ -148,9 +148,9 @@ public class MainIndexController extends BaseController{
     ImageButton ibMainIndexRRWL;
     @OnClick(R.id.ib_main_index_rrwl)
     public void ibMainIndexRRWLOnclick(){
-        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+    /*    XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);*/
        /* if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;
@@ -186,9 +186,9 @@ public class MainIndexController extends BaseController{
     ImageButton ibMainIndexFX;
     @OnClick(R.id.ib_main_index_fx)
     public void ibMainIndexFXOnclick(){
-        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+    /*    XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);*/
        /* if((login_id == null)||(login_id.isEmpty())){
             Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
             return;

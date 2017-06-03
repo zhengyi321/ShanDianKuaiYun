@@ -96,6 +96,6 @@ public class ZhengCheHuoYunActivity extends BaseActivity{
     @Override
     protected void onResume(){
         super.onResume();
-        zhengCheHuoYunController.getGoodsSourceFromNet(false);
+    /*    zhengCheHuoYunController.getGoodsSourceFromNet(false);*/
     }
 }

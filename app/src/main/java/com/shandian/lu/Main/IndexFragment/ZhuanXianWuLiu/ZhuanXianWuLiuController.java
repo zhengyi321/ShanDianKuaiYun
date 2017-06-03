@@ -120,7 +120,7 @@ public class ZhuanXianWuLiuController extends BaseController {
     protected void init() {
         ButterKnife.bind(this,activity);
         initXRV();
-        /*isAllOrNear("all");*/
+        isAllOrNear("all");
     }
 
 
