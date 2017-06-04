@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="货源详情"
+            android:text="提交支付"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:layout_centerInParent="true"

@@ -5,7 +5,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="@mipmap/chezhaohoubaojiachenggonghuoyuanxiangqing"
+        android:background="@mipmap/top_orange_bg"
         android:orientation="vertical"
         >
         <include layout="@layout/activity_new_hkh_huoyuanxiangqing_baojiachenggong_topbar_lly"/>
@@ -74,6 +74,7 @@
                     android:background="@mipmap/success"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
                     />
             </RelativeLayout>
 

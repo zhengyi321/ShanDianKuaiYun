@@ -5,7 +5,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="@mipmap/cheyuanxinxi_paysuccess_blue_bg"
+        android:background="@mipmap/top_big_blue_bg"
         android:orientation="vertical"
         >
         <include layout="@layout/activity_new_hkc_cheyuanxiangqing_paysuccess_topbar_lly"/>
@@ -87,6 +87,7 @@
         android:layout_weight="1"
         >
         <include layout="@layout/activity_new_hkc_cheyuanxiangqing_paysuccess_content_ssv"/>
-        <include layout="@layout/activity_new_hkc_cheyuanxiangqing_paysuccess_bottom_lly"/>
-    </LinearLayout>
+        </LinearLayout>
+    <include layout="@layout/activity_new_hkc_cheyuanxiangqing_paysuccess_bottom_lly"/>
+
 </LinearLayout>

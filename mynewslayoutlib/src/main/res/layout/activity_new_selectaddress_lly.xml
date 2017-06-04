@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-        <include layout="@layout/activity_new_hkh_huoyuanxiangqing_chezhubaojia_topbar_lly"/>
+        <include layout="@layout/activity_new_selectaddress_topbar_lly"/>
 
 
     <LinearLayout
@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:layout_weight="1"
         >
-        <include layout="@layout/activity_new_hkh_huoyuanxiangqing_chezhubaojia_content_ssv"/>
+        <include layout="@layout/activity_new_selectaddress_content_lly"/>
 
     </LinearLayout>
 </LinearLayout>

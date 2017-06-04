@@ -21,12 +21,12 @@
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="5"
+        android:layout_weight="4.5"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="货源详情"
+            android:text="选择地址"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:layout_centerInParent="true"
@@ -38,6 +38,13 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         >
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加地址"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:layout_centerInParent="true"
+            />
     </RelativeLayout>
 </LinearLayout>

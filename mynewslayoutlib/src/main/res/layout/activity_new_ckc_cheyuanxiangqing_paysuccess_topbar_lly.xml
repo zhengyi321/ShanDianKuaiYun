@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="54dp"
-    android:background="@mipmap/top_small_blue_bg"
+    android:background="@color/transparent"
     >
     <RelativeLayout
         android:layout_width="0dp"
@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="货源详情"
+            android:text="车源详情"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:layout_centerInParent="true"
@@ -38,6 +38,12 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/head"
+            android:layout_centerInParent="true"
+            />
 
     </RelativeLayout>
 </LinearLayout>
