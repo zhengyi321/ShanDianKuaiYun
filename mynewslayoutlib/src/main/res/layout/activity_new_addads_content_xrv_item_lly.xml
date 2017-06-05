@@ -3,242 +3,249 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="120dp"
     android:layout_marginBottom="0.5dp"
+    android:background="@color/white"
     >
-<com.example.mynewslayoutlib.SwipeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+
+    <com.example.mynewslayoutlib.SwipeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:background="#ffffff">
-        <LinearLayout
-            android:layout_width="@dimen/zero"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginLeft="40dp"
-            android:layout_weight="4"
-            >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="1"
-                >
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:orientation="horizontal"
-
-                android:layout_weight="3.5"
-                >
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="乐清市"
-                        android:textColor="#1261ce"
-                        android:textSize="20sp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="乐清镇"
-                        android:textColor="#626262"
-                        android:textSize="15sp"
-                        />
-                </LinearLayout>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/arrow_standard_right"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="北京市"
-                        android:textColor="#1261ce"
-                        android:textSize="20sp"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="通州区幸福北路"
-                        android:textColor="#626262"
-                        android:textSize="13sp"
-                        />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:orientation="horizontal"
-                android:layout_weight="1"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="设定时间:"
-                    android:textColor="@color/gray"
-                    android:textSize="13sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2017-01-02 上午08:00~11:30"
-                    android:textColor="@color/gray"
-                    android:textSize="13sp"
-                    android:layout_marginLeft="4dp"
-                    />
-            </LinearLayout>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/lightgray"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="5dp"
-                />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:orientation="horizontal"
-                android:layout_weight="2.5"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/half_radius_blue_edge_shape"
-                    android:text="八件货"
-                    android:textSize="13sp"
-                    android:textColor="@color/dodgerblue"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_gravity="center_vertical"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/half_radius_light_green_edge_shape"
-                    android:text="2000km"
-                    android:textSize="13sp"
-                    android:textColor="#76bf0b"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="16dp"
-                    />
-            </LinearLayout>
-        </LinearLayout>
-        <RelativeLayout
-            android:layout_width="@dimen/zero"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginRight="40dp"
-            >
-            <Button
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@drawable/gray_round_shape"
-                android:text="车"
-                android:textColor="@color/white"
-                android:textSize="28sp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                >
-
-
-            </Button>
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="120dp"
         android:layout_height="match_parent">
-        <RelativeLayout
-            android:clickable="true"
-            android:layout_width="60dp"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#4495e1">
+            android:background="#ffffff"
+            android:orientation="horizontal">
+
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerInParent="true"
-                >
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="40dp"
+                android:layout_weight="4"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/zero"
+                    android:layout_weight="0.5">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/zero"
+                    android:layout_weight="2.5"
+
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="乐清市"
+                            android:textColor="#1261ce"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="乐清镇"
+                            android:textColor="#626262"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@mipmap/arrow_standard_right" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="北京市"
+                            android:textColor="#1261ce"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="通州区幸福北路"
+                            android:textColor="#626262"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/zero"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="设定时间:"
+                        android:textColor="@color/gray"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="4dp"
+                        android:text="2017-01-02 上午08:00~11:30"
+                        android:textColor="@color/gray"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/refresh"
-                    android:layout_gravity="center_horizontal"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="刷新"
-                    android:textSize="13sp"
-                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginRight="30dp"
                     android:layout_marginTop="5dp"
+                    android:background="@color/lightgray" />
 
-                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/zero"
+                    android:layout_weight="1.5"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/half_radius_blue_edge_shape"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="2dp"
+                        android:text="八件货"
+                        android:textColor="@color/dodgerblue"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/half_radius_light_green_edge_shape"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="2dp"
+                        android:text="2000km"
+                        android:textColor="#76bf0b"
+                        android:textSize="11sp" />
+                </LinearLayout>
             </LinearLayout>
-        </RelativeLayout>
 
-        <RelativeLayout
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1.2">
 
-            android:clickable="true"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="#ed3b3b">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerInParent="true"
-                >
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/delete"
-                    android:layout_gravity="center_horizontal"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="删除"
-                    android:textSize="13sp"
+                <Button
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/gray_round_shape"
+                    android:text="车"
                     android:textColor="@color/white"
-                    android:layout_marginTop="5dp"
-
-                    />
-
-            </LinearLayout>
-        </RelativeLayout>
+                    android:textSize="28sp">
 
 
-    </LinearLayout>
-</com.example.mynewslayoutlib.SwipeLayout>
+                </Button>
+            </RelativeLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="#4495e1"
+                android:clickable="true">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@mipmap/refresh" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="刷新"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+
+                        />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="#ed3b3b"
+                android:clickable="true">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@mipmap/delete" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="删除"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+
+                        />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </com.example.mynewslayoutlib.SwipeLayout>
 
 
 </LinearLayout>
