@@ -3,6 +3,7 @@ package com.shandian.lu.Main.MineFragment.SheZhi;
 import android.app.Activity;
 import android.content.Intent;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.MineFragment.Login.FindPass.FindPassActivity;
@@ -20,6 +21,13 @@ import butterknife.OnClick;
 
 public class SheZhiController extends BaseController {
 
+
+    @BindView(R.id.rly_main_mine_shezhi_back)
+    RelativeLayout rlyMainMineSheZhiBack;
+    @OnClick(R.id.rly_main_mine_shezhi_back)
+    public void rlyMainMineSheZhiBackOnclick(){
+        activity.finish();
+    }
     @BindView(R.id.lly_main_mine_shezhi_findpass)
     LinearLayout llyMainMineSheZhiFindPass;
     @OnClick(R.id.lly_main_mine_shezhi_findpass)

@@ -39,6 +39,7 @@ public class GoodsSourceXRVDetailController extends BaseController {
 
 
     private CallTelDialog callTelDialog;
+    private String clientLoginId="";
     @BindView(R.id.rly_main_index_goodssource_detail_calltel)
     RelativeLayout rlyMainIndexGoodsSourceDetailCallTel;
     @OnClick(R.id.rly_main_index_goodssource_detail_calltel)
@@ -145,14 +146,21 @@ public class GoodsSourceXRVDetailController extends BaseController {
     RelativeLayout rlyMainIndexGoodsSourceDetailSpeak;
     @OnClick(R.id.rly_main_index_goodssource_detail_speak)
     public void  rlyMainIndexGoodsSourceDetailSpeakOnclick(){
-        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        Toast.makeText(activity,clientLoginId,Toast.LENGTH_LONG).show();
         if((login_id == null)||(login_id.isEmpty())){
             activity.startActivity(new Intent(activity,LoginActivity.class));
+            return;
+        }
+
+        if((clientLoginId == null)||(clientLoginId.isEmpty())){
+           return;
 
         }
-        activity.startActivity(new Intent(activity,ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, id));
+
+        activity.startActivity(new Intent(activity,ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, clientLoginId));
     }
     @BindView(R.id.tv_main_index_goodssource_detail_pingjia)
     TextView tvMainIndexGoodsSourceDetailPingJia;
@@ -189,6 +197,7 @@ public class GoodsSourceXRVDetailController extends BaseController {
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
         if(login_id == null){
             Toast.makeText(activity,"请登录",Toast.LENGTH_LONG).show();
+            activity.startActivity(new Intent(activity,LoginActivity.class));
             return;
         }
         AboutGoodsSourceNetWork aboutGoodsSourceNetWork = new AboutGoodsSourceNetWork();
@@ -232,7 +241,7 @@ public class GoodsSourceXRVDetailController extends BaseController {
                     lat = goodsDetailBean.getContent().get_$0().getLat();
                     lng = goodsDetailBean.getContent().get_$0().getLng();
                     addr = goodsDetailBean.getContent().get_$0().getAddress();
-
+                    clientLoginId = goodsDetailBean.getContent().get_$0().getLogin_id();
                 }
             }
         });

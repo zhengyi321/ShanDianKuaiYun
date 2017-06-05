@@ -105,7 +105,7 @@ public class WoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<WoDeHuoYuanXRVAd
             //从相册选择头像代码
             new AlertView.Builder().setContext(context)
                     .setStyle(AlertView.Style.ActionSheet)
-                 /*   .setTitle("选择头像")*/
+                    .setTitle("请选择")
                     .setMessage(null)
                     .setCancelText("取消")
                     .setDestructive("删除信息")

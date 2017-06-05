@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:id="@+id/rb_addressmanage_adduser"
+                style="@style/AddAdsTab"
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="置顶"
+                android:checked="true"
+                />
+            <RadioButton
+                android:id="@+id/rb_addressmanage_addshop"
+                style="@style/AddAdsTab"
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="推荐"
+                />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_main_myorder_tab_greenbottom"
+        android:layout_width="60dp"
+        android:layout_height="3dp"
+        android:scaleType="matrix"
+        android:background="#1261ce"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="0.5dp"
+        />
+
+
+    <com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView>
+</LinearLayout>

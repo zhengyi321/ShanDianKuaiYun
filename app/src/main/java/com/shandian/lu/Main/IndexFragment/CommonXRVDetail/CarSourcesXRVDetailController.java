@@ -38,7 +38,7 @@ public class CarSourcesXRVDetailController extends BaseController {
 
 
 
-
+    private String clientLoginId="";
     private CallTelDialog callTelDialog;
     @BindView(R.id.rly_main_index_carsource_detail_calltel)
     RelativeLayout rlyMainIndexCarSourceDetailCallTel;
@@ -146,11 +146,15 @@ public class CarSourcesXRVDetailController extends BaseController {
     RelativeLayout rlyMainIndexCarSourceDetailSpeak;
     @OnClick(R.id.rly_main_index_carsource_detail_speak)
     public void  rlyMainIndexCarSourceDetailSpeakOnclick(){
-        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((login_id == null)||(login_id.isEmpty())){
             activity.startActivity(new Intent(activity,LoginActivity.class));
+            return;
+        }
+        if((clientLoginId == null)||(clientLoginId.isEmpty())){
+            return;
 
         }
         activity.startActivity(new Intent(activity,ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, id));
@@ -236,6 +240,7 @@ public class CarSourcesXRVDetailController extends BaseController {
                     lat = carSourceDetailBean.getContent().getList().get(0).getLat();
                     lng = carSourceDetailBean.getContent().getList().get(0).getLng();
                     addr = carSourceDetailBean.getContent().getList().get(0).getAddress();
+                    clientLoginId = carSourceDetailBean.getContent().getList().get(0).getLogin_id();
                 }
             }
         });

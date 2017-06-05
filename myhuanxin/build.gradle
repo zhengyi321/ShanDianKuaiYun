@@ -50,5 +50,5 @@ dependencies {
     compile files('libs/hyphenatechat_3.3.2.jar')
     compile files('libs/MiPush_SDK_Client_2_2_19.jar')
     compile files('libs/org.apache.http.legacy.jar')
-
+    compile 'com.yanzhenjie:album:1.0.6'
 }
