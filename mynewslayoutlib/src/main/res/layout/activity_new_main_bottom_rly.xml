@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/main_bottom_height"
+    android:background="@color/color_main_bottom_gray_bg"
+    >
+    <RadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingTop="4dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RadioButton
+            android:id="@+id/rb_main_bottom_index"
+            style="@style/common_bottom"
+            android:checked="true"
+            android:drawableTop="@drawable/new_main_bottom_index_pic_selector"
+            android:tag="main_bottom_index"
+            android:text="@string/index"
+            android:drawablePadding="1dp"
+            android:paddingLeft="8dp"
+
+            />
+
+
+        <RadioButton
+            android:id="@+id/rb_main_bottom_advice"
+            style="@style/common_bottom"
+            android:drawableTop="@drawable/new_main_bottom_advice_pic_selector"
+            android:tag="main_bottom_advice"
+            android:drawablePadding="1dp"
+            android:text="@string/advice" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            >
+        <ImageButton
+            android:id="@+id/rb_main_bottom_release"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/bottom_blue_add"
+            android:layout_centerHorizontal="true"
+             />
+
+        </RelativeLayout>
+
+        <RadioButton
+            android:id="@+id/rb_main_bottom_message"
+            style="@style/common_bottom"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/new_main_bottom_message_pic_selector"
+            android:tag="main_bottom_message"
+            android:text="@string/message"
+            android:paddingRight="8dp"
+
+            />
+        <RadioButton
+            android:id="@+id/rb_main_bottom_mine"
+            style="@style/common_bottom"
+            android:drawablePadding="1dp"
+            android:drawableTop="@drawable/new_main_bottom_mine_pic_selector"
+            android:tag="main_bottom_mine"
+            android:text="@string/mine"
+            android:paddingRight="8dp"
+
+            />
+    </RadioGroup>
+</RelativeLayout>

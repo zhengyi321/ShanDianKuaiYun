@@ -12,5 +12,31 @@
         <item name="android:singleLine">true</item>
         <item name="android:layout_weight">0.5</item>
     </style>
+    <style name="WoDeHuoYuan">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@drawable/selector_text_color_white_gray</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_weight">0.5</item>
+    </style>
 
+
+
+    <declare-styleable name="MyGiftView">
+        <attr name="gif" format="reference" />
+        <attr name="paused" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomTheme">
+        <attr name="gifViewStyle" format="reference" />
+    </declare-styleable>
+
+    <style name="Widget_MyGiftView">
+        <!-- Customize your theme here. -->
+    </style>
 </resources>

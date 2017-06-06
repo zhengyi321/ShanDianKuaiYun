@@ -14,13 +14,7 @@
         <RelativeLayout
             android:layout_width="40dp"
             android:layout_height="match_parent">
-            <CheckBox
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:background="@mipmap/blue_selected"
-                android:button="@null"
-                android:layout_centerInParent="true"
-                />
+
         </RelativeLayout>
 
         <LinearLayout
@@ -32,9 +26,16 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
-                android:layout_weight="0.5"
+                android:layout_weight="1"
                 >
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="刚刚"
+                    android:textColor="@color/gray"
+                    android:textSize="11sp"
+                    android:layout_alignParentBottom="true"
+                    />
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -166,19 +167,40 @@
             android:layout_weight="1.2"
             android:layout_marginRight="12.5dp"
             >
-            <Button
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/gray_round_shape"
-                android:text="车"
-                android:textColor="@color/white"
-                android:textSize="28sp"
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
+                android:orientation="vertical"
+                >
+            <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/gray_round_shape"
+
                 >
 
 
-            </Button>
+            </com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="赵德汗"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp"
+                    />
+                <ImageView
+                    android:layout_marginTop="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/blue_tel"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
         </RelativeLayout>
 
     </LinearLayout>

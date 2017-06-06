@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:background="@mipmap/top_big_blue_bg"
+            >
+        <include layout="@layout/fragment_new_wodehuoyuan_topbar_lly"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43.5dp"
+                android:orientation="horizontal"
+
+                >
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/rb_addressmanage_adduser"
+                        style="@style/WoDeHuoYuan"
+                        android:layout_width="@dimen/zero"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:checked="true"
+                        android:text="已完成" />
+
+                    <RadioButton
+
+                        style="@style/WoDeHuoYuan"
+                        android:layout_width="@dimen/zero"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:text="已报价"
+                        />
+                    <RadioButton
+
+                        style="@style/WoDeHuoYuan"
+                        android:layout_width="@dimen/zero"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:text="全部订单"
+                        />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_main_myorder_tab_greenbottom"
+                android:layout_width="60dp"
+                android:layout_height="3dp"
+                android:scaleType="matrix"
+                android:background="@color/white"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="0.5dp"
+                />
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+        <include layout="@layout/fragment_new_wodehuoyuan_content_lly"/>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    >
+    <include layout="@layout/activity_new_fabuhuoyuan_topbar_lly"/>
+    <com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        >
+        <include layout="@layout/activity_new_fabuhuoyuan_content_lly"/>
+    </com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>
+    <include layout="@layout/activity_new_fabuhuoyuan_bottom_lly"/>
+</LinearLayout>
