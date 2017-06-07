@@ -1,6 +1,7 @@
 package com.shandian.lu.Main.IndexFragment.ZhuanXianWuLiu;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
@@ -107,6 +108,8 @@ public class ZhuanXianWuLiuController extends BaseController {
     @BindView(R.id.xrv_main_index_zhuanxianwuliu)
     XRecyclerView xrvMainIndexZhuanXianWuLiu;
     int page = 0;
+    private int times = 0;
+    private int refreshTime = 0;
     private ZhuanXianWuLiuXRVAdapter zhuanXianWuLiuXRVAdapter;
     List<ZhuanXianWuliuCarSourceBean.ContentBean> stringList;
 
@@ -139,20 +142,46 @@ public class ZhuanXianWuLiuController extends BaseController {
         xrvMainIndexZhuanXianWuLiu.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
-                if (page > 0) {
-                    page--;
-                    getDataFromNet(true);
-                } else {
-                    getDataFromNet(true);
-                }
-                xrvMainIndexZhuanXianWuLiu.refreshComplete();
+                refreshTime ++;
+                times = 0;
+                new Handler().postDelayed(new Runnable() {
+                    public void run() {
+                        if (page > 0) {
+                            page--;
+                            getDataFromNet(true);
+                        } else {
+                            getDataFromNet(true);
+                        }
+                        xrvMainIndexZhuanXianWuLiu.refreshComplete();
+                    }
+                },1000);
             }
-
             @Override
             public void onLoadMore() {
-                page++;
-                getDataFromNet(true);
-                xrvMainIndexZhuanXianWuLiu.loadMoreComplete();
+
+                if(times < 2){
+                    new Handler().postDelayed(new Runnable(){
+                        public void run() {
+                            page++;
+                            getDataFromNet(true);
+                            xrvMainIndexZhuanXianWuLiu.loadMoreComplete();
+                        }
+                    }, 1000);
+                } else {
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            page++;
+                            getDataFromNet(true);
+                            xrvMainIndexZhuanXianWuLiu.setNoMore(true);
+
+                        }
+                    }, 1000);
+                }
+                times ++;
+
+
+
+
             }
         });
     }
@@ -224,7 +253,7 @@ public class ZhuanXianWuLiuController extends BaseController {
                 if((zhuanXianWuliuCarSourceBean.getStatus() == 0)&&(zhuanXianWuliuCarSourceBean.getContent() != null)) {
                     zhuanXianWuLiuXRVAdapter.setAdapter(zhuanXianWuliuCarSourceBean.getContent());
                 }else{
-                    Toast.makeText(activity,"已经到底部了",Toast.LENGTH_LONG).show();
+                 /*   Toast.makeText(activity,"已经到底部了",Toast.LENGTH_LONG).show();*/
                 }
             }
         });
@@ -284,7 +313,7 @@ public class ZhuanXianWuLiuController extends BaseController {
                 if((zhuanXianWuliuCarSourceBean.getStatus() == 0)&&(zhuanXianWuliuCarSourceBean.getContent() != null)){
                     zhuanXianWuLiuXRVAdapter.setAdapter(zhuanXianWuliuCarSourceBean.getContent());
                 }else{
-                    Toast.makeText(activity,"已经到底部了",Toast.LENGTH_LONG).show();
+                 /*   Toast.makeText(activity,"已经到底部了",Toast.LENGTH_LONG).show();*/
                 }
             }
         });

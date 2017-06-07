@@ -1,12 +1,10 @@
 package com.shandian.lu.Main;
 
-import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -16,23 +14,13 @@ import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.common.SocializeConstants;*/
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.j256.ormlite.stmt.query.In;
 import com.shandian.lu.Main.AdviceFragment.MainAdviceFragment;
-import com.shandian.lu.Main.IndexFragment.MainIndexFragment;
 import com.shandian.lu.Main.IndexFragment.NewMainIndexFragment;
 import com.shandian.lu.Main.MessageFragment.ChatMessageFragment;
-import com.shandian.lu.Main.MineFragment.MainMineFragment;
 import com.shandian.lu.Main.MineFragment.NewMainMineFragment;
-import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity;
 import com.shandian.lu.Main.ReleaseFragment.MainReleaseFragment;
 /*import ChatMessageFragment;*/
 import com.shandian.lu.R;
-import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
-import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -92,15 +80,27 @@ public class MainActivity extends FragmentActivity {
     public void rbNewMainBottomMessageOnclick(){
         getFragment("message");
     }
-
+/*    ReleaseDialog releaseDialog ;*/
     @BindView(R.id.ib_new_main_bottom_publish)
     ImageButton ibNewMainBottomPublish;
     @OnClick(R.id.ib_new_main_bottom_publish)
     public void ibNewMainBottomPublishOnclick(){
-        Intent intent = new Intent(this, NewFaBuHuoYuanActivity.class);
-        startActivity(intent);
+ /*       releaseDialog = new ReleaseDialog(this).Build.build(this);
+        showDialog();*/
+
+
+       /* Intent intent = new Intent(this, NewFaBuHuoYuanActivity.class);
+        startActivity(intent);*/
+    }
+  /*  public void showDialog() {
+        if (releaseDialog != null && !releaseDialog.isShowing())
+            releaseDialog.show();
     }
 
+    public void dissmissDialog() {
+        if (releaseDialog != null && releaseDialog.isShowing())
+            releaseDialog.dismiss();
+    }*/
 
     @BindView(R.id.rb_new_main_bottom_mine)
     RadioButton rbMainBottomMine;
