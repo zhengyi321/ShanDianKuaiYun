@@ -152,11 +152,11 @@ public class BanJiaController extends BaseController implements TextWatcher{
     private void initCity(){
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
-        String name = xcCacheManager.readCache(xcCacheSaveName.currentCity).trim();
+        String name = xcCacheManager.readCache(xcCacheSaveName.currentCity);
         if(name == null){
             name = "";
         }else{
-            name = name.replaceAll(" ","");
+            name = name.replaceAll(" ","").trim();
         }
         tvMainIndexBanJiaCity.setText(name);
     }
@@ -226,11 +226,11 @@ public class BanJiaController extends BaseController implements TextWatcher{
         Map<String,String> paramMap = new HashMap<>();
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
-        String name = xcCacheManager.readCache(xcCacheSaveName.currentCity).trim();
+        String name = xcCacheManager.readCache(xcCacheSaveName.currentCity);
         if(name == null){
             name = "";
         }else{
-            name = name.replaceAll(" ","");
+            name = name.replaceAll(" ","").trim();
         }
         paramMap.put("name",name);
         String type_name = tvMainIndexBanJiaLeiXing.getText().toString().trim();
@@ -240,11 +240,11 @@ public class BanJiaController extends BaseController implements TextWatcher{
             type_name = type_name.replaceAll(" ","");
         }
         paramMap.put("type_name",type_name);
-        String city_name = tvMainIndexBanJiaCity.getText().toString().trim();
+        String city_name = tvMainIndexBanJiaCity.getText().toString();
         if(city_name == null){
             city_name = "";
         }else{
-            city_name = city_name.replaceAll(" ","");
+            city_name = city_name.replaceAll(" ","").trim();
         }
         paramMap.put("city_name",city_name);
         String type = "1";

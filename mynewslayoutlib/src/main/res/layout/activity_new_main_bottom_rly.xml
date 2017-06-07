@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true">
 
         <RadioButton
-            android:id="@+id/rb_main_bottom_index"
+            android:id="@+id/rb_new_main_bottom_index"
             style="@style/common_bottom"
             android:checked="true"
             android:drawableTop="@drawable/new_main_bottom_index_pic_selector"
@@ -29,7 +29,7 @@
 
 
         <RadioButton
-            android:id="@+id/rb_main_bottom_advice"
+            android:id="@+id/rb_new_main_bottom_advice"
             style="@style/common_bottom"
             android:drawableTop="@drawable/new_main_bottom_advice_pic_selector"
             android:tag="main_bottom_advice"
@@ -43,7 +43,7 @@
             android:layout_weight="0.5"
             >
         <ImageButton
-            android:id="@+id/rb_main_bottom_release"
+            android:id="@+id/ib_new_main_bottom_publish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@mipmap/bottom_blue_add"
@@ -53,17 +53,17 @@
         </RelativeLayout>
 
         <RadioButton
-            android:id="@+id/rb_main_bottom_message"
+            android:id="@+id/rb_new_main_bottom_chat"
             style="@style/common_bottom"
             android:drawablePadding="1dp"
             android:drawableTop="@drawable/new_main_bottom_message_pic_selector"
             android:tag="main_bottom_message"
-            android:text="@string/message"
+            android:text="对话"
             android:paddingRight="8dp"
 
             />
         <RadioButton
-            android:id="@+id/rb_main_bottom_mine"
+            android:id="@+id/rb_new_main_bottom_mine"
             style="@style/common_bottom"
             android:drawablePadding="1dp"
             android:drawableTop="@drawable/new_main_bottom_mine_pic_selector"

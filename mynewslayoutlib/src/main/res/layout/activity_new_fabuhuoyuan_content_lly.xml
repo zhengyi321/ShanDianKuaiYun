@@ -6,20 +6,39 @@
     android:focusableInTouchMode="true"
     android:background="@color/color_main_release_tezhongyunshu_content_bg"
     >
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:background="@color/white"
         android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
         >
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            >
+
+        </RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_main_release_new_fabuhuoyuan_add_pic"
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+
+            android:layout_weight="5"
             android:orientation="horizontal"
             >
 
         </android.support.v7.widget.RecyclerView>
-    </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            >
+
+        </RelativeLayout>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -39,7 +58,7 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
-
+                android:layout_marginRight="15dp"
                 >
                 <RelativeLayout
                     android:layout_width="@dimen/zero"
@@ -99,6 +118,7 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 >
                 <RelativeLayout
                     android:layout_width="@dimen/zero"
@@ -161,6 +181,7 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 >
                 <RelativeLayout
                     android:layout_width="@dimen/zero"
@@ -218,6 +239,7 @@
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 >
                 <RelativeLayout
                     android:layout_width="@dimen/zero"
@@ -308,6 +330,7 @@
             android:layout_weight="1"
             android:orientation="horizontal"
             android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             >
             <RelativeLayout
                 android:layout_width="@dimen/zero"
@@ -353,6 +376,7 @@
             android:layout_weight="1"
             android:orientation="horizontal"
             android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             >
             <RelativeLayout
                 android:layout_width="@dimen/zero"
@@ -399,6 +423,7 @@
             android:layout_weight="1"
             android:orientation="horizontal"
             android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             >
             <RelativeLayout
                 android:layout_width="@dimen/zero"

@@ -120,6 +120,7 @@ public class ZhengCheHuoYunController extends BaseController {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         xrvMainIndexZhengCheHuoYun.setAdapter(zhengCheHuoYunXRVAdapter);
         xrvMainIndexZhengCheHuoYun.setLayoutManager(linearLayoutManager);
+        xrvMainIndexZhengCheHuoYun.setFootViewText("正在加载中","已经到底了");
         xrvMainIndexZhengCheHuoYun.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
@@ -159,9 +160,9 @@ public class ZhengCheHuoYunController extends BaseController {
         mapParam.put("out_name",out_name);
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        String currentCity = xcCacheManager.readCache(xcCacheSaveName.currentCity).trim();
+        String currentCity = xcCacheManager.readCache(xcCacheSaveName.currentCity);
         if(currentCity != null){
-            currentCity = currentCity.replaceAll(" ","");
+            currentCity = currentCity.replaceAll(" ","").trim();;
 
         }else {
             currentCity = "";
@@ -218,7 +219,7 @@ public class ZhengCheHuoYunController extends BaseController {
                 if((goodsSourceBean.getStatus() == 0)&&(goodsSourceBean.getContent() != null)){
                     zhengCheHuoYunXRVAdapter.setAdapter(goodsSourceBean.getContent());
                 }else{
-                    Toast.makeText(activity,"已经到底部了",Toast.LENGTH_LONG).show();
+                  /*  Toast.makeText(activity,"已经到底部了",Toast.LENGTH_LONG).show();*/
                 }
             }
         });
@@ -252,7 +253,7 @@ public class ZhengCheHuoYunController extends BaseController {
                 if((goodsSourceBean.getStatus() == 0)&&(goodsSourceBean.getContent() != null)){
                     zhengCheHuoYunXRVAdapter.setAdapter(goodsSourceBean.getContent());
                 }else{
-                    Toast.makeText(activity,"已经到底部了",Toast.LENGTH_LONG).show();
+                 /*   Toast.makeText(activity,"已经到底部了",Toast.LENGTH_LONG).show();*/
                 }
             }
         });

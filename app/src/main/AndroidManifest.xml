@@ -635,6 +635,8 @@
             android:hardwareAccelerated="false"
             />
         <activity android:name=".Main.IndexFragment.WebView.WebViewActivity" />
+        <activity android:name=".Main.IndexFragment.HongBao.HongBaoActivity" />
+        <activity android:name=".Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
 
     </application>

@@ -18,6 +18,7 @@ import com.umeng.socialize.Config;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.common.SocializeConstants;*/
+import com.tencent.bugly.Bugly;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
 import com.zhyan.myhuanxin.EaseUI;
@@ -55,6 +56,11 @@ public class MyApplication extends Application {
         ImageLoaderConfiguration configuration=ImageLoaderConfiguration.createDefault(this);
         // setImageLoader(configuration);
         ImageLoader.getInstance().init(configuration);
+
+
+        /*腾讯应用更新*/
+        Bugly.init(getApplicationContext(), "17b9bbc524", false);
+        /*腾讯应用更新*/
 
         /*极光推送*/
      /*   JPushInterface.setDebugMode(true);
@@ -116,14 +122,14 @@ public class MyApplication extends Application {
         UMShareAPI.get(this);
 
         //微信 wx12342956d1cab4f9,a5ae111de7d9ea137e88a5e02c07c94d
-        PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");
+       /* PlatformConfig.setWeixin("wxdc1e388c3822c80b", "3baf1193c85774b3fd9d18447d76cab0");*/
         PlatformConfig.setWeixin("wx45d0c1ee001c7272", "3f350d810683b0322a7fdffa2a905f64");
         //新浪微博
         PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad");
       /*  最新的版本需要加上这个回调地址，可以在微博开放平台申请的应用获取，必须要有*/
       /*  Config.REDIRECT_URL="http://sns.whalecloud.com/sina2/callback";*/
         //QQ
-        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
+        PlatformConfig.setQQZone("1105709541", "S3qvHhvRY18jVriy");
        /* UMShareAPI.get(instance);
         Config.DEBUG = true;
         Log.i("友盟的版本号", SocializeConstants.SDK_VERSION);

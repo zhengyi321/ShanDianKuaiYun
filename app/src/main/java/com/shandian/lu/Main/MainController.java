@@ -21,10 +21,12 @@ import butterknife.ButterKnife;
 
 public class MainController extends BaseController {
 
-
+/*
     @BindView(R.id.fly_main_content)
-    FrameLayout flyMainContent;
+    FrameLayout flyMainContent;*/
 
+    @BindView(R.id.fly_new_main_content)
+    FrameLayout flyMainContent;
 
     public MainController(Activity activity1){
         activity = activity1;
@@ -60,7 +62,7 @@ public class MainController extends BaseController {
                 tintManager.setStatusBarTintResource(R.color.color_main_message_content_white_bg);
                 break;
             case "mine":
-                tintManager.setStatusBarTintResource(R.color.color_main_mine_tophead_green_bg);
+                tintManager.setStatusBarTintResource(R.mipmap.top_big_blue_bg);
                 break;
         }
     }

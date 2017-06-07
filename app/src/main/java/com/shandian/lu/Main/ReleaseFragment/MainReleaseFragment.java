@@ -19,19 +19,23 @@ public class MainReleaseFragment extends BaseFragment {
 
 
     private MainReleaseController mainReleaseController;
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View setView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_release_lly, container, false);
-        init(view);
+
         return view;
     }
 
-
-
-    private void init(View view){
+    @Override
+    public void initView() {
         ButterKnife.bind(this,view);
         initController(view);
     }
+
+
+
     private void initController(View view){
         mainReleaseController = new MainReleaseController(view);
     }

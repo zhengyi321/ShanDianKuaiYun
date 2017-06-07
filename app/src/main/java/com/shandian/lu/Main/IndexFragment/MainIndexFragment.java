@@ -56,23 +56,26 @@ public class MainIndexFragment extends BaseFragment {
     public BDLocationListener myListener = new MyLocationListener();
     private View view1;
 
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View setView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_index_lly, container, false);
-        init(view);
+
 
         return view;
     }
 
-
-
-    private void init(View view){
+    @Override
+    public void initView() {
         view1 = view;
         ButterKnife.bind(this,view);
         initController(view);
         initBaidu();
-
     }
+
+
+
     private void initController(View view){
         mainIndexController = new MainIndexController(view);
     }

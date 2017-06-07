@@ -13,6 +13,9 @@
         android:fillViewport="true"
         android:background="@color/color_main_index_content_gray_white_bg"
         >-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,7 +28,7 @@
                 android:layout_height="@dimen/zero"
                 android:layout_weight="1">
                 <com.zhyan.shandiankuaiyunlib.Widget.ViewPage.ImageCycleView
-                    android:id="@+id/icv_main_index_ad_circle"
+                    android:id="@+id/icv_new_main_index_ad_circle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -107,7 +110,7 @@
                             android:layout_marginRight="@dimen/main_index_content_model_margin_each_other"
                             >
                             <ImageButton
-                                android:id="@+id/ib_main_index_zchy"
+                                android:id="@+id/ib_new_main_index_hyzx"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/zero"
                                 android:layout_weight="1"
@@ -115,7 +118,7 @@
                                 android:layout_marginTop="@dimen/main_index_content_model_margin_each_other"
                                 />
                             <ImageButton
-                                android:id="@+id/ib_main_index_fjsj"
+                                android:id="@+id/ib_new_main_index_ctwl"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/zero"
                                 android:layout_weight="1"
@@ -132,15 +135,15 @@
                             android:layout_marginLeft="@dimen/main_index_content_model_margin_each_other"
                             >
                             <ImageButton
-                                android:id="@+id/ib_main_index_zxwl"
+                                android:id="@+id/ib_new_main_index_zxwl"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/zero"
                                 android:layout_weight="1"
                                 android:background="@mipmap/new_zxwl"
-                                android:layout_marginBottom="@dimen/main_index_content_model_margin_each_other"
+                                android:layout_marginTop="@dimen/main_index_content_model_margin_each_other"
                                 />
                             <ImageButton
-                                android:id="@+id/ib_main_index_tzwl"
+                                android:id="@+id/ib_new_main_index_tzwl"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/zero"
                                 android:layout_weight="1"
@@ -151,12 +154,12 @@
 
 
                             <ImageButton
-                                android:id="@+id/ib_main_index_phzx"
+                                android:id="@+id/ib_new_main_index_tchy"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/zero"
                                 android:layout_weight="1"
                                 android:background="@mipmap/new_tchy"
-                                android:layout_marginBottom="@dimen/main_index_content_model_margin_each_other"
+
                                 />
                         </LinearLayout>
 
@@ -169,7 +172,7 @@
                         android:layout_marginTop="@dimen/main_index_content_model_margin_each_other"
                         >
                         <ImageButton
-                            android:id="@+id/ib_main_index_fx"
+                            android:id="@+id/ib_new_main_index_fx"
                             android:layout_width="@dimen/zero"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -178,7 +181,7 @@
                             android:scaleType="fitXY"
                             />
                         <ImageButton
-                            android:id="@+id/ib_main_index_rrwl"
+                            android:id="@+id/ib_new_main_index_rrwl"
                             android:layout_width="@dimen/zero"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -188,7 +191,7 @@
                             android:scaleType="fitXY"
                             />
                         <ImageButton
-                            android:id="@+id/ib_main_index_bj"
+                            android:id="@+id/ib_new_main_index_bj"
                             android:layout_width="@dimen/zero"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -198,7 +201,7 @@
                             android:scaleType="fitXY"
                             />
                         <ImageButton
-                            android:id="@+id/ib_main_index_kf"
+                            android:id="@+id/ib_new_main_index_kf"
                             android:layout_width="@dimen/zero"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -209,16 +212,66 @@
 
                     </LinearLayout>
                 </LinearLayout>
-                <com.example.mynewslayoutlib.Views.MyGiftView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:gif="@raw/anniu"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                   android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="3"
+                        >
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:orientation="horizontal"
+                        android:layout_weight="1"
+                        >
+                        <LinearLayout
+                            android:layout_width="@dimen/zero"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            >
+
+
+                        </LinearLayout>
+                        <com.example.mynewslayoutlib.Views.MyGiftView
+                            android:id="@+id/mgv_new_main_index"
+                            android:layout_width="@dimen/zero"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            app:gif="@raw/anniu"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="3"
+                        >
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
             </RelativeLayout>
 
         </LinearLayout>
+        <ProgressBar
+            android:id="@+id/pb_new_main_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/black"
+            android:alpha="0.6"
+            android:visibility="invisible"
+            />
+    </RelativeLayout>
    <!-- </com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>-->
 
 </LinearLayout>

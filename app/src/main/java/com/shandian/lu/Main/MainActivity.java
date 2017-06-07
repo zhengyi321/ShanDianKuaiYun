@@ -1,11 +1,13 @@
 package com.shandian.lu.Main;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -18,10 +20,14 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.j256.ormlite.stmt.query.In;
 import com.shandian.lu.Main.AdviceFragment.MainAdviceFragment;
 import com.shandian.lu.Main.IndexFragment.MainIndexFragment;
+import com.shandian.lu.Main.IndexFragment.NewMainIndexFragment;
 import com.shandian.lu.Main.MessageFragment.ChatMessageFragment;
 import com.shandian.lu.Main.MineFragment.MainMineFragment;
+import com.shandian.lu.Main.MineFragment.NewMainMineFragment;
+import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity;
 import com.shandian.lu.Main.ReleaseFragment.MainReleaseFragment;
 /*import ChatMessageFragment;*/
 import com.shandian.lu.R;
@@ -33,7 +39,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends FragmentActivity {
-
+/*
     @BindView(R.id.rb_main_bottom_index)
     RadioButton rbMainBottomIndex;
     @OnClick(R.id.rb_main_bottom_index)
@@ -63,19 +69,70 @@ public class MainActivity extends FragmentActivity {
     @OnClick(R.id.rb_main_bottom_mine)
     public void rbMainBottomMineOnclick(){
         getFragment("mine");
+    }*/
+
+    /*private MainIndexFragment mainIndexFragment;*/
+
+    @BindView(R.id.rb_new_main_bottom_index)
+    RadioButton rbMainBottomIndex;
+    @OnClick(R.id.rb_new_main_bottom_index)
+    public void rbMainBottomIndexOnclick(){
+        getFragment("index");
     }
 
-    private MainIndexFragment mainIndexFragment;
+    @BindView(R.id.rb_new_main_bottom_advice)
+    RadioButton rbNewMainBottomAdvice;
+    @OnClick(R.id.rb_new_main_bottom_advice)
+    public void rbNewMainBottomAdviceOnclick(){
+        getFragment("advice");
+    }
+    @BindView(R.id.rb_new_main_bottom_chat)
+    RadioButton rbNewMainBottomMessage;
+    @OnClick(R.id.rb_new_main_bottom_chat)
+    public void rbNewMainBottomMessageOnclick(){
+        getFragment("message");
+    }
+
+    @BindView(R.id.ib_new_main_bottom_publish)
+    ImageButton ibNewMainBottomPublish;
+    @OnClick(R.id.ib_new_main_bottom_publish)
+    public void ibNewMainBottomPublishOnclick(){
+        Intent intent = new Intent(this, NewFaBuHuoYuanActivity.class);
+        startActivity(intent);
+    }
+
+
+    @BindView(R.id.rb_new_main_bottom_mine)
+    RadioButton rbMainBottomMine;
+    @OnClick(R.id.rb_new_main_bottom_mine)
+    public void rbMainBottomMineOnclick(){
+        getFragment("mine");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    private NewMainIndexFragment mainIndexFragment;
     private MainReleaseFragment mainReleaseFragment;
     private MainAdviceFragment mainAdviceFragment;
     private ChatMessageFragment chatMessageFragmentl;
-    private MainMineFragment mainMineFragment;
+    /*private MainMineFragment mainMineFragment;*/
+    private NewMainMineFragment mainMineFragment;
     private MainController mainController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        /*setContentView(R.layout.activity_main);*/
+        setContentView(R.layout.activity_new_main);
         init();
     // Example of a call to a native method
 
@@ -131,24 +188,26 @@ public class MainActivity extends FragmentActivity {
         FragmentTransaction transaction = manager.beginTransaction();
         if(mainIndexFragment == null){
            /* mainController.initStatusBar("index");*/
-            mainIndexFragment = new MainIndexFragment();
-            transaction.add(R.id.fly_main_content, mainIndexFragment, "index");
+          /*  mainIndexFragment = new MainIndexFragment();*/
+            mainIndexFragment = new NewMainIndexFragment();
+            transaction.add(R.id.fly_new_main_content, mainIndexFragment, "index");
         }
         if(mainReleaseFragment == null){
             mainReleaseFragment = new MainReleaseFragment();
-            transaction.add(R.id.fly_main_content, mainReleaseFragment, "release");
+            transaction.add(R.id.fly_new_main_content, mainReleaseFragment, "release");
         }
         if(mainAdviceFragment == null){
             mainAdviceFragment = new MainAdviceFragment();
-            transaction.add(R.id.fly_main_content, mainAdviceFragment, "advice");
+            transaction.add(R.id.fly_new_main_content, mainAdviceFragment, "advice");
         }
         if(chatMessageFragmentl == null){
             chatMessageFragmentl = new ChatMessageFragment();
-            transaction.add(R.id.fly_main_content, chatMessageFragmentl, "message");
+            transaction.add(R.id.fly_new_main_content, chatMessageFragmentl, "message");
         }
         if(mainMineFragment != null){
-            mainMineFragment = new MainMineFragment();
-            transaction.add(R.id.fly_main_content, mainMineFragment, "mine");
+            /*mainMineFragment = new MainMineFragment();*/
+            mainMineFragment = new NewMainMineFragment();
+            transaction.add(R.id.fly_new_main_content, mainMineFragment, "mine");
         }
        /* transaction.show(mainIndexFragment);*/
         transaction.commit();
@@ -165,8 +224,9 @@ public class MainActivity extends FragmentActivity {
                 if(mainIndexFragment !=null){
                     transaction.show(mainIndexFragment);
                 }else {
-                    mainIndexFragment = new MainIndexFragment();
-                    transaction.add(R.id.fly_main_content, mainIndexFragment, "index");
+                    /*mainIndexFragment = new MainIndexFragment();*/
+                    mainIndexFragment = new NewMainIndexFragment();
+                    transaction.add(R.id.fly_new_main_content, mainIndexFragment, "index");
                 }
                 break;
             case "release":
@@ -177,7 +237,7 @@ public class MainActivity extends FragmentActivity {
                 }else {
                     mainReleaseFragment = new MainReleaseFragment();
 
-                    transaction.add(R.id.fly_main_content, mainReleaseFragment, "release");
+                    transaction.add(R.id.fly_new_main_content, mainReleaseFragment, "release");
                 }
                 break;
             case "advice":
@@ -188,7 +248,7 @@ public class MainActivity extends FragmentActivity {
                 }else {
                     mainAdviceFragment = new MainAdviceFragment();
 
-                    transaction.add(R.id.fly_main_content, mainAdviceFragment, "advice");
+                    transaction.add(R.id.fly_new_main_content, mainAdviceFragment, "advice");
                 }
                 break;
             case "message":
@@ -199,7 +259,7 @@ public class MainActivity extends FragmentActivity {
                 }else {
                     chatMessageFragmentl = new ChatMessageFragment();
 
-                    transaction.add(R.id.fly_main_content, chatMessageFragmentl, "message");
+                    transaction.add(R.id.fly_new_main_content, chatMessageFragmentl, "message");
                 }
                 break;
             case "mine":
@@ -208,9 +268,10 @@ public class MainActivity extends FragmentActivity {
 
                     transaction.show(mainMineFragment);
                 }else {
-                    mainMineFragment = new MainMineFragment();
+                    /*mainMineFragment = new MainMineFragment();*/
+                    mainMineFragment = new NewMainMineFragment();
 
-                    transaction.add(R.id.fly_main_content, mainMineFragment, "mine");
+                    transaction.add(R.id.fly_new_main_content, mainMineFragment, "mine");
                 }
                 break;
 

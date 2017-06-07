@@ -195,9 +195,9 @@ public class PeiHuoZhongXinController extends BaseController {
         paramMap.put("car_lange",car_lange);
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        String currentCity = xcCacheManager.readCache(xcCacheSaveName.currentCity).trim();
+        String currentCity = xcCacheManager.readCache(xcCacheSaveName.currentCity);
         if(currentCity != null){
-            currentCity = currentCity.replaceAll(" ","");
+            currentCity = currentCity.replaceAll(" ","").trim();
 
         }else {
             currentCity = "";

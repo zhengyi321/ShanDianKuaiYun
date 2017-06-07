@@ -45,19 +45,22 @@ public class MainMineFragment extends BaseFragment {
                 .open();*/
     }
     private MainMineController mainMineController;
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View setView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_mine_lly, container, false);
-        init(view);
+
         return view;
     }
 
-
-
-    private void init(View view){
+    @Override
+    public void initView() {
         ButterKnife.bind(this,view);
         initController(view);
     }
+
+
     private void initController(View view){
         mainMineController = new MainMineController(view);
     }
