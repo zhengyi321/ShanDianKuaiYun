@@ -217,7 +217,7 @@
         <!--百度地图-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="SGOTr7Xti9Cq76SbMFyrGMOolGaGDDaR" />      <!-- //key:开发者申请的Key-->
+            android:value="94vXIZFmYOrZeM0YrXncOmN5jOMCGSRC" />      <!-- //key:开发者申请的Key    家里94vXIZFmYOrZeM0YrXncOmN5jOMCGSRC 公司SGOTr7Xti9Cq76SbMFyrGMOolGaGDDaR-->
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
         </service>
         <!--百度地图-->
@@ -654,6 +654,7 @@
         <activity android:name=".Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanActivity"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
+            android:windowSoftInputMode="adjustPan"
             />
         <activity android:name=".Main.ReleaseFragment.SelectAddAddress.SelectAddAddressActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->

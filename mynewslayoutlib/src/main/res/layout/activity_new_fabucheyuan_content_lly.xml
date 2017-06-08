@@ -1,28 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
+
     android:background="@color/color_main_release_tezhongyunshu_content_bg"
     >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/white"
-        android:layout_marginBottom="20dp"
-        >
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            >
-
-        </android.support.v7.widget.RecyclerView>
-    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@color/white"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            >
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                >
+
+            </RelativeLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_main_release_new_fabucheyuan_add_pic"
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+
+                android:layout_weight="5"
+                android:orientation="horizontal"
+                >
+
+            </android.support.v7.widget.RecyclerView>
+
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                >
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="252dp"
         android:orientation="vertical"
         android:background="@color/white"
         >
@@ -33,10 +59,64 @@
 
             >
             <LinearLayout
-                android:id="@+id/lly_main_release_tezhongyunshu_content_begin"
+
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_marginRight="15dp"
+                android:orientation="horizontal"
+                android:layout_marginLeft="15dp"
+
+                >
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    >
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="车源标题"
+                        android:textColor="@color/color_main_release_tezhongyunshu_content_black_word_textcolor"
+                        android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
+                        android:layout_centerVertical="true"
+                        android:textStyle="bold"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4.5"
+                    >
+                    <EditText
+                        android:id="@+id/et_new_fabucheyuan_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="请输入标题"
+                        android:textColorHint="@color/color_main_release_tezhongyunshu_content_gray_word_textcolor"
+                        android:textColor="@color/color_main_release_tezhongyunshu_content_black_word_textcolor"
+                        android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    >
+
+                </RelativeLayout>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/split_width_or_height"
+                android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
+                /><LinearLayout
+                android:id="@+id/lly_new_fabucheyuan_begin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginRight="15dp"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
 
@@ -63,7 +143,7 @@
                     android:layout_weight="4.5"
                     >
                     <TextView
-                        android:id="@+id/tv_main_release_tezhongyunshu_content_begin"
+                        android:id="@+id/tv_new_fabucheyuan_begin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="请选择一个地址"
@@ -92,10 +172,10 @@
                 android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
                 />
             <LinearLayout
-                android:id="@+id/lly_main_release_tezhongyunshu_content_reach"
+                android:id="@+id/lly_new_fabucheyuan_end"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_marginRight="15dp"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
                 >
@@ -105,6 +185,7 @@
                     android:layout_weight="1.5"
                     >
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="目的地"
@@ -120,7 +201,7 @@
                     android:layout_weight="4.5"
                     >
                     <TextView
-                        android:id="@+id/tv_main_release_tezhongyunshu_content_reach"
+                        android:id="@+id/tv_new_fabucheyuan_end"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="请选择一个地址"
@@ -149,16 +230,16 @@
                 android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
                 />
 
-            <ImageView
+           <!-- <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/split_width_or_height"
                 android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
-                />
+                />-->
             <LinearLayout
-                android:id="@+id/lly_main_release_tezhongyunshu_content_cartype"
+
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_marginRight="15dp"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
                 >
@@ -183,16 +264,17 @@
                     android:layout_weight="4.5"
                     >
                     <EditText
-
+                        android:id="@+id/et_new_fabucheyuan_carlength"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="请输入车长"
                         android:textColorHint="@color/color_main_release_tezhongyunshu_content_gray_word_textcolor"
                         android:textColor="@color/color_main_release_tezhongyunshu_content_black_word_textcolor"
                         android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
-                        android:layout_centerVertical="true"
                         android:background="@null"
-                        />
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="@dimen/zero"
@@ -215,10 +297,10 @@
                 android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
                 />
             <LinearLayout
-                android:id="@+id/lly_main_release_tezhongyunshu_content_carlength"
+                android:id="@+id/lly_new_fabucheyuan_cartype"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_marginRight="15dp"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
                 >
@@ -243,7 +325,7 @@
                     android:layout_weight="4.5"
                     >
                     <TextView
-                        android:id="@+id/tv_main_release_tezhongyunshu_content_carlength"
+                        android:id="@+id/tv_new_fabucheyuan_cartype"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="请选择车型"
@@ -303,8 +385,8 @@
             >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/zero"
-            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginRight="15dp"
             android:orientation="horizontal"
             android:layout_marginLeft="15dp"
             >
@@ -329,7 +411,7 @@
                 android:layout_weight="5"
                 >
                 <EditText
-
+                    android:id="@+id/et_new_fabucheyuan_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="请输入联系人姓名"
@@ -348,8 +430,8 @@
             />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/zero"
-            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginRight="15dp"
             android:orientation="horizontal"
             android:layout_marginLeft="15dp"
             >
@@ -374,7 +456,7 @@
                 android:layout_weight="5"
                 >
                 <EditText
-                    android:id="@+id/et_main_release_tezhongyunshu_content_lxr"
+                    android:id="@+id/et_new_fabucheyuan_tel"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="请输入联系人电话"
@@ -398,6 +480,7 @@
             android:layout_weight="1"
             android:orientation="horizontal"
             android:layout_marginLeft="15dp"
+            android:visibility="gone"
             >
             <RelativeLayout
                 android:layout_width="@dimen/zero"
@@ -436,12 +519,13 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/split_width_or_height"
             android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
+            android:visibility="gone"
             />
         <LinearLayout
-            android:id="@+id/lly_main_release_tezhongyunshu_content_desc"
+
             android:layout_width="match_parent"
-            android:layout_height="@dimen/zero"
-            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginRight="15dp"
             android:orientation="horizontal"
             android:layout_marginLeft="15dp"
             >
@@ -466,7 +550,7 @@
                 android:layout_weight="4.5"
                 >
                 <EditText
-                    android:id="@+id/tv_main_release_tezhongyunshu_content_desc"
+                    android:id="@+id/et_new_fabucheyuan_desc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="如有需要请务必输入您的留言备注"
@@ -490,15 +574,21 @@
                     />
             </RelativeLayout>
         </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/split_width_or_height"
+                android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
+
+                />
         </LinearLayout>
 
     </LinearLayout>
 
 
 
-
-
-
-
-
 </LinearLayout>
+
+
+
+
+</com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>

@@ -1,8 +1,10 @@
 package com.shandian.lu.Main.ReleaseFragment.SelectAddAddress;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -55,6 +57,42 @@ import butterknife.OnClick;
 
 public class SelectAddAddressController extends BaseController implements OnGetGeoCoderResultListener,OnGetPoiSearchResultListener,TextWatcher {
 
+    private final int ACTIVITY_SELECT_ADDRESS_BEGIN = 105;
+    private final int ACTIVITY_SELECT_ADDRESS_END = 106;
+    @BindView(R.id.rly_new_selectaddress_back)
+    RelativeLayout rlyNewSelectAddressBack;
+    @OnClick(R.id.rly_new_selectaddress_back)
+    public void rlyNewSelectAddressBackOnclick(){
+        activity.finish();
+    }
+    @BindView(R.id.rly_new_selectaddress_query)
+    RelativeLayout rlyNewSelectAddressQuery;
+    @OnClick(R.id.rly_new_selectaddress_query)
+    public void rlyNewSelectAddressQueryOnclick(){
+        if(type == null){
+            return;
+        }
+        String addr = etNewSelectAddressDetail.getText().toString();
+        Bundle bundle = new Bundle();
+        bundle.putString("lat",lat+"");
+        bundle.putString("lon",lon+"");
+        bundle.putString("province",province);
+        bundle.putString("city",city);
+        bundle.putString("area",area);
+        bundle.putString("addr",addr);
+        Intent intent = new Intent();
+        intent.putExtras(bundle);
+
+        switch (type){
+            case "begin":
+                activity.setResult(ACTIVITY_SELECT_ADDRESS_BEGIN,intent);
+                break;
+            case "end":
+                activity.setResult(ACTIVITY_SELECT_ADDRESS_END,intent);
+                break;
+        }
+        activity.finish();
+    }
     @BindView(R.id.et_new_selectaddress_keyword)
     EditText etNewSelectAddressKeyWord;
     @BindView(R.id.rly_new_selectaddress_select)
@@ -111,6 +149,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
     private MyLocationConfiguration.LocationMode mCurrentMode;
     private LatLng currentPt;
     double selfLat = 0,selfLon= 0;
+    private String type ;
     public SelectAddAddressController(Activity activity1){
         activity = activity1;
         init();
@@ -124,8 +163,13 @@ public class SelectAddAddressController extends BaseController implements OnGetG
     protected void init() {
         ButterKnife.bind(this,activity);
         etNewSelectAddressDetail.setOnEditorActionListener(new MyEditorActionListener());
+        getType();
         initBaiDuMap();
     }
+    private void getType(){
+        type = activity.getIntent().getStringExtra("type");
+    }
+
     private void initBaiDuMap(){
         /*监听输入框的变化*/
         /*监听输入框的变化*/
@@ -378,7 +422,27 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         lon = latLng.longitude;
         lat = latLng.latitude;
         String addr = result.getAddress();
-      /*  int indexOfProv = addr.indexOf()*/
+        int indexOfProv = addr.indexOf("省");
+        if(indexOfProv > 0){
+            province = addr.substring(0,indexOfProv+1);
+            addr = addr.substring(indexOfProv+1,addr.length());
+        }else {
+            province = "浙江省";
+        }
+        int indexOfCity = addr.indexOf("市");
+        if(indexOfCity > 0){
+            city = addr.substring(0,indexOfCity+1);
+            addr = addr.substring(indexOfCity+1,addr.length());
+        }else {
+            city = "温州市";
+        }
+        int indexOfArea = addr.indexOf("区");
+        if(indexOfArea > 0){
+            area = addr.substring(0,indexOfArea+1);
+            addr = addr.substring(indexOfArea+1,addr.length());
+        }else{
+            area="乐清市";
+        }
       Log.i("addr",addr);
       Log.i("addr",addr);
       Log.i("addr",addr);
@@ -406,5 +470,46 @@ public class SelectAddAddressController extends BaseController implements OnGetG
     @Override
     public void onGetPoiIndoorResult(PoiIndoorResult poiIndoorResult) {
         Toast.makeText(activity,"3",Toast.LENGTH_LONG).show();
+    }
+
+
+
+
+
+
+
+
+
+
+
+    protected void onDestroy(){
+        if(mBaiduMap != null) {
+            mBaiduMap.clear();
+        }
+        if(mSearch != null) {
+            mSearch.destroy();
+        }
+        isFirst = true;
+        mvNewSelectAddress.onDestroy();
+        if(poiSearch != null) {
+            poiSearch.destroy();
+        }
+        if(locationClient!=null){
+            locationClient.unRegisterLocationListener(locationListener);
+            locationClient.stop();
+        }
+
+
+    }
+
+    protected void onResume(){
+        /*init();*/
+
+        mvNewSelectAddress.onResume();
+    }
+    protected void onPause(){
+
+        mvNewSelectAddress.onPause();
+
     }
 }

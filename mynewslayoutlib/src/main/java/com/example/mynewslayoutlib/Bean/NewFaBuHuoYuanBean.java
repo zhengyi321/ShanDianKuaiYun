@@ -1,14 +1,14 @@
 package com.example.mynewslayoutlib.Bean;
 
 /**
- * Created by Administrator on 2017/6/8.
+ * Created by zhyan on 2017/6/8.
  */
 
-public class testBean {
+public class NewFaBuHuoYuanBean {
 
     /**
-     * status : 10000
-     * msg : 系统异常!
+     * status : 0
+     * msg : 发布成功!
      */
 
     private String status;

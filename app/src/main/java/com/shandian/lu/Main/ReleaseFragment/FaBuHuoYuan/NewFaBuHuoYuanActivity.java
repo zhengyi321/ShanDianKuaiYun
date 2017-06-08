@@ -2,10 +2,16 @@ package com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mynewslayoutlib.Bean.NewFaBuHuoYuanBean;
 import com.example.mynewslayoutlib.Bean.NewFaBuPicBean;
 import com.j256.ormlite.stmt.query.In;
 import com.shandian.lu.BaseActivity;
@@ -20,6 +26,7 @@ import com.zhyan.shandiankuaiyuanwidgetlib.Utils.BitmapUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -33,7 +40,7 @@ import rx.Observer;
 
 public class NewFaBuHuoYuanActivity extends BaseActivity {
 
-
+    private String typeName ;
     private NewFaBuHuoYuanController newFaBuHuoYuanController;
     private  final int ACTIVITY_REQUEST_SELECT_PHOTO = 100;
 
@@ -44,21 +51,50 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
     int picSize = 0;
     int i = 0;
 
+    private String bProvince,eProvince,bCity,eCity,bArea,eArea,beginAddr,endAddr;
+    private String blat,blon,elat,elon;
 
-    @BindView(R.id.lly_new_main_release_tzys_content_begin)
-    LinearLayout llyNewMainReleaseTZYSContentBegin;
-    @OnClick(R.id.lly_new_main_release_tzys_content_begin)
-    public void llyNewMainReleaseTZYSContentBeginOnclick(){
+    @BindView(R.id.pb_new_fabuhuoyuan)
+    ProgressBar pbNewFaBuHuoYuan;
+    @BindView(R.id.lly_new_fabuhuoyuan_submit)
+    LinearLayout llyNewFaBuHuoYuanSubmit;
+    @OnClick(R.id.lly_new_fabuhuoyuan_submit)
+    public void  llyNewFaBuHuoYuanSubmitOnclick(){
+        faBuHuoYuanToNet();
+    }
+
+    @BindView(R.id.lly_new_fabuhuoyuan_begin)
+    LinearLayout llyNewFaBuHuoYuanBegin;
+    @OnClick(R.id.lly_new_fabuhuoyuan_begin)
+    public void llyNewFaBuHuoYuanBeginOnclick(){
         Intent intent = new Intent(this, SelectAddAddressActivity.class);
+        intent.putExtra("type","begin");
         startActivityForResult(intent,ACTIVITY_SELECT_ADDRESS_BEGIN);
     }
-    @BindView(R.id.lly_new_main_release_tzys_content_end)
-    LinearLayout llyNewMainReleaseTZYSContentEnd;
-    @OnClick(R.id.lly_new_main_release_tzys_content_end)
-    public void llyNewMainReleaseTZYSContentEndOnclick(){
+    @BindView(R.id.lly_new_fabuhuoyuan_end)
+    LinearLayout llyNewFaBuHuoYuanEnd;
+    @OnClick(R.id.lly_new_fabuhuoyuan_end)
+    public void llyNewFaBuHuoYuanEndOnclick(){
         Intent intent = new Intent(this, SelectAddAddressActivity.class);
+        intent.putExtra("type","end");
         startActivityForResult(intent,ACTIVITY_SELECT_ADDRESS_END);
     }
+
+    @BindView(R.id.et_new_fabuhuoyuan_goodsname)
+    EditText etNewFaBuHuoYuanGoodsName;
+    @BindView(R.id.et_new_fabuhuoyuan_weight)
+    EditText etNewFaBuHuoYuanWeight;
+    @BindView(R.id.et_new_fabuhuoyuan_name)
+    EditText etNewFaBuHuoYuanName;
+    @BindView(R.id.et_new_fabuhuoyuan_tel)
+    EditText etNewFaBuHuoYuanTel;
+    @BindView(R.id.et_new_fabuhuoyuan_desc)
+    EditText etNewFaBuHuoYuanDesc;
+
+    @BindView(R.id.tv_new_fabuhuoyuan_begin)
+    TextView tvNewFaBuHuoYuanBegin;
+    @BindView(R.id.tv_new_fabuhuoyuan_end)
+    TextView tvNewFaBuHuoYuanEnd;
 
     @Override
     protected void setContentView() {
@@ -70,10 +106,13 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
         ButterKnife.bind(this);
         mImageList = new ArrayList<>();
         netImageList = new ArrayList<>();
+        getType();
         initController();
 
     }
-
+    private void getType(){
+        typeName = getIntent().getStringExtra("type_name");
+    }
 
     private void initController(){
         newFaBuHuoYuanController = new NewFaBuHuoYuanController(this);
@@ -95,6 +134,32 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
                 }
                 break;
             }
+            case ACTIVITY_SELECT_ADDRESS_BEGIN:{
+                Bundle begin = data.getExtras();
+
+                bProvince = begin.getString("province");
+                bCity = begin.getString("city");
+                bArea = begin.getString("area");
+                blat = begin.getString("lat");
+                blon = begin.getString("lon");
+                beginAddr = begin.getString("addr");
+                tvNewFaBuHuoYuanBegin.setText(beginAddr);
+                break;
+            }
+            case ACTIVITY_SELECT_ADDRESS_END:{
+                Bundle begin = data.getExtras();
+
+                eProvince = begin.getString("province");
+                eCity = begin.getString("city");
+                eArea = begin.getString("area");
+                elat = begin.getString("lat");
+                elon = begin.getString("lon");
+                endAddr = begin.getString("addr");
+                tvNewFaBuHuoYuanEnd.setText(endAddr);
+                break;
+            }
+
+
         }
     }
 
@@ -115,7 +180,7 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
 
 
         if(i < picSize) {
-
+            pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);
             NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
             newFaBuNetWork.upPicToNet(getParamMap(), new Observer<NewFaBuPicBean>() {
                 @Override
@@ -139,6 +204,7 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
             });
         }else{
             newFaBuHuoYuanController.addPicRVAdapter.setNetImageList(netImageList);
+            pbNewFaBuHuoYuan.setVisibility(View.GONE);
         }
 /*        System.out.print("\nbase64:"+base64_00);*/
         /*Log.i("base64:",base64_00);*/
@@ -165,6 +231,125 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
         return paramMap;
 
     }
+
+
+    private Map<String,Object> getFaBuParamMap(){
+        Map<String,Object> paramMap = new HashMap<>();
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(this);
+        String loginId= xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((loginId == null)||(loginId.isEmpty())){
+            Toast.makeText(this,"请登录",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            return paramMap;
+        }
+        paramMap.put("login_id",loginId);
+        if(typeName == null){
+            return paramMap;
+        }
+        paramMap.put("type_name",typeName);
+        String goodsName = etNewFaBuHuoYuanGoodsName.getText().toString();
+        if(goodsName == null){
+            goodsName = "";
+        }
+        paramMap.put("good_name",goodsName);
+        if(bProvince == null){
+            bProvince = "";
+        }
+        paramMap.put("cfsheng",bProvince);
+
+        if(bCity == null){
+            bCity = "";
+        }
+        paramMap.put("cfshi",bCity);
+        if(bArea == null){
+            bArea = "";
+        }
+        paramMap.put("cfqu",bArea);
+        List<String> bZuoBiao = new ArrayList<>();
+        bZuoBiao.add(blat);
+        bZuoBiao.add(blon);
+        paramMap.put("cfzuobiao",bZuoBiao);
+        if(eProvince == null){
+            eProvince = "";
+        }
+        paramMap.put("dasheng ",eProvince);
+        if(eCity == null){
+            eCity = "";
+        }
+        paramMap.put("dashi ",eCity);
+        if(eArea == null){
+            eArea = "";
+        }
+        paramMap.put("daqu ",eArea);
+        List<String> dZuoBiao = new ArrayList<>();
+        dZuoBiao.add(elat);
+        dZuoBiao.add(elon);
+        paramMap.put("dazuobiao ",dZuoBiao);
+        String weight = etNewFaBuHuoYuanWeight.getText().toString();
+        if(weight == null){
+            weight = "";
+        }
+        paramMap.put("weight",weight);
+        String people = etNewFaBuHuoYuanName.getText().toString();
+        if(people == null){
+            people = "";
+        }
+        paramMap.put("people",people);
+        String iphone = etNewFaBuHuoYuanTel.getText().toString();
+        if(iphone == null){
+            iphone = "";
+        }
+
+        paramMap.put("iphone",iphone);
+        String context = etNewFaBuHuoYuanDesc.getText().toString();
+        if(context  == null){
+            context = "";
+        }
+        paramMap.put("context",context);
+        paramMap.put("imgtu",netImageList);
+        List<String> deleteImageList = newFaBuHuoYuanController.addPicRVAdapter.getDeleteImageLists();
+        if(deleteImageList == null){
+            deleteImageList = new ArrayList<>();
+        }
+        paramMap.put("deltu",deleteImageList);
+        if(beginAddr == null){
+            beginAddr = "";
+        }
+        paramMap.put("cfdizh",beginAddr);
+        if(endAddr == null){
+            endAddr = "";
+        }
+        paramMap.put("dadizhi",endAddr);
+
+        return paramMap;
+    }
+
+    private void faBuHuoYuanToNet(){
+        pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);
+        NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
+        newFaBuNetWork.faBuOrUpdateHuoYuanToNet(getFaBuParamMap(), new Observer<NewFaBuHuoYuanBean>() {
+            @Override
+            public void onCompleted() {
+                /*pbNewFaBuHuoYuan.setVisibility(View.GONE);*/
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                /*pbNewFaBuHuoYuan.setVisibility(View.GONE);*/
+            }
+
+            @Override
+            public void onNext(NewFaBuHuoYuanBean newFaBuHuoYuanBean) {
+                if(newFaBuHuoYuanBean.getStatus().equals("0")){
+                    Toast.makeText(NewFaBuHuoYuanActivity.this,newFaBuHuoYuanBean.getMsg(),Toast.LENGTH_LONG).show();
+                    pbNewFaBuHuoYuan.setVisibility(View.GONE);
+                }
+            }
+        });
+    }
+
     //图片压缩
     private Bitmap compressImageFromFile(String srcPath) {
 

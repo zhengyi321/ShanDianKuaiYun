@@ -27,4 +27,35 @@ public class SelectAddAddressActivity extends BaseActivity {
     private void initController(){
         selectAddAddressController = new SelectAddAddressController(this);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        selectAddAddressController.onResume();
+    }
+
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        selectAddAddressController.onPause();
+    }
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        selectAddAddressController.onDestroy();
+    }
 }
