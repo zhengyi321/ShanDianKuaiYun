@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/transparent"
+
+    android:id="@+id/rly_dialog_release_che_huo_root"
     >
 
     <LinearLayout
@@ -12,7 +13,8 @@
         android:layout_marginRight="40dp"
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="60dp"
+
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -48,12 +50,12 @@
             </RadioGroup>
             <ImageView
                 android:id="@+id/iv_dialog_release_che_huo"
-                android:layout_width="60dp"
+                android:layout_width="75dp"
                 android:layout_height="3dp"
                 android:scaleType="matrix"
                 android:background="#ffffff"
-                android:layout_marginLeft="40dp"
-                android:layout_marginBottom="0.5dp"
+                android:layout_marginLeft="28dp"
+
                 android:layout_alignParentBottom="true"
                 />
         </RelativeLayout>
@@ -65,11 +67,13 @@
             android:background="@drawable/dialog_bottom_radius_top_right_angle_white_shape"
             >
             <RelativeLayout
+                android:id="@+id/rly_dialog_che_huo_ct"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
                 android:layout_weight="1"
                 >
                 <TextView
+                    android:id="@+id/tv_dialog_che_huo_ct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                      android:text="长途物流"
@@ -93,11 +97,13 @@
                 android:background="@color/lightgray"
                 />
             <RelativeLayout
+                android:id="@+id/rly_dialog_che_huo_zx"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
                 android:layout_weight="1"
                 >
                 <TextView
+                    android:id="@+id/tv_dialog_che_huo_zx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                      android:text="专线物流"
@@ -121,11 +127,13 @@
                 android:background="@color/lightgray"
                 />
             <RelativeLayout
+                android:id="@+id/rly_dialog_che_huo_tc"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
                 android:layout_weight="1"
                 >
                 <TextView
+                    android:id="@+id/tv_dialog_che_huo_tc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                      android:text="同城物流"
@@ -149,11 +157,13 @@
                 android:background="@color/lightgray"
                 />
             <RelativeLayout
+                android:id="@+id/rly_dialog_che_huo_tz"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
                 android:layout_weight="1"
                 >
                 <TextView
+                    android:id="@+id/tv_dialog_che_huo_tz"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                      android:text="特种物流"

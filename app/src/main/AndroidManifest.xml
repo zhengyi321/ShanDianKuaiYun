@@ -634,9 +634,28 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             />
-        <activity android:name=".Main.IndexFragment.WebView.WebViewActivity" />
-        <activity android:name=".Main.IndexFragment.HongBao.HongBaoActivity" />
-        <activity android:name=".Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity" />
+        <activity android:name=".Main.IndexFragment.WebView.WebViewActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.IndexFragment.HongBao.HongBaoActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:windowSoftInputMode="adjustPan"
+        />
+        <activity android:name=".Main.ReleaseFragment.TestActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.SelectAddAddress.SelectAddAddressActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
 
     </application>

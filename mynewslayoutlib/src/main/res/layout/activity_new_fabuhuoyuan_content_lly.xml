@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
+
     android:background="@color/color_main_release_tezhongyunshu_content_bg"
+
     >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -41,7 +51,7 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="202dp"
         android:orientation="vertical"
         android:background="@color/white"
         >
@@ -54,8 +64,8 @@
             <LinearLayout
                 android:id="@+id/lly_main_release_tezhongyunshu_content_begin"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="1"
+                android:layout_height="50dp"
+
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -112,10 +122,9 @@
                 android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
                 />
             <LinearLayout
-                android:id="@+id/lly_main_release_tezhongyunshu_content_reach"
+                android:id="@+id/lly_new_main_release_tzys_content_begin"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="1"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -175,10 +184,9 @@
                 android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
                 />
             <LinearLayout
-                android:id="@+id/lly_main_release_tezhongyunshu_content_carlength"
+                android:id="@+id/lly_new_main_release_tzys_content_end"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="1"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -235,8 +243,7 @@
             <LinearLayout
                 android:id="@+id/lly_main_release_tezhongyunshu_content_cartype"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="1"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -313,7 +320,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="202dp"
         android:layout_marginTop="20dp"
         android:background="@color/white"
         android:orientation="vertical"
@@ -326,8 +333,7 @@
             >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/zero"
-            android:layout_weight="1"
+            android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
@@ -372,8 +378,7 @@
             />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/zero"
-            android:layout_weight="1"
+            android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
@@ -419,8 +424,7 @@
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="@dimen/zero"
-            android:layout_weight="1"
+            android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
@@ -466,8 +470,7 @@
         <LinearLayout
             android:id="@+id/lly_main_release_tezhongyunshu_content_desc"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/zero"
-            android:layout_weight="1"
+            android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_marginLeft="15dp"
             >
@@ -520,11 +523,9 @@
 
     </LinearLayout>
 
+    </LinearLayout>
 
 
 
 
-
-
-
-</LinearLayout>
+</com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>

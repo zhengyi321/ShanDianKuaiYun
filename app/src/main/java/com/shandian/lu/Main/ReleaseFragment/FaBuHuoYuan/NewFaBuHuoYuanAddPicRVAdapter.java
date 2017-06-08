@@ -35,13 +35,16 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
     private LayoutInflater inflater;
     private  final int ACTIVITY_REQUEST_SELECT_PHOTO = 100;
     private ArrayList<String> mImageList;
+    private ArrayList<String> netImageList;
     private ArrayList<String> deleteImageList;
+
     public NewFaBuHuoYuanAddPicRVAdapter(Activity activity1, List<String> tempList1){
         activity = activity1;
         tempList = tempList1;
         inflater = LayoutInflater.from(activity1);
         mImageList = new ArrayList<>();
         deleteImageList = new ArrayList<>();
+        netImageList = new ArrayList<>();
     }
 
     @Override
@@ -52,6 +55,10 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
     public void setmImageList(ArrayList<String> arrayList){
         mImageList.clear();
         mImageList.addAll(arrayList);
+    }
+    public void setNetImageList(ArrayList<String> arrayList){
+        netImageList.clear();
+        netImageList.addAll(arrayList);
     }
 
     public void setAdapterImage(ArrayList<String> adapterImage){
@@ -73,6 +80,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
                 Bitmap bm = compressImageFromFile(mImageList.get(position));
                 //将图片显示到ImageView中
                 holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bm);
+
                 holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(false);
                 holder.ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.VISIBLE);
             }
@@ -89,7 +97,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         BitmapUtils bitmapUtils = new BitmapUtils();
         Bitmap bitmap = bitmapUtils.getimage(srcPath);
         bitmap = bitmapUtils.compressImage(bitmap);
-   /*     bitmap = bitmapUtils.comp(bitmap);*/
+        bitmap = bitmapUtils.comp(bitmap);
 
         return bitmap;
     }
@@ -113,8 +121,8 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         ImageView ivNewMainReleaseFaBuHuoYuanDelete;
         @OnClick(R.id.iv_new_main_release_fabuhuoyuan_delete)
         public void ivNewMainReleaseFaBuHuoYuanDeleteOnclick(){
-            Toast.makeText(activity,"pos:"+pos,Toast.LENGTH_LONG).show();
-            String img = tempList.get(pos);
+      /*      Toast.makeText(activity,"pos:"+pos,Toast.LENGTH_LONG).show();*/
+            String img = netImageList.get(pos);
             deleteImageList.add(img);
             tempList.remove(pos);
             mImageList.remove(pos);

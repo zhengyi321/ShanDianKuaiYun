@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.zhyan.shandiankuaiyuanwidgetlib.R;
+
+import com.shandian.lu.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,10 +106,11 @@ public class ReleaseDialog extends Dialog {
          */
         public ReleaseDialog build(Context context) {
             LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            final ReleaseDialog shengFenDaiHaoDialog = new ReleaseDialog(context, R.style.MyDialogStyle);//默认调用带style的构造
-            shengFenDaiHaoDialog.setCanceledOnTouchOutside(true);//默认点击布局外不能取消dialog
-            View view = mInflater.inflate(R.layout.dialog_shengfendaihao, null);
-            shengFenDaiHaoDialog.addContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            ReleaseDialog releaseDialog = new ReleaseDialog(context, R.style.MyDialogStyle);//默认调用带style的构造
+            releaseDialog.setCanceledOnTouchOutside(true);//默认点击布局外不能取消dialog
+           /* releaseDialog.setCancelable(true);*/
+            View view = mInflater.inflate(R.layout.dialog_release_cheyuan_huoyuan_rly, null);
+            releaseDialog.addContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
 
 
@@ -116,8 +118,11 @@ public class ReleaseDialog extends Dialog {
 
 
 
-            shengFenDaiHaoDialog.setContentView(view);
-            return shengFenDaiHaoDialog;
+
+
+            releaseDialog.setContentView(view);
+            ReleaseDialogController releaseDialogController = new ReleaseDialogController(view);
+            return releaseDialog;
         }
 
     }
