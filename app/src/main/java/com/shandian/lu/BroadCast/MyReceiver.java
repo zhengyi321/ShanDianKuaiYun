@@ -1,5 +1,6 @@
 package com.shandian.lu.BroadCast;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,13 +10,23 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.WindowManager;
+import android.widget.Toast;
 
 
 import com.shandian.lu.R;
+import com.shandian.lu.Widget.Dialog.NewNoticeDialog;
+import com.shandian.lu.Widget.Dialog.ReleaseDialog;
 
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import cn.jpush.android.api.BasicPushNotificationBuilder;
 import cn.jpush.android.api.JPushInterface;
@@ -34,6 +45,7 @@ public class MyReceiver extends BroadcastReceiver {
     private  final String TAG = "JPush";
     /*private GetNewOrderDialog getNewOrderDialog;*/
     private Context context1;
+    private NewNoticeDialog newNoticeDialog;
     Bundle bundle1;
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -96,32 +108,55 @@ public class MyReceiver extends BroadcastReceiver {
     private void processCustomMessage(final Context context, Bundle bundle) {
 
 
-
+        String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
+        String title = bundle.getString(JPushInterface.EXTRA_NOTIFICATION_TITLE);
+        String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
         context1 = context;
         this.bundle1 = bundle;
         NotificationManager	notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
 
         setNotification4(context);
-        NotificationCompat.Builder	notification = new NotificationCompat.Builder(context);
-        notification.setSound(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.shandian));
-
-		notification.setAutoCancel(true)
-				.setContentText("请接单")
-				.setContentTitle("闪电快运")
-				.setSmallIcon(R.mipmap.logo);
+        NotificationCompat.Builder	notification = new NotificationCompat.Builder(context).setSmallIcon(R.mipmap.logo)
+                .setSound(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.shandian))
+                .setContentText("您有一条新的通知");
+ /*       notification.setSound(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.shandian));
+*/
 
 		/*String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);*/
-        String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
-        String title = bundle.getString(JPushInterface.EXTRA_TITLE);
+
+      /*  Toast.makeText(context,"this is message:"+title+" content:"+message+" extras:"+extras,Toast.LENGTH_LONG).show();
+*/
+        newNoticeDialog = new NewNoticeDialog(context1,"type").Build.build(context1);
+        newNoticeDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        newNoticeDialog.show();
+
+
+      /*  Intent intent = new Intent(this, NewFaBuHuoYuanActivity.class);*/
+       /* Intent intent = new Intent(this, TestActivity.class);
+        startActivity(intent);*/
+
+
+        /*解析自定义字段*/
+        if (!TextUtils.isEmpty(extras)) {
+            try {
+                JSONObject extraJson = new JSONObject(extras);
+                if (null != extraJson && extraJson.length() > 0) {
+                    String sound = extraJson.getString("sound");//自定义字段解析
+                }
+            } catch (JSONException e) {
+
+            }
+
+        }
         /*xcCacheManager.writeCache(xcCacheManagerSavedName.jpushOrderType,title);*/
 		/*Toast.makeText(context,"message:"+message,Toast.LENGTH_SHORT).show();*/
+        notification.setContentTitle(title);
 
 
-        String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
 /*		String platform = bundle.getString("platform");
 		String audience = bundle.getString("audience");*/
 
-
+        notificationManager.notify(2, notification.build());
 
 /*
 		if (!TextUtils.isEmpty(extras)) {
@@ -141,8 +176,17 @@ public class MyReceiver extends BroadcastReceiver {
 
     }
 
+    public void showDialog() {
+        if (newNoticeDialog != null && !newNoticeDialog.isShowing()) {
+            newNoticeDialog.show();
+        }
+    }
 
-
+    public void dissmissDialog() {
+        if (newNoticeDialog != null && newNoticeDialog.isShowing()) {
+            newNoticeDialog.dismiss();
+        }
+    }
 
 
 
@@ -154,7 +198,7 @@ public class MyReceiver extends BroadcastReceiver {
         BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(context);
         builder.statusBarDrawable = R.mipmap.logo;
         builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //设置为自动消失
-       /* builder.notificationDefaults = Notification.DEFAULT_LIGHTS;*/// 设置为铃声与震动都不要
+        builder.notificationDefaults = Notification.DEFAULT_LIGHTS;// 设置为铃声与震动都不要
         JPushInterface.setDefaultPushNotificationBuilder(builder);
 
     }
