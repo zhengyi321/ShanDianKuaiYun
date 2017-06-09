@@ -83,9 +83,9 @@ public class MainActivity extends FragmentActivity {
     RadioButton rbNewMainBottomMessage;
     @OnClick(R.id.rb_new_main_bottom_chat)
     public void rbNewMainBottomMessageOnclick(){
-        /*getFragment("message");*/
-        Intent intent = new Intent(this, HuiTouCheActivity.class);
-        startActivity(intent);
+        getFragment("message");
+     /*   Intent intent = new Intent(this, HuiTouCheActivity.class);
+        startActivity(intent);*/
     }
     ReleaseDialog releaseDialog ;
     @BindView(R.id.ib_new_main_bottom_publish)

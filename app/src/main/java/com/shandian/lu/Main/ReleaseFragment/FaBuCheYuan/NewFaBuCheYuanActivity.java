@@ -24,6 +24,7 @@ import com.yanzhenjie.album.Album;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Utils.BitmapUtils;
+import com.zhyan.shandiankuaiyuanwidgetlib.Utils.PhoneFormatCheckUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -92,6 +93,8 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
     @BindView(R.id.et_new_fabucheyuan_desc)
     EditText etNewFaBuCheYuanDesc;
 
+    @BindView(R.id.tv_new_fabucheyuan_topbar_title)
+    TextView tvNewFaBuCheYuanTopBarTitle;
     @BindView(R.id.tv_new_fabucheyuan_begin)
     TextView tvNewFaBuCheYuanBegin;
     @BindView(R.id.tv_new_fabucheyuan_end)
@@ -114,6 +117,24 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
     }
     private void getType(){
         typeName = getIntent().getStringExtra("type_name");
+        if(typeName == null){
+            return;
+        }
+
+        switch (typeName){
+            case "1":
+                tvNewFaBuCheYuanTopBarTitle.setText("同城货源");
+                break;
+            case "2":
+                tvNewFaBuCheYuanTopBarTitle.setText("长途货运");
+                break;
+            case "3":
+                tvNewFaBuCheYuanTopBarTitle.setText("特种运输");
+                break;
+            case "4":
+                tvNewFaBuCheYuanTopBarTitle.setText("专线物流");
+                break;
+        }
     }
 
     private void initController(){
@@ -123,6 +144,9 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(data == null){
+            return;
+        }
         switch (requestCode) {
             case ACTIVITY_REQUEST_SELECT_PHOTO: {
                 if (resultCode == RESULT_OK) { // Successfully.
@@ -137,8 +161,9 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
                 break;
             }
             case ACTIVITY_SELECT_ADDRESS_BEGIN:{
-                Bundle begin = data.getExtras();
 
+                Bundle begin = data.getExtras();
+              /*  Toast.makeText(this,"1",Toast.LENGTH_LONG).show();*/
                 bProvince = begin.getString("province");
                 bCity = begin.getString("city");
                 bArea = begin.getString("area");
@@ -149,8 +174,9 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
                 break;
             }
             case ACTIVITY_SELECT_ADDRESS_END:{
-                Bundle begin = data.getExtras();
 
+                Bundle begin = data.getExtras();
+              /*  Toast.makeText(this,"2",Toast.LENGTH_LONG).show();*/
                 eProvince = begin.getString("province");
                 eCity = begin.getString("city");
                 eArea = begin.getString("area");
@@ -160,7 +186,9 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
                 tvNewFaBuCheYuanEnd.setText(endAddr);
                 break;
             }
-
+            default:
+             /*   Toast.makeText(this,"3",Toast.LENGTH_LONG).show();*/
+                break;
 
         }
     }
@@ -198,7 +226,7 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
                 @Override
                 public void onNext(NewFaBuPicBean newFaBuPicBean) {
                     if(newFaBuPicBean.getStatus().equals("0")){
-                        netImageList.add(newFaBuPicBean.getImgurl());
+                        netImageList.add("\""+newFaBuPicBean.getImgurl()+"\"");
                         i++;
                         sendPicToNet();
                     }
@@ -280,36 +308,33 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
             bArea = "";
         }
         paramMap.put("cfqu",bArea);
-        List<String> bZuoBiao = new ArrayList<>();
-        bZuoBiao.add(blat);
-        bZuoBiao.add(blon);
+        String bZuoBiao = blat+","+blon;
+
         paramMap.put("cfzuobiao",bZuoBiao);
         if(eProvince == null){
             eProvince = "";
         }
-        paramMap.put("dasheng ",eProvince);
+        paramMap.put("dasheng",eProvince);
         if(eCity == null){
             eCity = "";
         }
-        paramMap.put("dashi ",eCity);
+        paramMap.put("dashi",eCity);
         if(eArea == null){
             eArea = "";
         }
-        paramMap.put("daqu ",eArea);
-        List<String> dZuoBiao = new ArrayList<>();
-        dZuoBiao.add(elat);
-        dZuoBiao.add(elon);
-        paramMap.put("dazuobiao ",dZuoBiao);
+        paramMap.put("daqu",eArea);
+        String dZuoBiao = elat+ ","+elon;
+        paramMap.put("dazuobiao",dZuoBiao);
         String carLength = etNewFaBuCheYuanCalLength.getText().toString();
         if(null == carLength){
             carLength = "" ;
         }
-        paramMap.put("car_lange ",dZuoBiao);
+        paramMap.put("car_lange",carLength);
         String carType = tvNewFaBuCheYuanCarType.getText().toString();
         if(null == carType){
             carType = "";
         }
-        paramMap.put("car_type ",carType);
+        paramMap.put("car_type",carType);
 
         String people = etNewFaBuCheYuanName.getText().toString();
         if(people == null){
@@ -327,7 +352,12 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
             content = "";
         }
         paramMap.put("content",content);
-        paramMap.put("imgtu",netImageList);
+        List<String> lastNetImageList = newFaBuCheYuanController.addPicRVAdapter.getNetImageList();
+        if(lastNetImageList == null){
+            lastNetImageList = new ArrayList<>();
+        }
+        paramMap.put("imgtu",lastNetImageList);
+/*        paramMap.put("imgtu",netImageList);*/
         List<String> deleteImageList = newFaBuCheYuanController.addPicRVAdapter.getDeleteImageLists();
         if(deleteImageList == null){
             deleteImageList = new ArrayList<>();
@@ -336,7 +366,7 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
         if(beginAddr == null){
             beginAddr = "";
         }
-        paramMap.put("cfdizh",beginAddr);
+        paramMap.put("cfdizhi",beginAddr);
         if(endAddr == null){
             endAddr = "";
         }
@@ -346,7 +376,32 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
     }
 
     private void faBuCheYuanToNet(){
+
+
         pbNewFaBuCheYuan.setVisibility(View.VISIBLE);
+
+        int imgSize = newFaBuCheYuanController.addPicRVAdapter.getNetImageList().size();
+      /*  List<String> deleteImageList = newFaBuCheYuanController.addPicRVAdapter.getDeleteImageLists();
+        int delImgSize = deleteImageList.size();*/
+        if(imgSize <= 0){
+            Toast.makeText(this,"请至少上传1张图片",Toast.LENGTH_LONG).show();
+            pbNewFaBuCheYuan.setVisibility(View.GONE);
+            return;
+        }
+        PhoneFormatCheckUtils phoneFormatCheckUtils = new PhoneFormatCheckUtils();
+        String tel = etNewFaBuCheYuanTel.getText().toString();
+        if(!phoneFormatCheckUtils.isNumber(tel)){
+            Toast.makeText(this,"联系电话请输入数字",Toast.LENGTH_LONG).show();
+            pbNewFaBuCheYuan.setVisibility(View.GONE);
+            return;
+        }
+        String carLength = etNewFaBuCheYuanCalLength.getText().toString();
+        if(!phoneFormatCheckUtils.isNumber(carLength)){
+            Toast.makeText(this,"车长请输入数字",Toast.LENGTH_LONG).show();
+            pbNewFaBuCheYuan.setVisibility(View.GONE);
+            return;
+        }
+
         NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
         newFaBuNetWork.faBuOrUpdateCheYuanToNet(getFaBuParamMap(), new Observer<NewFaBuCheYuanBean>() {
             @Override
@@ -356,7 +411,8 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
 
             @Override
             public void onError(Throwable e) {
-
+                Toast.makeText(NewFaBuCheYuanActivity.this,"提交失败",Toast.LENGTH_LONG).show();
+                pbNewFaBuCheYuan.setVisibility(View.GONE);
             }
 
             @Override

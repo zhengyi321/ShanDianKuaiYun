@@ -44,7 +44,9 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
         deleteImageList = new ArrayList<>();
         netImageList = new ArrayList<>();
     }
-
+    public ArrayList<String> getNetImageList(){
+        return netImageList;
+    }
     @Override
     public MyItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new MyItemViewHolder(inflater.inflate(R.layout.activity_new_fabucheyuan_content_rv_item_lly,parent,false));
@@ -132,6 +134,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
             deleteImageList.add(img);
             tempList.remove(pos);
             mImageList.remove(pos);
+            netImageList.remove(img);
             ivNewMainReleaseFaBuCheYuanAdd.setImageResource(R.mipmap.pic_add);
             ivNewMainReleaseFaBuCheYuanAdd.setClickable(true);
             ivNewMainReleaseFaBuCheYuanDelete.setVisibility(View.GONE);

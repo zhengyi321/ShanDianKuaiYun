@@ -66,121 +66,160 @@
             android:orientation="vertical"
             android:background="@drawable/dialog_bottom_radius_top_right_angle_white_shape"
             >
-            <RelativeLayout
-                android:id="@+id/rly_dialog_che_huo_ct"
+            <LinearLayout
+                android:id="@+id/lly_dialog_che_huo_ct"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
                 android:layout_weight="1"
                 >
                 <TextView
-                    android:id="@+id/tv_dialog_che_huo_ct"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_dialog_che_tc"
+                    android:layout_width="@dimen/zero"
                     android:layout_height="wrap_content"
-                     android:text="长途物流"
+                    android:text="同城物流"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp"
+                    android:layout_centerVertical="true"
+
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1"
+                    />
+                <TextView
+                    android:id="@+id/tv_dialog_huo_tc"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="wrap_content"
+                     android:text="同城货源"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
                     />
-                <ImageView
+               <!-- <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@mipmap/right_arrow"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    />
-            </RelativeLayout>
+                    />-->
+            </LinearLayout>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/split_height_or_width"
                 android:background="@color/lightgray"
                 />
-            <RelativeLayout
-                android:id="@+id/rly_dialog_che_huo_zx"
+            <LinearLayout
+                android:id="@+id/lly_dialog_che_huo_zx"
                 android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/tv_dialog_che_ct"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                     android:text="长途物流"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    />
+                <TextView
+                    android:id="@+id/tv_dialog_huo_ct"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                     android:text="长途货源"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/split_height_or_width"
+                android:background="@color/lightgray"
+                />
+            <LinearLayout
+                android:id="@+id/lly_dialog_che_huo_tc"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/tv_dialog_che_tz"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="wrap_content"
+                     android:text="特种物流"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp"
+
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    />
+                <TextView
+                    android:id="@+id/tv_dialog_huo_tz"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="wrap_content"
+                     android:text="特种货源"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/split_height_or_width"
+                android:background="@color/lightgray"
+                />
+            <LinearLayout
+                android:id="@+id/lly_dialog_che_huo_tz"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
                 android:layout_height="@dimen/zero"
                 android:layout_weight="1"
                 >
                 <TextView
-                    android:id="@+id/tv_dialog_che_huo_zx"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_dialog_che_zx"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="wrap_content"
+                     android:text="专线物流"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp"
+                    android:layout_centerVertical="true"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
+                    />
+                <TextView
+                    android:id="@+id/tv_dialog_huo_zx"
+                    android:layout_width="@dimen/zero"
                     android:layout_height="wrap_content"
                      android:text="专线物流"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_horizontal"
                     />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/right_arrow"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
-                    />
-            </RelativeLayout>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/split_height_or_width"
-                android:background="@color/lightgray"
-                />
-            <RelativeLayout
-                android:id="@+id/rly_dialog_che_huo_tc"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="1"
-                >
-                <TextView
-                    android:id="@+id/tv_dialog_che_huo_tc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                     android:text="同城物流"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
-                    />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/right_arrow"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
-                    />
-            </RelativeLayout>
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/split_height_or_width"
-                android:background="@color/lightgray"
-                />
-            <RelativeLayout
-                android:id="@+id/rly_dialog_che_huo_tz"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="1"
-                >
-                <TextView
-                    android:id="@+id/tv_dialog_che_huo_tz"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                     android:text="特种物流"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
-                    />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/right_arrow"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
-                    />
-            </RelativeLayout>
+
+            </LinearLayout>
 
 
 

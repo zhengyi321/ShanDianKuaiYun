@@ -26,6 +26,7 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
+import com.shandian.lu.Main.IndexFragment.CheYuanList.CheYuanListActivity;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.shandian.lu.BaseController;
@@ -62,8 +63,10 @@ public class NearByDriverController extends BaseController {
     RelativeLayout rlyMainIndexNearByDriverListModel;
     @OnClick(R.id.rly_main_index_nearby_driver_listmodel)
     public void  rlyMainIndexNearByDriverListModelOnclick(){
-        Intent intent = new Intent(activity, ZuCheHuoYunActivity.class);
-
+        Intent intent = new Intent(activity, CheYuanListActivity.class);
+        intent.putExtra("typeName","2");
+        activity.startActivity(intent);
+        activity.finish();
     }
 
     private MyLocationConfiguration.LocationMode mCurrentMode;

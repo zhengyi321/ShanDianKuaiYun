@@ -1,12 +1,14 @@
 package com.shandian.lu.Main.IndexFragment.PeiHuoZhongXin;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.shandian.lu.Main.IndexFragment.CheYuanList.CheYuanListActivity;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.shandian.lu.BaseController;
@@ -39,6 +41,16 @@ public class PeiHuoZhongXinController extends BaseController {
     RelativeLayout rlyMainIndexPeiHuoZhongXinBack;
     @OnClick(R.id.rly_main_index_peihuozhongxin_back)
     public void rlyMainIndexPeiHuoZhongXinBackOnclick(){
+        activity.finish();
+    }
+
+    @BindView(R.id.rly_main_index_peihuozhongxin_change)
+    RelativeLayout rlyMainIndexPeiHuoZhongXinChange;
+    @OnClick(R.id.rly_main_index_peihuozhongxin_change)
+    public void rlyMainIndexPeiHuoZhongXinChangeOnclick(){
+        Intent intent = new Intent(activity, CheYuanListActivity.class);
+        intent.putExtra("typeName","1");
+        activity.startActivity(intent);
         activity.finish();
     }
 

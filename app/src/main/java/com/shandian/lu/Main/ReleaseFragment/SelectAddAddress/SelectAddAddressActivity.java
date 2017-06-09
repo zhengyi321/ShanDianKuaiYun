@@ -1,15 +1,21 @@
 package com.shandian.lu.Main.ReleaseFragment.SelectAddAddress;
 
+import android.widget.RelativeLayout;
+
 import com.shandian.lu.BaseActivity;
 import com.shandian.lu.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2017/6/8.
  */
 
 public class SelectAddAddressActivity extends BaseActivity {
+
+
 
     private SelectAddAddressController selectAddAddressController;
 

@@ -19,7 +19,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:textColor="@color/black"
-                android:textSize="13sp"
+                android:textSize="15sp"
                 android:hint="请输入关键字搜索"
                 android:textColorHint="@color/gray"
                 />
@@ -62,10 +62,11 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:textColor="@color/black"
-                android:textSize="13sp"
+                android:textSize="15sp"
                 android:hint="请输入详细地址搜索"
                 android:textColorHint="@color/gray"
                 android:maxLines="2"
+
                 android:imeOptions="actionSearch"
                 android:inputType="text|textCapSentences"
                 />

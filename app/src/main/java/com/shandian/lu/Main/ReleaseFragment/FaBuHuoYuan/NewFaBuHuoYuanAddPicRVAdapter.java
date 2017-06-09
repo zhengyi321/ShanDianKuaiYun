@@ -61,6 +61,10 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         netImageList.addAll(arrayList);
     }
 
+    public ArrayList<String> getNetImageList(){
+        return netImageList;
+    }
+
     public ArrayList<String> getDeleteImageLists(){
         return deleteImageList;
     }
@@ -135,6 +139,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
             deleteImageList.add(img);
             tempList.remove(pos);
             mImageList.remove(pos);
+            netImageList.remove(img);
             ivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
             ivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
             ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.GONE);

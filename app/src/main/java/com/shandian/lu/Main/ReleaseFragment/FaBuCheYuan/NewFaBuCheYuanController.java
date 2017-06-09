@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanAddPicRVAdapter;
 import com.shandian.lu.R;
+import com.shandian.lu.Widget.Dialog.CarTypeDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +31,31 @@ public class NewFaBuCheYuanController extends BaseController {
         activity.finish();
     }
 
+    CarTypeDialog carTypeDialog;
+    @BindView(R.id.tv_new_fabucheyuan_cartype)
+    TextView tvNewFaBuCheYuanCarType;
+    @BindView(R.id.rly_new_fabucheyuan_select_cartype)
+    RelativeLayout rlyNewFaBuCheYuanSelectCarType;
+    @OnClick(R.id.rly_new_fabucheyuan_select_cartype)
+    public void  rlyNewFaBuCheYuanSelectCarTypeOnclick(){
+        carTypeDialog = new CarTypeDialog(activity,tvNewFaBuCheYuanCarType).Build.build(activity);
+        showDialog();
+    }
+    public void showDialog() {
+        if (carTypeDialog != null && !carTypeDialog.isShowing())
+            carTypeDialog.show();
+    }
+
+    public void dissmissDialog() {
+        if (carTypeDialog != null && carTypeDialog.isShowing())
+            carTypeDialog.dismiss();
+    }
     @BindView(R.id.rv_main_release_new_fabucheyuan_add_pic)
     RecyclerView rvMainReleaseNewFaBuHuoYuanAddPic;
+
+
+
+
     private List<String> tempList ;
     public NewFaBuCheYuanAddPicRVAdapter addPicRVAdapter;
     public NewFaBuCheYuanController(Activity activity1){

@@ -14,6 +14,7 @@ import com.example.mynewslayoutlib.Views.MyGiftView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BanJia.BanJiaActivity;
+import com.shandian.lu.Main.IndexFragment.CheYuanList.CheYuanListActivity;
 import com.shandian.lu.Main.IndexFragment.HongBao.HongBaoActivity;
 import com.shandian.lu.Main.IndexFragment.NearByDriver.NearByDriverActivity;
 import com.shandian.lu.Main.IndexFragment.PeiHuoZhongXin.PeiHuoZhongXinActivity;
@@ -89,9 +90,7 @@ public class NewMainIndexController extends BaseController{
     ImageButton ibNewMainIndexCTWL;
     @OnClick(R.id.ib_new_main_index_ctwl)
     public void ibNewMainIndexCTWLOnclick(){
-        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
-        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+
 
         Intent intent = new Intent(view.getContext(), NearByDriverActivity.class);
         view.getContext().startActivity(intent);
@@ -104,7 +103,8 @@ public class NewMainIndexController extends BaseController{
     @OnClick(R.id.ib_new_main_index_zxwl)
     public void ibNewMainIndexZXWLOnclick(){
 
-        Intent intent = new Intent(view.getContext(), ZhuanXianWuLiuActivity.class);
+        Intent intent = new Intent(view.getContext(), CheYuanListActivity.class);
+        intent.putExtra("typeName","4");
         view.getContext().startActivity(intent);
     }
 
@@ -113,7 +113,8 @@ public class NewMainIndexController extends BaseController{
     @OnClick(R.id.ib_new_main_index_tzwl)
     public void ibNewMainIndexTZWLOnclick(){
 
-        Intent intent = new Intent(view.getContext(), TeZhongWuLiuActivity.class);
+        Intent intent = new Intent(view.getContext(), CheYuanListActivity.class);
+        intent.putExtra("typeName","3");
         view.getContext().startActivity(intent);
 
     }
@@ -125,7 +126,8 @@ public class NewMainIndexController extends BaseController{
     @OnClick(R.id.ib_new_main_index_tchy)
     public void ibNewMainIndexTCHYOnclick(){
 
-        Intent intent = new Intent(view.getContext(), PeiHuoZhongXinActivity.class);
+        Intent intent = new Intent(view.getContext(), CheYuanListActivity.class);
+        intent.putExtra("typeName","1");
         view.getContext().startActivity(intent);
     }
 
@@ -154,7 +156,7 @@ public class NewMainIndexController extends BaseController{
     public void ibNewMainIndexRRWLOnclick(){
 
         Intent intent = new Intent(view.getContext(), RenRenWuLiuActivity.class);
-        view.getContext().startActivity(intent);
+      /*  view.getContext().startActivity(intent);*/
 
     }
 
@@ -164,7 +166,7 @@ public class NewMainIndexController extends BaseController{
     public void ibNewMainIndexBJOnclick(){
 
         Intent intent = new Intent(view.getContext(), BanJiaActivity.class);
-        ((Activity)view.getContext()).startActivity(intent);
+        /*((Activity)view.getContext()).startActivity(intent);*/
 
     }
 

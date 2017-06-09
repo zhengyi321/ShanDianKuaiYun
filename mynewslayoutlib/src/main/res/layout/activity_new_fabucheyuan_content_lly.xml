@@ -320,6 +320,7 @@
                         />
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/rly_new_fabucheyuan_select_cartype"
                     android:layout_width="@dimen/zero"
                     android:layout_height="match_parent"
                     android:layout_weight="4.5"

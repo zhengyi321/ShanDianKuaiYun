@@ -59,11 +59,16 @@ public class SelectAddAddressController extends BaseController implements OnGetG
 
     private final int ACTIVITY_SELECT_ADDRESS_BEGIN = 105;
     private final int ACTIVITY_SELECT_ADDRESS_END = 106;
+
     @BindView(R.id.rly_new_selectaddress_back)
     RelativeLayout rlyNewSelectAddressBack;
     @OnClick(R.id.rly_new_selectaddress_back)
     public void rlyNewSelectAddressBackOnclick(){
+        if(type == null){
+            return;
+        }
         activity.finish();
+
     }
     @BindView(R.id.rly_new_selectaddress_query)
     RelativeLayout rlyNewSelectAddressQuery;
@@ -421,8 +426,11 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         LatLng latLng = result.getLocation();
         lon = latLng.longitude;
         lat = latLng.latitude;
-        String addr = result.getAddress();
-        int indexOfProv = addr.indexOf("省");
+        String addr = result.getAddress()+" " + result.getSematicDescription();
+        province = result.getAddressDetail().province;
+        city = result.getAddressDetail().city;
+        area = result.getAddressDetail().district;
+ /*       int indexOfProv = addr.indexOf("省");
         if(indexOfProv > 0){
             province = addr.substring(0,indexOfProv+1);
             addr = addr.substring(indexOfProv+1,addr.length());
@@ -436,13 +444,13 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         }else {
             city = "温州市";
         }
-        int indexOfArea = addr.indexOf("区");
-        if(indexOfArea > 0){
+        int indexOfArea = addr.indexOf("区");*/
+      /*  if(indexOfArea > 0){
             area = addr.substring(0,indexOfArea+1);
             addr = addr.substring(indexOfArea+1,addr.length());
         }else{
             area="乐清市";
-        }
+        }*/
       Log.i("addr",addr);
       Log.i("addr",addr);
       Log.i("addr",addr);
@@ -496,7 +504,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         }
         if(locationClient!=null){
             locationClient.unRegisterLocationListener(locationListener);
-            locationClient.stop();
+           /* locationClient.stop();*/
         }
 
 

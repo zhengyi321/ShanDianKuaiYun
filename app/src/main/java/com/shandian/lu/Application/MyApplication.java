@@ -24,6 +24,7 @@ import com.umeng.socialize.UMShareAPI;
 import com.zhyan.myhuanxin.EaseUI;
 import com.zhyan.shandiankuaiyuanwidgetlib.Utils.AppThirdDataUtils;
 
+import cn.jpush.android.api.JPushInterface;
 import cn.smssdk.SMSSDK;
 
 
@@ -45,7 +46,10 @@ public class MyApplication extends Application {
         initBaiDuSDK();
         initHuanXin();
         initYouMeng();
-
+        /*极光推送*/
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
+        /*极光推送*/
 
         super.onCreate();
 

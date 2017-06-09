@@ -33,25 +33,34 @@ import butterknife.OnClick;
 
 public class ReleaseDialogController extends BaseController {
     private int offset = 0;// 动画图片偏移量
-    private int bmpW = 60;// 动画图片宽度
+    private int bmpW = 70;// 动画图片宽度
     private int currIndex = 0;// 当前页卡编号
 
     @BindView(R.id.iv_dialog_release_che_huo)
     ImageView ivDialogReleaseCheHuo;
 
-    @BindView(R.id.tv_dialog_che_huo_ct)
-    TextView tvDialogCheHuoCT;
-    @BindView(R.id.tv_dialog_che_huo_zx)
-    TextView tvDialogCheHuoZX;
-    @BindView(R.id.tv_dialog_che_huo_tc)
-    TextView tvDialogCheHuoTC;
-    @BindView(R.id.tv_dialog_che_huo_tz)
-    TextView tvDialogCheHuoTZ;
+    @BindView(R.id.tv_dialog_che_ct)
+    TextView tvDialogCheCT;
+    @BindView(R.id.tv_dialog_che_zx)
+    TextView tvDialogCheZX;
+    @BindView(R.id.tv_dialog_che_tc)
+    TextView tvDialogCheTC;
+    @BindView(R.id.tv_dialog_che_tz)
+    TextView tvDialogCheTZ;
+
+    @BindView(R.id.tv_dialog_huo_ct)
+    TextView tvDialogHuoCT;
+    @BindView(R.id.tv_dialog_huo_zx)
+    TextView tvDialogHuoZX;
+    @BindView(R.id.tv_dialog_huo_tc)
+    TextView tvDialogHuoTC;
+    @BindView(R.id.tv_dialog_huo_tz)
+    TextView tvDialogHuoTZ;
 
 
-    @BindView(R.id.rly_dialog_che_huo_ct)
-    RelativeLayout rlyDialogCheHuoCT;
-    @OnClick(R.id.rly_dialog_che_huo_ct)
+    @BindView(R.id.lly_dialog_che_huo_ct)
+    LinearLayout llyDialogCheHuoCT;
+    @OnClick(R.id.lly_dialog_che_huo_ct)
     public void rlyDialogCheHuoCTOnclick(){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
@@ -82,9 +91,9 @@ public class ReleaseDialogController extends BaseController {
         }
     }
 
-    @BindView(R.id.rly_dialog_che_huo_zx)
-    RelativeLayout rlyDialogCheHuoZX;
-    @OnClick(R.id.rly_dialog_che_huo_zx)
+    @BindView(R.id.lly_dialog_che_huo_zx)
+    LinearLayout llyDialogCheHuoZX;
+    @OnClick(R.id.lly_dialog_che_huo_zx)
     public void rlyDialogCheHuoZXOnclick(){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
@@ -108,9 +117,9 @@ public class ReleaseDialogController extends BaseController {
         }
     }
 
-    @BindView(R.id.rly_dialog_che_huo_tc)
-    RelativeLayout rlyDialogCheHuoTC;
-    @OnClick(R.id.rly_dialog_che_huo_tc)
+    @BindView(R.id.lly_dialog_che_huo_tc)
+    LinearLayout llyDialogCheHuoTC;
+    @OnClick(R.id.lly_dialog_che_huo_tc)
     public void rlyDialogCheHuoTCOnclick(){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
@@ -134,9 +143,9 @@ public class ReleaseDialogController extends BaseController {
         }
     }
 
-    @BindView(R.id.rly_dialog_che_huo_tz)
-    RelativeLayout rlyDialogCheHuoTZ;
-    @OnClick(R.id.rly_dialog_che_huo_tz)
+    @BindView(R.id.lly_dialog_che_huo_tz)
+    LinearLayout llyDialogCheHuoTZ;
+    @OnClick(R.id.lly_dialog_che_huo_tz)
     public void rlyDialogCheHuoTZOnclick(){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
@@ -167,12 +176,14 @@ public class ReleaseDialogController extends BaseController {
 
     @OnClick(R.id.rb_dialog_release_che)
     public void rbDialogReleaseCheOnclick(){
+        currIndex = 1;
         initTabBar(0);
     }
     @BindView(R.id.rb_dialog_release_huo)
     RadioButton rbDialogReleaseHuo;
     @OnClick(R.id.rb_dialog_release_huo)
     public void rbDialogReleaseHuoOnclick(){
+        currIndex = 0;
         initTabBar(1);
     }
     public ReleaseDialogController(View view1){
@@ -195,16 +206,16 @@ public class ReleaseDialogController extends BaseController {
         int height = systemUtils.getWindowHeight();
         int marginLeft = (((width/2)/2)/2);
         int ivWidth = (width/2)/2;
- /*       LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ivWidth,((Activity)view.getContext()).getResources().getDimensionPixelSize(R.dimen.dimen_30dp));
-        params.setMargins(marginLeft,0,0,0);*/
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ivWidth,((Activity)view.getContext()).getResources().getDimensionPixelSize(R.dimen.dimen_30dp));
+        params.setMargins(marginLeft,0,0,0);
         DisplayMetrics dm = new DisplayMetrics();
         ((Activity)view.getContext()).getWindowManager().getDefaultDisplay().getMetrics(dm);
         int screenW = dm.widthPixels;// 获取分辨率宽度
         offset = (screenW / 2 - bmpW) / 4;// 计算偏移量 满屏 screenW/有几个tab 就除以几 dialog 则为dialog的宽度除以tab数量
         Matrix matrix = new Matrix();
         matrix.postTranslate(offset, 0);
-      /*  ivDialogReleaseCheHuo.setImageMatrix(matrix);*/
-   /*     ivDialogReleaseCheHuo.setLayoutParams(params);*/
+        ivDialogReleaseCheHuo.setImageMatrix(matrix);
+ /*       ivDialogReleaseCheHuo.setLayoutParams(params);*/
     }
 
 
@@ -242,15 +253,23 @@ public class ReleaseDialogController extends BaseController {
     }
 
     private void initCheYuanText(){
-        tvDialogCheHuoCT.setText("长途物流");
-        tvDialogCheHuoZX.setText("专线物流");
-        tvDialogCheHuoTC.setText("同城物流");
-        tvDialogCheHuoTZ.setText("特种物流");
+        tvDialogCheCT.setTextColor(0xff808080);
+        tvDialogCheTC.setTextColor(0xff808080);
+        tvDialogCheTZ.setTextColor(0xff808080);
+        tvDialogCheZX.setTextColor(0xff808080);
+        tvDialogHuoCT.setTextColor(0xff000000);
+        tvDialogHuoTC.setTextColor(0xff000000);
+        tvDialogHuoTZ.setTextColor(0xff000000);
+        tvDialogHuoZX.setTextColor(0xff000000);
     }
     private void initHuoYuanText(){
-        tvDialogCheHuoCT.setText("长途货源");
-        tvDialogCheHuoZX.setText("专线货源");
-        tvDialogCheHuoTC.setText("同城货源");
-        tvDialogCheHuoTZ.setText("特种货源");
+        tvDialogCheCT.setTextColor(0xff000000);
+        tvDialogCheTC.setTextColor(0xff000000);
+        tvDialogCheTZ.setTextColor(0xff000000);
+        tvDialogCheZX.setTextColor(0xff000000);
+        tvDialogHuoCT.setTextColor(0xff808080);
+        tvDialogHuoTC.setTextColor(0xff808080);
+        tvDialogHuoTZ.setTextColor(0xff808080);
+        tvDialogHuoZX.setTextColor(0xff808080);
     }
 }

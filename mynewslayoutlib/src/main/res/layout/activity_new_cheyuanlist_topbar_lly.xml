@@ -5,6 +5,7 @@
     android:background="@mipmap/top_small_blue_bg"
     >
     <RelativeLayout
+        android:id="@+id/rly_new_cheyuanlist_back"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -21,12 +22,13 @@
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="5"
+        android:layout_weight="4.5"
         >
         <TextView
+            android:id="@+id/tv_new_cheyuanlist_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="车源详情"
+            android:text="车源中心"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:layout_centerInParent="true"
@@ -34,11 +36,16 @@
 
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rly_new_cheyuanlist_change"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         >
-
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/shaixuan"
+            android:layout_centerInParent="true"
+            />
     </RelativeLayout>
 </LinearLayout>

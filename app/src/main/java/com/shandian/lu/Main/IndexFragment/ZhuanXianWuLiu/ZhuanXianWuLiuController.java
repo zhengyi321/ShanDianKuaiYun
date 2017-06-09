@@ -1,6 +1,7 @@
 package com.shandian.lu.Main.IndexFragment.ZhuanXianWuLiu;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.widget.CheckBox;
@@ -8,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.shandian.lu.Main.IndexFragment.CheYuanList.CheYuanListActivity;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.shandian.lu.BaseController;
@@ -113,6 +115,15 @@ public class ZhuanXianWuLiuController extends BaseController {
     private ZhuanXianWuLiuXRVAdapter zhuanXianWuLiuXRVAdapter;
     List<ZhuanXianWuliuCarSourceBean.ContentBean> stringList;
 
+    @BindView(R.id.rly_main_index_zhuanxianwuliu_change)
+    RelativeLayout rlyMainIndexZhuanXianWuLiuChange;
+    @OnClick(R.id.rly_main_index_zhuanxianwuliu_change)
+    public void rlyMainIndexZhuanXianWuLiuChangeOnclick(){
+        Intent intent = new Intent(activity, CheYuanListActivity.class);
+        intent.putExtra("typeName","4");
+        activity.startActivity(intent);
+        activity.finish();
+    }
 
     public ZhuanXianWuLiuController(Activity activity1){
         activity = activity1;

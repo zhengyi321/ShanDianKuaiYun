@@ -1,3 +1,12 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        //classpath 'com.android.tools.build:gradle:0.12.+'
+    }
+}
+
 apply plugin: 'com.android.application'
 /*最新版本的butterknife*/
 apply plugin: 'android-apt'
@@ -166,12 +175,14 @@ dependencies {
     /*友盟*/
     compile project(':mynewslayoutlib')
     /*compile 'com.android.support:multidex:1.0.1'*/
-
-
     /*腾讯升级http://www.jianshu.com/p/e61482de6e0a*/
-    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'//其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.0.0
-    compile 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
+    compile 'com.tencent.bugly:crashreport_upgrade:latest.release'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.0.0
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如2.2.0
     /*腾讯升级*/
+    compile files('libs/jcore-android_v1.1.3.jar')
+    compile files('libs/jpush-android_v3.0.6.jar')
 }
 /*// 依赖插件脚本
 apply from: 'tinker-support.gradle'*/

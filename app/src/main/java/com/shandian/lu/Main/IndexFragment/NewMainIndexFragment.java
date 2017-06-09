@@ -134,40 +134,37 @@ public class NewMainIndexFragment extends BaseFragment {
             if (location != null) {
 
 
-                //获取定位结果
-                String city = location.getDistrict();
 
-               /* Toast.makeText(view1.getContext(),"city:"+ location.getLocType(),Toast.LENGTH_LONG).show();*/
-               /* Toast.makeText(view.getContext(),"city:"+city,Toast.LENGTH_LONG).show();*/
-                if (city == null) {
-                    return;
-                }
                 if(isFirst) {
-                int indexCity = city.indexOf("市");
-                    /*Toast.makeText(view1.getContext(),"indexcity:"+indexCity,Toast.LENGTH_LONG).show();*/
-                if (indexCity >= 0) {
-                    city = city.substring(0, indexCity);
-                }
-                int indexCity2 = city.indexOf("全");
-                if (indexCity2 >= 0) {
-                    city = city.substring(indexCity2 + 1, city.length());
-                }
+                    //获取定位结果
+
                 String lat = location.getLatitude() + "";
                 String lon = location.getLongitude() + "";
                 XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
                 XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+                String city = location.getCity();
+
+               /* Toast.makeText(view1.getContext(),"city:"+ location.getLocType(),Toast.LENGTH_LONG).show();*/
+               /* Toast.makeText(view.getContext(),"city:"+city,Toast.LENGTH_LONG).show();*/
                 if (city == null) {
-                    return;
+                    city = "";
                 }
+
+                int indexCity2 = city.indexOf("全");
+                if (indexCity2 >= 0) {
+                    city = city.substring(indexCity2 + 1, city.length());
+                }
+                tvMainIndexCity.setText(city);
                 xcCacheManager.writeCache(xcCacheSaveName.currentCity, city);
                 if (lat == null) {
-                    return;
+                    lat= "";
                 }
                 xcCacheManager.writeCache(xcCacheSaveName.currentLat, lat);
                 if (lon == null) {
-                    return;
+                    lon = "";
                 }
                 xcCacheManager.writeCache(xcCacheSaveName.currentlon, lon);
+                    isFirst = false;
               /*      System.out.print("this is lat\n:"+lat);
                     System.out.print("this is lon\n:"+lon);
                     Log.i("this is lat",lat);
@@ -196,7 +193,9 @@ public class NewMainIndexFragment extends BaseFragment {
     @Override
     public void onResume(){
         super.onResume();
-        selectResult();
+        if(!isFirst) {
+            selectResult();
+        }
 
     }
     private void selectResult(){
@@ -204,13 +203,14 @@ public class NewMainIndexFragment extends BaseFragment {
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String city = xcCacheManager.readCache(xcCacheSaveName.currentCity);
 
-        if(city == null){
-            return;
-        }
-        isFirst = false;
+
+
         xcCacheManager.writeCache(xcCacheSaveName.modlestatus,"");
         if(city != null){
-
+            int indexCity2 = city.indexOf("全");
+            if (indexCity2 >= 0) {
+                city = city.substring(indexCity2 + 1, city.length());
+            }
             tvMainIndexCity.setText(city);
         }
     }

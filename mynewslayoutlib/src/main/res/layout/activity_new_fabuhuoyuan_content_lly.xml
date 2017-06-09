@@ -113,6 +113,7 @@
                         android:layout_height="wrap_content"
                         android:background="@mipmap/right_arrow"
                         android:layout_centerInParent="true"
+                        android:visibility="gone"
                         />
                 </RelativeLayout>
             </LinearLayout>
@@ -464,6 +465,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/split_width_or_height"
             android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
+            android:visibility="gone"
             />
         <LinearLayout
             android:id="@+id/lly_main_release_tezhongyunshu_content_desc"

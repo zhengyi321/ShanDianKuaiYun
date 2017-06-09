@@ -6,6 +6,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.shandian.lu.BaseActivity;
+import com.shandian.lu.Main.IndexFragment.CheYuanList.CheYuanListActivity;
 import com.shandian.lu.Main.IndexFragment.CityChange.CityChangeActivity;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.CarLengthDialog;
@@ -49,7 +50,15 @@ public class TeZhongWuLiuActivity extends BaseActivity {
         startActivityForResult(intent,CITY_CHANGE_SELECTED);
     }
 
-
+    @BindView(R.id.rly_main_idnex_tezhongwuliu_change)
+    RelativeLayout rlyMainIndexTeZhongWuLiuChange;
+    @OnClick(R.id.rly_main_idnex_tezhongwuliu_change)
+    public void rlyMainIndexTeZhongWuLiuChangeOnclick(){
+        Intent intent = new Intent(this, CheYuanListActivity.class);
+        intent.putExtra("typeName","3");
+        startActivity(intent);
+        finish();
+    }
 
 
 

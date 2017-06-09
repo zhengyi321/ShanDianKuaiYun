@@ -32,6 +32,7 @@
             />
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rly_main_index_zhuanxianwuliu_change"
         android:layout_width="@dimen/zero"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -39,7 +40,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/fdv"
+            android:background="@mipmap/shaixuan"
             android:layout_centerInParent="true"
             />
     </RelativeLayout>
