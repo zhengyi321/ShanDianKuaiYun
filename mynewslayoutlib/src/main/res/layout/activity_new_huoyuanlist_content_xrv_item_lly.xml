@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:layout_marginBottom="0.5dp"
+    android:layout_height="120.5dp"
     android:background="@color/white"
+    android:id="@+id/lly_new_huoyuanlist_item"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="120dp"
         android:orientation="horizontal"
         android:background="#ffffff">
         <RelativeLayout
@@ -29,6 +29,7 @@
                 android:layout_weight="1"
                 >
                 <TextView
+                    android:id="@+id/tv_new_huoyuanlist_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="刚刚"
@@ -51,6 +52,7 @@
                     android:layout_gravity="center_vertical"
                     >
                     <TextView
+                        android:id="@+id/tv_new_huoyuanlist_bcity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="乐清市"
@@ -58,9 +60,10 @@
                         android:textSize="20sp"
                         />
                     <TextView
+                        android:id="@+id/tv_new_huoyuanlist_barea"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="乐清镇"
+                        android:text="乐成镇"
                         android:textColor="#626262"
                         android:textSize="11sp"
                         />
@@ -80,6 +83,7 @@
                     android:layout_gravity="center_vertical"
                     >
                     <TextView
+                        android:id="@+id/tv_new_huoyuanlist_ecity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="北京市"
@@ -87,6 +91,7 @@
                         android:textSize="20sp"
                         />
                     <TextView
+                        android:id="@+id/tv_new_huoyuanlist_earea"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="通州区幸福北路"
@@ -100,6 +105,7 @@
                 android:layout_height="@dimen/zero"
                 android:orientation="horizontal"
                 android:layout_weight="1"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -110,6 +116,7 @@
                     android:layout_gravity="center_vertical"
                     />
                 <TextView
+                    android:id="@+id/tv_new_huoyuanlist_data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2017-01-02 上午08:00~11:30"
@@ -122,7 +129,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/lightgray"
+                android:background="#f4f4f4"
                 android:layout_marginRight="10dp"
 
                 />
@@ -133,6 +140,7 @@
                 android:layout_weight="1.5"
                 >
                 <TextView
+                    android:id="@+id/tv_new_huoyuanlist_huotype"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/half_radius_blue_edge_shape"
@@ -146,12 +154,28 @@
                     android:layout_gravity="center_vertical"
                     />
                 <TextView
+                    android:id="@+id/tv_new_huoyuanlist_dis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/half_radius_light_green_edge_shape"
                     android:text="2000km"
                     android:textSize="11sp"
                     android:textColor="#76bf0b"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    />
+                <TextView
+                    android:id="@+id/tv_new_huoyuanlist_ads"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/half_radius_light_gray_edge_shape"
+                    android:text="广告"
+                    android:textSize="11sp"
+                    android:textColor="@color/lightgray"
                     android:paddingTop="2dp"
                     android:paddingBottom="2dp"
                     android:paddingLeft="10dp"
@@ -175,16 +199,18 @@
                 android:layout_alignParentRight="true"
                 android:orientation="vertical"
                 >
-            <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/gray_round_shape"
+                <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
+                    android:id="@+id/riv_new_huoyuanlist_touxiang"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/gray_round_shape"
 
-                >
+                    >
 
 
-            </com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView>
+                </com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView>
                 <TextView
+                    android:id="@+id/tv_new_huoyuanlist_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="赵德汗"
@@ -194,6 +220,7 @@
                     android:layout_marginTop="3dp"
                     />
                 <ImageView
+                    android:id="@+id/iv_new_huoyuanlist_cal"
                     android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -206,7 +233,12 @@
     </LinearLayout>
 
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/lightgray"
 
+        />
 
 
 </LinearLayout>

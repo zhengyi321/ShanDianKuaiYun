@@ -276,6 +276,7 @@
                         android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
                         android:layout_centerVertical="true"
                         android:background="@null"
+                        android:digits="0123456789"
                         />
                 </RelativeLayout>
                 <RelativeLayout
@@ -411,6 +412,7 @@
                     android:textColor="@color/color_main_release_tezhongyunshu_content_black_word_textcolor"
                     android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
                     android:layout_centerVertical="true"
+                    android:digits="0123456789"
                     />
             </RelativeLayout>
         </LinearLayout>

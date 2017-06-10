@@ -784,11 +784,13 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             />
-        <activity android:name=".Main.IndexFragment.CheYuanList.CheYuanListActivity"
+        <activity android:name=".Main.IndexFragment.NewCheYuanList.CheYuanListActivity"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             />
         <activity android:name=".Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetaiSelflActivity" />
+        <activity android:name=".Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailOtherActivity" />
+        <activity android:name=".Main.IndexFragment.NewHuoYuanList.HuoYuanListActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
 
     </application>

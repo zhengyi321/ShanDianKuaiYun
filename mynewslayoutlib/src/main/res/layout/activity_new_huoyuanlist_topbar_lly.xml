@@ -5,6 +5,7 @@
     android:background="@mipmap/top_small_blue_bg"
     >
     <RelativeLayout
+        android:id="@+id/rly_new_huoyuanlist_back"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -24,6 +25,7 @@
         android:layout_weight="4.5"
         >
         <TextView
+            android:id="@+id/tv_new_huoyuanlist_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="货物中心"
@@ -34,6 +36,7 @@
 
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rly_new_huoyuanlist_change"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

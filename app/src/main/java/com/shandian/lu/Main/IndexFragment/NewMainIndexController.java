@@ -14,16 +14,13 @@ import com.example.mynewslayoutlib.Views.MyGiftView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BanJia.BanJiaActivity;
-import com.shandian.lu.Main.IndexFragment.CheYuanList.CheYuanListActivity;
+import com.shandian.lu.Main.IndexFragment.NewCheYuanList.CheYuanListActivity;
 import com.shandian.lu.Main.IndexFragment.HongBao.HongBaoActivity;
 import com.shandian.lu.Main.IndexFragment.NearByDriver.NearByDriverActivity;
-import com.shandian.lu.Main.IndexFragment.PeiHuoZhongXin.PeiHuoZhongXinActivity;
+import com.shandian.lu.Main.IndexFragment.NewHuoYuanList.HuoYuanListActivity;
 import com.shandian.lu.Main.IndexFragment.RenRenWuLiu.RenRenWuLiuActivity;
-import com.shandian.lu.Main.IndexFragment.TeZhongWuLiu.TeZhongWuLiuActivity;
 import com.shandian.lu.Main.IndexFragment.WebView.WebViewActivity;
 import com.shandian.lu.Main.IndexFragment.ZhengCheHuoYun.ZhengCheHuoYunActivity;
-import com.shandian.lu.Main.IndexFragment.ZhuanXianWuLiu.ZhuanXianWuLiuActivity;
-import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.NetWork.MainIndexNetWork;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.YouMeng.Defaultcontent;
@@ -32,8 +29,6 @@ import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.utils.Log;
-import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
-import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.LianXiKeFuDialog;
 import com.zhyan.shandiankuaiyunlib.Bean.MainIndexAdBean;
 import com.zhyan.shandiankuaiyunlib.Widget.ViewPage.ImageCycleView;
@@ -80,7 +75,8 @@ public class NewMainIndexController extends BaseController{
     @OnClick(R.id.ib_new_main_index_hyzx)
     public void  ibNewMainIndexHYZXOnclick(){
         pbNewMainIndex.setVisibility(View.VISIBLE);
-        Intent intent = new Intent(view.getContext(), ZhengCheHuoYunActivity.class);
+        /*Intent intent = new Intent(view.getContext(), ZhengCheHuoYunActivity.class);*/
+        Intent intent = new Intent(view.getContext(), HuoYuanListActivity.class);
         view.getContext().startActivity(intent);
         pbNewMainIndex.setVisibility(View.GONE);
     }

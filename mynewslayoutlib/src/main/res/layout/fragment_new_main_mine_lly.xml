@@ -6,82 +6,81 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/lly_main_mine_login_or_update_gerenxinxi"
+        android:id="@+id/lly_new_main_mine_login_or_update_gerenxinxi"
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_mine_tophead_height"
         android:background="@mipmap/top_big_blue_bg"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <RelativeLayout
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
 
-            android:layout_weight="1"
-            >
-            <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
-                android:id="@+id/riv_main_mine_headimg"
+            android:layout_weight="1">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/riv_new_main_mine_headimg"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
-                android:src="@mipmap/mylogin"
-                android:background="@color/transparent"
-                android:scaleType="fitXY"
                 android:layout_centerInParent="true"
 
+
+                android:src="@mipmap/mylogin"
                 />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/normal_member"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="15dp"
-                    />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp"
+                android:background="@mipmap/normal_member" />
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            >
+            android:layout_weight="2">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_centerVertical="true"
-                >
+                android:orientation="vertical">
+
                 <TextView
-                    android:id="@+id/tv_main_mine_name"
+                    android:id="@+id/tv_new_main_mine_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="我叫闪电"
-                    android:textSize="15sp"
-                    android:textColor="@color/white"
                     android:layout_marginBottom="5dp"
-                    />
+                    android:text="我叫闪电"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
                 <TextView
-                    android:id="@+id/tv_main_mine_tel"
+                    android:id="@+id/tv_new_main_mine_tel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textSize="@dimen/main_mine_tophead_name_word_size"
                     android:textColor="@color/color_main_mine_tophead_name_black_bg"
-                    android:visibility="gone"
-                    />
+                    android:textSize="@dimen/main_mine_tophead_name_word_size"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            >
+            android:layout_weight="0.5">
+
             <ImageView
                 android:layout_width="@dimen/main_mine_tophead_right_arrow_width"
                 android:layout_height="@dimen/main_mine_tophead_right_arrow_height"
-                android:background="@mipmap/right_arrow"
                 android:layout_centerInParent="true"
-                />
+                android:background="@mipmap/right_arrow" />
 
         </RelativeLayout>
 
@@ -108,7 +107,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/lly_main_mine_renzheng"
+                    android:id="@+id/lly_new_main_mine_renzheng"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="1"
@@ -163,7 +162,7 @@
                     android:background="@color/color_main_mine_content_splite_line" />
 
                 <LinearLayout
-                    android:id="@+id/lly_main_mine_wodecheyuan"
+                    android:id="@+id/lly_new_main_mine_wodecheyuan"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="1"
@@ -218,7 +217,7 @@
                     android:background="@color/color_main_mine_content_splite_line" />
 
                 <LinearLayout
-                    android:id="@+id/lly_main_mine_wodehuoyuan"
+                    android:id="@+id/lly_new_main_mine_wodehuoyuan"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="1"
@@ -283,7 +282,7 @@
 
 
                 <LinearLayout
-                    android:id="@+id/lly_main_mine_wodeyaoqing"
+                    android:id="@+id/lly_new_main_mine_wodeyaoqing"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="1"
@@ -338,7 +337,7 @@
                     android:background="@color/color_main_mine_content_splite_line" />
 
                 <LinearLayout
-                    android:id="@+id/lly_main_mine_mengyou"
+                    android:id="@+id/lly_new_main_mine_mengyou"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="1"
@@ -393,7 +392,7 @@
                     android:background="@color/color_main_mine_content_splite_line" />
 
                 <LinearLayout
-                    android:id="@+id/lly_main_mine_jifenshangcheng"
+                    android:id="@+id/lly_new_main_mine_jifenshangcheng"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="1"
@@ -448,7 +447,7 @@
                     android:background="@color/color_main_mine_content_splite_line" />
 
                 <LinearLayout
-                    android:id="@+id/lly_main_mine_fenxiang"
+                    android:id="@+id/lly_new_main_mine_fenxiang"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="1"
@@ -515,7 +514,7 @@
 
 
                 <LinearLayout
-                    android:id="@+id/lly_main_mine_shezhi"
+                    android:id="@+id/lly_new_main_mine_shezhi"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="1"
@@ -570,7 +569,7 @@
                     android:background="@color/color_main_mine_content_splite_line" />
 
                 <LinearLayout
-                    android:id="@+id/lly_main_mine_lianxikefu"
+                    android:id="@+id/lly_new_main_mine_lianxikefu"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="1"
@@ -625,7 +624,7 @@
                     android:background="@color/color_main_mine_content_splite_line" />
 
                 <LinearLayout
-                    android:id="@+id/lly_main_mine_aboutus"
+                    android:id="@+id/lly_new_main_mine_aboutus"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="1"

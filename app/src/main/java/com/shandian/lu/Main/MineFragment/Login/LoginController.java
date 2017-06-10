@@ -29,9 +29,13 @@ import com.shandian.lu.NetWork.UserNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyunlib.Bean.LoginBean;
 
+import java.util.Set;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 import rx.Observer;
 
 /**
@@ -39,7 +43,26 @@ import rx.Observer;
  */
 
 public class LoginController extends BaseController {
+    /*极光别名注册*/
+    private final int MSG_SET_ALIAS = 1001;
+    protected final Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(android.os.Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case MSG_SET_ALIAS:
 
+                    JPushInterface.setAliasAndTags(activity, (String) msg.obj, null, mAliasCallback);
+                    break;
+
+
+
+                default:
+
+            }
+        }
+    };
+    /*极光别名注册*/
     private String loginId= "",name="",mobile="";
     @BindView(R.id.rly_main_mine_login_cancel)
     RelativeLayout rlyMainMineLoginCancel;
@@ -186,6 +209,8 @@ public class LoginController extends BaseController {
                 }else{
                     Toast.makeText(activity,loginBean.getMsg(),Toast.LENGTH_LONG).show();
                 }
+                initAliasJpush();
+                activity.finish();
             }
         });
 
@@ -261,5 +286,64 @@ public class LoginController extends BaseController {
         });
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    /*极光别名注册*/
+
+
+    private void initAliasJpush(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((loginId == null)||(loginId.isEmpty())){
+            return;
+        }
+        String alias = "SDKY"+loginId;
+        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, alias));
+        /*mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, "保证此处是唯一的标识"));*/
+    }
+
+
+
+    private final TagAliasCallback mAliasCallback = new TagAliasCallback() {
+
+        @Override
+        public void gotResult(int code, String alias, Set<String> tags) {
+            String logs;
+            switch (code) {
+                case 0:
+                    logs = "Set tag and alias success";
+                    Toast.makeText(activity,"here is success:"+alias+" "+tags,Toast.LENGTH_LONG).show();
+               /*     NotificationCompat.Builder	notification = new NotificationCompat.Builder(activity).setSmallIcon(R.mipmap.logo)
+                            .setSound(Uri.parse("android.resource://" + activity.getPackageName() + "/" + R.raw.shandian));*/
+                            /*.setContentText(title);*/
+                    break;
+
+                case 6002:
+                    logs = "Failed to set alias and tags due to timeout. Try again after 60s.";
+
+
+                    break;
+
+                default:
+                    logs = "Failed with errorCode = " + code;
+
+            }
+
+
+        }
+
+    };
+    /*极光别名注册*/
 
 }

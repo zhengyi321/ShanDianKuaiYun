@@ -66,5 +66,6 @@ dependencies {
   /*  compile 'com.android.support:appcompat-v7:25.3.1'*/
     compile project(':myumenglibrary')
 /*    compile 'com.yanzhenjie:album:1.0.6'*/
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 }
 

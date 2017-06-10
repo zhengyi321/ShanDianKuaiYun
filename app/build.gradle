@@ -171,6 +171,7 @@ dependencies {
     /*相册多选http://blog.csdn.net/yanzhenjie1003/article/details/52975922*/
     /*环信聊天*/
     /*环信聊天*/
+
     /*友盟*/
     /*友盟*/
     compile project(':mynewslayoutlib')

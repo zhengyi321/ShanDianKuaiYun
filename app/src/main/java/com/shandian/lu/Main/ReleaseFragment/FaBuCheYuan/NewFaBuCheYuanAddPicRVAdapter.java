@@ -35,7 +35,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
     private ArrayList<String> mImageList;
     private ArrayList<String> netImageList;
     private ArrayList<String> deleteImageList;
-
+    private ArrayList<String> currentNetImageList;
     public NewFaBuCheYuanAddPicRVAdapter(Activity activity1, List<String> tempList1){
         activity = activity1;
         tempList = tempList1;
@@ -43,6 +43,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
         mImageList = new ArrayList<>();
         deleteImageList = new ArrayList<>();
         netImageList = new ArrayList<>();
+        currentNetImageList = new ArrayList<>();
     }
     public ArrayList<String> getNetImageList(){
         return netImageList;
@@ -55,15 +56,26 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
     public void setmImageList(ArrayList<String> arrayList){
         mImageList.clear();
         mImageList.addAll(arrayList);
+        notifyDataSetChanged();
     }
     public void setNetImageList(ArrayList<String> arrayList){
         netImageList.clear();
         netImageList.addAll(arrayList);
+        notifyDataSetChanged();
+    }
+    public void setCurrentNetImageList(ArrayList<String> arrayList){
+        currentNetImageList.clear();
+        currentNetImageList.addAll(arrayList);
+        notifyDataSetChanged();
     }
 
     public ArrayList<String> getDeleteImageLists(){
         return deleteImageList;
     }
+    public ArrayList<String> getCurrentNetImageList(){
+        return currentNetImageList;
+    }
+
 
     public void setAdapterImage(ArrayList<String> adapterImage){
         tempList.clear();
@@ -135,6 +147,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
             tempList.remove(pos);
             mImageList.remove(pos);
             netImageList.remove(img);
+            currentNetImageList.remove(pos);
             ivNewMainReleaseFaBuCheYuanAdd.setImageResource(R.mipmap.pic_add);
             ivNewMainReleaseFaBuCheYuanAdd.setClickable(true);
             ivNewMainReleaseFaBuCheYuanDelete.setVisibility(View.GONE);

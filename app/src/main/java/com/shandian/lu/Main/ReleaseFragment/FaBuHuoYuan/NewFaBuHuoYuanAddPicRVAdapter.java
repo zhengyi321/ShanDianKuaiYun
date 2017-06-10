@@ -37,6 +37,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
     private ArrayList<String> mImageList;
     private ArrayList<String> netImageList;
     private ArrayList<String> deleteImageList;
+    private ArrayList<String> currentNetImageList;
 
     public NewFaBuHuoYuanAddPicRVAdapter(Activity activity1, List<String> tempList1){
         activity = activity1;
@@ -45,6 +46,8 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         mImageList = new ArrayList<>();
         deleteImageList = new ArrayList<>();
         netImageList = new ArrayList<>();
+        currentNetImageList = new ArrayList<>();
+
     }
 
     @Override
@@ -55,14 +58,27 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
     public void setmImageList(ArrayList<String> arrayList){
         mImageList.clear();
         mImageList.addAll(arrayList);
+        notifyDataSetChanged();
     }
     public void setNetImageList(ArrayList<String> arrayList){
         netImageList.clear();
         netImageList.addAll(arrayList);
+        notifyDataSetChanged();
+    }
+    public void setCurrentNetImageList(ArrayList<String> arrayList){
+        currentNetImageList.clear();
+        currentNetImageList.addAll(arrayList);
+        notifyDataSetChanged();
     }
 
     public ArrayList<String> getNetImageList(){
         return netImageList;
+    }
+    public ArrayList<String> getMImageList(){
+        return mImageList;
+    }
+    public ArrayList<String> getCurrentNetImageList(){
+        return currentNetImageList;
     }
 
     public ArrayList<String> getDeleteImageLists(){
@@ -72,7 +88,9 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
     public void setAdapterImage(ArrayList<String> adapterImage){
         tempList.clear();
         tempList.addAll(adapterImage);
-        tempList.add("");
+        if(tempList.size() < 8) {
+            tempList.add("");
+        }
         notifyDataSetChanged();
     }
     @Override
@@ -140,6 +158,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
             tempList.remove(pos);
             mImageList.remove(pos);
             netImageList.remove(img);
+            currentNetImageList.remove(pos);
             ivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
             ivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
             ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.GONE);

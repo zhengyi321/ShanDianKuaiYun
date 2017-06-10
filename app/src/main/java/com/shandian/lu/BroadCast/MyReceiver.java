@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ import com.shandian.lu.Widget.Dialog.ReleaseDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
 
 import cn.jpush.android.api.BasicPushNotificationBuilder;
 import cn.jpush.android.api.JPushInterface;
@@ -61,7 +64,7 @@ public class MyReceiver extends BroadcastReceiver {
 
         } else if (JPushInterface.ACTION_MESSAGE_RECEIVED.equals(intent.getAction())) {
             Log.d(TAG, "[MyReceiver] 接收到推送下来的自定义消息: " + bundle1.getString(JPushInterface.EXTRA_MESSAGE));
-            processCustomMessage(context, bundle1);
+
 
         } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
             Log.d(TAG, "[MyReceiver] 接收到推送下来的通知");
@@ -113,14 +116,18 @@ public class MyReceiver extends BroadcastReceiver {
         String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
         context1 = context;
         this.bundle1 = bundle;
-        NotificationManager	notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
+     /*   setNotification4(context);*/
+     /*   NotificationManager	notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);*/
 
-        setNotification4(context);
+     /*   setNotification4(context);*/
         NotificationCompat.Builder	notification = new NotificationCompat.Builder(context).setSmallIcon(R.mipmap.logo)
                 .setSound(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.shandian))
-                .setContentText("您有一条新的通知");
- /*       notification.setSound(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.shandian));
-*/
+                .setContentText(title);
+        notification.build();
+        createLocalMp3();
+      /*  notificationManager.notify(1,notification.build());*/
+
+       /* notification.setSound(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.shandian));*/
 
 		/*String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);*/
 
@@ -150,13 +157,13 @@ public class MyReceiver extends BroadcastReceiver {
         }
         /*xcCacheManager.writeCache(xcCacheManagerSavedName.jpushOrderType,title);*/
 		/*Toast.makeText(context,"message:"+message,Toast.LENGTH_SHORT).show();*/
-        notification.setContentTitle(title);
+        /*notification.setContentTitle(title);*/
 
 
 /*		String platform = bundle.getString("platform");
 		String audience = bundle.getString("audience");*/
 
-        notificationManager.notify(2, notification.build());
+    /*    notificationManager.notify(2, notification.build());*/
 
 /*
 		if (!TextUtils.isEmpty(extras)) {
@@ -201,5 +208,28 @@ public class MyReceiver extends BroadcastReceiver {
         builder.notificationDefaults = Notification.DEFAULT_LIGHTS;// 设置为铃声与震动都不要
         JPushInterface.setDefaultPushNotificationBuilder(builder);
 
+    }
+
+    /**
+     * 创建本地MP3
+     * @return
+     */
+    public MediaPlayer createLocalMp3(){
+        /**
+         * 创建音频文件的方法：
+         * 1、播放资源目录的文件：MediaPlayer.create(MainActivity.this,R.raw.beatit);//播放res/raw 资源目录下的MP3文件
+         * 2:播放sdcard卡的文件：mediaPlayer=new MediaPlayer();
+         *   mediaPlayer.setDataSource("/sdcard/beatit.mp3");//前提是sdcard卡要先导入音频文件
+         */
+        MediaPlayer mp=MediaPlayer.create(context1,R.raw.shandian);
+        mp.stop();
+        try {
+            mp.prepare();
+            mp.start();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return mp;
     }
 }

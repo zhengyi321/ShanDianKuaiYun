@@ -6,7 +6,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.shandian.lu.BaseActivity;
-import com.shandian.lu.Main.IndexFragment.CheYuanList.CheYuanListActivity;
+import com.shandian.lu.Main.IndexFragment.NewCheYuanList.CheYuanListActivity;
 import com.shandian.lu.Main.IndexFragment.CityChange.CityChangeActivity;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.CarLengthDialog;

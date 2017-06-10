@@ -19,7 +19,7 @@ public class NewMainMineFragment extends BaseFragment {
 
 
 
-
+    private NewMainMineController newMainMineController;
     @Override
     public View setView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_new_main_mine_lly, container, false);
@@ -30,5 +30,16 @@ public class NewMainMineFragment extends BaseFragment {
     @Override
     public void initView() {
         ButterKnife.bind(this,view);
+        initController();
+    }
+
+    private void initController(){
+        newMainMineController = new NewMainMineController(view);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        newMainMineController.onResume();
     }
 }

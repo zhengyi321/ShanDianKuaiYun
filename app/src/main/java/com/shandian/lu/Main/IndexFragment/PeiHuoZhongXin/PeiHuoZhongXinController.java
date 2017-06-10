@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.shandian.lu.Main.IndexFragment.CheYuanList.CheYuanListActivity;
+import com.shandian.lu.Main.IndexFragment.NewCheYuanList.CheYuanListActivity;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.shandian.lu.BaseController;

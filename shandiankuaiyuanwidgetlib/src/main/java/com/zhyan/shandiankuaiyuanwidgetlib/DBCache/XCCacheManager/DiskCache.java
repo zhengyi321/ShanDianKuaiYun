@@ -174,13 +174,23 @@ public class DiskCache implements Cache{
         }
         return sb.toString();
     }
+
+    //http://www.cnblogs.com/zhaoyanjun/p/4530155.html
     public File getDiskCacheDir(Context context, String uniqueName) {
         String cachePath;
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
                 || !Environment.isExternalStorageRemovable()) {
-            cachePath = context.getExternalCacheDir().getPath();
+            if(context.getExternalCacheDir() == null) {
+                cachePath = "/storage/emulated/0/Android/data/com.app/cache";
+            }else {
+                cachePath = context.getExternalCacheDir().getPath();
+            }
         } else {
-            cachePath = context.getCacheDir().getPath();
+            if(context.getCacheDir() == null) {
+                cachePath = "/storage/emulated/0/Android/data/com.app/cache";
+            }else {
+                cachePath = context.getCacheDir().getPath();
+            }
         }
         return new File(cachePath + File.separator + uniqueName);
     }

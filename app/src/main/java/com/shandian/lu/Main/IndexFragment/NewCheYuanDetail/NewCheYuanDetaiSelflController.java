@@ -56,7 +56,7 @@ public class NewCheYuanDetaiSelflController extends BaseController {
     @BindView(R.id.tv_new_self_cyxq_updatetime)
     TextView tvNewSelfCYXQUpdateTime;
     private String cyId ;
-    private NewCheYuanDetailSelfImgRVAdapter adapter;
+    private NewCheYuanDetailImgRVAdapter adapter;
     private List<String> imgList;
     public NewCheYuanDetaiSelflController(Activity activity1){
         activity = activity1;
@@ -82,7 +82,7 @@ public class NewCheYuanDetaiSelflController extends BaseController {
         imgList.add("");
         imgList.add("");
         imgList.add("");
-        adapter = new NewCheYuanDetailSelfImgRVAdapter(activity,imgList);
+        adapter = new NewCheYuanDetailImgRVAdapter(activity,imgList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvNewSelfCYXQImg.setAdapter(adapter);

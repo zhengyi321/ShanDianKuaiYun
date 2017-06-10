@@ -3,6 +3,8 @@ package com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -40,7 +42,7 @@ import rx.Observer;
  * Created by Administrator on 2017/6/8.
  */
 
-public class NewFaBuCheYuanActivity extends BaseActivity {
+public class NewFaBuCheYuanActivity extends BaseActivity  {
 
     private String typeName ;
     private NewFaBuCheYuanController newFaBuCheYuanController;
@@ -50,9 +52,11 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
     private final int ACTIVITY_SELECT_ADDRESS_END = 106;
     private ArrayList<String> mImageList;
     private ArrayList<String> netImageList;
+    private ArrayList<String> currentNameNetImageList;
+    private ArrayList<String> deleteTempList;
     int picSize = 0;
     int i = 0;
-
+    private boolean isPicFinished = false;
     private String bProvince,eProvince,bCity,eCity,bArea,eArea,beginAddr,endAddr;
     private String blat,blon,elat,elon;
 
@@ -62,9 +66,65 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
     LinearLayout llyNewFaBuCheYuanSubmit;
     @OnClick(R.id.lly_new_fabucheyuan_submit)
     public void  llyNewFaBuCheYuanSubmitOnclick(){
-        faBuCheYuanToNet();
-    }
+        pbNewFaBuCheYuan.setVisibility(View.VISIBLE);
+        int imgSize = newFaBuCheYuanController.addPicRVAdapter.getNetImageList().size();
 
+        if(imgSize <= 0){
+            Toast.makeText(this,"请至少上传1张图片",Toast.LENGTH_LONG).show();
+            pbNewFaBuCheYuan.setVisibility(View.GONE);
+            return;
+        }
+        if(isPicFinished) {
+            if(checkParam()) {
+                faBuCheYuanToNet();
+            }else{
+                pbNewFaBuCheYuan.setVisibility(View.GONE);
+            }
+        }else{
+            Toast.makeText(this,"请等待图片上传完成",Toast.LENGTH_LONG).show();
+            pbNewFaBuCheYuan.setVisibility(View.GONE);
+        }
+    }
+    private boolean checkParam(){
+
+        String title = etNewFaBuCheYuanTitle.getText().toString();
+        if(title.length() == 0){
+            Toast.makeText(this,"请输入车源标题",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        String bAddr = tvNewFaBuCheYuanBegin.getText().toString();
+        if(bAddr.length() == 0){
+            Toast.makeText(this,"请输入出发地",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        String eAddr = tvNewFaBuCheYuanEnd.getText().toString();
+        if(eAddr.length() == 0){
+            Toast.makeText(this,"请选择目的地",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        String length = etNewFaBuCheYuanCalLength.getText().toString();
+        if(length.length() == 0){
+            Toast.makeText(this,"请输入车长",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        String type = tvNewFaBuCheYuanCarType.getText().toString();
+        if(length.length() == 0){
+            Toast.makeText(this,"请输入车型",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        String name = etNewFaBuCheYuanName.getText().toString();
+        if(name.length() == 0){
+            Toast.makeText(this,"请输入联系人",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        String tel = etNewFaBuCheYuanTel.getText().toString();
+        if(tel.length() == 0){
+            Toast.makeText(this,"请输入电话",Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        return true;
+    }
     @BindView(R.id.lly_new_fabucheyuan_begin)
     LinearLayout llyNewFaBuCheYuanBegin;
     @OnClick(R.id.lly_new_fabucheyuan_begin)
@@ -111,9 +171,11 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
         ButterKnife.bind(this);
         mImageList = new ArrayList<>();
         netImageList = new ArrayList<>();
+        currentNameNetImageList = new ArrayList<>();
+        deleteTempList = new ArrayList<>();
         getType();
         initController();
-
+        initEditListener();
     }
     private void getType(){
         typeName = getIntent().getStringExtra("type_name");
@@ -123,13 +185,13 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
 
         switch (typeName){
             case "1":
-                tvNewFaBuCheYuanTopBarTitle.setText("同城货源");
+                tvNewFaBuCheYuanTopBarTitle.setText("同城物流");
                 break;
             case "2":
-                tvNewFaBuCheYuanTopBarTitle.setText("长途货运");
+                tvNewFaBuCheYuanTopBarTitle.setText("长途物流");
                 break;
             case "3":
-                tvNewFaBuCheYuanTopBarTitle.setText("特种运输");
+                tvNewFaBuCheYuanTopBarTitle.setText("特种物流");
                 break;
             case "4":
                 tvNewFaBuCheYuanTopBarTitle.setText("专线物流");
@@ -140,7 +202,9 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
     private void initController(){
         newFaBuCheYuanController = new NewFaBuCheYuanController(this);
     }
+    private void initEditListener(){
 
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -197,17 +261,57 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
     private void refreshImage(){
         newFaBuCheYuanController.addPicRVAdapter.setAdapterImage(mImageList);
         newFaBuCheYuanController.addPicRVAdapter.setmImageList(mImageList);
+        isSamePicDelete();
+        mImageList.clear();
+        mImageList.addAll(deleteTempList);
         picSize = mImageList.size();
         if(picSize <= 0){
             return;
         }
         i = 0;
+        isPicFinished = false;
+
         sendPicToNet();
     }
+    private void isSamePicDelete(){
+        currentNameNetImageList.clear();
+        currentNameNetImageList.addAll(newFaBuCheYuanController.addPicRVAdapter.getCurrentNetImageList());
+        int size = currentNameNetImageList.size();
+        int sizeT = mImageList.size();
+        deleteTempList.clear();
+        deleteTempList.addAll(mImageList);
+      /*  Toast.makeText(this,"netSize:"+size+" ImgSize:"+size2,Toast.LENGTH_LONG).show();*/
+        System.out.print("\nnetSize:"+size+" ImgSize:"+sizeT);
 
+        for(int i = 0;i<size;i++){
+            String netPic = currentNameNetImageList.get(i);/*
+
+            System.out.print("\npic:"+netPic);*/
+
+            for(int j = 0;j<sizeT;j++){
+        /*        System.out.print("\njjjjjpic:"+j);*/
+
+                String pic = mImageList.get(j);/*
+                System.out.print("\n111pic:"+pic);
+*/
+                if(netPic.equals(pic)){
+                    int count = deleteTempList.size();
+                    if(count == 0){
+                        return;
+                    }
+/*
+
+                    System.out.print("\ni am delete success:"+pic);*/
+                    deleteTempList.remove(pic);
+                }
+                continue;
+            }
+        }
+
+    }
 
     private void sendPicToNet(){
-
+        isPicFinished = false;
 
         if(i < picSize) {
             pbNewFaBuCheYuan.setVisibility(View.VISIBLE);
@@ -227,6 +331,7 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
                 public void onNext(NewFaBuPicBean newFaBuPicBean) {
                     if(newFaBuPicBean.getStatus().equals("0")){
                         netImageList.add("\""+newFaBuPicBean.getImgurl()+"\"");
+                        currentNameNetImageList.add(mImageList.get(i));
                         i++;
                         sendPicToNet();
                     }
@@ -234,7 +339,9 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
             });
         }else{
             newFaBuCheYuanController.addPicRVAdapter.setNetImageList(netImageList);
+            newFaBuCheYuanController.addPicRVAdapter.setCurrentNetImageList(currentNameNetImageList);
             pbNewFaBuCheYuan.setVisibility(View.GONE);
+            isPicFinished = true;
         }
 /*        System.out.print("\nbase64:"+base64_00);*/
         /*Log.i("base64:",base64_00);*/
@@ -380,14 +487,7 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
 
         pbNewFaBuCheYuan.setVisibility(View.VISIBLE);
 
-        int imgSize = newFaBuCheYuanController.addPicRVAdapter.getNetImageList().size();
-      /*  List<String> deleteImageList = newFaBuCheYuanController.addPicRVAdapter.getDeleteImageLists();
-        int delImgSize = deleteImageList.size();*/
-        if(imgSize <= 0){
-            Toast.makeText(this,"请至少上传1张图片",Toast.LENGTH_LONG).show();
-            pbNewFaBuCheYuan.setVisibility(View.GONE);
-            return;
-        }
+
         PhoneFormatCheckUtils phoneFormatCheckUtils = new PhoneFormatCheckUtils();
         String tel = etNewFaBuCheYuanTel.getText().toString();
         if(!phoneFormatCheckUtils.isNumber(tel)){
@@ -419,9 +519,10 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
             public void onNext(NewFaBuCheYuanBean newFaBuCheYuanBean) {
                 Toast.makeText(NewFaBuCheYuanActivity.this,newFaBuCheYuanBean.getMsg(),Toast.LENGTH_LONG).show();
                 pbNewFaBuCheYuan.setVisibility(View.GONE);
-                /*if(newFaBuCheYuanBean.getStatus().equals("0")){
 
-                }*/
+                if(newFaBuCheYuanBean.getStatus().equals("0")){
+                    finish();
+                }
             }
         });
     }
@@ -436,4 +537,6 @@ public class NewFaBuCheYuanActivity extends BaseActivity {
 
         return bitmap;
     }
+
+
 }

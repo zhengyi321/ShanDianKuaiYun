@@ -253,16 +253,7 @@ public class ReleaseDialogController extends BaseController {
     }
 
     private void initCheYuanText(){
-        tvDialogCheCT.setTextColor(0xff808080);
-        tvDialogCheTC.setTextColor(0xff808080);
-        tvDialogCheTZ.setTextColor(0xff808080);
-        tvDialogCheZX.setTextColor(0xff808080);
-        tvDialogHuoCT.setTextColor(0xff000000);
-        tvDialogHuoTC.setTextColor(0xff000000);
-        tvDialogHuoTZ.setTextColor(0xff000000);
-        tvDialogHuoZX.setTextColor(0xff000000);
-    }
-    private void initHuoYuanText(){
+
         tvDialogCheCT.setTextColor(0xff000000);
         tvDialogCheTC.setTextColor(0xff000000);
         tvDialogCheTZ.setTextColor(0xff000000);
@@ -271,5 +262,20 @@ public class ReleaseDialogController extends BaseController {
         tvDialogHuoTC.setTextColor(0xff808080);
         tvDialogHuoTZ.setTextColor(0xff808080);
         tvDialogHuoZX.setTextColor(0xff808080);
+
+
+
+    }
+    private void initHuoYuanText(){
+
+
+        tvDialogCheCT.setTextColor(0xff808080);
+        tvDialogCheTC.setTextColor(0xff808080);
+        tvDialogCheTZ.setTextColor(0xff808080);
+        tvDialogCheZX.setTextColor(0xff808080);
+        tvDialogHuoCT.setTextColor(0xff000000);
+        tvDialogHuoTC.setTextColor(0xff000000);
+        tvDialogHuoTZ.setTextColor(0xff000000);
+        tvDialogHuoZX.setTextColor(0xff000000);
     }
 }

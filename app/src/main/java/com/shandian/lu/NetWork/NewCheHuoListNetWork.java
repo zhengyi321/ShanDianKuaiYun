@@ -45,7 +45,7 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         /*车源详情*/
         @GET("index.php/app/chyuan/cheyuanxq")
         Observable<NewCheYuanDetailBean> getCheYuanDetailFromNet(@Query("cyid") String cyid);
-        /*车源列表*/
+        /*车源详情*/
 
     }
 

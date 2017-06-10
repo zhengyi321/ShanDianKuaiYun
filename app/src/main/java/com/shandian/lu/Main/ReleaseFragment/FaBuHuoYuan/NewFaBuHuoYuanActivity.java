@@ -49,20 +49,79 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
     private final int ACTIVITY_SELECT_ADDRESS_END = 106;
     private ArrayList<String> mImageList;
     private ArrayList<String> netImageList;
+    private ArrayList<String> currentNameNetImageList;
+    private ArrayList<String> deleteTempList;
+
     int picSize = 0;
     int i = 0;
 
     private String bProvince,eProvince,bCity,eCity,bArea,eArea,beginAddr,endAddr;
     private String blat,blon,elat,elon;
-
+    private boolean isPicFinished = false;
     @BindView(R.id.pb_new_fabuhuoyuan)
     ProgressBar pbNewFaBuHuoYuan;
     @BindView(R.id.lly_new_fabuhuoyuan_submit)
     LinearLayout llyNewFaBuHuoYuanSubmit;
     @OnClick(R.id.lly_new_fabuhuoyuan_submit)
     public void  llyNewFaBuHuoYuanSubmitOnclick(){
-        faBuHuoYuanToNet();
+        pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);
+        int imgSize = newFaBuHuoYuanController.addPicRVAdapter.getNetImageList().size();
+        /*List<String> deleteImageList = newFaBuHuoYuanController.addPicRVAdapter.getDeleteImageLists();
+        int delImgSize = deleteImageList.size();*/
+        if(imgSize <= 0){
+            Toast.makeText(this,"请至少上传1张图片",Toast.LENGTH_LONG).show();
+            pbNewFaBuHuoYuan.setVisibility(View.GONE);
+            return;
+        }
+        if(isPicFinished) {
+            if(checkParam()) {
+                faBuHuoYuanToNet();
+            }else{
+                pbNewFaBuHuoYuan.setVisibility(View.GONE);
+            }
+        }else{
+            Toast.makeText(this,"请等待图片上传完成",Toast.LENGTH_LONG).show();
+            pbNewFaBuHuoYuan.setVisibility(View.GONE);
+        }
+
+
     }
+    private boolean checkParam(){
+
+        String title = etNewFaBuHuoYuanGoodsName.getText().toString();
+        if(title.length() == 0){
+            Toast.makeText(this,"请输入货物名称",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        String bAddr = tvNewFaBuHuoYuanBegin.getText().toString();
+        if(bAddr.length() == 0){
+            Toast.makeText(this,"请选择出发地址",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        String eAddr = tvNewFaBuHuoYuanEnd.getText().toString();
+        if(eAddr.length() == 0){
+            Toast.makeText(this,"请选择目的地",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        String weight = etNewFaBuHuoYuanWeight.getText().toString();
+        if(weight.length() == 0){
+            Toast.makeText(this,"请输入重量",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        String name = etNewFaBuHuoYuanName.getText().toString();
+        if(name.length() == 0){
+            Toast.makeText(this,"请输入联系人",Toast.LENGTH_LONG).show();
+            return false;
+        }
+        String tel = etNewFaBuHuoYuanTel.getText().toString();
+        if(tel.length() == 0){
+            Toast.makeText(this,"请输入电话",Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        return true;
+    }
+
 
     @BindView(R.id.lly_new_fabuhuoyuan_begin)
     LinearLayout llyNewFaBuHuoYuanBegin;
@@ -108,6 +167,8 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
         ButterKnife.bind(this);
         mImageList = new ArrayList<>();
         netImageList = new ArrayList<>();
+        currentNameNetImageList = new ArrayList<>();
+        deleteTempList = new ArrayList<>();
         getType();
         initController();
 
@@ -120,16 +181,16 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
 
         switch (typeName){
             case "1":
-                tvNewFaBuHuoYuanTopBarTitle.setText("同城货运");
+                tvNewFaBuHuoYuanTopBarTitle.setText("同城货源");
                 break;
             case "2":
-                tvNewFaBuHuoYuanTopBarTitle.setText("长途货运");
+                tvNewFaBuHuoYuanTopBarTitle.setText("长途货源");
                 break;
             case "3":
-                tvNewFaBuHuoYuanTopBarTitle.setText("特种运输");
+                tvNewFaBuHuoYuanTopBarTitle.setText("特种货源");
                 break;
             case "4":
-                tvNewFaBuHuoYuanTopBarTitle.setText("专线物流");
+                tvNewFaBuHuoYuanTopBarTitle.setText("专线货源");
                 break;
         }
     }
@@ -194,17 +255,63 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
     private void refreshImage(){
         newFaBuHuoYuanController.addPicRVAdapter.setAdapterImage(mImageList);
         newFaBuHuoYuanController.addPicRVAdapter.setmImageList(mImageList);
+        isSamePicDelete();
+        mImageList.clear();
+        mImageList.addAll(deleteTempList);
         picSize = mImageList.size();
         if(picSize <= 0){
             return;
         }
         i = 0;
-        sendPicToNet();
+
+        Thread thread = new PicToNetThread();
+        thread.run();
+    }
+    class PicToNetThread extends Thread{
+        @Override
+        public void run(){
+            sendPicToNet();
+        }
+    }
+    private void isSamePicDelete(){
+        currentNameNetImageList.clear();
+        currentNameNetImageList.addAll(newFaBuHuoYuanController.addPicRVAdapter.getCurrentNetImageList());
+        int size = currentNameNetImageList.size();
+        int sizeT = mImageList.size();
+        deleteTempList.clear();
+        deleteTempList.addAll(mImageList);
+      /*  Toast.makeText(this,"netSize:"+size+" ImgSize:"+size2,Toast.LENGTH_LONG).show();*/
+        System.out.print("\nnetSize:"+size+" ImgSize:"+sizeT);
+
+        for(int i = 0;i<size;i++){
+            String netPic = currentNameNetImageList.get(i);/*
+
+            System.out.print("\npic:"+netPic);*/
+
+            for(int j = 0;j<sizeT;j++){
+        /*        System.out.print("\njjjjjpic:"+j);*/
+
+                String pic = mImageList.get(j);/*
+                System.out.print("\n111pic:"+pic);
+*/
+                if(netPic.equals(pic)){
+                    int count = deleteTempList.size();
+                    if(count == 0){
+                        return;
+                    }
+/*
+
+                    System.out.print("\ni am delete success:"+pic);*/
+                    deleteTempList.remove(pic);
+                }
+                continue;
+            }
+        }
+
     }
 
-
     private void sendPicToNet(){
-
+        isPicFinished = false;
 
         if(i < picSize) {
             pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);
@@ -224,14 +331,28 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
                 public void onNext(NewFaBuPicBean newFaBuPicBean) {
                     if(newFaBuPicBean.getStatus().equals("0")){
                         netImageList.add("\""+newFaBuPicBean.getImgurl()+"\"");
+                        currentNameNetImageList.add(mImageList.get(i));
+                        int size = netImageList.size();
+                        System.out.print("\nnet000000000Size:"+size);
                         i++;
                         sendPicToNet();
                     }
                 }
             });
         }else{
+            int size = netImageList.size();
+            int size2 = newFaBuHuoYuanController.addPicRVAdapter.getNetImageList().size();
+            System.out.print("\nnet111111111Size:"+size+" ImgSize:"+size2);
+            System.out.print("\nnet111111111Size:"+size+" ImgSize:"+size2);
+
             newFaBuHuoYuanController.addPicRVAdapter.setNetImageList(netImageList);
+            newFaBuHuoYuanController.addPicRVAdapter.setCurrentNetImageList(currentNameNetImageList);
+            System.out.print("\nnet333333333Size:"+size+" ImgSize:"+size2);
+            System.out.print("\nnet333333333Size:"+size+" ImgSize:"+size2);
+            System.out.print("\nnet333333333Size:"+size+" ImgSize:"+size2);
+
             pbNewFaBuHuoYuan.setVisibility(View.GONE);
+            isPicFinished = true;
         }
 /*        System.out.print("\nbase64:"+base64_00);*/
         /*Log.i("base64:",base64_00);*/
@@ -355,14 +476,7 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
 
     private void faBuHuoYuanToNet(){
         pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);
-        int imgSize = newFaBuHuoYuanController.addPicRVAdapter.getNetImageList().size();
-        /*List<String> deleteImageList = newFaBuHuoYuanController.addPicRVAdapter.getDeleteImageLists();
-        int delImgSize = deleteImageList.size();*/
-        if(imgSize <= 0){
-            Toast.makeText(this,"请至少上传1张图片",Toast.LENGTH_LONG).show();
-            pbNewFaBuHuoYuan.setVisibility(View.GONE);
-            return;
-        }
+
         PhoneFormatCheckUtils phoneFormatCheckUtils = new PhoneFormatCheckUtils();
         String tel = etNewFaBuHuoYuanTel.getText().toString();
         if(!phoneFormatCheckUtils.isNumber(tel)){
@@ -397,9 +511,9 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
             public void onNext(NewFaBuHuoYuanBean newFaBuHuoYuanBean) {
                 Toast.makeText(NewFaBuHuoYuanActivity.this,newFaBuHuoYuanBean.getMsg(),Toast.LENGTH_LONG).show();
                 pbNewFaBuHuoYuan.setVisibility(View.GONE);
-                /*if(newFaBuHuoYuanBean.getStatus().equals("0")){
-
-                }*/
+                if(newFaBuHuoYuanBean.getStatus().equals("0")){
+                    finish();
+                }
             }
         });
     }

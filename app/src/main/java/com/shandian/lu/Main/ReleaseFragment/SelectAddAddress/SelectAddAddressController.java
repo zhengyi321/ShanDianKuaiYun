@@ -167,7 +167,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
     @Override
     protected void init() {
         ButterKnife.bind(this,activity);
-        etNewSelectAddressDetail.setOnEditorActionListener(new MyEditorActionListener());
+        /*etNewSelectAddressDetail.setOnEditorActionListener(new MyEditorActionListener());*/
         getType();
         initBaiDuMap();
     }
@@ -177,6 +177,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
 
     private void initBaiDuMap(){
         /*监听输入框的变化*/
+        initEditListener();
         /*监听输入框的变化*/
         initPoiSearch();
         mBaiduMap = mvNewSelectAddress.getMap();
@@ -198,6 +199,11 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         initLocation1();
         locationClient.start();
     }
+
+    private void initEditListener(){
+        etNewSelectAddressKeyWord.addTextChangedListener(this);
+    }
+
 
     /**配置定位参数**/
     private void initLocation1(){
@@ -258,7 +264,9 @@ public class SelectAddAddressController extends BaseController implements OnGetG
 
     @Override
     public void afterTextChanged(Editable s) {
-
+        String keyword = etNewSelectAddressKeyWord.getText().toString();
+        beginSearchLalByAddress(keyword);
+        isSearch = true;
     }
     /*地图移动坐标不动*/
 
@@ -359,7 +367,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
 
 
     /*软键盘监听*/
-    public class MyEditorActionListener implements TextView.OnEditorActionListener {
+   /* public class MyEditorActionListener implements TextView.OnEditorActionListener {
 
         @Override
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -372,7 +380,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
 
                 beginSearchLalByAddress(keyword);
                 isSearch = true;
-                    /*beginSearchLalByAddress(address);*/
+                    *//*beginSearchLalByAddress(address);*//*
 
                 Log.i("editlistener","hideInput");
                 hideInput(activity);//隐藏软键盘
@@ -392,7 +400,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
                         .getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
 
-    }
+    }*/
 
     /*软键盘监听*/
 
