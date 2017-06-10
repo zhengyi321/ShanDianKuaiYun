@@ -2,6 +2,7 @@ package com.shandian.lu.NetWork;
 
 import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
+import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
 import com.zhyan.shandiankuaiyunlib.Bean.CarSourceDetailBean;
@@ -38,6 +39,10 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         @GET("index.php/app/chyuan/huoyuan")
         Observable<NewHuoYuanListBean> getHuoListFromNet(@Query("type_name") String type_name, @Query("lat") String lat, @Query("lng") String lng, @Query("p") String p);
         /*货源列表*/
+        /*货源详情*/
+        @GET("index.php/app/chyuan/huoyuanxq")
+        Observable<NewHuoYuanDetailBean> getHuoYuanDetailFromNet(@Query("hyid") String hyid);
+        /*货源详情*/
         /*车源列表*/
         @GET("index.php/app/chyuan/cheyuan")
         Observable<NewCheYuanListBean> getCheListFromNet(@Query("type_name") String type_name, @Query("lat") String lat, @Query("lng") String lng, @Query("p") String p);
@@ -46,6 +51,7 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         @GET("index.php/app/chyuan/cheyuanxq")
         Observable<NewCheYuanDetailBean> getCheYuanDetailFromNet(@Query("cyid") String cyid);
         /*车源详情*/
+
 
     }
 
@@ -62,6 +68,9 @@ public class NewCheHuoListNetWork extends BaseNetWork {
     }
     public  void getCheYuanDetailFromNet(String cyid,Observer<NewCheYuanDetailBean> observer){
         setSubscribe(service.getCheYuanDetailFromNet(cyid),observer);
+    }
+    public  void getHuoYuanDetailFromNet(String hyid,Observer<NewHuoYuanDetailBean> observer){
+        setSubscribe(service.getHuoYuanDetailFromNet(hyid),observer);
     }
 
 }

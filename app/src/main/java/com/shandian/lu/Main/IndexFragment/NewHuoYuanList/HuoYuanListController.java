@@ -12,6 +12,7 @@ import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanList.CheYuanListXRVAdapter;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
+import com.shandian.lu.Widget.Dialog.NewHuoYuanListTypeDialog;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView;
@@ -30,6 +31,7 @@ import rx.Observer;
 
 public class HuoYuanListController extends BaseController {
 
+    NewHuoYuanListTypeDialog newHuoYuanListTypeDialog;
     @BindView(R.id.xrv_new_huoyuanlist)
     XRecyclerView xrvNewHuoYuanList;
     @BindView(R.id.tv_new_huoyuanlist_title)
@@ -48,6 +50,67 @@ public class HuoYuanListController extends BaseController {
 
     }
 
+ /*   @BindView(R.id.rly_new_huoyuanlist_baddr)
+    RelativeLayout rlyNewHuoYuanListBAddr;
+    @OnClick(R.id.rly_new_huoyuanlist_baddr)
+    public void rlyNewHuoYuanListBAddrOnclick(){
+
+    }
+
+    @BindView(R.id.rly_new_huoyuanlist_eaddr)
+    RelativeLayout rlyNewHuoYuanListEAddr;
+    @OnClick(R.id.rly_new_huoyuanlist_eaddr)
+    public void rlyNewHuoYuanListEAddrOnclick(){
+
+    }*/
+     @BindView(R.id.tv_new_huoyuanlist_goodstype)
+     TextView tvNewHuoYuanListGoodsType;
+    @BindView(R.id.rly_new_huoyuanlist_goodstype)
+    RelativeLayout rlyNewHuoYuanListGoodsType;
+    @OnClick(R.id.rly_new_huoyuanlist_goodstype)
+    public void rlyNewHuoYuanListGoodsTypeOnclick(){
+        newHuoYuanListTypeDialog = new NewHuoYuanListTypeDialog(activity).Build.setCallBackListener(new NewHuoYuanListTypeDialog.DialogCallBackListener() {
+            @Override
+            public void callBack(String type) {
+                getDataFromNet("1",type);
+                setType(type);
+                dissmissDialog();
+            }
+        }).build(activity);
+        showDialog();
+    }
+
+    private void setType(String type){
+        switch (type){
+            case "1":
+                tvNewHuoYuanListGoodsType.setText("同城货源");
+                break;
+            case "2":
+                tvNewHuoYuanListGoodsType.setText("长途货源");
+                break;
+            case "3":
+                tvNewHuoYuanListGoodsType.setText("特种货源");
+                break;
+            case "4":
+                tvNewHuoYuanListGoodsType.setText("专线货源");
+                break;
+        }
+    }
+    public void showDialog() {
+        if (newHuoYuanListTypeDialog != null && !newHuoYuanListTypeDialog.isShowing())
+            newHuoYuanListTypeDialog.show();
+    }
+
+    public void dissmissDialog() {
+        if (newHuoYuanListTypeDialog != null && newHuoYuanListTypeDialog.isShowing())
+            newHuoYuanListTypeDialog.dismiss();
+    }
+    @BindView(R.id.rly_new_huoyuanlist_all)
+    RelativeLayout rlyNewHuoYuanListAll;
+    @OnClick(R.id.rly_new_huoyuanlist_all)
+    public void rlyNewHuoYuanListAllOnclick(){
+        getDataFromNet("1","0");
+    }
     HuoYuanListXRVAdapter huoYuanListXRVAdapter;
     int page = 1;
     private List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList,tempBeanList,adsBeanList,noAdsBeanList;
@@ -65,7 +128,7 @@ public class HuoYuanListController extends BaseController {
         ButterKnife.bind(this,activity);
         initXRV();
         rlyNewHuoYuanListChange.setVisibility(View.INVISIBLE);
-        getDataFromNet(""+page,"0");
+        getDataFromNet("1","0");
     }
 
     private void initXRV(){
@@ -85,7 +148,7 @@ public class HuoYuanListController extends BaseController {
 
     }
 
-    private void getDataFromNet(String page,String typeName){
+    public void getDataFromNet(String page,String typeName){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String currentLat = xcCacheManager.readCache(xcCacheSaveName.currentLat);
@@ -113,14 +176,43 @@ public class HuoYuanListController extends BaseController {
             public void onNext(NewHuoYuanListBean newHuoYuanListBean) {
                 if(newHuoYuanListBean.getStatus().equals("0")){
                     int size = newHuoYuanListBean.getNr().getList().size();
-                    for(int i=0;i < size;i++){
-                        if(newHuoYuanListBean.getNr().getList().get(i).getGg().equals("0")){
-                            noAdsBeanList.add(newHuoYuanListBean.getNr().getList().get(i));
+                    int count = tempBeanList.size();
+                    noAdsBeanList.clear();
+                    adsBeanList.clear();
+                    for(int i=0;i<count;i++){
+                        if(tempBeanList.get(i).getGg().equals("0")){
+                            noAdsBeanList.add(tempBeanList.get(i));
                         }
-                        else if(newHuoYuanListBean.getNr().getList().get(i).getGg().equals("1")){
+                        else if(tempBeanList.get(i).getGg().equals("1")){
+                            adsBeanList.add(tempBeanList.get(i));
+                        }
+                    }
+                    int adsCount = adsBeanList.size();
+                    int noAdsCount = noAdsBeanList.size();
+                    for(int i=0;i < size;i++){
+                        String ggIds = newHuoYuanListBean.getNr().getList().get(i).getId();
+                        if(newHuoYuanListBean.getNr().getList().get(i).equals("1")) {
                             adsBeanList.add(newHuoYuanListBean.getNr().getList().get(i));
                         }
-
+                        else if(newHuoYuanListBean.getNr().getList().get(i).getGg().equals("0")) {
+                            noAdsBeanList.add(newHuoYuanListBean.getNr().getList().get(i));
+                        }
+                        for(int j = 0;j<adsCount;j++){
+                            String adsIds= adsBeanList.get(j).getId();
+                            if(adsIds.equals(ggIds)){
+                                if(newHuoYuanListBean.getNr().getList().get(i).equals("1")) {
+                                    adsBeanList.remove(newHuoYuanListBean.getNr().getList().get(i));
+                                }
+                            }
+                        }
+                        for(int k = 0;k<noAdsCount;k++){
+                            String noAdsIds = noAdsBeanList.get(k).getId();
+                            if(ggIds.equals(noAdsIds)){
+                                if(newHuoYuanListBean.getNr().getList().get(i).getGg().equals("0")) {
+                                    noAdsBeanList.remove(newHuoYuanListBean.getNr().getList().get(i));
+                                }
+                            }
+                        }
 
                         continue;
                     }
@@ -131,5 +223,8 @@ public class HuoYuanListController extends BaseController {
                 }
             }
         });
+
+
+
     }
 }

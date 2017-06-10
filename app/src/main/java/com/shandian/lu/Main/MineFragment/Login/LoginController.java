@@ -323,7 +323,7 @@ public class LoginController extends BaseController {
             switch (code) {
                 case 0:
                     logs = "Set tag and alias success";
-                    Toast.makeText(activity,"here is success:"+alias+" "+tags,Toast.LENGTH_LONG).show();
+                   /* Toast.makeText(activity,"here is success:"+alias+" "+tags,Toast.LENGTH_LONG).show();*/
                /*     NotificationCompat.Builder	notification = new NotificationCompat.Builder(activity).setSmallIcon(R.mipmap.logo)
                             .setSound(Uri.parse("android.resource://" + activity.getPackageName() + "/" + R.raw.shandian));*/
                             /*.setContentText(title);*/

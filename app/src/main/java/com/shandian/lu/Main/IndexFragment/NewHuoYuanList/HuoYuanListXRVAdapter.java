@@ -12,11 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetaiSelflActivity;
-import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailOtherActivity;
+import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfActivity;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
@@ -77,7 +75,8 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
         }else{
             holder.tvNewHuoYuanListAds.setVisibility(View.VISIBLE);
         }
-
+   /*     Toast.makeText(activity,""+huoYuanList.get(position).getId(),Toast.LENGTH_LONG).show();
+*/
     }
 
     @Override
@@ -157,7 +156,7 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
        /* }*/
         }
 
-     /*   @BindView(R.id.lly_new_huoyuanlist_item)
+        @BindView(R.id.lly_new_huoyuanlist_item)
         LinearLayout llyNewHuoYuanListItem;
         @OnClick(R.id.lly_new_huoyuanlist_item)
         public void llyNewHuoYuanListItemOnclick(){
@@ -166,23 +165,23 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
             String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
             if((loginId == null)||(loginId.isEmpty())){
 
-                Intent intent = new Intent(activity, NewCheYuanDetailOtherActivity.class);
-                intent.putExtra("cyid",huoYuanList.get(pos).getId());
+              /*  Intent intent = new Intent(activity, NewHuoYuanDetailOtherActivity.class);
+                intent.putExtra("hyid",huoYuanList.get(pos).getId());
                 activity.startActivity(intent);
-                return;
+                return;*/
             }
             if(loginId.equals(huoYuanList.get(pos).getLogin_id())){
-                Intent intent = new Intent(activity, NewCheYuanDetaiSelflActivity.class);
-                intent.putExtra("cyid",huoYuanList.get(pos).getId());
+                Intent intent = new Intent(activity, NewHuoYuanDetailSelfActivity.class);
+                intent.putExtra("hyid",huoYuanList.get(pos).getId());
                 activity.startActivity(intent);
                 return;
             }else{
-                Intent intent = new Intent(activity, NewCheYuanDetailOtherActivity.class);
-                intent.putExtra("cyid",huoYuanList.get(pos).getId());
+               /* Intent intent = new Intent(activity, NewHuoYuanDetailOtherActivity.class);
+                intent.putExtra("hyid",huoYuanList.get(pos).getId());
                 activity.startActivity(intent);
-                return;
+                return;*/
             }
-        }*/
+        }
 
         public MyItemHolder(View itemView) {
             super(itemView);

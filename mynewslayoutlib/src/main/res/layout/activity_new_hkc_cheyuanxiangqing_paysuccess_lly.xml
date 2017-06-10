@@ -17,11 +17,11 @@
             <RelativeLayout
                 android:layout_width="@dimen/zero"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 >
                 <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@color/white"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="25dp"
