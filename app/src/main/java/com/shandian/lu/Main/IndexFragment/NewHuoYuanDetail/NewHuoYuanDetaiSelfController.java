@@ -3,15 +3,15 @@ package com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail;
 import android.app.Activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.shandian.lu.BaseController;
-import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailImgRVAdapter;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
+import com.shandian.lu.Widget.Dialog.LookBaoJiaDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ import rx.Observer;
  * Created by Administrator on 2017/6/9.
  */
 
-public class NewHuoYuanDetaiSelflController extends BaseController {
+public class NewHuoYuanDetaiSelfController extends BaseController {
 
 
     @BindView(R.id.rly_new_self_hyxq_back)
@@ -56,10 +56,37 @@ public class NewHuoYuanDetaiSelflController extends BaseController {
     RecyclerView rvNewSelfHYXQImg;
     @BindView(R.id.tv_new_self_hyxq_updatetime)
     TextView tvNewSelfHYXQUpdateTime;
+    LookBaoJiaDialog lookBaoJiaDialog;
+    @BindView(R.id.ib_new_self_hyxq_ckbj)
+    ImageButton ibNewSelfHYXQCKBJ;
+    @OnClick(R.id.ib_new_self_hyxq_ckbj)
+    public void ibNewSelfHYXQCKBJOnclick(){
+        lookBaoJiaDialog = new LookBaoJiaDialog(activity).Build.build(activity);
+
+        showDialog();
+    }
+
+
+
+      /*  Intent intent = new Intent(this, NewFaBuHuoYuanActivity.class);*/
+       /* Intent intent = new Intent(this, TestActivity.class);
+        startActivity(intent);*/
+
+    public void showDialog() {
+        if (lookBaoJiaDialog != null && !lookBaoJiaDialog.isShowing())
+            lookBaoJiaDialog.show();
+    }
+
+    public void dissmissDialog() {
+        if (lookBaoJiaDialog != null && lookBaoJiaDialog.isShowing())
+            lookBaoJiaDialog.dismiss();
+    }
+
+
     private String hyId ;
     private NewHuoYuanDetailImgRVAdapter adapter;
     private List<String> imgList;
-    public NewHuoYuanDetaiSelflController(Activity activity1){
+    public NewHuoYuanDetaiSelfController(Activity activity1){
         activity = activity1;
         init();
     }

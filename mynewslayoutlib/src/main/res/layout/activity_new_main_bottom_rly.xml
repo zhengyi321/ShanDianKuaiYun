@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="@dimen/main_bottom_height"
-    android:background="@color/color_main_bottom_gray_bg"
+    android:layout_height="60dp"
+    android:background="@color/white"
     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46.5dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@color/white"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/lightgray"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:orientation="horizontal"
+            >
     <RadioGroup
         android:id="@+id/radiogroup"
         android:layout_width="fill_parent"
@@ -42,13 +59,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             >
-        <ImageButton
-            android:id="@+id/ib_new_main_bottom_publish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/bottom_blue_add"
-            android:layout_centerHorizontal="true"
-             />
+
 
         </RelativeLayout>
 
@@ -73,4 +84,31 @@
 
             />
     </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="@color/white"
+        android:layout_weight="0.5"
+        >
+        <ImageButton
+            android:id="@+id/ib_new_main_bottom_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/bottom_blue_new"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_main_bottom_word_unselect"
+            android:text="发布"
+            android:textSize="12sp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="3dp"
+            />
+    </RelativeLayout>
 </RelativeLayout>

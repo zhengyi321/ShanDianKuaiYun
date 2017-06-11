@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherBaoJiaActivity;
 import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfActivity;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
@@ -63,7 +64,25 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
         holder.tvNewHuoYuanListBArea.setText(huoYuanList.get(position).getCfqu());
         holder.tvNewHuoYuanListECity.setText(huoYuanList.get(position).getDashi());
         holder.tvNewHuoYuanListEArea.setText(huoYuanList.get(position).getDaqu());
-        holder.tvNewHuoYuanListHuoType.setText(huoYuanList.get(position).getType_name());
+        String type = huoYuanList.get(position).getType_name();
+        if(type == null){
+            type = "";
+        }
+        switch (type){
+            case "1":
+                holder.tvNewHuoYuanListHuoType.setText("同城货源");
+                break;
+            case "2":
+                holder.tvNewHuoYuanListHuoType.setText("长途货源");
+                break;
+            case "3":
+                holder.tvNewHuoYuanListHuoType.setText("特种货源");
+                break;
+            case "4":
+                holder.tvNewHuoYuanListHuoType.setText("专线货源");
+                break;
+        }
+
         holder.tvNewHuoYuanListDis.setText(huoYuanList.get(position).getJuli());
         holder.tvNewHuoYuanListName.setText(huoYuanList.get(position).getNicheng());
         ImageLoader.getInstance().displayImage(huoYuanList.get(position).getTouxiang(),holder.rivNewHuoYuanListTouXiang, ImageLoaderUtils.options1);
@@ -165,10 +184,10 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
             String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
             if((loginId == null)||(loginId.isEmpty())){
 
-              /*  Intent intent = new Intent(activity, NewHuoYuanDetailOtherActivity.class);
+                Intent intent = new Intent(activity, NewHuoYuanDetailOtherBaoJiaActivity.class);
                 intent.putExtra("hyid",huoYuanList.get(pos).getId());
                 activity.startActivity(intent);
-                return;*/
+                return;
             }
             if(loginId.equals(huoYuanList.get(pos).getLogin_id())){
                 Intent intent = new Intent(activity, NewHuoYuanDetailSelfActivity.class);
@@ -176,10 +195,10 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
                 activity.startActivity(intent);
                 return;
             }else{
-               /* Intent intent = new Intent(activity, NewHuoYuanDetailOtherActivity.class);
+                Intent intent = new Intent(activity, NewHuoYuanDetailOtherBaoJiaActivity.class);
                 intent.putExtra("hyid",huoYuanList.get(pos).getId());
                 activity.startActivity(intent);
-                return;*/
+                return;
             }
         }
 

@@ -1,49 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="54dp"
-    android:background="@color/transparent"
+    android:layout_height="35dp"
+    android:background="@drawable/pink_half_radius_corner_shape"
+    android:id="@+id/lly_new_hyxq_bj_xrv_item"
     >
     <RelativeLayout
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        >
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/arrow_left"
-            android:layout_centerInParent="true"
-
-            />
-
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="5"
+        android:layout_weight="2"
         >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="货源详情"
-            android:textColor="@color/white"
-            android:textSize="16sp"
+            android:text="1.侯良平"
+            android:textColor="@color/black"
             android:layout_centerInParent="true"
             />
 
     </RelativeLayout>
     <RelativeLayout
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="3"
         >
-        <ImageView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/head"
+            android:text="326.0元"
+            android:textColor="#ff5f00"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="@dimen/zero"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3.1km"
+            android:textColor="@color/black"
             android:layout_centerInParent="true"
             />
 
     </RelativeLayout>
+
+
+
 </LinearLayout>

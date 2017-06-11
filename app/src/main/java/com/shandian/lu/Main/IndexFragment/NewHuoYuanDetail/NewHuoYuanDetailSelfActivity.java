@@ -11,7 +11,7 @@ import butterknife.ButterKnife;
 
 public class NewHuoYuanDetailSelfActivity extends BaseActivity {
 
-    private NewHuoYuanDetaiSelflController newHuoYuanDetaiSelflController;
+    private NewHuoYuanDetaiSelfController newHuoYuanDetaiSelflController;
 
     @Override
     protected void setContentView() {
@@ -25,6 +25,6 @@ public class NewHuoYuanDetailSelfActivity extends BaseActivity {
     }
 
     private void initController(){
-        newHuoYuanDetaiSelflController = new NewHuoYuanDetaiSelflController(this);
+        newHuoYuanDetaiSelflController = new NewHuoYuanDetaiSelfController(this);
     }
 }

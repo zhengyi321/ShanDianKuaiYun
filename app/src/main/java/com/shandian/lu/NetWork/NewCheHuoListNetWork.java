@@ -1,5 +1,7 @@
 package com.shandian.lu.NetWork;
 
+import com.example.mynewslayoutlib.Bean.EditBaoJiaResultBean;
+import com.example.mynewslayoutlib.Bean.NewBaoJiaSelectBean;
 import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
@@ -39,10 +41,24 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         @GET("index.php/app/chyuan/huoyuan")
         Observable<NewHuoYuanListBean> getHuoListFromNet(@Query("type_name") String type_name, @Query("lat") String lat, @Query("lng") String lng, @Query("p") String p);
         /*货源列表*/
+        /*货源列表2*/
+        @GET("index.php/app/chyuan/huoyuan")
+        Observable<NewHuoYuanListBean> getHuoList2FromNet(@Query("type_name") String type_name, @Query("lat") String lat, @Query("lng") String lng, @Query("p") String p, @Query("cfsheng") String cfsheng, @Query("cfshi") String cfshi, @Query("cfqu") String cfqu, @Query("dasheng") String dasheng, @Query("dashi") String dashi, @Query("daqu") String daqu);
+        /*货源列表2*/
         /*货源详情*/
         @GET("index.php/app/chyuan/huoyuanxq")
         Observable<NewHuoYuanDetailBean> getHuoYuanDetailFromNet(@Query("hyid") String hyid);
         /*货源详情*/
+        /*货源详情2*/
+        @GET("index.php/app/chyuan/huoyuanxq")
+        Observable<NewBaoJiaSelectBean> getHuoYuanDetail2FromNet(@Query("hyid") String hyid,@Query("czid") String czid);
+        /*货源详情2*/
+        /*车找货报价*/
+        @FormUrlEncoded
+        @POST("index.php/app/baojia/czbaojia")
+        Observable<EditBaoJiaResultBean> editBaoJiaToNet(@FieldMap Map<String,String> paramMap);
+        /*车找货报价*/
+
         /*车源列表*/
         @GET("index.php/app/chyuan/cheyuan")
         Observable<NewCheYuanListBean> getCheListFromNet(@Query("type_name") String type_name, @Query("lat") String lat, @Query("lng") String lng, @Query("p") String p);
@@ -63,14 +79,23 @@ public class NewCheHuoListNetWork extends BaseNetWork {
     public  void getHuoListFromNet(String type_name, String lat, String lng, String p,Observer<NewHuoYuanListBean> observer){
         setSubscribe(service.getHuoListFromNet(type_name,lat,lng,p),observer);
     }
+    public  void getHuoList2FromNet(String type_name, String lat, String lng,String p, String cfsheng,String cfshi,String cfqu,String dasheng,String dashi,String daqu,Observer<NewHuoYuanListBean> observer){
+        setSubscribe(service.getHuoList2FromNet(type_name,lat,lng,p,cfsheng,cfshi,cfqu,dasheng,dashi,daqu),observer);
+    }
     public  void getCheListFromNet(String type_name, String lat, String lng, String p,Observer<NewCheYuanListBean> observer){
         setSubscribe(service.getCheListFromNet(type_name,lat,lng,p),observer);
+    }
+    public  void editBaoJiaToNet(Map<String,String> paramMap,Observer<EditBaoJiaResultBean> observer){
+        setSubscribe(service.editBaoJiaToNet(paramMap),observer);
     }
     public  void getCheYuanDetailFromNet(String cyid,Observer<NewCheYuanDetailBean> observer){
         setSubscribe(service.getCheYuanDetailFromNet(cyid),observer);
     }
     public  void getHuoYuanDetailFromNet(String hyid,Observer<NewHuoYuanDetailBean> observer){
         setSubscribe(service.getHuoYuanDetailFromNet(hyid),observer);
+    }
+    public  void getHuoYuanDetail2FromNet(String hyid,String czid,Observer<NewBaoJiaSelectBean> observer){
+        setSubscribe(service.getHuoYuanDetail2FromNet(hyid,czid),observer);
     }
 
 }

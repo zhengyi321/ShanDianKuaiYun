@@ -421,6 +421,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
             /*直接定位到具体地址*/
             location(geoCodeResult.getLocation());
 
+            mSearch.reverseGeoCode(new ReverseGeoCodeOption().location(geoCodeResult.getLocation()));
         }
     }
 
@@ -435,6 +436,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         lon = latLng.longitude;
         lat = latLng.latitude;
         String addr = result.getAddress()+" " + result.getSematicDescription();
+        etNewSelectAddressDetail.setText(addr);
         province = result.getAddressDetail().province;
         city = result.getAddressDetail().city;
         area = result.getAddressDetail().district;

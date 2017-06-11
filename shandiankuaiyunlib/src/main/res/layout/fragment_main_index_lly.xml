@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/color_main_index_content_gray_white_bg"
+    android:background="@color/white"
     >
     <include layout="@layout/main_index_topbar_lly"/>
 <!--    <com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView

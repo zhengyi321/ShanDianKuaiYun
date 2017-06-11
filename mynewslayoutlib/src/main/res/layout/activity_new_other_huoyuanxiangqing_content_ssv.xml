@@ -5,9 +5,6 @@
     android:fillViewport="true"
     android:background="#f4f4f4"
     >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -68,7 +65,7 @@
                         android:orientation="vertical"
                         >
                         <TextView
-                            android:id="@+id/tv_new_self_hyxq_prov_city_area_b"
+                            android:id="@+id/tv_new_other_hyxq_prov_city_area_b"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -80,7 +77,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/tv_new_self_hyxq_addr_b"
+                            android:id="@+id/tv_new_other_hyxq_addr_b"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -103,7 +100,7 @@
                         android:orientation="vertical"
                         >
                         <TextView
-                            android:id="@+id/tv_new_self_hyxq_prov_city_area_e"
+                            android:id="@+id/tv_new_other_hyxq_prov_city_area_e"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -116,7 +113,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/tv_new_self_hyxq_addr_e"
+                            android:id="@+id/tv_new_other_hyxq_addr_e"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -131,7 +128,7 @@
                 </LinearLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rly_new_self_hyxq_mapline"
+                    android:id="@+id/rly_new_other_hyxq_mapline"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
@@ -197,7 +194,7 @@
                         android:layout_marginTop="20dp"
                         />
                     <TextView
-                        android:id="@+id/tv_new_self_hyxq_date"
+                        android:id="@+id/tv_new_other_hyxq_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="6月31日"
@@ -207,7 +204,7 @@
                         android:layout_marginTop="5dp"
                         />
                     <TextView
-                        android:id="@+id/tv_new_self_hyxq_time"
+                        android:id="@+id/tv_new_other_hyxq_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="上午 8:30~11:30"
@@ -242,7 +239,7 @@
                         android:layout_marginTop="20dp"
                         />
                     <TextView
-                        android:id="@+id/tv_new_self_hyxq_carlength"
+                        android:id="@+id/tv_new_other_hyxq_carlength"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="电器产品"
@@ -279,7 +276,7 @@
                         android:layout_marginTop="20dp"
                         />
                     <TextView
-                        android:id="@+id/tv_new_self_hyxq_goodscontent"
+                        android:id="@+id/tv_new_other_hyxq_goodscontent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="6箱"
@@ -315,7 +312,7 @@
                         />
                     <TextView
 
-                        android:id="@+id/tv_new_self_hyxq_zxs"
+                        android:id="@+id/tv_new_other_hyxq_zxs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="11箱"
@@ -350,7 +347,7 @@
                         android:layout_marginTop="20dp"
                         />
                     <TextView
-                        android:id="@+id/tv_new_self_hyxq_cartype"
+                        android:id="@+id/tv_new_other_hyxq_cartype"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="6箱"
@@ -385,7 +382,7 @@
                         android:layout_marginTop="20dp"
                         />
                     <TextView
-                        android:id="@+id/tv_new_self_hyxq_dis"
+                        android:id="@+id/tv_new_other_hyxq_dis"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="856km"
@@ -422,7 +419,7 @@
                     android:layout_marginTop="10dp"
                     />
                 <TextView
-                    android:id="@+id/tv_new_self_hyxq_remark"
+                    android:id="@+id/tv_new_other_hyxq_remark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
@@ -474,7 +471,7 @@
                 android:layout_weight="8"
                 >
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rv_new_self_hyxq_img"
+                    android:id="@+id/rv_new_other_hyxq_img"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -515,7 +512,7 @@
                 android:layout_marginLeft="10dp"
                 />
             <TextView
-                android:id="@+id/tv_new_self_hyxq_updatetime"
+                android:id="@+id/tv_new_other_hyxq_updatetime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2017-04-24 14:37:26"
@@ -611,14 +608,4 @@
 
         </LinearLayout>
     </LinearLayout>
-        <ImageButton
-            android:id="@+id/ib_new_self_hyxq_ckbj"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/chakan_baojia"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="465dp"
-            android:layout_alignParentRight="true"
-            />
-    </RelativeLayout>
 </com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>

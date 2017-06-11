@@ -15,6 +15,7 @@
         android:orientation="horizontal"
         >
     <RelativeLayout
+        android:id="@+id/rly_new_other_hyxq_bottom_tel"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -60,6 +61,7 @@
 
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rly_new_other_hyxq_bottom_tgbj_submit"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="2"
@@ -68,7 +70,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="付款"
+            android:text="提供报价"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:layout_centerInParent="true"

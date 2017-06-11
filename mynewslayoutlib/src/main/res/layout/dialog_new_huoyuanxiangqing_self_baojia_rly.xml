@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="@drawable/white_small_radius_corner_shape"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="1"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/orange_half_radius_corner_shape"
+                android:layout_centerInParent="true"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="车主报价"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+                <ImageView
+                    android:layout_width="@dimen/split_height_or_width"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6条"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+            </LinearLayout>
+
+        </RelativeLayout>
+        <com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView
+            android:id="@+id/xrv_dialog_new_hyxq_baojia"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="5"
+            >
+
+
+        </com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="0.5"
+            >
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

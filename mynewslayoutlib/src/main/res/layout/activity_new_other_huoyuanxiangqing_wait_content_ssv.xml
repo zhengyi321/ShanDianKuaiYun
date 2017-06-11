@@ -19,7 +19,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="200dp"
                 android:background="@color/white"
                 android:orientation="horizontal">
 
@@ -65,6 +65,7 @@
                         android:orientation="vertical"
                         >
                         <TextView
+                            android:id="@+id/tv_new_other_hyxq_wait_prov_city_area_b"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -76,6 +77,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_new_other_hyxq_wait_addr_b"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -98,6 +100,7 @@
                         android:orientation="vertical"
                         >
                         <TextView
+                            android:id="@+id/tv_new_other_hyxq_wait_prov_city_area_e"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -110,6 +113,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_new_other_hyxq_wait_addr_e"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -124,6 +128,7 @@
                 </LinearLayout>
 
                 <RelativeLayout
+                    android:id="@+id/rly_new_other_hyxq_wait_mapline"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1.5"
@@ -166,7 +171,7 @@
                     />
             </RelativeLayout>
 
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="30dp"
@@ -182,13 +187,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="用车时间:"
+                        android:text="发车时间:"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:layout_marginLeft="35dp"
                         android:layout_marginTop="20dp"
                         />
                     <TextView
+                        android:id="@+id/tv_new_other_hyxq_wait_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="6月31日"
@@ -198,6 +204,7 @@
                         android:layout_marginTop="5dp"
                         />
                     <TextView
+                        android:id="@+id/tv_new_other_hyxq_wait_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="上午 8:30~11:30"
@@ -225,13 +232,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="货物内容:"
+                        android:text="车长:"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:layout_marginLeft="35dp"
                         android:layout_marginTop="20dp"
                         />
                     <TextView
+                        android:id="@+id/tv_new_other_hyxq_wait_carlength"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="电器产品"
@@ -244,7 +252,7 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
+            </LinearLayout>-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
@@ -261,13 +269,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="装箱数:"
+                        android:text="货物内容:"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:layout_marginLeft="35dp"
                         android:layout_marginTop="20dp"
                         />
                     <TextView
+                        android:id="@+id/tv_new_other_hyxq_wait_goodscontent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="6箱"
@@ -295,16 +304,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="里程:"
+                        android:text="装箱数:"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:layout_marginLeft="35dp"
                         android:layout_marginTop="20dp"
                         />
                     <TextView
+
+                        android:id="@+id/tv_new_other_hyxq_wait_zxs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="856km"
+                        android:text="11箱"
                         android:textColor="@color/gray"
                         android:textSize="17sp"
                         android:layout_marginLeft="35dp"
@@ -313,6 +324,76 @@
 
 
                 </LinearLayout>
+                <!-- <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="100dp"
+                 android:layout_marginTop="15dp"
+                 android:orientation="horizontal"
+                 android:background="@color/white"
+                 >
+                 <LinearLayout
+                     android:layout_width="0dp"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:orientation="vertical"
+                     >
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="车型:"
+                         android:textColor="@color/black"
+                         android:textSize="14sp"
+                         android:layout_marginLeft="35dp"
+                         android:layout_marginTop="20dp"
+                         />
+                     <TextView
+                         android:id="@+id/tv_new_other_hyxq_wait_cartype"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="6箱"
+                         android:textColor="@color/gray"
+                         android:textSize="17sp"
+                         android:layout_marginLeft="35dp"
+                         android:layout_marginTop="10dp"
+                         />
+
+
+                 </LinearLayout>
+                 <ImageView
+                     android:layout_width="@dimen/splite_height_or_width"
+                     android:layout_height="match_parent"
+                     android:background="@color/lightgray"
+                     android:layout_marginTop="5dp"
+                     android:layout_marginBottom="5dp"
+                     />
+                 <LinearLayout
+                     android:layout_width="0dp"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:orientation="vertical"
+                     >
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="里程:"
+                         android:textColor="@color/black"
+                         android:textSize="14sp"
+                         android:layout_marginLeft="35dp"
+                         android:layout_marginTop="20dp"
+                         />
+                     <TextView
+                         android:id="@+id/tv_new_other_hyxq_wait_dis"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="856km"
+                         android:textColor="@color/gray"
+                         android:textSize="17sp"
+                         android:layout_marginLeft="35dp"
+                         android:layout_marginTop="10dp"
+                         />
+
+
+                 </LinearLayout>-->
 
             </LinearLayout>
 
@@ -323,16 +404,31 @@
                 android:orientation="horizontal"
                 android:background="@color/white"
                 >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="订单备注"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    />
-
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="订单备注"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/tv_new_other_hyxq_wait_remark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        />
+                </LinearLayout>
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
@@ -350,7 +446,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="100dp"
             android:background="@color/white"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
@@ -360,20 +456,22 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 >
-                <ImageView
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/skip_back_gray"
+                    android:background="@drawable/selector_img_black_gray_left_click"
                     android:layout_centerInParent="true"
+                    android:visibility="gone"
                     />
 
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="4"
+                android:layout_weight="8"
                 >
                 <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_new_other_hyxq_wait_img"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -386,11 +484,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 >
-                <ImageView
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/skip_next_black"
+                    android:background="@drawable/selector_img_black_gray_right_click"
                     android:layout_centerInParent="true"
+                    android:visibility="gone"
                     />
             </RelativeLayout>
 
@@ -401,17 +500,19 @@
             android:orientation="horizontal"
             android:layout_marginTop="15dp"
             android:background="@color/white"
+            android:visibility="gone"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="订单建立时间:"
+                android:text="更新时间:"
                 android:textColor="@color/gray"
                 android:textSize="15sp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 />
             <TextView
+                android:id="@+id/tv_new_other_hyxq_wait_updatetime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2017-04-24 14:37:26"
@@ -428,6 +529,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="1dp"
             android:background="@color/white"
+            android:visibility="gone"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -455,6 +557,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="1dp"
             android:background="@color/white"
+            android:visibility="gone"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -482,6 +585,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="1dp"
             android:background="@color/white"
+            android:visibility="gone"
             >
             <TextView
                 android:layout_width="wrap_content"
