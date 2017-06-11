@@ -1,6 +1,7 @@
 package com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageButton;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.shandian.lu.BaseController;
+import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.LookBaoJiaDialog;
@@ -27,6 +29,8 @@ import rx.Observer;
 
 public class NewHuoYuanDetaiSelfController extends BaseController {
 
+
+    private String bLat,bLon,eLat,eLon;
 
     @BindView(R.id.rly_new_self_hyxq_back)
     RelativeLayout rlyNewSelfHYXQBack;
@@ -66,7 +70,18 @@ public class NewHuoYuanDetaiSelfController extends BaseController {
         showDialog();
     }
 
+    @BindView(R.id.rly_new_self_hyxq_mapline)
+    RelativeLayout rlyNewSelfHYXQMapLine;
+    @OnClick(R.id.rly_new_self_hyxq_mapline)
+    public void rlyNewSelfHYXQMapLineOnclick(){
+        Intent intent = new Intent(activity, NewBaiDuRoutePlanActivity.class);
+        intent.putExtra("blat",bLat);
+        intent.putExtra("blon",bLon);
+        intent.putExtra("elat",eLat);
+        intent.putExtra("elon",eLon);
+        activity.startActivity(intent);
 
+    }
 
       /*  Intent intent = new Intent(this, NewFaBuHuoYuanActivity.class);*/
        /* Intent intent = new Intent(this, TestActivity.class);
@@ -147,7 +162,10 @@ public class NewHuoYuanDetaiSelfController extends BaseController {
         tvNewSelfHYXQRemark.setText(newHuoYuanDetailBean.getNr().getContext());
         tvNewSelfHYXQUpdateTime.setText(newHuoYuanDetailBean.getNr().getTime());
         adapter.setAdapter(newHuoYuanDetailBean.getNr().getImgtu());
-
+        bLat = newHuoYuanDetailBean.getNr().getCflat();
+        bLon = newHuoYuanDetailBean.getNr().getCflng();
+        eLat = newHuoYuanDetailBean.getNr().getDalat();
+        eLon = newHuoYuanDetailBean.getNr().getDalng();
     }
 
 }

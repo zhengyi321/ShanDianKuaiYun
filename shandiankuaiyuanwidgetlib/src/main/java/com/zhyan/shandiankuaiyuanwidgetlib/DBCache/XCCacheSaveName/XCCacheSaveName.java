@@ -21,6 +21,8 @@ public class XCCacheSaveName {
 
     public String currentCity = "currentCity";
 
+    public String currentLocRadius = "currentLocRadius";
+    public String currentLocAddrStr = "currentLocAddrStr";
     public String currentAid = "currentAid";
 
     public String currentCid = "currentCid";

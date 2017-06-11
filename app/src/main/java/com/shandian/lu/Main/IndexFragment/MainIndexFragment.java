@@ -40,15 +40,16 @@ public class MainIndexFragment extends BaseFragment {
     RelativeLayout rlyMainIndexChangeCity;
     @OnClick(R.id.rly_main_index_changecity)
     public void rlyMainIndexChangeCityOnclick(){
+        return;/*
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view1.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         Intent intent = new Intent(view1.getContext(), CityChangeActivity.class);
         String city = tvMainIndexCity.getText().toString();
 
         intent.putExtra("currentcity",city);
-        xcCacheManager.writeCache(xcCacheSaveName.modlestatus,"index");
+        xcCacheManager.writeCache(xcCacheSaveName.modlestatus,"index");*/
 
-        ((Activity)view1.getContext()).startActivity(intent);
+      /*  ((Activity)view1.getContext()).startActivity(intent);*/
 
     }
     private MainIndexController mainIndexController;
@@ -107,7 +108,7 @@ public class MainIndexFragment extends BaseFragment {
         option.setCoorType("bd09ll");
         //可选，默认gcj02，设置返回的定位结果坐标系
 
-        int span=0;
+        int span=30000;
         option.setScanSpan(span);
         //可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
 
@@ -151,35 +152,46 @@ public class MainIndexFragment extends BaseFragment {
 
                /* Toast.makeText(view1.getContext(),"city:"+ location.getLocType(),Toast.LENGTH_LONG).show();*/
                /* Toast.makeText(view1.getContext(),"city:"+city,Toast.LENGTH_LONG).show();*/
-                if (city == null) {
+              /*  if (city == null) {
                     return;
                 }
-         /*       if(isFirst) {*/
+         *//*       if(isFirst) {*//*
                 int indexCity = city.indexOf("市");
-                    /*Toast.makeText(view1.getContext(),"indexcity:"+indexCity,Toast.LENGTH_LONG).show();*/
+                    *//*Toast.makeText(view1.getContext(),"indexcity:"+indexCity,Toast.LENGTH_LONG).show();*//*
                 if (indexCity >= 0) {
                     city = city.substring(0, indexCity);
                 }
                 int indexCity2 = city.indexOf("全");
                 if (indexCity2 >= 0) {
                     city = city.substring(indexCity2 + 1, city.length());
-                }
+                }*/
                 String lat = location.getLatitude() + "";
                 String lon = location.getLongitude() + "";
+
                 XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
                 XCCacheManager xcCacheManager = XCCacheManager.getInstance(view1.getContext());
                 if (city == null) {
-                    return;
+                    city = "";
                 }
                 xcCacheManager.writeCache(xcCacheSaveName.currentCity, city);
                 if (lat == null) {
-                    return;
+                    lat ="";
                 }
                 xcCacheManager.writeCache(xcCacheSaveName.currentLat, lat);
                 if (lon == null) {
-                    return;
+                    lon = "";
                 }
                 xcCacheManager.writeCache(xcCacheSaveName.currentlon, lon);
+                String currentLocRadius = location.getRadius()+"";
+                if (currentLocRadius == null) {
+                    currentLocRadius = "";
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentLocRadius, currentLocRadius);
+                String currentLocAddrStr = location.getAddrStr() + " " + location.getLocationDescribe();
+                if (currentLocAddrStr == null) {
+                    currentLocAddrStr = "";
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentLocAddrStr, currentLocAddrStr);
               /*      System.out.print("this is lat\n:"+lat);
                     System.out.print("this is lon\n:"+lon);
                     Log.i("this is lat",lat);

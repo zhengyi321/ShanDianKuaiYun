@@ -35,6 +35,7 @@ public class NewMainIndexFragment extends BaseFragment {
     RelativeLayout rlyMainIndexChangeCity;
     @OnClick(R.id.rly_main_index_changecity)
     public void rlyMainIndexChangeCityOnclick(){
+        return;/*
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         Intent intent = new Intent(view.getContext(), CityChangeActivity.class);
@@ -43,7 +44,7 @@ public class NewMainIndexFragment extends BaseFragment {
         intent.putExtra("currentcity",city);
         xcCacheManager.writeCache(xcCacheSaveName.modlestatus,"index");
 
-        ((Activity)view.getContext()).startActivity(intent);
+        ((Activity)view.getContext()).startActivity(intent);*/
 
     }
 
@@ -95,7 +96,7 @@ public class NewMainIndexFragment extends BaseFragment {
         option.setCoorType("bd09ll");
         //可选，默认gcj02，设置返回的定位结果坐标系
 
-        int span=5000;
+        int span=30000;
         option.setScanSpan(span);
         //可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
 
@@ -135,7 +136,7 @@ public class NewMainIndexFragment extends BaseFragment {
 
 
 
-                if(isFirst) {
+           /*     if(isFirst) {*/
                     //获取定位结果
 
                 String lat = location.getLatitude() + "";
@@ -146,25 +147,31 @@ public class NewMainIndexFragment extends BaseFragment {
 
                /* Toast.makeText(view1.getContext(),"city:"+ location.getLocType(),Toast.LENGTH_LONG).show();*/
                /* Toast.makeText(view.getContext(),"city:"+city,Toast.LENGTH_LONG).show();*/
-                if (city == null) {
-                    city = "";
-                }
 
-                int indexCity2 = city.indexOf("全");
-                if (indexCity2 >= 0) {
-                    city = city.substring(indexCity2 + 1, city.length());
-                }
-                tvMainIndexCity.setText(city);
-                xcCacheManager.writeCache(xcCacheSaveName.currentCity, city);
-                if (lat == null) {
-                    lat= "";
-                }
-                xcCacheManager.writeCache(xcCacheSaveName.currentLat, lat);
-                if (lon == null) {
-                    lon = "";
-                }
-                xcCacheManager.writeCache(xcCacheSaveName.currentlon, lon);
-                    isFirst = false;
+
+
+                    if (city == null) {
+                        city = "";
+                    }
+                    xcCacheManager.writeCache(xcCacheSaveName.currentCity, city);
+                    if (lat == null) {
+                        lat ="";
+                    }
+                    xcCacheManager.writeCache(xcCacheSaveName.currentLat, lat);
+                    if (lon == null) {
+                        lon = "";
+                    }
+                    xcCacheManager.writeCache(xcCacheSaveName.currentlon, lon);
+                    String currentLocRadius = location.getRadius()+"";
+                    if (currentLocRadius == null) {
+                        currentLocRadius = "";
+                    }
+                    xcCacheManager.writeCache(xcCacheSaveName.currentLocRadius, currentLocRadius);
+                    String currentLocAddrStr = location.getAddrStr() + " " + location.getLocationDescribe();
+                    if (currentLocAddrStr == null) {
+                        currentLocAddrStr = "";
+                    }
+                    xcCacheManager.writeCache(xcCacheSaveName.currentLocAddrStr, currentLocAddrStr);
               /*      System.out.print("this is lat\n:"+lat);
                     System.out.print("this is lon\n:"+lon);
                     Log.i("this is lat",lat);
@@ -180,7 +187,7 @@ public class NewMainIndexFragment extends BaseFragment {
                     Log.i("this is lon",lon);*/
                    /* tvMainIndexCity.setText(city);*/
                  /*   isFirst = false;*/
-                }
+        /*        }*/
             }
 
         }
@@ -193,9 +200,9 @@ public class NewMainIndexFragment extends BaseFragment {
     @Override
     public void onResume(){
         super.onResume();
-        if(!isFirst) {
+    /*    if(!isFirst) {*/
             selectResult();
-        }
+     /*   }*/
 
     }
     private void selectResult(){
@@ -207,10 +214,10 @@ public class NewMainIndexFragment extends BaseFragment {
 
         xcCacheManager.writeCache(xcCacheSaveName.modlestatus,"");
         if(city != null){
-            int indexCity2 = city.indexOf("全");
+         /*   int indexCity2 = city.indexOf("全");
             if (indexCity2 >= 0) {
                 city = city.substring(indexCity2 + 1, city.length());
-            }
+            }*/
             tvMainIndexCity.setText(city);
         }
     }

@@ -46,6 +46,8 @@ import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.R;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -138,8 +140,8 @@ public class SelectAddAddressController extends BaseController implements OnGetG
     public double lat,lon;
     public BaiduMap mBaiduMap;
 
-    private LocationClient locationClient=null;
-    private BDLocationListener locationListener= new MyLocationListener();
+/*    private LocationClient locationClient=null;*/
+/*    private BDLocationListener locationListener= new MyLocationListener();*/
     private BaiduMap.OnMapTouchListener mapTouchListener;
     /*地理编码检索*/
       /*关键字poi检索*/
@@ -184,8 +186,8 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         mvNewSelectAddress.showZoomControls(false);
         // 开启定位图层
         mBaiduMap.setMyLocationEnabled(true);
-        locationClient=new LocationClient(activity);
-        locationClient.registerLocationListener(locationListener);
+/*        locationClient=new LocationClient(activity);
+        locationClient.registerLocationListener(locationListener);*/
         //普通地图
         mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
         initOverlyWithMapView();
@@ -196,8 +198,9 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         /*设置编码监听者*/
         mSearch.setOnGetGeoCodeResultListener(this);
         /*设置编码监听者*/
-        initLocation1();
-        locationClient.start();
+        showCurrentPosition();
+/*        initLocation1();
+        locationClient.start();*/
     }
 
     private void initEditListener(){
@@ -214,7 +217,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         option.setIsNeedAddress(true);//返回地址
         option.setIsNeedLocationDescribe(true);//返回地址周边描述
         option.setEnableSimulateGps(false);
-        locationClient.setLocOption(option);
+       /* locationClient.setLocOption(option);*/
     }
     /*经纬度转换为地址监听*/
     private void initPoiSearch(){
@@ -239,6 +242,9 @@ public class SelectAddAddressController extends BaseController implements OnGetG
                 Point point = new Point(x, y);
                 //http://blog.csdn.net/sjf0115/article/details/7306284 获取控件在屏幕上的坐标
                 if(point != null) {
+                    if(mBaiduMap.getProjection() == null){
+                        return;
+                    }
                     currentPt = mBaiduMap.getProjection().fromScreenLocation(point);
 
                     mSearch.reverseGeoCode(new ReverseGeoCodeOption().location(currentPt));
@@ -282,7 +288,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
             }
 
             if(isFirst){
-                showCurrentPosition(location);
+                /*showCurrentPosition(location);*/
                 province = location.getProvince();
                 city = location.getCity();
                 area = location.getDistrict();
@@ -294,7 +300,28 @@ public class SelectAddAddressController extends BaseController implements OnGetG
 
 
     /**定位**/
-    private void showCurrentPosition(BDLocation location1){
+    private void showCurrentPosition(){
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        String currentLat = xcCacheManager.readCache(xcCacheSaveName.currentLat);
+        if(currentLat == null){
+            currentLat = "";
+        }
+        String currentLon = xcCacheManager.readCache(xcCacheSaveName.currentlon);
+        if(currentLon == null){
+            currentLon = "";
+        }
+        String currentLocRadius = xcCacheManager.readCache(xcCacheSaveName.currentLocRadius);
+        if(currentLocRadius == null){
+            currentLocRadius = "0";
+        }
+        String currentLocAddrStr = xcCacheManager.readCache(xcCacheSaveName.currentLocAddrStr);
+        if(currentLocAddrStr == null){
+            currentLocAddrStr = "";
+        }
+        float radius = Float.parseFloat(currentLocRadius);
+        double lat = Double.parseDouble(currentLat);
+        double lng = Double.parseDouble(currentLon);
         TextView textView = new TextView(activity);
         Drawable drawable1 = activity.getResources().getDrawable(R.mipmap.loc_arrow);
         drawable1.setBounds(0, 0, 40, 45);//第一0是距左边距离，第二0是距上边距离，40分别是长宽
@@ -302,28 +329,36 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         BitmapDescriptor mCurrentMarker = BitmapDescriptorFactory.fromView(textView);
         /*定位蓝色点*/
         MyLocationData locData = new MyLocationData.Builder()
-                .accuracy(location1.getRadius())
+                /*.accuracy(location1.getRadius())*/
+                .accuracy(radius)
                 // 此处设置开发者获取到的方向信息，顺时针0-360
-                .direction(100).latitude(location1.getLatitude())
-                .longitude(location1.getLongitude()).build();
+                /*.direction(100).latitude(location1.getLatitude())*/
+                .direction(100).latitude(lat)
+                /*.longitude(location1.getLongitude()).build();*/
+                .longitude(lng).build();
         mBaiduMap.setMyLocationData(locData);
         mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
         mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(
                 mCurrentMode, true, mCurrentMarker,
                 accuracyCircleFillColor, accuracyCircleStrokeColor));
         /*定位蓝色点*/
-        LatLng latLng = new LatLng(location1.getLatitude(),location1.getLongitude());
+        LatLng latLng = new LatLng(lat,lng);
+        /*LatLng latLng = new LatLng(location1.getLatitude(),location1.getLongitude());*/
         location(latLng);
-    /*获取自己的坐标*/
+    /*获取自己的坐标*//*
         selfLat = location1.getLatitude();
         selfLon = location1.getLongitude();
+        */
+        selfLat = lat;
+        selfLon = lng;
         /*获取自己的坐标*/
-        if((location1.getAddrStr()!= null)&&(location1.getLocationDescribe() != null)) {
+     /*   if((location1.getAddrStr()!= null)&&(location1.getLocationDescribe() != null)) {
             addressLocation = location1.getAddrStr() + " " + location1.getLocationDescribe();
             etNewSelectAddressDetail.setText(addressLocation);
-          /*  beginSearchLalByAddress(addressLocation);*/
-        }
-
+            beginSearchLalByAddress(addressLocation);
+        }*/
+        etNewSelectAddressDetail.setText(currentLocAddrStr);
+        beginSearchLalByAddress(currentLocAddrStr);
     }
     /*根据地名开始查找经纬度*/
     public void beginSearchLalByAddress(String address){
@@ -512,10 +547,10 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         if(poiSearch != null) {
             poiSearch.destroy();
         }
-        if(locationClient!=null){
+    /*    if(locationClient!=null){
             locationClient.unRegisterLocationListener(locationListener);
-           /* locationClient.stop();*/
-        }
+           *//* locationClient.stop();*//*
+        }*/
 
 
     }
