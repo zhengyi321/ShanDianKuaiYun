@@ -56,6 +56,15 @@ public class NewHuoYuanDetailOtherBaoJiaActivity extends BaseActivity {
                     initOtherBaoJiaWaitController();
                     newHuoYuanDetaiOtherBaoJiaWaitController.initDetail(newBaoJiaSelectBean);
                 }
+                else if(newBaoJiaSelectBean.getNr().getSfbj().equals("2")){
+                    initOtherBaoJiaSuccessController();
+
+                }
+                else if(newBaoJiaSelectBean.getNr().getSfbj().equals("3")){
+                    initOtherBaoJiaFailController();
+
+                }
+
             }
         });
        /* initOtherBaoJiaController();*/
@@ -74,6 +83,16 @@ public class NewHuoYuanDetailOtherBaoJiaActivity extends BaseActivity {
         newHuoYuanDetaiOtherController = new NewHuoYuanDetaiOtherBaoJiaController(this);
     }
     private void initOtherBaoJiaWaitController(){
+        setContentView(R.layout.activity_new_other_huoyuanxiangqing_wait_lly);
+        ButterKnife.bind(this);
+        newHuoYuanDetaiOtherBaoJiaWaitController = new NewHuoYuanDetaiOtherBaoJiaWaitController(this);
+    }
+    private void initOtherBaoJiaSuccessController(){
+        setContentView(R.layout.activity_new_other_huoyuanxiangqing_baojiachenggong_lly);
+        ButterKnife.bind(this);
+        newHuoYuanDetaiOtherBaoJiaWaitController = new NewHuoYuanDetaiOtherBaoJiaWaitController(this);
+    }
+    private void initOtherBaoJiaFailController(){
         setContentView(R.layout.activity_new_other_huoyuanxiangqing_wait_lly);
         ButterKnife.bind(this);
         newHuoYuanDetaiOtherBaoJiaWaitController = new NewHuoYuanDetaiOtherBaoJiaWaitController(this);
