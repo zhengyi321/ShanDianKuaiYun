@@ -154,6 +154,17 @@ public class NewMainIndexFragment extends BaseFragment {
                         city = "";
                     }
                     xcCacheManager.writeCache(xcCacheSaveName.currentCity, city);
+                String area = location.getDistrict();
+
+               /* Toast.makeText(view1.getContext(),"city:"+ location.getLocType(),Toast.LENGTH_LONG).show();*/
+               /* Toast.makeText(view.getContext(),"city:"+city,Toast.LENGTH_LONG).show();*/
+
+
+
+                    if (area == null) {
+                        area = "";
+                    }
+                    xcCacheManager.writeCache(xcCacheSaveName.currentArea, area);
                     if (lat == null) {
                         lat ="";
                     }
@@ -208,17 +219,17 @@ public class NewMainIndexFragment extends BaseFragment {
     private void selectResult(){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        String city = xcCacheManager.readCache(xcCacheSaveName.currentCity);
+        String area = xcCacheManager.readCache(xcCacheSaveName.currentArea);
 
 
 
         xcCacheManager.writeCache(xcCacheSaveName.modlestatus,"");
-        if(city != null){
+        if(area != null){
          /*   int indexCity2 = city.indexOf("全");
             if (indexCity2 >= 0) {
                 city = city.substring(indexCity2 + 1, city.length());
             }*/
-            tvMainIndexCity.setText(city);
+            tvMainIndexCity.setText(area);
         }
     }
 

@@ -20,6 +20,7 @@ public class XCCacheSaveName {
     public String modlestatus = "index";
 
     public String currentCity = "currentCity";
+    public String currentArea = "currentArea";
 
     public String currentLocRadius = "currentLocRadius";
     public String currentLocAddrStr = "currentLocAddrStr";
