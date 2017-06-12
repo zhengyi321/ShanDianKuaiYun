@@ -212,6 +212,8 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
         etNewFaBuHuoYuanName.setText(newHuoYuanDetailBean.getNr().getPeople());
         etNewFaBuHuoYuanTel.setText(newHuoYuanDetailBean.getNr().getIphone());
         etNewFaBuHuoYuanDesc.setText(newHuoYuanDetailBean.getNr().getContext());
+        beginAddr = newHuoYuanDetailBean.getNr().getCfdizhi();
+        endAddr = newHuoYuanDetailBean.getNr().getDadizhi();
         bProvince = newHuoYuanDetailBean.getNr().getCfsheng();
         bCity = newHuoYuanDetailBean.getNr().getCfshi();
         bArea = newHuoYuanDetailBean.getNr().getCfqu();
