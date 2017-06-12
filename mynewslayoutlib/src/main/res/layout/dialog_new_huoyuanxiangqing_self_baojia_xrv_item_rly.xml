@@ -11,6 +11,7 @@
         android:layout_weight="2"
         >
         <TextView
+            android:id="@+id/tv_new_hyxq_self_baojia_xrv_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1.侯良平"
@@ -25,6 +26,7 @@
         android:layout_weight="3"
         >
         <TextView
+            android:id="@+id/tv_new_hyxq_self_baojia_xrv_item_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="326.0元"
@@ -41,11 +43,13 @@
         >
 
         <TextView
+            android:id="@+id/tv_new_hyxq_self_baojia_xrv_item_dis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3.1km"
             android:textColor="@color/black"
             android:layout_centerInParent="true"
+            android:visibility="invisible"
             />
 
     </RelativeLayout>

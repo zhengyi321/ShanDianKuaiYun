@@ -9,39 +9,37 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.mynewslayoutlib.Bean.NewBaoJiaListBean;
-import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 
 import java.util.List;
-
-import rx.Observer;
 
 /**
  * Created by az on 2017/5/6.
  */
 
-public class LookBaoJiaDialog extends Dialog {
+public class AgreeBaoJiaDialog extends Dialog {
     Context context;
 
-    List<String> listBeen;
+    NewBaoJiaListBean.NrBean.ListBean been;
     String hyId;
     RelativeLayout dialogRly;
 
     public interface DialogCallBackListener{//通过该接口回调Dialog需要传递的值
         public void callBack(String tel);//具体方法
     }
-    public LookBaoJiaDialog(Context context1 ,String hyId1) {
+    public AgreeBaoJiaDialog(Context context1 , String hyId1,NewBaoJiaListBean.NrBean.ListBean been1) {
         super(context1);
         this.context = context1;
         hyId = hyId1;
+        been = been1;
 
     }
-    public LookBaoJiaDialog(Context context1, int themeResId) {
+    public AgreeBaoJiaDialog(Context context1, int themeResId) {
         super(context1, themeResId);
         this.context = context1;
     }
 
-    protected LookBaoJiaDialog(Context context1, boolean cancelable, OnCancelListener cancelListener) {
+    protected AgreeBaoJiaDialog(Context context1, boolean cancelable, OnCancelListener cancelListener) {
         super(context1, cancelable, cancelListener);
         this.context = context1;
     }
@@ -104,38 +102,24 @@ public class LookBaoJiaDialog extends Dialog {
          * 3，基本逻辑处理
          * 4，显示dialog的布局
          */
-        public LookBaoJiaDialog build(Context context) {
+        public AgreeBaoJiaDialog build(Context context) {
             LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            LookBaoJiaDialog releaseDialog = new LookBaoJiaDialog(context, R.style.MyDialogStyle);//默认调用带style的构造
+            AgreeBaoJiaDialog releaseDialog = new AgreeBaoJiaDialog(context, R.style.MyDialogStyle);//默认调用带style的构造
             releaseDialog.setCanceledOnTouchOutside(true);//默认点击布局外不能取消dialog
            /* releaseDialog.setCancelable(true);*/
-            View view = mInflater.inflate(R.layout.dialog_new_huoyuanxiangqing_self_baojia_rly, null);
+            View view = mInflater.inflate(R.layout.dialog_new_huoyuanxiangqing_agreebaojia_rly, null);
             releaseDialog.addContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            final TextView textView = (TextView)view.findViewById(R.id.tv_new_hyxq_self_baojia_message_size);
+            final TextView nameTV = (TextView)view.findViewById(R.id.tv_new_hyxq_self_agreebaojia_name);
+            final TextView priceTV = (TextView)view.findViewById(R.id.tv_new_hyxq_self_agreebaojia_price);
+            RelativeLayout rlyTel = (RelativeLayout)view.findViewById(R.id.rly_new_hyxq_self_agreebaojia_tel);
+            RelativeLayout rlyMesg = (RelativeLayout)view.findViewById(R.id.rly_new_hyxq_self_agreebaojia_message);
+            RelativeLayout rlyAgreeSubmit = (RelativeLayout)view.findViewById(R.id.rly_new_hyxq_self_agreebaojia_agree_submit);
 
             releaseDialog.setContentView(view);
+            nameTV.setText(been.getName());
+            priceTV.setText(been.getJiage());
 
-            final LookBaoJiaDialogController baoJiaDialogController = new LookBaoJiaDialogController(view);
-            NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
-            newCheHuoListNetWork.getBaoJiaListFromNet(hyId, new Observer<NewBaoJiaListBean>() {
-                @Override
-                public void onCompleted() {
 
-                }
-
-                @Override
-                public void onError(Throwable e) {
-
-                }
-
-                @Override
-                public void onNext(NewBaoJiaListBean newBaoJiaListBean) {
-                    if(newBaoJiaListBean.getStatus().equals("0")){
-                        baoJiaDialogController.baoJiaDialogXRVAdapter.setAdapter(newBaoJiaListBean.getNr().getList(),hyId);
-                        textView.setText(newBaoJiaListBean.getNr().getYs()+"条");
-                    }
-                }
-            });
             return releaseDialog;
         }
 

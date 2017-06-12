@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="120.5dp"
-
+    android:id="@+id/lly_new_wodehuoyuan_xrv_item"
     android:background="@color/white"
     >
 

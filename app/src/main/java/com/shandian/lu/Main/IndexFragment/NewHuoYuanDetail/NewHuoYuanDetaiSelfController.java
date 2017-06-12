@@ -29,7 +29,7 @@ import rx.Observer;
  */
 
 public class NewHuoYuanDetaiSelfController extends BaseController {
-
+    private String hyId ;
 
     private String bLat,bLon,eLat,eLon;
 
@@ -66,11 +66,19 @@ public class NewHuoYuanDetaiSelfController extends BaseController {
     ImageButton ibNewSelfHYXQCKBJ;
     @OnClick(R.id.ib_new_self_hyxq_ckbj)
     public void ibNewSelfHYXQCKBJOnclick(){
-        lookBaoJiaDialog = new LookBaoJiaDialog(activity).Build.build(activity);
-
+        lookBaoJiaDialog = new LookBaoJiaDialog(activity,hyId).Build.build(activity);
+       /* Toast.makeText(activity,"hyid:"+hyId,Toast.LENGTH_LONG).show();*/
         showDialog();
     }
+    public void showDialog() {
+        if (lookBaoJiaDialog != null && !lookBaoJiaDialog.isShowing())
+            lookBaoJiaDialog.show();
+    }
 
+    public void dissmissDialog() {
+        if (lookBaoJiaDialog != null && lookBaoJiaDialog.isShowing())
+            lookBaoJiaDialog.dismiss();
+    }
     @BindView(R.id.rly_new_self_hyxq_mapline)
     RelativeLayout rlyNewSelfHYXQMapLine;
     @OnClick(R.id.rly_new_self_hyxq_mapline)
@@ -100,18 +108,10 @@ public class NewHuoYuanDetaiSelfController extends BaseController {
        /* Intent intent = new Intent(this, TestActivity.class);
         startActivity(intent);*/
 
-    public void showDialog() {
-        if (lookBaoJiaDialog != null && !lookBaoJiaDialog.isShowing())
-            lookBaoJiaDialog.show();
-    }
-
-    public void dissmissDialog() {
-        if (lookBaoJiaDialog != null && lookBaoJiaDialog.isShowing())
-            lookBaoJiaDialog.dismiss();
-    }
 
 
-    private String hyId ;
+
+
     private NewHuoYuanDetailImgRVAdapter adapter;
     private List<String> imgList;
     public NewHuoYuanDetaiSelfController(Activity activity1){

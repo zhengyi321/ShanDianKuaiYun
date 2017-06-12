@@ -15,6 +15,7 @@ import com.baidu.mapapi.map.Text;
 import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanBean;
 import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanDeleteBean;
 import com.j256.ormlite.stmt.query.In;
+import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
@@ -135,6 +136,15 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
 
     public class MyItemViewHolder extends RecyclerView.ViewHolder{
         int pos = 0;
+
+        @BindView(R.id.lly_new_wodehuoyuan_xrv_item)
+        LinearLayout llyNewWoDeHuoYuanXRVItem;
+        @OnClick(R.id.lly_new_wodehuoyuan_xrv_item)
+        public void llyNewWoDeHuoYuanXRVItemOnclick(){
+            Intent intent = new Intent(activity, NewHuoYuanDetailSelfActivity.class);
+            intent.putExtra("hyid",dataList.get(pos).getId());
+            activity.startActivity(intent);
+        }
 
         @BindView(R.id.tv_new_wodehuoyuan_xrv_item_count)
         TextView tvNewWoDeHuoYuanXRVItemCount;

@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanBean;
 import com.example.mynewslayoutlib.Utils.SystemUtils;
@@ -111,6 +112,7 @@ public class NewWoDeHuoYuanController extends BaseController {
             activity.startActivity(intent);
             return;
         }
+
     }
     /**
      * 初始化动画

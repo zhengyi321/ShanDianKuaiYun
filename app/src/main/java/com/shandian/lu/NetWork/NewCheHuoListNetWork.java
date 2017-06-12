@@ -1,6 +1,7 @@
 package com.shandian.lu.NetWork;
 
 import com.example.mynewslayoutlib.Bean.EditBaoJiaResultBean;
+import com.example.mynewslayoutlib.Bean.NewBaoJiaListBean;
 import com.example.mynewslayoutlib.Bean.NewBaoJiaSelectBean;
 import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
@@ -12,6 +13,7 @@ import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
 import com.zhyan.shandiankuaiyunlib.Bean.CarSourceDetailBean;
 import com.zhyan.shandiankuaiyunlib.Bean.CarSourceSelectBean;
 import com.zhyan.shandiankuaiyunlib.Bean.MyCarSourcesDeleteResultBean;
+import com.zhyan.shandiankuaiyunlib.Bean.SystemInfoBean;
 import com.zhyan.shandiankuaiyunlib.Bean.ZhuanXianWuliuCarSourceBean;
 
 import java.util.Map;
@@ -82,8 +84,16 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         @GET("index.php/app/chyuan/cheyuanxq")
         Observable<NewCheYuanDetailBean> getCheYuanDetailFromNet(@Query("cyid") String cyid);
         /*车源详情*/
-
-
+       /*报价列表*/
+        //GET请求
+        @GET("index.php/app/chyuan/huoyuanbaojia")
+        Observable<NewBaoJiaListBean> getBaoJiaListFromNet(@Query("hyid") String hyid);
+       /*报价列表*/
+        /*货主同意*/
+      /* @FormUrlEncoded
+       @POST("index.php/app/baojia/huoyuandel")
+       Observable<NewWoDeHuoYuanDeleteBean> deleteWoDeHuoYuanToNet(@FieldMap Map<String,String> paramMap);*/
+        /*货主同意*/
     }
 
     /*public  void releaseZhuanXianWuLiuToNet(Map<String , Object> usermaps,String img1,String img2,String img3,String img4,String img5,String img6,String img7,String img8,Observer<CarSourceBean> observer){*/
@@ -117,6 +127,9 @@ public class NewCheHuoListNetWork extends BaseNetWork {
     }
     public  void deleteWoDeHuoYuanToNet(Map<String,String> paramMap,Observer<NewWoDeHuoYuanDeleteBean> observer){
         setSubscribe(service.deleteWoDeHuoYuanToNet(paramMap),observer);
+    }
+    public  void getBaoJiaListFromNet(String hyid,Observer<NewBaoJiaListBean> observer){
+        setSubscribe(service.getBaoJiaListFromNet(hyid),observer);
     }
 
 }

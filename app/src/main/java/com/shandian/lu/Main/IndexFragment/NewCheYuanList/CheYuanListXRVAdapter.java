@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -170,6 +171,7 @@ public class CheYuanListXRVAdapter extends RecyclerView.Adapter<CheYuanListXRVAd
                 activity.startActivity(intent);
                 return;
             }
+
             if(loginId.equals(cheYuanList.get(pos).getLogin_id())){
                 Intent intent = new Intent(activity, NewCheYuanDetaiSelflActivity.class);
                 intent.putExtra("cyid",cheYuanList.get(pos).getId());

@@ -3,6 +3,7 @@ package com.shandian.lu.Widget.Dialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
+import com.example.mynewslayoutlib.Bean.NewBaoJiaListBean;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView;
@@ -21,8 +22,8 @@ public class LookBaoJiaDialogController extends BaseController {
 
     @BindView(R.id.xrv_dialog_new_hyxq_baojia)
     XRecyclerView xrvDialogNewHYXQBaoJia;
-    LookBaoJiaDialogXRVAdapter baoJiaDialogXRVAdapter;
-    private List<String> dataList;
+    public LookBaoJiaDialogXRVAdapter baoJiaDialogXRVAdapter;
+    private List<NewBaoJiaListBean.NrBean.ListBean> dataList;
     public LookBaoJiaDialogController(View view1){
         view = view1;
         init();
@@ -37,22 +38,6 @@ public class LookBaoJiaDialogController extends BaseController {
 
     private void initXRV(){
         dataList = new ArrayList<>();
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
-        dataList.add("");
         baoJiaDialogXRVAdapter = new LookBaoJiaDialogXRVAdapter(view.getContext(),dataList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
