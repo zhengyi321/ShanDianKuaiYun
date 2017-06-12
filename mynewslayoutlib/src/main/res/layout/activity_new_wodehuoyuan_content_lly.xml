@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView
+        android:id="@+id/xrv_new_wodehuoyuan"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

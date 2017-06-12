@@ -5,17 +5,18 @@
 
     >
     <RelativeLayout
+        android:id="@+id/rly_new_wodehuoyuan_back"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         >
-   <!--     <ImageView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@mipmap/arrow_left"
             android:layout_centerInParent="true"
 
-            />-->
+            />
 
     </RelativeLayout>
     <RelativeLayout
@@ -26,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="我的发布"
+            android:text="我的货源"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:layout_centerInParent="true"
@@ -38,11 +39,11 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         >
-        <ImageView
+      <!--  <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@mipmap/shaixuan"
             android:layout_centerInParent="true"
-            />
+            />-->
     </RelativeLayout>
 </LinearLayout>

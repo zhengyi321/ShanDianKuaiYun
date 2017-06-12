@@ -3,6 +3,7 @@ package com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan;
 import android.app.Activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.shandian.lu.BaseController;
@@ -20,7 +21,8 @@ import butterknife.OnClick;
  */
 
 public class NewFaBuHuoYuanController extends BaseController {
-
+    @BindView(R.id.pb_new_fabuhuoyuan)
+    ProgressBar pbNewFaBuHuoYuan;
     @BindView(R.id.rly_new_main_release_fabuhuoyuan_back)
     RelativeLayout rlyNewMainReleaseFaBuHuoWuBack;
     @OnClick(R.id.rly_new_main_release_fabuhuoyuan_back)
@@ -30,7 +32,7 @@ public class NewFaBuHuoYuanController extends BaseController {
 
     @BindView(R.id.rv_main_release_new_fabuhuoyuan_add_pic)
     RecyclerView rvMainReleaseNewFaBuHuoYuanAddPic;
-    private List<String> tempList ;
+    private ArrayList<String> tempList ;
     public NewFaBuHuoYuanAddPicRVAdapter addPicRVAdapter;
     public NewFaBuHuoYuanController(Activity activity1){
         activity = activity1;
@@ -49,7 +51,7 @@ public class NewFaBuHuoYuanController extends BaseController {
         tempList = new ArrayList<>();
         tempList.add("");
 
-        addPicRVAdapter = new NewFaBuHuoYuanAddPicRVAdapter(activity,tempList);
+        addPicRVAdapter = new NewFaBuHuoYuanAddPicRVAdapter(activity,tempList,pbNewFaBuHuoYuan);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvMainReleaseNewFaBuHuoYuanAddPic.setAdapter(addPicRVAdapter);

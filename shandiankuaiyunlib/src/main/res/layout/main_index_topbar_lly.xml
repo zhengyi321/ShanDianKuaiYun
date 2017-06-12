@@ -18,9 +18,10 @@
             android:textColor="@color/color_main_index_topbar_white_textcolor"
             android:textSize="@dimen/main_index_topbar_left_city_word_size"
             android:layout_centerInParent="true"
-            android:drawableRight="@mipmap/biao"
-            android:drawablePadding="2dp"
+
             />
+        <!--          android:drawableRight="@mipmap/biao"
+            android:drawablePadding="2dp"-->
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="@dimen/zero"
@@ -46,6 +47,7 @@
             android:layout_height="@dimen/main_index_topbar_right_sao_height"
             android:background="@mipmap/sao"
             android:layout_centerInParent="true"
+            android:visibility="gone"
             />
     </RelativeLayout>
 </LinearLayout>

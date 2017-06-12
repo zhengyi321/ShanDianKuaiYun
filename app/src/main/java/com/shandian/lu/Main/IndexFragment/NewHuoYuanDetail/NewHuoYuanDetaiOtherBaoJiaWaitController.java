@@ -1,6 +1,7 @@
 package com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.RelativeLayout;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import com.example.mynewslayoutlib.Bean.NewBaoJiaSelectBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.shandian.lu.BaseController;
+import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.EditBaoJiaDialog;
@@ -70,8 +72,31 @@ public class NewHuoYuanDetaiOtherBaoJiaWaitController extends BaseController {
 
     @BindView(R.id.tv_new_other_hyxq_wait_money)
     TextView tvNewOtherHYXQWaitMoney;
+    private String bLat,bLon,eLat,eLon;
+    @BindView(R.id.rly_new_other_hyxq_wait_mapline)
+    RelativeLayout rlyNewOtherHYXQWaitMapLine;
+    @OnClick(R.id.rly_new_other_hyxq_wait_mapline)
+    public void rlyNewOtherHYXQWaitMapLineOnclick(){
+        Intent intent = new Intent(activity, NewBaiDuRoutePlanActivity.class);
+        if(bLat == null){
+            bLat = "";
+        }
+        if(bLon == null){
+            bLon = "";
+        }
+        if(eLat == null){
+            eLat = "";
+        }
+        if(eLon == null){
+            eLon = "";
+        }
+        intent.putExtra("blat",bLat);
+        intent.putExtra("blon",bLon);
+        intent.putExtra("elat",eLat);
+        intent.putExtra("elon",eLon);
+        activity.startActivity(intent);
 
-
+    }
 
 
 
@@ -132,6 +157,10 @@ public class NewHuoYuanDetaiOtherBaoJiaWaitController extends BaseController {
         tvNewOtherHYXQWaitRemark.setText(newHuoYuanDetailBean.getNr().getContext());
         tvNewOtherHYXQWaitUpdateTime.setText(newHuoYuanDetailBean.getNr().getTime());
         tvNewOtherHYXQWaitMoney.setText(newHuoYuanDetailBean.getNr().getBjnr());
+        bLat = newHuoYuanDetailBean.getNr().getCflat();
+        bLon = newHuoYuanDetailBean.getNr().getCflng();
+        eLat = newHuoYuanDetailBean.getNr().getDalat();
+        eLon = newHuoYuanDetailBean.getNr().getDalng();
         adapter.setAdapter(newHuoYuanDetailBean.getNr().getImgtu());
 
     }

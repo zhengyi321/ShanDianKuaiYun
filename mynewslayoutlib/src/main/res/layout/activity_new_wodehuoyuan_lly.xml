@@ -10,7 +10,7 @@
             android:orientation="vertical"
             android:background="@mipmap/top_big_blue_bg"
             >
-        <include layout="@layout/fragment_new_wodehuoyuan_topbar_lly"/>
+        <include layout="@layout/activity_new_wodehuoyuan_topbar_lly"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                     >
 
                     <RadioButton
-                        android:id="@+id/rb_addressmanage_adduser"
+                        android:id="@+id/rb_new_wodehuoyuan_finish"
                         style="@style/WoDeHuoYuan"
                         android:layout_width="@dimen/zero"
                         android:layout_height="match_parent"
@@ -35,16 +35,16 @@
                         android:text="已完成" />
 
                     <RadioButton
-
+                        android:id="@+id/rb_new_wodehuoyuan_releaseing"
                         style="@style/WoDeHuoYuan"
                         android:layout_width="@dimen/zero"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:button="@null"
-                        android:text="已报价"
+                        android:text="发布中"
                         />
                     <RadioButton
-
+                        android:id="@+id/rb_new_wodehuoyuan_all"
                         style="@style/WoDeHuoYuan"
                         android:layout_width="@dimen/zero"
                         android:layout_height="match_parent"
@@ -58,22 +58,31 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/iv_main_myorder_tab_greenbottom"
-                android:layout_width="60dp"
+                android:id="@+id/iv_new_wodehuoyuan_tab_bottom"
+                android:layout_width="70dp"
                 android:layout_height="3dp"
                 android:scaleType="matrix"
                 android:background="@color/white"
-                android:layout_marginLeft="40dp"
+
                 android:layout_marginBottom="0.5dp"
                 />
+            <!--  android:layout_marginLeft="40dp"-->
         </LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
+
         android:layout_weight="1"
         >
-        <include layout="@layout/fragment_new_wodehuoyuan_content_lly"/>
-
-    </LinearLayout>
+        <include layout="@layout/activity_new_wodehuoyuan_content_lly"/>
+        <ProgressBar
+            android:id="@+id/pb_new_wodehuoyuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/black"
+            android:alpha="0.5"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
 </LinearLayout>

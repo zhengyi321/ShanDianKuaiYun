@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.shandian.lu.BaseController;
@@ -75,6 +76,18 @@ public class NewHuoYuanDetaiSelfController extends BaseController {
     @OnClick(R.id.rly_new_self_hyxq_mapline)
     public void rlyNewSelfHYXQMapLineOnclick(){
         Intent intent = new Intent(activity, NewBaiDuRoutePlanActivity.class);
+        if(bLat == null){
+            bLat = "";
+        }
+        if(bLon == null){
+            bLon = "";
+        }
+        if(eLat == null){
+            eLat = "";
+        }
+        if(eLon == null){
+            eLon = "";
+        }
         intent.putExtra("blat",bLat);
         intent.putExtra("blon",bLon);
         intent.putExtra("elat",eLat);
@@ -161,6 +174,7 @@ public class NewHuoYuanDetaiSelfController extends BaseController {
         tvNewSelfHYXQZXS.setText(newHuoYuanDetailBean.getNr().getNum()+"箱");
         tvNewSelfHYXQRemark.setText(newHuoYuanDetailBean.getNr().getContext());
         tvNewSelfHYXQUpdateTime.setText(newHuoYuanDetailBean.getNr().getTime());
+    /*    Toast.makeText(activity,"imgList:"+newHuoYuanDetailBean.getNr().getImgtu().size(),Toast.LENGTH_LONG).show();*/
         adapter.setAdapter(newHuoYuanDetailBean.getNr().getImgtu());
         bLat = newHuoYuanDetailBean.getNr().getCflat();
         bLon = newHuoYuanDetailBean.getNr().getCflng();

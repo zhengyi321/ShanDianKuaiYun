@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,10 +63,10 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
 
     @BindView(R.id.pb_new_fabucheyuan)
     ProgressBar pbNewFaBuCheYuan;
-    @BindView(R.id.lly_new_fabucheyuan_submit)
-    LinearLayout llyNewFaBuCheYuanSubmit;
-    @OnClick(R.id.lly_new_fabucheyuan_submit)
-    public void  llyNewFaBuCheYuanSubmitOnclick(){
+    @BindView(R.id.rly_new_fabucheyuan_submit)
+    RelativeLayout rlyNewFaBuCheYuanSubmit;
+    @OnClick(R.id.rly_new_fabucheyuan_submit)
+    public void  rlyNewFaBuCheYuanSubmitOnclick(){
         pbNewFaBuCheYuan.setVisibility(View.VISIBLE);
         int imgSize = newFaBuCheYuanController.addPicRVAdapter.getNetImageList().size();
 

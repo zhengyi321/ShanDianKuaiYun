@@ -176,14 +176,14 @@ public class ReleaseDialogController extends BaseController {
 
     @OnClick(R.id.rb_dialog_release_che)
     public void rbDialogReleaseCheOnclick(){
-        currIndex = 1;
+
         initTabBar(0);
     }
     @BindView(R.id.rb_dialog_release_huo)
     RadioButton rbDialogReleaseHuo;
     @OnClick(R.id.rb_dialog_release_huo)
     public void rbDialogReleaseHuoOnclick(){
-        currIndex = 0;
+
         initTabBar(1);
     }
     public ReleaseDialogController(View view1){
@@ -204,10 +204,10 @@ public class ReleaseDialogController extends BaseController {
         SystemUtils systemUtils = new SystemUtils((Activity)view.getContext());
         int width = systemUtils.getWindowWidth();
         int height = systemUtils.getWindowHeight();
-        int marginLeft = (((width/2)/2)/2);
+        int marginLeft = (((width/2)/2));
         int ivWidth = (width/2)/2;
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ivWidth,((Activity)view.getContext()).getResources().getDimensionPixelSize(R.dimen.dimen_30dp));
-        params.setMargins(marginLeft,0,0,0);
+     /*   params.setMargins(marginLeft,0,0,0);*/
         DisplayMetrics dm = new DisplayMetrics();
         ((Activity)view.getContext()).getWindowManager().getDefaultDisplay().getMetrics(dm);
         int screenW = dm.widthPixels;// 获取分辨率宽度
@@ -215,20 +215,20 @@ public class ReleaseDialogController extends BaseController {
         Matrix matrix = new Matrix();
         matrix.postTranslate(offset, 0);
         ivDialogReleaseCheHuo.setImageMatrix(matrix);
- /*       ivDialogReleaseCheHuo.setLayoutParams(params);*/
+       /* ivDialogReleaseCheHuo.setLayoutParams(params);*/
     }
 
 
     public void initTabBar(int arg0){
-        int one = offset * 2 + bmpW;// 页卡1 -> 页卡2 偏移量
-        int two = one * 2;// 页卡1 -> 页卡3 偏移量
+        double one = offset*2+offset/1.5 + bmpW;// 页卡1 -> 页卡2 偏移量
+       /* int two = one * 2;*/// 页卡1 -> 页卡3 偏移量
         Animation animation = null;
         switch (arg0) {
             case 0:
-                if (currIndex == 1) {
-                    animation = new TranslateAnimation(one, 0, 0, 0);
-                } else if (currIndex == 2) {
-                    animation = new TranslateAnimation(two, 0, 0, 0);
+                if (currIndex == 0) {
+                    animation = new TranslateAnimation(0, 0, 0, 0);
+                } else if (currIndex == 1) {
+                    animation = new TranslateAnimation((int)one, 0, 0, 0);
                 }
                 currIndex = arg0;
                 animation.setFillAfter(true);// True:图片停在动画结束位置
@@ -238,9 +238,9 @@ public class ReleaseDialogController extends BaseController {
                 break;
             case 1:
                 if (currIndex == 0) {
-                    animation = new TranslateAnimation(offset, one, 0, 0);
-                } else if (currIndex == 2) {
-                    animation = new TranslateAnimation(two, one, 0, 0);
+                    animation = new TranslateAnimation(0, (int)one, 0, 0);
+                } else if (currIndex == 1) {
+                    animation = new TranslateAnimation((int)one,(int) one, 0, 0);
                 }
                 currIndex = arg0;
                 animation.setFillAfter(true);// True:图片停在动画结束位置

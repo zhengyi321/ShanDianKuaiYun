@@ -1,7 +1,11 @@
 package com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -9,20 +13,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.mynewslayoutlib.Bean.NewFaBuPicBean;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.Main.IndexFragment.CityChange.CountryXRVAdapter;
+import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.shandian.lu.NetWork.NewFaBuNetWork;
 import com.shandian.lu.R;
 import com.yanzhenjie.album.Album;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Utils.BitmapUtils;
+import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.LogRecord;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.Observer;
 
 /**
  * Created by Administrator on 2017/6/7.
@@ -30,23 +47,47 @@ import butterknife.OnClick;
 
 public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuHuoYuanAddPicRVAdapter.MyItemViewHolder> {
 
-    private List<String> tempList;
+    private ArrayList<String> tempList;
     private Activity activity;
     private LayoutInflater inflater;
     private  final int ACTIVITY_REQUEST_SELECT_PHOTO = 100;
-    private ArrayList<String> mImageList;
+    public boolean isPicFinished = false;
+    public boolean isUpdate = false;
     private ArrayList<String> netImageList;
     private ArrayList<String> deleteImageList;
-    private ArrayList<String> currentNetImageList;
+    private ArrayList<String> mImageList;
+    private ArrayList<String> allImageList;
 
-    public NewFaBuHuoYuanAddPicRVAdapter(Activity activity1, List<String> tempList1){
+    private List<Bitmap> bitmapList;
+    private ProgressBar pbNewFaBuHuoYuan;
+    private int i,picSize;
+
+    private Handler mHandler = new Handler(){
+
+
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                //根据msg.what的值来处理不同的UI操作
+                case 0:
+                    notifyDataSetChanged();
+                    break;
+
+            }
+
+        }
+    };
+    public NewFaBuHuoYuanAddPicRVAdapter(Activity activity1, ArrayList<String> tempList1,ProgressBar progressBar1){
         activity = activity1;
         tempList = tempList1;
         inflater = LayoutInflater.from(activity1);
-        mImageList = new ArrayList<>();
+/*        mImageList = new ArrayList<>();*/
         deleteImageList = new ArrayList<>();
         netImageList = new ArrayList<>();
-        currentNetImageList = new ArrayList<>();
+        mImageList = new ArrayList<>();
+        bitmapList = new ArrayList<>();
+        allImageList = new ArrayList<>();
+        pbNewFaBuHuoYuan = progressBar1;
 
     }
 
@@ -55,31 +96,28 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         return new MyItemViewHolder(inflater.inflate(R.layout.activity_new_fabuhuoyuan_content_rv_item_lly,parent,false));
     }
 
-    public void setmImageList(ArrayList<String> arrayList){
+/*    public void setmImageList(ArrayList<String> arrayList){
         mImageList.clear();
         mImageList.addAll(arrayList);
         notifyDataSetChanged();
-    }
-    public void setNetImageList(ArrayList<String> arrayList){
+    }*/
+  /*  public void setNetImageList(ArrayList<String> netImageList1){
         netImageList.clear();
-        netImageList.addAll(arrayList);
+
+        netImageList.addAll(netImageList1);
         notifyDataSetChanged();
-    }
-    public void setCurrentNetImageList(ArrayList<String> arrayList){
-        currentNetImageList.clear();
-        currentNetImageList.addAll(arrayList);
-        notifyDataSetChanged();
-    }
+
+    }*/
+
 
     public ArrayList<String> getNetImageList(){
         return netImageList;
     }
-    public ArrayList<String> getMImageList(){
-        return mImageList;
+    public ArrayList<String> getAllImgList(){
+        return allImageList;
     }
-    public ArrayList<String> getCurrentNetImageList(){
-        return currentNetImageList;
-    }
+
+
 
     public ArrayList<String> getDeleteImageLists(){
         return deleteImageList;
@@ -88,10 +126,38 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
     public void setAdapterImage(ArrayList<String> adapterImage){
         tempList.clear();
         tempList.addAll(adapterImage);
+        allImageList.clear();
+        allImageList.addAll(tempList);
         if(tempList.size() < 8) {
             tempList.add("");
         }
+        Thread myThread = new MyNewBitMapThread();
+        myThread.start();
         notifyDataSetChanged();
+    }
+
+    public void setUpdateList(List<String> adapterImage){
+        isUpdate = true;
+        tempList.clear();
+        tempList.addAll(adapterImage);
+        allImageList.clear();
+        allImageList.addAll(tempList);
+        netImageList.addAll(adapterImage);
+        if(tempList.size() < 8) {
+            tempList.add("");
+        }
+        isPicFinished= true;
+        notifyDataSetChanged();
+    }
+    public void setNewImgList(ArrayList<String> newImgList1){
+        mImageList.clear();
+        mImageList.addAll(newImgList1);
+        picSize = mImageList.size();
+        if(picSize <= 0){
+            return;
+        }
+        i = 0;
+        sendPicToNet();
     }
     @Override
     public void onBindViewHolder(MyItemViewHolder holder, int position) {
@@ -101,17 +167,45 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
             return;
         }
         if(position != count - 1){
-            File file = new File(mImageList.get(position));
+            if(isUpdate){
+                if(bitmapList.size()!= 0){
+                    if (i == position) {
+                        holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmapList.get(i));
+                    } else {
+                        holder.ivNewMainReleaseFaBuHuoYuanAdd.setBackgroundResource(R.mipmap.pic_add);
+                    }
+                }else {
+                    ImageLoader.getInstance().displayImage(tempList.get(position), holder.ivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
+                }
+            }else {
+
+                int size = bitmapList.size();
+                if (size > 0) {
+                    if (i == position) {
+                        holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmapList.get(i));
+                    } else {
+                        holder.ivNewMainReleaseFaBuHuoYuanAdd.setBackgroundResource(R.mipmap.pic_add);
+                    }
+                } else {
+                    holder.ivNewMainReleaseFaBuHuoYuanAdd.setBackgroundResource(R.mipmap.pic_add);
+                }
+            }
+
+            holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(false);
+            holder.ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.VISIBLE);
+
+           /* File file = new File(tempList.get(position));
             if (file.exists()) {
-                Bitmap bm = compressImageFromFile(mImageList.get(position));
+                Bitmap bm = compressImageFromFile(tempList.get(position));
                 //将图片显示到ImageView中
                 holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bm);
 
                 holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(false);
                 holder.ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.VISIBLE);
-            }
+            }*/
+
         }else{
-            holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
+            holder.ivNewMainReleaseFaBuHuoYuanAdd.setBackgroundResource(R.mipmap.pic_add);
             holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
             holder.ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.GONE);
         }
@@ -122,10 +216,87 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
 
         BitmapUtils bitmapUtils = new BitmapUtils();
         Bitmap bitmap = bitmapUtils.getimage(srcPath);
-        bitmap = bitmapUtils.compressImage(bitmap);
-        bitmap = bitmapUtils.comp(bitmap);
+  /*      bitmap = bitmapUtils.compressImage(bitmap);
+        bitmap = bitmapUtils.comp(bitmap);*/
 
         return bitmap;
+    }
+
+
+
+    private void sendPicToNet(){
+
+        isPicFinished = false;
+
+        if(i < picSize) {
+            pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);
+            NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
+            newFaBuNetWork.upPicToNet(getParamMap(), new Observer<NewFaBuPicBean>() {
+                @Override
+                public void onCompleted() {
+
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                 /*   Toast.makeText(activity,"Throwable:"+e,Toast.LENGTH_LONG).show();*/
+                }
+
+                @Override
+                public void onNext(NewFaBuPicBean newFaBuPicBean) {
+                    if(newFaBuPicBean.getStatus().equals("0")){
+                        netImageList.add("\""+newFaBuPicBean.getImgurl()+"\"");
+                     /*   Toast.makeText(activity,"size"+netImageList.size()+newFaBuPicBean.getImgurl(),Toast.LENGTH_LONG).show();*/
+                        notifyDataSetChanged();
+                        i++;
+                        sendPicToNet();
+                    }
+                }
+            });
+        }else{
+            pbNewFaBuHuoYuan.setVisibility(View.GONE);
+
+            isPicFinished = true;
+        }
+/*        System.out.print("\nbase64:"+base64_00);*/
+        /*Log.i("base64:",base64_00);*/
+
+    }
+    private Map<String,String> getParamMap(){
+        Map<String,String> paramMap = new HashMap<>();
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        String loginId= xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((loginId == null)||(loginId.isEmpty())){
+            Toast.makeText(activity,"请登录",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(activity, LoginActivity.class);
+            activity.startActivity(intent);
+            return paramMap;
+        }
+        paramMap.put("login_id",loginId);
+
+        BitmapUtils bitmapUtils = new BitmapUtils();
+        Bitmap bm = compressImageFromFile(mImageList.get(i));
+        //将图片显示到ImageView中
+        String base64_00 = bitmapUtils.bitmapConvertBase64(bm);
+        paramMap.put("tu",base64_00);
+        return paramMap;
+
+    }
+
+    class MyNewBitMapThread extends Thread{
+        @Override
+        public void run(){
+            int size = allImageList.size();
+            for(int i=0;i<size;i++){
+                Bitmap bm = compressImageFromFile(allImageList.get(i));
+                bitmapList.add(bm);
+            }
+            Message message= new Message();
+            message.what = 0;
+            mHandler.sendMessage(message);
+
+        }
     }
     @Override
     public int getItemCount() {
@@ -149,16 +320,22 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         public void ivNewMainReleaseFaBuHuoYuanDeleteOnclick(){
       /*      Toast.makeText(activity,"pos:"+pos,Toast.LENGTH_LONG).show();*/
 
-            int netImgSize = netImageList.size();
+            int netImgSize = tempList.size();
             if(pos >= netImgSize){
                 return;
             }
             String img = netImageList.get(pos);
             deleteImageList.add(img);
             tempList.remove(pos);
-            mImageList.remove(pos);
             netImageList.remove(img);
-            currentNetImageList.remove(pos);
+            if(!isUpdate) {
+                bitmapList.remove(pos);
+            }
+            if(bitmapList.size() != 0){
+                bitmapList.remove(pos);
+            }
+            allImageList.remove(pos);
+
             ivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
             ivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
             ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.GONE);
@@ -183,7 +360,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
                 .selectCount(8) // select count.
                 .columnCount(2) // span count.
                 .camera(true) // has fromCamera function.
-                .checkedList(mImageList) // The picture has been selected for anti-election.
+                .checkedList(allImageList) // The picture has been selected for anti-election.
                 .start();
     }
 }

@@ -75,6 +75,7 @@ public class RouteLineAdapter extends BaseAdapter {
 
             case DRIVING_ROUTE:
                 DrivingRouteLine drivingRouteLine = (DrivingRouteLine) routeLines.get(position);
+
                 holder.name.setText( "线路" + (position + 1));
                 holder.lightNum.setText( "红绿灯数：" + drivingRouteLine.getLightNum());
                 holder.dis.setText("拥堵距离为：" + drivingRouteLine.getCongestionDistance() + "米");

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.shandian.lu.BaseController;
+import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
@@ -81,6 +82,31 @@ public class NewHuoYuanDetaiOtherBaoJiaController extends BaseController {
 
 
 
+    private String bLat,bLon,eLat,eLon;
+    @BindView(R.id.rly_new_other_hyxq_mapline)
+    RelativeLayout rlyNewOtherHYXQMapLine;
+    @OnClick(R.id.rly_new_other_hyxq_mapline)
+    public void rlyNewOtherHYXQMapLineOnclick(){
+        Intent intent = new Intent(activity, NewBaiDuRoutePlanActivity.class);
+        if(bLat == null){
+            bLat = "";
+        }
+        if(bLon == null){
+            bLon = "";
+        }
+        if(eLat == null){
+            eLat = "";
+        }
+        if(eLon == null){
+            eLon = "";
+        }
+        intent.putExtra("blat",bLat);
+        intent.putExtra("blon",bLon);
+        intent.putExtra("elat",eLat);
+        intent.putExtra("elon",eLon);
+        activity.startActivity(intent);
+
+    }
 
 
 
@@ -163,7 +189,10 @@ public class NewHuoYuanDetaiOtherBaoJiaController extends BaseController {
         tvNewOtherHYXQZXS.setText(newHuoYuanDetailBean.getNr().getNum()+"箱");
         tvNewOtherHYXQRemark.setText(newHuoYuanDetailBean.getNr().getContext());
         tvNewOtherHYXQUpdateTime.setText(newHuoYuanDetailBean.getNr().getTime());
-
+        bLat = newHuoYuanDetailBean.getNr().getCflat();
+        bLon = newHuoYuanDetailBean.getNr().getCflng();
+        eLat = newHuoYuanDetailBean.getNr().getDalat();
+        eLon = newHuoYuanDetailBean.getNr().getDalng();
         adapter.setAdapter(newHuoYuanDetailBean.getNr().getImgtu());
 
     }

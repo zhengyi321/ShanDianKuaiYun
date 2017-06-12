@@ -33,17 +33,21 @@ public class NewHuoYuanDetailImgRVAdapter extends RecyclerView.Adapter<NewHuoYua
 
     public void setAdapter(List<String> imgList1){
         imgList.clear();
-        imgList = imgList1;
+        imgList.addAll(imgList1);
         notifyDataSetChanged();
     }
     @Override
     public MyItemViewHold onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MyItemViewHold(inflater.inflate(R.layout.activity_new_self_huoyuanxiangqing_content_rv_item_lly,parent,false));
+        return new MyItemViewHold(inflater.inflate(R.layout.activity_new_self_other_huoyuanxiangqing_content_rv_item_lly,parent,false));
     }
 
     @Override
     public void onBindViewHolder(MyItemViewHold holder, int position) {
-        ImageLoader.getInstance().displayImage(imgList.get(position),holder.ivNewSelfHuoYuanXiangQing, ImageLoaderUtils.options1);
+        System.out.print(imgList.get(position)+"\n");
+        System.out.print(imgList.get(position)+"\n");
+        System.out.print(imgList.get(position)+"\n");
+        System.out.print(imgList.get(position)+"\n");
+        ImageLoader.getInstance().displayImage(imgList.get(position),holder.ivNewSelfOtherHuoYuanXiangQing, ImageLoaderUtils.options1);
     }
 
     @Override
@@ -53,8 +57,8 @@ public class NewHuoYuanDetailImgRVAdapter extends RecyclerView.Adapter<NewHuoYua
 
     public class MyItemViewHold extends RecyclerView.ViewHolder{
         int pos = 0;
-        @BindView(R.id.iv_new_self_huoyuanxiangqing)
-        ImageView ivNewSelfHuoYuanXiangQing;
+        @BindView(R.id.iv_new_self_other_huoyuanxiangqing)
+        ImageView ivNewSelfOtherHuoYuanXiangQing;
 
         public MyItemViewHold(View itemView) {
             super(itemView);

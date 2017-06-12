@@ -6,6 +6,8 @@ import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
+import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanBean;
+import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanDeleteBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
 import com.zhyan.shandiankuaiyunlib.Bean.CarSourceDetailBean;
 import com.zhyan.shandiankuaiyunlib.Bean.CarSourceSelectBean;
@@ -53,6 +55,19 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         @GET("index.php/app/chyuan/huoyuanxq")
         Observable<NewBaoJiaSelectBean> getHuoYuanDetail2FromNet(@Query("hyid") String hyid,@Query("czid") String czid);
         /*货源详情2*/
+
+        /*我的货源*/
+        @FormUrlEncoded
+        @POST("index.php/App/chyuan/wodehuoyuan")
+        Observable<NewWoDeHuoYuanBean> getWoDeHuoYuanFromNet(@FieldMap Map<String,String> paramMap);
+        /*我的货源*/
+        /*货源删除*/
+        @FormUrlEncoded
+        @POST("index.php/app/baojia/huoyuandel")
+        Observable<NewWoDeHuoYuanDeleteBean> deleteWoDeHuoYuanToNet(@FieldMap Map<String,String> paramMap);
+        /*货源删除*/
+
+
         /*车找货报价*/
         @FormUrlEncoded
         @POST("index.php/app/baojia/czbaojia")
@@ -96,6 +111,12 @@ public class NewCheHuoListNetWork extends BaseNetWork {
     }
     public  void getHuoYuanDetail2FromNet(String hyid,String czid,Observer<NewBaoJiaSelectBean> observer){
         setSubscribe(service.getHuoYuanDetail2FromNet(hyid,czid),observer);
+    }
+    public  void getWoDeHuoYuanFromNet(Map<String,String> paramMap,Observer<NewWoDeHuoYuanBean> observer){
+        setSubscribe(service.getWoDeHuoYuanFromNet(paramMap),observer);
+    }
+    public  void deleteWoDeHuoYuanToNet(Map<String,String> paramMap,Observer<NewWoDeHuoYuanDeleteBean> observer){
+        setSubscribe(service.deleteWoDeHuoYuanToNet(paramMap),observer);
     }
 
 }

@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="46dp"
-    android:background="@mipmap/quren_fabu"
-    android:id="@+id/lly_new_fabucheyuan_submit"
+    android:background="@mipmap/fabu_update_blue_bg_submit"
+    android:id="@+id/rly_new_fabucheyuan_submit"
     >
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_new_fabucheyuan_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确认发布"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_centerInParent="true"
+        />
+</RelativeLayout>
