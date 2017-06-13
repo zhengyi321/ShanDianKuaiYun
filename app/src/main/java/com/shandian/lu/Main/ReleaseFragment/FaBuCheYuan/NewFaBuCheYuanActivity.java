@@ -361,12 +361,21 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
 
     private void refreshImage(){
         List<String> currentImgList = new ArrayList<>();
-        List<String> sameImgList = new ArrayList<>();
+        List<String> tempImgList = new ArrayList<>();
+        tempImgList.addAll(mImageList);
         List<String> deleteTempImgList = new ArrayList<>();
         ArrayList<String> nowSelectImgList = new ArrayList<>();
         currentImgList.clear();
-        currentImgList.addAll(newFaBuCheYuanController.addPicRVAdapter.getAllImgList());
 
+        currentImgList.addAll(newFaBuCheYuanController.addPicRVAdapter.getAllImgList());
+        if(!isUpdate) {
+            if (isFirst) {
+                currentImgList.clear();
+            }
+        }
+        for(int i=0;i<currentImgList.size();i++) {
+            System.out.print("\ncurrentImgList"+currentImgList.get(i));
+        }
 
         int currentSize = currentImgList.size();
         int imgSize = mImageList.size();
@@ -375,28 +384,38 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
             for(int j=0;j<currentSize;j++){
                 String currentPic = currentImgList.get(j);
                 if(pic.equals(currentPic)){
-                    sameImgList.add(pic);
+                    tempImgList.remove(pic);
 
                 }
             }
         }
-        int sameSize = sameImgList.size();
-        for(int i =0;i<sameSize;i++){
-            currentImgList.remove(sameImgList.get(i));
-        }
-        nowSelectImgList.addAll(currentImgList);
+
+
+   /*     for(int i=0;i<currentImgList.size();i++) {
+            System.out.print("\ncurrentImgList"+currentImgList.get(i));
+        }*/
+        nowSelectImgList.addAll(tempImgList);
         if(nowSelectImgList.size() > 0 ) {
             mImageList.clear();
-            mImageList.addAll(sameImgList);
+            mImageList.addAll(currentImgList);
             mImageList.addAll(nowSelectImgList);
+            isFirst = false;
         }else{
-            if(isFirst) {
-                nowSelectImgList.addAll(mImageList);
-                isFirst = false;
+            if(isUpdate){
+                mImageList.clear();
+                mImageList.addAll(currentImgList);
             }
         }
+        for(int i=0;i<mImageList.size();i++) {
+            System.out.print("\nmImageList"+mImageList.get(i));
+        }
+        for(int i=0;i<nowSelectImgList.size();i++) {
+            System.out.print("\nnowSelectImgList"+nowSelectImgList.get(i));
+        }
+
         newFaBuCheYuanController.addPicRVAdapter.setAdapterImage(mImageList);
         newFaBuCheYuanController.addPicRVAdapter.setNewImgList(nowSelectImgList);
+        isFirst = false;
     }/*
     private void isSamePicDelete(){
         currentNameNetImageList.clear();
