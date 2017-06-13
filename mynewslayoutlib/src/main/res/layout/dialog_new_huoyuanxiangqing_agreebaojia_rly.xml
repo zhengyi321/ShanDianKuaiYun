@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="220dp"
         android:layout_centerInParent="true"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
@@ -59,6 +59,7 @@
                         android:layout_weight="1.3"
                         >
                         <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
+                            android:id="@+id/riv_new_hyxq_self_agreebaojia_touxiang"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:src="@color/black"
@@ -79,7 +80,7 @@
                             />
                     </RelativeLayout>
                 </LinearLayout>
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="1.2"
@@ -93,6 +94,7 @@
                         android:text="侯亮平"
                         android:textSize="13sp"
                         android:textColor="@color/black"
+                        android:layout_centerInParent="true"
                         />
                     <TextView
                         android:layout_width="wrap_content"
@@ -102,8 +104,9 @@
                         android:textSize="13sp"
                         android:textColor="@color/gray"
                         android:layout_marginTop="2dp"
+                        android:visibility="gone"
                         />
-                </LinearLayout>
+                </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"

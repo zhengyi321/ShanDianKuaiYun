@@ -2,16 +2,28 @@ package com.shandian.lu.Widget.Dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewBaoJiaListBean;
+import com.example.mynewslayoutlib.Bean.NewHuoZhuTongYiBean;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
+import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
+import com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import rx.Observer;
 
 /**
  * Created by az on 2017/5/6.
@@ -104,7 +116,7 @@ public class AgreeBaoJiaDialog extends Dialog {
          */
         public AgreeBaoJiaDialog build(Context context) {
             LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            AgreeBaoJiaDialog releaseDialog = new AgreeBaoJiaDialog(context, R.style.MyDialogStyle);//默认调用带style的构造
+            final AgreeBaoJiaDialog releaseDialog = new AgreeBaoJiaDialog(context, R.style.MyDialogStyle);//默认调用带style的构造
             releaseDialog.setCanceledOnTouchOutside(true);//默认点击布局外不能取消dialog
            /* releaseDialog.setCancelable(true);*/
             View view = mInflater.inflate(R.layout.dialog_new_huoyuanxiangqing_agreebaojia_rly, null);
@@ -114,13 +126,64 @@ public class AgreeBaoJiaDialog extends Dialog {
             RelativeLayout rlyTel = (RelativeLayout)view.findViewById(R.id.rly_new_hyxq_self_agreebaojia_tel);
             RelativeLayout rlyMesg = (RelativeLayout)view.findViewById(R.id.rly_new_hyxq_self_agreebaojia_message);
             RelativeLayout rlyAgreeSubmit = (RelativeLayout)view.findViewById(R.id.rly_new_hyxq_self_agreebaojia_agree_submit);
-
+            RoundImageView roundImageViewTouXiang = (RoundImageView)view.findViewById(R.id.riv_new_hyxq_self_agreebaojia_touxiang);
             releaseDialog.setContentView(view);
             nameTV.setText(been.getName());
             priceTV.setText(been.getJiage());
-
+            ImageLoader.getInstance().displayImage(been.getTouxiang(),roundImageViewTouXiang, ImageLoaderUtils.options1);
+            rlyTel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startCallTel(been.getMobile());
+                }
+            });
+            rlyAgreeSubmit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    agreeBaoJiaSubmitToNet();
+                    releaseDialog.dismiss();
+                }
+            });
 
             return releaseDialog;
+        }
+        private void startCallTel(String number) {
+        /*PhoneFormatCheckUtils phoneFormatCheckUtils = new PhoneFormatCheckUtils();
+        if((number != null)&&(phoneFormatCheckUtils.IsNumber(number))) {*/
+            //用intent启动拨打电话
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number));
+
+            context.startActivity(intent);
+       /* }*/
+        }
+
+        private void agreeBaoJiaSubmitToNet(){
+            Map<String,String> paramMap = new HashMap<>();
+            String czid = been.getCzid();
+            if(czid ==  null){
+                czid = "";
+            }
+            paramMap.put("czid",czid);
+            paramMap.put("hyid",hyId);
+
+            NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
+            newCheHuoListNetWork.huoZhuAgreeSubmitToNet(paramMap, new Observer<NewHuoZhuTongYiBean>() {
+                @Override
+                public void onCompleted() {
+
+                }
+
+                @Override
+                public void onError(Throwable e) {
+
+                }
+
+                @Override
+                public void onNext(NewHuoZhuTongYiBean newHuoZhuTongYiBean) {
+                    Toast.makeText(context,newHuoZhuTongYiBean.getMsg(),Toast.LENGTH_LONG).show();
+
+                }
+            });
         }
 
     }

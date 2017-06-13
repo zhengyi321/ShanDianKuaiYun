@@ -60,8 +60,8 @@ public class NewWoDeHuoYuanController extends BaseController {
     @OnClick(R.id.rb_new_wodehuoyuan_finish)
     public void rbNewWoDeHuoYuanFinishOnclick(){
         initTabBar(0);
-        getDataFromNet("1");
-        type = 1;
+        getDataFromNet("5");
+        type = 5;
     }
 
     @BindView(R.id.rb_new_wodehuoyuan_releaseing)
@@ -69,8 +69,8 @@ public class NewWoDeHuoYuanController extends BaseController {
     @OnClick(R.id.rb_new_wodehuoyuan_releaseing)
     public void rbNewWoDeHuoYuanReleaseingOnclick(){
         initTabBar(1);
-        getDataFromNet("2");
-        type = 2;
+        getDataFromNet("0");
+        type = 0;
     }
 
     @BindView(R.id.rb_new_wodehuoyuan_all)
@@ -78,8 +78,8 @@ public class NewWoDeHuoYuanController extends BaseController {
     @OnClick(R.id.rb_new_wodehuoyuan_all)
     public void rbNewWoDeHuoYuanAllOnclick(){
         initTabBar(2);
-        getDataFromNet("0");
-        type = 0;
+        getDataFromNet("-1");
+        type = -1;
     }
     @BindView(R.id.iv_new_wodehuoyuan_tab_bottom)
     ImageView ivNewWoDeHuoYuanTabBottom;

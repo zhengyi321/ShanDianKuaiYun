@@ -16,7 +16,8 @@
             android:layout_height="wrap_content"
             android:text="1.侯良平"
             android:textColor="@color/black"
-            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
             />
 
     </RelativeLayout>

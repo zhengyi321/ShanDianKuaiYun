@@ -13,14 +13,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewFaBuCheYuanBean;
 import com.example.mynewslayoutlib.Bean.NewFaBuHuoYuanBean;
 import com.example.mynewslayoutlib.Bean.NewFaBuPicBean;
+import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.shandian.lu.BaseActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanController;
 import com.shandian.lu.Main.ReleaseFragment.SelectAddAddress.SelectAddAddressActivity;
+import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.NetWork.NewFaBuNetWork;
 import com.shandian.lu.R;
 import com.yanzhenjie.album.Album;
@@ -46,23 +49,25 @@ import rx.Observer;
 public class NewFaBuCheYuanActivity extends BaseActivity  {
 
     private String typeName ;
+    private boolean isUpdate = false;
+    private String id = "";
     private NewFaBuCheYuanController newFaBuCheYuanController;
     private  final int ACTIVITY_REQUEST_SELECT_PHOTO = 100;
 
     private final int ACTIVITY_SELECT_ADDRESS_BEGIN = 105;
     private final int ACTIVITY_SELECT_ADDRESS_END = 106;
     private ArrayList<String> mImageList;
-    private ArrayList<String> netImageList;
-    private ArrayList<String> currentNameNetImageList;
-    private ArrayList<String> deleteTempList;
+    private boolean isFirst = true;
     int picSize = 0;
     int i = 0;
-    private boolean isPicFinished = false;
+
     private String bProvince,eProvince,bCity,eCity,bArea,eArea,beginAddr,endAddr;
     private String blat,blon,elat,elon;
-
+    private ArrayList imgTuList;
     @BindView(R.id.pb_new_fabucheyuan)
     ProgressBar pbNewFaBuCheYuan;
+    @BindView(R.id.tv_new_fabucheyuan_submit)
+    TextView tvNewFaBuCheYuanSubmit;
     @BindView(R.id.rly_new_fabucheyuan_submit)
     RelativeLayout rlyNewFaBuCheYuanSubmit;
     @OnClick(R.id.rly_new_fabucheyuan_submit)
@@ -75,9 +80,17 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
             pbNewFaBuCheYuan.setVisibility(View.GONE);
             return;
         }
-        if(isPicFinished) {
+        if(newFaBuCheYuanController.addPicRVAdapter.isPicFinished) {
             if(checkParam()) {
-                faBuCheYuanToNet();
+
+                if(isUpdate){
+                    updateHuoYuanToNet();
+
+                }else
+                {
+                    faBuCheYuanToNet();
+
+                }
             }else{
                 pbNewFaBuCheYuan.setVisibility(View.GONE);
             }
@@ -170,13 +183,102 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
     @Override
     protected void init() {
         ButterKnife.bind(this);
-        mImageList = new ArrayList<>();
-        netImageList = new ArrayList<>();
-        currentNameNetImageList = new ArrayList<>();
-        deleteTempList = new ArrayList<>();
-        getType();
         initController();
-        initEditListener();
+        mImageList = new ArrayList<>();
+        imgTuList = new ArrayList<>();
+        getId();
+        getType();
+
+
+    }
+
+    private void getId(){
+        id = getIntent().getStringExtra("id");
+
+       /* Toast.makeText(this,"imgTuList:"+imgTuList.size(),Toast.LENGTH_LONG).show();*/
+        if((id != null)&&(!id.isEmpty())){
+            isUpdate = true;
+            Bundle bundle = getIntent().getExtras();
+            if(bundle == null){
+                bundle = new Bundle();
+            }
+            imgTuList = bundle.getStringArrayList("imgTu");
+            int size = imgTuList.size();
+            if(size > 0) {
+          /*  Toast.makeText(this, "size:" + imgTuList.size() + imgTuList.get(0), Toast.LENGTH_LONG).show();*/
+
+                List<String> tempList= new ArrayList<>();
+                for(int i=0;i<size;i++){
+                    String pic = (String) imgTuList.get(i);
+                    if(pic != null){
+                        pic = "\""+pic+"\"";
+                        tempList.add(pic);
+                    }
+                }
+                imgTuList.clear();
+                imgTuList.addAll(tempList);
+                newFaBuCheYuanController.addPicRVAdapter.setNetImageList(imgTuList);
+            }
+            getDataFromNet();
+            tvNewFaBuCheYuanSubmit.setText("确认修改");
+        }else{
+            isUpdate = false;
+            tvNewFaBuCheYuanSubmit.setText("确认发布");
+        }
+    }
+
+
+    private void getDataFromNet(){
+        NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
+        newCheHuoListNetWork.getCheYuanDetailFromNet(id, new Observer<NewCheYuanDetailBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewCheYuanDetailBean newCheYuanDetailBean) {
+                if(newCheYuanDetailBean.getStatus().equals("0")){
+                    initDetail(newCheYuanDetailBean);
+                }
+            }
+        });
+    }
+    private void initDetail(NewCheYuanDetailBean newCheYuanDetailBean){
+        etNewFaBuCheYuanTitle.setText(newCheYuanDetailBean.getNr().getCar_title());
+        tvNewFaBuCheYuanBegin.setText(newCheYuanDetailBean.getNr().getCfdizhi());
+        tvNewFaBuCheYuanEnd.setText(newCheYuanDetailBean.getNr().getDadizhi());
+        String length = newCheYuanDetailBean.getNr().getCar_lange();
+        if(length == null){
+            length = "";
+        }
+        int indexOfMi= length.indexOf("米");
+        if(indexOfMi > 0){
+            length = length.substring(0,indexOfMi);
+        }
+        etNewFaBuCheYuanCalLength.setText(length);
+        etNewFaBuCheYuanName.setText(newCheYuanDetailBean.getNr().getPeople());
+        etNewFaBuCheYuanTel.setText(newCheYuanDetailBean.getNr().getIphone());
+        etNewFaBuCheYuanDesc.setText(newCheYuanDetailBean.getNr().getContent());
+        beginAddr = newCheYuanDetailBean.getNr().getCfdizhi();
+        endAddr = newCheYuanDetailBean.getNr().getDadizhi();
+        bProvince = newCheYuanDetailBean.getNr().getCfsheng();
+        bCity = newCheYuanDetailBean.getNr().getCfshi();
+        bArea = newCheYuanDetailBean.getNr().getCfqu();
+        eProvince = newCheYuanDetailBean.getNr().getDasheng();
+        eCity = newCheYuanDetailBean.getNr().getDashi();
+        eArea = newCheYuanDetailBean.getNr().getDaqu();
+        blat = newCheYuanDetailBean.getNr().getCflat();
+        blon = newCheYuanDetailBean.getNr().getCflng();
+        elat = newCheYuanDetailBean.getNr().getDalat();
+        elon = newCheYuanDetailBean.getNr().getDalng();
+        newFaBuCheYuanController.addPicRVAdapter.setUpdateList(newCheYuanDetailBean.getNr().getImgtu());
+
     }
     private void getType(){
         typeName = getIntent().getStringExtra("type_name");
@@ -203,9 +305,7 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
     private void initController(){
         newFaBuCheYuanController = new NewFaBuCheYuanController(this);
     }
-    private void initEditListener(){
 
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -260,20 +360,44 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
 
 
     private void refreshImage(){
-        newFaBuCheYuanController.addPicRVAdapter.setAdapterImage(mImageList);
-        newFaBuCheYuanController.addPicRVAdapter.setmImageList(mImageList);
-        isSamePicDelete();
-        mImageList.clear();
-        mImageList.addAll(deleteTempList);
-        picSize = mImageList.size();
-        if(picSize <= 0){
-            return;
-        }
-        i = 0;
-        isPicFinished = false;
+        List<String> currentImgList = new ArrayList<>();
+        List<String> sameImgList = new ArrayList<>();
+        List<String> deleteTempImgList = new ArrayList<>();
+        ArrayList<String> nowSelectImgList = new ArrayList<>();
+        currentImgList.clear();
+        currentImgList.addAll(newFaBuCheYuanController.addPicRVAdapter.getAllImgList());
 
-        sendPicToNet();
-    }
+
+        int currentSize = currentImgList.size();
+        int imgSize = mImageList.size();
+        for(int i = 0;i<imgSize;i++){
+            String pic = mImageList.get(i);
+            for(int j=0;j<currentSize;j++){
+                String currentPic = currentImgList.get(j);
+                if(pic.equals(currentPic)){
+                    sameImgList.add(pic);
+
+                }
+            }
+        }
+        int sameSize = sameImgList.size();
+        for(int i =0;i<sameSize;i++){
+            currentImgList.remove(sameImgList.get(i));
+        }
+        nowSelectImgList.addAll(currentImgList);
+        if(nowSelectImgList.size() > 0 ) {
+            mImageList.clear();
+            mImageList.addAll(sameImgList);
+            mImageList.addAll(nowSelectImgList);
+        }else{
+            if(isFirst) {
+                nowSelectImgList.addAll(mImageList);
+                isFirst = false;
+            }
+        }
+        newFaBuCheYuanController.addPicRVAdapter.setAdapterImage(mImageList);
+        newFaBuCheYuanController.addPicRVAdapter.setNewImgList(nowSelectImgList);
+    }/*
     private void isSamePicDelete(){
         currentNameNetImageList.clear();
         currentNameNetImageList.addAll(newFaBuCheYuanController.addPicRVAdapter.getCurrentNetImageList());
@@ -281,28 +405,28 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
         int sizeT = mImageList.size();
         deleteTempList.clear();
         deleteTempList.addAll(mImageList);
-      /*  Toast.makeText(this,"netSize:"+size+" ImgSize:"+size2,Toast.LENGTH_LONG).show();*/
+      *//*  Toast.makeText(this,"netSize:"+size+" ImgSize:"+size2,Toast.LENGTH_LONG).show();*//*
         System.out.print("\nnetSize:"+size+" ImgSize:"+sizeT);
 
         for(int i = 0;i<size;i++){
-            String netPic = currentNameNetImageList.get(i);/*
+            String netPic = currentNameNetImageList.get(i);*//*
 
-            System.out.print("\npic:"+netPic);*/
+            System.out.print("\npic:"+netPic);*//*
 
             for(int j = 0;j<sizeT;j++){
-        /*        System.out.print("\njjjjjpic:"+j);*/
+        *//*        System.out.print("\njjjjjpic:"+j);*//*
 
-                String pic = mImageList.get(j);/*
+                String pic = mImageList.get(j);*//*
                 System.out.print("\n111pic:"+pic);
-*/
+*//*
                 if(netPic.equals(pic)){
                     int count = deleteTempList.size();
                     if(count == 0){
                         return;
                     }
-/*
+*//*
 
-                    System.out.print("\ni am delete success:"+pic);*/
+                    System.out.print("\ni am delete success:"+pic);*//*
                     deleteTempList.remove(pic);
                 }
                 continue;
@@ -310,65 +434,8 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
         }
 
     }
+*/
 
-    private void sendPicToNet(){
-        isPicFinished = false;
-
-        if(i < picSize) {
-            pbNewFaBuCheYuan.setVisibility(View.VISIBLE);
-            NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
-            newFaBuNetWork.upPicToNet(getParamMap(), new Observer<NewFaBuPicBean>() {
-                @Override
-                public void onCompleted() {
-
-                }
-
-                @Override
-                public void onError(Throwable e) {
-
-                }
-
-                @Override
-                public void onNext(NewFaBuPicBean newFaBuPicBean) {
-                    if(newFaBuPicBean.getStatus().equals("0")){
-                        netImageList.add("\""+newFaBuPicBean.getImgurl()+"\"");
-                        currentNameNetImageList.add(mImageList.get(i));
-                        i++;
-                        sendPicToNet();
-                    }
-                }
-            });
-        }else{
-            newFaBuCheYuanController.addPicRVAdapter.setNetImageList(netImageList);
-            newFaBuCheYuanController.addPicRVAdapter.setCurrentNetImageList(currentNameNetImageList);
-            pbNewFaBuCheYuan.setVisibility(View.GONE);
-            isPicFinished = true;
-        }
-/*        System.out.print("\nbase64:"+base64_00);*/
-        /*Log.i("base64:",base64_00);*/
-
-    }
-    private Map<String,String> getParamMap(){
-        Map<String,String> paramMap = new HashMap<>();
-        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
-        XCCacheManager xcCacheManager = XCCacheManager.getInstance(this);
-        String loginId= xcCacheManager.readCache(xcCacheSaveName.logId);
-        if((loginId == null)||(loginId.isEmpty())){
-            Toast.makeText(this,"请登录",Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-            return paramMap;
-        }
-        paramMap.put("login_id",loginId);
-
-        BitmapUtils bitmapUtils = new BitmapUtils();
-        Bitmap bm = compressImageFromFile(mImageList.get(i));
-        //将图片显示到ImageView中
-        String base64_00 = bitmapUtils.bitmapConvertBase64(bm);
-        paramMap.put("tu",base64_00);
-        return paramMap;
-
-    }
 
 
     private Map<String,Object> getFaBuParamMap(){
@@ -528,6 +595,50 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
         });
     }
 
+
+    private void updateHuoYuanToNet(){
+        pbNewFaBuCheYuan.setVisibility(View.VISIBLE);
+
+        PhoneFormatCheckUtils phoneFormatCheckUtils = new PhoneFormatCheckUtils();
+        String tel = etNewFaBuCheYuanTel.getText().toString();
+        if(!phoneFormatCheckUtils.isNumber(tel)){
+            Toast.makeText(this,"联系电话请输入数字",Toast.LENGTH_LONG).show();
+            pbNewFaBuCheYuan.setVisibility(View.GONE);
+            return;
+        }
+        String weight = etNewFaBuCheYuanCalLength.getText().toString();
+        if(!phoneFormatCheckUtils.isNumber(weight)){
+            Toast.makeText(this,"重量请输入数字",Toast.LENGTH_LONG).show();
+            pbNewFaBuCheYuan.setVisibility(View.GONE);
+            return;
+        }
+
+
+
+
+        NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
+        newFaBuNetWork.updateCheYuanToNet( id,getFaBuParamMap(), new Observer<NewFaBuCheYuanBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewFaBuCheYuanBean newFaBuCheYuanBean) {
+                Toast.makeText(NewFaBuCheYuanActivity.this,newFaBuCheYuanBean.getMsg(),Toast.LENGTH_LONG).show();
+                pbNewFaBuCheYuan.setVisibility(View.GONE);
+                if(newFaBuCheYuanBean.getStatus().equals("0")){
+                    finish();
+                }
+            }
+        });
+    }/*
+
     //图片压缩
     private Bitmap compressImageFromFile(String srcPath) {
 
@@ -538,6 +649,6 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
 
         return bitmap;
     }
-
+*/
 
 }

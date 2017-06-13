@@ -316,7 +316,24 @@
 
 
 
+        <!-- alipay sdk begin -->
 
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+
+        <!-- alipay sdk end -->
 
 
 
@@ -341,7 +358,7 @@
         <!--百度地图-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="94vXIZFmYOrZeM0YrXncOmN5jOMCGSRC" />      <!-- //key:开发者申请的Key    家里 94vXIZFmYOrZeM0YrXncOmN5jOMCGSRC 公司 SGOTr7Xti9Cq76SbMFyrGMOolGaGDDaR-->
+            android:value="SGOTr7Xti9Cq76SbMFyrGMOolGaGDDaR" />      <!-- //key:开发者申请的Key    家里 94vXIZFmYOrZeM0YrXncOmN5jOMCGSRC 公司 SGOTr7Xti9Cq76SbMFyrGMOolGaGDDaR-->
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
         </service>
         <!--百度地图-->
@@ -795,6 +812,8 @@
         <activity android:name=".Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherBaoJiaActivity" />
         <activity android:name=".Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity" />
         <activity android:name=".Main.MineFragment.WoDeHuoYuan.NewWoDeHuoYuanActivity" />
+        <activity android:name=".Main.MineFragment.PaySubmit.TwoStepPaySubmitActivity" />
+        <activity android:name=".Main.MineFragment.WoDeCheYuan.NewWoDeCheYuanActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
 
     </application>

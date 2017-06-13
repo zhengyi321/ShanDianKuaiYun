@@ -230,6 +230,7 @@
                 android:layout_marginTop="5.5dp"
                 >
                 <RelativeLayout
+                    android:id="@+id/rly_new_wodehuoyuan_xrv_item_count"
                     android:layout_width="80dp"
                     android:layout_height="45dp"
                     android:background="@mipmap/paimai_message_blue_bg"

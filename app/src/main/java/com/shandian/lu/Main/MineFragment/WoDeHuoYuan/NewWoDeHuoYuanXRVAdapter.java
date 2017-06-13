@@ -3,11 +3,13 @@ package com.shandian.lu.Main.MineFragment.WoDeHuoYuan;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,12 +19,14 @@ import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanDeleteBean;
 import com.j256.ormlite.stmt.query.In;
 import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.shandian.lu.Main.MineFragment.PaySubmit.TwoStepPaySubmitActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -104,15 +108,19 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
         if((ddzt == null)||(ddzt.isEmpty())){
             ddzt = "";
         }
+/*        Toast.makeText(activity,"ddzt:"+ddzt,Toast.LENGTH_LONG).show();*/
         switch (ddzt){
             case "0":
                     holder.deleteUpdateState(true);
+                holder.tvNewWoDeHuoYuanXRVItemCount.setText("共"+dataList.get(position).getDdcount()+"条");
                 break;
             case "1":
                 holder.deleteUpdateState(true);
+                holder.tvNewWoDeHuoYuanXRVItemCount.setText("支付定金");
                 break;
             case "2":
                 holder.deleteUpdateState(true);
+                holder.tvNewWoDeHuoYuanXRVItemCount.setText("拉货");
                 break;
             case "3":
                 holder.deleteUpdateState(false);
@@ -125,7 +133,7 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
                 break;
         }
 
-        holder.tvNewWoDeHuoYuanXRVItemCount.setText("共"+dataList.get(position).getDdcount()+"条");
+
         /*if()*/
     }
 
@@ -148,6 +156,40 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
 
         @BindView(R.id.tv_new_wodehuoyuan_xrv_item_count)
         TextView tvNewWoDeHuoYuanXRVItemCount;
+        @BindView(R.id.rly_new_wodehuoyuan_xrv_item_count)
+        RelativeLayout rlyNewWoDeHuoYuanXRVItemCount;
+        @OnClick(R.id.rly_new_wodehuoyuan_xrv_item_count)
+        public void rlyNewWoDeHuoYuanXRVItemCountOnclick(){
+            String ddzt = dataList.get(pos).getDingdanzt();
+            if((ddzt == null)||(ddzt.isEmpty())){
+                ddzt = "";
+            }
+           /* Toast.makeText(activity,"ddzt:"+ddzt,Toast.LENGTH_LONG).show();*/
+            switch (ddzt){
+                case "0":
+
+                    break;
+                case "1":
+                        Intent intent = new Intent(activity, TwoStepPaySubmitActivity.class);
+                        intent.putExtra("hyId",dataList.get(pos).getId());
+                        intent.putExtra("baojiaId",dataList.get(pos).getBaojiaid());
+                        activity.startActivity(intent);
+                    break;
+                case "2":
+
+                    break;
+                case "3":
+
+                    break;
+                case "4":
+
+                    break;
+                case "5":
+
+                    break;
+            }
+        }
+
         @BindView(R.id.tv_new_wodehuoyuan_xrv_item_newbaojia)
         TextView tvNewWoDeHuoYuanXRVItemNewBaoJia;
         @BindView(R.id.tv_new_wodehuoyuan_xrv_item_bcity)
@@ -184,6 +226,14 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
                 typeName = "";
             }
             intent.putExtra("type_name",typeName);
+            ArrayList imgList = (ArrayList<String>)dataList.get(pos).getImgtu();
+
+            if(imgList == null){
+                imgList = new ArrayList<>();
+            }
+            Bundle bundle = new Bundle();
+            bundle.putStringArrayList("imgTu",imgList);
+            intent.putExtras(bundle);
             intent.putExtra("id",id);
             activity.startActivity(intent);
         }

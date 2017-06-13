@@ -3,6 +3,7 @@ package com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan;
 import android.app.Activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,7 +24,8 @@ import butterknife.OnClick;
  */
 
 public class NewFaBuCheYuanController extends BaseController {
-
+    @BindView(R.id.pb_new_fabucheyuan)
+    ProgressBar pbNewFaBuCheYuan;
     @BindView(R.id.rly_new_main_release_fabucheyuan_back)
     RelativeLayout rlyNewMainReleaseFaBuCheWuBack;
     @OnClick(R.id.rly_new_main_release_fabucheyuan_back)
@@ -75,7 +77,7 @@ public class NewFaBuCheYuanController extends BaseController {
         tempList = new ArrayList<>();
         tempList.add("");
 
-        addPicRVAdapter = new NewFaBuCheYuanAddPicRVAdapter(activity,tempList);
+        addPicRVAdapter = new NewFaBuCheYuanAddPicRVAdapter(activity,tempList,pbNewFaBuCheYuan);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvMainReleaseNewFaBuHuoYuanAddPic.setAdapter(addPicRVAdapter);

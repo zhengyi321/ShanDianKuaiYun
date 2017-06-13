@@ -50,6 +50,12 @@ public class NewFaBuNetWork extends BaseNetWork {
         @POST("index.php/app/baojia/huoyuanfabuxiugai")
         Observable<NewFaBuHuoYuanBean> updateHuoYuanToNet(@Query("id") String id,@FieldMap Map<String, Object> usermaps);
        /*修改货源*/
+       /*修改车源*/
+        //POST请求
+        @FormUrlEncoded
+        @POST("index.php/app/baojia/cheyuanfabuxiugai")
+        Observable<NewFaBuCheYuanBean> updateCheYuanToNet(@Query("id") String id,@FieldMap Map<String, Object> usermaps);
+       /*修改车源*/
        /*发布车源*/
         //POST请求
         @FormUrlEncoded
@@ -69,6 +75,9 @@ public class NewFaBuNetWork extends BaseNetWork {
     }
     public  void updateHuoYuanToNet(String id,Map<String , Object> usermaps,Observer<NewFaBuHuoYuanBean> observer){
         setSubscribe(service.updateHuoYuanToNet(id,usermaps),observer);
+    }
+    public  void updateCheYuanToNet(String id,Map<String , Object> usermaps,Observer<NewFaBuCheYuanBean> observer){
+        setSubscribe(service.updateCheYuanToNet(id,usermaps),observer);
     }
     public  void faBuOrUpdateCheYuanToNet(Map<String , Object> usermaps,Observer<NewFaBuCheYuanBean> observer){
         setSubscribe(service.faBuOrUpdateCheYuanToNet(usermaps),observer);

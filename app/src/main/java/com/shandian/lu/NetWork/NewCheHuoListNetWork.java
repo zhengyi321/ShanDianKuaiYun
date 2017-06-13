@@ -5,8 +5,12 @@ import com.example.mynewslayoutlib.Bean.NewBaoJiaListBean;
 import com.example.mynewslayoutlib.Bean.NewBaoJiaSelectBean;
 import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
+import com.example.mynewslayoutlib.Bean.NewDingJinPayBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
+import com.example.mynewslayoutlib.Bean.NewHuoZhuTongYiBean;
+import com.example.mynewslayoutlib.Bean.NewWoDeCheYuanBean;
+import com.example.mynewslayoutlib.Bean.NewWoDeCheYuanDeleteBean;
 import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanBean;
 import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanDeleteBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
@@ -68,7 +72,11 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         @POST("index.php/app/baojia/huoyuandel")
         Observable<NewWoDeHuoYuanDeleteBean> deleteWoDeHuoYuanToNet(@FieldMap Map<String,String> paramMap);
         /*货源删除*/
-
+        /*车源删除*/
+        @FormUrlEncoded
+        @POST("index.php/app/baojia/cheyuandel")
+        Observable<NewWoDeCheYuanDeleteBean> deleteWoDeCheYuanToNet(@FieldMap Map<String,String> paramMap);
+        /*车源删除*/
 
         /*车找货报价*/
         @FormUrlEncoded
@@ -84,16 +92,28 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         @GET("index.php/app/chyuan/cheyuanxq")
         Observable<NewCheYuanDetailBean> getCheYuanDetailFromNet(@Query("cyid") String cyid);
         /*车源详情*/
+
+        /*我的车源*/
+        @FormUrlEncoded
+        @POST("index.php/App/chyuan/wodecheyuan")
+        Observable<NewWoDeCheYuanBean> getWoDeCheYuanFromNet(@FieldMap Map<String,String> paramMap);
+        /*我的车源*/
+
        /*报价列表*/
         //GET请求
         @GET("index.php/app/chyuan/huoyuanbaojia")
         Observable<NewBaoJiaListBean> getBaoJiaListFromNet(@Query("hyid") String hyid);
        /*报价列表*/
         /*货主同意*/
-      /* @FormUrlEncoded
-       @POST("index.php/app/baojia/huoyuandel")
-       Observable<NewWoDeHuoYuanDeleteBean> deleteWoDeHuoYuanToNet(@FieldMap Map<String,String> paramMap);*/
+       @FormUrlEncoded
+       @POST("index.php/app/baojia/huozhutongyi")
+       Observable<NewHuoZhuTongYiBean> huoZhuAgreeSubmitToNet(@FieldMap Map<String,String> paramMap);
         /*货主同意*/
+        /*获取支付定金金额*/
+       @FormUrlEncoded
+       @POST("index.php/app/baojia/dingjin")
+       Observable<NewDingJinPayBean> getDingJinFromNet(@FieldMap Map<String,String> paramMap);
+        /*获取支付定金金额*/
     }
 
     /*public  void releaseZhuanXianWuLiuToNet(Map<String , Object> usermaps,String img1,String img2,String img3,String img4,String img5,String img6,String img7,String img8,Observer<CarSourceBean> observer){*/
@@ -116,6 +136,10 @@ public class NewCheHuoListNetWork extends BaseNetWork {
     public  void getCheYuanDetailFromNet(String cyid,Observer<NewCheYuanDetailBean> observer){
         setSubscribe(service.getCheYuanDetailFromNet(cyid),observer);
     }
+
+    public  void getWoDeCheYuanFromNet(Map<String,String> paramMap,Observer<NewWoDeCheYuanBean> observer){
+        setSubscribe(service.getWoDeCheYuanFromNet(paramMap),observer);
+    }
     public  void getHuoYuanDetailFromNet(String hyid,Observer<NewHuoYuanDetailBean> observer){
         setSubscribe(service.getHuoYuanDetailFromNet(hyid),observer);
     }
@@ -128,8 +152,17 @@ public class NewCheHuoListNetWork extends BaseNetWork {
     public  void deleteWoDeHuoYuanToNet(Map<String,String> paramMap,Observer<NewWoDeHuoYuanDeleteBean> observer){
         setSubscribe(service.deleteWoDeHuoYuanToNet(paramMap),observer);
     }
+    public  void deleteWoDeCheYuanToNet(Map<String,String> paramMap,Observer<NewWoDeCheYuanDeleteBean> observer){
+        setSubscribe(service.deleteWoDeCheYuanToNet(paramMap),observer);
+    }
     public  void getBaoJiaListFromNet(String hyid,Observer<NewBaoJiaListBean> observer){
         setSubscribe(service.getBaoJiaListFromNet(hyid),observer);
     }
 
+    public  void huoZhuAgreeSubmitToNet(Map<String,String> paramMap,Observer<NewHuoZhuTongYiBean> observer){
+        setSubscribe(service.huoZhuAgreeSubmitToNet(paramMap),observer);
+    }
+    public  void getDingJinFromNet(Map<String,String> paramMap,Observer<NewDingJinPayBean> observer){
+        setSubscribe(service.getDingJinFromNet(paramMap),observer);
+    }
 }

@@ -12,7 +12,7 @@ public class NewBaoJiaListBean {
     /**
      * status : 0
      * msg :
-     * nr : {"ys":"1","list":[{"name":"zz2","mobile":"13868737922","jiage":"180","czid":null}]}
+     * nr : {"ys":"1","list":[{"name":"zz2","mobile":"13868737922","jiage":"111","czid":"383","touxiang":"/Uploads/2017-06-12/3831497274783ktoo.jpg"}]}
      */
 
     private String status;
@@ -46,7 +46,7 @@ public class NewBaoJiaListBean {
     public static class NrBean {
         /**
          * ys : 1
-         * list : [{"name":"zz2","mobile":"13868737922","jiage":"180","czid":null}]
+         * list : [{"name":"zz2","mobile":"13868737922","jiage":"111","czid":"383","touxiang":"/Uploads/2017-06-12/3831497274783ktoo.jpg"}]
          */
 
         private String ys;
@@ -72,14 +72,16 @@ public class NewBaoJiaListBean {
             /**
              * name : zz2
              * mobile : 13868737922
-             * jiage : 180
-             * czid : null
+             * jiage : 111
+             * czid : 383
+             * touxiang : /Uploads/2017-06-12/3831497274783ktoo.jpg
              */
 
             private String name;
             private String mobile;
             private String jiage;
-            private Object czid;
+            private String czid;
+            private String touxiang;
 
             public String getName() {
                 return name;
@@ -105,12 +107,20 @@ public class NewBaoJiaListBean {
                 this.jiage = jiage;
             }
 
-            public Object getCzid() {
+            public String getCzid() {
                 return czid;
             }
 
-            public void setCzid(Object czid) {
+            public void setCzid(String czid) {
                 this.czid = czid;
+            }
+
+            public String getTouxiang() {
+                return touxiang;
+            }
+
+            public void setTouxiang(String touxiang) {
+                this.touxiang = touxiang;
             }
         }
     }
