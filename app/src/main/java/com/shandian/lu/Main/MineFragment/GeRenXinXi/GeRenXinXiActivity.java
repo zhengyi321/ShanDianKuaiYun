@@ -3,6 +3,7 @@ package com.shandian.lu.Main.MineFragment.GeRenXinXi;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
@@ -30,10 +31,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 import rx.Observer;
 
 /**
@@ -41,7 +45,24 @@ import rx.Observer;
  */
 
 public class GeRenXinXiActivity extends BaseActivity {
+    private final int MSG_SET_ALIAS = 1001;
+    protected final Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(android.os.Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case MSG_SET_ALIAS:
 
+                    JPushInterface.setAliasAndTags(GeRenXinXiActivity.this, (String) msg.obj, null, mAliasCallback);
+                    break;
+
+
+
+                default:
+
+            }
+        }
+    };
     private ArrayList<String> mImageList;
     private  final int ACTIVITY_REQUEST_SELECT_PHOTO = 100;
     private  final int ACTIVITY_REQUEST_TAKE_PICTURE = 101;
@@ -88,8 +109,42 @@ public class GeRenXinXiActivity extends BaseActivity {
         xcCacheManager.writeCache(xcCacheSaveName.logId,"");
         xcCacheManager.writeCache(xcCacheSaveName.loginStatus,"no");
         Toast.makeText(this,"已成功退出登录",Toast.LENGTH_LONG).show();
+        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, ""));
         this.finish();
     }
+
+
+
+    private final TagAliasCallback mAliasCallback = new TagAliasCallback() {
+
+
+        @Override
+        public void gotResult(int code, String alias, Set<String> tags) {
+            String logs;
+            switch (code) {
+                case 0:
+                    logs = "Set tag and alias success";
+                 /*   Toast.makeText(activity,"here is success:"+alias+" "+tags,Toast.LENGTH_LONG).show();*/
+               /*     NotificationCompat.Builder	notification = new NotificationCompat.Builder(activity).setSmallIcon(R.mipmap.logo)
+                            .setSound(Uri.parse("android.resource://" + activity.getPackageName() + "/" + R.raw.shandian));*/
+                            /*.setContentText(title);*/
+                    break;
+
+                case 6002:
+                    logs = "Failed to set alias and tags due to timeout. Try again after 60s.";
+
+
+                    break;
+
+                default:
+                    logs = "Failed with errorCode = " + code;
+
+            }
+
+
+        }
+
+    };
     @BindView(R.id.lly_main_mine_gerenxinxi_content_headimg)
     LinearLayout llyMainMineGeRenXinXiContentHeadImg;
     @OnClick(R.id.lly_main_mine_gerenxinxi_content_headimg)

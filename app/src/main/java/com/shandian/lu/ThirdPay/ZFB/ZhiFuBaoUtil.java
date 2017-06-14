@@ -131,7 +131,7 @@ public class ZhiFuBaoUtil {
 
     /**
      * 支付宝支付业务
-     *
+     *  不走服务器
      * @param v
      */
     public void payV2(View v,String goodsName,String price,String outTradeNo,String passback_params) {
@@ -161,6 +161,60 @@ public class ZhiFuBaoUtil {
         String privateKey = rsa2 ? RSA2_PRIVATE : RSA_PRIVATE;
         String sign = OrderInfoUtil2_0.getSign(params, privateKey, rsa2);
         final String orderInfo = orderParam + "&" + sign;
+        System.out.print("\norderInfo:"+orderInfo);
+        /*final String orderInfo = getOrderInfo("走兔商品名称","走兔商品详情","0.01");*/
+        Runnable payRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                PayTask alipay = new PayTask(activity);
+                Map<String, String> result = alipay.payV2(orderInfo, true);
+                Log.i("msp", result.toString());
+
+                Message msg = new Message();
+                msg.what = SDK_PAY_FLAG;
+                msg.obj = result;
+                mHandler.sendMessage(msg);
+            }
+        };
+
+        Thread payThread = new Thread(payRunnable);
+        payThread.start();
+    }
+
+    /**
+     * 支付宝支付业务
+     *  走服务器
+     * @param v
+     */
+    public void payV3(View v,final String orderInfo) {
+       /* if (TextUtils.isEmpty(APPID) || (TextUtils.isEmpty(RSA2_PRIVATE) && TextUtils.isEmpty(RSA_PRIVATE))) {
+            new AlertDialog.Builder(activity).setTitle("警告").setMessage("需要配置APPID | RSA_PRIVATE")
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialoginterface, int i) {
+                            //
+                            activity.finish();
+                        }
+                    }).show();
+            return;
+        }
+
+        *//**
+         * 这里只是为了方便直接向商户展示支付宝的整个支付流程；所以Demo中加签过程直接放在客户端完成；
+         * 真实App里，privateKey等数据严禁放在客户端，加签过程务必要放在服务端完成；
+         * 防止商户私密数据泄露，造成不必要的资金损失，及面临各种安全风险；
+         *
+         * orderInfo的获取必须来自服务端；
+         *//*
+        boolean rsa2 = (RSA2_PRIVATE.length() > 0);
+        *//*price = "0.01";*//*
+        Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, rsa2,goodsName,price,outTradeNo,passback_params);
+        String orderParam = OrderInfoUtil2_0.buildOrderParam(params);
+
+        String privateKey = rsa2 ? RSA2_PRIVATE : RSA_PRIVATE;
+        String sign = OrderInfoUtil2_0.getSign(params, privateKey, rsa2);
+        final String orderInfo = orderParam + "&" + sign;*/
+        System.out.print("\norderInfo:"+orderInfo);
         /*final String orderInfo = getOrderInfo("走兔商品名称","走兔商品详情","0.01");*/
         Runnable payRunnable = new Runnable() {
 

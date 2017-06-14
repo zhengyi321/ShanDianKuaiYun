@@ -11,11 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetaiSelflActivity;
+import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailSelflActivity;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailOtherActivity;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
@@ -173,7 +172,7 @@ public class CheYuanListXRVAdapter extends RecyclerView.Adapter<CheYuanListXRVAd
             }
 
             if(loginId.equals(cheYuanList.get(pos).getLogin_id())){
-                Intent intent = new Intent(activity, NewCheYuanDetaiSelflActivity.class);
+                Intent intent = new Intent(activity, NewCheYuanDetailSelflActivity.class);
                 intent.putExtra("cyid",cheYuanList.get(pos).getId());
                 activity.startActivity(intent);
                 return;

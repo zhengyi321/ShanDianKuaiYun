@@ -1,19 +1,11 @@
 package com.shandian.lu.BroadCast;
 
-import android.app.Activity;
 import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
@@ -21,9 +13,10 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 
+import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherActivity;
+import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfActivity;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.NewNoticeDialog;
-import com.shandian.lu.Widget.Dialog.ReleaseDialog;
 
 
 import org.json.JSONException;
@@ -33,8 +26,6 @@ import java.io.IOException;
 
 import cn.jpush.android.api.BasicPushNotificationBuilder;
 import cn.jpush.android.api.JPushInterface;
-
-import static android.content.Context.NOTIFICATION_SERVICE;
 
 /**
  * 自定义接收器
@@ -49,6 +40,8 @@ public class MyReceiver extends BroadcastReceiver {
     /*private GetNewOrderDialog getNewOrderDialog;*/
     private Context context1;
     private NewNoticeDialog newNoticeDialog;
+    private boolean isFirst = true;
+    private String lx = "",hyId = "",bjId = "";
     Bundle bundle1;
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -77,7 +70,18 @@ public class MyReceiver extends BroadcastReceiver {
 
             //打开自定义的Activity
 			/*点击推送图标后转入的页面*/
+			if(lx == null){
+                lx = "zzzzzz";
+            }
 
+			if(hyId == null){
+                hyId = "cccccc";
+            }
+            processCustomMessage(context, bundle1);
+
+           /*Toast.makeText(context,"lx:"+lx+" hyid:"+hyId,Toast.LENGTH_LONG).show();*/
+
+            activityJump();
 
 
 /*
@@ -121,40 +125,70 @@ public class MyReceiver extends BroadcastReceiver {
 
      /*   setNotification4(context);*/
         NotificationCompat.Builder	notification = new NotificationCompat.Builder(context).setSmallIcon(R.mipmap.logo)
-                .setSound(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.shandian))
                 .setContentText(title);
         notification.build();
-        createLocalMp3();
+        setNotification4(context);
+   /*     createLocalMp3();*/
       /*  notificationManager.notify(1,notification.build());*/
 
        /* notification.setSound(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.shandian));*/
 
 		/*String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);*/
 
-      /*  Toast.makeText(context,"this is message:"+title+" content:"+message+" extras:"+extras,Toast.LENGTH_LONG).show();
-*/
-        newNoticeDialog = new NewNoticeDialog(context1,"type").Build.build(context1);
-        newNoticeDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
-        newNoticeDialog.show();
+ /*       Toast.makeText(context,"this is message:"+title+" content:"+message+" extras:"+extras,Toast.LENGTH_LONG).show();
+        System.out.print("\nthis is message:"+title+" content:"+message+" extras:"+extras);
+        System.out.print("\nthis is message:"+title+" content:"+message+" extras:"+extras);
+        System.out.print("\nthis is message:"+title+" content:"+message+" extras:"+extras);
+        System.out.print("\nthis is message:"+title+" content:"+message+" extras:"+extras);
+        System.out.print("\nthis is message:"+title+" content:"+message+" extras:"+extras);
+        System.out.print("\nthis is message:"+title+" content:"+message+" extras:"+extras);
+        System.out.print("\nthis is message:"+title+" content:"+message+" extras:"+extras);*/
+        if(isFirst) {
+            newNoticeDialog = new NewNoticeDialog(context1, "type").Build.build(context1);
+            newNoticeDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
 
+         /*   newNoticeDialog.show();*/
+
+        }
+        isFirst = false;
 
       /*  Intent intent = new Intent(this, NewFaBuHuoYuanActivity.class);*/
        /* Intent intent = new Intent(this, TestActivity.class);
         startActivity(intent);*/
+        try {
+            JSONObject extraJson = new JSONObject(extras);
+            if (null != extraJson && extraJson.length() > 0) {
+                    /*String sound = extraJson.getString("sound");*///自定义字段解析
+                lx = extraJson.getString("lx");//自定义字段解析
+                hyId = extraJson.getString("hyid");//自定义字段解析
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+            }
+        } catch (JSONException e) {
 
-
-        /*解析自定义字段*/
-        if (!TextUtils.isEmpty(extras)) {
+        }
+        //解析自定义字段
+     /*   if (!TextUtils.isEmpty(extras)) {
             try {
                 JSONObject extraJson = new JSONObject(extras);
                 if (null != extraJson && extraJson.length() > 0) {
                     String sound = extraJson.getString("sound");//自定义字段解析
+                     lx = extraJson.getString("lx");//自定义字段解析
+                     hyId = extraJson.getString("hyid");//自定义字段解析
                 }
             } catch (JSONException e) {
 
             }
 
-        }
+        }*/
         /*xcCacheManager.writeCache(xcCacheManagerSavedName.jpushOrderType,title);*/
 		/*Toast.makeText(context,"message:"+message,Toast.LENGTH_SHORT).show();*/
         /*notification.setContentTitle(title);*/
@@ -231,5 +265,58 @@ public class MyReceiver extends BroadcastReceiver {
             e.printStackTrace();
         }
         return mp;
+    }
+
+
+    public void activityJump(){
+        Intent i;
+        if((hyId == null)&&(!hyId.isEmpty())){
+            return;
+        }
+        switch (lx){
+            case "1":
+                 i = new Intent(context1, NewHuoYuanDetailSelfActivity.class);
+                i.putExtra("hyid",hyId);
+                i.putExtra("status","notice");
+                //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                context1.startActivity(i);
+                break;
+            case "2":
+                 i = new Intent(context1, NewHuoYuanDetailOtherActivity.class);
+                i.putExtra("hyid",hyId);
+                //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                context1.startActivity(i);
+                break;
+            case "3":
+                i = new Intent(context1, NewHuoYuanDetailOtherActivity.class);
+                i.putExtra("hyid",hyId);
+                //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                context1.startActivity(i);
+                break;
+            case "4":
+                i = new Intent(context1, NewHuoYuanDetailOtherActivity.class);
+                i.putExtra("hyid",hyId);
+                //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                context1.startActivity(i);
+                break;
+            case "5":
+                i = new Intent(context1, NewHuoYuanDetailOtherActivity.class);
+                i.putExtra("hyid",hyId);
+                //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                context1.startActivity(i);
+                break;
+            case "6":
+                i = new Intent(context1, NewHuoYuanDetailOtherActivity.class);
+                i.putExtra("hyid",hyId);
+                //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                context1.startActivity(i);
+                break;
+        }
     }
 }

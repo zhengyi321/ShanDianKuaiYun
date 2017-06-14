@@ -138,6 +138,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
     }
     private String addressLocation = "";
     public double lat,lon;
+
     public BaiduMap mBaiduMap;
 
 /*    private LocationClient locationClient=null;*/
@@ -170,11 +171,22 @@ public class SelectAddAddressController extends BaseController implements OnGetG
     protected void init() {
         ButterKnife.bind(this,activity);
         /*etNewSelectAddressDetail.setOnEditorActionListener(new MyEditorActionListener());*/
-        getType();
+
         initBaiDuMap();
+        getType();
     }
     private void getType(){
         type = activity.getIntent().getStringExtra("type");
+        String lat = activity.getIntent().getStringExtra("lat");
+        String lon = activity.getIntent().getStringExtra("lon");
+        if((lat != null)&&(!lat.isEmpty())){
+            selfLat = Double.parseDouble(lat);
+            selfLon = Double.parseDouble(lon);
+            LatLng llg = new LatLng(selfLat,selfLon);
+
+            mSearch.reverseGeoCode(new ReverseGeoCodeOption().location(llg));
+        }
+
     }
 
     private void initBaiDuMap(){
@@ -374,6 +386,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
                 address = address.substring(index+1,address.length());
                 mSearch.geocode((new GeoCodeOption()).city(city).address(address));
             } else {
+                /*mSearch.geocode((new GeoCodeOption()).city("浙江省温州市").address(address));*/
                 mSearch.geocode((new GeoCodeOption()).city("浙江省温州市").address(address));
             }
         }catch (Exception e){

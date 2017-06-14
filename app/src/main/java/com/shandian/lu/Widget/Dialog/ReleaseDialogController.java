@@ -220,7 +220,7 @@ public class ReleaseDialogController extends BaseController {
 
 
     public void initTabBar(int arg0){
-        double one = offset*2+offset/1.5 + bmpW;// 页卡1 -> 页卡2 偏移量
+        double one = offset*2+offset/3 + bmpW;// 页卡1 -> 页卡2 偏移量
        /* int two = one * 2;*/// 页卡1 -> 页卡3 偏移量
         Animation animation = null;
         switch (arg0) {

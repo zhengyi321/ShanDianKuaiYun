@@ -20,6 +20,7 @@ import com.example.mynewslayoutlib.Bean.NewFaBuPicBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.shandian.lu.BaseActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.shandian.lu.Main.MineFragment.WoDeCheYuan.NewWoDeCheYuanActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanController;
 import com.shandian.lu.Main.ReleaseFragment.SelectAddAddress.SelectAddAddressActivity;
@@ -145,6 +146,14 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
     public void llyNewFaBuCheYuanBeginOnclick(){
         Intent intent = new Intent(this, SelectAddAddressActivity.class);
         intent.putExtra("type","begin");
+        if(blat == null){
+            blat = "";
+        }
+        if(blon == null){
+            blon = "";
+        }
+        intent.putExtra("lat",blat);
+        intent.putExtra("lon",blon);
         startActivityForResult(intent,ACTIVITY_SELECT_ADDRESS_BEGIN);
     }
     @BindView(R.id.lly_new_fabucheyuan_end)
@@ -153,6 +162,14 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
     public void llyNewFaBuCheYuanEndOnclick(){
         Intent intent = new Intent(this, SelectAddAddressActivity.class);
         intent.putExtra("type","end");
+        if(elat == null){
+            elat = "";
+        }
+        if(elon == null){
+            elon = "";
+        }
+        intent.putExtra("lat",elat);
+        intent.putExtra("lon",elon);
         startActivityForResult(intent,ACTIVITY_SELECT_ADDRESS_END);
     }
 
@@ -262,6 +279,8 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
             length = length.substring(0,indexOfMi);
         }
         etNewFaBuCheYuanCalLength.setText(length);
+        /*Toast.makeText(this,newCheYuanDetailBean.getNr().getCar_type(),Toast.LENGTH_LONG).show();*/
+        tvNewFaBuCheYuanCarType.setText(newCheYuanDetailBean.getNr().getCar_type());
         etNewFaBuCheYuanName.setText(newCheYuanDetailBean.getNr().getPeople());
         etNewFaBuCheYuanTel.setText(newCheYuanDetailBean.getNr().getIphone());
         etNewFaBuCheYuanDesc.setText(newCheYuanDetailBean.getNr().getContent());
@@ -608,6 +627,8 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
                 pbNewFaBuCheYuan.setVisibility(View.GONE);
 
                 if(newFaBuCheYuanBean.getStatus().equals("0")){
+                    Intent intent = new Intent(NewFaBuCheYuanActivity.this, NewWoDeCheYuanActivity.class);
+                    startActivity(intent);
                     finish();
                 }
             }

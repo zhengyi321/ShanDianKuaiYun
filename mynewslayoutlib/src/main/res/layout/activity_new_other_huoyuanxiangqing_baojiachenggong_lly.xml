@@ -20,6 +20,7 @@
                 android:layout_weight="1"
                 >
                 <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
+                    android:id="@+id/riv_new_other_hyxq_success_touxiang"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@color/white"
@@ -41,6 +42,7 @@
                     android:layout_marginRight="25dp"
                     >
                     <TextView
+                        android:id="@+id/tv_new_other_hyxq_success_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="候亮平"
@@ -50,14 +52,17 @@
                         android:layout_gravity="right"
                         />
                     <TextView
+                        android:id="@+id/tv_new_other_hyxq_success_company"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="浙江闪电快运服务有限公司"
                         android:textSize="15sp"
                         android:textColor="@color/white"
                         android:layout_marginTop="5dp"
+
                         />
                     <TextView
+                        android:id="@+id/tv_new_other_hyxq_success_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="320.0元"
@@ -71,7 +76,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/success"
+                    android:background="@mipmap/success_half"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginRight="10dp"

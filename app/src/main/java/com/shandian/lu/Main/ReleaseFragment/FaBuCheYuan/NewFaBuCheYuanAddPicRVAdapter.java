@@ -108,6 +108,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
         if(tempList.size() < 8) {
             tempList.add("");
         }
+
         Thread myThread = new MyNewBitMapThread();
         myThread.start();
         notifyDataSetChanged();
@@ -271,6 +272,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
         @Override
         public void run(){
             int size = allImageList.size();
+            bitmapList.clear();
             for(int i=0;i<size;i++){
                 String pic = allImageList.get(i);
                 int indeOfWWW = pic.indexOf(":");
@@ -369,6 +371,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
                     .start();
 
             isFirst = false;
+            return;
         }
         if(!isPicFinished){
             return;

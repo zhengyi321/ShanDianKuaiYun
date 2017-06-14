@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherBaoJiaActivity;
+import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherActivity;
 import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfActivity;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
@@ -184,7 +184,7 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
             String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
             if((loginId == null)||(loginId.isEmpty())){
 
-                Intent intent = new Intent(activity, NewHuoYuanDetailOtherBaoJiaActivity.class);
+                Intent intent = new Intent(activity, NewHuoYuanDetailOtherActivity.class);
                 intent.putExtra("hyid",huoYuanList.get(pos).getId());
                 activity.startActivity(intent);
                 return;
@@ -195,7 +195,7 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
                 activity.startActivity(intent);
                 return;
             }else{
-                Intent intent = new Intent(activity, NewHuoYuanDetailOtherBaoJiaActivity.class);
+                Intent intent = new Intent(activity, NewHuoYuanDetailOtherActivity.class);
                 intent.putExtra("hyid",huoYuanList.get(pos).getId());
                 activity.startActivity(intent);
                 return;

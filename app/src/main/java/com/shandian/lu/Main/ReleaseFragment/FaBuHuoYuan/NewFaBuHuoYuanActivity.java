@@ -18,6 +18,9 @@ import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.j256.ormlite.stmt.query.In;
 import com.shandian.lu.BaseActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.shandian.lu.Main.MineFragment.WoDeCheYuan.NewWoDeCheYuanActivity;
+import com.shandian.lu.Main.MineFragment.WoDeHuoYuan.NewWoDeHuoYuanActivity;
+import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanActivity;
 import com.shandian.lu.Main.ReleaseFragment.SelectAddAddress.SelectAddAddressActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.NetWork.NewFaBuNetWork;
@@ -141,6 +144,14 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
     public void llyNewFaBuHuoYuanBeginOnclick(){
         Intent intent = new Intent(this, SelectAddAddressActivity.class);
         intent.putExtra("type","begin");
+        if(blat == null){
+            blat = "";
+        }
+        if(blon == null){
+            blon = "";
+        }
+        intent.putExtra("lat",blat);
+        intent.putExtra("lon",blon);
         startActivityForResult(intent,ACTIVITY_SELECT_ADDRESS_BEGIN);
     }
     @BindView(R.id.lly_new_fabuhuoyuan_end)
@@ -149,6 +160,14 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
     public void llyNewFaBuHuoYuanEndOnclick(){
         Intent intent = new Intent(this, SelectAddAddressActivity.class);
         intent.putExtra("type","end");
+        if(elat == null){
+            elat = "";
+        }
+        if(elon == null){
+            elon = "";
+        }
+        intent.putExtra("lat",elat);
+        intent.putExtra("lon",elon);
         startActivityForResult(intent,ACTIVITY_SELECT_ADDRESS_END);
     }
 
@@ -573,6 +592,8 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
                 Toast.makeText(NewFaBuHuoYuanActivity.this,newFaBuHuoYuanBean.getMsg(),Toast.LENGTH_LONG).show();
                 pbNewFaBuHuoYuan.setVisibility(View.GONE);
                 if(newFaBuHuoYuanBean.getStatus().equals("0")){
+                    Intent intent = new Intent(NewFaBuHuoYuanActivity.this, NewWoDeHuoYuanActivity.class);
+                    startActivity(intent);
                     finish();
                 }
             }

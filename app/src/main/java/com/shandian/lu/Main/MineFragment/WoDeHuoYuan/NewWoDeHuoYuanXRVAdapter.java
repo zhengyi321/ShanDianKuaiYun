@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.baidu.mapapi.map.Text;
 import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanBean;
 import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanDeleteBean;
+import com.example.mynewslayoutlib.Utils.SystemUtils;
 import com.j256.ormlite.stmt.query.In;
 import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
@@ -23,6 +24,7 @@ import com.shandian.lu.Main.MineFragment.PaySubmit.TwoStepPaySubmitActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
+import com.shandian.lu.Widget.Dialog.NewQueryDeleteDialog;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 
@@ -124,12 +126,15 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
                 break;
             case "3":
                 holder.deleteUpdateState(false);
+                holder.tvNewWoDeHuoYuanXRVItemCount.setText("已送达");
                 break;
             case "4":
                 holder.deleteUpdateState(false);
+                holder.tvNewWoDeHuoYuanXRVItemCount.setText("支付尾款");
                 break;
             case "5":
                 holder.deleteUpdateState(false);
+                holder.tvNewWoDeHuoYuanXRVItemCount.setText("送完");
                 break;
         }
 
@@ -161,6 +166,7 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
         @OnClick(R.id.rly_new_wodehuoyuan_xrv_item_count)
         public void rlyNewWoDeHuoYuanXRVItemCountOnclick(){
             String ddzt = dataList.get(pos).getDingdanzt();
+            Intent intent;
             if((ddzt == null)||(ddzt.isEmpty())){
                 ddzt = "";
             }
@@ -170,9 +176,17 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
 
                     break;
                 case "1":
-                        Intent intent = new Intent(activity, TwoStepPaySubmitActivity.class);
+                        intent = new Intent(activity, TwoStepPaySubmitActivity.class);
+                        System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                        System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                        System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                        System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                        System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                        System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
                         intent.putExtra("hyId",dataList.get(pos).getId());
                         intent.putExtra("baojiaId",dataList.get(pos).getBaojiaid());
+                        intent.putExtra("status","dingjin");
+
                         activity.startActivity(intent);
                     break;
                 case "2":
@@ -182,14 +196,18 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
 
                     break;
                 case "4":
-
+                     intent = new Intent(activity, TwoStepPaySubmitActivity.class);
+                    intent.putExtra("hyId",dataList.get(pos).getId());
+                    intent.putExtra("baojiaId",dataList.get(pos).getBaojiaid());
+                    intent.putExtra("status","weikuan");
+                    activity.startActivity(intent);
                     break;
                 case "5":
 
                     break;
             }
         }
-
+        NewQueryDeleteDialog newQueryDeleteDialog;
         @BindView(R.id.tv_new_wodehuoyuan_xrv_item_newbaojia)
         TextView tvNewWoDeHuoYuanXRVItemNewBaoJia;
         @BindView(R.id.tv_new_wodehuoyuan_xrv_item_bcity)
@@ -208,8 +226,33 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
         LinearLayout llyNewWoDeHuoYuanXRVItemDelete;
         @OnClick(R.id.lly_new_wodehuoyuan_xrv_item_delete)
         public void llyNewWoDeHuoYuanXRVItemDeleteOnclick(){
-            deleteWoDeHuoYuan();
+
+
+
+            newQueryDeleteDialog = new NewQueryDeleteDialog(activity).Build.setCallBackListener(new NewQueryDeleteDialog.DialogCallBackListener() {
+                @Override
+                public void callBack(boolean isDelete) {
+                    if(isDelete){
+                        deleteWoDeHuoYuan();
+                    }
+                    dissmissDialog();
+                }
+            }).build(activity);
+
+        /* Toast.makeText(activity,"hyid:"+hyId,Toast.LENGTH_LONG).show();*/
+            showDialog();
+
         }
+        public void showDialog() {
+            if (newQueryDeleteDialog != null && !newQueryDeleteDialog.isShowing())
+                newQueryDeleteDialog.show();
+        }
+
+        public void dissmissDialog() {
+            if (newQueryDeleteDialog != null && newQueryDeleteDialog.isShowing())
+                newQueryDeleteDialog.dismiss();
+        }
+
         @BindView(R.id.tv_new_wodehuoyuan_xrv_item_delete)
         TextView tvNewWoDeHuoYuanXRVItemDelete;
         @BindView(R.id.lly_new_wodehuoyuan_xrv_item_update)
@@ -240,9 +283,17 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
         @BindView(R.id.tv_new_wodehuoyuan_xrv_item_update)
         TextView tvNewWoDeHuoYuanXRVItemUpdate;
         public void deleteUpdateState(boolean canUpdateDelete){
+            SystemUtils systemUtils = new SystemUtils(activity);
+            double width = systemUtils.getWindowWidth();
+            double height = systemUtils.getWindowHeight();
+            int wid = (int) (width/20);
+            int hig = (int) (height/40);
+
             if(canUpdateDelete){
                 Drawable drawableDelete= activity.getResources().getDrawable(R.mipmap.delete_black);
                 Drawable drawableUpdate= activity.getResources().getDrawable(R.mipmap.update_black);
+                drawableDelete.setBounds(0, 0, wid, hig);
+                drawableUpdate.setBounds(0, 0, wid, hig);
                 tvNewWoDeHuoYuanXRVItemDelete.setCompoundDrawables(drawableDelete,null,null,null);
                 tvNewWoDeHuoYuanXRVItemUpdate.setCompoundDrawables(drawableUpdate,null,null,null);
                 tvNewWoDeHuoYuanXRVItemDelete.setTextColor(activity.getResources().getColor(R.color.black));
@@ -252,6 +303,8 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
             }else {
                 Drawable drawableDelete= activity.getResources().getDrawable(R.mipmap.delete_gray);
                 Drawable drawableUpdate= activity.getResources().getDrawable(R.mipmap.update_gray);
+                drawableDelete.setBounds(0, 0, wid, hig);
+                drawableUpdate.setBounds(0, 0, wid, hig);
                 tvNewWoDeHuoYuanXRVItemDelete.setCompoundDrawables(drawableDelete,null,null,null);
                 tvNewWoDeHuoYuanXRVItemUpdate.setCompoundDrawables(drawableUpdate,null,null,null);
                 tvNewWoDeHuoYuanXRVItemDelete.setTextColor(activity.getResources().getColor(R.color.gray));
@@ -262,13 +315,10 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
         }
 
         private void deleteWoDeHuoYuan(){
-            XCCacheSaveName xcCacheSaveName= new XCCacheSaveName();
-            XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
-            String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
+
+            String loginId = dataList.get(pos).getLogin_id();
             if((loginId == null)||(loginId.isEmpty())){
-                Intent intent = new Intent(activity, LoginActivity.class);
-                activity.startActivity(intent);
-                return;
+                loginId = "";
             }
             String id = dataList.get(pos).getId();
             if(id == null){

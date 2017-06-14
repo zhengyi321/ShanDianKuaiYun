@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewDingJinPayBean;
+import com.example.mynewslayoutlib.Bean.NewWeiKuanPayBean;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
@@ -34,9 +35,11 @@ import rx.Observer;
 
 public class TwoStepPaySubmitController extends BaseController {
     private ZhiFuBaoUtil zhiFuBaoUtil;
-    private String hyId,baojiaId;
+    private String hyId,baojiaId,status;
     private String type="zfbpay";
-
+    private String payTitle = "";
+    private String price = "";
+    private String orderInfo = "";
     @BindView(R.id.rly_new_hyxq_two_steps_back)
     RelativeLayout rlyNewHYXQTwoStepsBack;
     @OnClick(R.id.rly_new_hyxq_two_steps_back)
@@ -47,7 +50,7 @@ public class TwoStepPaySubmitController extends BaseController {
     TextView tvNewHYXQTwoStepsTotal;
     @BindView(R.id.tv_new_hyxq_two_steps_dingjin)
     TextView tvNewHYXQTwoStepsDingJin;
-    @BindView(R.id.tv_new_hyxq_two_steps_other)
+    @BindView(R.id.tv_new_hyxq_two_steps_other)//#ff6100
     TextView tvNewHYXQTwoStepsOther;
     @BindView(R.id.cb_new_hyxq_two_steps_wxpay)
     CheckBox cbNewHYXQTwoStepsWXPay;
@@ -105,7 +108,7 @@ public class TwoStepPaySubmitController extends BaseController {
         ButterKnife.bind(this,activity);
         zhiFuBaoUtil = new ZhiFuBaoUtil(activity);
         getId();
-        getDingJinFromNet();
+
     }
 
 
@@ -139,11 +142,49 @@ public class TwoStepPaySubmitController extends BaseController {
         if(baojiaId == null){
             baojiaId = "";
         }
+        status = activity.getIntent().getStringExtra("status");
+        if(status == null){
+            status = "";
+        }
+        getPayType();
     }
-    private void getDingJinFromNet(){
+
+    private void getPayType(){
+        switch (status){
+            case "dingjin":
+                payTitle = "定金支付";
+                tvNewHYXQTwoStepsDingJin.setTextColor(activity.getResources().getColor(R.color.pay_price_text_orange_color));
+                tvNewHYXQTwoStepsOther.setTextColor(activity.getResources().getColor(R.color.black));
+                price = (String) tvNewHYXQTwoStepsDingJin.getText();
+                if(price == null){
+                    price = "";
+                }
+                getDingJinFromNet();
+                break;
+            case "weikuan":
+                payTitle = "尾款支付";
+                tvNewHYXQTwoStepsDingJin.setTextColor(activity.getResources().getColor(R.color.black));
+                tvNewHYXQTwoStepsOther.setTextColor(activity.getResources().getColor(R.color.pay_price_text_orange_color));
+                price = (String) tvNewHYXQTwoStepsOther.getText();
+                if(price == null){
+                    price = "";
+                }
+                getWeiKuanFromNet();
+                break;
+        }
+    }
+
+/*    private void getWeiKuanFromNet(){
         Map<String,String> paramMap = new HashMap<>();
         paramMap.put("baojiaid",baojiaId);
         paramMap.put("hyid",hyId);
+    }*/
+
+    private void getDingJinFromNet(){
+        Map<String,String> paramMap = new HashMap<>();
+        paramMap.put("hyid",hyId);
+        paramMap.put("baojiaid",baojiaId);
+  /*      Toast.makeText(activity,"baojiaid:"+baojiaId+" hyid:"+hyId,Toast.LENGTH_LONG).show();*/
         NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
         newCheHuoListNetWork.getDingJinFromNet(paramMap, new Observer<NewDingJinPayBean>() {
             @Override
@@ -158,9 +199,37 @@ public class TwoStepPaySubmitController extends BaseController {
 
             @Override
             public void onNext(NewDingJinPayBean newDingJinPayBean) {
+                /*Toast.makeText(activity,"getStatus:"+newDingJinPayBean.getStatus(),Toast.LENGTH_LONG).show();*/
                 tvNewHYXQTwoStepsTotal.setText(newDingJinPayBean.getNr().getZjine());
                 tvNewHYXQTwoStepsDingJin.setText(newDingJinPayBean.getNr().getDingjin()+"");
+                tvNewHYXQTwoStepsOther.setText(newDingJinPayBean.getNr().getWeikuan()+"");
+                orderInfo = newDingJinPayBean.getNr().getZfcs();
+            }
+        });
+    }
+    private void getWeiKuanFromNet(){
+        Map<String,String> paramMap = new HashMap<>();
+        paramMap.put("hyid",hyId);
+        paramMap.put("baojiaid",baojiaId);
+  /*      Toast.makeText(activity,"baojiaid:"+baojiaId+" hyid:"+hyId,Toast.LENGTH_LONG).show();*/
+        NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
+        newCheHuoListNetWork.getWeiKuanFromNet(paramMap, new Observer<NewWeiKuanPayBean>() {
+            @Override
+            public void onCompleted() {
 
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewWeiKuanPayBean newWeiKuanPayBean) {
+                tvNewHYXQTwoStepsTotal.setText(newWeiKuanPayBean.getNr().getZjine());
+                tvNewHYXQTwoStepsDingJin.setText(newWeiKuanPayBean.getNr().getDingjin()+"");
+                tvNewHYXQTwoStepsOther.setText(newWeiKuanPayBean.getNr().getWeikuan()+"");
+                orderInfo = newWeiKuanPayBean.getNr().getZfcs();
             }
         });
     }
@@ -173,10 +242,7 @@ public class TwoStepPaySubmitController extends BaseController {
     public void zhiFuBaoPay(){
          String outTradeNo = getOutTradeNo();
 /*Toast.makeText(activity, " onCompleted mPopView:"+goodsName+price, Toast.LENGTH_LONG).show();*/
-        String price = (String) tvNewHYXQTwoStepsDingJin.getText();
-        if(price == null){
-            price = "";
-        }
+
 
         /*String passback_params = "{ \"dingdanid\" = \""+price"+\",\n \"lx\" = \"1\"\n}";*/
 
@@ -186,7 +252,11 @@ public class TwoStepPaySubmitController extends BaseController {
         try {
             passback_params = URLEncoder.encode(passback_params, "utf8");
             /*Toast.makeText(activity,passback_params,Toast.LENGTH_LONG).show();*/
-            zhiFuBaoUtil.payV2(null, "定金支付", ""+price,outTradeNo,passback_params);
+
+            /*zhiFuBaoUtil.payV2(null, "定金支付", "0.1",outTradeNo,passback_params);*/
+            if((orderInfo != null)&&(!orderInfo.isEmpty())) {
+                zhiFuBaoUtil.payV3(null, orderInfo);
+            }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -195,7 +265,7 @@ public class TwoStepPaySubmitController extends BaseController {
             @Override
             public void isSuccessful(boolean isSuccessful) {
 
-
+            activity.finish();
             }
         });
                     /*去支付金钱*/

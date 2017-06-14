@@ -132,7 +132,7 @@ public class LookBaoJiaDialog extends Dialog {
                 public void onNext(NewBaoJiaListBean newBaoJiaListBean) {
                     if(newBaoJiaListBean.getStatus().equals("0")){
                         baoJiaDialogController.baoJiaDialogXRVAdapter.setAdapter(newBaoJiaListBean.getNr().getList(),hyId);
-                        textView.setText(newBaoJiaListBean.getNr().getYs()+"条");
+                        textView.setText(newBaoJiaListBean.getNr().getList().size()+"条");
                     }
                 }
             });

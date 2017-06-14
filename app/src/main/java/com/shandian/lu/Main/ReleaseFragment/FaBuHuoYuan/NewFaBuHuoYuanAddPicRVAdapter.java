@@ -325,7 +325,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         @Override
         public void run(){
             int size = allImageList.size();
-
+            bitmapList.clear();
             for(int i=0;i<size;i++){
                 String pic = allImageList.get(i);
                 int indeOfWWW = pic.indexOf(":");
@@ -425,6 +425,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
                     .start();
 
             isFirst = false;
+            return;
         }
         if(!isPicFinished){
             return;

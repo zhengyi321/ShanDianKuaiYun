@@ -12,8 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.EditBaoJiaResultBean;
-import com.j256.ormlite.stmt.query.In;
-import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherBaoJiaActivity;
+import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
@@ -160,7 +159,7 @@ public class EditBaoJiaDialog extends Dialog {
                         public void onNext(EditBaoJiaResultBean editBaoJiaResultBean) {
                             Toast.makeText(context,editBaoJiaResultBean.getMsg(),Toast.LENGTH_LONG).show();
                             releaseDialog.dismiss();
-                            Intent intent = new Intent(context, NewHuoYuanDetailOtherBaoJiaActivity.class);
+                            Intent intent = new Intent(context, NewHuoYuanDetailOtherActivity.class);
                             intent.putExtra("hyid",hyId);
                             context.startActivity(intent);
                             ((Activity)context).finish();

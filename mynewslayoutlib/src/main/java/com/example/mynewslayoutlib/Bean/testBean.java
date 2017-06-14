@@ -6,9 +6,10 @@ package com.example.mynewslayoutlib.Bean;
 
 public class testBean {
 
+
     /**
      * status : 10000
-     * msg : 系统异常!
+     * msg : 此报价暂不支持取消！
      */
 
     private String status;

@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -46,10 +47,10 @@ public class NewMainMineController extends BaseController {
     private LianXiKeFuDialog lianXiKeFuDialog;
     private String nick = "",sex="",myInviteCode = "",wz="",youxiang="",wx="",qq="";
 
-    @BindView(R.id.lly_new_main_mine_login_or_update_gerenxinxi)
-    LinearLayout llyNewMainMineLoginOrUpdateGeRenXinXi;
-    @OnClick(R.id.lly_new_main_mine_login_or_update_gerenxinxi)
-    public void llyNewMainMineLoginOrUpdateGeRenXinXiOnclick(){
+    @BindView(R.id.fly_new_main_mine_login_or_update_gerenxinxi)
+    FrameLayout flyNewMainMineLoginOrUpdateGeRenXinXi;
+    @OnClick(R.id.fly_new_main_mine_login_or_update_gerenxinxi)
+    public void flyNewMainMineLoginOrUpdateGeRenXinXiOnclick(){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String loginStatus = xcCacheManager.readCache(xcCacheSaveName.loginStatus);

@@ -805,11 +805,11 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             />
-        <activity android:name=".Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetaiSelflActivity" />
+        <activity android:name=".Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailSelflActivity" />
         <activity android:name=".Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailOtherActivity" />
         <activity android:name=".Main.IndexFragment.NewHuoYuanList.HuoYuanListActivity" />
         <activity android:name=".Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfActivity" />
-        <activity android:name=".Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherBaoJiaActivity" />
+        <activity android:name=".Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherActivity" />
         <activity android:name=".Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity" />
         <activity android:name=".Main.MineFragment.WoDeHuoYuan.NewWoDeHuoYuanActivity" />
         <activity android:name=".Main.MineFragment.PaySubmit.TwoStepPaySubmitActivity" />
