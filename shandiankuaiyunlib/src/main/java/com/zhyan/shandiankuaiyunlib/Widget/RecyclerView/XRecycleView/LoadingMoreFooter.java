@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.zhyan.shandiankuaiyunlib.R;
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.progressindicator.AVLoadingIndicatorView;
 
-
 public class LoadingMoreFooter extends LinearLayout {
 
     private SimpleViewSwitcher progressCon;

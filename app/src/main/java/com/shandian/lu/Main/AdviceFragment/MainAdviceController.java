@@ -7,7 +7,6 @@ import com.shandian.lu.BaseController;
 import com.shandian.lu.NetWork.AdviceNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyunlib.Bean.AdviceInfoListBean;
-import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.DividerLine;
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView;
 
 import java.util.ArrayList;
@@ -48,9 +47,7 @@ public class MainAdviceController extends BaseController {
         xrvMainAdvice.setAdapter(adviceXRVAdapter);
         xrvMainAdvice.setLayoutManager(layoutManager);
         //这句就是添加我们自定义的分隔线
-        DividerLine dividerLine = new DividerLine(DividerLine.VERTICAL);
-        dividerLine.setSize(1);
-        dividerLine.setColor(view.getContext().getResources().getColor(R.color.color_main_advice_xrv_item_split_line));
+
         /*xrvMainAdvice.addItemDecoration(dividerLine);*/
         xrvMainAdvice.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override

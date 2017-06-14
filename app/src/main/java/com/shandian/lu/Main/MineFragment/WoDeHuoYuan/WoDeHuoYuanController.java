@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.FaBuHuoYuanActivity;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;

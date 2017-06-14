@@ -21,8 +21,6 @@ import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.progressind
 
 import java.util.Date;
 
-
-
 public class ArrowRefreshHeader extends LinearLayout implements BaseRefreshHeader {
 
 	private LinearLayout mContainer;
@@ -71,7 +69,7 @@ public class ArrowRefreshHeader extends LinearLayout implements BaseRefreshHeade
 
         //init the progress view
 		mProgressBar = (SimpleViewSwitcher)findViewById(R.id.listview_header_progressbar);
-        AVLoadingIndicatorView progressView = new  AVLoadingIndicatorView(getContext());
+        AVLoadingIndicatorView progressView = new AVLoadingIndicatorView(getContext());
         progressView.setIndicatorColor(0xffB5B5B5);
         progressView.setIndicatorId(ProgressStyle.BallSpinFadeLoader);
         mProgressBar.setView(progressView);

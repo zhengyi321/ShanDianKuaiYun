@@ -1,21 +1,22 @@
 package com.shandian.lu.Main.IndexFragment.NewHuoYuanList;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
 import com.shandian.lu.BaseController;
-import com.shandian.lu.Main.IndexFragment.NewCheYuanList.CheYuanListXRVAdapter;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
-import com.shandian.lu.Widget.Dialog.NewHuoYuanListTypeDialog;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
+import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.ProgressStyle;
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView;
 
 import java.util.ArrayList;
@@ -69,6 +70,8 @@ public class HuoYuanListController extends BaseController {
     ProgressBar pbNewHuoYuanList;
     HuoYuanListXRVAdapter huoYuanListXRVAdapter;
     int page = 1;
+    private int refreshTime = 0;
+    private int times = 0;
     public List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList,tempBeanList,adsBeanList,noAdsBeanList;
 
 
@@ -101,6 +104,54 @@ public class HuoYuanListController extends BaseController {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         xrvNewHuoYuanList.setLayoutManager(linearLayoutManager);
         xrvNewHuoYuanList.setAdapter(huoYuanListXRVAdapter);
+        xrvNewHuoYuanList.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        xrvNewHuoYuanList.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
+        xrvNewHuoYuanList.setArrowImageView(R.drawable.iconfont_downgrey);
+
+        /*View header = LayoutInflater.from(activity).inflate(R.layout.recyclerview_header, (ViewGroup)activity.findViewById(android.R.id.content),false);
+        xrvNewHuoYuanList.addHeaderView(header);*/
+
+        xrvNewHuoYuanList.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                refreshTime ++;
+                times = 0;
+                new Handler().postDelayed(new Runnable(){
+                    public void run() {
+
+                        page=1;
+                        getDataFromNet(page+"","0");
+
+                        xrvNewHuoYuanList.refreshComplete();
+                    }
+
+                }, 1000);            //refresh data here
+            }
+
+            @Override
+            public void onLoadMore() {
+                if(times < 2){
+                    new Handler().postDelayed(new Runnable(){
+                        public void run() {
+                            page++;
+                            getDataFromNet(page+"","0");
+                            xrvNewHuoYuanList.loadMoreComplete();
+
+                        }
+                    }, 1000);
+                } else {
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            page++;
+                            getDataFromNet(page+"","0");
+                            xrvNewHuoYuanList.setNoMore(true);
+
+                        }
+                    }, 1000);
+                }
+                times ++;
+            }
+        });
 
     }
 
@@ -133,7 +184,7 @@ public class HuoYuanListController extends BaseController {
             public void onNext(NewHuoYuanListBean newHuoYuanListBean) {
                 pbNewHuoYuanList.setVisibility(View.GONE);
                 if (newHuoYuanListBean.getStatus().equals("0")) {
-                    int size = newHuoYuanListBean.getNr().getList().size();
+                 /*   int size = newHuoYuanListBean.getNr().getList().size();
                     int count = tempBeanList.size();
                     noAdsBeanList.clear();
                     adsBeanList.clear();
@@ -174,8 +225,8 @@ public class HuoYuanListController extends BaseController {
                     }
                     tempBeanList.clear();
                     tempBeanList.addAll(adsBeanList);
-                    tempBeanList.addAll(noAdsBeanList);
-                    huoYuanListXRVAdapter.setAdapter(tempBeanList);
+                    tempBeanList.addAll(noAdsBeanList);*/
+                    huoYuanListXRVAdapter.setAdapter(newHuoYuanListBean.getNr().getList());
                 }
             }
         });

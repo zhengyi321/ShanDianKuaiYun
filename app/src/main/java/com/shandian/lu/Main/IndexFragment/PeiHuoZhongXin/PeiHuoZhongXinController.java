@@ -17,7 +17,6 @@ import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.CarLengthDialog;
 import com.shandian.lu.Widget.Dialog.CarTypeDialog;
 import com.zhyan.shandiankuaiyunlib.Bean.CarSourceSelectBean;
-import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.DividerLine;
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView;
 
 import java.util.ArrayList;
@@ -147,9 +146,7 @@ public class PeiHuoZhongXinController extends BaseController {
          adapter = new PeiHuoZhongXinXRVAdapter(activity,stringList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(activity);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        DividerLine dividerLine = new DividerLine(DividerLine.VERTICAL);
-        dividerLine.setColor(R.color.color_main_index_peihuozhongxin_xrv_item_split_line);
-        dividerLine.setSize(1);
+
         xrvMainIndexPeiHuoZhongXin.setAdapter(adapter);
         xrvMainIndexPeiHuoZhongXin.setLayoutManager(layoutManager);
         xrvMainIndexPeiHuoZhongXin.setLoadingListener(new XRecyclerView.LoadingListener() {

@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanBean;
 import com.example.mynewslayoutlib.Utils.SystemUtils;
