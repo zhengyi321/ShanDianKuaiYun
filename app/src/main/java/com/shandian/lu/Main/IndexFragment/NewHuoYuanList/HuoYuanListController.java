@@ -34,8 +34,7 @@ import rx.Observer;
 public class HuoYuanListController extends BaseController {
 
 
-    @BindView(R.id.xrv_new_huoyuanlist)
-    XRecyclerView xrvNewHuoYuanList;
+
     @BindView(R.id.tv_new_huoyuanlist_title)
     TextView tvNewHuoYuanListTitle;
     @BindView(R.id.rly_new_huoyuanlist_back)
@@ -68,92 +67,25 @@ public class HuoYuanListController extends BaseController {
 
     @BindView(R.id.pb_new_huoyuanlist)
     ProgressBar pbNewHuoYuanList;
+
     HuoYuanListXRVAdapter huoYuanListXRVAdapter;
-    int page = 1;
-    private int refreshTime = 0;
-    private int times = 0;
-    public List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList,tempBeanList,adsBeanList,noAdsBeanList;
 
 
-
-    public HuoYuanListController(Activity activity1){
+    public HuoYuanListController(Activity activity1,HuoYuanListXRVAdapter huoYuanListXRVAdapter1){
         activity = activity1;
         init();
+        huoYuanListXRVAdapter = huoYuanListXRVAdapter1;
     }
 
 
     @Override
     protected void init() {
         ButterKnife.bind(this,activity);
-        initXRV();
+
         rlyNewHuoYuanListChange.setVisibility(View.INVISIBLE);
-        getDataFromNet("1","0");
-    }
-
-    private void initXRV(){
-        huoYuanList = new ArrayList<>();
-        tempBeanList = new ArrayList<>();
-        adsBeanList = new ArrayList<>();
-        noAdsBeanList = new ArrayList<>();
-        huoYuanList.add(new NewHuoYuanListBean.NrBean.ListBean());
-        huoYuanList.add(new NewHuoYuanListBean.NrBean.ListBean());
-        huoYuanList.add(new NewHuoYuanListBean.NrBean.ListBean());
-        huoYuanList.add(new NewHuoYuanListBean.NrBean.ListBean());
-        huoYuanListXRVAdapter = new HuoYuanListXRVAdapter(activity,huoYuanList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        xrvNewHuoYuanList.setLayoutManager(linearLayoutManager);
-        xrvNewHuoYuanList.setAdapter(huoYuanListXRVAdapter);
-        xrvNewHuoYuanList.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
-        xrvNewHuoYuanList.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
-        xrvNewHuoYuanList.setArrowImageView(R.drawable.iconfont_downgrey);
-
-        /*View header = LayoutInflater.from(activity).inflate(R.layout.recyclerview_header, (ViewGroup)activity.findViewById(android.R.id.content),false);
-        xrvNewHuoYuanList.addHeaderView(header);*/
-
-        xrvNewHuoYuanList.setLoadingListener(new XRecyclerView.LoadingListener() {
-            @Override
-            public void onRefresh() {
-                refreshTime ++;
-                times = 0;
-                new Handler().postDelayed(new Runnable(){
-                    public void run() {
-
-                        page=1;
-                        getDataFromNet(page+"","0");
-
-                        xrvNewHuoYuanList.refreshComplete();
-                    }
-
-                }, 1000);            //refresh data here
-            }
-
-            @Override
-            public void onLoadMore() {
-                if(times < 2){
-                    new Handler().postDelayed(new Runnable(){
-                        public void run() {
-                            page++;
-                            getDataFromNet(page+"","0");
-                            xrvNewHuoYuanList.loadMoreComplete();
-
-                        }
-                    }, 1000);
-                } else {
-                    new Handler().postDelayed(new Runnable() {
-                        public void run() {
-                            page++;
-                            getDataFromNet(page+"","0");
-                            xrvNewHuoYuanList.setNoMore(true);
-
-                        }
-                    }, 1000);
-                }
-                times ++;
-            }
-        });
 
     }
+
 
     public void getDataFromNet(String page,String typeName) {
         pbNewHuoYuanList.setVisibility(View.VISIBLE);
@@ -305,8 +237,8 @@ public class HuoYuanListController extends BaseController {
                     tempBeanList.clear();
                     tempBeanList.addAll(adsBeanList);
                     tempBeanList.addAll(noAdsBeanList);*/
-                    tempBeanList.addAll(newHuoYuanListBean.getNr().getList());
-                    huoYuanListXRVAdapter.setAdapter(tempBeanList);
+                   /* tempBeanList.addAll(newHuoYuanListBean.getNr().getList());*/
+                    huoYuanListXRVAdapter.setAdapter(newHuoYuanListBean.getNr().getList());
 
             }
         });

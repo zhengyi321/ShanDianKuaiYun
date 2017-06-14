@@ -2,16 +2,24 @@ package com.shandian.lu.Main.IndexFragment.NewHuoYuanList;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.widget.LinearLayoutManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
 import com.shandian.lu.BaseActivity;
 import com.shandian.lu.Main.ReleaseFragment.SelectAddAddress.SelectAddAddressActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.NewHuoYuanListTypeDialog;
 import com.yanzhenjie.album.Album;
+import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.ProgressStyle;
+import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,9 +31,16 @@ import butterknife.OnClick;
 
 public class HuoYuanListActivity extends BaseActivity {
 
+    @BindView(R.id.xrv_new_huoyuanlist)
+    XRecyclerView xrvNewHuoYuanList;
     private final int ACTIVITY_SELECT_ADDRESS_BEGIN = 105;
     private final int ACTIVITY_SELECT_ADDRESS_END = 106;
     private String bProvince,eProvince,bCity,eCity,bArea,eArea,beginAddr,endAddr;
+    int page = 1;
+    private int refreshTime = 0;
+    private int times = 0;
+    public List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList,tempBeanList,adsBeanList,noAdsBeanList;
+    HuoYuanListXRVAdapter huoYuanListXRVAdapter;
     private String blat,blon,elat,elon;
     @BindView(R.id.rly_new_huoyuanlist_baddr)
     RelativeLayout rlyNewHuoYuanListBAddr;
@@ -58,7 +73,7 @@ public class HuoYuanListActivity extends BaseActivity {
         newHuoYuanListTypeDialog = new NewHuoYuanListTypeDialog(this).Build.setCallBackListener(new NewHuoYuanListTypeDialog.DialogCallBackListener() {
             @Override
             public void callBack(String type) {
-                huoYuanListController.tempBeanList.clear();
+
                 reFreshData("1",type);
                 type1 = type;
                 setType(type);
@@ -112,13 +127,14 @@ public class HuoYuanListActivity extends BaseActivity {
     @Override
     protected void init() {
         ButterKnife.bind(this);
+        initXRV();
         initController();
-
+        reFreshData("1","0");
     }
 
 
     private void initController(){
-        huoYuanListController = new HuoYuanListController(this);
+        huoYuanListController = new HuoYuanListController(this,huoYuanListXRVAdapter);
     }
 
 
@@ -140,7 +156,7 @@ public class HuoYuanListActivity extends BaseActivity {
                 blon = begin.getString("lon");
                 beginAddr = begin.getString("addr");
                 tvNewHuoYuanListBAddr.setText(bCity);
-                huoYuanListController.tempBeanList.clear();
+
                 reFreshData("1",type1);
                 break;
             }
@@ -155,7 +171,7 @@ public class HuoYuanListActivity extends BaseActivity {
                 elon = begin.getString("lon");
                 endAddr = begin.getString("addr");
                 tvNewHuoYuanListEAddr.setText(eCity);
-                huoYuanListController.tempBeanList.clear();
+
                 reFreshData("1",type1);
                 break;
             }
@@ -192,5 +208,66 @@ public class HuoYuanListActivity extends BaseActivity {
         }else{
             huoYuanListController.getDataFromNet(page,type);
         }*/
+    }
+
+
+
+    private void initXRV(){
+        huoYuanList = new ArrayList<>();
+
+        huoYuanListXRVAdapter = new HuoYuanListXRVAdapter(this,huoYuanList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        xrvNewHuoYuanList.setLayoutManager(linearLayoutManager);
+        xrvNewHuoYuanList.setAdapter(huoYuanListXRVAdapter);
+        xrvNewHuoYuanList.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        xrvNewHuoYuanList.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
+        xrvNewHuoYuanList.setArrowImageView(R.drawable.iconfont_downgrey);
+
+        /*View header = LayoutInflater.from(activity).inflate(R.layout.recyclerview_header, (ViewGroup)activity.findViewById(android.R.id.content),false);
+        xrvNewHuoYuanList.addHeaderView(header);*/
+
+        xrvNewHuoYuanList.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                refreshTime ++;
+                times = 0;
+                new Handler().postDelayed(new Runnable(){
+                    public void run() {
+
+                        page=1;
+                        reFreshData(page+"","0");
+
+                        xrvNewHuoYuanList.refreshComplete();
+                    }
+
+                }, 1000);            //refresh data here
+            }
+
+            @Override
+            public void onLoadMore() {
+                if(times < 2){
+                    new Handler().postDelayed(new Runnable(){
+                        public void run() {
+                            page++;
+                            reFreshData(page+"","0");
+                            xrvNewHuoYuanList.loadMoreComplete();
+
+                        }
+                    }, 1000);
+                } else {
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            page++;
+                            reFreshData(page+"","0");
+                            xrvNewHuoYuanList.setNoMore(true);
+
+                        }
+                    }, 1000);
+                }
+                times ++;
+            }
+        });
+
     }
 }
