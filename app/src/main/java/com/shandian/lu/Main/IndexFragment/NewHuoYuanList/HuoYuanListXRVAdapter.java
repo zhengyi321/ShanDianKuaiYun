@@ -36,7 +36,7 @@ import butterknife.OnClick;
 public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAdapter.MyItemHolder> {
 
     private Activity activity;
-    private List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList;
+    public List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList;
     private LayoutInflater inflater;
     public HuoYuanListXRVAdapter(Activity activity1, List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList1){
         activity = activity1;
@@ -50,7 +50,7 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
     }
 
     public void setAdapter(List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList1){
-        huoYuanList.clear();
+
         huoYuanList.addAll(huoYuanList1);
         notifyDataSetChanged();
     }
@@ -190,8 +190,13 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
                 return;
             }
             if(loginId.equals(huoYuanList.get(pos).getLogin_id())){
+                String ddzt = huoYuanList.get(pos).getDingdanzt();
+                if(ddzt == null){
+                    ddzt = "";
+                }
                 Intent intent = new Intent(activity, NewHuoYuanDetailSelfActivity.class);
                 intent.putExtra("hyid",huoYuanList.get(pos).getId());
+                intent.putExtra("status",ddzt);
                 activity.startActivity(intent);
                 return;
             }else{

@@ -268,11 +268,11 @@ public class MainIndexController extends BaseController{
             public void onNext(MainIndexAdBean mainIndexAdBean) {
                 int size = mainIndexAdBean.getContent().getSide().size();
                 ArrayList<String> imgList2 = new ArrayList<>();
-                imgList2.add("");
-                imgList2.add("");
+
                 ArrayList<String> picList = new ArrayList<String>();
                 for(int i = 0;i < size;i++){
                     picList.add(mainIndexAdBean.getContent().getSide().get(i).getImage());
+                    imgList2.add("");//标题
                 }
                 mainIndexAdBean1 = mainIndexAdBean;
                 icvMainIndexAdCircle.setImageResources(picList,imgList2,imageCycleViewListener);

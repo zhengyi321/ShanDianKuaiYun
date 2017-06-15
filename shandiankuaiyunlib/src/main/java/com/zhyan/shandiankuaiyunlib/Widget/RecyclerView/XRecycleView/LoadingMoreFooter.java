@@ -23,9 +23,10 @@ public class LoadingMoreFooter extends LinearLayout {
     private String loadingHint;
     private String noMoreHint;
     private String loadingDoneHint;
-
-	public LoadingMoreFooter(Context context) {
-		super(context);
+    private Context context;
+	public LoadingMoreFooter(Context context1) {
+		super(context1);
+        context = context1;
 		initView();
 	}
 
@@ -66,6 +67,7 @@ public class LoadingMoreFooter extends LinearLayout {
         addView(progressCon);
         mText = new TextView(getContext());
         mText.setText("正在加载...");
+        mText.setTextColor(context.getResources().getColor(R.color.gray));
         loadingHint = (String)getContext().getText(R.string.listview_loading);
         noMoreHint = (String)getContext().getText(R.string.nomore_loading);
         loadingDoneHint = (String)getContext().getText(R.string.loading_done);

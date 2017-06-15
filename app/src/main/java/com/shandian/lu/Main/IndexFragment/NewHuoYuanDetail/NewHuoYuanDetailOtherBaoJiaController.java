@@ -1,7 +1,9 @@
 package com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.RelativeLayout;
@@ -16,6 +18,7 @@ import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.EditBaoJiaDialog;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
+import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +34,7 @@ import rx.Observer;
 
 public class NewHuoYuanDetailOtherBaoJiaController extends BaseController {
 
-    private String hyId ;
+    private String hyId ,tel;
     @BindView(R.id.rly_new_other_hyxq_back)
     RelativeLayout rlyNewOtherHYXQBack;
     @OnClick(R.id.rly_new_other_hyxq_back)
@@ -107,13 +110,6 @@ public class NewHuoYuanDetailOtherBaoJiaController extends BaseController {
         activity.startActivity(intent);
 
     }
-
-
-
-      /*  Intent intent = new Intent(this, NewFaBuHuoYuanActivity.class);*/
-       /* Intent intent = new Intent(this, TestActivity.class);
-        startActivity(intent);*/
-
     public void showDialog() {
         if (editBaoJiaDialog != null && !editBaoJiaDialog.isShowing())
             editBaoJiaDialog.show();
@@ -125,6 +121,89 @@ public class NewHuoYuanDetailOtherBaoJiaController extends BaseController {
     }
 
 
+
+
+
+
+
+    @BindView(R.id.rly_new_other_hyxq_bottom_message)
+    RelativeLayout rlyNewOtherHYXQBottomMessage;
+    @OnClick(R.id.rly_new_other_hyxq_bottom_message)
+    public void rlyNewOtherHYXQBottomMessageOnclick(){
+        if((tel == null)||(tel.isEmpty())){
+            return;
+        }
+        doSendSMSTo(tel,"" );
+    }
+
+    /**
+     * 调起系统发短信功能
+     * @param phoneNumber
+     * @param message
+     */
+    public void doSendSMSTo(String phoneNumber,String message){
+       /* if(PhoneNumberUtils.isGlobalPhoneNumber(phoneNumber)){*/
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:"+phoneNumber));
+        intent.putExtra("sms_body", message);
+        activity.startActivity(intent);
+      /*  }*/
+    }
+
+
+    CallTelDialog callTelDialog;
+    @BindView(R.id.rly_new_other_hyxq_bottom_tel)
+    RelativeLayout rlyNewOtherHYXQBottomTel;
+    @OnClick(R.id.rly_new_other_hyxq_bottom_tel)
+    public void rlyNewOtherHYXQBottomTelOnclick(){
+
+        if((tel == null)||(tel.isEmpty())){
+            return;
+        }
+        callTelDialog = new CallTelDialog(activity,tel).Build.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dimssTelDialog();
+            }
+        }).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dimssTelDialog();
+            }
+        }).setCallBackListener(new CallTelDialog.DialogCallBackListener() {
+            @Override
+            public void callBack(String tel) {
+                startCallTel(tel);
+            }
+        }).build(activity);
+        showTelDialog();
+    }
+
+
+      /*  Intent intent = new Intent(this, NewFaBuHuoYuanActivity.class);*/
+       /* Intent intent = new Intent(this, TestActivity.class);
+        startActivity(intent);*/
+
+
+
+
+    public void showTelDialog() {
+        if (callTelDialog != null && !callTelDialog.isShowing())
+            callTelDialog.show();
+    }
+
+    public void dimssTelDialog() {
+        if (callTelDialog != null && callTelDialog.isShowing())
+            callTelDialog.dismiss();
+    }
+    private void startCallTel(String number) {
+        /*PhoneFormatCheckUtils phoneFormatCheckUtils = new PhoneFormatCheckUtils();
+        if((number != null)&&(phoneFormatCheckUtils.IsNumber(number))) {*/
+        //用intent启动拨打电话
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number));
+
+        activity.startActivity(intent);
+       /* }*/
+    }
 
     private NewHuoYuanDetailImgRVAdapter adapter;
     private List<String> imgList;
@@ -194,6 +273,7 @@ public class NewHuoYuanDetailOtherBaoJiaController extends BaseController {
         eLat = newHuoYuanDetailBean.getNr().getDalat();
         eLon = newHuoYuanDetailBean.getNr().getDalng();
         adapter.setAdapter(newHuoYuanDetailBean.getNr().getImgtu());
+        tel = newHuoYuanDetailBean.getNr().getIphone();
 
     }
 

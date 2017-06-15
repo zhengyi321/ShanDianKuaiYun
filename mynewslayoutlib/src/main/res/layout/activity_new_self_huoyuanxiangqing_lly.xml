@@ -6,13 +6,27 @@
         <include layout="@layout/activity_new_self_huoyuanxiangqing_topbar_lly"/>
 
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         android:layout_weight="1"
         >
         <include layout="@layout/activity_new_self_huoyuanxiangqing_content_ssv"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/ib_new_self_hyxq_ckbj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/chakan_baojia"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="430dp"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+    </FrameLayout>
+    <include layout="@layout/activity_new_self_huoyuanxiangqing_bottom_lly"/>
 </LinearLayout>

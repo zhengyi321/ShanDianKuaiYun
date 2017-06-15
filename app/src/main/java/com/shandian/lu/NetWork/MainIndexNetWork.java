@@ -1,5 +1,6 @@
 package com.shandian.lu.NetWork;
 
+import com.example.mynewslayoutlib.Bean.NewUpSelfLocToNetBean;
 import com.shandian.lu.Bean.SecondCityChangeBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
 import com.zhyan.shandiankuaiyunlib.Bean.CityBean;
@@ -7,7 +8,12 @@ import com.zhyan.shandiankuaiyunlib.Bean.MainIndexAdBean;
 import com.zhyan.shandiankuaiyunlib.Bean.NearByDriverBean;
 import com.zhyan.shandiankuaiyunlib.Bean.ThirdCityChangeBean;
 
+import java.util.Map;
+
+import retrofit2.http.FieldMap;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 import rx.Observable;
 import rx.Observer;
@@ -49,6 +55,11 @@ public class MainIndexNetWork extends BaseNetWork {
         @GET("index.php/app/index/zhuayingyan")
         Observable<NearByDriverBean> getNearByDriverFromNet(@Query("lat")double lat,@Query("lng")double lng);
         /*附近司机*/
+        /*上传坐标地址*/
+        @FormUrlEncoded
+        @POST("index.php/app/index/zhuayingyan")
+        Observable<NewUpSelfLocToNetBean> upSelfLocToNet(@FieldMap Map<String,String> paramMap);
+        /*上传坐标地址*/
     }
 
     public  void getAdFromNet(Observer<MainIndexAdBean> observer){
@@ -65,6 +76,9 @@ public class MainIndexNetWork extends BaseNetWork {
     }
     public  void getNearByDriverFromNet( double lat,double lng,Observer<NearByDriverBean> observer){
         setSubscribe(service.getNearByDriverFromNet(lat,lng),observer);
+    }
+    public  void upSelfLocToNet(Map<String,String> paramMap,Observer<NewUpSelfLocToNetBean> observer){
+        setSubscribe(service.upSelfLocToNet(paramMap),observer);
     }
 
 }

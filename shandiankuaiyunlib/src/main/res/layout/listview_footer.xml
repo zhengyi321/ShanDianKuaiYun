@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
+        android:textColor="@color/gray"
         android:text="加载中..."/>
     
 </LinearLayout>

@@ -11,7 +11,7 @@ public class NewHuoYuanDetailBean {
     /**
      * status : 0
      * msg :
-     * nr : {"id":"619","login_id":"217","type_name":"2","good_name":"图","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"58吨","people":"咯","iphone":"咯了","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"暂无备注！","pass_status":"1","create_time":"1497167761","num":"1","update_time":"1497167761","baojiaid":"3","dingdanzt":"1","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市旭阳路35号中国建设银行(乐清旭阳分理处)南97米","cfzuobiao":"28.121649,120.981583","dasheng":"北京市","dashi":"北京市","daqu":"东城区","dadizhi":"北京市东城区西长安街天安门-华表东72米","dazuobiao":"39.914482,116.403908","imgtu":["https://www.lianshiding.com/Uploads/2017-06-11/2171497167761zAkv.jpg","https://www.lianshiding.com/Uploads/2017-06-11/2171497167761NT4b.jpg"],"lng":"120.981583","lat":"28.121649","juli":"2000","zuobiaohash":"wsypcp2h7pqd","gg":"0","cflat":"28.121649","cflng":"120.981583","dalat":"39.914482","dalng":"116.403908","touxiang":"https://www.lianshiding.comhttps://www.lianshiding.com/Uploads/2017-06-11/2171497167761zAkv.jpg","name":null,"czmobile":null,"sfbj":"0","time":"2017-06-11 15:56:01"}
+     * nr : {"id":"665","login_id":"276","type_name":"1","good_name":"2路","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"1吨","people":"严","iphone":"10086","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"暂无备注！","pass_status":"1","create_time":"1497496163","num":"1","update_time":"1497496163","baojiaid":"53","dingdanzt":"1","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号 中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市清远路139号 中国建设银行(清远路储蓄所)附近14米","dazuobiao":"28.119593587390998,120.97436282216142","imgtu":["https://www.lianshiding.com/Uploads/2017-06-15/2761497496163j7hn.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","cflat":"28.119593587390998","cflng":"120.97436282216142","dalat":"28.119593587390998","dalng":"120.97436282216142","touxiang":"https://www.lianshiding.com/Uploads/2017-06-15/2761497496163j7hn.jpg","name":null,"czmobile":null,"czlat":"28.828","czlng":"119.199","cztouxiang":"http://www.shandiannt.com/img/logo.png","sfbj":"0","time":"2017-06-15 11:09:23"}
      */
 
     private String status;
@@ -44,10 +44,10 @@ public class NewHuoYuanDetailBean {
 
     public static class NrBean {
         /**
-         * id : 619
-         * login_id : 217
-         * type_name : 2
-         * good_name : 图
+         * id : 665
+         * login_id : 276
+         * type_name : 1
+         * good_name : 2路
          * set_province_id : 0
          * set_city_id : 0
          * set_area_id : 0
@@ -61,9 +61,9 @@ public class NewHuoYuanDetailBean {
          * address_out_detail :
          * address_pick_down :
          * address :
-         * weight : 58吨
-         * people : 咯
-         * iphone : 咯了
+         * weight : 1吨
+         * people : 严
+         * iphone : 10086
          * img1 :
          * img2 :
          * img3 :
@@ -75,36 +75,39 @@ public class NewHuoYuanDetailBean {
          * status : 0
          * context : 暂无备注！
          * pass_status : 1
-         * create_time : 1497167761
+         * create_time : 1497496163
          * num : 1
-         * update_time : 1497167761
-         * baojiaid : 3
+         * update_time : 1497496163
+         * baojiaid : 53
          * dingdanzt : 1
          * cfsheng : 浙江省
          * cfshi : 温州市
          * cfqu : 乐清市
-         * cfdizhi : 浙江省温州市乐清市旭阳路35号中国建设银行(乐清旭阳分理处)南97米
-         * cfzuobiao : 28.121649,120.981583
-         * dasheng : 北京市
-         * dashi : 北京市
-         * daqu : 东城区
-         * dadizhi : 北京市东城区西长安街天安门-华表东72米
-         * dazuobiao : 39.914482,116.403908
-         * imgtu : ["https://www.lianshiding.com/Uploads/2017-06-11/2171497167761zAkv.jpg","https://www.lianshiding.com/Uploads/2017-06-11/2171497167761NT4b.jpg"]
-         * lng : 120.981583
-         * lat : 28.121649
+         * cfdizhi : 浙江省温州市乐清市清远路139号 中国建设银行(清远路储蓄所)附近14米
+         * cfzuobiao : 28.119593587390998,120.97436282216142
+         * dasheng : 浙江省
+         * dashi : 温州市
+         * daqu : 乐清市
+         * dadizhi : 浙江省温州市乐清市清远路139号 中国建设银行(清远路储蓄所)附近14米
+         * dazuobiao : 28.119593587390998,120.97436282216142
+         * imgtu : ["https://www.lianshiding.com/Uploads/2017-06-15/2761497496163j7hn.jpg"]
+         * lng : 120.97436282216142
+         * lat : 28.119593587390998
          * juli : 2000
-         * zuobiaohash : wsypcp2h7pqd
+         * zuobiaohash : wsypbz4bdbnvmpy26su8
          * gg : 0
-         * cflat : 28.121649
-         * cflng : 120.981583
-         * dalat : 39.914482
-         * dalng : 116.403908
-         * touxiang : https://www.lianshiding.comhttps://www.lianshiding.com/Uploads/2017-06-11/2171497167761zAkv.jpg
+         * cflat : 28.119593587390998
+         * cflng : 120.97436282216142
+         * dalat : 28.119593587390998
+         * dalng : 120.97436282216142
+         * touxiang : https://www.lianshiding.com/Uploads/2017-06-15/2761497496163j7hn.jpg
          * name : null
          * czmobile : null
+         * czlat : 28.828
+         * czlng : 119.199
+         * cztouxiang : http://www.shandiannt.com/img/logo.png
          * sfbj : 0
-         * time : 2017-06-11 15:56:01
+         * time : 2017-06-15 11:09:23
          */
 
         private String id;
@@ -165,6 +168,9 @@ public class NewHuoYuanDetailBean {
         private String touxiang;
         private Object name;
         private Object czmobile;
+        private String czlat;
+        private String czlng;
+        private String cztouxiang;
         private String sfbj;
         private String time;
         private List<String> imgtu;
@@ -631,6 +637,30 @@ public class NewHuoYuanDetailBean {
 
         public void setCzmobile(Object czmobile) {
             this.czmobile = czmobile;
+        }
+
+        public String getCzlat() {
+            return czlat;
+        }
+
+        public void setCzlat(String czlat) {
+            this.czlat = czlat;
+        }
+
+        public String getCzlng() {
+            return czlng;
+        }
+
+        public void setCzlng(String czlng) {
+            this.czlng = czlng;
+        }
+
+        public String getCztouxiang() {
+            return cztouxiang;
+        }
+
+        public void setCztouxiang(String cztouxiang) {
+            this.cztouxiang = cztouxiang;
         }
 
         public String getSfbj() {

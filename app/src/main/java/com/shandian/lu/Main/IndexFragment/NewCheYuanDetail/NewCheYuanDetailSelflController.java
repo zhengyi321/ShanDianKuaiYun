@@ -1,6 +1,7 @@
 package com.shandian.lu.Main.IndexFragment.NewCheYuanDetail;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.RelativeLayout;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.shandian.lu.BaseActivity;
 import com.shandian.lu.BaseController;
+import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 
@@ -26,7 +28,7 @@ import rx.Observer;
 
 public class NewCheYuanDetailSelflController extends BaseController {
 
-
+    private String bLat,bLon,eLat,eLon;
     @BindView(R.id.rly_new_self_cyxq_back)
     RelativeLayout rlyNewSelfCYXQBack;
     @OnClick(R.id.rly_new_self_cyxq_back)
@@ -55,6 +57,30 @@ public class NewCheYuanDetailSelflController extends BaseController {
     RecyclerView rvNewSelfCYXQImg;
     @BindView(R.id.tv_new_self_cyxq_updatetime)
     TextView tvNewSelfCYXQUpdateTime;
+
+    @BindView(R.id.rly_new_self_cyxq_mapline)
+    RelativeLayout rlyNewOtherCYXQMapLine;
+    @OnClick(R.id.rly_new_self_cyxq_mapline)
+    public void rlyNewOtherCYXQMapLineOnclick(){
+        Intent intent = new Intent(activity, NewBaiDuRoutePlanActivity.class);
+        if(bLat == null){
+            bLat = "0.0";
+        }
+        if(bLon == null){
+            bLon = "0.0";
+        }
+        if(eLat == null){
+            eLat = "0.0";
+        }
+        if(eLon == null){
+            eLon = "0.0";
+        }
+        intent.putExtra("blat",bLat);
+        intent.putExtra("blon",bLon);
+        intent.putExtra("elat",eLat);
+        intent.putExtra("elon",eLon);
+        activity.startActivity(intent);
+    }
     private String cyId ;
     private NewCheYuanDetailImgRVAdapter adapter;
     private List<String> imgList;
@@ -119,7 +145,10 @@ public class NewCheYuanDetailSelflController extends BaseController {
         tvNewSelfCYXQRemark.setText(newCheYuanDetailBean.getNr().getContent());
         tvNewSelfCYXQUpdateTime.setText(newCheYuanDetailBean.getNr().getTime());
         adapter.setAdapter(newCheYuanDetailBean.getNr().getImgtu());
-
+        bLat = newCheYuanDetailBean.getNr().getCflat();
+        bLon = newCheYuanDetailBean.getNr().getCflng();
+        eLat = newCheYuanDetailBean.getNr().getDalat();
+        eLon = newCheYuanDetailBean.getNr().getDalng();
     }
 
 }

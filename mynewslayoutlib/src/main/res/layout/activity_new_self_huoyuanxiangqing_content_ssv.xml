@@ -620,15 +620,8 @@
         </LinearLayout>
     </LinearLayout>
     </LinearLayout>
-        <ImageButton
-            android:id="@+id/ib_new_self_hyxq_ckbj"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/chakan_baojia"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="465dp"
-            android:layout_alignParentRight="true"
-            />
+
     </RelativeLayout>
+
 
 </com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>

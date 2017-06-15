@@ -14,15 +14,22 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.example.mynewslayoutlib.Bean.NewUpSelfLocToNetBean;
 import com.shandian.lu.Main.BaseFragment;
 import com.shandian.lu.Main.IndexFragment.CityChange.CityChangeActivity;
+import com.shandian.lu.NetWork.MainIndexNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.http.Query;
+import rx.Observer;
 
 /**
  * Created by Administrator on 2017/6/7.
@@ -96,14 +103,14 @@ public class NewMainIndexFragment extends BaseFragment {
         option.setCoorType("bd09ll");
         //可选，默认gcj02，设置返回的定位结果坐标系
 
-        int span=30000;
+        int span=60000;
         option.setScanSpan(span);
         //可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
 
         option.setIsNeedAddress(true);
         //可选，设置是否需要地址信息，默认不需要
 
-        option.setOpenGps(true);
+        option.setOpenGps(false);
         //可选，默认false,设置是否使用gps
 
         option.setLocationNotify(true);
@@ -183,6 +190,46 @@ public class NewMainIndexFragment extends BaseFragment {
                         currentLocAddrStr = "";
                     }
                     xcCacheManager.writeCache(xcCacheSaveName.currentLocAddrStr, currentLocAddrStr);
+                String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
+                if((loginId == null)||(loginId.isEmpty())){
+                    return;
+                }
+                MainIndexNetWork mainIndexNetWork = new MainIndexNetWork();
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+
+                Map<String,String> paramMap = new HashMap<>();
+                paramMap.put("login_id",loginId);
+                paramMap.put("lat",location.getLatitude()+"");
+                paramMap.put("lng",location.getLongitude()+"");
+                mainIndexNetWork.upSelfLocToNet(paramMap, new Observer<NewUpSelfLocToNetBean>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(NewUpSelfLocToNetBean newUpSelfLocToNetBean) {
+                        /*Toast.makeText(getContext(),newUpSelfLocToNetBean.getMsg(),Toast.LENGTH_LONG).show();*/
+                    }
+                });
               /*      System.out.print("this is lat\n:"+lat);
                     System.out.print("this is lon\n:"+lon);
                     Log.i("this is lat",lat);

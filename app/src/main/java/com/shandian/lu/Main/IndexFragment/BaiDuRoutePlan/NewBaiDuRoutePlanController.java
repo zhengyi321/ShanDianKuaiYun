@@ -4,20 +4,31 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapPoi;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.RouteLine;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -31,11 +42,14 @@ import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaiDu.DrivingRouteOverlay;
 import com.shandian.lu.BaiDu.OverlayManager;
 import com.shandian.lu.BaiDu.RouteLineAdapter;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.R;
+import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
+import com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView;
 
 import java.util.List;
 
@@ -69,6 +83,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
     int nowSearchType = -1 ; // 当前进行的检索，供判断浏览节点时结果使用。
     int nodeIndex = -1; // 节点索引,供浏览节点时使用
     private LatLng bLl,eLl;
+    private MyLocationConfiguration.LocationMode mCurrentMode;
     public NewBaiDuRoutePlanController(Activity activity1){
         activity = activity1;
         init();
@@ -80,28 +95,102 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
         mBaidumap = mvNewBaiDuRoutePlan.getMap();
         mvNewBaiDuRoutePlan.showZoomControls(false);
         mBaidumap.setMyLocationEnabled(true);// 开启定位图层
+        mBaidumap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
         // 地图点击事件处理
         mBaidumap.setOnMapClickListener(this);
+
         initRouteOverLay();
         initLLg();
         searchProcessByLLG(bLl,eLl);
+
     }
+
+    private void initSiJiLoc(){
+
+/*        intent.putExtra("czlat",cheLat);
+        intent.putExtra("czlon",cheLon);
+        intent.putExtra("czTouXiang",cheTouXiang);*/
+        String cheLat = activity.getIntent().getStringExtra("czlat");
+        if((cheLat == null)||(cheLat.isEmpty())){
+            cheLat = "0";
+            return;
+        }
+        String cheLon = activity.getIntent().getStringExtra("czlon");
+        if((cheLon == null)||(cheLon.isEmpty())){
+            cheLon = "0";
+        }
+        String cheTouXiang = activity.getIntent().getStringExtra("czTouXiang");
+        if(cheTouXiang == null){
+            cheTouXiang = "";
+        }
+       /* Toast.makeText(activity,"chelat:"+cheLat+" chelon:"+cheLon+" chetouxiang:"+cheTouXiang,Toast.LENGTH_LONG).show();*/
+        View view = LayoutInflater.from(activity).inflate(R.layout.dialog_che_loc_lly, null);
+        RoundImageView touxiang = (RoundImageView) view.findViewById(R.id.riv_dialog_loc_touxiang);
+        ImageLoader.getInstance().displayImage(cheTouXiang,touxiang, ImageLoaderUtils.options1);
+     /*   BitmapDescriptor markerIcon = BitmapDescriptorFactory.fromBitmap(getViewBitmap(view));*/
+
+        BitmapDescriptor mCurrentMarker = BitmapDescriptorFactory.fromView(view);
+
+        double cLat = Double.parseDouble(cheLat);
+        double cLon = Double.parseDouble(cheLon);
+        /*定位蓝色点*/
+        MyLocationData locData = new MyLocationData.Builder()
+                .accuracy(100)
+                // 此处设置开发者获取到的方向信息，顺时针0-360  lat:28.122708 lon:120.981995
+                .direction(0).latitude(cLat)
+                .longitude(cLon).build();
+        mBaidumap.setMyLocationData(locData);
+        mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
+        mBaidumap.setMyLocationConfigeration(new MyLocationConfiguration(
+                mCurrentMode, true, mCurrentMarker,
+                0, 0));
+        LatLng lng = new LatLng(cLat,cLon);
+        MapStatus.Builder builder = new MapStatus.Builder();
+        builder.target(lng).zoom(9.0f);
+
+        mBaidumap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+
+
+
+
+    }
+    /**
+     * Gets the view bitmap.
+     *
+     * @param addViewContent
+     *            the add view content
+     * @return the view bitmap
+     */
+    private Bitmap getViewBitmap(View addViewContent) {
+
+        addViewContent.setDrawingCacheEnabled(true);
+
+        addViewContent.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+        addViewContent.layout(0, 0, addViewContent.getMeasuredWidth(), addViewContent.getMeasuredHeight());
+
+        addViewContent.buildDrawingCache();
+        Bitmap cacheBitmap = addViewContent.getDrawingCache();
+        Bitmap bitmap = Bitmap.createBitmap(cacheBitmap);
+
+        return bitmap;
+    }
+
     private void initLLg(){
         String blat = activity.getIntent().getStringExtra("blat");
         if(blat == null){
-            blat = "";
+            blat = "0.0";
         }
         String blon = activity.getIntent().getStringExtra("blon");
         if(blon == null){
-            blon = "";
+            blon = "0.0";
         }
         String elat = activity.getIntent().getStringExtra("elat");
         if(elat == null){
-            elat = "";
+            elat = "0.0";
         }
         String elon = activity.getIntent().getStringExtra("elon");
         if(elon == null){
-            elon = "";
+            elon = "0.0";
         }
        /* Toast.makeText(activity,"blat:"+blat+" blon"+blon+" elat"+elat+" elon"+elon,Toast.LENGTH_LONG).show();*/
         bLl = new LatLng(Double.parseDouble(blat),Double.parseDouble(blon));
@@ -160,6 +249,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
                         @Override
                         public void onDismiss(DialogInterface dialog) {
                             hasShownDialogue = false;
+                            initSiJiLoc();
                         }
                     });
                     myTransitDlg.setOnItemInDlgClickLinster(new OnItemInDlgClickListener() {
@@ -171,6 +261,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
                             overlay.setData(nowResultdrive.getRouteLines().get(position));
                             overlay.addToMap();
                             overlay.zoomToSpan();
+                            initSiJiLoc();
                         }
 
                     });
@@ -185,13 +276,16 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
                 overlay.setData(result.getRouteLines().get(0));
                 overlay.addToMap();
                 overlay.zoomToSpan();
+                initSiJiLoc();
 
             } else {
                 Log.d("route result", "结果数<0");
+                initSiJiLoc();
                 return;
             }
 
         }
+        initSiJiLoc();
     }
 
     @Override

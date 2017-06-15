@@ -285,6 +285,8 @@ public class MyReceiver extends BroadcastReceiver {
             case "2":
                  i = new Intent(context1, NewHuoYuanDetailOtherActivity.class);
                 i.putExtra("hyid",hyId);
+
+                i.putExtra("status","1");
                 //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
                 context1.startActivity(i);
@@ -292,6 +294,7 @@ public class MyReceiver extends BroadcastReceiver {
             case "3":
                 i = new Intent(context1, NewHuoYuanDetailOtherActivity.class);
                 i.putExtra("hyid",hyId);
+                i.putExtra("status","2");
                 //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
                 context1.startActivity(i);
@@ -299,6 +302,7 @@ public class MyReceiver extends BroadcastReceiver {
             case "4":
                 i = new Intent(context1, NewHuoYuanDetailOtherActivity.class);
                 i.putExtra("hyid",hyId);
+                i.putExtra("status","3");
                 //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
                 context1.startActivity(i);
@@ -306,11 +310,20 @@ public class MyReceiver extends BroadcastReceiver {
             case "5":
                 i = new Intent(context1, NewHuoYuanDetailOtherActivity.class);
                 i.putExtra("hyid",hyId);
+                i.putExtra("status","4");
                 //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
                 context1.startActivity(i);
                 break;
             case "6":
+                i = new Intent(context1, NewHuoYuanDetailOtherActivity.class);
+                i.putExtra("hyid",hyId);
+                i.putExtra("status","5");
+                //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                context1.startActivity(i);
+                break;
+            case "8":
                 i = new Intent(context1, NewHuoYuanDetailOtherActivity.class);
                 i.putExtra("hyid",hyId);
                 //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

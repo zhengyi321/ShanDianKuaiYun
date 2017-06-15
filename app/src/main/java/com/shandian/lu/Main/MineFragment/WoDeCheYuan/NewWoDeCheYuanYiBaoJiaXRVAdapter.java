@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -73,7 +74,7 @@ public class NewWoDeCheYuanYiBaoJiaXRVAdapter extends RecyclerView.Adapter<NewWo
     @Override
     public void onBindViewHolder(MyItemViewHolder holder, int position) {
         holder.pos = position;
-        holder.tvNewWoDeCheYuanXRVItemNewBaoJia.setVisibility(View.GONE);
+
     /*    String isNew = dataList.get(position).getSfck();*/
        /* if((isNew == null)||(isNew.isEmpty())){
             isNew = "0";
@@ -83,13 +84,20 @@ public class NewWoDeCheYuanYiBaoJiaXRVAdapter extends RecyclerView.Adapter<NewWo
         }else{
             holder.tvNewWoDeCheYuanXRVItemNewBaoJia.setVisibility(View.GONE);
         }*/
-
+        String ztName = dataList.get(position).getZtname();
+        if((ztName == null)||(ztName.isEmpty())){
+            holder.llyNewWoDeCheYuanXRVItemNews.setVisibility(View.GONE);
+        }else{
+            holder.llyNewWoDeCheYuanXRVItemNews.setVisibility(View.VISIBLE);
+            holder.tvNewWoDeCheYuanXRVItemNewMessage.setText(ztName);
+        }
         holder.tvNewWoDeCheYuanXRVItemBCity.setText(dataList.get(position).getCfshi());
         holder.tvNewWoDeCheYuanXRVItemBArea.setText(dataList.get(position).getCfqu());
         holder.tvNewWoDeCheYuanXRVItemECity.setText(dataList.get(position).getDashi());
         holder.tvNewWoDeCheYuanXRVITemEArea.setText(dataList.get(position).getDaqu());
         holder.tvNewWoDeCheYuanXRVItemDelete.setText("取消订单");
         holder.tvNewWoDeCheYuanXRVItemUpdate.setText("修改报价");
+        holder.tvNewWoDeCheYuanXRVItemUpdate.setVisibility(View.GONE);
         String typeName = dataList.get(position).getType_name();
         if(typeName == null){
             typeName = "";
@@ -119,30 +127,36 @@ public class NewWoDeCheYuanYiBaoJiaXRVAdapter extends RecyclerView.Adapter<NewWo
             case "-1":
                 holder.deleteUpdateState(true);
                 holder.tvNewWoDeCheYuanXRVItemCount.setText("报价失败");
+                holder.rlyNewWoDeCheYuanXRVItemCount.setBackgroundResource(R.mipmap.mine_cyhy_gray);
                 break;
             case "0":
                     holder.deleteUpdateState(true);
-
+                holder.rlyNewWoDeCheYuanXRVItemCount.setBackgroundResource(R.mipmap.mine_cyhy_blue_bg);
                 break;
             case "1":
                 holder.deleteUpdateState(false);
                 holder.tvNewWoDeCheYuanXRVItemCount.setText("待货主\n支付定金");
+                holder.rlyNewWoDeCheYuanXRVItemCount.setBackgroundResource(R.mipmap.mine_cyhy_blue_bg);
                 break;
             case "2":
                 holder.deleteUpdateState(false);
                 holder.tvNewWoDeCheYuanXRVItemCount.setText("拉货");
+                holder.rlyNewWoDeCheYuanXRVItemCount.setBackgroundResource(R.mipmap.mine_cyhy_orange_bg);
                 break;
             case "3":
                 holder.deleteUpdateState(false);
                 holder.tvNewWoDeCheYuanXRVItemCount.setText("运输中");
+                holder.rlyNewWoDeCheYuanXRVItemCount.setBackgroundResource(R.mipmap.mine_cyhy_orange_bg);
                 break;
             case "4":
                 holder.deleteUpdateState(false);
                 holder.tvNewWoDeCheYuanXRVItemCount.setText("待货主\n支付尾款");
+                holder.rlyNewWoDeCheYuanXRVItemCount.setBackgroundResource(R.mipmap.mine_cyhy_blue_bg);
                 break;
             case "5":
                 holder.deleteUpdateState(false);
                 holder.tvNewWoDeCheYuanXRVItemCount.setText("交易成功");
+                holder.rlyNewWoDeCheYuanXRVItemCount.setBackgroundResource(R.mipmap.mine_cyhy_gray);
                 break;
         }
 
@@ -164,6 +178,11 @@ public class NewWoDeCheYuanYiBaoJiaXRVAdapter extends RecyclerView.Adapter<NewWo
         public void llyNewWoDeCheYuanXRVItemOnclick(){
             Intent intent = new Intent(activity, NewHuoYuanDetailOtherActivity.class);
             intent.putExtra("hyid",dataList.get(pos).getId());
+            String status = dataList.get(pos).getDingdanzt();
+            if(status == null){
+                status = "";
+            }
+            intent.putExtra("status",status);
             activity.startActivity(intent);
             System.out.print("\nhyId:"+dataList.get(pos).getId()+" bjid:"+dataList.get(pos).getBjid()+" loginId:"+dataList.get(pos).getLogin_id());
             System.out.print("\nhyId:"+dataList.get(pos).getId()+" bjid:"+dataList.get(pos).getBjid()+" loginId:"+dataList.get(pos).getLogin_id());
@@ -211,8 +230,12 @@ public class NewWoDeCheYuanYiBaoJiaXRVAdapter extends RecyclerView.Adapter<NewWo
             }
         }
         NewQueryDeleteDialog newQueryDeleteDialog;
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_newbaojia)
-        TextView tvNewWoDeCheYuanXRVItemNewBaoJia;
+        @BindView(R.id.tv_new_wodecheyuan_xrv_item_newmessage)
+        TextView tvNewWoDeCheYuanXRVItemNewMessage;
+        @BindView(R.id.iv_new_wodecheyuan_xrv_item_news)
+        ImageView ivNewWoDeCheYuanXRVItemNews;
+        @BindView(R.id.lly_new_wodecheyuan_xrv_item_news)
+        LinearLayout llyNewWoDeCheYuanXRVItemNews;
         @BindView(R.id.tv_new_wodecheyuan_xrv_item_bcity)
         TextView tvNewWoDeCheYuanXRVItemBCity;
         @BindView(R.id.tv_new_wodecheyuan_xrv_item_barea)

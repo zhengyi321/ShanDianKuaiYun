@@ -3,6 +3,7 @@ package com.shandian.lu.Main.MineFragment.WoDeHuoYuan;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Matrix;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
+import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.ProgressStyle;
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView;
 
 import java.util.ArrayList;
@@ -45,6 +47,9 @@ public class NewWoDeHuoYuanController extends BaseController {
     int type = 0;
     double marginLeft = 0;
     double ivWidth = 0;
+    private int refreshTime = 0;
+    private int times = 0;
+    private int page = 1;
     private List<NewWoDeHuoYuanBean.NrBean.ListBean> dataList;
     private NewWoDeHuoYuanXRVAdapter adapter;
     @BindView(R.id.rly_new_wodehuoyuan_back)
@@ -59,7 +64,7 @@ public class NewWoDeHuoYuanController extends BaseController {
     @OnClick(R.id.rb_new_wodehuoyuan_finish)
     public void rbNewWoDeHuoYuanFinishOnclick(){
         initTabBar(0);
-        getDataFromNet("5");
+        getDataFromNet("5","1");
         type = 5;
     }
 
@@ -68,7 +73,7 @@ public class NewWoDeHuoYuanController extends BaseController {
     @OnClick(R.id.rb_new_wodehuoyuan_releaseing)
     public void rbNewWoDeHuoYuanReleaseingOnclick(){
         initTabBar(1);
-        getDataFromNet("0");
+        getDataFromNet("0","1");
         type = 0;
     }
 
@@ -77,7 +82,7 @@ public class NewWoDeHuoYuanController extends BaseController {
     @OnClick(R.id.rb_new_wodehuoyuan_all)
     public void rbNewWoDeHuoYuanAllOnclick(){
         initTabBar(2);
-        getDataFromNet("-1");
+        getDataFromNet("-1","1");
         type = -1;
     }
     @BindView(R.id.iv_new_wodehuoyuan_tab_bottom)
@@ -134,7 +139,7 @@ public class NewWoDeHuoYuanController extends BaseController {
         ivNewWoDeHuoYuanTabBottom.setImageMatrix(matrix);
         ivNewWoDeHuoYuanTabBottom.setLayoutParams(params);
         initTabBar(1);
-        getDataFromNet("2");
+        getDataFromNet("2","1");
 
     }
 
@@ -149,9 +154,59 @@ public class NewWoDeHuoYuanController extends BaseController {
         adapter.deleteOnClickCallBack(new NewWoDeHuoYuanXRVAdapter.DeleteListener() {
             @Override
             public void onDeleteOnclick(boolean isSuccess) {
-                getDataFromNet(""+type);
+                getDataFromNet(""+type,"1");
             }
         });
+
+        xrvNewWoDeHuoYuan.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        xrvNewWoDeHuoYuan.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
+        xrvNewWoDeHuoYuan.setArrowImageView(R.drawable.iconfont_downgrey);
+
+        /*View header = LayoutInflater.from(activity).inflate(R.layout.recyclerview_header, (ViewGroup)activity.findViewById(android.R.id.content),false);
+        xrvNewHuoYuanList.addHeaderView(header);*/
+
+        xrvNewWoDeHuoYuan.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                refreshTime ++;
+                times = 0;
+                new Handler().postDelayed(new Runnable(){
+                    public void run() {
+
+                        page=1;
+                        getDataFromNet(""+type,page+"");
+
+                        xrvNewWoDeHuoYuan.refreshComplete();
+                    }
+
+                }, 1000);            //refresh data here
+            }
+
+            @Override
+            public void onLoadMore() {
+                if(times < 2){
+                    new Handler().postDelayed(new Runnable(){
+                        public void run() {
+                            page++;
+                            getDataFromNet(""+type,page+"");
+                            xrvNewWoDeHuoYuan.loadMoreComplete();
+
+                        }
+                    }, 1000);
+                } else {
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            page++;
+                            getDataFromNet(""+type,page+"");
+                            xrvNewWoDeHuoYuan.setNoMore(true);
+
+                        }
+                    }, 1000);
+                }
+                times ++;
+            }
+        });
+        xrvNewWoDeHuoYuan.refresh();
     }
 
 
@@ -208,11 +263,13 @@ public class NewWoDeHuoYuanController extends BaseController {
         }
     }
 
-    private void getDataFromNet(String lx){
+    private void getDataFromNet(String lx,final String p){
         pbNewWoDeHuoYuan.setVisibility(View.VISIBLE);
         Map<String,String> paramMap = new HashMap<>();
         paramMap.put("login_id",loginId);
         paramMap.put("lx",lx);
+        paramMap.put("p",p);
+
         NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
         newCheHuoListNetWork.getWoDeHuoYuanFromNet(paramMap, new Observer<NewWoDeHuoYuanBean>() {
             @Override
@@ -228,6 +285,9 @@ public class NewWoDeHuoYuanController extends BaseController {
             @Override
             public void onNext(NewWoDeHuoYuanBean newWoDeHuoYuanBean) {
                 if(newWoDeHuoYuanBean.getStatus().equals("0")){
+                    if(p.equals("1")){
+                        dataList.clear();
+                    }
                     adapter.setAdapter(newWoDeHuoYuanBean.getNr().getList());
                 }
                 pbNewWoDeHuoYuan.setVisibility(View.GONE);

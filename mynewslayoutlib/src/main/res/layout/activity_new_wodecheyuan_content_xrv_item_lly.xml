@@ -26,25 +26,44 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
-                android:layout_weight="1"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1.5"
                 >
-                <TextView
-                    android:id="@+id/tv_new_wodecheyuan_xrv_item_newbaojia"
+                <LinearLayout
+                    android:id="@+id/lly_new_wodecheyuan_xrv_item_news"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="有最新报价请立即查看"
-                    android:textColor="@color/gray"
-                    android:textSize="11sp"
-                    android:layout_alignParentBottom="true"
-                    android:drawableLeft="@mipmap/new_message"
-                    android:drawablePadding="5dp"
-                    />
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+
+                    >
+                    <ImageView
+                        android:id="@+id/iv_new_wodecheyuan_xrv_item_news"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/new_message"
+                        android:layout_gravity="center_vertical"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_new_wodecheyuan_xrv_item_newmessage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="有最新报价请立即查看"
+                        android:textColor="@color/gray"
+                        android:textSize="11sp"
+
+
+                        />
+
+                </LinearLayout>
+
             </RelativeLayout>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="#f4f4f4"
-                android:layout_marginTop="5dp"
+
 
 
                 />
@@ -233,7 +252,7 @@
                     android:id="@+id/rly_new_wodecheyuan_xrv_item_count"
                     android:layout_width="80dp"
                     android:layout_height="45dp"
-                    android:background="@mipmap/paimai_message_blue_bg"
+                    android:background="@mipmap/mine_cyhy_blue_bg"
                     android:layout_centerInParent="true"
                     >
                     <TextView
@@ -243,9 +262,8 @@
                         android:text="共13条"
                         android:textColor="@color/white"
                         android:textSize="11sp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
+                        android:layout_centerInParent="true"
+
                         />
 
                 </RelativeLayout>

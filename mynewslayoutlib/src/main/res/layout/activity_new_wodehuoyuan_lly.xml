@@ -50,7 +50,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:button="@null"
-                        android:text="全部订单"
+                        android:text="全部货源"
                         />
 
                 </RadioGroup>

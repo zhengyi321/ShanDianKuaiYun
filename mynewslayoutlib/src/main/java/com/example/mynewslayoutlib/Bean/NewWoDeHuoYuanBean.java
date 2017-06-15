@@ -11,7 +11,7 @@ public class NewWoDeHuoYuanBean {
     /**
      * status : 0
      * msg :
-     * nr : {"ys":"1","list":[{"id":"614","login_id":"276","type_name":"4","good_name":"12188888888","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"1","people":"1","iphone":"666","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"暂无备注！","pass_status":"1","create_time":"1497165230","num":"1","update_time":"1497263500","baojiaid":"11","dingdanzt":"1","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","dazuobiao":"28.119593587390998,120.97436282216142","imgtu":[],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"0"},{"id":"612","login_id":"276","type_name":"1","good_name":"测试","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"5","people":"测试","iphone":"88","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497102896","num":"1","update_time":"1497102896","baojiaid":"10","dingdanzt":"1","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市永安西路  北白象春天幼儿园北195米","cfzuobiao":"28.014143802599335,120.83943733460731","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市象石路  茗屿中学东152米","dazuobiao":"28.030972733302505,120.84197055614463","imgtu":["/Uploads/2017-06-10/2761497102896U8cC.jpg","/Uploads/2017-06-10/2761497102896kRAf.jpg","/Uploads/2017-06-10/2761497102896SnIv.jpg","/Uploads/2017-06-10/2761497102896CksC.jpg"],"lng":"120.83943733460731","lat":"28.014143802599335","juli":"2000","zuobiaohash":"wsvzmgbd4yzjj8v1n10p","gg":"0","ddcount":"1","sfck":"0"}]}
+     * nr : {"ys":"1","list":[{"id":"658","login_id":"276","type_name":"2","good_name":"cesspool","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"8","people":"测试","iphone":"888","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497442261","num":"1","update_time":"1497442261","baojiaid":"44","dingdanzt":"5","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市勤政路155号  银座国际商务宾馆西123米","dazuobiao":"28.117522733364474,120.97320400805394","imgtu":["/Uploads/2017-06-14/2761497442261C8vV.jpg","/Uploads/2017-06-14/27614974422615F7y.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"1","zt":"5","ztname":"已完成"},{"id":"657","login_id":"276","type_name":"3","good_name":"测试0000","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"88","people":"测试","iphone":"888","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497441831","num":"1","update_time":"1497441831","baojiaid":"43","dingdanzt":"5","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市双雁路117号  乐成镇人民政府附近17米","dazuobiao":"28.116861644530008,120.97214400755252","imgtu":["/Uploads/2017-06-14/27614974418319DP5.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"1","zt":"5","ztname":"已完成"},{"id":"656","login_id":"276","type_name":"1","good_name":"测试9999999","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"88","people":"测试","iphone":"88888","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497441485","num":"1","update_time":"1497441485","baojiaid":"42","dingdanzt":"5","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市清远路90号  乐成镇文化中心附近46米","dazuobiao":"28.117530698265078,120.97206316005666","imgtu":["/Uploads/2017-06-14/2761497441485i8yx.jpg","/Uploads/2017-06-14/2761497441485r3Y9.jpg","/Uploads/2017-06-14/2761497441485hhZY.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"1","zt":"5","ztname":"已完成"},{"id":"655","login_id":"276","type_name":"1","good_name":"测试测试测试","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"88888","people":"测试","iphone":"99","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497441088","num":"1","update_time":"1497441088","baojiaid":"41","dingdanzt":"5","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市勤政路111号  勤政宾馆附近42米","dazuobiao":"28.11886082827907,120.97262010947264","imgtu":["/Uploads/2017-06-14/2761497441088869d.jpg","/Uploads/2017-06-14/276149744108863K0.jpg","/Uploads/2017-06-14/2761497441088WviH.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"0","zt":"5","ztname":"已完成"},{"id":"654","login_id":"276","type_name":"1","good_name":"8888888888","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"11","people":"测试","iphone":"88","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497440033","num":"1","update_time":"1497440033","baojiaid":"40","dingdanzt":"5","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市兴达路78号  开心幼儿园附近50米","dazuobiao":"28.10981242919172,120.96767044611431","imgtu":["/Uploads/2017-06-14/2761497440033fCg5.jpg","/Uploads/2017-06-14/2761497440033X1Bj.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"0","zt":"5","ztname":"已完成"}]}
      */
 
     private String status;
@@ -45,7 +45,7 @@ public class NewWoDeHuoYuanBean {
     public static class NrBean {
         /**
          * ys : 1
-         * list : [{"id":"614","login_id":"276","type_name":"4","good_name":"12188888888","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"1","people":"1","iphone":"666","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"暂无备注！","pass_status":"1","create_time":"1497165230","num":"1","update_time":"1497263500","baojiaid":"11","dingdanzt":"1","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","dazuobiao":"28.119593587390998,120.97436282216142","imgtu":[],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"0"},{"id":"612","login_id":"276","type_name":"1","good_name":"测试","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"5","people":"测试","iphone":"88","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497102896","num":"1","update_time":"1497102896","baojiaid":"10","dingdanzt":"1","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市永安西路  北白象春天幼儿园北195米","cfzuobiao":"28.014143802599335,120.83943733460731","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市象石路  茗屿中学东152米","dazuobiao":"28.030972733302505,120.84197055614463","imgtu":["/Uploads/2017-06-10/2761497102896U8cC.jpg","/Uploads/2017-06-10/2761497102896kRAf.jpg","/Uploads/2017-06-10/2761497102896SnIv.jpg","/Uploads/2017-06-10/2761497102896CksC.jpg"],"lng":"120.83943733460731","lat":"28.014143802599335","juli":"2000","zuobiaohash":"wsvzmgbd4yzjj8v1n10p","gg":"0","ddcount":"1","sfck":"0"}]
+         * list : [{"id":"658","login_id":"276","type_name":"2","good_name":"cesspool","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"8","people":"测试","iphone":"888","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497442261","num":"1","update_time":"1497442261","baojiaid":"44","dingdanzt":"5","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市勤政路155号  银座国际商务宾馆西123米","dazuobiao":"28.117522733364474,120.97320400805394","imgtu":["/Uploads/2017-06-14/2761497442261C8vV.jpg","/Uploads/2017-06-14/27614974422615F7y.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"1","zt":"5","ztname":"已完成"},{"id":"657","login_id":"276","type_name":"3","good_name":"测试0000","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"88","people":"测试","iphone":"888","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497441831","num":"1","update_time":"1497441831","baojiaid":"43","dingdanzt":"5","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市双雁路117号  乐成镇人民政府附近17米","dazuobiao":"28.116861644530008,120.97214400755252","imgtu":["/Uploads/2017-06-14/27614974418319DP5.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"1","zt":"5","ztname":"已完成"},{"id":"656","login_id":"276","type_name":"1","good_name":"测试9999999","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"88","people":"测试","iphone":"88888","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497441485","num":"1","update_time":"1497441485","baojiaid":"42","dingdanzt":"5","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市清远路90号  乐成镇文化中心附近46米","dazuobiao":"28.117530698265078,120.97206316005666","imgtu":["/Uploads/2017-06-14/2761497441485i8yx.jpg","/Uploads/2017-06-14/2761497441485r3Y9.jpg","/Uploads/2017-06-14/2761497441485hhZY.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"1","zt":"5","ztname":"已完成"},{"id":"655","login_id":"276","type_name":"1","good_name":"测试测试测试","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"88888","people":"测试","iphone":"99","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497441088","num":"1","update_time":"1497441088","baojiaid":"41","dingdanzt":"5","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市勤政路111号  勤政宾馆附近42米","dazuobiao":"28.11886082827907,120.97262010947264","imgtu":["/Uploads/2017-06-14/2761497441088869d.jpg","/Uploads/2017-06-14/276149744108863K0.jpg","/Uploads/2017-06-14/2761497441088WviH.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"0","zt":"5","ztname":"已完成"},{"id":"654","login_id":"276","type_name":"1","good_name":"8888888888","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"11","people":"测试","iphone":"88","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"","pass_status":"1","create_time":"1497440033","num":"1","update_time":"1497440033","baojiaid":"40","dingdanzt":"5","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市兴达路78号  开心幼儿园附近50米","dazuobiao":"28.10981242919172,120.96767044611431","imgtu":["/Uploads/2017-06-14/2761497440033fCg5.jpg","/Uploads/2017-06-14/2761497440033X1Bj.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"2000","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":"0","ddcount":"1","sfck":"0","zt":"5","ztname":"已完成"}]
          */
 
         private String ys;
@@ -69,10 +69,10 @@ public class NewWoDeHuoYuanBean {
 
         public static class ListBean {
             /**
-             * id : 614
+             * id : 658
              * login_id : 276
-             * type_name : 4
-             * good_name : 12188888888
+             * type_name : 2
+             * good_name : cesspool
              * set_province_id : 0
              * set_city_id : 0
              * set_area_id : 0
@@ -86,9 +86,9 @@ public class NewWoDeHuoYuanBean {
              * address_out_detail :
              * address_pick_down :
              * address :
-             * weight : 1
-             * people : 1
-             * iphone : 666
+             * weight : 8
+             * people : 测试
+             * iphone : 888
              * img1 :
              * img2 :
              * img3 :
@@ -98,13 +98,13 @@ public class NewWoDeHuoYuanBean {
              * img7 :
              * img8 :
              * status : 0
-             * context : 暂无备注！
+             * context :
              * pass_status : 1
-             * create_time : 1497165230
+             * create_time : 1497442261
              * num : 1
-             * update_time : 1497263500
-             * baojiaid : 11
-             * dingdanzt : 1
+             * update_time : 1497442261
+             * baojiaid : 44
+             * dingdanzt : 5
              * cfsheng : 浙江省
              * cfshi : 温州市
              * cfqu : 乐清市
@@ -113,16 +113,18 @@ public class NewWoDeHuoYuanBean {
              * dasheng : 浙江省
              * dashi : 温州市
              * daqu : 乐清市
-             * dadizhi : 浙江省温州市乐清市清远路139号  中国建设银行(清远路储蓄所)附近14米
-             * dazuobiao : 28.119593587390998,120.97436282216142
-             * imgtu : []
+             * dadizhi : 浙江省温州市乐清市勤政路155号  银座国际商务宾馆西123米
+             * dazuobiao : 28.117522733364474,120.97320400805394
+             * imgtu : ["/Uploads/2017-06-14/2761497442261C8vV.jpg","/Uploads/2017-06-14/27614974422615F7y.jpg"]
              * lng : 120.97436282216142
              * lat : 28.119593587390998
              * juli : 2000
              * zuobiaohash : wsypbz4bdbnvmpy26su8
              * gg : 0
              * ddcount : 1
-             * sfck : 0
+             * sfck : 1
+             * zt : 5
+             * ztname : 已完成
              */
 
             private String id;
@@ -178,7 +180,9 @@ public class NewWoDeHuoYuanBean {
             private String gg;
             private String ddcount;
             private String sfck;
-            private List<?> imgtu;
+            private String zt;
+            private String ztname;
+            private List<String> imgtu;
 
             public String getId() {
                 return id;
@@ -604,11 +608,27 @@ public class NewWoDeHuoYuanBean {
                 this.sfck = sfck;
             }
 
-            public List<?> getImgtu() {
+            public String getZt() {
+                return zt;
+            }
+
+            public void setZt(String zt) {
+                this.zt = zt;
+            }
+
+            public String getZtname() {
+                return ztname;
+            }
+
+            public void setZtname(String ztname) {
+                this.ztname = ztname;
+            }
+
+            public List<String> getImgtu() {
                 return imgtu;
             }
 
-            public void setImgtu(List<?> imgtu) {
+            public void setImgtu(List<String> imgtu) {
                 this.imgtu = imgtu;
             }
         }

@@ -70,7 +70,7 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
     @Override
     public void onBindViewHolder(MyItemViewHolder holder, int position) {
         holder.pos = position;
-        holder.tvNewWoDeCheYuanXRVItemNewBaoJia.setVisibility(View.GONE);
+        holder.llyNewWoDeCheYuanXRVItemNews.setVisibility(View.GONE);
     /*    String isNew = dataList.get(position).getSfck();*/
        /* if((isNew == null)||(isNew.isEmpty())){
             isNew = "0";
@@ -104,12 +104,13 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
                 break;
         }
         holder.tvNewWoDeCheYuanXRVItemDis.setText(dataList.get(position).getJuli());
+        holder.rlyNewWoDeCheYuanXRVItemCount.setVisibility(View.GONE);/*
         holder.tvNewWoDeCheYuanXRVItemCount.setText("共"+dataList.get(position).getNum()+"条");
         String zt = dataList.get(position).getZt();
         if((zt == null)||(zt.isEmpty())){
             zt = "";
         }
-       /* Toast.makeText(activity,"ddzt:"+zt,Toast.LENGTH_LONG).show();*/
+       *//* Toast.makeText(activity,"ddzt:"+zt,Toast.LENGTH_LONG).show();*//*
         switch (zt){
             case "-1":
                     holder.deleteUpdateState(true);
@@ -139,7 +140,7 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
                 holder.deleteUpdateState(false);
                 holder.tvNewWoDeCheYuanXRVItemCount.setText("交易成功");
                 break;
-        }
+        }*/
 
 
         /*if()*/
@@ -202,8 +203,10 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
             }
         }
         NewQueryDeleteDialog newQueryDeleteDialog;
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_newbaojia)
-        TextView tvNewWoDeCheYuanXRVItemNewBaoJia;
+        @BindView(R.id.tv_new_wodecheyuan_xrv_item_newmessage)
+        TextView tvNewWoDeCheYuanXRVItemNewMessage;
+        @BindView(R.id.lly_new_wodecheyuan_xrv_item_news)
+        LinearLayout llyNewWoDeCheYuanXRVItemNews;
         @BindView(R.id.tv_new_wodecheyuan_xrv_item_bcity)
         TextView tvNewWoDeCheYuanXRVItemBCity;
         @BindView(R.id.tv_new_wodecheyuan_xrv_item_barea)

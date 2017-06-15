@@ -164,7 +164,7 @@ public class HuoYuanListController extends BaseController {
         });
     }
 
-    public void getData2FromNet(String page,String typeName,String bP,String bC,String bA,String eP,String eC,String eA){
+    public void getData2FromNet(final String page, String typeName, String bP, String bC, String bA, String eP, String eC, String eA){
         pbNewHuoYuanList.setVisibility(View.VISIBLE);
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
@@ -238,6 +238,9 @@ public class HuoYuanListController extends BaseController {
                     tempBeanList.addAll(adsBeanList);
                     tempBeanList.addAll(noAdsBeanList);*/
                    /* tempBeanList.addAll(newHuoYuanListBean.getNr().getList());*/
+                   if(page.equals("1")){
+                       huoYuanListXRVAdapter.huoYuanList.clear();
+                   }
                     huoYuanListXRVAdapter.setAdapter(newHuoYuanListBean.getNr().getList());
 
             }

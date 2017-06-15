@@ -173,7 +173,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         /*etNewSelectAddressDetail.setOnEditorActionListener(new MyEditorActionListener());*/
 
         initBaiDuMap();
-        getType();
+
     }
     private void getType(){
         type = activity.getIntent().getStringExtra("type");
@@ -210,6 +210,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         /*设置编码监听者*/
         mSearch.setOnGetGeoCodeResultListener(this);
         /*设置编码监听者*/
+        getType();
         showCurrentPosition();
 /*        initLocation1();
         locationClient.start();*/
@@ -332,8 +333,22 @@ public class SelectAddAddressController extends BaseController implements OnGetG
             currentLocAddrStr = "";
         }
         float radius = Float.parseFloat(currentLocRadius);
-        double lat = Double.parseDouble(currentLat);
-        double lng = Double.parseDouble(currentLon);
+
+        double lat = 0;
+        double lng = 0;
+        if(selfLat != 0){
+            lat= selfLat;
+
+        }else {
+            lat = Double.parseDouble(currentLat);
+            etNewSelectAddressDetail.setText(currentLocAddrStr);
+        }
+        if(selfLon != 0){
+            lng = selfLon;
+        }else {
+            lng = Double.parseDouble(currentLon);
+            etNewSelectAddressDetail.setText(currentLocAddrStr);
+        }
         TextView textView = new TextView(activity);
         Drawable drawable1 = activity.getResources().getDrawable(R.mipmap.loc_arrow);
         drawable1.setBounds(0, 0, 40, 45);//第一0是距左边距离，第二0是距上边距离，40分别是长宽
@@ -369,8 +384,8 @@ public class SelectAddAddressController extends BaseController implements OnGetG
             etNewSelectAddressDetail.setText(addressLocation);
             beginSearchLalByAddress(addressLocation);
         }*/
-        etNewSelectAddressDetail.setText(currentLocAddrStr);
-        beginSearchLalByAddress(currentLocAddrStr);
+        /*etNewSelectAddressDetail.setText(currentLocAddrStr);
+        beginSearchLalByAddress(currentLocAddrStr);*/
     }
     /*根据地名开始查找经纬度*/
     public void beginSearchLalByAddress(String address){
@@ -481,6 +496,9 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         }
         Log.i("onGetReverseGeo","begin");
         LatLng latLng = result.getLocation();
+        if(latLng == null){
+            return;
+        }
         lon = latLng.longitude;
         lat = latLng.latitude;
         String addr = result.getAddress()+" " + result.getSematicDescription();

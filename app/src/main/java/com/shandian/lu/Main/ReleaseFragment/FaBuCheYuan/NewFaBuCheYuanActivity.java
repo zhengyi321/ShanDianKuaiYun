@@ -307,7 +307,7 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
 
         switch (typeName){
             case "1":
-                tvNewFaBuCheYuanTopBarTitle.setText("同城物流");
+                tvNewFaBuCheYuanTopBarTitle.setText("同城货运");
                 break;
             case "2":
                 tvNewFaBuCheYuanTopBarTitle.setText("长途物流");

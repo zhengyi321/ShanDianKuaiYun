@@ -76,19 +76,19 @@ public class CheYuanListController extends BaseController {
         Intent intent;
         switch (typeName){
             case "1":
-                tvNewCheYuanListTitle.setText("同城货源");
+                tvNewCheYuanListTitle.setText("同城货运");
                  intent = new Intent(activity, PeiHuoZhongXinActivity.class);
                 activity.startActivity(intent);
                 activity.finish();
                 break;
             case "2":
-                tvNewCheYuanListTitle.setText("长途货运");
+                tvNewCheYuanListTitle.setText("长途物流");
                 intent = new Intent(activity, NearByDriverActivity.class);
                 activity.startActivity(intent);
                 activity.finish();
                 break;
             case "3":
-                tvNewCheYuanListTitle.setText("特种运输");
+                tvNewCheYuanListTitle.setText("特种物流");
                  intent = new Intent(activity, TeZhongWuLiuActivity.class);
                 activity.startActivity(intent);
                 activity.finish();
@@ -112,13 +112,13 @@ public class CheYuanListController extends BaseController {
         }
         switch (typeName){
             case "1":
-                tvNewCheYuanListTitle.setText("同城货源");
+                tvNewCheYuanListTitle.setText("同城货运");
                 break;
             case "2":
-                tvNewCheYuanListTitle.setText("长途货运");
+                tvNewCheYuanListTitle.setText("长途物流");
                 break;
             case "3":
-                tvNewCheYuanListTitle.setText("特种运输");
+                tvNewCheYuanListTitle.setText("特种物流");
                 break;
             case "4":
                 tvNewCheYuanListTitle.setText("专线物流");
@@ -131,10 +131,6 @@ public class CheYuanListController extends BaseController {
         tempBeanList = new ArrayList<>();
         adsBeanList = new ArrayList<>();
         noAdsBeanList = new ArrayList<>();
-        cheYuanList.add(new NewCheYuanListBean.NrBean.ListBean());
-        cheYuanList.add(new NewCheYuanListBean.NrBean.ListBean());
-        cheYuanList.add(new NewCheYuanListBean.NrBean.ListBean());
-        cheYuanList.add(new NewCheYuanListBean.NrBean.ListBean());
         cheYuanListXRVAdapter = new CheYuanListXRVAdapter(activity,cheYuanList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -170,7 +166,7 @@ public class CheYuanListController extends BaseController {
             @Override
             public void onNext(NewCheYuanListBean newCheYuanListBean) {
                 if(newCheYuanListBean.getStatus().equals("0")){
-                    int size = newCheYuanListBean.getNr().getList().size();
+                   /* int size = newCheYuanListBean.getNr().getList().size();
                     for(int i=0;i < size;i++){
                         if(newCheYuanListBean.getNr().getList().get(i).getGg().equals("0")){
                             noAdsBeanList.add(newCheYuanListBean.getNr().getList().get(i));
@@ -184,8 +180,8 @@ public class CheYuanListController extends BaseController {
                     }
                     tempBeanList.clear();
                     tempBeanList.addAll(adsBeanList);
-                    tempBeanList.addAll(noAdsBeanList);
-                    cheYuanListXRVAdapter.setAdapter(tempBeanList);
+                    tempBeanList.addAll(noAdsBeanList);*/
+                    cheYuanListXRVAdapter.setAdapter(newCheYuanListBean.getNr().getList());
                 }
             }
         });

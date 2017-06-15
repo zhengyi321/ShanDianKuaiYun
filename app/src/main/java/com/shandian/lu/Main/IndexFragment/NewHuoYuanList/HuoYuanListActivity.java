@@ -268,6 +268,7 @@ public class HuoYuanListActivity extends BaseActivity {
                 times ++;
             }
         });
+        xrvNewHuoYuanList.refresh();
 
     }
 }

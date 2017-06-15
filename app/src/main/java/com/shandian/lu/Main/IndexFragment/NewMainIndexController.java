@@ -86,10 +86,10 @@ public class NewMainIndexController extends BaseController{
     ImageButton ibNewMainIndexCTWL;
     @OnClick(R.id.ib_new_main_index_ctwl)
     public void ibNewMainIndexCTWLOnclick(){
-
-
-        Intent intent = new Intent(view.getContext(), NearByDriverActivity.class);
+        Intent intent = new Intent(view.getContext(), CheYuanListActivity.class);
+        intent.putExtra("typeName","2");
         view.getContext().startActivity(intent);
+
 
     }
 
@@ -327,11 +327,11 @@ public class NewMainIndexController extends BaseController{
             public void onNext(MainIndexAdBean mainIndexAdBean) {
                 int size = mainIndexAdBean.getContent().getSide().size();
                 ArrayList<String> imgList2 = new ArrayList<>();
-                imgList2.add("");
-                imgList2.add("");
                 ArrayList<String> picList = new ArrayList<String>();
                 for(int i = 0;i < size;i++){
                     picList.add(mainIndexAdBean.getContent().getSide().get(i).getImage());
+                    imgList2.add("");//标题title
+
                 }
                 mainIndexAdBean1 = mainIndexAdBean;
                 icvNewMainIndexAdCircle.setImageResources(picList,imgList2,imageCycleViewListener);

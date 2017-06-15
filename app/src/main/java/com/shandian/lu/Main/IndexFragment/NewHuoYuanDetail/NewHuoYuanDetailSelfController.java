@@ -1,10 +1,14 @@
 package com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,9 +16,11 @@ import android.widget.Toast;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
+import com.shandian.lu.Main.MineFragment.PaySubmit.TwoStepPaySubmitActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.LookBaoJiaDialog;
+import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,10 +35,13 @@ import rx.Observer;
  */
 
 public class NewHuoYuanDetailSelfController extends BaseController {
-    private String hyId ;
+    private String hyId ,baojiaId;
 
 
     private String bLat,bLon,eLat,eLon;
+    private String cheLat,cheLon,cheTouXiang;
+    String status;
+
 
     @BindView(R.id.rly_new_self_hyxq_back)
     RelativeLayout rlyNewSelfHYXQBack;
@@ -41,6 +50,22 @@ public class NewHuoYuanDetailSelfController extends BaseController {
         activity.finish();
     }
 
+
+/*
+    @BindView(R.id.rly_new_self_hyxq_bottom_tel)
+    RelativeLayout rlyNewSelfHYXQBottomTel;*/
+    @BindView(R.id.rly_new_self_hyxq_bottom_tgbj_submit)
+    RelativeLayout rlyNewSelfHYXQBottomTGBJSubmit;
+    @OnClick(R.id.rly_new_self_hyxq_bottom_tgbj_submit)
+    public void rlyNewSelfHYXQBottomTGBJSubmitOnclick(){
+        payByStatus();
+    }
+    @BindView(R.id.tv_new_self_hyxq_bottom_tgbj_submit)
+    TextView tvNewSelfHYXQBottomTGBJSubmit;
+    @BindView(R.id.lly_new_self_hyxq_bottom_item)
+    LinearLayout llyNewSelfHYXQBottomItem;
+/*    @BindView(R.id.rly_new_self_hyxq_bottom_message)
+    RelativeLayout rlyNewSelfHYXQBottomMessage;*/
 
     @BindView(R.id.tv_new_self_hyxq_prov_city_area_b)
     TextView tvNewSelfHYXQProvCityAreaB;
@@ -101,8 +126,76 @@ public class NewHuoYuanDetailSelfController extends BaseController {
         intent.putExtra("blon",bLon);
         intent.putExtra("elat",eLat);
         intent.putExtra("elon",eLon);
+        intent.putExtra("czlat",cheLat);
+        intent.putExtra("czlon",cheLon);
+        intent.putExtra("czTouXiang",cheTouXiang);
         activity.startActivity(intent);
 
+    }
+
+      /*  Intent intent = new Intent(this, NewFaBuHuoYuanActivity.class);*/
+       /* Intent intent = new Intent(this, TestActivity.class);
+        startActivity(intent);*/
+      private  String tel;
+    @BindView(R.id.rly_new_self_hyxq_bottom_message)
+    RelativeLayout rlyNewSelfHYXQBottomMessage;
+    @OnClick(R.id.rly_new_self_hyxq_bottom_message)
+    public void rlyNewSelfHYXQBottomMessageOnclick(){
+        if((tel == null)||(tel.isEmpty())){
+            return;
+        }
+        doSendSMSTo(tel,"" );
+    }
+
+    /**
+     * 调起系统发短信功能
+     * @param phoneNumber
+     * @param message
+     */
+    public void doSendSMSTo(String phoneNumber,String message){
+       /* if(PhoneNumberUtils.isGlobalPhoneNumber(phoneNumber)){*/
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:"+phoneNumber));
+        intent.putExtra("sms_body", message);
+        activity.startActivity(intent);
+      /*  }*/
+    }
+
+    CallTelDialog callTelDialog;
+
+    @BindView(R.id.rly_new_self_hyxq_bottom_tel)
+    RelativeLayout rlyNewSelfHYXQBottomTel;
+    @OnClick(R.id.rly_new_self_hyxq_bottom_tel)
+    public void rlyNewSelfHYXQBottomTelOnclick(){
+
+        if((tel == null)||(tel.isEmpty())){
+            return;
+        }
+        callTelDialog = new CallTelDialog(activity,tel).Build.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dimssTelDialog();
+            }
+        }).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dimssTelDialog();
+            }
+        }).setCallBackListener(new CallTelDialog.DialogCallBackListener() {
+            @Override
+            public void callBack(String tel) {
+                startCallTel(tel);
+            }
+        }).build(activity);
+        showTelDialog();
+    }
+    private void startCallTel(String number) {
+        /*PhoneFormatCheckUtils phoneFormatCheckUtils = new PhoneFormatCheckUtils();
+        if((number != null)&&(phoneFormatCheckUtils.IsNumber(number))) {*/
+        //用intent启动拨打电话
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number));
+
+        activity.startActivity(intent);
+       /* }*/
     }
 
       /*  Intent intent = new Intent(this, NewFaBuHuoYuanActivity.class);*/
@@ -112,11 +205,24 @@ public class NewHuoYuanDetailSelfController extends BaseController {
 
 
 
+    public void showTelDialog() {
+        if (callTelDialog != null && !callTelDialog.isShowing())
+            callTelDialog.show();
+    }
+
+    public void dimssTelDialog() {
+        if (callTelDialog != null && callTelDialog.isShowing())
+            callTelDialog.dismiss();
+    }
+
+
+
 
     private NewHuoYuanDetailImgRVAdapter adapter;
     private List<String> imgList;
     public NewHuoYuanDetailSelfController(Activity activity1){
         activity = activity1;
+
         init();
     }
 
@@ -128,19 +234,102 @@ public class NewHuoYuanDetailSelfController extends BaseController {
         getNewCheYuanDetailFromNet();
     }
 
+
+
+
     private void getCyId(){
         hyId = activity.getIntent().getStringExtra("hyid");
         if(hyId == null){
             hyId = "";
         }
-        String status = activity.getIntent().getStringExtra("status");
+         status = activity.getIntent().getStringExtra("status");
         if((status != null)&&(!status.isEmpty())){
-            lookBaoJiaDialog = new LookBaoJiaDialog(activity,hyId).Build.build(activity);
-       /* Toast.makeText(activity,"hyid:"+hyId,Toast.LENGTH_LONG).show();*/
-            showDialog();
-        }
 
+        }
+        initstatus(status);
     }
+    private void initstatus(String status){
+
+
+        switch (status){
+            case "0":
+                llyNewSelfHYXQBottomItem.setVisibility(View.GONE);
+                break;
+            case "1":
+                llyNewSelfHYXQBottomItem.setVisibility(View.VISIBLE);
+                rlyNewSelfHYXQBottomTGBJSubmit.setBackgroundResource(R.mipmap.weibaojia_submit_orange_bg);
+                tvNewSelfHYXQBottomTGBJSubmit.setText("支付定金");
+                rlyNewSelfHYXQBottomTGBJSubmit.setClickable(true);
+                break;
+            case "2":
+                llyNewSelfHYXQBottomItem.setVisibility(View.VISIBLE);
+                rlyNewSelfHYXQBottomTGBJSubmit.setBackgroundResource(R.color.gray);
+                tvNewSelfHYXQBottomTGBJSubmit.setText("待接货");
+                rlyNewSelfHYXQBottomTGBJSubmit.setClickable(false);
+                break;
+            case "3":
+                llyNewSelfHYXQBottomItem.setVisibility(View.VISIBLE);
+                rlyNewSelfHYXQBottomTGBJSubmit.setBackgroundResource(R.color.gray);
+                tvNewSelfHYXQBottomTGBJSubmit.setText("运输中");
+                rlyNewSelfHYXQBottomTGBJSubmit.setClickable(false);
+                break;
+            case "4":
+                llyNewSelfHYXQBottomItem.setVisibility(View.VISIBLE);
+                rlyNewSelfHYXQBottomTGBJSubmit.setBackgroundResource(R.mipmap.weibaojia_submit_orange_bg);
+                tvNewSelfHYXQBottomTGBJSubmit.setText("支付尾款");
+                rlyNewSelfHYXQBottomTGBJSubmit.setClickable(true);
+                break;
+            case "5":
+                llyNewSelfHYXQBottomItem.setVisibility(View.VISIBLE);
+                rlyNewSelfHYXQBottomTGBJSubmit.setBackgroundResource(R.color.gray);
+                tvNewSelfHYXQBottomTGBJSubmit.setText("交易成功");
+                rlyNewSelfHYXQBottomTGBJSubmit.setClickable(false);
+                break;
+            case "notice":
+                llyNewSelfHYXQBottomItem.setVisibility(View.GONE);
+                lookBaoJiaDialog = new LookBaoJiaDialog(activity,hyId).Build.build(activity);
+       /* Toast.makeText(activity,"hyid:"+hyId,Toast.LENGTH_LONG).show();*/
+                showDialog();
+                break;
+            default:
+                llyNewSelfHYXQBottomItem.setVisibility(View.GONE);
+                break;
+        }
+    }
+    private void payByStatus(){
+        Intent intent;
+        if(baojiaId == null){
+            baojiaId = "";
+        }
+        switch (status) {
+
+            case "1":
+                intent = new Intent(activity, TwoStepPaySubmitActivity.class);
+               /* System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());*/
+                intent.putExtra("hyId",hyId);
+                intent.putExtra("baojiaId",baojiaId);
+                intent.putExtra("status","dingjin");
+
+                activity.startActivity(intent);
+                activity.finish();
+
+                break;
+            case "4":
+                intent = new Intent(activity, TwoStepPaySubmitActivity.class);
+                intent.putExtra("hyId",hyId);
+                intent.putExtra("baojiaId",baojiaId);
+                intent.putExtra("status","weikuan");
+                activity.startActivity(intent);
+                activity.finish();
+                break;
+        }
+    }
+
     private void initRV(){
         imgList = new ArrayList<>();
         imgList.add("");
@@ -154,6 +343,7 @@ public class NewHuoYuanDetailSelfController extends BaseController {
     }
     private void getNewCheYuanDetailFromNet(){
         NewCheHuoListNetWork cheHuoListNetWork = new NewCheHuoListNetWork();
+      /*  Toast.makeText(activity,"hyid"+hyId,Toast.LENGTH_LONG).show();*/
         cheHuoListNetWork.getHuoYuanDetailFromNet(hyId, new Observer<NewHuoYuanDetailBean>() {
             @Override
             public void onCompleted() {
@@ -182,12 +372,17 @@ public class NewHuoYuanDetailSelfController extends BaseController {
         tvNewSelfHYXQZXS.setText(newHuoYuanDetailBean.getNr().getNum()+"箱");
         tvNewSelfHYXQRemark.setText(newHuoYuanDetailBean.getNr().getContext());
         tvNewSelfHYXQUpdateTime.setText(newHuoYuanDetailBean.getNr().getTime());
+        baojiaId = newHuoYuanDetailBean.getNr().getBaojiaid();
     /*    Toast.makeText(activity,"imgList:"+newHuoYuanDetailBean.getNr().getImgtu().size(),Toast.LENGTH_LONG).show();*/
         adapter.setAdapter(newHuoYuanDetailBean.getNr().getImgtu());
         bLat = newHuoYuanDetailBean.getNr().getCflat();
         bLon = newHuoYuanDetailBean.getNr().getCflng();
         eLat = newHuoYuanDetailBean.getNr().getDalat();
         eLon = newHuoYuanDetailBean.getNr().getDalng();
+        tel = newHuoYuanDetailBean.getNr().getIphone();
+        cheLat = newHuoYuanDetailBean.getNr().getCzlat();
+        cheLon = newHuoYuanDetailBean.getNr().getCzlng();
+        cheTouXiang = newHuoYuanDetailBean.getNr().getTouxiang();
     }
 
 }
