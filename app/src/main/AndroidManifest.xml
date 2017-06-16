@@ -823,6 +823,9 @@
         <activity android:name=".Main.MineFragment.WoDeHuoYuan.NewWoDeHuoYuanActivity" />
         <activity android:name=".Main.MineFragment.PaySubmit.TwoStepPaySubmitActivity" />
         <activity android:name=".Main.MineFragment.WoDeCheYuan.NewWoDeCheYuanActivity" />
+        <activity android:name=".Main.MineFragment.WoDeQianBao.NewMyWalletsHistoryListActivity" />
+        <activity android:name=".Main.MineFragment.WoDeQianBao.NewTiXian.NewMyWalletTiXianActivity" />
+        <activity android:name=".Main.MineFragment.WoDeQianBao.NewTiXian.NewTiXianSuccess.NewTiXianSuccessActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
 
     </application>

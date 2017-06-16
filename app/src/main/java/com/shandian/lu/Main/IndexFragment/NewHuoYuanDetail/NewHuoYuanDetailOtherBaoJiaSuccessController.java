@@ -19,7 +19,8 @@ import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
-import com.shandian.lu.Widget.Dialog.EditBaoJiaDialog;
+import com.shandian.lu.Widget.Dialog.NewEditBaoJiaDialog;
+import com.shandian.lu.Widget.Dialog.NewQueryDialog;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
 import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
 import com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView;
@@ -95,7 +96,7 @@ public class NewHuoYuanDetailOtherBaoJiaSuccessController extends BaseController
     @BindView(R.id.tv_new_other_hyxq_success_updatetime)
     TextView tvNewOtherHYXQSuccessUpdateTime;
 
-    EditBaoJiaDialog editBaoJiaDialog;
+    NewEditBaoJiaDialog newEditBaoJiaDialog;
     private String hyId;
 /*    @BindView(R.id.rly_new_other_hyxq_success_bottom_submit)
     RelativeLayout rlyNewOtherHYXQSuccessBottomSubmit;
@@ -140,13 +141,13 @@ public class NewHuoYuanDetailOtherBaoJiaSuccessController extends BaseController
        /* Intent intent = new Intent(this, TestActivity.class);
         startActivity(intent);*/
     public void showDialog() {
-        if (editBaoJiaDialog != null && !editBaoJiaDialog.isShowing())
-            editBaoJiaDialog.show();
+        if (newEditBaoJiaDialog != null && !newEditBaoJiaDialog.isShowing())
+            newEditBaoJiaDialog.show();
     }
 
     public void dissmissDialog() {
-        if (editBaoJiaDialog != null && editBaoJiaDialog.isShowing())
-            editBaoJiaDialog.dismiss();
+        if (newEditBaoJiaDialog != null && newEditBaoJiaDialog.isShowing())
+            newEditBaoJiaDialog.dismiss();
     }
 
     private  String tel;
@@ -280,7 +281,7 @@ public class NewHuoYuanDetailOtherBaoJiaSuccessController extends BaseController
             case "2":
                 llyNewOtherHYXQSuccessBottomItem.setVisibility(View.VISIBLE);
                 rlyNewOtherHYXQSuccessBottomTGBJSubmit.setBackgroundResource(R.mipmap.weibaojia_submit_orange_bg);
-                tvNewOtherHYXQSuccessBottomTGBJSubmit.setText("前往拉货");
+                tvNewOtherHYXQSuccessBottomTGBJSubmit.setText("已装车");
                 rlyNewOtherHYXQSuccessBottomTGBJSubmit.setClickable(true);
                 break;
             case "3":
@@ -345,7 +346,7 @@ public class NewHuoYuanDetailOtherBaoJiaSuccessController extends BaseController
         baoJiaId = newHuoYuanDetailBean.getNr().getBaojiaid();
         tel = newHuoYuanDetailBean.getNr().getIphone();
     }
-
+    NewQueryDialog newQueryDialog;
     private void clickOperation(){
         switch (status){
             case "-1":
@@ -358,10 +359,27 @@ public class NewHuoYuanDetailOtherBaoJiaSuccessController extends BaseController
 
                 break;
             case "2":
-                huoWuJieZouFinishToNet();
+                newQueryDialog = new NewQueryDialog(activity,"已装车").Build.setCallBackListener(new NewQueryDialog.DialogCallBackListener() {
+                    @Override
+                    public void callBack(boolean isQuery) {
+                        huoWuJieZouFinishToNet();
+                        dissmissQueryDialog();
+                    }
+                }).build(activity);
+                showQueryDialog();
+
                 break;
             case "3":
-                huoWuSongDaToNet();
+
+                newQueryDialog = new NewQueryDialog(activity,"已送达").Build.setCallBackListener(new NewQueryDialog.DialogCallBackListener() {
+                    @Override
+                    public void callBack(boolean isQuery) {
+                        huoWuSongDaToNet();
+                        dissmissQueryDialog();
+                    }
+                }).build(activity);
+                showQueryDialog();
+
                 break;
             case "4":
 
@@ -372,6 +390,15 @@ public class NewHuoYuanDetailOtherBaoJiaSuccessController extends BaseController
         }
     }
 
+    public void showQueryDialog() {
+        if (newQueryDialog != null && !newQueryDialog.isShowing())
+            newQueryDialog.show();
+    }
+
+    public void dissmissQueryDialog() {
+        if (newQueryDialog != null && newQueryDialog.isShowing())
+            newQueryDialog.dismiss();
+    }
 
     private void huoWuJieZouFinishToNet(){
         Map<String,String> paramMap = new HashMap<>();

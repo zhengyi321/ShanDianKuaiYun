@@ -51,7 +51,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
     private Activity activity;
     private LayoutInflater inflater;
     private  final int ACTIVITY_REQUEST_SELECT_PHOTO = 100;
-    public boolean isPicFinished = false;
+    public boolean isPicFinished = true;
     public boolean isUpdate = false;
     private ArrayList<String> netImageList;
     private ArrayList<String> deleteImageList;
@@ -123,9 +123,10 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         return deleteImageList;
     }
 
-    public void setAdapterImage(ArrayList<String> adapterImage){
+    public void setAdapterImage(List<String> adapterImage){
         tempList.clear();
         tempList.addAll(adapterImage);
+
         allImageList.clear();
         allImageList.addAll(tempList);
         if(tempList.size() < 8) {
@@ -133,6 +134,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         }
         Thread myThread = new MyNewBitMapThread();
         myThread.start();
+
         notifyDataSetChanged();
     }
 
@@ -146,7 +148,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         if(tempList.size() < 8) {
             tempList.add("");
         }
-        isPicFinished= false;
+
         notifyDataSetChanged();
     }
     public void setNetImageList(ArrayList<String> netImageList1){
@@ -163,6 +165,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
             return;
         }
         i = 0;
+
         sendPicToNet();
     }
     @Override
@@ -251,7 +254,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
 
     private void sendPicToNet(){
 
-        isPicFinished = false;
+
 
         if(i < picSize) {
             String pic = mImageList.get(i);
@@ -266,7 +269,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
 
 
             pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);
-
+            isPicFinished = false;
             NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
             newFaBuNetWork.upPicToNet(getParamMap(), new Observer<NewFaBuPicBean>() {
                 @Override
@@ -413,6 +416,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
 
     private void fromAlbum() {
         if(isFirst){
+            isPicFinished = false;
             Album.album(activity)
                     .requestCode(ACTIVITY_REQUEST_SELECT_PHOTO)
                     .toolBarColor(ContextCompat.getColor(activity, R.color.colorPrimary)) // Toolbar color.
@@ -430,6 +434,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         if(!isPicFinished){
             return;
         }
+        isPicFinished = false;
         Album.album(activity)
                 .requestCode(ACTIVITY_REQUEST_SELECT_PHOTO)
                 .toolBarColor(ContextCompat.getColor(activity, R.color.colorPrimary)) // Toolbar color.

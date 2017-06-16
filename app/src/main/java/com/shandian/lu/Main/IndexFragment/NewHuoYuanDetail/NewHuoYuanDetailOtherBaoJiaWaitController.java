@@ -11,7 +11,7 @@ import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherBean;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.R;
-import com.shandian.lu.Widget.Dialog.EditBaoJiaDialog;
+import com.shandian.lu.Widget.Dialog.NewEditBaoJiaDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,13 +56,13 @@ public class NewHuoYuanDetailOtherBaoJiaWaitController extends BaseController {
     @BindView(R.id.tv_new_other_hyxq_wait_updatetime)
     TextView tvNewOtherHYXQWaitUpdateTime;
 
-    EditBaoJiaDialog editBaoJiaDialog;
+    NewEditBaoJiaDialog neweditBaoJiaDialog;
     private String hyId;
     @BindView(R.id.rly_new_other_hyxq_wait_bottom_submit)
     RelativeLayout rlyNewOtherHYXQWaitBottomSubmit;
     @OnClick(R.id.rly_new_other_hyxq_wait_bottom_submit)
     public void rlyNewOtherHYXQWaitBottomSubmitOnclick(){
-        editBaoJiaDialog = new EditBaoJiaDialog(activity,hyId).Build.build(activity);
+        neweditBaoJiaDialog = new NewEditBaoJiaDialog(activity,hyId).Build.build(activity);
 
         showDialog();
     }
@@ -101,13 +101,13 @@ public class NewHuoYuanDetailOtherBaoJiaWaitController extends BaseController {
        /* Intent intent = new Intent(this, TestActivity.class);
         startActivity(intent);*/
     public void showDialog() {
-        if (editBaoJiaDialog != null && !editBaoJiaDialog.isShowing())
-            editBaoJiaDialog.show();
+        if (neweditBaoJiaDialog != null && !neweditBaoJiaDialog.isShowing())
+            neweditBaoJiaDialog.show();
     }
 
     public void dissmissDialog() {
-        if (editBaoJiaDialog != null && editBaoJiaDialog.isShowing())
-            editBaoJiaDialog.dismiss();
+        if (neweditBaoJiaDialog != null && neweditBaoJiaDialog.isShowing())
+            neweditBaoJiaDialog.dismiss();
     }
 
 

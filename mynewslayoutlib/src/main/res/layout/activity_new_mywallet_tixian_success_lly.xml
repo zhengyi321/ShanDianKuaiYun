@@ -44,6 +44,7 @@
         android:layout_weight="2.5"
         >
         <Button
+            android:id="@+id/bt_new_mywallet_tixian_success_to_mywallet"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_marginLeft="45dp"

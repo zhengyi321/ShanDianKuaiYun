@@ -15,6 +15,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.example.mynewslayoutlib.Bean.NewUpSelfLocToNetBean;
+import com.example.mynewslayoutlib.Utils.SystemUtils;
 import com.shandian.lu.Main.BaseFragment;
 import com.shandian.lu.Main.IndexFragment.CityChange.CityChangeActivity;
 import com.shandian.lu.NetWork.MainIndexNetWork;
@@ -55,7 +56,7 @@ public class NewMainIndexFragment extends BaseFragment {
 
     }
 
-
+    private View view1;
     private NewMainIndexController newMainIndexController;
     public LocationClient mLocationClient = null;
     public BDLocationListener myListener = new MyLocationListener();
@@ -63,6 +64,7 @@ public class NewMainIndexFragment extends BaseFragment {
     @Override
     public View setView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_new_main_index_lly, container, false);
+        view1 = view;
         return view;
     }
 
@@ -70,7 +72,7 @@ public class NewMainIndexFragment extends BaseFragment {
     public void initView() {
         ButterKnife.bind(this,view);
         initController();
-        initBaidu();
+
     }
 
     private void initController(){
@@ -109,9 +111,31 @@ public class NewMainIndexFragment extends BaseFragment {
 
         option.setIsNeedAddress(true);
         //可选，设置是否需要地址信息，默认不需要
-
-        option.setOpenGps(false);
+        option.setOpenGps(true);
         //可选，默认false,设置是否使用gps
+        SystemUtils systemUtils = new SystemUtils((Activity) view1.getContext());
+        int workType = systemUtils.getNetWorkType(view1.getContext());
+        switch (workType){
+            case -1:
+                option.setOpenGps(false);
+            case 0:
+                option.setOpenGps(false);
+                break;
+            case 1:
+                option.setPriority(LocationClientOption.GpsFirst); //设置gps优先
+                break;
+            case 2:
+                option.setPriority(LocationClientOption.GpsFirst); //设置gps优先
+                break;
+            case 3:
+                option.setPriority(LocationClientOption.GpsFirst); //设置gps优先
+                break;
+            case 4:
+                option.setPriority(LocationClientOption.NetWorkFirst); // 设置网络优先
+                break;
+
+        }
+
 
         option.setLocationNotify(true);
         //可选，默认false，设置是否当GPS有效时按照1S/1次频率输出GPS结果
@@ -195,6 +219,7 @@ public class NewMainIndexFragment extends BaseFragment {
                     return;
                 }
                 MainIndexNetWork mainIndexNetWork = new MainIndexNetWork();
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());/*
                 System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
                 System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
                 System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
@@ -207,8 +232,7 @@ public class NewMainIndexFragment extends BaseFragment {
                 System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
                 System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
                 System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
-                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
-                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
+                System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());*/
 
                 Map<String,String> paramMap = new HashMap<>();
                 paramMap.put("login_id",loginId);
@@ -227,7 +251,7 @@ public class NewMainIndexFragment extends BaseFragment {
 
                     @Override
                     public void onNext(NewUpSelfLocToNetBean newUpSelfLocToNetBean) {
-                        /*Toast.makeText(getContext(),newUpSelfLocToNetBean.getMsg(),Toast.LENGTH_LONG).show();*/
+                       /* Toast.makeText(getContext(),newUpSelfLocToNetBean.getMsg(),Toast.LENGTH_LONG).show();*/
                     }
                 });
               /*      System.out.print("this is lat\n:"+lat);
@@ -258,6 +282,7 @@ public class NewMainIndexFragment extends BaseFragment {
     @Override
     public void onResume(){
         super.onResume();
+            initBaidu();
     /*    if(!isFirst) {*/
             selectResult();
      /*   }*/

@@ -33,7 +33,7 @@ public class NewCheYuanDetailImgRVAdapter extends RecyclerView.Adapter<NewCheYua
 
     public void setAdapter(List<String> imgList1){
         imgList.clear();
-        imgList = imgList1;
+        imgList.addAll(imgList1);
         notifyDataSetChanged();
     }
     @Override

@@ -199,7 +199,11 @@ public class TwoStepPaySubmitController extends BaseController {
 
             @Override
             public void onNext(NewDingJinPayBean newDingJinPayBean) {
-                /*Toast.makeText(activity,"getStatus:"+newDingJinPayBean.getStatus(),Toast.LENGTH_LONG).show();*/
+                String msg = newDingJinPayBean.getMsg();
+                if(!msg.isEmpty()){
+                    Toast.makeText(activity,msg,Toast.LENGTH_LONG).show();
+                }
+
                 tvNewHYXQTwoStepsTotal.setText(newDingJinPayBean.getNr().getZjine());
                 tvNewHYXQTwoStepsDingJin.setText(newDingJinPayBean.getNr().getDingjin()+"");
                 tvNewHYXQTwoStepsOther.setText(newDingJinPayBean.getNr().getWeikuan()+"");
@@ -226,6 +230,11 @@ public class TwoStepPaySubmitController extends BaseController {
 
             @Override
             public void onNext(NewWeiKuanPayBean newWeiKuanPayBean) {
+                String msg = newWeiKuanPayBean.getMsg();
+                if(!msg.isEmpty()){
+                    Toast.makeText(activity,msg,Toast.LENGTH_LONG).show();
+                }
+
                 tvNewHYXQTwoStepsTotal.setText(newWeiKuanPayBean.getNr().getZjine());
                 tvNewHYXQTwoStepsDingJin.setText(newWeiKuanPayBean.getNr().getDingjin()+"");
                 tvNewHYXQTwoStepsOther.setText(newWeiKuanPayBean.getNr().getWeikuan()+"");

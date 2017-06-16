@@ -21,6 +21,7 @@ import com.shandian.lu.Main.MineFragment.WoDeCheYuan.NewWoDeCheYuanActivity;
 import com.shandian.lu.Main.MineFragment.WoDeCheYuan.WoDeCheYuanActivity;
 import com.shandian.lu.Main.MineFragment.WoDeHuoYuan.NewWoDeHuoYuanActivity;
 import com.shandian.lu.Main.MineFragment.WoDeHuoYuan.WoDeHuoYuanActivity;
+import com.shandian.lu.Main.MineFragment.WoDeQianBao.NewMyWalletsHistoryListActivity;
 import com.shandian.lu.Main.MineFragment.WoDeYaoQing.WoDeYaoQingActivity;
 import com.shandian.lu.NetWork.UserNetWork;
 import com.shandian.lu.R;
@@ -83,6 +84,23 @@ public class NewMainMineController extends BaseController {
         Intent intent = new Intent(view.getContext(), RenZhengActivity.class);
         view.getContext().startActivity(intent);
     }
+
+    @BindView(R.id.lly_new_main_mine_mywallet)
+    LinearLayout llyNewMainMineMyWallet;
+    @OnClick(R.id.lly_new_main_mine_mywallet)
+    public void  llyNewMainMineMyWalletOnclick(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((login_id == null)||(login_id.isEmpty())){
+            /*Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();*/
+            view.getContext().startActivity(new Intent(view.getContext(),LoginActivity.class));
+            return;
+        }
+        Intent intent = new Intent(view.getContext(), NewMyWalletsHistoryListActivity.class);
+        view.getContext().startActivity(intent);
+    }
+
     @BindView(R.id.lly_new_main_mine_wodecheyuan)
     LinearLayout llyNewMainMineWoDeCheYuan;
     @OnClick(R.id.lly_new_main_mine_wodecheyuan)

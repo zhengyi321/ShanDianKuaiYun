@@ -22,12 +22,10 @@
     </LinearLayout>
 
 
-    <com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_new_mywallet_hitsorylist_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        />
 
-        >
-
-
-    </com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView>
 </LinearLayout>

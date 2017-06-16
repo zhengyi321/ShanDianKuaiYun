@@ -82,11 +82,12 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
         if((ztName == null)||(isNew.isEmpty())){
             ztName = "";
         }
-        if(isNew.equals("1")) {
+       /* if(isNew.equals("1")) {
             holder.llyNewWoDeHuoYuanXRVItemNews.setVisibility(View.VISIBLE);
         }else{
             holder.llyNewWoDeHuoYuanXRVItemNews.setVisibility(View.GONE);
-        }
+        }*/
+       holder.ivNewWoDeHuoYuanXRVItemNews.setVisibility(View.GONE);
         holder.tvNewWoDeHuoYuanXRVItemNews.setText(ztName);
         holder.tvNewWoDeHuoYuanXRVItemBCity.setText(dataList.get(position).getCfshi());
         holder.tvNewWoDeHuoYuanXRVItemBArea.setText(dataList.get(position).getCfqu());
@@ -308,8 +309,8 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
             SystemUtils systemUtils = new SystemUtils(activity);
             double width = systemUtils.getWindowWidth();
             double height = systemUtils.getWindowHeight();
-            int wid = (int) (width/20);
-            int hig = (int) (height/40);
+            int wid = (int) (width/30);
+            int hig = (int) (height/54);
 
             if(canUpdateDelete){
                 Drawable drawableDelete= activity.getResources().getDrawable(R.mipmap.delete_black);

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            >
+            <EditText
+                android:id="@+id/et_new_mywallet_tixian_zhanghao"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:hint="请输入支付宝账号"
+                android:textColorHint="@color/gray"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_height_or_width"
+        android:background="@color/lightgray"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            >
+            <EditText
+                android:id="@+id/et_new_mywallet_tixian_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:hint="请输入姓名"
+                android:textColorHint="@color/gray"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_height_or_width"
+        android:background="@color/lightgray"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="15dp"
+        >
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerVertical="true"
+                >
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:text="可提现 "
+                android:textColorHint="@color/black"
+                android:gravity="center_vertical"
+                />
+            <TextView
+                android:id="@+id/tv_new_mywallet_tixian_jiner_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:textColor="@color/mywallet_ketixian_blue_color"
+                android:textSize="13sp"
+                android:text="5000.0"
+
+                android:gravity="center_vertical"
+                />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:text=" 元"
+                android:textColorHint="@color/black"
+                android:gravity="center_vertical"
+                />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_new_mywallet_tixian_tixian_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/half_radius_blue_edge_shape"
+                android:text="全部提现"
+                android:textColor="@color/dodgerblue"
+                android:textSize="13sp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_height_or_width"
+        android:background="@color/lightgray"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+
+        >
+        <RelativeLayout
+            android:layout_width="@dimen/zero"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            >
+            <EditText
+                android:id="@+id/et_new_mywallet_tixian_jiner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:hint="提现金额"
+                android:textColorHint="@color/gray"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元"
+                android:textColor="@color/gray"
+                android:textSize="15sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_height_or_width"
+        android:background="@color/lightgray"
+        />
+
+    <Button
+        android:id="@+id/bt_new_mywallet_tixian_submit"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@mipmap/submit_blue_bg"
+        android:layout_marginTop="25dp"
+        android:text="确认提现"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/pb_new_mywallet_tixian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:alpha="0.5"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+</FrameLayout>

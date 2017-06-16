@@ -3,6 +3,7 @@ package com.shandian.lu.Main.MineFragment.WoDeCheYuan;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Matrix;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
+import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.ProgressStyle;
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView;
 
 import java.util.ArrayList;
@@ -43,7 +45,15 @@ public class NewWoDeCheYuanController extends BaseController {
     private int offset = 0;// 动画图片偏移量
     private int bmpW = 70;// 动画图片宽度
     private int currIndex = 0;// 当前页卡编号
+
+
+    private int refreshTime = 0;
+    private int times = 0;
     private int page = 1;
+
+    private int refreshTime1 = 0;
+    private int times1 = 0;
+    private int page1 = 1;
 
     double marginLeft = 0;
     double ivWidth = 0;
@@ -63,7 +73,7 @@ public class NewWoDeCheYuanController extends BaseController {
     @OnClick(R.id.rb_new_wodecheyuan_finish)
     public void rbNewWoDeCheYuanFinishOnclick(){
         initTabBar(0);
-        getCheYuanListDataFromNet();
+        getCheYuanListDataFromNet("1");
 
     }
 
@@ -72,7 +82,7 @@ public class NewWoDeCheYuanController extends BaseController {
     @OnClick(R.id.rb_new_wodecheyuan_releaseing)
     public void rbNewWoDeCheYuanReleaseingOnclick(){
         initTabBar(1);
-        getYiBaoJiaDataFromNet();
+        getYiBaoJiaDataFromNet("1");
 
 
     }
@@ -82,7 +92,7 @@ public class NewWoDeCheYuanController extends BaseController {
     @OnClick(R.id.rb_new_wodecheyuan_all)
     public void rbNewWoDeCheYuanAllOnclick(){
         initTabBar(2);
-        getCheYuanListDataFromNet();
+        getCheYuanListDataFromNet("1");
 
     }
     @BindView(R.id.iv_new_wodecheyuan_tab_bottom)
@@ -143,7 +153,7 @@ public class NewWoDeCheYuanController extends BaseController {
         ivNewWoDeCheYuanTabBottom.setImageMatrix(matrix);
         ivNewWoDeCheYuanTabBottom.setLayoutParams(params);
         initTabBar(0);
-        getCheYuanListDataFromNet();
+/*        getCheYuanListDataFromNet("1");*/
 
     }
 
@@ -163,18 +173,123 @@ public class NewWoDeCheYuanController extends BaseController {
         xrvNewWoDeCheYuanYiBaoJia.setAdapter(adapter1);
         xrvNewWoDeCheYuanCheYuanList.setVisibility(View.VISIBLE);
         xrvNewWoDeCheYuanYiBaoJia.setVisibility(View.GONE);
+
+        xrvNewWoDeCheYuanCheYuanList.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        xrvNewWoDeCheYuanCheYuanList.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
+        xrvNewWoDeCheYuanCheYuanList.setArrowImageView(R.drawable.iconfont_downgrey);
+
+        xrvNewWoDeCheYuanYiBaoJia.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        xrvNewWoDeCheYuanYiBaoJia.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
+        xrvNewWoDeCheYuanYiBaoJia.setArrowImageView(R.drawable.iconfont_downgrey);
         adapter.deleteOnClickCallBack(new NewWoDeCheYuanCheYuanListXRVAdapter.DeleteListener() {
             @Override
             public void onDeleteOnclick(boolean isSuccess) {
-                getCheYuanListDataFromNet();
+                getCheYuanListDataFromNet("1");
             }
         });
         adapter1.deleteOnClickCallBack(new NewWoDeCheYuanYiBaoJiaXRVAdapter.DeleteListener() {
             @Override
             public void onDeleteOnclick(boolean isSuccess) {
-                getYiBaoJiaDataFromNet();
+                getYiBaoJiaDataFromNet("1");
             }
         });
+
+
+
+
+
+
+        xrvNewWoDeCheYuanYiBaoJia.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                refreshTime1 ++;
+                times1 = 0;
+                new Handler().postDelayed(new Runnable(){
+                    public void run() {
+
+                        page1=1;
+                        getYiBaoJiaDataFromNet(""+page1);
+
+                        xrvNewWoDeCheYuanYiBaoJia.refreshComplete();
+                    }
+
+                }, 1000);            //refresh data here
+            }
+
+            @Override
+            public void onLoadMore() {
+                if(times1 < 2){
+                    new Handler().postDelayed(new Runnable(){
+                        public void run() {
+                            page1++;
+                            getYiBaoJiaDataFromNet(""+page1);
+                            xrvNewWoDeCheYuanYiBaoJia.loadMoreComplete();
+
+                        }
+                    }, 1000);
+                } else {
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            page1++;
+                            getYiBaoJiaDataFromNet(""+page1);
+                            xrvNewWoDeCheYuanYiBaoJia.setNoMore(true);
+
+                        }
+                    }, 1000);
+                }
+                times1 ++;
+            }
+        });
+
+
+
+
+
+
+        xrvNewWoDeCheYuanCheYuanList.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                refreshTime ++;
+                times = 0;
+                new Handler().postDelayed(new Runnable(){
+                    public void run() {
+
+                        page=1;
+                        getCheYuanListDataFromNet(page+"");
+
+                        xrvNewWoDeCheYuanCheYuanList.refreshComplete();
+                    }
+
+                }, 1000);            //refresh data here
+            }
+
+            @Override
+            public void onLoadMore() {
+                if(times < 2){
+                    new Handler().postDelayed(new Runnable(){
+                        public void run() {
+                            page++;
+                            getCheYuanListDataFromNet(page+"");
+                            xrvNewWoDeCheYuanCheYuanList.loadMoreComplete();
+
+                        }
+                    }, 1000);
+                } else {
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            page++;
+                            getCheYuanListDataFromNet(page+"");
+                            xrvNewWoDeCheYuanCheYuanList.setNoMore(true);
+
+                        }
+                    }, 1000);
+                }
+                times ++;
+            }
+        });
+
+
+        xrvNewWoDeCheYuanCheYuanList.refresh();
     }
 
 
@@ -232,10 +347,12 @@ public class NewWoDeCheYuanController extends BaseController {
         }
     }
 
-    private void getCheYuanListDataFromNet(){
+    private void getCheYuanListDataFromNet(final String pages){
         pbNewWoDeCheYuan.setVisibility(View.VISIBLE);
         Map<String,String> paramMap = new HashMap<>();
         paramMap.put("login_id",loginId);
+        paramMap.put("p",pages);
+
        /* paramMap.put("lx",lx);*/
         NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
         newCheHuoListNetWork.getWoDeCheYuanCheYuanLieBiaoFromNet(paramMap, new Observer<NewWoDeCheYuanBean>() {
@@ -252,6 +369,9 @@ public class NewWoDeCheYuanController extends BaseController {
             @Override
             public void onNext(NewWoDeCheYuanBean newWoDeCheYuanBean) {
                 if(newWoDeCheYuanBean.getStatus().equals("0")){
+                    if(pages.equals("1")){
+                        dataList.clear();
+                    }
                     xrvNewWoDeCheYuanCheYuanList.setVisibility(View.VISIBLE);
                     xrvNewWoDeCheYuanYiBaoJia.setVisibility(View.GONE);
                     adapter.setAdapter(newWoDeCheYuanBean.getNr().getList());
@@ -262,12 +382,13 @@ public class NewWoDeCheYuanController extends BaseController {
         });
     }
 
-    private void getYiBaoJiaDataFromNet(){
+    private void getYiBaoJiaDataFromNet(final String pages){
         pbNewWoDeCheYuan.setVisibility(View.VISIBLE);
         Map<String,String> paramMap = new HashMap<>();
         paramMap.put("login_id",loginId);
-        paramMap.put("p",""+page);
+        paramMap.put("p",""+pages);
         paramMap.put("zt","2");
+
        /* paramMap.put("lx",lx);*/
         NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
         newCheHuoListNetWork.getWoDeCheYuanYiBaoJiaFromNet(paramMap, new Observer<NewYiBaoJiaBean>() {
@@ -284,6 +405,9 @@ public class NewWoDeCheYuanController extends BaseController {
             @Override
             public void onNext(NewYiBaoJiaBean newYiBaoJiaBean) {
                 if(newYiBaoJiaBean.getStatus().equals("0")){
+                    if(pages.equals("1")){
+                        dataList1.clear();
+                    }
                     xrvNewWoDeCheYuanCheYuanList.setVisibility(View.GONE);
                     xrvNewWoDeCheYuanYiBaoJia.setVisibility(View.VISIBLE);
                     adapter1.setAdapter(newYiBaoJiaBean.getNr().getList());

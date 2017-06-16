@@ -43,6 +43,7 @@
                 android:layout_weight="2.5"
                 >
                 <TextView
+                    android:id="@+id/tv_new_mywallet_hitsorylist_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="¥ 34586.00元"
@@ -58,6 +59,7 @@
                 android:layout_weight="2"
                 >
                 <TextView
+                    android:id="@+id/tv_new_mywallet_hitsorylist_tixian"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/history_list_tixian_skyblue_half_radius_corner_shape"

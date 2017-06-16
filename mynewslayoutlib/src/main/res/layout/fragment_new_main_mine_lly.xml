@@ -96,11 +96,11 @@
         </LinearLayout>
     </FrameLayout>
 
-<!--    <com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView
+   <com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:fillViewport="true">-->
+
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -112,7 +112,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -288,10 +288,66 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
                 android:layout_marginTop="@dimen/main_mine_content_item_margin_top_size"
-                android:layout_weight="1"
+                android:layout_weight="2"
 
                 android:orientation="vertical">
 
+
+                <LinearLayout
+                    android:id="@+id/lly_new_main_mine_mywallet"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/zero"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/zero"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@mipmap/new_wallet" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/zero"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="我的钱包"
+                            android:textColor="@color/color_main_mine_content_word_textcolor"
+                            android:textSize="@dimen/main_mine_content_word_size" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/zero"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="@dimen/main_mine_tophead_right_arrow_width"
+                            android:layout_height="@dimen/main_mine_tophead_right_arrow_height"
+                            android:layout_centerInParent="true"
+                            android:background="@mipmap/right_arrow" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/split_width_or_height"
+                    android:layout_marginLeft="@dimen/main_mine_content_splite_margin_left"
+                    android:background="@color/color_main_mine_content_splite_line" />
 
                 <LinearLayout
                     android:id="@+id/lly_new_main_mine_wodeyaoqing"
@@ -355,7 +411,9 @@
                     android:layout_height="@dimen/zero"
                     android:background="@color/white"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    >
 
                     <RelativeLayout
                         android:layout_width="@dimen/zero"
@@ -524,7 +582,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
                 android:layout_marginTop="@dimen/main_mine_content_item_margin_top_size"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
 
                 android:orientation="vertical">
 
@@ -698,6 +756,6 @@
 
         </LinearLayout>
 
-   <!-- </com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>-->
+    </com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>
 
 </LinearLayout>

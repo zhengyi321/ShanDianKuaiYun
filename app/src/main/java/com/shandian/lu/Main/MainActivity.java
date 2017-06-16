@@ -26,6 +26,7 @@ import com.shandian.lu.Main.ReleaseFragment.MainReleaseFragment;
 import com.shandian.lu.Main.ReleaseFragment.TestActivity;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.ReleaseDialog;
+import com.tencent.bugly.Bugly;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -300,6 +301,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onResume(){
         super.onResume();
+        Bugly.init(getApplicationContext(), "17b9bbc524", false);
         dissmissDialog();
     }
 

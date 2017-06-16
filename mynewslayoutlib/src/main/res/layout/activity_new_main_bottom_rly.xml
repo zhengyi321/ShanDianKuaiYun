@@ -51,7 +51,7 @@
             android:drawableTop="@drawable/new_main_bottom_advice_pic_selector"
             android:tag="main_bottom_advice"
             android:drawablePadding="1dp"
-            android:text="@string/advice" />
+            android:text="资讯" />
 
 
         <RelativeLayout

@@ -4,7 +4,8 @@
     <color name="gra">#999999</color>
 
     <color name="pay_price_text_orange_color">#ff6100</color>
-
+    <color name="mywallet_add_text_yellow_color">#ffa024</color>
+    <color name="mywallet_ketixian_blue_color">#1162cf</color>
     <!--常见颜色-->
     <!--透明-->
     <color name="transparent">#00000000</color>

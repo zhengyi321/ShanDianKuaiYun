@@ -32,7 +32,7 @@
                     android:id="@+id/lly_new_wodehuoyuan_xrv_item_news"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_centerVertical="true"
                     android:orientation="vertical"
                     >
                     <ImageView
@@ -56,9 +56,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="#f4f4f4"
-
-
-
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -229,8 +226,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
-                android:layout_weight="1
-"
+                android:layout_weight="1.5"
                 >
 
             </LinearLayout>

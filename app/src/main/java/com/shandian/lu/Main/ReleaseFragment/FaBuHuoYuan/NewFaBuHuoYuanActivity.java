@@ -325,6 +325,7 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
         if(data == null){
             return;
         }
+        newFaBuHuoYuanController.addPicRVAdapter.isPicFinished = true;
         switch (requestCode) {
             case ACTIVITY_REQUEST_SELECT_PHOTO: {
                 if (resultCode == RESULT_OK) { // Successfully.
@@ -332,9 +333,11 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
                     mImageList = Album.parseResult(data); // Parse select result.
                    /* Toast.makeText(this,"ACTIVITY_REQUEST_SELECT_PHOTO:"+mImageList.get(0),Toast.LENGTH_LONG).show();*/
                     refreshImage();
+
                 } else if (resultCode == RESULT_CANCELED) { // User canceled.
                    /* Snackbar.make(noneView, R.string.cancel_select_photo_hint, Snackbar.LENGTH_LONG).show();*/
                    /* mImageList.clear();*/
+
                 }
                 break;
             }
@@ -403,6 +406,26 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
             }
         }
 
+        for(int i=0;i<tempImgList.size();i++) {
+            System.out.print("\ntempImgList"+tempImgList.get(i));
+        }
+        int size = tempImgList.size();
+        int allImgSize = size + currentSize;
+        if(allImgSize > 8){
+            int moreSize = allImgSize -8;
+            System.out.print("\nmoreSize"+moreSize);
+            System.out.print("\nmoreSize"+moreSize);
+            System.out.print("\nmoreSize"+moreSize);
+            System.out.print("\nmoreSize"+moreSize);
+            System.out.print("\nmoreSize"+moreSize);
+            for(int i=moreSize-1;i>=0;i--){
+                String pic = tempImgList.get(i);
+                System.out.print("\ntempImgList__delete  pic"+pic);
+                tempImgList.remove(pic);
+
+                System.out.print("\ntempImgList__delete"+pic);
+            }
+        }
 
    /*     for(int i=0;i<currentImgList.size();i++) {
             System.out.print("\ncurrentImgList"+currentImgList.get(i));
@@ -484,11 +507,13 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
         if(bProvince == null){
             bProvince = "";
         }
+      /*  Toast.makeText(this,"bProv"+bProvince,Toast.LENGTH_LONG).show();*/
         paramMap.put("cfsheng",bProvince);
 
         if(bCity == null){
             bCity = "";
         }
+      /*  Toast.makeText(this,"bCity"+bCity,Toast.LENGTH_LONG).show();*/
         paramMap.put("cfshi",bCity);
         if(bArea == null){
             bArea = "";

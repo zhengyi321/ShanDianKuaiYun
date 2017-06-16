@@ -15,7 +15,7 @@ import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivi
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
-import com.shandian.lu.Widget.Dialog.EditBaoJiaDialog;
+import com.shandian.lu.Widget.Dialog.NewEditBaoJiaDialog;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
@@ -64,7 +64,7 @@ public class NewHuoYuanDetailOtherBaoJiaController extends BaseController {
     @BindView(R.id.tv_new_other_hyxq_updatetime)
     TextView tvNewOtherHYXQUpdateTime;
 
-    EditBaoJiaDialog editBaoJiaDialog;
+    NewEditBaoJiaDialog neweditBaoJiaDialog;
     @BindView(R.id.rly_new_other_hyxq_bottom_tgbj_submit)
     RelativeLayout rlyNewOtherHYXQBottomTGBJSubmit;
     @OnClick(R.id.rly_new_other_hyxq_bottom_tgbj_submit)
@@ -78,7 +78,7 @@ public class NewHuoYuanDetailOtherBaoJiaController extends BaseController {
             return;
         }
 
-        editBaoJiaDialog = new EditBaoJiaDialog(activity,hyId).Build.build(activity);
+        neweditBaoJiaDialog = new NewEditBaoJiaDialog(activity,hyId).Build.build(activity);
 
         showDialog();
     }
@@ -111,13 +111,13 @@ public class NewHuoYuanDetailOtherBaoJiaController extends BaseController {
 
     }
     public void showDialog() {
-        if (editBaoJiaDialog != null && !editBaoJiaDialog.isShowing())
-            editBaoJiaDialog.show();
+        if (neweditBaoJiaDialog != null && !neweditBaoJiaDialog.isShowing())
+            neweditBaoJiaDialog.show();
     }
 
     public void dissmissDialog() {
-        if (editBaoJiaDialog != null && editBaoJiaDialog.isShowing())
-            editBaoJiaDialog.dismiss();
+        if (neweditBaoJiaDialog != null && neweditBaoJiaDialog.isShowing())
+            neweditBaoJiaDialog.dismiss();
     }
 
 

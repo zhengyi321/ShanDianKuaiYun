@@ -57,7 +57,7 @@ public class MainIndexNetWork extends BaseNetWork {
         /*附近司机*/
         /*上传坐标地址*/
         @FormUrlEncoded
-        @POST("index.php/app/index/zhuayingyan")
+        @POST("index.php/app/chyuan/zuobiaogengxin")
         Observable<NewUpSelfLocToNetBean> upSelfLocToNet(@FieldMap Map<String,String> paramMap);
         /*上传坐标地址*/
     }

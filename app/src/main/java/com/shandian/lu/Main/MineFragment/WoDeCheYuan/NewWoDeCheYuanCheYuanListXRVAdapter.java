@@ -57,33 +57,33 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
         inflater = LayoutInflater.from(activity1);
     }
     public void setAdapter(List<NewWoDeCheYuanBean.NrBean.ListBean> dataList1){
-        dataList.clear();
+
         dataList.addAll(dataList1);
         notifyDataSetChanged();
     }
 
     @Override
     public MyItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MyItemViewHolder(inflater.inflate(R.layout.activity_new_wodecheyuan_content_xrv_item_lly,parent,false));
+        return new MyItemViewHolder(inflater.inflate(R.layout.activity_new_wodecheyuan_content_cheyuanlist_xrv_item_lly,parent,false));
     }
 
     @Override
     public void onBindViewHolder(MyItemViewHolder holder, int position) {
         holder.pos = position;
-        holder.llyNewWoDeCheYuanXRVItemNews.setVisibility(View.GONE);
+        holder.llyNewWoDeCheYuanListXRVItemNews.setVisibility(View.GONE);
     /*    String isNew = dataList.get(position).getSfck();*/
        /* if((isNew == null)||(isNew.isEmpty())){
             isNew = "0";
         }
         if(isNew.equals("0")) {
-            holder.tvNewWoDeCheYuanXRVItemNewBaoJia.setVisibility(View.VISIBLE);
+            holder.tvNewWoDeCheYuanListXRVItemNewBaoJia.setVisibility(View.VISIBLE);
         }else{
-            holder.tvNewWoDeCheYuanXRVItemNewBaoJia.setVisibility(View.GONE);
+            holder.tvNewWoDeCheYuanListXRVItemNewBaoJia.setVisibility(View.GONE);
         }*/
-        holder.tvNewWoDeCheYuanXRVItemBCity.setText(dataList.get(position).getCfshi());
-        holder.tvNewWoDeCheYuanXRVItemBArea.setText(dataList.get(position).getCfqu());
-        holder.tvNewWoDeCheYuanXRVItemECity.setText(dataList.get(position).getDashi());
-        holder.tvNewWoDeCheYuanXRVITemEArea.setText(dataList.get(position).getDaqu());
+        holder.tvNewWoDeCheYuanListXRVItemBCity.setText(dataList.get(position).getCfshi());
+        holder.tvNewWoDeCheYuanListXRVItemBArea.setText(dataList.get(position).getCfqu());
+        holder.tvNewWoDeCheYuanListXRVItemECity.setText(dataList.get(position).getDashi());
+        holder.tvNewWoDeCheYuanListXRVITemEArea.setText(dataList.get(position).getDaqu());
 
         String typeName = dataList.get(position).getType_name();
         if(typeName == null){
@@ -91,21 +91,21 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
         }
         switch (typeName){
             case "1":
-                holder.tvNewWoDeCheYuanXRVItemGoodsType.setText("同城物流");
+                holder.tvNewWoDeCheYuanListXRVItemGoodsType.setText("同城物流");
                 break;
             case "2":
-                holder.tvNewWoDeCheYuanXRVItemGoodsType.setText("长途物流");
+                holder.tvNewWoDeCheYuanListXRVItemGoodsType.setText("长途物流");
                 break;
             case "3":
-                holder.tvNewWoDeCheYuanXRVItemGoodsType.setText("特种物流");
+                holder.tvNewWoDeCheYuanListXRVItemGoodsType.setText("特种物流");
                 break;
             case "4":
-                holder.tvNewWoDeCheYuanXRVItemGoodsType.setText("专线物流");
+                holder.tvNewWoDeCheYuanListXRVItemGoodsType.setText("专线物流");
                 break;
         }
-        holder.tvNewWoDeCheYuanXRVItemDis.setText(dataList.get(position).getJuli());
-        holder.rlyNewWoDeCheYuanXRVItemCount.setVisibility(View.GONE);/*
-        holder.tvNewWoDeCheYuanXRVItemCount.setText("共"+dataList.get(position).getNum()+"条");
+        holder.tvNewWoDeCheYuanListXRVItemDis.setText(dataList.get(position).getJuli());
+        holder.rlyNewWoDeCheYuanListXRVItemCount.setVisibility(View.GONE);/*
+        holder.tvNewWoDeCheYuanListXRVItemCount.setText("共"+dataList.get(position).getNum()+"条");
         String zt = dataList.get(position).getZt();
         if((zt == null)||(zt.isEmpty())){
             zt = "";
@@ -114,7 +114,7 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
         switch (zt){
             case "-1":
                     holder.deleteUpdateState(true);
-                holder.tvNewWoDeCheYuanXRVItemCount.setText("报价失败");
+                holder.tvNewWoDeCheYuanListXRVItemCount.setText("报价失败");
                 break;
             case "0":
                     holder.deleteUpdateState(true);
@@ -122,23 +122,23 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
                 break;
             case "1":
                 holder.deleteUpdateState(true);
-                holder.tvNewWoDeCheYuanXRVItemCount.setText("待货主\n支付定金");
+                holder.tvNewWoDeCheYuanListXRVItemCount.setText("待货主\n支付定金");
                 break;
             case "2":
                 holder.deleteUpdateState(true);
-                holder.tvNewWoDeCheYuanXRVItemCount.setText("拉货");
+                holder.tvNewWoDeCheYuanListXRVItemCount.setText("拉货");
                 break;
             case "3":
                 holder.deleteUpdateState(false);
-                holder.tvNewWoDeCheYuanXRVItemCount.setText("运输中");
+                holder.tvNewWoDeCheYuanListXRVItemCount.setText("运输中");
                 break;
             case "4":
                 holder.deleteUpdateState(false);
-                holder.tvNewWoDeCheYuanXRVItemCount.setText("待货主\n支付尾款");
+                holder.tvNewWoDeCheYuanListXRVItemCount.setText("待货主\n支付尾款");
                 break;
             case "5":
                 holder.deleteUpdateState(false);
-                holder.tvNewWoDeCheYuanXRVItemCount.setText("交易成功");
+                holder.tvNewWoDeCheYuanListXRVItemCount.setText("交易成功");
                 break;
         }*/
 
@@ -154,21 +154,21 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
     public class MyItemViewHolder extends RecyclerView.ViewHolder{
         int pos = 0;
 
-        @BindView(R.id.lly_new_wodecheyuan_xrv_item)
-        LinearLayout llyNewWoDeCheYuanXRVItem;
-        @OnClick(R.id.lly_new_wodecheyuan_xrv_item)
-        public void llyNewWoDeCheYuanXRVItemOnclick(){
+        @BindView(R.id.lly_new_wodecheyuan_cheyuanlist_xrv_item)
+        LinearLayout llyNewWoDeCheYuanListXRVItem;
+        @OnClick(R.id.lly_new_wodecheyuan_cheyuanlist_xrv_item)
+        public void llyNewWoDeCheYuanListXRVItemOnclick(){
             Intent intent = new Intent(activity, NewCheYuanDetailSelflActivity.class);
             intent.putExtra("cyid",dataList.get(pos).getId());
             activity.startActivity(intent);
         }
 
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_count)
-        TextView tvNewWoDeCheYuanXRVItemCount;
-        @BindView(R.id.rly_new_wodecheyuan_xrv_item_count)
-        RelativeLayout rlyNewWoDeCheYuanXRVItemCount;
-        @OnClick(R.id.rly_new_wodecheyuan_xrv_item_count)
-        public void rlyNewWoDeCheYuanXRVItemCountOnclick(){
+        @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_count)
+        TextView tvNewWoDeCheYuanListXRVItemCount;
+        @BindView(R.id.rly_new_wodecheyuan_cheyuanlist_xrv_item_count)
+        RelativeLayout rlyNewWoDeCheYuanListXRVItemCount;
+        @OnClick(R.id.rly_new_wodecheyuan_cheyuanlist_xrv_item_count)
+        public void rlyNewWoDeCheYuanListXRVItemCountOnclick(){
 
             Intent intent = new Intent(activity, NewCheYuanDetailSelflActivity.class);
             intent.putExtra("cyid",dataList.get(pos).getId());
@@ -203,26 +203,26 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
             }
         }
         NewQueryDeleteDialog newQueryDeleteDialog;
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_newmessage)
-        TextView tvNewWoDeCheYuanXRVItemNewMessage;
-        @BindView(R.id.lly_new_wodecheyuan_xrv_item_news)
-        LinearLayout llyNewWoDeCheYuanXRVItemNews;
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_bcity)
-        TextView tvNewWoDeCheYuanXRVItemBCity;
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_barea)
-        TextView tvNewWoDeCheYuanXRVItemBArea;
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_ecity)
-        TextView tvNewWoDeCheYuanXRVItemECity;
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_earea)
-        TextView tvNewWoDeCheYuanXRVITemEArea;
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_dis)
-        TextView tvNewWoDeCheYuanXRVItemDis;
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_goodstype)
-        TextView tvNewWoDeCheYuanXRVItemGoodsType;
-        @BindView(R.id.lly_new_wodecheyuan_xrv_item_delete)
-        LinearLayout llyNewWoDeCheYuanXRVItemDelete;
-        @OnClick(R.id.lly_new_wodecheyuan_xrv_item_delete)
-        public void llyNewWoDeCheYuanXRVItemDeleteOnclick(){
+        @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_newmessage)
+        TextView tvNewWoDeCheYuanListXRVItemNewMessage;
+        @BindView(R.id.lly_new_wodecheyuan_cheyuanlist_xrv_item_news)
+        LinearLayout llyNewWoDeCheYuanListXRVItemNews;
+        @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_bcity)
+        TextView tvNewWoDeCheYuanListXRVItemBCity;
+        @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_barea)
+        TextView tvNewWoDeCheYuanListXRVItemBArea;
+        @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_ecity)
+        TextView tvNewWoDeCheYuanListXRVItemECity;
+        @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_earea)
+        TextView tvNewWoDeCheYuanListXRVITemEArea;
+        @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_dis)
+        TextView tvNewWoDeCheYuanListXRVItemDis;
+        @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_goodstype)
+        TextView tvNewWoDeCheYuanListXRVItemGoodsType;
+        @BindView(R.id.lly_new_wodecheyuan_cheyuanlist_xrv_item_delete)
+        LinearLayout llyNewWoDeCheYuanListXRVItemDelete;
+        @OnClick(R.id.lly_new_wodecheyuan_cheyuanlist_xrv_item_delete)
+        public void llyNewWoDeCheYuanListXRVItemDeleteOnclick(){
 
 
 
@@ -249,12 +249,12 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
             if (newQueryDeleteDialog != null && newQueryDeleteDialog.isShowing())
                 newQueryDeleteDialog.dismiss();
         }
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_delete)
-        TextView tvNewWoDeCheYuanXRVItemDelete;
-        @BindView(R.id.lly_new_wodecheyuan_xrv_item_update)
-        LinearLayout llyNewWoDeCheYuanXRVItemUpdate;
-        @OnClick(R.id.lly_new_wodecheyuan_xrv_item_update)
-        public void llyNewWoDeCheYuanXRVItemUpdateOnclick(){
+        @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_delete)
+        TextView tvNewWoDeCheYuanListXRVItemDelete;
+        @BindView(R.id.lly_new_wodecheyuan_cheyuanlist_xrv_item_update)
+        LinearLayout llyNewWoDeCheYuanListXRVItemUpdate;
+        @OnClick(R.id.lly_new_wodecheyuan_cheyuanlist_xrv_item_update)
+        public void llyNewWoDeCheYuanListXRVItemUpdateOnclick(){
             Intent intent = new Intent(activity, NewFaBuCheYuanActivity.class);
             String typeName = dataList.get(pos).getType_name();
             if(typeName == null){
@@ -276,36 +276,36 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
             intent.putExtra("id",id);
             activity.startActivity(intent);
         }
-        @BindView(R.id.tv_new_wodecheyuan_xrv_item_update)
-        TextView tvNewWoDeCheYuanXRVItemUpdate;
+        @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_update)
+        TextView tvNewWoDeCheYuanListXRVItemUpdate;
         public void deleteUpdateState(boolean canUpdateDelete){
             SystemUtils systemUtils = new SystemUtils(activity);
             double width = systemUtils.getWindowWidth();
             double height = systemUtils.getWindowHeight();
-            int wid = (int) (width/20);
-            int hig = (int) (height/40);
+            int wid = (int) (width/30);
+            int hig = (int) (height/54);
             if(canUpdateDelete){
                 Drawable drawableDelete= activity.getResources().getDrawable(R.mipmap.delete_black);
                 Drawable drawableUpdate= activity.getResources().getDrawable(R.mipmap.update_black);
                 drawableDelete.setBounds(0, 0, wid, hig);
                 drawableUpdate.setBounds(0, 0, wid, hig);
-                tvNewWoDeCheYuanXRVItemDelete.setCompoundDrawables(drawableDelete,null,null,null);
-                tvNewWoDeCheYuanXRVItemUpdate.setCompoundDrawables(drawableUpdate,null,null,null);
-                tvNewWoDeCheYuanXRVItemDelete.setTextColor(activity.getResources().getColor(R.color.black));
-                tvNewWoDeCheYuanXRVItemUpdate.setTextColor(activity.getResources().getColor(R.color.black));
-                llyNewWoDeCheYuanXRVItemDelete.setClickable(true);
-                llyNewWoDeCheYuanXRVItemUpdate.setClickable(true);
+                tvNewWoDeCheYuanListXRVItemDelete.setCompoundDrawables(drawableDelete,null,null,null);
+                tvNewWoDeCheYuanListXRVItemUpdate.setCompoundDrawables(drawableUpdate,null,null,null);
+                tvNewWoDeCheYuanListXRVItemDelete.setTextColor(activity.getResources().getColor(R.color.black));
+                tvNewWoDeCheYuanListXRVItemUpdate.setTextColor(activity.getResources().getColor(R.color.black));
+                llyNewWoDeCheYuanListXRVItemDelete.setClickable(true);
+                llyNewWoDeCheYuanListXRVItemUpdate.setClickable(true);
             }else {
                 Drawable drawableDelete= activity.getResources().getDrawable(R.mipmap.delete_gray);
                 Drawable drawableUpdate= activity.getResources().getDrawable(R.mipmap.update_gray);
                 drawableDelete.setBounds(0, 0, wid, hig);
                 drawableUpdate.setBounds(0, 0, wid, hig);
-                tvNewWoDeCheYuanXRVItemDelete.setCompoundDrawables(drawableDelete,null,null,null);
-                tvNewWoDeCheYuanXRVItemUpdate.setCompoundDrawables(drawableUpdate,null,null,null);
-                tvNewWoDeCheYuanXRVItemDelete.setTextColor(activity.getResources().getColor(R.color.gray));
-                tvNewWoDeCheYuanXRVItemUpdate.setTextColor(activity.getResources().getColor(R.color.gray));
-                llyNewWoDeCheYuanXRVItemDelete.setClickable(false);
-                llyNewWoDeCheYuanXRVItemUpdate.setClickable(false);
+                tvNewWoDeCheYuanListXRVItemDelete.setCompoundDrawables(drawableDelete,null,null,null);
+                tvNewWoDeCheYuanListXRVItemUpdate.setCompoundDrawables(drawableUpdate,null,null,null);
+                tvNewWoDeCheYuanListXRVItemDelete.setTextColor(activity.getResources().getColor(R.color.gray));
+                tvNewWoDeCheYuanListXRVItemUpdate.setTextColor(activity.getResources().getColor(R.color.gray));
+                llyNewWoDeCheYuanListXRVItemDelete.setClickable(false);
+                llyNewWoDeCheYuanListXRVItemUpdate.setClickable(false);
             }
         }
 
