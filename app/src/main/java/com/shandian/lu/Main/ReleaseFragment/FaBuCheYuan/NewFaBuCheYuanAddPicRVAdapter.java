@@ -49,7 +49,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
     private Activity activity;
     private LayoutInflater inflater;
     private  final int ACTIVITY_REQUEST_SELECT_PHOTO = 100;
-    public boolean isPicFinished = false;
+    public boolean isPicFinished = true;
     public boolean isUpdate = false;
     private ArrayList<String> netImageList;
     private ArrayList<String> deleteImageList;
@@ -78,6 +78,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
         activity = activity1;
         tempList = tempList1;
         inflater = LayoutInflater.from(activity1);
+
         deleteImageList = new ArrayList<>();
         netImageList = new ArrayList<>();
         mImageList = new ArrayList<>();
@@ -123,7 +124,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
         if(tempList.size() < 8) {
             tempList.add("");
         }
-        isPicFinished= true;
+
         notifyDataSetChanged();
     }
     public void setNetImageList(ArrayList<String> netImageList1){
@@ -146,13 +147,19 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
     public void onBindViewHolder(MyItemViewHolder holder, int position) {
         holder.pos = position;
         int count = tempList.size();
+
         if(count <= 1){
+            holder.ivNewMainReleaseFaBuCheYuanAdd.setImageResource(R.mipmap.pic_add);
+            holder.ivNewMainReleaseFaBuCheYuanAdd.setClickable(true);
+            holder.ivNewMainReleaseFaBuCheYuanDelete.setVisibility(View.GONE);
+          /*  Toast.makeText(activity,"count:"+count,Toast.LENGTH_LONG).show();*/
             return;
         }
-        if(position != count - 1){
+        if(position < count - 1){
 
             if(isUpdate) {
-                if (bitmapList.size() != 0) {
+                int bitSize = bitmapList.size();
+                if(position < bitSize){
 
                     String pic = allImageList.get(position);
                     int indexOf = pic.indexOf(":");
@@ -169,13 +176,17 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
                     ImageLoader.getInstance().displayImage(tempList.get(position), holder.ivNewMainReleaseFaBuCheYuanAdd, ImageLoaderUtils.options1);
                 }
             }else{
-                int size = allImageList.size();
+                int bitSize = bitmapList.size();
+                if(position < bitSize){
+                    holder.ivNewMainReleaseFaBuCheYuanAdd.setImageBitmap(bitmapList.get(position));
+                }
+               /* int size = allImageList.size();
                 if (size > 0) {
-                   /* if(position == size-1) {
+                   *//* if(position == size-1) {
                         Bitmap bitmap = bitmapList.get(position);
 
                         holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmap);
-                    }*/
+                    }*//*
                     if(position == size){
                         holder.ivNewMainReleaseFaBuCheYuanAdd.setBackgroundResource(R.mipmap.pic_add);
                     }else{
@@ -188,14 +199,30 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
 
                 } else {
                     holder.ivNewMainReleaseFaBuCheYuanAdd.setBackgroundResource(R.mipmap.pic_add);
-                }
+                }*/
             }
             holder.ivNewMainReleaseFaBuCheYuanAdd.setClickable(false);
             holder.ivNewMainReleaseFaBuCheYuanDelete.setVisibility(View.VISIBLE);
         }else{
-            holder.ivNewMainReleaseFaBuCheYuanAdd.setImageResource(R.mipmap.pic_add);
-            holder.ivNewMainReleaseFaBuCheYuanAdd.setClickable(true);
-            holder.ivNewMainReleaseFaBuCheYuanDelete.setVisibility(View.GONE);
+
+            int size = allImageList.size();
+            if(position == size-1){
+                int bitSize = bitmapList.size();
+                if(position == bitSize -1) {
+                    Bitmap bitmap = bitmapList.get(position);
+
+                    holder.ivNewMainReleaseFaBuCheYuanAdd.setImageBitmap(bitmap);
+
+                }else{
+                    ImageLoader.getInstance().displayImage(tempList.get(position), holder.ivNewMainReleaseFaBuCheYuanAdd, ImageLoaderUtils.options1);
+                }
+
+                holder.ivNewMainReleaseFaBuCheYuanAdd.setClickable(false);
+            }else {
+                holder.ivNewMainReleaseFaBuCheYuanAdd.setImageResource(R.mipmap.pic_add);
+                holder.ivNewMainReleaseFaBuCheYuanAdd.setClickable(true);
+                holder.ivNewMainReleaseFaBuCheYuanDelete.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -211,10 +238,24 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
     }
 
     private void sendPicToNet(){
-        isPicFinished = false;
+
 
         if(i < picSize) {
+
+            String pic = mImageList.get(i);
+
+            int indexOf = pic.indexOf(":");
+            if(indexOf > 0){
+               /* Toast.makeText(activity,"no up",Toast.LENGTH_LONG).show();*/
+                i++;
+                sendPicToNet();
+                return;
+            }
+
+
             pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);
+            isPicFinished = false;
+
             NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
             newFaBuNetWork.upPicToNet(getParamMap(), new Observer<NewFaBuPicBean>() {
                 @Override
@@ -231,7 +272,10 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
                 public void onNext(NewFaBuPicBean newFaBuPicBean) {
                     if(newFaBuPicBean.getStatus().equals("0")){
                         netImageList.add("\""+newFaBuPicBean.getImgurl()+"\"");
+                        pbNewFaBuHuoYuan.setVisibility(View.GONE);
+                        isPicFinished = true;
                         notifyDataSetChanged();
+
                         i++;
                         sendPicToNet();
                     }
@@ -312,6 +356,13 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
         public void ivNewMainReleaseFaBuCheYuanDeleteOnclick(){
       /*      Toast.makeText(activity,"pos:"+pos,Toast.LENGTH_LONG).show();*/
             if(isUpdate){
+                if (!isPicFinished) {
+                    return;
+                }
+                int netImgSize = netImageList.size();
+                if (pos >= netImgSize) {
+                    return;
+                }
                 tempList.remove(pos);
                 String img = netImageList.get(pos);
                 deleteImageList.add(img);
@@ -320,7 +371,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
                 if (bitmapList.size() != 0) {
                     bitmapList.remove(pos);
                 }
-                isPicFinished = true;
+
             }else {
                 if (!isPicFinished) {
                     return;
@@ -343,9 +394,10 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
                 allImageList.remove(pos);
             }
 
-            ivNewMainReleaseFaBuCheYuanAdd.setImageResource(R.mipmap.pic_add);
-            ivNewMainReleaseFaBuCheYuanAdd.setClickable(true);
-            ivNewMainReleaseFaBuCheYuanDelete.setVisibility(View.GONE);
+            isPicFinished = true;
+            if(allImageList.size() == 7) {
+                tempList.add("");
+            }
             notifyDataSetChanged();
         }
 
@@ -359,6 +411,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
 
     private void fromAlbum() {
         if(isFirst){
+            isPicFinished = false;
             Album.album(activity)
                     .requestCode(ACTIVITY_REQUEST_SELECT_PHOTO)
                     .toolBarColor(ContextCompat.getColor(activity, R.color.colorPrimary)) // Toolbar color.
@@ -376,6 +429,7 @@ public class NewFaBuCheYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuC
         if(!isPicFinished){
             return;
         }
+        isPicFinished = false;
         Album.album(activity)
                 .requestCode(ACTIVITY_REQUEST_SELECT_PHOTO)
                 .toolBarColor(ContextCompat.getColor(activity, R.color.colorPrimary)) // Toolbar color.

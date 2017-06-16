@@ -358,7 +358,7 @@
         <!--百度地图-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="SGOTr7Xti9Cq76SbMFyrGMOolGaGDDaR" />      <!-- //key:开发者申请的Key    家里 94vXIZFmYOrZeM0YrXncOmN5jOMCGSRC 公司 SGOTr7Xti9Cq76SbMFyrGMOolGaGDDaR-->
+            android:value="94vXIZFmYOrZeM0YrXncOmN5jOMCGSRC" />      <!-- //key:开发者申请的Key    家里 94vXIZFmYOrZeM0YrXncOmN5jOMCGSRC 公司 SGOTr7Xti9Cq76SbMFyrGMOolGaGDDaR-->
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
         </service>
         <!--百度地图-->

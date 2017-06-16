@@ -50,7 +50,7 @@ public class CheYuanListXRVAdapter extends RecyclerView.Adapter<CheYuanListXRVAd
     }
 
     public void setAdapter(List<NewCheYuanListBean.NrBean.ListBean> cheYuanList1){
-        cheYuanList.clear();
+
         cheYuanList.addAll(cheYuanList1);
         notifyDataSetChanged();
     }

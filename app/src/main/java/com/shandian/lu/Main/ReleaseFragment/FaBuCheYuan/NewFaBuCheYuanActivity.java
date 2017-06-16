@@ -331,6 +331,7 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
         if(data == null){
             return;
         }
+        newFaBuCheYuanController.addPicRVAdapter.isPicFinished = true;
         switch (requestCode) {
             case ACTIVITY_REQUEST_SELECT_PHOTO: {
                 if (resultCode == RESULT_OK) { // Successfully.
@@ -413,6 +414,21 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
    /*     for(int i=0;i<currentImgList.size();i++) {
             System.out.print("\ncurrentImgList"+currentImgList.get(i));
         }*/
+        int size = tempImgList.size();
+        int allImgSize = size + currentSize;
+        if(allImgSize > 8){
+            int moreSize = allImgSize -8;
+            System.out.print("\nmoreSize"+moreSize);
+            for(int i=moreSize-1;i>=0;i--){
+                String pic = tempImgList.get(i);
+                System.out.print("\ntempImgList__delete  pic"+pic);
+                tempImgList.remove(pic);
+
+                System.out.print("\ntempImgList__delete"+pic);
+            }
+        }
+
+
         nowSelectImgList.addAll(tempImgList);
         if(nowSelectImgList.size() > 0 ) {
             mImageList.clear();
@@ -424,13 +440,13 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
                 mImageList.clear();
                 mImageList.addAll(currentImgList);
             }
-        }
+        }/*
         for(int i=0;i<mImageList.size();i++) {
             System.out.print("\nmImageList"+mImageList.get(i));
         }
         for(int i=0;i<nowSelectImgList.size();i++) {
             System.out.print("\nnowSelectImgList"+nowSelectImgList.get(i));
-        }
+        }*/
 
         newFaBuCheYuanController.addPicRVAdapter.setAdapterImage(mImageList);
         newFaBuCheYuanController.addPicRVAdapter.setNewImgList(nowSelectImgList);

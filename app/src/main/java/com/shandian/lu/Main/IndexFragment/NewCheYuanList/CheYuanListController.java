@@ -2,6 +2,7 @@ package com.shandian.lu.Main.IndexFragment.NewCheYuanList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -17,6 +18,7 @@ import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
+import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.ProgressStyle;
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView;
 
 import java.util.ArrayList;
@@ -33,7 +35,9 @@ import rx.Observer;
 
 public class CheYuanListController extends BaseController {
 
-
+    int page = 1;
+    private int refreshTime = 0;
+    private int times = 0;
     @BindView(R.id.xrv_new_cheyuanlist)
     XRecyclerView xrvNewCheYuanList;
     @BindView(R.id.tv_new_cheyuanlist_title)
@@ -53,7 +57,7 @@ public class CheYuanListController extends BaseController {
     }
 
     CheYuanListXRVAdapter cheYuanListXRVAdapter;
-    int page = 1;
+
     private List<NewCheYuanListBean.NrBean.ListBean> cheYuanList,tempBeanList,adsBeanList,noAdsBeanList;
 
     private String typeName;
@@ -137,9 +141,55 @@ public class CheYuanListController extends BaseController {
         xrvNewCheYuanList.setLayoutManager(linearLayoutManager);
         xrvNewCheYuanList.setAdapter(cheYuanListXRVAdapter);
 
+        xrvNewCheYuanList.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        xrvNewCheYuanList.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
+        xrvNewCheYuanList.setArrowImageView(R.drawable.iconfont_downgrey);
+
+        xrvNewCheYuanList.setLoadingListener(new XRecyclerView.LoadingListener() {
+            @Override
+            public void onRefresh() {
+                refreshTime ++;
+                times = 0;
+                new Handler().postDelayed(new Runnable(){
+                    public void run() {
+
+                        page=1;
+                        getDataFromNet(page+"");
+
+                        xrvNewCheYuanList.refreshComplete();
+                    }
+
+                }, 1000);            //refresh data here
+            }
+
+            @Override
+            public void onLoadMore() {
+                if(times < 2){
+                    new Handler().postDelayed(new Runnable(){
+                        public void run() {
+                            page++;
+                            getDataFromNet(page+"");
+                            xrvNewCheYuanList.loadMoreComplete();
+
+                        }
+                    }, 1000);
+                } else {
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            page++;
+                            getDataFromNet(page+"");
+                            xrvNewCheYuanList.setNoMore(true);
+
+                        }
+                    }, 1000);
+                }
+                times ++;
+            }
+        });
+        xrvNewCheYuanList.refresh();
     }
 
-    private void getDataFromNet(String page){
+    private void getDataFromNet(final String pages){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String currentLat = xcCacheManager.readCache(xcCacheSaveName.currentLat);
@@ -152,7 +202,7 @@ public class CheYuanListController extends BaseController {
             currentLon = "";
         }
         NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
-        newCheHuoListNetWork.getCheListFromNet(typeName, currentLat, currentLon, page, new Observer<NewCheYuanListBean>() {
+        newCheHuoListNetWork.getCheListFromNet(typeName, currentLat, currentLon, pages, new Observer<NewCheYuanListBean>() {
             @Override
             public void onCompleted() {
 
@@ -181,6 +231,9 @@ public class CheYuanListController extends BaseController {
                     tempBeanList.clear();
                     tempBeanList.addAll(adsBeanList);
                     tempBeanList.addAll(noAdsBeanList);*/
+                   if(pages.equals("1")){
+                       cheYuanList.clear();
+                   }
                     cheYuanListXRVAdapter.setAdapter(newCheYuanListBean.getNr().getList());
                 }
             }

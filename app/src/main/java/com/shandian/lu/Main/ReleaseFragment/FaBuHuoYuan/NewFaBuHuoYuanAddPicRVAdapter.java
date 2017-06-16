@@ -173,49 +173,57 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         holder.pos = position;
         int count = tempList.size();
         if(count <= 1){
+            holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
+            holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
+            holder.ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.GONE);
             return;
         }
-        if(position != count - 1){
-            if(isUpdate){
-                if(bitmapList.size()!= 0){
+        if(position < count - 1){
+                if(isUpdate){
+                    int bitSize = bitmapList.size();
+                    if(position < bitSize){
 
-                        String pic = allImageList.get(position);
-                        int indexOf = pic.indexOf(":");
-                        if(indexOf <= 0){
+                            String pic = allImageList.get(position);
+                            int indexOf = pic.indexOf(":");
+                            if(indexOf <= 0){
+                                Bitmap bitmap = bitmapList.get(position);
+
+                                holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmap);
+
+                            }else{
+                                ImageLoader.getInstance().displayImage(tempList.get(position), holder.ivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
+                            }
+
+                    }else {
+                        ImageLoader.getInstance().displayImage(tempList.get(position), holder.ivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
+                    }
+                }else {
+                    int bitSize = bitmapList.size();
+                    if(position < bitSize){
+                        holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmapList.get(position));
+                    }
+                /*
+                    int size = allImageList.size();
+                    if (size > 0) {
+                       *//* if(position == size-1) {
                             Bitmap bitmap = bitmapList.get(position);
 
                             holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmap);
+                        }*//*
+                       if(position == size){
+                           holder.ivNewMainReleaseFaBuHuoYuanAdd.setBackgroundResource(R.mipmap.pic_add);
+                       }else{
+                           int bitSize = bitmapList.size();
+                           if(position < bitSize){
+                               holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmapList.get(position));
+                           }
 
-                        }else{
-                            ImageLoader.getInstance().displayImage(tempList.get(position), holder.ivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
-                        }
-
-                }else {
-                    ImageLoader.getInstance().displayImage(tempList.get(position), holder.ivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
-                }
-            }else {
-
-                int size = allImageList.size();
-                if (size > 0) {
-                   /* if(position == size-1) {
-                        Bitmap bitmap = bitmapList.get(position);
-
-                        holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmap);
-                    }*/
-                   if(position == size){
-                       holder.ivNewMainReleaseFaBuHuoYuanAdd.setBackgroundResource(R.mipmap.pic_add);
-                   }else{
-                       int bitSize = bitmapList.size();
-                       if(position < bitSize){
-                           holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmapList.get(position));
                        }
 
-                   }
-
-                } else {
-                    holder.ivNewMainReleaseFaBuHuoYuanAdd.setBackgroundResource(R.mipmap.pic_add);
+                    } else {
+                        holder.ivNewMainReleaseFaBuHuoYuanAdd.setBackgroundResource(R.mipmap.pic_add);
+                    }*/
                 }
-            }
 
             holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(false);
             holder.ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.VISIBLE);
@@ -231,10 +239,25 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
             }*/
 
         }else{
-            holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
-            holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
-            holder.ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.GONE);
-            int size = netImageList.size();
+
+            int size = allImageList.size();
+            if(position == size-1){
+                int bitSize = bitmapList.size();
+                if(position == bitSize -1) {
+                    Bitmap bitmap = bitmapList.get(position);
+
+                    holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmap);
+
+                }else{
+                    ImageLoader.getInstance().displayImage(tempList.get(position), holder.ivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
+                }
+
+                holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(false);
+            }else {
+                holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
+                holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
+                holder.ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.GONE);
+            }
 
         }
     }
@@ -261,7 +284,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
 
                 int indexOf = pic.indexOf(":");
                 if(indexOf > 0){
-                    Toast.makeText(activity,"no up",Toast.LENGTH_LONG).show();
+                   /* Toast.makeText(activity,"no up",Toast.LENGTH_LONG).show()*/;
                     i++;
                     sendPicToNet();
                     return;
@@ -279,6 +302,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
 
                 @Override
                 public void onError(Throwable e) {
+
                  /*   Toast.makeText(activity,"Throwable:"+e,Toast.LENGTH_LONG).show();*/
                 }
 
@@ -286,6 +310,8 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
                 public void onNext(NewFaBuPicBean newFaBuPicBean) {
                     if(newFaBuPicBean.getStatus().equals("0")){
                         netImageList.add("\""+newFaBuPicBean.getImgurl()+"\"");
+                        pbNewFaBuHuoYuan.setVisibility(View.GONE);
+                        isPicFinished = true;
                      /*   Toast.makeText(activity,"size"+netImageList.size()+newFaBuPicBean.getImgurl(),Toast.LENGTH_LONG).show();*/
                         notifyDataSetChanged();
                         i++;
@@ -295,7 +321,6 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
             });
         }else{
             pbNewFaBuHuoYuan.setVisibility(View.GONE);
-
             isPicFinished = true;
         }
 /*        System.out.print("\nbase64:"+base64_00);*/
@@ -368,6 +393,13 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
       /*      Toast.makeText(activity,"pos:"+pos,Toast.LENGTH_LONG).show();*/
 
             if(isUpdate){
+                if (!isPicFinished) {
+                    return;
+                }
+                int netImgSize = netImageList.size();
+                if (pos >= netImgSize) {
+                    return;
+                }
                 tempList.remove(pos);
                 String img = netImageList.get(pos);
                 deleteImageList.add(img);
@@ -376,13 +408,14 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
                 if (bitmapList.size() != 0) {
                     bitmapList.remove(pos);
                 }
-                isPicFinished = true;
+
             }else {
 
                 if (!isPicFinished) {
                     return;
                 }
-                int netImgSize = tempList.size();
+               /* Toast.makeText(activity,"this is after finish",Toast.LENGTH_LONG).show();*/
+                int netImgSize = netImageList.size();
                 if (pos >= netImgSize) {
                     return;
                 }
@@ -398,11 +431,12 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
                     }
                 }
                 allImageList.remove(pos);
-            }
 
-            ivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
-            ivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
-            ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.GONE);
+            }
+            isPicFinished = true;
+            if(allImageList.size() == 7) {
+                tempList.add("");
+            }
             notifyDataSetChanged();
         }
 
