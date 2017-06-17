@@ -111,7 +111,7 @@ public class NewMainIndexFragment extends BaseFragment {
 
         option.setIsNeedAddress(true);
         //可选，设置是否需要地址信息，默认不需要
-        option.setOpenGps(true);
+        option.setOpenGps(false);
         //可选，默认false,设置是否使用gps
         SystemUtils systemUtils = new SystemUtils((Activity) view1.getContext());
         int workType = systemUtils.getNetWorkType(view1.getContext());

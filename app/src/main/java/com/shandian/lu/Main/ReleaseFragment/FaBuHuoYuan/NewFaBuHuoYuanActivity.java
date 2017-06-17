@@ -571,7 +571,12 @@ public class NewFaBuHuoYuanActivity extends BaseActivity {
             endAddr = "";
         }
         paramMap.put("dadizhi",endAddr);
-
+        System.out.print("\n begin paramMap"+paramMap);
+        System.out.print("\n begin paramMap"+paramMap);
+        System.out.print("\n begin paramMap"+paramMap);
+        System.out.print("\n begin paramMap"+paramMap);
+        System.out.print("\n begin paramMap"+paramMap);
+        System.out.print("\n begin paramMap"+paramMap);
         return paramMap;
     }
 

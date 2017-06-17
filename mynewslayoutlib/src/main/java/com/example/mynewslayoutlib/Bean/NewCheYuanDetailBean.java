@@ -12,7 +12,7 @@ public class NewCheYuanDetailBean {
     /**
      * status : 0
      * msg :
-     * nr : {"id":"9941","login_id":"276","type_name":"1","car_title":"测试","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","set_tid":"0","out_tid":"0","address_set":"","address_out":"","address_set_detail":"","address_out_detail":"","iphone":"888","people":"测试","address":"","car_type":"中栏车","car_lange":"8","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","is_pass":"1","status":"0","type":"0","content":"","num":"1","create_time":"1496989856","update_time":"1496989856","imgtu":["https://www.lianshiding.com/Uploads/2017-06-09/2761496989856eeXk.jpg"],"cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"中国浙江省温州市乐清市双雁路458号 在中国建设银行(乐清旭阳分理处)附近","cfzuobiao":"28.122432,120.981341","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市双雁路162号  时代广场购物中心乐清店北126米","dazuobiao":"28.118016556071428,120.97593485680338","lng":"120.981341","lat":"28.122432","zt":"1","facheshijian":"","zuobiaohash":"wsypbzxcj961","gg":"0","juli":"2000","cflat":"28.122432","cflng":"120.981341","dalat":"28.118016556071428","dalng":"120.97593485680338","time":"2017-06-09 14:30:56"}
+     * nr : {"id":"9949","login_id":"276","type_name":"3","typename":"旧版类型接口","car_title":"广人","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","set_tid":"0","out_tid":"0","address_set":"","address_out":"","address_set_detail":"","address_out_detail":"","iphone":"99","people":"ivh","address":"","car_type":"危险品车","car_lange":"5","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","is_pass":"1","status":"0","type":"0","content":"暂无备注！","num":"1","create_time":"1497165345","update_time":"1497678801","imgtu":["https://www.lianshiding.com/Uploads/2017-06-14/27614973701137eol.jpg"],"cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"中国浙江省温州市乐清市旭阳路150号 在中国建设银行(乐清旭阳分理处)附近","cfzuobiao":"28.122452,120.981792","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市玉箫路 双阳商务宾馆南192米","dazuobiao":"28.120111294582323,120.98040841824158","lng":"120.981792","lat":"28.122452","zt":"1","juli":"2000","zuobiaohash":"wsypcp830j48","gg":"0","cflat":"28.122452","cflng":"120.981792","dalat":"28.120111294582323","dalng":"120.98040841824158","czlat":"28.122861","czlng":"120.981972","cztouxiang":"https://www.lianshiding.com/Uploads/2017-06-14/27614973701137eol.jpg","time":"2017-06-17 13:53:21"}
      */
 
     private String status;
@@ -45,10 +45,11 @@ public class NewCheYuanDetailBean {
 
     public static class NrBean {
         /**
-         * id : 9941
+         * id : 9949
          * login_id : 276
-         * type_name : 1
-         * car_title : 测试
+         * type_name : 3
+         * typename : 旧版类型接口
+         * car_title : 广人
          * set_province_id : 0
          * set_city_id : 0
          * set_area_id : 0
@@ -61,11 +62,11 @@ public class NewCheYuanDetailBean {
          * address_out :
          * address_set_detail :
          * address_out_detail :
-         * iphone : 888
-         * people : 测试
+         * iphone : 99
+         * people : ivh
          * address :
-         * car_type : 中栏车
-         * car_lange : 8
+         * car_type : 危险品车
+         * car_lange : 5
          * img1 :
          * img2 :
          * img3 :
@@ -77,38 +78,41 @@ public class NewCheYuanDetailBean {
          * is_pass : 1
          * status : 0
          * type : 0
-         * content :
+         * content : 暂无备注！
          * num : 1
-         * create_time : 1496989856
-         * update_time : 1496989856
-         * imgtu : ["https://www.lianshiding.com/Uploads/2017-06-09/2761496989856eeXk.jpg"]
+         * create_time : 1497165345
+         * update_time : 1497678801
+         * imgtu : ["https://www.lianshiding.com/Uploads/2017-06-14/27614973701137eol.jpg"]
          * cfsheng : 浙江省
          * cfshi : 温州市
          * cfqu : 乐清市
-         * cfdizhi : 中国浙江省温州市乐清市双雁路458号 在中国建设银行(乐清旭阳分理处)附近
-         * cfzuobiao : 28.122432,120.981341
+         * cfdizhi : 中国浙江省温州市乐清市旭阳路150号 在中国建设银行(乐清旭阳分理处)附近
+         * cfzuobiao : 28.122452,120.981792
          * dasheng : 浙江省
          * dashi : 温州市
          * daqu : 乐清市
-         * dadizhi : 浙江省温州市乐清市双雁路162号  时代广场购物中心乐清店北126米
-         * dazuobiao : 28.118016556071428,120.97593485680338
-         * lng : 120.981341
-         * lat : 28.122432
+         * dadizhi : 浙江省温州市乐清市玉箫路 双阳商务宾馆南192米
+         * dazuobiao : 28.120111294582323,120.98040841824158
+         * lng : 120.981792
+         * lat : 28.122452
          * zt : 1
-         * facheshijian :
-         * zuobiaohash : wsypbzxcj961
-         * gg : 0
          * juli : 2000
-         * cflat : 28.122432
-         * cflng : 120.981341
-         * dalat : 28.118016556071428
-         * dalng : 120.97593485680338
-         * time : 2017-06-09 14:30:56
+         * zuobiaohash : wsypcp830j48
+         * gg : 0
+         * cflat : 28.122452
+         * cflng : 120.981792
+         * dalat : 28.120111294582323
+         * dalng : 120.98040841824158
+         * czlat : 28.122861
+         * czlng : 120.981972
+         * cztouxiang : https://www.lianshiding.com/Uploads/2017-06-14/27614973701137eol.jpg
+         * time : 2017-06-17 13:53:21
          */
 
         private String id;
         private String login_id;
         private String type_name;
+        private String typename;
         private String car_title;
         private String set_province_id;
         private String set_city_id;
@@ -155,14 +159,16 @@ public class NewCheYuanDetailBean {
         private String lng;
         private String lat;
         private String zt;
-        private String facheshijian;
+        private String juli;
         private String zuobiaohash;
         private String gg;
-        private String juli;
         private String cflat;
         private String cflng;
         private String dalat;
         private String dalng;
+        private String czlat;
+        private String czlng;
+        private String cztouxiang;
         private String time;
         private List<String> imgtu;
 
@@ -188,6 +194,14 @@ public class NewCheYuanDetailBean {
 
         public void setType_name(String type_name) {
             this.type_name = type_name;
+        }
+
+        public String getTypename() {
+            return typename;
+        }
+
+        public void setTypename(String typename) {
+            this.typename = typename;
         }
 
         public String getCar_title() {
@@ -558,12 +572,12 @@ public class NewCheYuanDetailBean {
             this.zt = zt;
         }
 
-        public String getFacheshijian() {
-            return facheshijian;
+        public String getJuli() {
+            return juli;
         }
 
-        public void setFacheshijian(String facheshijian) {
-            this.facheshijian = facheshijian;
+        public void setJuli(String juli) {
+            this.juli = juli;
         }
 
         public String getZuobiaohash() {
@@ -580,14 +594,6 @@ public class NewCheYuanDetailBean {
 
         public void setGg(String gg) {
             this.gg = gg;
-        }
-
-        public String getJuli() {
-            return juli;
-        }
-
-        public void setJuli(String juli) {
-            this.juli = juli;
         }
 
         public String getCflat() {
@@ -620,6 +626,30 @@ public class NewCheYuanDetailBean {
 
         public void setDalng(String dalng) {
             this.dalng = dalng;
+        }
+
+        public String getCzlat() {
+            return czlat;
+        }
+
+        public void setCzlat(String czlat) {
+            this.czlat = czlat;
+        }
+
+        public String getCzlng() {
+            return czlng;
+        }
+
+        public void setCzlng(String czlng) {
+            this.czlng = czlng;
+        }
+
+        public String getCztouxiang() {
+            return cztouxiang;
+        }
+
+        public void setCztouxiang(String cztouxiang) {
+            this.cztouxiang = cztouxiang;
         }
 
         public String getTime() {

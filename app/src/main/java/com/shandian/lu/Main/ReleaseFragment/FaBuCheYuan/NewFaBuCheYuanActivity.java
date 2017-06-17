@@ -600,7 +600,29 @@ public class NewFaBuCheYuanActivity extends BaseActivity  {
             endAddr = "";
         }
         paramMap.put("dadizhi",endAddr);
-
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);
         return paramMap;
     }
 

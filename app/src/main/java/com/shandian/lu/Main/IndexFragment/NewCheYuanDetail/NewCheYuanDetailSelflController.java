@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.shandian.lu.BaseActivity;
@@ -28,7 +29,7 @@ import rx.Observer;
 
 public class NewCheYuanDetailSelflController extends BaseController {
 
-    private String bLat,bLon,eLat,eLon;
+    private String bLat,bLon,eLat,eLon,cheLat,cheLon,cheTouXiang;
     @BindView(R.id.rly_new_self_cyxq_back)
     RelativeLayout rlyNewSelfCYXQBack;
     @OnClick(R.id.rly_new_self_cyxq_back)
@@ -79,6 +80,9 @@ public class NewCheYuanDetailSelflController extends BaseController {
         intent.putExtra("blon",bLon);
         intent.putExtra("elat",eLat);
         intent.putExtra("elon",eLon);
+        intent.putExtra("czlat",cheLat);
+        intent.putExtra("czlon",cheLon);
+        intent.putExtra("czTouXiang",cheTouXiang);
         activity.startActivity(intent);
     }
     private String cyId ;
@@ -102,12 +106,10 @@ public class NewCheYuanDetailSelflController extends BaseController {
         if(cyId == null){
             cyId = "";
         }
+       /* Toast.makeText(activity,"cyId:"+cyId,Toast.LENGTH_LONG).show();*/
     }
     private void initRV(){
         imgList = new ArrayList<>();
-        imgList.add("");
-        imgList.add("");
-        imgList.add("");
         adapter = new NewCheYuanDetailImgRVAdapter(activity,imgList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -149,6 +151,9 @@ public class NewCheYuanDetailSelflController extends BaseController {
         bLon = newCheYuanDetailBean.getNr().getCflng();
         eLat = newCheYuanDetailBean.getNr().getDalat();
         eLon = newCheYuanDetailBean.getNr().getDalng();
+        cheLat = newCheYuanDetailBean.getNr().getCzlat();
+        cheLon = newCheYuanDetailBean.getNr().getCzlng();
+        cheTouXiang = newCheYuanDetailBean.getNr().getCztouxiang();
     }
 
 }

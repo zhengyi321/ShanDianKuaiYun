@@ -45,7 +45,7 @@ public class NewWoDeCheYuanController extends BaseController {
     private int offset = 0;// 动画图片偏移量
     private int bmpW = 70;// 动画图片宽度
     private int currIndex = 0;// 当前页卡编号
-
+    private String type = "";
 
     private int refreshTime = 0;
     private int times = 0;
@@ -74,7 +74,7 @@ public class NewWoDeCheYuanController extends BaseController {
     public void rbNewWoDeCheYuanFinishOnclick(){
         initTabBar(0);
         getCheYuanListDataFromNet("1");
-
+        type = "0";
     }
 
     @BindView(R.id.rb_new_wodecheyuan_releaseing)
@@ -83,7 +83,7 @@ public class NewWoDeCheYuanController extends BaseController {
     public void rbNewWoDeCheYuanReleaseingOnclick(){
         initTabBar(1);
         getYiBaoJiaDataFromNet("1");
-
+        type = "1";
 
     }
 
@@ -348,7 +348,7 @@ public class NewWoDeCheYuanController extends BaseController {
     }
 
     private void getCheYuanListDataFromNet(final String pages){
-        pbNewWoDeCheYuan.setVisibility(View.VISIBLE);
+
         Map<String,String> paramMap = new HashMap<>();
         paramMap.put("login_id",loginId);
         paramMap.put("p",pages);
@@ -358,12 +358,12 @@ public class NewWoDeCheYuanController extends BaseController {
         newCheHuoListNetWork.getWoDeCheYuanCheYuanLieBiaoFromNet(paramMap, new Observer<NewWoDeCheYuanBean>() {
             @Override
             public void onCompleted() {
-                pbNewWoDeCheYuan.setVisibility(View.GONE);
+
             }
 
             @Override
             public void onError(Throwable e) {
-                pbNewWoDeCheYuan.setVisibility(View.GONE);
+
             }
 
             @Override
@@ -377,13 +377,13 @@ public class NewWoDeCheYuanController extends BaseController {
                     adapter.setAdapter(newWoDeCheYuanBean.getNr().getList());
 
                 }
-                pbNewWoDeCheYuan.setVisibility(View.GONE);
+
             }
         });
     }
 
     private void getYiBaoJiaDataFromNet(final String pages){
-        pbNewWoDeCheYuan.setVisibility(View.VISIBLE);
+
         Map<String,String> paramMap = new HashMap<>();
         paramMap.put("login_id",loginId);
         paramMap.put("p",""+pages);
@@ -408,14 +408,25 @@ public class NewWoDeCheYuanController extends BaseController {
                     if(pages.equals("1")){
                         dataList1.clear();
                     }
-                    xrvNewWoDeCheYuanCheYuanList.setVisibility(View.GONE);
+
                     xrvNewWoDeCheYuanYiBaoJia.setVisibility(View.VISIBLE);
                     adapter1.setAdapter(newYiBaoJiaBean.getNr().getList());
 
 
                 }
-                pbNewWoDeCheYuan.setVisibility(View.GONE);
+
             }
         });
+    }
+
+    public void onResume(){
+        switch (type){
+            case "0":
+                xrvNewWoDeCheYuanCheYuanList.refresh();
+                break;
+            case "1":
+                xrvNewWoDeCheYuanYiBaoJia.refresh();
+                break;
+        }
     }
 }

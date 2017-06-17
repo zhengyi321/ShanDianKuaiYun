@@ -37,7 +37,7 @@ public class NewCheYuanDetailOtherController extends BaseController {
     public void rlyNewOtherCYXQBackOnclick(){
         activity.finish();
     }
-    private String bLat,bLon,eLat,eLon;
+    private String bLat,bLon,eLat,eLon,cheLat,cheLon,cheTouXiang;
 
     @BindView(R.id.tv_new_other_cyxq_prov_city_area_b)
     TextView tvNewOtherCYXQProvCityAreaB;
@@ -81,6 +81,9 @@ public class NewCheYuanDetailOtherController extends BaseController {
         intent.putExtra("blon",bLon);
         intent.putExtra("elat",eLat);
         intent.putExtra("elon",eLon);
+        intent.putExtra("czlat",cheLat);
+        intent.putExtra("czlon",cheLon);
+        intent.putExtra("czTouXiang",cheTouXiang);
         activity.startActivity(intent);
     }
     @BindView(R.id.rly_new_other_cyxq_bottom_message)
@@ -229,6 +232,9 @@ public class NewCheYuanDetailOtherController extends BaseController {
         eLat = newCheYuanDetailBean.getNr().getDalat();
         eLon = newCheYuanDetailBean.getNr().getDalng();
         tel = newCheYuanDetailBean.getNr().getIphone();
+        cheLat = newCheYuanDetailBean.getNr().getCzlat();
+        cheLon = newCheYuanDetailBean.getNr().getCzlng();
+        cheTouXiang = newCheYuanDetailBean.getNr().getCztouxiang();
     }
 
 

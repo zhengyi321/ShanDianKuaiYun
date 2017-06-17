@@ -102,7 +102,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
         initRouteOverLay();
         initLLg();
         searchProcessByLLG(bLl,eLl);
-
+        initSiJiLoc();
     }
 
     private void initSiJiLoc(){
@@ -150,7 +150,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
 
         mBaidumap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
 
-
+       /* Toast.makeText(activity,"sijilat:"+cheLat+" sijilon:"+cheLon,Toast.LENGTH_LONG).show();*/
 
 
     }

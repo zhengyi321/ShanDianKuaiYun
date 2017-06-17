@@ -88,7 +88,7 @@ public class HuoYuanListController extends BaseController {
 
 
     public void getDataFromNet(String page,String typeName) {
-        pbNewHuoYuanList.setVisibility(View.VISIBLE);
+
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String currentLat = xcCacheManager.readCache(xcCacheSaveName.currentLat);
@@ -114,7 +114,7 @@ public class HuoYuanListController extends BaseController {
 
             @Override
             public void onNext(NewHuoYuanListBean newHuoYuanListBean) {
-                pbNewHuoYuanList.setVisibility(View.GONE);
+
                 if (newHuoYuanListBean.getStatus().equals("0")) {
                  /*   int size = newHuoYuanListBean.getNr().getList().size();
                     int count = tempBeanList.size();
@@ -165,7 +165,7 @@ public class HuoYuanListController extends BaseController {
     }
 
     public void getData2FromNet(final String page, String typeName, String bP, String bC, String bA, String eP, String eC, String eA){
-        pbNewHuoYuanList.setVisibility(View.VISIBLE);
+
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String currentLat = xcCacheManager.readCache(xcCacheSaveName.currentLat);
@@ -191,7 +191,7 @@ public class HuoYuanListController extends BaseController {
 
             @Override
             public void onNext(NewHuoYuanListBean newHuoYuanListBean) {
-                pbNewHuoYuanList.setVisibility(View.GONE);
+
                 /*if(newHuoYuanListBean.getStatus().equals("0")){
                     int size = newHuoYuanListBean.getNr().getList().size();
                     int count = tempBeanList.size();

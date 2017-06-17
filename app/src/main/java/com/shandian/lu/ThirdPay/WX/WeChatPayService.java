@@ -31,20 +31,25 @@ import com.tencent.mm.sdk.constants.Build;
 import com.tencent.mm.sdk.modelpay.PayReq;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 
 import cz.msebera.android.httpclient.NameValuePair;
 import cz.msebera.android.httpclient.conn.util.InetAddressUtils;
 import cz.msebera.android.httpclient.message.BasicNameValuePair;
 
 */
-/**
+/*
+*
  * 创建人 : skyCracks<br>
  * 创建时间 : 2016-7-18上午11:02:34<br>
  * 版本 : [v1.0]<br>
  * 类描述 : 微信支付实现服务端操作及后续调起支付<br>
  *
  *     https://github.com/skyCracks/Payment
- *//*
+
+*//*
+
 
 @SuppressLint("DefaultLocale")
 public class WeChatPayService {
@@ -53,25 +58,30 @@ public class WeChatPayService {
 
 	private IWXAPI api;
 	private Context context;
-	*/
-/** 订单类型 *//*
+*/
+/** 订单类型*//*
+
 
 	private int type;
-	*/
-/** 内部订单 *//*
+*/
+/** 内部订单*//*
+
 
 	private String out_trade_no;
-	*/
-/** 商品描述 *//*
+*/
+/** 商品描述*//*
+
 
 	private String body;
-	*/
-/** 商品金额费用, 单位是分 *//*
+*/
+/** 商品金额费用, 单位是分*//*
+
 
 	private String total_fee;
+*/
+/*
 
-	*/
-/**
+*
 	 * @param context
 	 *            上下文环境
 	 * @param out_trade_no
@@ -82,7 +92,9 @@ public class WeChatPayService {
 	 *            商品描述
 	 * @param total_fee
 	 *            商品金额费用, 单位是分
-	 *//*
+
+*//*
+
 
 	public WeChatPayService(Context context, int type, String out_trade_no,
 			String body, String total_fee) {
@@ -91,9 +103,8 @@ public class WeChatPayService {
 		this.out_trade_no = out_trade_no;
 		this.body = body;
 		this.total_fee = total_fee;
-		*/
-/*this.api = WXAPIFactory.createWXAPI(context, WeChatConstans.APP_ID,
-				false);*//*
+this.api = WXAPIFactory.createWXAPI(context, WeChatConstans.APP_ID,
+				false);
 
 		this.api = WXAPIFactory.createWXAPI(context,null);
 
@@ -103,17 +114,17 @@ public class WeChatPayService {
 		// 检测是否安装了微信
 		boolean isWeChat = api.getWXAppSupportAPI() >= Build.PAY_SUPPORTED_SDK_INT;
 		if (isWeChat) {
-		*/
-/*	Toast.makeText(context,"have wx", Toast.LENGTH_SHORT).show();*//*
+	Toast.makeText(context,"have wx", Toast.LENGTH_SHORT).show();
 
 			new GetPrepayIdTask().execute();
 		}
 	}
-	
 	*/
-/**
+/*
+*
 	 * 异步网络请求获取预付Id
-	 *//*
+*//*
+
 
 	private class GetPrepayIdTask extends AsyncTask<String, Void, String> {
 		@Override
@@ -133,8 +144,9 @@ public class WeChatPayService {
 			String url = String.format(WeChatConstans.WECHAT_UNIFIED_ORDER);
 			String entity = genEntity();
 			byte[] buf = WeChatHttpClient.httpPost(url, entity);
-			*/
-/*Toast.makeText(context,"this is prepay_id"+buf,Toast.LENGTH_SHORT).show();在async 异步调用里用toast 会引起错误*//*
+*/
+/*Toast.makeText(context,"this is prepay_id"+buf,Toast.LENGTH_SHORT).show();*//*
+//在async 异步调用里用toast 会引起错误
 
 			if (buf != null && buf.length > 0) {
 				try {
@@ -148,14 +160,17 @@ public class WeChatPayService {
 			return null;
 		}
 	}
+*/
+/*
 
-	*/
-/**
+*
 	 * 发送支付请求
 	 *http://blog.csdn.net/supercopa/article/details/52249084
 	 * https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=4_3
 	 * @param prepayId 预付Id
-	 *//*
+*//*
+
+
 
 	private void sendPayReq(String prepayId) {
 		PayReq req = new PayReq();
@@ -166,8 +181,7 @@ public class WeChatPayService {
 		req.nonceStr = genNonceStr();
 		req.timeStamp = String.valueOf(genTimeStamp());
 
-		*/
-/*Log.i("this is pay prepayId","appId:"+req.appId+" partnerId:"+req.partnerId+" prepayId:"+req.prepayId+" nonceStr:"+req.nonceStr+" timeStamp:"+req.timeStamp+" packageValue:"+req.packageValue);*//*
+Log.i("this is pay prepayId","appId:"+req.appId+" partnerId:"+req.partnerId+" prepayId:"+req.prepayId+" nonceStr:"+req.nonceStr+" timeStamp:"+req.timeStamp+" packageValue:"+req.packageValue);
 
 		List<NameValuePair> signParams = new LinkedList<NameValuePair>();
 		signParams.add(new BasicNameValuePair("appid", req.appId));
@@ -182,10 +196,11 @@ public class WeChatPayService {
 	*/
 /*	String stringA="appid="+req.appId+"&noncestr="+req.nonceStr+"&package="+req.packageValue+"&partnerid="+req.partnerId+"&prepayid="+req.prepayId+"&timestamp="+req.timeStamp;
 		String stringSignTemp=stringA + "&key="+WeChatConstans.PARTNER_KEY;
-		Log.i("sign",stringSignTemp);
+		Log.i("sign",stringSignTemp);*//*
+
 		String characterEncoding = "UTF-8";
 		String sign= "";
-		sign = MD5Util.MD5Encode(stringSignTemp,characterEncoding).toUpperCase();*//*
+		sign = MD5Util.MD5Encode(stringSignTemp,characterEncoding).toUpperCase();
 
 		req.sign = genPackageSign(signParams);
 		Log.i("sign",req.sign );
@@ -194,24 +209,26 @@ public class WeChatPayService {
 		// 微信支付结果界面对调起支付Activity的处理
 		// APPCache.payActivity.put("调起支付的Activity",(调起支付的Activity)context);
 		// 在支付之前，如果应用没有注册到微信，应该先调用IWXMsg.registerApp将应用注册到微信
-		*/
-/*api.registerApp(WeChatConstans.APP_ID);*//*
+api.registerApp(WeChatConstans.APP_ID);
 
 		api.registerApp(WeChatConstans.APP_ID);
 		api.sendReq(req);//不断出现-1的解决方法是卸载微信重装 或者清空微信
 		// 支付完成后微信会回调 wxapi包下 WXPayEntryActivity 的public void onResp(BaseResp
 		// resp)方法，所以后续操作，放在这个回调函数中操作就可以了
 	}
+*/
+/*
 
-	*/
-/**
+*
 	 * 微信支付，构建统一下单请求参数
-	 *//*
+*//*
+
+
 
 	public String genEntity() {
 		String nonceStr = genNonceStr();
 		XCCacheManager xcCacheManager = XCCacheManager.getInstance(context);
-		XCCacheSavename xcCacheSavename = new XCCacheSavename();
+		XCCacheSaveName xcCacheSavename = new XCCacheSaveName();
 		xcCacheManager.writeCache(xcCacheSavename.weixinPayNonceStr,nonceStr);
 		List<NameValuePair> packageParams = new ArrayList<NameValuePair>();
 		// APPID
@@ -249,16 +266,18 @@ public class WeChatPayService {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		*/
-/*Toast.makeText(context,"this is null",Toast.LENGTH_SHORT).show();*//*
+Toast.makeText(context,"this is null",Toast.LENGTH_SHORT).show();
 
 		return null;
 	}
+*/
+/*
 
-	*/
-/**
+*
 	 * 生成签名
-	 *//*
+*//*
+
+
 
 	public static String genPackageSign(List<NameValuePair> params) {
 		try {
@@ -280,11 +299,14 @@ public class WeChatPayService {
 			return null;
 		}
 	}
+*/
+/*
 
-	*/
-/**
+*
 	 * 微信支付调用统一下单接口，随机字符串
-	 *//*
+*//*
+
+
 
 	public static String genNonceStr() {
 		try {
@@ -342,12 +364,15 @@ public class WeChatPayService {
 		return ip;
 	}
 
-	*/
-/**
+*/
+/*
+*
 	 * 得到本机IP地址，WIFI下获取的是局域网IP，数据流量下获取的是公网IP
 	 * 
 	 * @return
-	 *//*
+*//*
+
+
 
 	public static String getIPAddress() {
 		try {

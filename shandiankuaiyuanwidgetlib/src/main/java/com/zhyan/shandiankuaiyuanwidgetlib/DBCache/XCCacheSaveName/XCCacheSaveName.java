@@ -9,6 +9,8 @@ public class XCCacheSaveName {
     public String loginStatus = "loginStatus";
     public String logId = "logId";
 
+    public String weixinPayNonceStr = "weixinPayNonceStr";
+
     public String userName = "userName" ;
     public String userTel = "userTel";
 

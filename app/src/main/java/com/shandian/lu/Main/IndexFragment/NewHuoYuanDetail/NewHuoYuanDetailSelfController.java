@@ -332,9 +332,6 @@ public class NewHuoYuanDetailSelfController extends BaseController {
 
     private void initRV(){
         imgList = new ArrayList<>();
-        imgList.add("");
-        imgList.add("");
-        imgList.add("");
         adapter = new NewHuoYuanDetailImgRVAdapter(activity,imgList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);

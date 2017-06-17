@@ -107,6 +107,8 @@ public class LoginController extends BaseController {
             switch (message.what){
                 case 1:
                     Toast.makeText(activity,"登录成功",Toast.LENGTH_LONG).show();
+                    initAliasJpush();
+                    activity.finish();
                     break;
             }
         }
@@ -209,8 +211,7 @@ public class LoginController extends BaseController {
                 }else{
                     Toast.makeText(activity,loginBean.getMsg(),Toast.LENGTH_LONG).show();
                 }
-                initAliasJpush();
-                activity.finish();
+
             }
         });
 

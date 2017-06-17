@@ -267,8 +267,8 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
 
         BitmapUtils bitmapUtils = new BitmapUtils();
         Bitmap bitmap = bitmapUtils.getimage(srcPath);
-  /*      bitmap = bitmapUtils.compressImage(bitmap);
-        bitmap = bitmapUtils.comp(bitmap);*/
+        bitmap = bitmapUtils.compressImage(bitmap);
+        bitmap = bitmapUtils.comp(bitmap);
 
         return bitmap;
     }

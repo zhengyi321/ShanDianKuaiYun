@@ -56,7 +56,7 @@ public class NewMyWalletTiXianController extends BaseController {
     TextView tvNewMyWalletTiXianTiXianAll;
     @OnClick(R.id.tv_new_mywallet_tixian_tixian_all)
     public void tvNewMyWalletTiXianTiXianAllOnclick(){
-        newQueryDialog = new NewQueryDialog(activity,"全部提现").Build.setCallBackListener(new NewQueryDialog.DialogCallBackListener() {
+       /* newQueryDialog = new NewQueryDialog(activity,"全部提现").Build.setCallBackListener(new NewQueryDialog.DialogCallBackListener() {
             @Override
             public void callBack(boolean isQuery) {
                 if(isQuery){
@@ -66,7 +66,8 @@ public class NewMyWalletTiXianController extends BaseController {
                 dissmissQueryDialog();
             }
         }).build(activity);
-        showQueryDialog();
+        showQueryDialog();*/
+        etNewMyWalletTiXianJinEr.setText(total);
     }
     @BindView(R.id.bt_new_mywallet_tixian_submit)
     Button btNewMyWalletTiXianSubmit;
@@ -113,7 +114,7 @@ public class NewMyWalletTiXianController extends BaseController {
     }
 
     private void submitDataToNet(String jine){
-        pbNewMyWalletTiXian.setVisibility(View.VISIBLE);
+
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
@@ -140,9 +141,15 @@ public class NewMyWalletTiXianController extends BaseController {
             Toast.makeText(activity,"请输入金额,且确保你的账号有钱",Toast.LENGTH_LONG).show();
             return;
         }
+        double jiner = Double.parseDouble(jine);
+        if(jiner < 1){
+            Toast.makeText(activity,"请至少输入一块钱",Toast.LENGTH_LONG).show();
+            return;
+        }
         paramMap.put("jine",jine);
 
 
+        pbNewMyWalletTiXian.setVisibility(View.VISIBLE);
         MyWalletNetWork myWalletNetWork = new MyWalletNetWork();
         myWalletNetWork.tiXianFromNet(paramMap, new Observer<NewTiXianBean>() {
             @Override

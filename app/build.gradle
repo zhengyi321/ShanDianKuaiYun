@@ -21,8 +21,8 @@ android {
         applicationId "com.shandian.lu"
         minSdkVersion 11
         targetSdkVersion 25
-        versionCode 6
-        versionName "1.0.5"
+        versionCode 7
+        versionName "1.0.6"
         multiDexEnabled true
      /*   ndk {
 //设置支持的SO库架构
@@ -188,11 +188,9 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile files('libs/alipaySingle-20170510.jar')
     /*微信支付*/
-    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+/*    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'*/
     compile files('libs/jdom.jar')
     compile files('libs/httpclient-4.3.6.jar')
-
-
 
 }
 /*// 依赖插件脚本

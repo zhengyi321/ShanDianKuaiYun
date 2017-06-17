@@ -6,6 +6,9 @@ import android.util.Base64;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Date;
 
 /**
  * Created by az on 2017/5/15.
@@ -19,13 +22,14 @@ public class BitmapUtils {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
         int options = 100;
-        while ( baos.toByteArray().length / 1024>60) {  //循环判断如果压缩后图片是否大于100kb,大于继续压缩
+        while ( baos.toByteArray().length / 1024>70) {  //循环判断如果压缩后图片是否大于100kb,大于继续压缩
             baos.reset();//重置baos即清空baos
             image.compress(Bitmap.CompressFormat.JPEG, options, baos);//这里压缩options%，把压缩后的数据存放到baos中
             options -= 10;//每次都减少10
         }
         ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());//把压缩后的数据baos存放到ByteArrayInputStream中
         Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);//把ByteArrayInputStream数据生成图片
+
         return bitmap;
     }
 
@@ -52,12 +56,13 @@ public class BitmapUtils {
         if (be <= 0)
             be = 1;
         newOpts.inSampleSize = be;//设置缩放比例
+    /*    newOpts.inSampleSize = (int)2;//设置缩放比例*/
         //重新读入图片，注意此时已经把options.inJustDecodeBounds 设回false了
         bitmap = BitmapFactory.decodeFile(srcPath, newOpts);
-        bitmap = compressImage(bitmap);
+       /* bitmap = compressImage(bitmap);*/
 /*        bitmap = comp(bitmap);*/
-      /*  return compressImage(bitmap);*///压缩好比例大小后再进行质量压缩
-        return bitmap;//压缩好比例大小后再进行质量压缩
+        return compressImage(bitmap);//压缩好比例大小后再进行质量压缩
+     /*   return bitmap;*///压缩好比例大小后再进行质量压缩
     }
 
 
@@ -67,9 +72,9 @@ public class BitmapUtils {
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        if( baos.toByteArray().length / 1024>90) {//判断如果图片大于1M,进行压缩避免在生成图片（BitmapFactory.decodeStream）时溢出
+        if( baos.toByteArray().length / 1024>2) {//判断如果图片大于1M,进行压缩避免在生成图片（BitmapFactory.decodeStream）时溢出
             baos.reset();//重置baos即清空baos
-            image.compress(Bitmap.CompressFormat.JPEG, 90, baos);//这里压缩50%，把压缩后的数据存放到baos中
+            image.compress(Bitmap.CompressFormat.JPEG,80, baos);//这里压缩50%，把压缩后的数据存放到baos中
         }
         ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());
         BitmapFactory.Options newOpts = new BitmapFactory.Options();
@@ -92,6 +97,7 @@ public class BitmapUtils {
         if (be <= 0)
             be = 1;
         newOpts.inSampleSize = be;//设置缩放比例
+
         //重新读入图片，注意此时已经把options.inJustDecodeBounds 设回false了
         isBm = new ByteArrayInputStream(baos.toByteArray());
         bitmap = BitmapFactory.decodeStream(isBm, null, newOpts);

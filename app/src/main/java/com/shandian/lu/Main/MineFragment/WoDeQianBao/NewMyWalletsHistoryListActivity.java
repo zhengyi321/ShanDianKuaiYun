@@ -28,4 +28,9 @@ public class NewMyWalletsHistoryListActivity extends BaseActivity {
     private void initController(){
         newMyWalletsHistoryListController = new NewMyWalletsHistoryListController(this);
     }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        newMyWalletsHistoryListController.onResume();
+    }
 }

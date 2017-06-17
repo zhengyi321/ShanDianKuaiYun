@@ -264,7 +264,7 @@ public class NewWoDeHuoYuanController extends BaseController {
     }
 
     private void getDataFromNet(String lx,final String p){
-        pbNewWoDeHuoYuan.setVisibility(View.VISIBLE);
+
         Map<String,String> paramMap = new HashMap<>();
         paramMap.put("login_id",loginId);
         paramMap.put("lx",lx);
@@ -274,12 +274,12 @@ public class NewWoDeHuoYuanController extends BaseController {
         newCheHuoListNetWork.getWoDeHuoYuanFromNet(paramMap, new Observer<NewWoDeHuoYuanBean>() {
             @Override
             public void onCompleted() {
-                pbNewWoDeHuoYuan.setVisibility(View.GONE);
+
             }
 
             @Override
             public void onError(Throwable e) {
-                pbNewWoDeHuoYuan.setVisibility(View.GONE);
+
             }
 
             @Override
@@ -290,8 +290,14 @@ public class NewWoDeHuoYuanController extends BaseController {
                     }
                     adapter.setAdapter(newWoDeHuoYuanBean.getNr().getList());
                 }
-                pbNewWoDeHuoYuan.setVisibility(View.GONE);
+
             }
         });
+    }
+
+
+    public void onResume(){
+        xrvNewWoDeHuoYuan.refresh();
+        /*getDataFromNet(type+"","1");*/
     }
 }

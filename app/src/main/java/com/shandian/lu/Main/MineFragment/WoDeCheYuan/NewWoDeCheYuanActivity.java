@@ -5,6 +5,7 @@ import com.shandian.lu.Main.MineFragment.WoDeHuoYuan.NewWoDeHuoYuanController;
 import com.shandian.lu.R;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2017/6/12.
@@ -30,4 +31,11 @@ public class NewWoDeCheYuanActivity extends BaseActivity {
         newWoDeCheYuanController = new NewWoDeCheYuanController(this);
     }
 
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        newWoDeCheYuanController.onResume();
+
+    }
 }

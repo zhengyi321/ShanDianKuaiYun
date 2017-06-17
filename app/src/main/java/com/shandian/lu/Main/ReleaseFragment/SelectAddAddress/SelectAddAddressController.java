@@ -92,11 +92,15 @@ public class SelectAddAddressController extends BaseController implements OnGetG
 
         switch (type){
             case "begin":
+
                 activity.setResult(ACTIVITY_SELECT_ADDRESS_BEGIN,intent);
                 break;
             case "end":
                 activity.setResult(ACTIVITY_SELECT_ADDRESS_END,intent);
                 break;
+        }
+        if((city == null)||(city.isEmpty())){
+            return;
         }
         activity.finish();
     }
@@ -378,6 +382,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         */
         selfLat = lat;
         selfLon = lng;
+        mSearch.reverseGeoCode(new ReverseGeoCodeOption().location(latLng));
         /*获取自己的坐标*/
      /*   if((location1.getAddrStr()!= null)&&(location1.getLocationDescribe() != null)) {
             addressLocation = location1.getAddrStr() + " " + location1.getLocationDescribe();
@@ -531,7 +536,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
       Log.i("addr",addr);
       Log.i("addr",addr);
         if(isSearch) {
-            Toast.makeText(activity,result.getAddress(),Toast.LENGTH_LONG).show();
+     /*       Toast.makeText(activity,result.getAddress(),Toast.LENGTH_LONG).show();*/
             mSearch.reverseGeoCode(new ReverseGeoCodeOption().location(latLng));
             isSearch = false;
         }
@@ -543,17 +548,17 @@ public class SelectAddAddressController extends BaseController implements OnGetG
 
     @Override
     public void onGetPoiResult(PoiResult poiResult) {
-        Toast.makeText(activity,"1",Toast.LENGTH_LONG).show();
+        /*Toast.makeText(activity,"1",Toast.LENGTH_LONG).show();*/
     }
 
     @Override
     public void onGetPoiDetailResult(PoiDetailResult poiDetailResult) {
-        Toast.makeText(activity,"2",Toast.LENGTH_LONG).show();
+       /* Toast.makeText(activity,"2",Toast.LENGTH_LONG).show();*/
     }
 
     @Override
     public void onGetPoiIndoorResult(PoiIndoorResult poiIndoorResult) {
-        Toast.makeText(activity,"3",Toast.LENGTH_LONG).show();
+      /*  Toast.makeText(activity,"3",Toast.LENGTH_LONG).show();*/
     }
 
 

@@ -29,4 +29,9 @@ public class NewWoDeHuoYuanActivity extends BaseActivity {
         newWoDeHuoYuanController = new NewWoDeHuoYuanController(this);
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        newWoDeHuoYuanController.onResume();
+    }
 }
