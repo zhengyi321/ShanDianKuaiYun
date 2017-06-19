@@ -39,6 +39,8 @@ public class SplashActivity extends BaseActivity {
 
                     if(second == 0) {
                         Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                        intent.addCategory(Intent.CATEGORY_HOME);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                         finish();
                     }

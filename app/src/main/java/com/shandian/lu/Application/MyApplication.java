@@ -63,7 +63,7 @@ public class MyApplication extends Application {
 
 
         /*腾讯应用更新*/
-        Bugly.init(getApplicationContext(), "17b9bbc524", false);
+       /* Bugly.init(getApplicationContext(), "17b9bbc524", false);//现在在main的onresume中初始化*/
         /*腾讯应用更新*/
 
         /*极光推送*/

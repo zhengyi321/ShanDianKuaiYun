@@ -1,10 +1,16 @@
 package com.shandian.lu.Main;
 
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
@@ -315,7 +321,34 @@ public class MainActivity extends FragmentActivity {
 
 
     long mExitTime = 0;
-    @Override
+  //  改写返回键事件监听，使得back键功能类似home键，让Acitivty退至后台时不被系统销毁，代码如下：
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        PackageManager pm = getPackageManager();
+        ResolveInfo homeInfo =
+                pm.resolveActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME), 0);
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            ActivityInfo ai = homeInfo.activityInfo;
+            Intent startIntent = new Intent(Intent.ACTION_MAIN);
+            startIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+            startIntent.setComponent(new ComponentName(ai.packageName, ai.name));
+            startActivitySafely(startIntent);
+            return true;
+        } else
+            return super.onKeyDown(keyCode, event);
+    }
+    private void startActivitySafely(Intent intent) {
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "null",
+                    Toast.LENGTH_SHORT).show();
+        } catch (SecurityException e) {
+            Toast.makeText(this, "null",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+    /*    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode==event.KEYCODE_BACK){
             if((System.currentTimeMillis()-mExitTime)>2000){
@@ -328,7 +361,7 @@ public class MainActivity extends FragmentActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
     public void showToast(String text, int offx, int offy) {
         Toast mToast = null;
         if (mToast == null) {

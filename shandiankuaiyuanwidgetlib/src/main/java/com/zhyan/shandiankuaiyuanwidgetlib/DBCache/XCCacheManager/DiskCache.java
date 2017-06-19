@@ -183,13 +183,15 @@ public class DiskCache implements Cache{
             if(context.getExternalCacheDir() == null) {
                 cachePath = "/storage/emulated/0/Android/data/com.app/cache";
             }else {
-                cachePath = context.getExternalCacheDir().getPath();
+             /*   cachePath = context.getExternalCacheDir().getPath();*///保存在app内，卸载或者更新后数据会删除
+                cachePath = Environment.getExternalStorageDirectory().getPath();
             }
         } else {
             if(context.getCacheDir() == null) {
                 cachePath = "/storage/emulated/0/Android/data/com.app/cache";
             }else {
-                cachePath = context.getCacheDir().getPath();
+               /* cachePath = context.getCacheDir().getPath();*/
+                cachePath = Environment.getExternalStorageDirectory().getPath();
             }
         }
         return new File(cachePath + File.separator + uniqueName);

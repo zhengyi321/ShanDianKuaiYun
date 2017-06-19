@@ -22,6 +22,7 @@ import com.shandian.lu.Main.MineFragment.WoDeCheYuan.WoDeCheYuanActivity;
 import com.shandian.lu.Main.MineFragment.WoDeHuoYuan.NewWoDeHuoYuanActivity;
 import com.shandian.lu.Main.MineFragment.WoDeHuoYuan.WoDeHuoYuanActivity;
 import com.shandian.lu.Main.MineFragment.WoDeQianBao.NewMyWalletsHistoryListActivity;
+import com.shandian.lu.Main.MineFragment.WoDeRenZheng.NewWoDeRenZhengActivity;
 import com.shandian.lu.Main.MineFragment.WoDeYaoQing.WoDeYaoQingActivity;
 import com.shandian.lu.NetWork.UserNetWork;
 import com.shandian.lu.R;
@@ -81,6 +82,7 @@ public class NewMainMineController extends BaseController {
             view.getContext().startActivity(new Intent(view.getContext(),LoginActivity.class));
             return;
         }
+        /*Intent intent = new Intent(view.getContext(), NewWoDeRenZhengActivity.class);*/
         Intent intent = new Intent(view.getContext(), RenZhengActivity.class);
         view.getContext().startActivity(intent);
     }

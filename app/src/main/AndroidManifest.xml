@@ -826,6 +826,7 @@
         <activity android:name=".Main.MineFragment.WoDeQianBao.NewMyWalletsHistoryListActivity" />
         <activity android:name=".Main.MineFragment.WoDeQianBao.NewTiXian.NewMyWalletTiXianActivity" />
         <activity android:name=".Main.MineFragment.WoDeQianBao.NewTiXian.NewTiXianSuccess.NewTiXianSuccessActivity" />
+        <activity android:name=".Main.MineFragment.WoDeRenZheng.NewWoDeRenZhengActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
 
     </application>

@@ -72,7 +72,7 @@ public class NewMainIndexFragment extends BaseFragment {
     public void initView() {
         ButterKnife.bind(this,view);
         initController();
-
+        initBaidu();
     }
 
     private void initController(){
@@ -282,7 +282,7 @@ public class NewMainIndexFragment extends BaseFragment {
     @Override
     public void onResume(){
         super.onResume();
-            initBaidu();
+
     /*    if(!isFirst) {*/
             selectResult();
      /*   }*/

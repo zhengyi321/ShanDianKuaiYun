@@ -109,7 +109,7 @@ public class GeRenXinXiActivity extends BaseActivity {
         xcCacheManager.writeCache(xcCacheSaveName.logId,"");
         xcCacheManager.writeCache(xcCacheSaveName.loginStatus,"no");
         Toast.makeText(this,"已成功退出登录",Toast.LENGTH_LONG).show();
-        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, ""));
+        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, "zzz"));
         this.finish();
     }
 
