@@ -4,7 +4,7 @@ package com.example.mynewslayoutlib.Bean;
  * Created by Administrator on 2017/6/8.
  */
 
-public class HongBaoBean {
+public class NewHongBaoBean {
 
     /**
      *

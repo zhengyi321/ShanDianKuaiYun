@@ -43,7 +43,7 @@ public class BanJiaXRVAdapter extends RecyclerView.Adapter<BanJiaXRVAdapter.Item
         inflater = LayoutInflater.from(context1);
     }
     public void setAdapter(List<HomeMovingBean.ContentBean.CarInfoBean> contentBeen){
-        stringList.clear();
+
         stringList.addAll(contentBeen);
         notifyDataSetChanged();
     }

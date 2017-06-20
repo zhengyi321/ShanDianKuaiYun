@@ -5,6 +5,7 @@
     android:background="@color/color_main_mine_jifenshangcheng_jifentixian_topbar_bg"
     >
     <RelativeLayout
+        android:id="@+id/rly_main_mine_jfsc_jftx_back"
         android:layout_width="@dimen/zero"
         android:layout_height="match_parent"
         android:layout_weight="1.5"

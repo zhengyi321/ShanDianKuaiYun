@@ -174,7 +174,7 @@ public class NewMainIndexFragment extends BaseFragment {
                 String lon = location.getLongitude() + "";
                 XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
                 XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
-                String city = location.getCity();
+                String city = location.getDistrict();
 
                /* Toast.makeText(view1.getContext(),"city:"+ location.getLocType(),Toast.LENGTH_LONG).show();*/
                /* Toast.makeText(view.getContext(),"city:"+city,Toast.LENGTH_LONG).show();*/
@@ -282,7 +282,7 @@ public class NewMainIndexFragment extends BaseFragment {
     @Override
     public void onResume(){
         super.onResume();
-
+        newMainIndexController.onResume();
     /*    if(!isFirst) {*/
             selectResult();
      /*   }*/

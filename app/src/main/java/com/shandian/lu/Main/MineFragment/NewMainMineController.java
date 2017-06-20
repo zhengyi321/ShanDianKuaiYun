@@ -1,5 +1,6 @@
 package com.shandian.lu.Main.MineFragment;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaseController;
@@ -26,6 +28,12 @@ import com.shandian.lu.Main.MineFragment.WoDeRenZheng.NewWoDeRenZhengActivity;
 import com.shandian.lu.Main.MineFragment.WoDeYaoQing.WoDeYaoQingActivity;
 import com.shandian.lu.NetWork.UserNetWork;
 import com.shandian.lu.R;
+import com.shandian.lu.Widget.YouMeng.Defaultcontent;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.utils.Log;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.LianXiKeFuDialog;
@@ -146,10 +154,47 @@ public class NewMainMineController extends BaseController {
             return;
         }
         Intent intent = new Intent(view.getContext(), WoDeYaoQingActivity.class);
-/*        view.getContext().startActivity(intent);*/
+        view.getContext().startActivity(intent);
     }
 
+    @BindView(R.id.lly_new_main_mine_fenxiang)
+    LinearLayout llyNewMainMineFenXiang;
+    @OnClick(R.id.lly_new_main_mine_fenxiang)
+    public void llyNewMainMineFenXiangOnclickk(){
+        Defaultcontent defaultcontent = new Defaultcontent();
+        UMImage image=new UMImage(view.getContext(), R.mipmap.logo);
+        new ShareAction((Activity) view.getContext()).setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN,SHARE_MEDIA.WEIXIN_CIRCLE,SHARE_MEDIA.WEIXIN_FAVORITE,SHARE_MEDIA.QZONE)
+                .withTitle(defaultcontent.title)
+                .withText(defaultcontent.text)
+                .withMedia(image)
+                .withTargetUrl(defaultcontent.url)
+                .setCallback(umShareListener)
+                .open();
+    }
+    private UMShareListener umShareListener = new UMShareListener() {
+        @Override
+        public void onResult(SHARE_MEDIA platform) {
+            Log.d("plat","platform"+platform);
+            if(platform.name().equals("WEIXIN_FAVORITE")){
+                Toast.makeText(view.getContext(),"收藏成功",Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(view.getContext(), "分享成功", Toast.LENGTH_SHORT).show();
+            }
+        }
 
+        @Override
+        public void onError(SHARE_MEDIA platform, Throwable t) {
+            Toast.makeText(view.getContext(),  "分享失败", Toast.LENGTH_SHORT).show();
+            if(t!=null){
+                Log.d("throw","throw:"+t.getMessage());
+            }
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA platform) {
+            Toast.makeText(view.getContext(),"分享取消了", Toast.LENGTH_SHORT).show();
+        }
+    };
 
     @BindView(R.id.lly_new_main_mine_mengyou)
     LinearLayout llyNewMainMineMengYou;

@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.example.mynewslayoutlib.Bean.EditBaoJiaResultBean;
+import com.example.mynewslayoutlib.Bean.NewEditBaoJiaResultBean;
 import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
@@ -142,9 +142,13 @@ public class NewEditBaoJiaDialog extends Dialog {
                     }
                     paramMap.put("czid",loginId);
                     paramMap.put("hyid",hyId);
+                    if(money.isEmpty()){
+                        Toast.makeText(context,"请输入金额",Toast.LENGTH_LONG).show();
+                        return;
+                    }
                     paramMap.put("jiage",money);
                     NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
-                    newCheHuoListNetWork.editBaoJiaToNet(paramMap, new Observer<EditBaoJiaResultBean>() {
+                    newCheHuoListNetWork.editBaoJiaToNet(paramMap, new Observer<NewEditBaoJiaResultBean>() {
                         @Override
                         public void onCompleted() {
 
@@ -156,8 +160,8 @@ public class NewEditBaoJiaDialog extends Dialog {
                         }
 
                         @Override
-                        public void onNext(EditBaoJiaResultBean editBaoJiaResultBean) {
-                            Toast.makeText(context,editBaoJiaResultBean.getMsg(),Toast.LENGTH_LONG).show();
+                        public void onNext(NewEditBaoJiaResultBean newEditBaoJiaResultBean) {
+                            Toast.makeText(context, newEditBaoJiaResultBean.getMsg(),Toast.LENGTH_LONG).show();
                             releaseDialog.dismiss();
                             Intent intent = new Intent(context, NewHuoYuanDetailOtherActivity.class);
                             intent.putExtra("hyid",hyId);

@@ -25,7 +25,7 @@
                     android:id="@+id/tv_main_index_banjia_city"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="乐清"
+                    android:text=""
                     android:textSize="@dimen/main_index_banjia_tabbar_word_size"
                     android:textColor="@color/color_main_index_banjia_tabbar_black_word_textcolor"
 

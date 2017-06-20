@@ -38,6 +38,7 @@
                android:layout_weight="5"
                >
                <EditText
+                   android:id="@+id/et_main_mine_jfsc_jftx_account"
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:hint="@string/qingshuruzhifubaozhanghu"
@@ -81,6 +82,7 @@
                android:layout_weight="5"
                >
                <EditText
+                   android:id="@+id/et_main_mine_jfsc_jftx_name"
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
                    android:hint="@string/qingshuruxingming"
@@ -177,6 +179,7 @@
                 android:layout_weight="7"
                 >
                 <EditText
+                    android:id="@+id/et_main_mine_jfsc_jftx_jine"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/qingshurutixianjiner"
@@ -221,6 +224,7 @@
                 android:layout_weight="1"
                 >
                 <TextView
+                    android:id="@+id/tv_main_mine_jfsc_jftx_jf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="305"
@@ -251,19 +255,20 @@
                     android:layout_alignParentRight="true"
                     />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="@dimen/zero"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                >
+                android:layout_weight="1">
+
                 <TextView
+                    android:id="@+id/tv_main_mine_jfsc_jftx_ktx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
                     android:text="3.05"
                     android:textColor="@color/color_main_mine_jifenshangcheng_jifentixian_content_gray_word_textcolor"
-                    android:textSize="@dimen/main_mine_jifenshangcheng_jifentixian_content_word_size"
-                    android:layout_centerInParent="true"
-                    />
+                    android:textSize="@dimen/main_mine_jifenshangcheng_jifentixian_content_word_size" />
             </RelativeLayout>
 
         </LinearLayout>
@@ -274,6 +279,7 @@
         android:layout_height="@dimen/main_mine_jifenshangcheng_jifentixian_submit_item_height">
 
         <Button
+            android:id="@+id/bt_main_mine_jfsc_jftx_submit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/main_mine_jifenshangcheng_jifentixian_submit_height"
             android:background="@drawable/main_mine_jifenshangcheng_jifentixian_submit_orange_radius_shape"

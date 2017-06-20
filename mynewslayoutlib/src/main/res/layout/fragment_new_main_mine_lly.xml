@@ -403,7 +403,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/split_width_or_height"
                     android:layout_marginLeft="@dimen/main_mine_content_splite_margin_left"
-                    android:background="@color/color_main_mine_content_splite_line" />
+                    android:background="@color/color_main_mine_content_splite_line"
+
+                    />
 
                 <LinearLayout
                     android:id="@+id/lly_new_main_mine_mengyou"
@@ -461,7 +463,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/split_width_or_height"
                     android:layout_marginLeft="@dimen/main_mine_content_splite_margin_left"
-                    android:background="@color/color_main_mine_content_splite_line" />
+                    android:background="@color/color_main_mine_content_splite_line"
+                    android:visibility="gone"
+                    />
 
                 <LinearLayout
                     android:id="@+id/lly_new_main_mine_jifenshangcheng"

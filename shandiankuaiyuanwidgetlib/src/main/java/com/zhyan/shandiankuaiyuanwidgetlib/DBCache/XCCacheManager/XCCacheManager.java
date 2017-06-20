@@ -152,4 +152,10 @@ public class XCCacheManager {
             this.id = id;
         }
     }
+
+
+    public double getDiskSize(){
+
+        return ((mDiskCache.getSize()/1024)/1024);
+    }
 }

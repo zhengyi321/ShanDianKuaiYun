@@ -1,6 +1,7 @@
 package com.shandian.lu.Main.IndexFragment.BanJia;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -23,6 +24,7 @@ import com.shandian.lu.NetWork.AboutHomeMovNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyunlib.Bean.HomeMovingBean;
 import com.zhyan.shandiankuaiyunlib.Bean.StreetListBean;
+import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.ProgressStyle;
 import com.zhyan.shandiankuaiyunlib.Widget.RecyclerView.XRecycleView.XRecyclerView;
 
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ public class BanJiaController extends BaseController implements TextWatcher{
     @BindView(R.id.xrv_main_index_banjia)
     XRecyclerView xrvMainIndexBanJia;
 
-
+    String type = "";
 
 
 
@@ -62,24 +64,28 @@ public class BanJiaController extends BaseController implements TextWatcher{
     @OnClick(R.id.cb_main_index_banjia_bottom_all)
     public void cbMainIndexBanJiaBottomAllOnclick(){
         isAllOrNear("all");
+        type = "all";
     }
     @BindView(R.id.rly_main_index_banjia_bottom_all)
     RelativeLayout rlyMainIndexBanJiaBottomAll;
     @OnClick(R.id.rly_main_index_banjia_bottom_all)
     public void rlyMainIndexBanJiaBottomAllOnclick(){
         isAllOrNear("all");
+        type = "all";
     }
     @BindView(R.id.cb_main_index_banjia_bottom_near)
     CheckBox cbMainIndexBanJiaBottomNear;
     @OnClick(R.id.cb_main_index_banjia_bottom_near)
     public void cbMainIndexBanJiaBottomNearOnclick(){
         isAllOrNear("near");
+        type = "near";
     }
     @BindView(R.id.rly_main_index_banjia_bottom_near)
     RelativeLayout rlyMainIndexBanJiaBottomNear;
     @OnClick(R.id.rly_main_index_banjia_bottom_near)
     public void rlyMainIndexBanJiaBottomNearOnclick(){
         isAllOrNear("near");
+        type = "near";
     }
 
 
@@ -91,7 +97,8 @@ public class BanJiaController extends BaseController implements TextWatcher{
 
 
 
-
+    private int refreshTime = 0;
+    private int times = 0;
 
     PopupWindow popwindow;
     View view,view1;
@@ -124,7 +131,7 @@ public class BanJiaController extends BaseController implements TextWatcher{
     public void rlyMainIndexBanJiaLeiXingOnclick(){
         popupType("leixing");
     }
-
+    List<HomeMovingBean.ContentBean.CarInfoBean> carInfoBeanList;
     RecyclerView leiXingRV;
     RecyclerView cityRV;
     RecyclerView areaRV;
@@ -152,56 +159,111 @@ public class BanJiaController extends BaseController implements TextWatcher{
     private void initCity(){
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
-        String name = xcCacheManager.readCache(xcCacheSaveName.currentCity);
-        if(name == null){
-            name = "";
+        String city_name = xcCacheManager.readCache(xcCacheSaveName.currentCity);
+        if(city_name == null){
+            city_name = "";
         }else{
-            name = name.replaceAll(" ","").trim();
+            city_name = city_name.replaceAll(" ","").trim();
         }
-        tvMainIndexBanJiaCity.setText(name);
+        int indexOfCity = city_name.indexOf("市");
+        if(indexOfCity > 0){
+            city_name = city_name.substring(0,indexOfCity);
+           /* Toast.makeText(activity,city_name,Toast.LENGTH_LONG).show();*/
+        }
+        tvMainIndexBanJiaCity.setText(city_name);
     }
     private void initXRV(){
-        List<HomeMovingBean.ContentBean.CarInfoBean> carInfoBeanList = new ArrayList<>();
+        type = "all";
+        carInfoBeanList = new ArrayList<>();
         banJiaXRVAdapter = new BanJiaXRVAdapter(activity,carInfoBeanList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         xrvMainIndexBanJia.setAdapter(banJiaXRVAdapter);
         xrvMainIndexBanJia.setLayoutManager(linearLayoutManager);
-        getDataFromNet(false);
+        xrvMainIndexBanJia.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        xrvMainIndexBanJia.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
+        xrvMainIndexBanJia.setArrowImageView(R.drawable.iconfont_downgrey);
+
         xrvMainIndexBanJia.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
-                if(page > 0){
-                    page--;
-                    getDataFromNet(true);
-                }else{
-                    getDataFromNet(true);
-                }
+
+
+
+                refreshTime ++;
+                times = 0;
+                new Handler().postDelayed(new Runnable(){
+                    public void run() {
+
+                        page=0;
+                        switch (type){
+                            case "all":
+                                getDataFromNet();
+                                break;
+                            case "near":
+                                getNearBy();
+                                break;
+                        }
+
+
+                        xrvMainIndexBanJia.refreshComplete();
+                    }
+
+                }, 1000);            //refresh data here
 
             }
 
             @Override
             public void onLoadMore() {
-                page++;
-                getDataFromNet(true);
+                if(times < 2){
+                    new Handler().postDelayed(new Runnable(){
+                        public void run() {
+                            page++;
+
+                            switch (type){
+                                case "all":
+                                    getDataFromNet();
+                                    break;
+                                case "near":
+                                    getNearBy();
+                                    break;
+                            }
+                            xrvMainIndexBanJia.loadMoreComplete();
+
+                        }
+                    }, 1000);
+                } else {
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            page++;
+
+                            switch (type){
+                                case "all":
+                                    getDataFromNet();
+                                    break;
+                                case "near":
+                                    getNearBy();
+                                    break;
+                            }
+                            xrvMainIndexBanJia.setNoMore(true);
+
+                        }
+                    }, 1000);
+                }
+                times ++;
+
 
             }
         });
+        xrvMainIndexBanJia.refresh();
     }
 
-    public void getDataFromNet(boolean isXRVLoding){
-        if(!isXRVLoding) {
-            /*if(banJiaCityRVAdapter.getItemCount() > 20) {*/
-            if(banJiaXRVAdapter != null) {
-                banJiaXRVAdapter.clean();
-            }
-            /*};*/
-        }
+    public void getDataFromNet(){
+
         AboutHomeMovNetWork aboutHomeMovNetWork = new AboutHomeMovNetWork();
         aboutHomeMovNetWork.getHomeMovingDataFromNet(getParamMap(), new Observer<HomeMovingBean>() {
             @Override
             public void onCompleted() {
-                xrvMainIndexBanJia.refreshComplete();
-                xrvMainIndexBanJia.loadMoreComplete();
+
             }
 
             @Override
@@ -212,11 +274,11 @@ public class BanJiaController extends BaseController implements TextWatcher{
             @Override
             public void onNext(HomeMovingBean homeMovingBean) {
                 /*Toast.makeText(activity,"homeMovingBean"+homeMovingBean.getStatus(),Toast.LENGTH_LONG).show();*/
-                if((homeMovingBean.getStatus() == 0)&&(homeMovingBean.getContent().getCar_info().get(0) != null))  {
-
+                if((homeMovingBean.getStatus() == 0)&&(homeMovingBean.getContent().getCar_info().get(0) != null)) {
+                    if(page == 0){
+                        carInfoBeanList.clear();
+                    }
                     banJiaXRVAdapter.setAdapter(homeMovingBean.getContent().getCar_info());
-                }else{
-                    Toast.makeText(activity,"已经到底部了",Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -232,6 +294,11 @@ public class BanJiaController extends BaseController implements TextWatcher{
         }else{
             name = name.replaceAll(" ","").trim();
         }
+        int indexOfCity = name.indexOf("市");
+        if(indexOfCity > 0){
+            name = name.substring(0,indexOfCity);
+           /* Toast.makeText(activity,city_name,Toast.LENGTH_LONG).show();*/
+        }
         paramMap.put("name",name);
         String type_name = tvMainIndexBanJiaLeiXing.getText().toString().trim();
         if((type_name == null)||(type_name.equals("类型"))){
@@ -246,6 +313,7 @@ public class BanJiaController extends BaseController implements TextWatcher{
         }else{
             city_name = city_name.replaceAll(" ","").trim();
         }
+
         paramMap.put("city_name",city_name);
         String type = "1";
         paramMap.put("type",type);
@@ -288,11 +356,11 @@ public class BanJiaController extends BaseController implements TextWatcher{
 
     private void initCityViews(){
         List<StreetListBean.ContentBean.CityBean> cityBeen = new ArrayList<>();
-        List<StreetListBean.ContentBean.CityBean.TreaBean> treaBeen = new ArrayList<>();
+        List<StreetListBean.ContentBean.CityBean.TreaBean> treaBeen = new ArrayList<>();/*
         cityBeen.add(new StreetListBean.ContentBean.CityBean());
         cityBeen.add(new StreetListBean.ContentBean.CityBean());
         cityBeen.add(new StreetListBean.ContentBean.CityBean());
-        cityBeen.add(new StreetListBean.ContentBean.CityBean());
+        cityBeen.add(new StreetListBean.ContentBean.CityBean());*/
         WindowUtils windowUtils = new WindowUtils(activity);
         view1= LayoutInflater.from(activity).inflate(R.layout.popupwindow_main_index_banjia_city_downdrop_lly, null);
         cityRV = (RecyclerView) view1.findViewById(R.id.rv_pop_main_index_banjia_city) ;
@@ -324,6 +392,11 @@ public class BanJiaController extends BaseController implements TextWatcher{
         String city = xcCacheManager.readCache(xcCacheSaveName.currentCity);
         if(city == null){
             return;
+        }
+        int indexOfCity = city.indexOf("市");
+        if(indexOfCity > 0){
+            city = city.substring(0,indexOfCity);
+           /* Toast.makeText(activity,city_name,Toast.LENGTH_LONG).show();*/
         }
         AboutHomeMovNetWork aboutHomeMovNetWork = new AboutHomeMovNetWork();
         aboutHomeMovNetWork.getStreetListFromNet("2", city, new Observer<StreetListBean>() {
@@ -437,6 +510,7 @@ public class BanJiaController extends BaseController implements TextWatcher{
 
 
     private void isAllOrNear(String type){
+        page = 0;
         switch (type){
             case "all":
                 if(!cbMainIndexBanJiaBottomAll.isChecked()) {
@@ -445,7 +519,8 @@ public class BanJiaController extends BaseController implements TextWatcher{
                 if(cbMainIndexBanJiaBottomNear.isChecked()) {
                     cbMainIndexBanJiaBottomNear.setChecked(false);
                 }
-                getDataFromNet(false);
+
+                getDataFromNet();
                 break;
             case "near":
                 if(cbMainIndexBanJiaBottomAll.isChecked()) {
@@ -494,10 +569,11 @@ public class BanJiaController extends BaseController implements TextWatcher{
             @Override
             public void onNext(HomeMovingBean homeMovingBean) {
                 if((homeMovingBean.getStatus() == 0)&&(homeMovingBean.getContent().getCar_info() != null)) {
-                    banJiaXRVAdapter.setAdapter(homeMovingBean.getContent().getCar_info());
-                }else{
+                    if(page == 0){
+                        carInfoBeanList.clear();
+                    }
 
-                    Toast.makeText(activity,"已经到底部了",Toast.LENGTH_LONG).show();
+                    banJiaXRVAdapter.setAdapter(homeMovingBean.getContent().getCar_info());
                 }
             }
         });
@@ -515,7 +591,7 @@ public class BanJiaController extends BaseController implements TextWatcher{
 
     @Override
     public void afterTextChanged(Editable s) {
-        getDataFromNet(false);
+        getDataFromNet();
     }
 /* Toast.makeText(activity,carSourceNearByBean.getMsg(),Toast.LENGTH_LONG).show();*/
 

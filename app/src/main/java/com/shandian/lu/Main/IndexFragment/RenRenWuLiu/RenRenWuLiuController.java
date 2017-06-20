@@ -202,6 +202,11 @@ public class RenRenWuLiuController extends BaseController{
         }else {
             currentCity = "";
         }
+        int indexOfCity = currentCity.indexOf("市");
+        if(indexOfCity > 0){
+            currentCity = currentCity.substring(0,indexOfCity);
+           /* Toast.makeText(activity,currentCity,Toast.LENGTH_LONG).show();*/
+        }
         paramMap.put("city_name",currentCity);
         paramMap.put("type_name","人人快递");
         paramMap.put("page",page+"");

@@ -1,7 +1,7 @@
-package com.zhyan.shandiankuaiyunlib.Bean;
+package com.example.mynewslayoutlib.Bean;
 
 /**
- * Created by az on 2017/5/22.
+ * Created by Administrator on 2017/6/20.
  */
 
 public class ResetPassBean {
@@ -9,12 +9,12 @@ public class ResetPassBean {
     /**
      * status : 0
      * msg : 修改成功
-     * password : null
+     * password : 25f9e794323b453885f5181f1b624d0b
      */
 
     private int status;
     private String msg;
-    private Object password;
+    private String password;
 
     public int getStatus() {
         return status;
@@ -32,11 +32,11 @@ public class ResetPassBean {
         this.msg = msg;
     }
 
-    public Object getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(Object password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 }

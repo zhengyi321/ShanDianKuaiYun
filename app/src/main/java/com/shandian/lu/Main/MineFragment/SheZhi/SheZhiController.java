@@ -4,12 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.MineFragment.Login.FindPass.FindPassActivity;
 import com.shandian.lu.Main.MineFragment.SheZhi.XiaoXiSheZhi.XiaoXiSheZhiActivity;
 import com.shandian.lu.Main.MineFragment.SheZhi.XiuGaiMiMa.XiuGaiMiMaActivity;
 import com.shandian.lu.R;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.DiskCache;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.DiskLruCache;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +26,8 @@ import butterknife.OnClick;
 public class SheZhiController extends BaseController {
 
 
+    @BindView(R.id.tv_main_mine_shezhi_disksize)
+    TextView tvMainMineSheZhiDiskSize;
     @BindView(R.id.rly_main_mine_shezhi_back)
     RelativeLayout rlyMainMineSheZhiBack;
     @OnClick(R.id.rly_main_mine_shezhi_back)
@@ -59,5 +65,12 @@ public class SheZhiController extends BaseController {
     @Override
     protected void init() {
         ButterKnife.bind(this,activity);
+        initDiskCacheSize();
+    }
+
+    private void initDiskCacheSize(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        String size = xcCacheManager.getDiskSize()+"M";
+        tvMainMineSheZhiDiskSize.setText(size);
     }
 }

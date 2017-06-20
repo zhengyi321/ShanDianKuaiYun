@@ -152,7 +152,7 @@ public class NewMainIndexController extends BaseController{
     public void ibNewMainIndexRRWLOnclick(){
 
         Intent intent = new Intent(view.getContext(), RenRenWuLiuActivity.class);
-      /*  view.getContext().startActivity(intent);*/
+        view.getContext().startActivity(intent);
 
     }
 
@@ -162,7 +162,7 @@ public class NewMainIndexController extends BaseController{
     public void ibNewMainIndexBJOnclick(){
 
         Intent intent = new Intent(view.getContext(), BanJiaActivity.class);
-        /*((Activity)view.getContext()).startActivity(intent);*/
+        ((Activity)view.getContext()).startActivity(intent);
 
     }
 
@@ -278,15 +278,15 @@ public class NewMainIndexController extends BaseController{
         public void onResult(SHARE_MEDIA platform) {
             Log.d("plat","platform"+platform);
             if(platform.name().equals("WEIXIN_FAVORITE")){
-                Toast.makeText(view.getContext(),platform + " 收藏成功啦",Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(),"收藏成功",Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(view.getContext(), platform + " 分享成功啦", Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "分享成功", Toast.LENGTH_SHORT).show();
             }
         }
 
         @Override
         public void onError(SHARE_MEDIA platform, Throwable t) {
-            Toast.makeText(view.getContext(),platform + " 分享失败啦", Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(),  "分享失败", Toast.LENGTH_SHORT).show();
             if(t!=null){
                 Log.d("throw","throw:"+t.getMessage());
             }
@@ -294,7 +294,7 @@ public class NewMainIndexController extends BaseController{
 
         @Override
         public void onCancel(SHARE_MEDIA platform) {
-            Toast.makeText(view.getContext(),platform + " 分享取消了", Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(),"分享取消了", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -305,7 +305,7 @@ public class NewMainIndexController extends BaseController{
     protected void init() {
         ButterKnife.bind(this,view);
 /*        initViews();*/
-        initCircleFromNet();
+
     }
 
 
@@ -357,7 +357,9 @@ public class NewMainIndexController extends BaseController{
     };
 
 
-
+    public void onResume(){
+        initCircleFromNet();
+    }
 
 
 

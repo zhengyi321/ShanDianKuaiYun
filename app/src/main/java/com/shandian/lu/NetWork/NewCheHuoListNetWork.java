@@ -1,6 +1,6 @@
 package com.shandian.lu.NetWork;
 
-import com.example.mynewslayoutlib.Bean.EditBaoJiaResultBean;
+import com.example.mynewslayoutlib.Bean.NewEditBaoJiaResultBean;
 import com.example.mynewslayoutlib.Bean.NewBaoJiaListBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherBean;
 import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
@@ -80,7 +80,7 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         /*车找货报价*/
         @FormUrlEncoded
         @POST("index.php/app/baojia/czbaojia")
-        Observable<EditBaoJiaResultBean> editBaoJiaToNet(@FieldMap Map<String,String> paramMap);
+        Observable<NewEditBaoJiaResultBean> editBaoJiaToNet(@FieldMap Map<String,String> paramMap);
         /*车找货报价*/
 
         /*车源列表*/
@@ -155,7 +155,7 @@ public class NewCheHuoListNetWork extends BaseNetWork {
     public  void getCheListFromNet(String type_name, String lat, String lng, String p,Observer<NewCheYuanListBean> observer){
         setSubscribe(service.getCheListFromNet(type_name,lat,lng,p),observer);
     }
-    public  void editBaoJiaToNet(Map<String,String> paramMap,Observer<EditBaoJiaResultBean> observer){
+    public  void editBaoJiaToNet(Map<String,String> paramMap,Observer<NewEditBaoJiaResultBean> observer){
         setSubscribe(service.editBaoJiaToNet(paramMap),observer);
     }
     public  void getCheYuanDetailFromNet(String cyid,Observer<NewCheYuanDetailBean> observer){

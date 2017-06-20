@@ -35,6 +35,6 @@ public class BanJiaActivity extends BaseActivity{
     protected void onResume(){
         super.onResume();
        /* Toast.makeText(this,"this is onResume",Toast.LENGTH_LONG).show();*/
-        banJiaController.getDataFromNet(false);
+        banJiaController.xrvMainIndexBanJia.refresh();
     }
 }

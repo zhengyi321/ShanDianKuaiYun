@@ -1,9 +1,9 @@
 package com.shandian.lu.NetWork;
 
+import com.example.mynewslayoutlib.Bean.MyInvitationBean;
 import com.example.mynewslayoutlib.Bean.ResetPassBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
 import com.zhyan.shandiankuaiyunlib.Bean.UpdatePassBean;
-import com.zhyan.shandiankuaiyunlib.Bean.UpdateTelBean;
 
 import java.util.Map;
 
@@ -19,7 +19,7 @@ import rx.Observer;
  * Created by az on 2017/4/26.
  */
 
-public class AccountNetWork extends BaseNetWork {
+public class MyInvitationNetWork extends BaseNetWork {
 
     protected  final NetService service = getRetrofit().create(NetService.class);
     private interface NetService{
@@ -29,26 +29,27 @@ public class AccountNetWork extends BaseNetWork {
         final String CACHE_CONTROL_CACHE = "only-if-cached, max-stale=" + CACHE_STALE_SEC;
         //查询网络的Cache-Control设置。不使用缓存
         final String CACHE_CONTROL_NETWORK = "max-age=0";
-        /*用户登录*/
-        //GET请求
-        @GET("client/update_mobile.php")
-        Observable<UpdateTelBean> updateTelToNet(@Query("iphone") String iphone, @Query("new_iphone") String new_iphone);
-       /*用户登录*/
+        /*我的邀请*/
+        //POST请求
+
+        @GET("client/my_invitation.php")
+        Observable<MyInvitationBean> getMyInvitationFromNet(@Query("id") String id);
+       /*我的邀请*/
 
        /*修改密码*/
        @FormUrlEncoded
        @POST("client/password.php")
-        Observable<UpdatePassBean> updatePassToNet(@FieldMap Map<String,String> paramMap);
+        Observable<UpdatePassBean> updatePassToNet(@FieldMap Map<String, String> paramMap);
        /*修改密码*/
         /*找回密码 repeat_password  new_password mobile*/
         @FormUrlEncoded
         @POST("client/reset_password.php")
-        Observable<ResetPassBean> resetPassToNet(@FieldMap Map<String,String> paramMap);
+        Observable<ResetPassBean> resetPassToNet(@FieldMap Map<String, String> paramMap);
         /*找回密码*/
     }
 
-    public  void updateTelToNet(String iphone, String new_iphone, Observer<UpdateTelBean> observer){
-        setSubscribe(service.updateTelToNet(iphone, new_iphone),observer);
+    public  void getMyInvitationFromNet(String id, Observer<MyInvitationBean> observer){
+        setSubscribe(service.getMyInvitationFromNet(id),observer);
     }
     public  void updatePassToNet(Map<String,String> paramMap, Observer<UpdatePassBean> observer){
         setSubscribe(service.updatePassToNet(paramMap),observer);

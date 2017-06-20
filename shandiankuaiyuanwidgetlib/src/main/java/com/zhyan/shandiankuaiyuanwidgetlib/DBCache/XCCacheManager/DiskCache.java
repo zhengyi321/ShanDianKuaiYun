@@ -48,6 +48,13 @@ public class DiskCache implements Cache{
             e.printStackTrace();
         }
     }
+
+    public long getSize(){
+        if(mDiskLruCache == null){
+            return 0;
+        }
+        return  mDiskLruCache.size();
+    }
     @Override
     public String get(String key) {
         String result = null;

@@ -17,6 +17,7 @@
             android:layout_weight="3"
             >
             <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
+                android:id="@+id/riv_main_mine_myinvitation_headimg"
                 android:layout_width="@dimen/main_mine_wodeyaoqing_headimg_iv_width"
                 android:layout_height="@dimen/main_mine_wodeyaoqing_headimg_iv_height"
                 android:background="@mipmap/touxiang"
@@ -127,6 +128,7 @@
                         android:layout_gravity="center_horizontal"
                         />
                     <TextView
+                        android:id="@+id/tv_main_mine_myinvitation_jf"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"

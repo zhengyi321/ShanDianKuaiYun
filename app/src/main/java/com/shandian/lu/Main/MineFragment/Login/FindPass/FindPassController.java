@@ -2,6 +2,7 @@ package com.shandian.lu.Main.MineFragment.Login.FindPass;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -11,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.shandian.lu.Main.MineFragment.Login.FindPass.ResetPass.ResetPassActivity;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.RegisterSendIdentifyDialog;
 import com.zhyan.shandiankuaiyuanwidgetlib.Utils.PhoneFormatCheckUtils;
 import com.shandian.lu.BaseController;
@@ -183,6 +185,7 @@ public class FindPassController extends BaseController{
             {
          /*       regSubmit();*/
              /*   updateTelToNet();*/
+             resetPass();
             }
             //已发送验证码
             else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE)
@@ -236,6 +239,19 @@ public class FindPassController extends BaseController{
         }
         SMSSDK.submitVerificationCode("86", tel, identify);//对验证码进行验证->回调函数
     }
+
+    private void resetPass(){
+        String tel = etMainMineLoginFindPassContentTel.getText().toString();
+        PhoneFormatCheckUtils phoneFormatCheckUtils = new PhoneFormatCheckUtils();
+        if((!phoneFormatCheckUtils.isNumber(tel))||(tel.length() != 11)){
+            Toast.makeText(activity,"请输入正确的手机号",Toast.LENGTH_LONG).show();
+            return;
+        }
+        Intent intent = new Intent(activity, ResetPassActivity.class);
+        intent.putExtra("mobile",tel);
+        activity.startActivity(intent);
+    }
+
     public void onDestroy(){
 
         SMSSDK.unregisterAllEventHandler();

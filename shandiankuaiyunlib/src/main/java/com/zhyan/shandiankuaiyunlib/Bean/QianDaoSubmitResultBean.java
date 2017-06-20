@@ -1,14 +1,14 @@
-package com.example.mynewslayoutlib.Bean;
+package com.zhyan.shandiankuaiyunlib.Bean;
 
 /**
- * Created by Administrator on 2017/6/11.
+ * Created by Administrator on 2017/6/20.
  */
 
-public class EditBaoJiaResultBean {
+public class QianDaoSubmitResultBean {
 
     /**
      * status : 0
-     * msg : 报价成功!
+     * msg : 签到成功 积分+5
      */
 
     private String status;
