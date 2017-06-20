@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:text="认证提示" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_below="@+id/textView1"
+            android:text="只有认证后才可以发布车源哦，快去认证吧"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+             />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:background="#FF6A22"
+        android:layout_marginTop="20dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/textView2"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:layout_below="@+id/textView3"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="#FF6A22"
+            android:background="#ffffff"
+            android:padding="10dp"
+            android:text="取消" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#FF6A22" />
+        <Button
+            android:id="@+id/button2"
+           android:layout_width="0dp"
+            android:layout_weight="1"
+             android:textColor="#FF6A22"
+             android:background="#ffffff"
+             android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:text="立即认证" />
+
+
+    </LinearLayout>
+    
+    </RelativeLayout>
+
+    
+
+</LinearLayout>

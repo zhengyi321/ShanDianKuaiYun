@@ -4,6 +4,7 @@ import com.example.mynewslayoutlib.Bean.JiFenBean;
 import com.example.mynewslayoutlib.Bean.ResetPassBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
 import com.zhyan.shandiankuaiyunlib.Bean.QianDaoInitBean;
+import com.zhyan.shandiankuaiyunlib.Bean.QianDaoSubmitResultBean;
 import com.zhyan.shandiankuaiyunlib.Bean.UpdatePassBean;
 
 import java.util.Map;
@@ -45,7 +46,7 @@ public class JiFenShangChengNetWork extends BaseNetWork {
         /*签到  sign 参数*/
         @FormUrlEncoded
         @POST("index.php/app/index/jifenqiandao")
-        Observable<ResetPassBean> qianDaoToNet(@FieldMap Map<String, String> paramMap,@Query("id")String id);
+        Observable<QianDaoSubmitResultBean> qianDaoToNet(@Query("id")String id, @FieldMap Map<String, String> paramMap);
         /*签到*/
     }
 
@@ -56,8 +57,8 @@ public class JiFenShangChengNetWork extends BaseNetWork {
         setSubscribe(service.qianDaoInitFromNet(id),observer);
     }
 
-    public  void qianDaoToNet(Map<String,String> paramMap,String id, Observer<ResetPassBean> observer){
-        setSubscribe(service.qianDaoToNet(paramMap,id),observer);
+    public  void qianDaoToNet(String id,Map<String,String> paramMap, Observer<QianDaoSubmitResultBean> observer){
+        setSubscribe(service.qianDaoToNet(id,paramMap),observer);
     }
 
 }

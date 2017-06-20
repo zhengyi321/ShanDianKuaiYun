@@ -19,7 +19,7 @@
         android:src="@mipmap/signin" />
 
     <TextView
-        android:id="@+id/tvTotal"
+        android:id="@+id/tv_qiandao_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_below="@+id/iv_image">
+        android:layout_below="@+id/iv_image_qiandao">
 
         <com.zhyan.shandiankuaiyuanwidgetlib.ProportionView
             android:id="@+id/d"
@@ -103,10 +103,10 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/iv_image"
+        android:layout_alignTop="@+id/iv_image_qiandao"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="30dp"
-        android:layout_toRightOf="@+id/iv_image"
+        android:layout_toRightOf="@+id/iv_image_qiandao"
         android:text="累计积分"
         android:textColor="#666666"
         android:textSize="14sp" />

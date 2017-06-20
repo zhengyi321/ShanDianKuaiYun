@@ -322,7 +322,8 @@ public class MainActivity extends FragmentActivity {
 
     long mExitTime = 0;
   //  改写返回键事件监听，使得back键功能类似home键，让Acitivty退至后台时不被系统销毁，代码如下：
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+  //  回退点击一次
+   /* public boolean onKeyDown(int keyCode, KeyEvent event) {
         PackageManager pm = getPackageManager();
         ResolveInfo homeInfo =
                 pm.resolveActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME), 0);
@@ -335,7 +336,7 @@ public class MainActivity extends FragmentActivity {
             return true;
         } else
             return super.onKeyDown(keyCode, event);
-    }
+    }*/
     private void startActivitySafely(Intent intent) {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         try {
@@ -348,20 +349,29 @@ public class MainActivity extends FragmentActivity {
                     Toast.LENGTH_SHORT).show();
         }
     }
-    /*    @Override
+
+        @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+            PackageManager pm = getPackageManager();
+            ResolveInfo homeInfo =
+                    pm.resolveActivity(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME), 0);
         if(keyCode==event.KEYCODE_BACK){
             if((System.currentTimeMillis()-mExitTime)>2000){
 //				Toast.makeText(MainFragmentActivity.this,"在按一次退出程序",Toast.LENGTH_SHORT).show();
                 showToast("在按一次退出程序",0,0);
                 mExitTime=System.currentTimeMillis();
             }else{
-                finish();
+                ActivityInfo ai = homeInfo.activityInfo;
+                Intent startIntent = new Intent(Intent.ACTION_MAIN);
+                startIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+                startIntent.setComponent(new ComponentName(ai.packageName, ai.name));
+                startActivitySafely(startIntent);
+               /* finish();*/
             }
             return true;
         }
         return super.onKeyDown(keyCode, event);
-    }*/
+    }
     public void showToast(String text, int offx, int offy) {
         Toast mToast = null;
         if (mToast == null) {
