@@ -6,13 +6,16 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.shandian.lu.Main.MineFragment.RenZheng.JiaShiZhengRenZheng.JiaShiZhengRenZhengActivity;
 import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.util.DisplayUtils;
 import com.zhyan.shandiankuaiyuanwidgetlib.AlertView.AlertView;
@@ -53,6 +56,8 @@ public class CheLiangRenZhengActivity extends BaseActivity{
     EditText etMainMineRenZhengCheLiangRenZhengShenFenZheng;
 
 
+    @BindView(R.id.pb_main_mine_rz_clrz)
+    ProgressBar pbMainMineRZCLRZ;
 
 
     @BindView(R.id.et_main_mine_renzheng_cheliangrenzheng_cph)
@@ -316,21 +321,28 @@ public class CheLiangRenZhengActivity extends BaseActivity{
 
 
     private void applyAuthToNet(){
+        pbMainMineRZCLRZ.setVisibility(View.VISIBLE);
         RenZhengNetWork renZhengNetWork = new RenZhengNetWork();
         renZhengNetWork.authCarToNet(getParamMap(), new Observer<AuthCarBean>() {
             @Override
             public void onCompleted() {
-
+                pbMainMineRZCLRZ.setVisibility(View.GONE);
             }
 
             @Override
             public void onError(Throwable e) {
-
+                pbMainMineRZCLRZ.setVisibility(View.GONE);
             }
 
             @Override
             public void onNext(AuthCarBean authCarBean) {
-                Toast.makeText(CheLiangRenZhengActivity.this,authCarBean.getMessage().toString(),Toast.LENGTH_LONG).show();
+                if(authCarBean.getStatus() == 0){
+
+                    Toast.makeText(CheLiangRenZhengActivity.this,authCarBean.getMessage().toString(),Toast.LENGTH_LONG).show();
+                    pbMainMineRZCLRZ.setVisibility(View.GONE);
+                    finish();
+                }
+
             }
         });
     }

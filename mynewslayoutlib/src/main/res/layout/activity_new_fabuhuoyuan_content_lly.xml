@@ -19,7 +19,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@color/white"
+
         android:layout_marginBottom="20dp"
         android:orientation="horizontal"
         >
@@ -27,6 +27,7 @@
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
+            android:background="@color/white"
             >
 
         </RelativeLayout>
@@ -34,9 +35,9 @@
             android:id="@+id/rv_main_release_new_fabuhuoyuan_add_pic"
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
-
             android:layout_weight="5"
             android:orientation="horizontal"
+            android:background="@color/white"
             >
 
         </android.support.v7.widget.RecyclerView>
@@ -45,6 +46,7 @@
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
+            android:background="@color/white"
             >
 
         </RelativeLayout>

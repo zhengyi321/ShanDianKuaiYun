@@ -51,21 +51,17 @@
                     android:layout_centerVertical="true"
                     />
             </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/zero"
-                android:layout_weight="8"
-                >
                 <TextView
                     android:id="@+id/tv_main_advice_detail_content_news"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/zero"
+                    android:layout_weight="10"
                     android:text="温州港首条至东南亚集装箱航线盛装首航"
                     android:textColor="@color/color_main_advice_detail_content_black_word_textcolor"
                     android:textSize="@dimen/main_advice_detail_content_word_size"
                     android:textStyle="bold"
                     />
-            </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
@@ -78,8 +74,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:background="@drawable/activity_advice_detail_orange_edge_shape"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_centerInParent="true"
                     >
                     <TextView
@@ -90,8 +86,8 @@
                         android:textSize="@dimen/main_advice_detail_content_word_size"
                         android:gravity="center_vertical"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
                         android:layout_marginLeft="10dp"
 
                         />
@@ -101,8 +97,8 @@
                         android:background="@mipmap/orange_star"
                         android:layout_marginLeft="5dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
                         android:layout_marginRight="10dp"
                         />
 
@@ -127,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:text="上一篇："
                         android:textColor="@color/color_main_advice_detail_content_black_word_textcolor"
-                        android:textSize="@dimen/main_advice_detail_content_title_word_size"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:layout_centerVertical="true"
                         />
@@ -169,7 +165,7 @@
                         android:layout_height="wrap_content"
                         android:text="下一篇："
                         android:textColor="@color/color_main_advice_detail_content_black_word_textcolor"
-                        android:textSize="@dimen/main_advice_detail_content_title_word_size"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:layout_centerVertical="true"
                         />

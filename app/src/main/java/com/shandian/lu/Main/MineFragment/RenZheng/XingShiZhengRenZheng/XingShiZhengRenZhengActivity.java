@@ -6,9 +6,11 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -47,6 +49,8 @@ public class XingShiZhengRenZhengActivity extends BaseActivity {
     final int XINGSHIZHENG_TAKE_CAMERA = 103;
 
     ArrayList<String> mImageList ,mImageList1;
+    @BindView(R.id.pb_main_mine_rz_xszrz)
+    ProgressBar pbMainMineRZXSZRZ;
     @BindView(R.id.et_main_mine_renzheng_xingshizhengrenzheng_name)
     EditText etMainMineRenZhengXingShiZhengRenZhengName;
     @BindView(R.id.et_main_mine_renzheng_xingshizhengrenzheng_idcard)
@@ -322,22 +326,25 @@ public class XingShiZhengRenZhengActivity extends BaseActivity {
     }
 
     private void authXingShiZhengToNet(){
+        pbMainMineRZXSZRZ.setVisibility(View.VISIBLE);
         RenZhengNetWork renZhengNetWork = new RenZhengNetWork();
         renZhengNetWork.authXingShiZhengToNet(getParaMap(), new Observer<AuthXingShiZhengBean>() {
             @Override
             public void onCompleted() {
-
+                pbMainMineRZXSZRZ.setVisibility(View.GONE);
             }
 
             @Override
             public void onError(Throwable e) {
-
+                pbMainMineRZXSZRZ.setVisibility(View.GONE);
             }
 
             @Override
             public void onNext(AuthXingShiZhengBean authXingShiZhengBean) {
                 if(authXingShiZhengBean.getStatus() == 0){
                     Toast.makeText(XingShiZhengRenZhengActivity.this,authXingShiZhengBean.getMessage(),Toast.LENGTH_LONG).show();
+                    pbMainMineRZXSZRZ.setVisibility(View.GONE);
+                    finish();
                 }
             }
         });

@@ -6,9 +6,11 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -47,6 +49,9 @@ public class ShiMingRenZhengActivity extends BaseActivity {
     final int SHENGFENZHENG_FANMIAN_SELECT_PHONE = 106;
     final int SHENGFENZHENG_FANMIAN_TAKE_CAMERA = 107;
     ArrayList<String> mImageList ,mImageList1,mImageList2;
+
+    @BindView(R.id.pb_main_mine_rz_smrz)
+    ProgressBar pbMainMineRZSMRZ;
     @BindView(R.id.et_main_mine_renzheng_shimingrenzheng_name)
     EditText etMainMineRenZhengShiMingRenZhengName;
     @BindView(R.id.et_main_mine_renzheng_shimingrenzheng_idcard)
@@ -419,22 +424,24 @@ public class ShiMingRenZhengActivity extends BaseActivity {
     }
 
     private void authRealNameToNetSubmit(){
+        pbMainMineRZSMRZ.setVisibility(View.VISIBLE);
         RenZhengNetWork renZhengNetWork = new RenZhengNetWork();
         renZhengNetWork.authRealNameToNet(getParaMap(), new Observer<AuthRealNameBean>() {
             @Override
             public void onCompleted() {
-
+                pbMainMineRZSMRZ.setVisibility(View.GONE);
             }
 
             @Override
             public void onError(Throwable e) {
-
+                pbMainMineRZSMRZ.setVisibility(View.GONE);
             }
 
             @Override
             public void onNext(AuthRealNameBean authRealNameBean) {
                 if(authRealNameBean.getStatus() == 0){
                     Toast.makeText(ShiMingRenZhengActivity.this,authRealNameBean.getMsg(),Toast.LENGTH_LONG).show();
+                    pbMainMineRZSMRZ.setVisibility(View.GONE);
                     finish();
                 }
             }

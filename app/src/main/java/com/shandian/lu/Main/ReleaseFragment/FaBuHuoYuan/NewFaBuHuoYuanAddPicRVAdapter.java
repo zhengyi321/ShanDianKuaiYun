@@ -28,6 +28,7 @@ import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Utils.BitmapUtils;
 import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
+import com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -173,8 +174,8 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
         holder.pos = position;
         int count = tempList.size();
         if(count <= 1){
-            holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
-            holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
+            holder.rcivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
+            holder.rcivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
             holder.ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.GONE);
             return;
         }
@@ -188,19 +189,19 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
                             if(indexOf <= 0){
                                 Bitmap bitmap = bitmapList.get(position);
 
-                                holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmap);
+                                holder.rcivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmap);
 
                             }else{
-                                ImageLoader.getInstance().displayImage(tempList.get(position), holder.ivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
+                                ImageLoader.getInstance().displayImage(tempList.get(position), holder.rcivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
                             }
 
                     }else {
-                        ImageLoader.getInstance().displayImage(tempList.get(position), holder.ivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
+                        ImageLoader.getInstance().displayImage(tempList.get(position), holder.rcivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
                     }
                 }else {
                     int bitSize = bitmapList.size();
                     if(position < bitSize){
-                        holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmapList.get(position));
+                        holder.rcivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmapList.get(position));
                     }
                 /*
                     int size = allImageList.size();
@@ -225,7 +226,7 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
                     }*/
                 }
 
-            holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(false);
+            holder.rcivNewMainReleaseFaBuHuoYuanAdd.setClickable(false);
             holder.ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.VISIBLE);
 
            /* File file = new File(tempList.get(position));
@@ -246,16 +247,16 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
                 if(position == bitSize -1) {
                     Bitmap bitmap = bitmapList.get(position);
 
-                    holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmap);
+                    holder.rcivNewMainReleaseFaBuHuoYuanAdd.setImageBitmap(bitmap);
 
                 }else{
-                    ImageLoader.getInstance().displayImage(tempList.get(position), holder.ivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
+                    ImageLoader.getInstance().displayImage(tempList.get(position), holder.rcivNewMainReleaseFaBuHuoYuanAdd, ImageLoaderUtils.options1);
                 }
 
-                holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(false);
+                holder.rcivNewMainReleaseFaBuHuoYuanAdd.setClickable(false);
             }else {
-                holder.ivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
-                holder.ivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
+                holder.rcivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
+                holder.rcivNewMainReleaseFaBuHuoYuanAdd.setClickable(true);
                 holder.ivNewMainReleaseFaBuHuoYuanDelete.setVisibility(View.GONE);
             }
 
@@ -378,10 +379,10 @@ public class NewFaBuHuoYuanAddPicRVAdapter extends RecyclerView.Adapter<NewFaBuH
     public class MyItemViewHolder extends RecyclerView.ViewHolder{
         int pos = 0;
 
-        @BindView(R.id.iv_new_main_release_fabuhuoyuan_add)
-        ImageView ivNewMainReleaseFaBuHuoYuanAdd;
-        @OnClick(R.id.iv_new_main_release_fabuhuoyuan_add)
-        public void ivNewMainReleaseFaBuHuoYuanAddOnclick(){
+        @BindView(R.id.rciv_new_main_release_fabuhuoyuan_add)
+        RoundCornerImageView rcivNewMainReleaseFaBuHuoYuanAdd;
+        @OnClick(R.id.rciv_new_main_release_fabuhuoyuan_add)
+        public void rcivNewMainReleaseFaBuHuoYuanAddOnclick(){
             if(pos == (tempList.size() -1)){
                 fromAlbum();
             }

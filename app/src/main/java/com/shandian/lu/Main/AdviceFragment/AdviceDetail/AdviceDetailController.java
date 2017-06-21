@@ -1,6 +1,10 @@
 package com.shandian.lu.Main.AdviceFragment.AdviceDetail;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -10,6 +14,9 @@ import com.shandian.lu.BaseController;
 import com.shandian.lu.NetWork.AdviceNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyunlib.Bean.AdviceDetailBean;
+import com.zhyan.shandiankuaiyunlib.Widget.TextViewWithHtml.MxgsaTagHandler;
+
+import java.net.URL;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -118,11 +125,32 @@ public class AdviceDetailController extends BaseController {
         }
         tvMainAdviceDetailContentTitle.setText(adviceDetailBean.getContent().getList().getTitle().toString());
         tvMainAdviceDetailContentTime.setText(adviceDetailBean.getContent().getList().getCreate_time());
-        tvMainAdviceDetailContentNews.setText(adviceDetailBean.getContent().getList().getContent());
+        String content = adviceDetailBean.getContent().getList().getContent();
+        CharSequence charSequence = Html.fromHtml(content);
+        tvMainAdviceDetailContentNews.setText(charSequence);
+
         tvMainAdviceDetailContentNext.setText(adviceDetailBean.getContent().getNext_one().getTitle());
         tvMainAdviceDetailContentPrevious.setText(adviceDetailBean.getContent().getLast_one().getTitle());
         /*previousId = adviceDetailBean.getContent().getLast_one().getId();*/
        /* nextId = adviceDetailBean.getContent().getNext_one().getId();*/
 
     }
+
+
+    Html.ImageGetter imgGetter = new Html.ImageGetter() {
+        public Drawable getDrawable(String source) {
+            Drawable drawable = null;
+            Log.d("Image Path", source);
+            URL url;
+            try {
+                url = new URL(source);
+                drawable = Drawable.createFromStream(url.openStream(), "");
+            } catch (Exception e) {
+                return null;
+            }
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable
+                    .getIntrinsicHeight());
+            return drawable;
+        }
+    };
 }

@@ -6,12 +6,15 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.shandian.lu.Main.MineFragment.RenZheng.QiYeRenZheng.QiYeRenZhengActivity;
 import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.util.DisplayUtils;
 import com.zhyan.shandiankuaiyuanwidgetlib.AlertView.AlertView;
@@ -47,6 +50,9 @@ public class JiaShiZhengRenZhengActivity extends BaseActivity {
     final int JIASHIZHENG_TAKE_CAMERA = 103;
 
     ArrayList<String> mImageList ,mImageList1;
+    @BindView(R.id.pb_main_mine_rz_jszrz)
+    ProgressBar pbMainMineRZJSZRZ;
+
     @BindView(R.id.et_main_mine_renzheng_jiashizhengrenzheng_name)
     EditText etMainMineRenZhengJiaShiZHengRenZhengName;
     @BindView(R.id.et_main_mine_renzheng_jiashizhengrenzheng_idcard)
@@ -349,21 +355,28 @@ public class JiaShiZhengRenZhengActivity extends BaseActivity {
     }
 
     private void authJiaShiZhengSubmit(){
+        pbMainMineRZJSZRZ.setVisibility(View.VISIBLE);
         RenZhengNetWork renZhengNetWork = new RenZhengNetWork();
         renZhengNetWork.authJiaShiZhengToNet(getParaMap(), new Observer<AuthJiaShiZhengBean>() {
             @Override
             public void onCompleted() {
-
+                pbMainMineRZJSZRZ.setVisibility(View.GONE);
             }
 
             @Override
             public void onError(Throwable e) {
-
+                pbMainMineRZJSZRZ.setVisibility(View.GONE);
             }
 
             @Override
             public void onNext(AuthJiaShiZhengBean authJiaShiZhengBean) {
-                Toast.makeText(JiaShiZhengRenZhengActivity.this,authJiaShiZhengBean.getMessage(),Toast.LENGTH_LONG).show();
+                if(authJiaShiZhengBean.getStatus() == 0){
+                    Toast.makeText(JiaShiZhengRenZhengActivity.this,authJiaShiZhengBean.getMessage(),Toast.LENGTH_LONG).show();
+                    pbMainMineRZJSZRZ.setVisibility(View.GONE);
+                    finish();
+                }
+
+
             }
         });
     }

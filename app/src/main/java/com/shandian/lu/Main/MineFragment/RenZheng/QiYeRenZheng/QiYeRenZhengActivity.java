@@ -6,12 +6,15 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.shandian.lu.Main.MineFragment.RenZheng.ShiMingRenZheng.ShiMingRenZhengActivity;
 import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.util.DisplayUtils;
 import com.zhyan.shandiankuaiyuanwidgetlib.AlertView.AlertView;
@@ -51,6 +54,9 @@ public class QiYeRenZhengActivity extends BaseActivity {
     final int SHENGFENZHENG_FANMIAN_TAKE_CAMERA = 107;
 
     ArrayList<String> mImageList ,mImageList1,mImageList2,mImageList3;
+
+    @BindView(R.id.pb_main_mine_rz_qyrz)
+    ProgressBar pbMainMineRZQYRZ;
     @BindView(R.id.et_main_mine_renzheng_qiyerenzheng_addr)
     EditText etMainMineRenZhengQiYeRenZhengAddr;
     @BindView(R.id.et_main_mine_renzheng_qiyerenzheng_companyname)
@@ -474,21 +480,28 @@ public class QiYeRenZhengActivity extends BaseActivity {
 
 
     private void authQiYeRenZhengSubmit(){
+        pbMainMineRZQYRZ.setVisibility(View.VISIBLE);
         RenZhengNetWork renZhengNetWork = new RenZhengNetWork();
         renZhengNetWork.authCompanyToNet(getParaMap(), new Observer<AuthCompanyBean>() {
             @Override
             public void onCompleted() {
-
+                pbMainMineRZQYRZ.setVisibility(View.GONE);
             }
 
             @Override
             public void onError(Throwable e) {
-
+                pbMainMineRZQYRZ.setVisibility(View.GONE);
             }
 
             @Override
             public void onNext(AuthCompanyBean authCompanyBean) {
-                Toast.makeText(QiYeRenZhengActivity.this,authCompanyBean.getMsg(),Toast.LENGTH_LONG).show();
+                if(authCompanyBean.getStatus() == 0){
+                    Toast.makeText(QiYeRenZhengActivity.this,authCompanyBean.getMsg(),Toast.LENGTH_LONG).show();
+                    pbMainMineRZQYRZ.setVisibility(View.GONE);
+                    finish();
+                }
+
+
             }
         });
     }

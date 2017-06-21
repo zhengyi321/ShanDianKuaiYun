@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="120.5dp"
-    android:background="@color/white"
-    android:id="@+id/lly_new_huoyuanlist_item"
-    >
+    android:background="#f4f4f4">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:id="@+id/lly_new_huoyuanlist_item"
 
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:orientation="horizontal"
         android:background="#ffffff">
         <RelativeLayout
-            android:layout_width="40dp"
+            android:layout_width="20dp"
             android:layout_height="match_parent">
 
         </RelativeLayout>
@@ -26,8 +33,27 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal"
+                    >
+
+
+
+                <TextView
+                    android:id="@+id/tv_new_huoyuanlist_hz_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="胡小姐"
+                    android:textColor="@color/gray"
+                    android:textSize="11sp"
+
+                    />
+
                 <TextView
                     android:id="@+id/tv_new_huoyuanlist_time"
                     android:layout_width="wrap_content"
@@ -35,15 +61,16 @@
                     android:text="刚刚"
                     android:textColor="@color/gray"
                     android:textSize="11sp"
-                    android:layout_alignParentBottom="true"
+                   android:layout_marginLeft="5dp"
                     />
+                </LinearLayout>
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
                 android:orientation="horizontal"
 
-                android:layout_weight="2.5"
+                android:layout_weight="2"
                 >
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -57,7 +84,7 @@
                         android:layout_height="wrap_content"
                         android:text="乐清市"
                         android:textColor="#1261ce"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         />
                     <TextView
                         android:id="@+id/tv_new_huoyuanlist_barea"
@@ -66,15 +93,16 @@
                         android:text="乐成镇"
                         android:textColor="#626262"
                         android:textSize="11sp"
+                        android:visibility="gone"
                         />
                 </LinearLayout>
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/arrow_standard_right"
+                    android:background="@mipmap/left_right_arrow"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     />
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -88,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:text="北京市"
                         android:textColor="#1261ce"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         />
                     <TextView
                         android:id="@+id/tv_new_huoyuanlist_earea"
@@ -97,6 +125,7 @@
                         android:text="通州区幸福北路"
                         android:textColor="#626262"
                         android:textSize="11sp"
+                        android:visibility="gone"
                         />
                 </LinearLayout>
             </LinearLayout>
@@ -126,6 +155,74 @@
                     android:layout_gravity="center_vertical"
                     />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:orientation="horizontal"
+                android:layout_marginBottom="3dp"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:id="@+id/tv_new_huoyuanlist_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/half_radius_light_green_edge_shape"
+                    android:text="6箱"
+                    android:textSize="11sp"
+                    android:textColor="#76bf0b"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:layout_gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/tv_new_huoyuanlist_product"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/half_radius_light_green_edge_shape"
+                    android:text="电器产品"
+                    android:textSize="11sp"
+                    android:textColor="#76bf0b"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    />
+                <TextView
+                    android:id="@+id/tv_new_huoyuanlist_tiji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/half_radius_light_green_edge_shape"
+                    android:text="0.00m³"
+                    android:textSize="11sp"
+                    android:textColor="#76bf0b"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    />
+                <TextView
+                    android:id="@+id/tv_new_huoyuanlist_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/half_radius_light_green_edge_shape"
+                    android:text="0.0kg"
+                    android:textSize="11sp"
+                    android:textColor="#76bf0b"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    />
+            </LinearLayout>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
@@ -133,12 +230,34 @@
                 android:layout_marginRight="10dp"
 
                 />
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/zero"
                 android:orientation="horizontal"
                 android:layout_weight="1.5"
                 >
+
+                <TextView
+                    android:id="@+id/tv_new_huoyuanlist_route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="查看路线"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_new_huoyuanlist_bj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="点击报价"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    />
+                <!--
                 <TextView
                     android:id="@+id/tv_new_huoyuanlist_huotype"
                     android:layout_width="wrap_content"
@@ -182,8 +301,8 @@
                     android:paddingRight="10dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="16dp"
-                    />
-            </LinearLayout>
+                    />-->
+            </RelativeLayout>
         </LinearLayout>
         <RelativeLayout
             android:layout_width="@dimen/zero"
@@ -199,12 +318,24 @@
                 android:layout_alignParentRight="true"
                 android:orientation="vertical"
                 >
+
+                <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
+                    android:id="@+id/rciv_new_huoyuanlist_touxiang"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:src="@color/green"
+                    android:scaleType="fitXY"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="false"
+                    />
+
                 <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
-                    android:id="@+id/riv_new_huoyuanlist_touxiang"
+
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/gray_round_shape"
-
+                    android:visibility="gone"
                     >
 
 
@@ -218,13 +349,15 @@
                     android:textSize="15sp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="3dp"
+                    android:visibility="gone"
+
                     />
                 <ImageView
                     android:id="@+id/iv_new_huoyuanlist_cal"
                     android:layout_marginTop="3dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@mipmap/blue_tel"
+                    android:background="@mipmap/cal_tel"
                     android:layout_gravity="center_horizontal"
                     />
             </LinearLayout>
@@ -239,6 +372,21 @@
         android:background="@color/lightgray"
 
         />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rly_new_huoyuanlist_ads"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        >
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/red"
+            />
 
-</LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

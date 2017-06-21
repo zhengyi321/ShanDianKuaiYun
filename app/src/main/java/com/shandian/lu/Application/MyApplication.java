@@ -3,11 +3,13 @@ package com.shandian.lu.Application;
 import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
+import android.widget.ImageView;
 
 
 import com.baidu.mapapi.SDKInitializer;
 /*
 import com.hyphenate.easeui.EaseUI;*/
+import com.bumptech.glide.Glide;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -21,8 +23,14 @@ import com.umeng.socialize.common.SocializeConstants;*/
 import com.tencent.bugly.Bugly;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
+import com.yanzhenjie.album.Album;
+import com.yanzhenjie.album.AlbumConfig;
+import com.yanzhenjie.album.impl.AlbumImageLoader;
+import com.yanzhenjie.album.task.LocalImageLoader;
 import com.zhyan.myhuanxin.EaseUI;
 import com.zhyan.shandiankuaiyuanwidgetlib.Utils.AppThirdDataUtils;
+
+import java.io.File;
 
 import cn.jpush.android.api.JPushInterface;
 import cn.smssdk.SMSSDK;
@@ -61,6 +69,12 @@ public class MyApplication extends Application {
         // setImageLoader(configuration);
         ImageLoader.getInstance().init(configuration);
 
+        Album.initialize(
+                new AlbumConfig.Build()
+                        .setImageLoader(new GlideImageLoader()) // 使用默认loader.
+                        .build()
+        );
+
 
         /*腾讯应用更新*/
        /* Bugly.init(getApplicationContext(), "17b9bbc524", false);//现在在main的onresume中初始化*/
@@ -75,7 +89,19 @@ public class MyApplication extends Application {
         ShareSDK.initSDK(this);
         *//*友盟第三方登录*/
     }
-
+    public class GlideImageLoader implements AlbumImageLoader {
+        @Override
+        public void loadImage(ImageView imageView, String imagePath, int width, int height) {
+            int indexOfHttp = imagePath.indexOf(":");
+            if(indexOfHttp > 0){
+                Glide.with(imageView.getContext()).load(imagePath).into(imageView);
+            }else {
+                Glide.with(imageView.getContext())
+                        .load(new File(imagePath))
+                        .into(imageView);
+            }
+        }
+    }
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);

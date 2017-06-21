@@ -22,7 +22,8 @@ public class NewHuoYuanDetailOtherActivity extends BaseActivity {
     private String hyId;
     @Override
     protected void setContentView() {
-       getHyId();
+        setContentView(R.layout.activity_new_other_huoyuanxiangqing_lly);
+        getHyId();
     }
 
     @Override

@@ -185,7 +185,7 @@
                             android:layout_width="@dimen/zero"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@mipmap/new_rrwl"
+                            android:background="@mipmap/new_rrkd"
                             android:layout_marginLeft="@dimen/main_index_content_model_margin_each_other"
                             android:layout_marginRight="@dimen/main_index_content_model_margin_each_other"
                             android:scaleType="fitXY"

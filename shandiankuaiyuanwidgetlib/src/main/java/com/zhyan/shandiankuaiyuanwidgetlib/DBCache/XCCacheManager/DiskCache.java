@@ -11,6 +11,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.zhyan.shandiankuaiyuanwidgetlib.Utils.AntiEmulatorUtils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -44,6 +47,7 @@ public class DiskCache implements Cache{
             }
             Log.v("czm", "cache file=" + cacheDir.getAbsolutePath());
             mDiskLruCache = DiskLruCache.open(cacheDir, getAppVersion(context), 1, 10 * 1024 * 1024);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -185,19 +189,27 @@ public class DiskCache implements Cache{
     //http://www.cnblogs.com/zhaoyanjun/p/4530155.html
     public File getDiskCacheDir(Context context, String uniqueName) {
         String cachePath;
+
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
                 || !Environment.isExternalStorageRemovable()) {
             if(context.getExternalCacheDir() == null) {
+
                 cachePath = "/storage/emulated/0/Android/data/com.app/cache";
+
             }else {
              /*   cachePath = context.getExternalCacheDir().getPath();*///保存在app内，卸载或者更新后数据会删除
+                /*cachePath = Environment.getExternalStorageDirectory().getPath();*/
                 cachePath = Environment.getExternalStorageDirectory().getPath();
             }
         } else {
             if(context.getCacheDir() == null) {
-                cachePath = "/storage/emulated/0/Android/data/com.app/cache";
+
+                    cachePath = "/storage/emulated/0/Android/data/com.app/cache";
+
+              /*  cachePath = "/storage/emulated/0/Android/data/com.app/cache";*/
             }else {
                /* cachePath = context.getCacheDir().getPath();*/
+                /*cachePath = Environment.getExternalStorageDirectory().getPath();*/
                 cachePath = Environment.getExternalStorageDirectory().getPath();
             }
         }
