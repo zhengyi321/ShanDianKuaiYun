@@ -242,6 +242,9 @@ public class NewMainIndexFragment extends BaseFragment {
                 paramMap.put("login_id",loginId);
                 paramMap.put("lat",location.getLatitude()+"");
                 paramMap.put("lng",location.getLongitude()+"");
+                paramMap.put("cfsheng",location.getProvince()+"");
+                paramMap.put("cfshi",location.getCity()+"");
+                paramMap.put("cfqu",location.getDistrict()+"");
                 mainIndexNetWork.upSelfLocToNet(paramMap, new Observer<NewUpSelfLocToNetBean>() {
                     @Override
                     public void onCompleted() {
