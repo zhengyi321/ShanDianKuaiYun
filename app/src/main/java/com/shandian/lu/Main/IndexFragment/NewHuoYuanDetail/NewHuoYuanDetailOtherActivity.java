@@ -16,7 +16,7 @@ import rx.Observer;
 
 public class NewHuoYuanDetailOtherActivity extends BaseActivity {
 
-    private NewHuoYuanDetailOtherBaoJiaController newHuoYuanDetaiOtherController;
+    private NewHuoYuanDetailOtherBaoJiaV2Controller newHuoYuanDetaiOtherController;
     private NewHuoYuanDetailOtherBaoJiaSuccessController newHuoYuanDetaiOtherBaoJiaSuccessController;
     private NewHuoYuanDetailOtherBaoJiaWaitController newHuoYuanDetaiOtherBaoJiaWaitController;
     private String hyId;
@@ -80,9 +80,9 @@ public class NewHuoYuanDetailOtherActivity extends BaseActivity {
     }
 
     private void initOtherBaoJiaController(){
-        setContentView(R.layout.activity_new_other_huoyuanxiangqing_lly);
+        setContentView(R.layout.activity_new_other_huoyuanxiangqing_v2_lly);
         ButterKnife.bind(this);
-        newHuoYuanDetaiOtherController = new NewHuoYuanDetailOtherBaoJiaController(this);
+        newHuoYuanDetaiOtherController = new NewHuoYuanDetailOtherBaoJiaV2Controller(this);
     }
     private void initOtherBaoJiaWaitController(){
         setContentView(R.layout.activity_new_other_huoyuanxiangqing_wait_lly);

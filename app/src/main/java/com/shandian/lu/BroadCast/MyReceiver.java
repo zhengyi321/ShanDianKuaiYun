@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 
+import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailOtherActivity;
 import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherActivity;
 import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfActivity;
 import com.shandian.lu.R;
@@ -41,7 +42,7 @@ public class MyReceiver extends BroadcastReceiver {
     private Context context1;
     private NewNoticeDialog newNoticeDialog;
     private boolean isFirst = true;
-    private String lx = "",hyId = "",bjId = "";
+    private String lx = "",hyId = "",bjId = "",cyid="";
     Bundle bundle1;
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -161,6 +162,7 @@ public class MyReceiver extends BroadcastReceiver {
                     /*String sound = extraJson.getString("sound");*///自定义字段解析
                 lx = extraJson.getString("lx");//自定义字段解析
                 hyId = extraJson.getString("hyid");//自定义字段解析
+                cyid = extraJson.getString("cyid");//自定义字段解析
                 System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
                 System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
                 System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
@@ -321,6 +323,11 @@ public class MyReceiver extends BroadcastReceiver {
                 i.putExtra("status","5");
                 //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                context1.startActivity(i);
+                break;
+            case "7":
+                i = new Intent(context1, NewCheYuanDetailOtherActivity.class);
+                i.putExtra("cyid",cyid);
                 context1.startActivity(i);
                 break;
             case "8":

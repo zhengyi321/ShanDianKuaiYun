@@ -111,7 +111,7 @@ public class NewMainIndexFragment extends BaseFragment {
 
         option.setIsNeedAddress(true);
         //可选，设置是否需要地址信息，默认不需要
-        option.setOpenGps(false);
+
         //可选，默认false,设置是否使用gps
         SystemUtils systemUtils = new SystemUtils((Activity) view1.getContext());
         int workType = systemUtils.getNetWorkType(view1.getContext());
@@ -123,15 +123,19 @@ public class NewMainIndexFragment extends BaseFragment {
                 break;
             case 1:
                 option.setPriority(LocationClientOption.GpsFirst); //设置gps优先
+                option.setOpenGps(true);
                 break;
             case 2:
                 option.setPriority(LocationClientOption.GpsFirst); //设置gps优先
+                option.setOpenGps(true);
                 break;
             case 3:
                 option.setPriority(LocationClientOption.GpsFirst); //设置gps优先
+                option.setOpenGps(true);
                 break;
             case 4:
                 option.setPriority(LocationClientOption.NetWorkFirst); // 设置网络优先
+                option.setOpenGps(false);
                 break;
 
         }

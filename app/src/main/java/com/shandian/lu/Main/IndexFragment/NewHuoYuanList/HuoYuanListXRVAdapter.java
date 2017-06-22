@@ -310,11 +310,12 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
                 activity.startActivity(intent);
                 return;
             }
+            String ddzt = huoYuanList.get(pos).getDingdanzt();
+            if(ddzt == null){
+                ddzt = "";
+            }
             if(loginId.equals(huoYuanList.get(pos).getLogin_id())){
-                String ddzt = huoYuanList.get(pos).getDingdanzt();
-                if(ddzt == null){
-                    ddzt = "";
-                }
+
                 Intent intent = new Intent(activity, NewHuoYuanDetailSelfActivity.class);
                 intent.putExtra("hyid",huoYuanList.get(pos).getId());
                 intent.putExtra("status",ddzt);
@@ -323,6 +324,7 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
             }else{
                 Intent intent = new Intent(activity, NewHuoYuanDetailOtherActivity.class);
                 intent.putExtra("hyid",huoYuanList.get(pos).getId());
+                intent.putExtra("status",ddzt);
                 activity.startActivity(intent);
                 return;
             }

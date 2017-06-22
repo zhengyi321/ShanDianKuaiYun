@@ -7,6 +7,8 @@ import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
 import com.example.mynewslayoutlib.Bean.NewDingJinPayBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
+import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherV2Bean;
+import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailSelfBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
 import com.example.mynewslayoutlib.Bean.NewHuoZhuTongYiBean;
 import com.example.mynewslayoutlib.Bean.NewLaHuoBean;
@@ -60,6 +62,19 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         @GET("index.php/app/chyuan/huoyuanxq")
         Observable<NewHuoYuanDetailOtherBean> getHuoYuanDetail2FromNet(@Query("hyid") String hyid, @Query("czid") String czid);
         /*货源详情2*/
+
+        /*货源详情查看自己*/
+        @GET("index.php/app/chyuan/huoyuanxq")
+        Observable<NewHuoYuanDetailSelfBean> getHuoYuanDetailSelfFromNet(@Query("hyid") String hyid, @Query("login_id") String login_id);
+        /*货源详情查看自己*/
+        /*货源详情查看别人*/
+        @GET("index.php/app/chyuan/huoyuanxq")
+        Observable<NewHuoYuanDetailOtherV2Bean> getHuoYuanDetailOtherV2FromNet(@Query("hyid") String hyid, @Query("login_id") String login_id);
+        /*货源详情查看别人*/
+
+
+
+
 
         /*我的货源*/
         @FormUrlEncoded
@@ -173,6 +188,12 @@ public class NewCheHuoListNetWork extends BaseNetWork {
     }
     public  void getHuoYuanDetail2FromNet(String hyid,String czid,Observer<NewHuoYuanDetailOtherBean> observer){
         setSubscribe(service.getHuoYuanDetail2FromNet(hyid,czid),observer);
+    }
+    public  void getHuoYuanDetailSelfFromNet(String hyid,String login_id,Observer<NewHuoYuanDetailSelfBean> observer){
+        setSubscribe(service.getHuoYuanDetailSelfFromNet(hyid,login_id),observer);
+    }
+    public  void getHuoYuanDetailOtherV2FromNet(String hyid,String login_id,Observer<NewHuoYuanDetailOtherV2Bean> observer){
+        setSubscribe(service.getHuoYuanDetailOtherV2FromNet(hyid,login_id),observer);
     }
     public  void getWoDeHuoYuanFromNet(Map<String,String> paramMap,Observer<NewWoDeHuoYuanBean> observer){
         setSubscribe(service.getWoDeHuoYuanFromNet(paramMap),observer);
