@@ -578,7 +578,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         String hwlx = newHuoYuanDetailBean.getNr().getHuowulx();
         tvNewOtherHYXQName.setText(hwlx);
         String tiji = newHuoYuanDetailBean.getNr().getTiji();
-        Toast.makeText(activity,"tiji:"+tiji,Toast.LENGTH_LONG).show();
+       /* Toast.makeText(activity,"tiji:"+tiji,Toast.LENGTH_LONG).show();*/
         tvNewOtherHYXQTiJi.setText(tiji);
         tvNewOtherHYXQGoodsNums.setText(newHuoYuanDetailBean.getNr().getXiangshu());
         tvNewOtherHYXQWeight.setText(newHuoYuanDetailBean.getNr().getWeight());
