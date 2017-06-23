@@ -82,7 +82,15 @@ public class NewHuoYuanDetailOtherBaoJiaController extends BaseController {
 
         showDialog();
     }
+    public void showDialog() {
+        if (neweditBaoJiaDialog != null && !neweditBaoJiaDialog.isShowing())
+            neweditBaoJiaDialog.show();
+    }
 
+    public void dissmissDialog() {
+        if (neweditBaoJiaDialog != null && neweditBaoJiaDialog.isShowing())
+            neweditBaoJiaDialog.dismiss();
+    }
 
 
     private String bLat,bLon,eLat,eLon;
@@ -110,15 +118,7 @@ public class NewHuoYuanDetailOtherBaoJiaController extends BaseController {
         activity.startActivity(intent);
 
     }
-    public void showDialog() {
-        if (neweditBaoJiaDialog != null && !neweditBaoJiaDialog.isShowing())
-            neweditBaoJiaDialog.show();
-    }
 
-    public void dissmissDialog() {
-        if (neweditBaoJiaDialog != null && neweditBaoJiaDialog.isShowing())
-            neweditBaoJiaDialog.dismiss();
-    }
 
 
 

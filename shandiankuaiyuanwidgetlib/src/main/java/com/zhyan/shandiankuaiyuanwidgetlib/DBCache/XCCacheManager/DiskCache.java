@@ -41,7 +41,9 @@ public class DiskCache implements Cache{
      */
     public void init(Context context){
         try {
-            File cacheDir = getDiskCacheDir(context, "http_cache");
+            File cacheDir = getDiskCacheDir(context, "shandian_http_cache");
+
+
             if (!cacheDir.exists()) {
                 cacheDir.mkdirs();
             }
@@ -192,27 +194,32 @@ public class DiskCache implements Cache{
 
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
                 || !Environment.isExternalStorageRemovable()) {
-            if(context.getExternalCacheDir() == null) {
 
-                cachePath = "/storage/emulated/0/Android/data/com.app/cache";
+            cachePath = context.getExternalCacheDir().getPath();
+            /*if(context.getExternalCacheDir() == null) {
+
+                cachePath = "/storage/emulated/0/shandian/cache";
 
             }else {
-             /*   cachePath = context.getExternalCacheDir().getPath();*///保存在app内，卸载或者更新后数据会删除
-                /*cachePath = Environment.getExternalStorageDirectory().getPath();*/
-                cachePath = Environment.getExternalStorageDirectory().getPath();
-            }
+               *//* cachePath = context.getExternalCacheDir().getPath();//保存在app内，卸载或者更新后数据会删除*//*
+               *//* cachePath = Environment.getExternalStorageDirectory().getPath();*//*
+                cachePath = "/shandian/cache";
+            }*/
         } else {
             if(context.getCacheDir() == null) {
 
-                    cachePath = "/storage/emulated/0/Android/data/com.app/cache";
-
-              /*  cachePath = "/storage/emulated/0/Android/data/com.app/cache";*/
+                  /*  cachePath = "/storage/emulated/0/Android/data/com.app/cache";
+*/
+                cachePath = "/storage/emulated/0/shandian/cache";
             }else {
-               /* cachePath = context.getCacheDir().getPath();*/
-                /*cachePath = Environment.getExternalStorageDirectory().getPath();*/
-                cachePath = Environment.getExternalStorageDirectory().getPath();
+                cachePath = context.getCacheDir().getPath();
+          /*      cachePath = Environment.getExternalStorageDirectory().getPath();*/
+
             }
         }
+
+      /*  cachePath = "/shandian/"+uniqueName;
+        return  new File(cachePath);*/
         return new File(cachePath + File.separator + uniqueName);
     }
 

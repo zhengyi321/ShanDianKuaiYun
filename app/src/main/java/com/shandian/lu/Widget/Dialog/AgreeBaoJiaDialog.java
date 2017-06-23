@@ -1,5 +1,6 @@
 package com.shandian.lu.Widget.Dialog;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.example.mynewslayoutlib.Bean.NewBaoJiaListBean;
 import com.example.mynewslayoutlib.Bean.NewHuoZhuTongYiBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.shandian.lu.Main.MineFragment.PaySubmit.TwoStepPaySubmitActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
@@ -35,16 +37,16 @@ public class AgreeBaoJiaDialog extends Dialog {
     NewBaoJiaListBean.NrBean.ListBean been;
     String hyId;
     RelativeLayout dialogRly;
-
+    String baojiaId;
     public interface DialogCallBackListener{//通过该接口回调Dialog需要传递的值
         public void callBack(String tel);//具体方法
     }
-    public AgreeBaoJiaDialog(Context context1 , String hyId1,NewBaoJiaListBean.NrBean.ListBean been1) {
+    public AgreeBaoJiaDialog(Context context1 , String hyId1,NewBaoJiaListBean.NrBean.ListBean been1,String baojiaId1) {
         super(context1);
         this.context = context1;
         hyId = hyId1;
         been = been1;
-
+        baojiaId = baojiaId1;
     }
     public AgreeBaoJiaDialog(Context context1, int themeResId) {
         super(context1, themeResId);
@@ -181,7 +183,24 @@ public class AgreeBaoJiaDialog extends Dialog {
                 @Override
                 public void onNext(NewHuoZhuTongYiBean newHuoZhuTongYiBean) {
                     Toast.makeText(context,newHuoZhuTongYiBean.getMsg(),Toast.LENGTH_LONG).show();
+                    if(newHuoZhuTongYiBean.getStatus().equals("0")) {
 
+
+                        Intent intent = new Intent(context, TwoStepPaySubmitActivity.class);
+               /* System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());*/
+
+                        intent.putExtra("hyId", hyId);
+                        intent.putExtra("baojiaId", baojiaId);
+                        intent.putExtra("status", "dingjin");
+
+                        context.startActivity(intent);
+                        ((Activity)context).finish();
+                    }
                 }
             });
         }

@@ -75,40 +75,40 @@
 
 
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical"
-                            android:layout_gravity="center_vertical"
-                            >
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical"
+                                android:layout_gravity="center_vertical"
+                                >
 
-                        <TextView
-                            android:id="@+id/tv_new_other_hyxq_prov_city_b"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="浙江省乐清市"
-                            android:textSize="13sp"
-                            android:textColor="@color/black"
+                                <TextView
+                                    android:id="@+id/tv_new_self_hyxq_city_area_b"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="浙江省乐清市"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"
 
-                            />
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@mipmap/right_black_stand_arrow"
-                            android:layout_marginLeft="3dp"
-                            android:layout_marginRight="3dp"
-                            />
-                        <TextView
-                            android:id="@+id/tv_new_other_hyxq_prov_city_e"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="浙江省乐清市"
-                            android:textSize="13sp"
-                            android:textColor="@color/black"
+                                    />
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@mipmap/right_black_stand_arrow"
+                                    android:layout_marginLeft="3dp"
+                                    android:layout_marginRight="3dp"
+                                    />
+                                <TextView
+                                    android:id="@+id/tv_new_self_hyxq_city_area_e"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="浙江省乐清市"
+                                    android:textSize="13sp"
+                                    android:textColor="@color/black"
 
-                            />
-                        </LinearLayout>
+                                    />
+                            </LinearLayout>
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                                     android:layout_marginTop="5dp"
                                     />
                                 <TextView
-                                    android:id="@+id/tv_new_other_hyxq_fbtime"
+                                    android:id="@+id/tv_new_self_hyxq_fbtime"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
@@ -189,6 +189,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/rly_new_self_hyxq_hwline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
@@ -210,7 +211,7 @@
                     </LinearLayout>
                 </RelativeLayout>
                 <RelativeLayout
-                    android:id="@+id/rly_new_other_hyxq_mapline"
+                    android:id="@+id/rly_new_self_hyxq_mapline"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -343,7 +344,7 @@
                 android:background="@color/transparent"
                 >
                 <RelativeLayout
-                    android:id="@+id/rly_new_other_hyxq_sjbj"
+                    android:id="@+id/rly_new_self_hyxq_sjbj"
                     android:layout_width="@dimen/zero"
                     android:layout_height="60dp"
                     android:layout_weight="1"
@@ -354,7 +355,7 @@
 
                     >
                     <LinearLayout
-                        android:id="@+id/lly_new_other_hyxq_sjbj"
+                        android:id="@+id/lly_new_self_hyxq_sjbj"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -362,6 +363,7 @@
 
                         >
                         <TextView
+                            android:id="@+id/tv_new_self_hyxq_sjbj"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="司机报价"
@@ -370,7 +372,7 @@
 
                             />
                         <TextView
-                            android:id="@+id/tv_new_other_hyxq_sjbj"
+                            android:id="@+id/tv_new_self_hyxq_sjbj_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0元"
@@ -382,7 +384,7 @@
 
                     </LinearLayout>
                     <TextView
-                        android:id="@+id/tv_new_other_hyxq_sjbj_status"
+                        android:id="@+id/tv_new_self_hyxq_sjbj_status"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="暂无报价"
@@ -416,7 +418,7 @@
 
                             />
                         <TextView
-                            android:id="@+id/tv_new_other_hyxq_hzjg"
+                            android:id="@+id/tv_new_self_hyxq_hzjg"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0元"
@@ -446,13 +448,13 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="行业参考价"
+                            android:text="成交价"
                             android:textColor="@color/black"
                             android:textSize="12sp"
 
                             />
                         <TextView
-                            android:id="@+id/tv_new_other_hyxq_hyckj"
+                            android:id="@+id/tv_new_self_hyxq_cjj"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0元"
@@ -494,7 +496,7 @@
 
                             />
                         <TextView
-                            android:id="@+id/tv_new_other_hyxq_car_useing_time"
+                            android:id="@+id/tv_new_self_hyxq_car_useing_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="6月31日"
@@ -534,7 +536,7 @@
                             />
                         <TextView
 
-                            android:id="@+id/tv_new_other_hyxq_name"
+                            android:id="@+id/tv_new_self_hyxq_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="电子产品"
@@ -569,94 +571,94 @@
 
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="单件体积(m³):"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        />
-                    <TextView
-                        android:id="@+id/tv_new_other_hyxq_tiji"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0.1*0.1*0.1"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="单件体积(m³):"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            />
+                        <TextView
+                            android:id="@+id/tv_new_self_hyxq_tiji"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.1*0.1*0.1"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            />
                     </LinearLayout>
 
                 </RelativeLayout>
-               <!-- <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:background="@color/white"
-                >
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="车型:"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:layout_marginLeft="35dp"
-                        android:layout_marginTop="20dp"
-                        />
-                    <TextView
-                        android:id="@+id/tv_new_other_hyxq_cartype"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="6箱"
-                        android:textColor="@color/gray"
-                        android:textSize="17sp"
-                        android:layout_marginLeft="35dp"
-                        android:layout_marginTop="10dp"
-                        />
+                <!-- <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="100dp"
+                 android:layout_marginTop="15dp"
+                 android:orientation="horizontal"
+                 android:background="@color/white"
+                 >
+                 <LinearLayout
+                     android:layout_width="0dp"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:orientation="vertical"
+                     >
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="车型:"
+                         android:textColor="@color/black"
+                         android:textSize="14sp"
+                         android:layout_marginLeft="35dp"
+                         android:layout_marginTop="20dp"
+                         />
+                     <TextView
+                         android:id="@+id/tv_new_self_hyxq_cartype"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="6箱"
+                         android:textColor="@color/gray"
+                         android:textSize="17sp"
+                         android:layout_marginLeft="35dp"
+                         android:layout_marginTop="10dp"
+                         />
 
 
-                </LinearLayout>
-                <ImageView
-                    android:layout_width="@dimen/splite_height_or_width"
-                    android:layout_height="match_parent"
-                    android:background="@color/lightgray"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    />
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="里程:"
-                        android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:layout_marginLeft="35dp"
-                        android:layout_marginTop="20dp"
-                        />
-                    <TextView
-                        android:id="@+id/tv_new_other_hyxq_dis"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="856km"
-                        android:textColor="@color/gray"
-                        android:textSize="17sp"
-                        android:layout_marginLeft="35dp"
-                        android:layout_marginTop="10dp"
-                        />
+                 </LinearLayout>
+                 <ImageView
+                     android:layout_width="@dimen/splite_height_or_width"
+                     android:layout_height="match_parent"
+                     android:background="@color/lightgray"
+                     android:layout_marginTop="5dp"
+                     android:layout_marginBottom="5dp"
+                     />
+                 <LinearLayout
+                     android:layout_width="0dp"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:orientation="vertical"
+                     >
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="里程:"
+                         android:textColor="@color/black"
+                         android:textSize="14sp"
+                         android:layout_marginLeft="35dp"
+                         android:layout_marginTop="20dp"
+                         />
+                     <TextView
+                         android:id="@+id/tv_new_self_hyxq_dis"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:text="856km"
+                         android:textColor="@color/gray"
+                         android:textSize="17sp"
+                         android:layout_marginLeft="35dp"
+                         android:layout_marginTop="10dp"
+                         />
 
 
-                </LinearLayout>-->
+                 </LinearLayout>-->
 
             </LinearLayout>
 
@@ -681,21 +683,21 @@
 
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="装件数:"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        />
-                    <TextView
-                        android:id="@+id/tv_new_other_hyxq_goodsnums"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="6件"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="装件数:"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            />
+                        <TextView
+                            android:id="@+id/tv_new_self_hyxq_goodsnums"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6件"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            />
                     </LinearLayout>
 
                 </RelativeLayout>
@@ -720,22 +722,22 @@
 
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="重量:"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        />
-                    <TextView
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="重量:"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            />
+                        <TextView
 
-                        android:id="@+id/tv_new_other_hyxq_weight"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0.5kg"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        />
+                            android:id="@+id/tv_new_self_hyxq_weight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.5kg"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            />
                     </LinearLayout>
 
                 </RelativeLayout>
@@ -761,21 +763,21 @@
 
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="里程:"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        />
-                    <TextView
-                        android:id="@+id/tv_new_other_hyxq_mile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="856km"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="里程:"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            />
+                        <TextView
+                            android:id="@+id/tv_new_self_hyxq_mile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="856km"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            />
                     </LinearLayout>
 
                 </RelativeLayout>
@@ -809,7 +811,7 @@
                     android:layout_weight="8"
                     >
                     <android.support.v7.widget.RecyclerView
-                        android:id="@+id/rv_new_other_hyxq_img"
+                        android:id="@+id/rv_new_self_hyxq_img"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -846,25 +848,25 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="订单备注"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    />
-                <TextView
-                    android:id="@+id/tv_new_other_hyxq_remark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=""
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="订单备注"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/tv_new_self_hyxq_remark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        />
                 </LinearLayout>
                 <ImageView
                     android:id="@+id/imageView"
@@ -879,15 +881,21 @@
             </RelativeLayout>
 
         </LinearLayout>
+
+
+
         <ImageButton
-            android:id="@+id/ib_new_other_hyxq_ads"
+            android:id="@+id/ib_new_self_hyxq_ads"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:scaleType="fitXY"
             android:background="@color/red"
-            ></ImageButton>
+            >
+
+        </ImageButton>
+
 
 
         <LinearLayout
@@ -908,7 +916,7 @@
                 android:layout_marginLeft="10dp"
                 />
             <TextView
-                android:id="@+id/tv_new_other_hyxq_updatetime"
+                android:id="@+id/tv_new_self_hyxq_updatetime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2017-04-24 14:37:26"

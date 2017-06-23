@@ -65,7 +65,7 @@ public class NewCheHuoListNetWork extends BaseNetWork {
 
         /*货源详情查看自己*/
         @GET("index.php/app/chyuan/huoyuanxq")
-        Observable<NewHuoYuanDetailSelfBean> getHuoYuanDetailSelfFromNet(@Query("hyid") String hyid, @Query("login_id") String login_id);
+        Observable<NewHuoYuanDetailSelfBean> getHuoYuanDetailSelfV2FromNet(@Query("hyid") String hyid, @Query("login_id") String login_id);
         /*货源详情查看自己*/
         /*货源详情查看别人*/
         @GET("index.php/app/chyuan/huoyuanxq")
@@ -97,6 +97,11 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         @POST("index.php/app/baojia/czbaojia")
         Observable<NewEditBaoJiaResultBean> editBaoJiaToNet(@FieldMap Map<String,String> paramMap);
         /*车找货报价*/
+        /*货主报价*/
+        @FormUrlEncoded
+        @POST("index.php/app/baojia/hzbaojia")
+        Observable<NewEditBaoJiaResultBean> editHuoZhuBaoJiaToNet(@FieldMap Map<String,String> paramMap);
+        /*货主报价*/
 
         /*车源列表*/
         @GET("index.php/app/chyuan/cheyuan")
@@ -173,6 +178,9 @@ public class NewCheHuoListNetWork extends BaseNetWork {
     public  void editBaoJiaToNet(Map<String,String> paramMap,Observer<NewEditBaoJiaResultBean> observer){
         setSubscribe(service.editBaoJiaToNet(paramMap),observer);
     }
+    public  void editHuoZhuBaoJiaToNet(Map<String,String> paramMap,Observer<NewEditBaoJiaResultBean> observer){
+        setSubscribe(service.editHuoZhuBaoJiaToNet(paramMap),observer);
+    }
     public  void getCheYuanDetailFromNet(String cyid,Observer<NewCheYuanDetailBean> observer){
         setSubscribe(service.getCheYuanDetailFromNet(cyid),observer);
     }
@@ -189,8 +197,8 @@ public class NewCheHuoListNetWork extends BaseNetWork {
     public  void getHuoYuanDetail2FromNet(String hyid,String czid,Observer<NewHuoYuanDetailOtherBean> observer){
         setSubscribe(service.getHuoYuanDetail2FromNet(hyid,czid),observer);
     }
-    public  void getHuoYuanDetailSelfFromNet(String hyid,String login_id,Observer<NewHuoYuanDetailSelfBean> observer){
-        setSubscribe(service.getHuoYuanDetailSelfFromNet(hyid,login_id),observer);
+    public  void getHuoYuanDetailSelfV2FromNet(String hyid,String login_id,Observer<NewHuoYuanDetailSelfBean> observer){
+        setSubscribe(service.getHuoYuanDetailSelfV2FromNet(hyid,login_id),observer);
     }
     public  void getHuoYuanDetailOtherV2FromNet(String hyid,String login_id,Observer<NewHuoYuanDetailOtherV2Bean> observer){
         setSubscribe(service.getHuoYuanDetailOtherV2FromNet(hyid,login_id),observer);

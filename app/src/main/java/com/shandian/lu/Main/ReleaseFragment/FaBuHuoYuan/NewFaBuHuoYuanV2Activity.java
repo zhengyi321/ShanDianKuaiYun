@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewFaBuHuoYuanBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
+import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailSelfBean;
 import com.shandian.lu.BaseActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.Main.MineFragment.WoDeHuoYuan.NewWoDeHuoYuanActivity;
@@ -56,6 +57,7 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
 
     private String bProvince,eProvince,bCity,eCity,bArea,eArea,beginAddr,endAddr;
     private String blat,blon,elat,elon;
+    private String juli;
     private ArrayList imgTuList;
     @BindView(R.id.pb_new_fabuhuoyuan)
     ProgressBar pbNewFaBuHuoYuan;
@@ -101,12 +103,12 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
             Toast.makeText(this,"请输入货物名称",Toast.LENGTH_LONG).show();
             return false;
         }
-        String bAddr = etNewFaBuHuoYuanBegin.getText().toString();
+        String bAddr = tvNewFaBuHuoYuanBegin.getText().toString();
         if(bAddr.length() == 0){
             Toast.makeText(this,"请选择出发地址",Toast.LENGTH_LONG).show();
             return false;
         }
-        String eAddr = etNewFaBuHuoYuanEnd.getText().toString();
+        String eAddr = tvNewFaBuHuoYuanEnd.getText().toString();
         if(eAddr.length() == 0){
             Toast.makeText(this,"请选择目的地",Toast.LENGTH_LONG).show();
             return false;
@@ -131,10 +133,10 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
     }
 
 
-    @BindView(R.id.rly_new_fabuhuoyuan_begin)
-    RelativeLayout rlyNewFaBuHuoYuanBegin;
-    @OnClick(R.id.rly_new_fabuhuoyuan_begin)
-    public void rlyNewFaBuHuoYuanBeginOnclick(){
+    @BindView(R.id.lly_new_fabuhuoyuan_begin)
+    LinearLayout llyNewFaBuHuoYuanBegin;
+    @OnClick(R.id.lly_new_fabuhuoyuan_begin)
+    public void llyNewFaBuHuoYuanBeginOnclick(){
         Intent intent = new Intent(this, SelectAddAddressActivity.class);
         intent.putExtra("type","begin");
         if(blat == null){
@@ -147,10 +149,10 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
         intent.putExtra("lon",blon);
         startActivityForResult(intent,ACTIVITY_SELECT_ADDRESS_BEGIN);
     }
-    @BindView(R.id.rly_new_fabuhuoyuan_end)
-    RelativeLayout rlyNewFaBuHuoYuanEnd;
-    @OnClick(R.id.rly_new_fabuhuoyuan_end)
-    public void rlyNewFaBuHuoYuanEndOnclick(){
+    @BindView(R.id.lly_new_fabuhuoyuan_end)
+    LinearLayout llyNewFaBuHuoYuanEnd;
+    @OnClick(R.id.lly_new_fabuhuoyuan_end)
+    public void llyNewFaBuHuoYuanEndOnclick(){
         Intent intent = new Intent(this, SelectAddAddressActivity.class);
         intent.putExtra("type","end");
         if(elat == null){
@@ -174,11 +176,20 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
     EditText etNewFaBuHuoYuanTel;
     @BindView(R.id.et_new_fabuhuoyuan_desc)
     EditText etNewFaBuHuoYuanDesc;
+    @BindView(R.id.et_new_fabuhuoyuan_tiji)
+    EditText etNewFaBuHuoYuanTiJi;
+    @BindView(R.id.et_new_fabuhuoyuan_nums)
+    EditText etNewFaBuHuoYuanNums;
+    @BindView(R.id.et_new_fabuhuoyuan_price)
+    EditText etNewFaBuHuoYuanPrice;
+    @BindView(R.id.tv_new_fabuhuoyuan_car_time)
+    TextView tvNewFabuHuoYuanCarTime;
 
-    @BindView(R.id.et_new_fabuhuoyuan_begin)
-    EditText etNewFaBuHuoYuanBegin;
-    @BindView(R.id.et_new_fabuhuoyuan_end)
-    EditText etNewFaBuHuoYuanEnd;
+
+    @BindView(R.id.tv_new_fabuhuoyuan_begin)
+    TextView tvNewFaBuHuoYuanBegin;
+    @BindView(R.id.tv_new_fabuhuoyuan_end)
+    TextView tvNewFaBuHuoYuanEnd;
     @BindView(R.id.tv_new_fabuhuoyuan_topbar_title)
     TextView tvNewFaBuHuoYuanTopBarTitle;
     @Override
@@ -199,7 +210,7 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
     }
     private void getDataFromNet(){
         NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
-        newCheHuoListNetWork.getHuoYuanDetailFromNet(id, new Observer<NewHuoYuanDetailBean>() {
+        newCheHuoListNetWork.getHuoYuanDetailSelfV2FromNet(id, "", new Observer<NewHuoYuanDetailSelfBean>() {
             @Override
             public void onCompleted() {
 
@@ -211,26 +222,48 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
             }
 
             @Override
-            public void onNext(NewHuoYuanDetailBean newHuoYuanDetailBean) {
-                if(newHuoYuanDetailBean.getStatus().equals("0")){
-                    initDetail(newHuoYuanDetailBean);
+            public void onNext(NewHuoYuanDetailSelfBean newHuoYuanDetailSelfBean) {
+                if(newHuoYuanDetailSelfBean.getStatus().equals("0")){
+                    initDetail(newHuoYuanDetailSelfBean);
                 }
             }
         });
     }
-    private void initDetail(NewHuoYuanDetailBean newHuoYuanDetailBean){
+    private void initDetail(NewHuoYuanDetailSelfBean newHuoYuanDetailBean){
         etNewFaBuHuoYuanGoodsName.setText(newHuoYuanDetailBean.getNr().getGood_name());
-        etNewFaBuHuoYuanBegin.setText(newHuoYuanDetailBean.getNr().getCfdizhi());
-        etNewFaBuHuoYuanEnd.setText(newHuoYuanDetailBean.getNr().getDadizhi());
+        tvNewFaBuHuoYuanBegin.setText(newHuoYuanDetailBean.getNr().getCfdizhi());
+        tvNewFaBuHuoYuanEnd.setText(newHuoYuanDetailBean.getNr().getDadizhi());
         String weight = newHuoYuanDetailBean.getNr().getWeight();
         if(weight == null){
             weight = "";
         }
-        int indexOfDun = weight.indexOf("吨");
+        int indexOfDun = weight.indexOf("kg");
         if(indexOfDun > 0){
             weight = weight.substring(0,indexOfDun);
         }
+
         etNewFaBuHuoYuanWeight.setText(weight);
+        String tiji = newHuoYuanDetailBean.getNr().getTiji();
+        if(tiji == null){
+            tiji = "";
+        }
+        int indexOfTiJi = weight.indexOf("m³");
+        if(indexOfTiJi > 0){
+            tiji = tiji.substring(0,indexOfTiJi);
+        }
+
+        etNewFaBuHuoYuanTiJi.setText(tiji);
+        String xiangshu = newHuoYuanDetailBean.getNr().getXiangshu();
+        if(xiangshu == null){
+            xiangshu = "";
+        }
+        int indexOfXiangShu = weight.indexOf("件");
+        if(indexOfXiangShu > 0){
+            xiangshu = xiangshu.substring(0,indexOfXiangShu);
+        }
+
+        etNewFaBuHuoYuanNums.setText(xiangshu);
+        juli = newHuoYuanDetailBean.getNr().getJuli();
         etNewFaBuHuoYuanName.setText(newHuoYuanDetailBean.getNr().getPeople());
         etNewFaBuHuoYuanTel.setText(newHuoYuanDetailBean.getNr().getIphone());
         etNewFaBuHuoYuanDesc.setText(newHuoYuanDetailBean.getNr().getContext());
@@ -344,7 +377,7 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
                 blat = begin.getString("lat");
                 blon = begin.getString("lon");
                 beginAddr = begin.getString("addr");
-                etNewFaBuHuoYuanBegin.setText(beginAddr);
+                tvNewFaBuHuoYuanBegin.setText(beginAddr);
                 break;
             }
             case ACTIVITY_SELECT_ADDRESS_END:{
@@ -357,7 +390,7 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
                 elat = begin.getString("lat");
                 elon = begin.getString("lon");
                 endAddr = begin.getString("addr");
-                etNewFaBuHuoYuanEnd.setText(endAddr);
+                tvNewFaBuHuoYuanEnd.setText(endAddr);
                 break;
             }
 
@@ -488,11 +521,17 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
             return paramMap;
         }
         paramMap.put("type_name",typeName);
+        String goodsPrice = etNewFaBuHuoYuanPrice.getText().toString();
+        if(goodsPrice == null){
+            goodsPrice = "";
+        }
+        paramMap.put("hyjiage",goodsPrice);
         String goodsName = etNewFaBuHuoYuanGoodsName.getText().toString();
         if(goodsName == null){
             goodsName = "";
         }
         paramMap.put("good_name",goodsName);
+        paramMap.put("huowulx",goodsName);
         if(bProvince == null){
             bProvince = "";
         }
@@ -529,6 +568,21 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
             weight = "";
         }
         paramMap.put("weight",weight);
+        String tiji = etNewFaBuHuoYuanTiJi.getText().toString();
+        if(tiji == null){
+            tiji = "";
+        }
+        paramMap.put("tiji",tiji);
+        String nums = etNewFaBuHuoYuanNums.getText().toString();
+        if(nums == null){
+            nums = "";
+        }
+        paramMap.put("xiangshu",nums);
+        String ycsj = tvNewFabuHuoYuanCarTime.getText().toString();
+        if(ycsj == null){
+            ycsj = "";
+        }
+        paramMap.put("ycsj",ycsj);
         String people = etNewFaBuHuoYuanName.getText().toString();
         if(people == null){
             people = "";
@@ -564,6 +618,9 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
             endAddr = "";
         }
         paramMap.put("dadizhi",endAddr);
+
+
+
         System.out.print("\n begin paramMap"+paramMap);
         System.out.print("\n begin paramMap"+paramMap);
         System.out.print("\n begin paramMap"+paramMap);

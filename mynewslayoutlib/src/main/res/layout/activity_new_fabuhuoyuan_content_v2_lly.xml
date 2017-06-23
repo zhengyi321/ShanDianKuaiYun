@@ -214,8 +214,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="4.5"
                         >
-                        <EditText
-                            android:id="@+id/et_new_fabuhuoyuan_begin"
+                        <TextView
+                            android:id="@+id/tv_new_fabuhuoyuan_begin"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:hint="请输入出发地或点击地图选择"
@@ -224,6 +224,7 @@
                             android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
                             android:layout_centerVertical="true"
                             android:background="@null"
+                            android:gravity="center_vertical"
                             />
                     </RelativeLayout>
                     <RelativeLayout
@@ -273,8 +274,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="4.5"
                         >
-                        <EditText
-                            android:id="@+id/et_new_fabuhuoyuan_end"
+                        <TextView
+                            android:id="@+id/tv_new_fabuhuoyuan_end"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:hint="请输入目的地或点击地图选择"
@@ -282,6 +283,7 @@
                             android:textColor="@color/color_main_release_tezhongyunshu_content_black_word_textcolor"
                             android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
                             android:layout_centerVertical="true"
+                            android:gravity="center_vertical"
                             android:background="@null"
                             />
                     </RelativeLayout>
@@ -399,7 +401,7 @@
                             android:id="@+id/et_new_fabuhuoyuan_tiji"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="请输入重量"
+                            android:hint="请输入单位长宽高"
                             android:textColorHint="@color/color_main_release_tezhongyunshu_content_gray_word_textcolor"
                             android:textColor="@color/color_main_release_tezhongyunshu_content_black_word_textcolor"
                             android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
@@ -631,8 +633,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4.5"
                     >
-                    <EditText
-                        android:id="@+id/et_new_fabuhuoyuan_car_time"
+                    <TextView
+                        android:id="@+id/tv_new_fabuhuoyuan_car_time"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:hint="请选择一个时间段"
@@ -641,8 +643,9 @@
                         android:textColor="@color/color_main_release_tezhongyunshu_content_black_word_textcolor"
                         android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
                         android:layout_centerVertical="true"
-                        android:digits="0123456789"
+                        android:gravity="center_vertical"
                         />
+                    <!--android:digits="0123456789"-->
                 </RelativeLayout>
 
                 <RelativeLayout

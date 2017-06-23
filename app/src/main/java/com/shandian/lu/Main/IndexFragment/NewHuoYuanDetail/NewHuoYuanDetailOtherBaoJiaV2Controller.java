@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,18 +15,24 @@ import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherV2Bean;
+import com.example.mynewslayoutlib.Bean.NewLaHuoBean;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.NewEditBaoJiaDialog;
+import com.shandian.lu.Widget.Dialog.NewQueryDialog;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
+import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,6 +54,12 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
     }
 
 
+    @BindView(R.id.ib_new_other_hyxq_ads)
+    ImageButton ibNewOtherHYXQAds;
+    @OnClick(R.id.ib_new_other_hyxq_ads)
+    public void ibNewOtherHYXQAdsOnclick(){
+
+    }
     @BindView(R.id.tv_new_other_hyxq_prov_city_b)
     TextView tvNewOtherHYXQProvCityB;
 
@@ -109,10 +122,9 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
             activity.startActivity(intent);
             return;
         }
+        clickOperation();
 
-        neweditBaoJiaDialog = new NewEditBaoJiaDialog(activity,hyId).Build.build(activity);
 
-        showDialog();
     }
 
 
@@ -180,8 +192,8 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         activity.startActivity(intent);
       /*  }*/
     }
-
-
+    private  String loginId,baoJiaId;
+    private String status;
     CallTelDialog callTelDialog;
     @BindView(R.id.rly_new_other_hyxq_bottom_tel)
     RelativeLayout rlyNewOtherHYXQBottomTel;
@@ -251,14 +263,24 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         getHyId();
         initRV();
         getNewCheYuanDetailFromNet();
-    }
 
+
+
+    }
     private void getHyId(){
         hyId = activity.getIntent().getStringExtra("hyid");
         if(hyId == null){
             hyId = "";
         }
+
+
     }
+/*    private void getHyId(){
+        hyId = activity.getIntent().getStringExtra("hyid");
+        if(hyId == null){
+            hyId = "";
+        }
+    }*/
     private void initRV(){
         imgList = new ArrayList<>();
         imgList.add("");
@@ -275,12 +297,10 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
-        if((loginId == null)||(loginId.isEmpty())){
-            Intent intent = new Intent(activity,LoginActivity.class);
-            activity.startActivity(intent);
-            return;
+        if((loginId == null)){
+            loginId="";
         }
-        Toast.makeText(activity,"hyid:"+hyId,Toast.LENGTH_LONG).show();
+      /*  Toast.makeText(activity,"hyid:"+hyId,Toast.LENGTH_LONG).show();*/
         NewCheHuoListNetWork cheHuoListNetWork = new NewCheHuoListNetWork();
         cheHuoListNetWork.getHuoYuanDetailOtherV2FromNet(hyId, loginId, new Observer<NewHuoYuanDetailOtherV2Bean>() {
             @Override
@@ -301,12 +321,206 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private void initstatus(){
+
+        if(status == null){
+            status = "";
+        }
+
+        switch (status){
+            case "-1":
+             /*   llyNewOtherHYXQSuccessBottomItem.setVisibility(View.VISIBLE);
+                rlyNewOtherHYXQSuccessBottomTGBJSubmit.setBackgroundResource(R.color.gray);*/
+                tvNewOtherHYXQBottomTGBJSubmit.setText("报价失败");
+                tvNewOtherHYXQBottomTGBJSubmit.setClickable(false);
+                break;
+            case "0":
+         /*       llyNewOtherHYXQSuccessBottomItem.setVisibility(View.GONE);*/
+
+                break;
+            case "1":
+       /*         llyNewOtherHYXQSuccessBottomItem.setVisibility(View.VISIBLE);
+                rlyNewOtherHYXQSuccessBottomTGBJSubmit.setBackgroundResource(R.color.gray);*/
+                tvNewOtherHYXQBottomTGBJSubmit.setText("待货主支付定金");
+                tvNewOtherHYXQBottomTGBJSubmit.setClickable(false);
+                break;
+            case "2":
+/*                llyNewOtherHYXQSuccessBottomItem.setVisibility(View.VISIBLE);
+                rlyNewOtherHYXQSuccessBottomTGBJSubmit.setBackgroundResource(R.mipmap.weibaojia_submit_orange_bg);*/
+                tvNewOtherHYXQBottomTGBJSubmit.setText("已装车");
+                tvNewOtherHYXQBottomTGBJSubmit.setClickable(true);
+                break;
+            case "3":
+                /*llyNewOtherHYXQSuccessBottomItem.setVisibility(View.VISIBLE);
+                rlyNewOtherHYXQSuccessBottomTGBJSubmit.setBackgroundResource(R.mipmap.weibaojia_submit_orange_bg);*/
+                tvNewOtherHYXQBottomTGBJSubmit.setText("已送达");
+                tvNewOtherHYXQBottomTGBJSubmit.setClickable(true);
+                break;
+            case "4":
+              /*  llyNewOtherHYXQSuccessBottomItem.setVisibility(View.VISIBLE);
+                rlyNewOtherHYXQSuccessBottomTGBJSubmit.setBackgroundResource(R.color.gray);*/
+                tvNewOtherHYXQBottomTGBJSubmit.setText("待货主支付尾款");
+                tvNewOtherHYXQBottomTGBJSubmit.setClickable(false);
+                break;
+            case "5":
+             /*   llyNewOtherHYXQSuccessBottomItem.setVisibility(View.VISIBLE);
+                rlyNewOtherHYXQSuccessBottomTGBJSubmit.setBackgroundResource(R.color.gray);*/
+                tvNewOtherHYXQBottomTGBJSubmit.setText("交易成功");
+                tvNewOtherHYXQBottomTGBJSubmit.setClickable(false);
+                break;
+
+            default:
+             /*   llyNewOtherHYXQSuccessBottomItem.setVisibility(View.GONE);*/
+                break;
+        }
+    }
+
+
+
+
+
+
+    NewQueryDialog newQueryDialog;
+    private void clickOperation(){
+        switch (status){
+            case "-1":
+
+                break;
+            case "0":
+                neweditBaoJiaDialog = new NewEditBaoJiaDialog(activity,hyId).Build.build(activity);
+
+                showDialog();
+                break;
+            case "1":
+
+                break;
+            case "2":
+                newQueryDialog = new NewQueryDialog(activity,"已装车").Build.setCallBackListener(new NewQueryDialog.DialogCallBackListener() {
+                    @Override
+                    public void callBack(boolean isQuery) {
+                        huoWuJieZouFinishToNet();
+                        dissmissQueryDialog();
+                    }
+                }).build(activity);
+                showQueryDialog();
+
+                break;
+            case "3":
+
+                newQueryDialog = new NewQueryDialog(activity,"已送达").Build.setCallBackListener(new NewQueryDialog.DialogCallBackListener() {
+                    @Override
+                    public void callBack(boolean isQuery) {
+                        huoWuSongDaToNet();
+                        dissmissQueryDialog();
+                    }
+                }).build(activity);
+                showQueryDialog();
+
+                break;
+            case "4":
+
+                break;
+            case "5":
+
+                break;
+        }
+    }
+
+
+
+    public void showQueryDialog() {
+        if (newQueryDialog != null && !newQueryDialog.isShowing())
+            newQueryDialog.show();
+    }
+
+    public void dissmissQueryDialog() {
+        if (newQueryDialog != null && newQueryDialog.isShowing())
+            newQueryDialog.dismiss();
+    }
+
+    private void huoWuJieZouFinishToNet(){
+        Map<String,String> paramMap = new HashMap<>();
+
+
+        paramMap.put("login_id",loginId);
+        paramMap.put("hyid",hyId);
+        paramMap.put("baojiaid",baoJiaId);
+        NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
+        newCheHuoListNetWork.huoWuJieZouFinishToNet(paramMap, new Observer<NewLaHuoBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewLaHuoBean newLaHuoBean) {
+                Toast.makeText(activity,newLaHuoBean.getMsg(),Toast.LENGTH_LONG).show();
+                if(newLaHuoBean.getStatus().equals("0")){
+                    status="3";
+                    tvNewOtherHYXQBottomTGBJSubmit.setText("已送达");
+                }
+            }
+        });
+    }
+    private void huoWuSongDaToNet(){
+        Map<String,String> paramMap = new HashMap<>();
+        paramMap.put("login_id",loginId);
+        paramMap.put("hyid",hyId);
+        paramMap.put("baojiaid",baoJiaId);
+        NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
+        newCheHuoListNetWork.huoWuSongDaToNet(paramMap, new Observer<NewLaHuoBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewLaHuoBean newLaHuoBean) {
+                Toast.makeText(activity,newLaHuoBean.getMsg(),Toast.LENGTH_LONG).show();
+                if(newLaHuoBean.getStatus().equals("0")){
+                    status="4";
+
+                    tvNewOtherHYXQBottomTGBJSubmit.setText("待货主支付尾款");
+                    tvNewOtherHYXQBottomTGBJSubmit.setClickable(false);
+                }
+            }
+        });
+    }
+
     private void initDetail(NewHuoYuanDetailOtherV2Bean newHuoYuanDetailBean){
-        tvNewOtherHYXQProvCityB.setText(newHuoYuanDetailBean.getNr().getCfsheng()+newHuoYuanDetailBean.getNr().getCfshi());
-        tvNewOtherHYXQProvCityE.setText(newHuoYuanDetailBean.getNr().getDasheng()+newHuoYuanDetailBean.getNr().getDashi());
+        tvNewOtherHYXQProvCityB.setText(newHuoYuanDetailBean.getNr().getCfshi()+newHuoYuanDetailBean.getNr().getCfqu());
+        tvNewOtherHYXQProvCityE.setText(newHuoYuanDetailBean.getNr().getDashi()+newHuoYuanDetailBean.getNr().getDaqu());
         tvNewOtherHYXQFBTime.setText(newHuoYuanDetailBean.getNr().getTime());
         String sfbj = newHuoYuanDetailBean.getNr().getSfbj();
-        Toast.makeText(activity,"sfbj:"+sfbj,Toast.LENGTH_LONG).show();
+        status = activity.getIntent().getStringExtra("status");
         if(sfbj.equals("0")){
             llyNewOtherHYXQSJBJ.setVisibility(View.GONE);
             tvNewOtherHYXQSJBJStatus.setVisibility(View.VISIBLE);
@@ -314,7 +528,8 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
 
             tvNewOtherHYXQSJBJStatus.setText(czbj);
             tvNewOtherHYXQBottomTGBJSubmit.setText("提供报价");
-
+            rlyNewOtherHYXQBottomTGBJSubmit.setClickable(true);
+            status = "0";
         }else if(sfbj.equals("1")){
             llyNewOtherHYXQSJBJ.setVisibility(View.VISIBLE);
             tvNewOtherHYXQSJBJStatus.setVisibility(View.GONE);
@@ -322,8 +537,30 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
             if(czbj.isEmpty()){
                 czbj = "0元";
             }
-            tvNewOtherHYXQSJBJ.setText(czbj+"元");
+            tvNewOtherHYXQSJBJ.setText(czbj);
             tvNewOtherHYXQBottomTGBJSubmit.setText("修改报价");
+            tvNewOtherHYXQBottomTGBJSubmit.setClickable(true);
+            status = "0";
+        }else if(sfbj.equals("2")){
+            llyNewOtherHYXQSJBJ.setVisibility(View.VISIBLE);
+            tvNewOtherHYXQSJBJStatus.setVisibility(View.GONE);
+            String czbj = newHuoYuanDetailBean.getNr().getCzbj();
+            if(czbj.isEmpty()){
+                czbj = "0元";
+            }
+            tvNewOtherHYXQSJBJ.setText(czbj);
+            tvNewOtherHYXQBottomTGBJSubmit.setText("报价成功");
+            tvNewOtherHYXQBottomTGBJSubmit.setClickable(false);
+        }else if(sfbj.equals("3")){
+            llyNewOtherHYXQSJBJ.setVisibility(View.VISIBLE);
+            tvNewOtherHYXQSJBJStatus.setVisibility(View.GONE);
+            String czbj = newHuoYuanDetailBean.getNr().getCzbj();
+            if(czbj.isEmpty()){
+                czbj = "0元";
+            }
+            tvNewOtherHYXQSJBJ.setText(czbj);
+            tvNewOtherHYXQBottomTGBJSubmit.setText("报价失败");
+            tvNewOtherHYXQBottomTGBJSubmit.setClickable(false);
         }
         String hyjg = newHuoYuanDetailBean.getNr().getHyjiage();
         if(hyjg.isEmpty()){
@@ -334,10 +571,15 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         if(tjjg.isEmpty()){
             tjjg = "0元";
         }
+
+        ImageLoader.getInstance().displayImage(newHuoYuanDetailBean.getNr().getGg().getImg(),ibNewOtherHYXQAds, ImageLoaderUtils.options1);
         tvNewOtherHYXQHYCKJ.setText(tjjg);
         tvNewOtherHYXQCarUseingTime.setText(newHuoYuanDetailBean.getNr().getYcsj());
-        tvNewOtherHYXQName.setText(newHuoYuanDetailBean.getNr().getHuowulx());
-        tvNewOtherHYXQTiJi.setText(newHuoYuanDetailBean.getNr().getTiji());
+        String hwlx = newHuoYuanDetailBean.getNr().getHuowulx();
+        tvNewOtherHYXQName.setText(hwlx);
+        String tiji = newHuoYuanDetailBean.getNr().getTiji();
+        Toast.makeText(activity,"tiji:"+tiji,Toast.LENGTH_LONG).show();
+        tvNewOtherHYXQTiJi.setText(tiji);
         tvNewOtherHYXQGoodsNums.setText(newHuoYuanDetailBean.getNr().getXiangshu());
         tvNewOtherHYXQWeight.setText(newHuoYuanDetailBean.getNr().getWeight());
         tvNewOtherHYXQMile.setText(newHuoYuanDetailBean.getNr().getJuli());
@@ -352,7 +594,9 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         eLon = newHuoYuanDetailBean.getNr().getDalng();
         adapter.setAdapter(newHuoYuanDetailBean.getNr().getImgtu());
         tel = newHuoYuanDetailBean.getNr().getIphone();
-
+        loginId = newHuoYuanDetailBean.getNr().getLogin_id();
+        baoJiaId = newHuoYuanDetailBean.getNr().getBaojiaid();
+        initstatus();
     }
 
 }

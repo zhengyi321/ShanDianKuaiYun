@@ -65,9 +65,9 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
     public void onBindViewHolder(MyItemHolder holder, int position) {
         holder.pos = position;
         holder.tvNewHuoYuanListTime.setText(huoYuanList.get(position).getTime());
-        holder.tvNewHuoYuanListBCity.setText(huoYuanList.get(position).getCfsheng()+huoYuanList.get(position).getCfshi());
+        holder.tvNewHuoYuanListBCity.setText(huoYuanList.get(position).getCfshi()+huoYuanList.get(position).getCfqu());
       /*  holder.tvNewHuoYuanListBArea.setText(huoYuanList.get(position).getCfqu());*/
-        holder.tvNewHuoYuanListECity.setText(huoYuanList.get(position).getDasheng()+huoYuanList.get(position).getDashi());
+        holder.tvNewHuoYuanListECity.setText(huoYuanList.get(position).getDashi()+huoYuanList.get(position).getDaqu());
         holder.tvNewHuoYuanListHZName.setText(huoYuanList.get(position).getNicheng());
         holder.tvNewHuoYuanListProduct.setText(huoYuanList.get(position).getHuowulx());
         String tiji = huoYuanList.get(position).getTiji();

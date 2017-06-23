@@ -92,9 +92,9 @@ public class NewHuoYuanDetailSelfController extends BaseController {
     ImageButton ibNewSelfHYXQCKBJ;
     @OnClick(R.id.ib_new_self_hyxq_ckbj)
     public void ibNewSelfHYXQCKBJOnclick(){
-        lookBaoJiaDialog = new LookBaoJiaDialog(activity,hyId).Build.build(activity);
+        /*lookBaoJiaDialog = new LookBaoJiaDialog(activity,hyId).Build.build(activity);*/
        /* Toast.makeText(activity,"hyid:"+hyId,Toast.LENGTH_LONG).show();*/
-        showDialog();
+        /*showDialog();*/
     }
     public void showDialog() {
         if (lookBaoJiaDialog != null && !lookBaoJiaDialog.isShowing())
@@ -287,9 +287,9 @@ public class NewHuoYuanDetailSelfController extends BaseController {
                 break;
             case "notice":
                 llyNewSelfHYXQBottomItem.setVisibility(View.GONE);
-                lookBaoJiaDialog = new LookBaoJiaDialog(activity,hyId).Build.build(activity);
+                /*lookBaoJiaDialog = new LookBaoJiaDialog(activity,hyId).Build.build(activity);*/
        /* Toast.makeText(activity,"hyid:"+hyId,Toast.LENGTH_LONG).show();*/
-                showDialog();
+                /*showDialog();*/
                 break;
             default:
                 llyNewSelfHYXQBottomItem.setVisibility(View.GONE);

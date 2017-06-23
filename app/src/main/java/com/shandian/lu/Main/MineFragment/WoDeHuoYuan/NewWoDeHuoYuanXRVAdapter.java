@@ -23,6 +23,7 @@ import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfA
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.Main.MineFragment.PaySubmit.TwoStepPaySubmitActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity;
+import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanV2Activity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.NewQueryDeleteDialog;
@@ -282,7 +283,8 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
         LinearLayout llyNewWoDeHuoYuanXRVItemUpdate;
         @OnClick(R.id.lly_new_wodehuoyuan_xrv_item_update)
         public void llyNewWoDeHuoYuanXRVItemUpdateOnclick(){
-            Intent intent = new Intent(activity, NewFaBuHuoYuanActivity.class);
+            /*Intent intent = new Intent(activity, NewFaBuHuoYuanActivity.class);*/
+            Intent intent = new Intent(activity, NewFaBuHuoYuanV2Activity.class);
             String typeName = dataList.get(pos).getType_name();
             if(typeName == null){
                 typeName = "";

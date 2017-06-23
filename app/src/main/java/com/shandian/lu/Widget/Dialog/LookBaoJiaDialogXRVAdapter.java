@@ -28,17 +28,19 @@ public class LookBaoJiaDialogXRVAdapter extends RecyclerView.Adapter<LookBaoJiaD
     private Context context;
     private String hyId;
     private LayoutInflater inflater;
+   String baojiaId;
     public LookBaoJiaDialogXRVAdapter(Context context1, List<NewBaoJiaListBean.NrBean.ListBean> dataList1){
         context = context1;
         dataList = dataList1;
         inflater = LayoutInflater.from(context1);
     }
 
-    public void setAdapter(List<NewBaoJiaListBean.NrBean.ListBean> dataList1,String hyId1){
+    public void setAdapter(List<NewBaoJiaListBean.NrBean.ListBean> dataList1,String hyId1,String baojiaId1){
         dataList.clear();
         dataList.addAll(dataList1);
         notifyDataSetChanged();
         hyId = hyId1;
+        baojiaId = baojiaId1;
     }
 
     @Override
@@ -82,7 +84,7 @@ public class LookBaoJiaDialogXRVAdapter extends RecyclerView.Adapter<LookBaoJiaD
         @OnClick(R.id.lly_new_hyxq_bj_xrv_item)
         public void llyNewHYXQBJXRVItemOnclick(){
 
-            agreeBaoJiaDialog = new AgreeBaoJiaDialog(context,hyId,dataList.get(pos)).Build.build(context);
+            agreeBaoJiaDialog = new AgreeBaoJiaDialog(context,hyId,dataList.get(pos),baojiaId).Build.build(context);
 
             /* Toast.makeText(activity,"hyid:"+hyId,Toast.LENGTH_LONG).show();*/
             showDialog();

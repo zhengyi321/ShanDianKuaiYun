@@ -1,6 +1,7 @@
 package com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail;
 
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherBean;
+import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherV2Bean;
 import com.shandian.lu.BaseActivity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
@@ -28,6 +29,9 @@ public class NewHuoYuanDetailOtherActivity extends BaseActivity {
 
     @Override
     protected void init() {
+
+        initOtherBaoJiaController();
+        /*
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(this);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
@@ -36,7 +40,7 @@ public class NewHuoYuanDetailOtherActivity extends BaseActivity {
             return;
         }
         NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
-        newCheHuoListNetWork.getHuoYuanDetail2FromNet(hyId, loginId, new Observer<NewHuoYuanDetailOtherBean>() {
+        newCheHuoListNetWork.getHuoYuanDetailOtherV2FromNet(hyId, loginId, new Observer<NewHuoYuanDetailOtherV2Bean>() {
             @Override
             public void onCompleted() {
 
@@ -48,27 +52,29 @@ public class NewHuoYuanDetailOtherActivity extends BaseActivity {
             }
 
             @Override
-            public void onNext(NewHuoYuanDetailOtherBean newHuoYuanDetailOtherBean) {
-                if(newHuoYuanDetailOtherBean.getNr().getSfbj().equals("0")){
+            public void onNext(NewHuoYuanDetailOtherV2Bean newHuoYuanDetailOtherV2Bean) {
+                initOtherBaoJiaController();
+
+                *//*
+                if(newHuoYuanDetailOtherV2Bean.getNr().getSfbj().equals("0")){
                     initOtherBaoJiaController();
 
                 }
-                else if(newHuoYuanDetailOtherBean.getNr().getSfbj().equals("1")){
+                else if(newHuoYuanDetailOtherV2Bean.getNr().getSfbj().equals("1")){
                     initOtherBaoJiaWaitController();
-                    newHuoYuanDetaiOtherBaoJiaWaitController.initDetail(newHuoYuanDetailOtherBean);
+                    newHuoYuanDetaiOtherBaoJiaWaitController.initDetail(newHuoYuanDetailOtherV2Bean);
                 }
-                else if(newHuoYuanDetailOtherBean.getNr().getSfbj().equals("2")){
+                else if(newHuoYuanDetailOtherV2Bean.getNr().getSfbj().equals("2")){
                     initOtherBaoJiaSuccessController();
-                    newHuoYuanDetaiOtherBaoJiaSuccessController.initDetail(newHuoYuanDetailOtherBean);
+                    newHuoYuanDetaiOtherBaoJiaSuccessController.initDetail(newHuoYuanDetailOtherV2Bean);
 
                 }
-                else if(newHuoYuanDetailOtherBean.getNr().getSfbj().equals("3")){
+                else if(newHuoYuanDetailOtherV2Bean.getNr().getSfbj().equals("3")){
                     initOtherBaoJiaFailController();
 
-                }
-
+                }*//*
             }
-        });
+        });*/
        /* initOtherBaoJiaController();*/
     }
     private void getHyId(){

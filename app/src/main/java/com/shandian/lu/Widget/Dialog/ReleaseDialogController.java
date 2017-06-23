@@ -19,6 +19,7 @@ import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity;
+import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanV2Activity;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
@@ -85,7 +86,8 @@ public class ReleaseDialogController extends BaseController {
             view.getContext().startActivity(intent);
         }
         if(rbDialogReleaseHuo.isChecked()){
-            intent = new Intent(view.getContext(), NewFaBuHuoYuanActivity.class);
+            /*intent = new Intent(view.getContext(), NewFaBuHuoYuanActivity.class);*/
+            intent = new Intent(view.getContext(), NewFaBuHuoYuanV2Activity.class);
             intent.putExtra("type_name","1");
             view.getContext().startActivity(intent);
         }
@@ -111,7 +113,8 @@ public class ReleaseDialogController extends BaseController {
             view.getContext().startActivity(intent);
         }
         if(rbDialogReleaseHuo.isChecked()){
-            intent = new Intent(view.getContext(), NewFaBuHuoYuanActivity.class);
+            /*intent = new Intent(view.getContext(), NewFaBuHuoYuanActivity.class);*/
+            intent = new Intent(view.getContext(), NewFaBuHuoYuanV2Activity.class);
             intent.putExtra("type_name","2");
             view.getContext().startActivity(intent);
         }
@@ -137,7 +140,8 @@ public class ReleaseDialogController extends BaseController {
             view.getContext().startActivity(intent);
         }
         if(rbDialogReleaseHuo.isChecked()){
-            intent = new Intent(view.getContext(), NewFaBuHuoYuanActivity.class);
+            /*intent = new Intent(view.getContext(), NewFaBuHuoYuanActivity.class);*/
+            intent = new Intent(view.getContext(), NewFaBuHuoYuanV2Activity.class);
             intent.putExtra("type_name","3");
             view.getContext().startActivity(intent);
         }
@@ -163,7 +167,8 @@ public class ReleaseDialogController extends BaseController {
             view.getContext().startActivity(intent);
         }
         if(rbDialogReleaseHuo.isChecked()){
-            intent = new Intent(view.getContext(), NewFaBuHuoYuanActivity.class);
+            /*intent = new Intent(view.getContext(), NewFaBuHuoYuanActivity.class);*/
+            intent = new Intent(view.getContext(), NewFaBuHuoYuanV2Activity.class);
             intent.putExtra("type_name","4");
             view.getContext().startActivity(intent);
         }

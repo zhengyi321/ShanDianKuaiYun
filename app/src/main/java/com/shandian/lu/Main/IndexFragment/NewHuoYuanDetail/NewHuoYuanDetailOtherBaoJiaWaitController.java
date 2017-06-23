@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherBean;
+import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherV2Bean;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.R;
@@ -144,7 +145,7 @@ public class NewHuoYuanDetailOtherBaoJiaWaitController extends BaseController {
     }
 
 
-    public void initDetail(NewHuoYuanDetailOtherBean newHuoYuanDetailBean){
+    public void initDetail(NewHuoYuanDetailOtherV2Bean newHuoYuanDetailBean){
         tvNewOtherHYXQWaitProvCityAreaB.setText(newHuoYuanDetailBean.getNr().getCfsheng()+"-"+newHuoYuanDetailBean.getNr().getCfshi()+"-"+newHuoYuanDetailBean.getNr().getCfqu());
         tvNewOtherHYXQWaitProvCityAreaE.setText(newHuoYuanDetailBean.getNr().getDasheng()+"-"+newHuoYuanDetailBean.getNr().getDashi()+"-"+newHuoYuanDetailBean.getNr().getDaqu());
         tvNewOtherHYXQWaitAddrB.setText(newHuoYuanDetailBean.getNr().getCfdizhi());

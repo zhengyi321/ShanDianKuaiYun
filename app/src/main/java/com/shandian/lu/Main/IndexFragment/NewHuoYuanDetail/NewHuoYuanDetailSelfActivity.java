@@ -11,11 +11,11 @@ import butterknife.ButterKnife;
 
 public class NewHuoYuanDetailSelfActivity extends BaseActivity {
 
-    private NewHuoYuanDetailSelfController newHuoYuanDetailSelflController;
+    private NewHuoYuanDetailSelfV2Controller newHuoYuanDetailSelfV2Controller;
 
     @Override
     protected void setContentView() {
-        setContentView(R.layout.activity_new_self_huoyuanxiangqing_lly);
+        setContentView(R.layout.activity_new_self_huoyuanxiangqing_v2_lly);
     }
 
     @Override
@@ -25,6 +25,6 @@ public class NewHuoYuanDetailSelfActivity extends BaseActivity {
     }
 
     private void initController(){
-        newHuoYuanDetailSelflController = new NewHuoYuanDetailSelfController(this);
+        newHuoYuanDetailSelfV2Controller = new NewHuoYuanDetailSelfV2Controller(this);
     }
 }

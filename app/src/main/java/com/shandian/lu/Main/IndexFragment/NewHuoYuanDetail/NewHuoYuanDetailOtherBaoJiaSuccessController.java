@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherBean;
+import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherV2Bean;
 import com.example.mynewslayoutlib.Bean.NewLaHuoBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaseController;
@@ -319,7 +320,7 @@ public class NewHuoYuanDetailOtherBaoJiaSuccessController extends BaseController
     }
 
 
-    public void initDetail(NewHuoYuanDetailOtherBean newHuoYuanDetailBean){
+    public void initDetail(NewHuoYuanDetailOtherV2Bean newHuoYuanDetailBean){
         tvNewOtherHYXQSuccessProvCityAreaB.setText(newHuoYuanDetailBean.getNr().getCfsheng()+"-"+newHuoYuanDetailBean.getNr().getCfshi()+"-"+newHuoYuanDetailBean.getNr().getCfqu());
         tvNewOtherHYXQSuccessProvCityAreaE.setText(newHuoYuanDetailBean.getNr().getDasheng()+"-"+newHuoYuanDetailBean.getNr().getDashi()+"-"+newHuoYuanDetailBean.getNr().getDaqu());
         tvNewOtherHYXQSuccessAddrB.setText(newHuoYuanDetailBean.getNr().getCfdizhi());

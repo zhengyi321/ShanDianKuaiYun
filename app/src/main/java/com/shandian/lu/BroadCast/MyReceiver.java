@@ -328,6 +328,7 @@ public class MyReceiver extends BroadcastReceiver {
             case "7":
                 i = new Intent(context1, NewCheYuanDetailOtherActivity.class);
                 i.putExtra("cyid",cyid);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP );
                 context1.startActivity(i);
                 break;
             case "8":

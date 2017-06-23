@@ -25,16 +25,17 @@ public class LookBaoJiaDialog extends Dialog {
 
     List<String> listBeen;
     String hyId;
+    String baojiaId;
     RelativeLayout dialogRly;
 
     public interface DialogCallBackListener{//通过该接口回调Dialog需要传递的值
         public void callBack(String tel);//具体方法
     }
-    public LookBaoJiaDialog(Context context1 ,String hyId1) {
+    public LookBaoJiaDialog(Context context1 ,String hyId1,String baojiaId1) {
         super(context1);
         this.context = context1;
         hyId = hyId1;
-
+        baojiaId = baojiaId1;
     }
     public LookBaoJiaDialog(Context context1, int themeResId) {
         super(context1, themeResId);
@@ -131,7 +132,7 @@ public class LookBaoJiaDialog extends Dialog {
                 @Override
                 public void onNext(NewBaoJiaListBean newBaoJiaListBean) {
                     if(newBaoJiaListBean.getStatus().equals("0")){
-                        baoJiaDialogController.baoJiaDialogXRVAdapter.setAdapter(newBaoJiaListBean.getNr().getList(),hyId);
+                        baoJiaDialogController.baoJiaDialogXRVAdapter.setAdapter(newBaoJiaListBean.getNr().getList(),hyId,baojiaId);
                         textView.setText(newBaoJiaListBean.getNr().getList().size()+"条");
                     }
                 }
