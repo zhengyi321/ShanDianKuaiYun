@@ -183,7 +183,7 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
     @BindView(R.id.et_new_fabuhuoyuan_price)
     EditText etNewFaBuHuoYuanPrice;
     @BindView(R.id.tv_new_fabuhuoyuan_car_time)
-    TextView tvNewFabuHuoYuanCarTime;
+    EditText tvNewFabuHuoYuanCarTime;
 
 
     @BindView(R.id.tv_new_fabuhuoyuan_begin)
