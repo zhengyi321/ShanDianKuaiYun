@@ -188,10 +188,10 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile files('libs/alipaySingle-20170510.jar')
     /*微信支付*/
-/*    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'*/
+    /*    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'*/
     compile files('libs/jdom.jar')
     compile files('libs/httpclient-4.3.6.jar')
-
+    compile project(':likeiosselectpopuplib')
 }
 /*// 依赖插件脚本
 apply from: 'tinker-support.gradle'*/

@@ -20,6 +20,7 @@ import com.shandian.lu.Main.ReleaseFragment.SelectAddAddress.SelectAddAddressAct
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.NetWork.NewFaBuNetWork;
 import com.shandian.lu.R;
+import com.shandian.lu.Widget.Utils.Util;
 import com.yanzhenjie.album.Album;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
@@ -34,6 +35,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Observer;
+import zhyan.likeiosselectpopuplib.TimePickerView;
 
 /**
  * Created by Administrator on 2017/6/7.
@@ -183,7 +185,11 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
     @BindView(R.id.et_new_fabuhuoyuan_price)
     EditText etNewFaBuHuoYuanPrice;
     @BindView(R.id.tv_new_fabuhuoyuan_car_time)
-    EditText tvNewFabuHuoYuanCarTime;
+    TextView tvNewFabuHuoYuanCarTime;
+    @OnClick(R.id.tv_new_fabuhuoyuan_car_time)
+    public void tvNewFabuHuoYuanCarTimeOnclick(){
+        getTime();
+    }
 
 
     @BindView(R.id.tv_new_fabuhuoyuan_begin)
@@ -207,6 +213,21 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity {
         getType();
 
 
+    }
+
+
+    private void getTime(){
+        String format = "";
+        TimePickerView.Type type = null;
+        type = TimePickerView.Type.YEAR_MONTH_DAY;
+        format = "yyyy-MM-dd";
+        Util.alertTimerPicker(this, type, format, new Util.TimerPickerCallBack() {
+            @Override
+            public void onTimeSelect(String date) {
+                /*Toast.makeText(NewFaBuHuoYuanV2Activity.this, date, Toast.LENGTH_SHORT).show();*/
+                tvNewFabuHuoYuanCarTime.setText(date);
+            }
+        });
     }
     private void getDataFromNet(){
         NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
