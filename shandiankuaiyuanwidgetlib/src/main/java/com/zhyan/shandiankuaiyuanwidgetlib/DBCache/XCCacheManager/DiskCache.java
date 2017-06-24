@@ -195,16 +195,16 @@ public class DiskCache implements Cache{
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
                 || !Environment.isExternalStorageRemovable()) {
 
-            cachePath = context.getExternalCacheDir().getPath();
-            /*if(context.getExternalCacheDir() == null) {
+           /* cachePath = context.getExternalCacheDir().getPath();*/
+            if(context.getExternalCacheDir() == null) {
 
                 cachePath = "/storage/emulated/0/shandian/cache";
 
             }else {
-               *//* cachePath = context.getExternalCacheDir().getPath();//保存在app内，卸载或者更新后数据会删除*//*
-               *//* cachePath = Environment.getExternalStorageDirectory().getPath();*//*
-                cachePath = "/shandian/cache";
-            }*/
+                cachePath = context.getExternalCacheDir().getPath();//保存在app内，卸载或者更新后数据会删除
+       /*         cachePath = Environment.getExternalStorageDirectory().getPath();
+                cachePath = "/shandian/cache";*/
+            }
         } else {
             if(context.getCacheDir() == null) {
 

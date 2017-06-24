@@ -127,7 +127,7 @@ public class AdviceDetailController extends BaseController {
         tvMainAdviceDetailContentTime.setText(adviceDetailBean.getContent().getList().getCreate_time());
         String content = adviceDetailBean.getContent().getList().getContent();
         CharSequence charSequence = Html.fromHtml(content);
-        tvMainAdviceDetailContentNews.setText(charSequence);
+        tvMainAdviceDetailContentNews.setText(content);
 
         tvMainAdviceDetailContentNext.setText(adviceDetailBean.getContent().getNext_one().getTitle());
         tvMainAdviceDetailContentPrevious.setText(adviceDetailBean.getContent().getLast_one().getTitle());

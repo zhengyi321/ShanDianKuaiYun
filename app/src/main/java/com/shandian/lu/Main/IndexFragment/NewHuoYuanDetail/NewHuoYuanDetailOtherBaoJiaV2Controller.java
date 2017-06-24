@@ -13,16 +13,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amap.api.location.CoordinateConverter;
+import com.amap.api.location.DPoint;
+import com.example.mynewslayoutlib.Bean.NewAdsBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherV2Bean;
 import com.example.mynewslayoutlib.Bean.NewLaHuoBean;
+import com.example.mynewslayoutlib.Utils.OpenLocalMapUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.shandian.lu.NetWork.AdsNetWork;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.NewEditBaoJiaDialog;
+import com.shandian.lu.Widget.Dialog.NewMapDaoHangDialog;
 import com.shandian.lu.Widget.Dialog.NewQueryDialog;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
@@ -44,7 +50,9 @@ import rx.Observer;
  */
 
 public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
-
+    private String bAddr,eAddr,bCity;
+    private boolean isOpened = false;
+    private  String APP_NAME = "ShanDianKuaiYun";
     private String hyId ,tel;
     @BindView(R.id.rly_new_other_hyxq_back)
     RelativeLayout rlyNewOtherHYXQBack;
@@ -126,7 +134,58 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
 
 
     }
+    NewMapDaoHangDialog newMapDaoHangDialog;
+    @BindView(R.id.rly_new_other_hyxq_dh_map)
+    RelativeLayout rlyNewOtherHYXQDHMap;
+    @OnClick(R.id.rly_new_other_hyxq_dh_map)
+    public void rlyNewOtherHYXQDHMapOnclick(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String curLat = xcCacheManager.readCache(xcCacheSaveName.currentLat);
+        String curLon = xcCacheManager.readCache(xcCacheSaveName.currentlon);
+        String curAddr = xcCacheManager.readCache(xcCacheSaveName.currentLocAddrStr);
 
+        if((curAddr == null)){
+            curAddr= "";
+        }
+
+        if(bAddr == null){
+            bAddr = "";
+        }
+        if(eAddr == null){
+            eAddr = "";
+        }
+        if(bCity == null){
+            bCity = "";
+        }
+        double bbLat ,bbLon,eeLat,eeLon,ccLat,ccLon;
+        if((bLat == null)||(bLat.isEmpty())){
+            bLat= "0.0";
+        }
+        bbLat = Double.parseDouble(bLat);
+        if((bLon == null)||(bLon.isEmpty())){
+            bLon= "0.0";
+        }
+        bbLon = Double.parseDouble(bLon);
+        if((eLat == null)||(eLat.isEmpty())){
+            eLat= "0.0";
+        }
+        eeLat = Double.parseDouble(eLat);
+        if((eLon == null)||(eLon.isEmpty())){
+            eLon= "0.0";
+        }
+        eeLon = Double.parseDouble(eLon);
+
+        if((curLat == null)||(curLat.isEmpty())){
+            curLat= "0.0";
+        }
+        ccLat = Double.parseDouble(curLat);
+        if((curLon == null)||(curLon.isEmpty())){
+            curLon= "0.0";
+        }
+        ccLon = Double.parseDouble(curLon);
+        chooseOpenMap(ccLat,ccLon,curAddr,bbLat,bbLon,bAddr,bCity);
+    }
 
 
     private String bLat,bLon,eLat,eLon;
@@ -263,7 +322,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         getHyId();
         initRV();
         getNewCheYuanDetailFromNet();
-
+        getAdsFromNet();
 
 
     }
@@ -572,7 +631,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
             tjjg = "0元";
         }
 
-        ImageLoader.getInstance().displayImage(newHuoYuanDetailBean.getNr().getGg().getImg(),ibNewOtherHYXQAds, ImageLoaderUtils.options1);
+        /*ImageLoader.getInstance().displayImage(newHuoYuanDetailBean.getNr().getGg().getImg(),ibNewOtherHYXQAds, ImageLoaderUtils.options1);*/
         tvNewOtherHYXQHYCKJ.setText(tjjg);
         tvNewOtherHYXQCarUseingTime.setText(newHuoYuanDetailBean.getNr().getYcsj());
         String hwlx = newHuoYuanDetailBean.getNr().getHuowulx();
@@ -596,7 +655,190 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         tel = newHuoYuanDetailBean.getNr().getIphone();
         loginId = newHuoYuanDetailBean.getNr().getLogin_id();
         baoJiaId = newHuoYuanDetailBean.getNr().getBaojiaid();
+        bAddr = newHuoYuanDetailBean.getNr().getCfdizhi();
+        eAddr = newHuoYuanDetailBean.getNr().getDadizhi();
+        bCity = newHuoYuanDetailBean.getNr().getCfshi();
         initstatus();
     }
 
+    private void getAdsFromNet(){
+        AdsNetWork adsNetWork = new AdsNetWork();
+        adsNetWork.getAdsFromNet("2", new Observer<NewAdsBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewAdsBean newAdsBean) {
+                ImageLoader.getInstance().displayImage(newAdsBean.getNr().getImg(),ibNewOtherHYXQAds, ImageLoaderUtils.options1);
+                /*ImageLoader.getInstance().displayImage(newAdsBean.getNr().getImg(),ibNewSelfHYXQAds, ImageLoaderUtils.options1);*/
+
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     *https://github.com/zhengyi321/OPenLocalMapDemo
+     * @param slat
+     * @param slon
+     * @param address 当前位置
+     * @param city 所在城市
+     */
+    private void openLocalMap(double slat, double slon, String address,double elat,double elon,String eAddr ,String city) {
+        OpenLocalMapUtil openLocalMapUtil= new OpenLocalMapUtil();
+        if(openLocalMapUtil.isBaiduMapInstalled() && openLocalMapUtil.isGdMapInstalled()){
+            chooseOpenMap(slat, slon, address,elat,elon,eAddr, city);
+        } else {
+            openBaiduMap(slat, slon, address, elat, elon, eAddr, city);
+
+            if(!isOpened){
+                openGaoDeMap(slat, slon, address, elat, elon, eAddr);
+            }
+
+            if(!isOpened){
+                //打开网页地图
+                openWebMap(slat, slon, address, elat, elon, eAddr, city);
+            }
+        }
+
+    }
+
+    /**
+     * 如果两个地图都安装，提示选择
+     * @param slat
+     * @param slon
+     * @param address
+     * @param city
+     */
+    private void chooseOpenMap(final double slat, final double slon, final String address,final double elat, final double elon, final String eAddr, final String city) {
+        newMapDaoHangDialog = new NewMapDaoHangDialog(activity).Build.setCallBackListener(new NewMapDaoHangDialog.DialogCallBackListener() {
+            @Override
+            public void callBack(boolean isBaidu) {
+                if (isBaidu) {
+                    openBaiduMap(slat, slon, address, elat, elon, eAddr, city);
+                } else {
+                    openGaoDeMap(slat, slon, address,elat, elon, eAddr);
+                }
+           /*     dissmissMapDaoHangDialog();*/
+            }
+        }).build(activity);
+        showMapDaoHangDialog();
+
+    }
+
+
+
+
+    public void showMapDaoHangDialog() {
+        if (newMapDaoHangDialog != null && !newMapDaoHangDialog.isShowing())
+            newMapDaoHangDialog.show();
+    }
+
+    public void dissmissMapDaoHangDialog() {
+        if (newMapDaoHangDialog != null && newMapDaoHangDialog.isShowing()){
+            newMapDaoHangDialog.dismiss();
+        }
+    }
+    /**
+     *  打开百度地图
+     */
+    private void openBaiduMap(double slat, double slon, String sname, double dlat, double dlon, String dname, String city) {
+        OpenLocalMapUtil openLocalMapUtil= new OpenLocalMapUtil();
+        if(openLocalMapUtil.isBaiduMapInstalled()){
+            try {
+             /*   Toast.makeText(activity,"this is baidu",Toast.LENGTH_LONG).show();*/
+                String uri = openLocalMapUtil.getBaiduMapUri(String.valueOf(slat), String.valueOf(slon), sname,
+                        String.valueOf(dlat), String.valueOf(dlon), dname, city, APP_NAME);
+                Intent intent = Intent.parseUri(uri, 0);
+                activity.startActivity(intent); //启动调用
+
+                isOpened = true;
+            } catch (Exception e) {
+                isOpened = false;
+                e.printStackTrace();
+            }
+        } else{
+            Toast.makeText(activity,"您未安装百度地图应用,请下载!",Toast.LENGTH_LONG).show();
+            isOpened = false;
+        }
+    }
+
+    /**
+     * 打开高德地图
+     */
+    private void openGaoDeMap(double slat, double slon, String sname, double dlat, double dlon, String dname) {
+        OpenLocalMapUtil openLocalMapUtil= new OpenLocalMapUtil();
+        if(openLocalMapUtil.isGdMapInstalled()){
+            try {
+                CoordinateConverter converter= new CoordinateConverter(activity);
+                converter.from(CoordinateConverter.CoordType.BAIDU);
+                DPoint sPoint = null, dPoint = null;
+                try {
+                    converter.coord(new DPoint(slat, slon));
+                    sPoint = converter.convert();
+                    converter.coord(new DPoint(dlat, dlon));
+                    dPoint = converter.convert();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (sPoint != null && dPoint != null) {
+                    String uri = openLocalMapUtil.getGdMapUri(APP_NAME, String.valueOf(sPoint.getLatitude()), String.valueOf(sPoint.getLongitude()),
+                            sname, String.valueOf(dPoint.getLatitude()), String.valueOf(dPoint.getLongitude()), dname);
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setPackage("com.autonavi.minimap");
+                    intent.setData(Uri.parse(uri));
+                    activity.startActivity(intent); //启动调用
+
+                    isOpened = true;
+                }
+            } catch (Exception e) {
+                isOpened = false;
+                e.printStackTrace();
+            }
+        } else{
+            Toast.makeText(activity,"您未安装高德地图应用,请下载!",Toast.LENGTH_LONG).show();
+            isOpened = false;
+        }
+    }
+
+    /**
+     * 打开浏览器进行百度地图导航
+     */
+    private void openWebMap(double slat, double slon, String sname, double dlat, double dlon, String dname, String city){
+        OpenLocalMapUtil openLocalMapUtil= new OpenLocalMapUtil();
+        Uri mapUri = Uri.parse(openLocalMapUtil.getWebBaiduMapUri(String.valueOf(slat), String.valueOf(slon), sname,
+                String.valueOf(dlat), String.valueOf(dlon),
+                dname, city, APP_NAME));
+        Intent loction = new Intent(Intent.ACTION_VIEW, mapUri);
+        activity.startActivity(loction);
+    }
 }

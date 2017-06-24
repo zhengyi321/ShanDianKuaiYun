@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -21,6 +22,7 @@ import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfA
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.LookBaoJiaDialog;
 import com.shandian.lu.Widget.Dialog.NewEditBaoJiaDialog;
+import com.shandian.lu.Widget.Dialog.NewHuoZhuEditBaoJiaDialog;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
@@ -43,6 +45,7 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
     private Activity activity;
     public List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList;
     private LayoutInflater inflater;
+    private String img,imgUrl;
     public HuoYuanListXRVAdapter(Activity activity1, List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList1){
         activity = activity1;
         huoYuanList = huoYuanList1;
@@ -59,10 +62,24 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
         huoYuanList.addAll(huoYuanList1);
         notifyDataSetChanged();
     }
-
+    public void setImgAndUrl(String img1,String imgUrl1){
+        img = img1;
+        imgUrl = imgUrl1;
+        if(img == null){
+            img = "";
+        }
+        if(imgUrl == null){
+            imgUrl = "";
+        }
+        notifyDataSetChanged();
+    }
 
     @Override
     public void onBindViewHolder(MyItemHolder holder, int position) {
+
+        ImageLoader.getInstance().displayImage(img,holder.ivNewHuoYuanListAds,ImageLoaderUtils.options1);
+
+
         holder.pos = position;
         holder.tvNewHuoYuanListTime.setText(huoYuanList.get(position).getTime());
         holder.tvNewHuoYuanListBCity.setText(huoYuanList.get(position).getCfshi()+huoYuanList.get(position).getCfqu());
@@ -164,6 +181,8 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
         @BindView(R.id.tv_new_huoyuanlist_name)
         TextView tvNewHuoYuanListName;*/
 
+        @BindView(R.id.iv_new_huoyuanlist_ads)
+        ImageView ivNewHuoYuanListAds;
         @BindView(R.id.rly_new_huoyuanlist_ads)
         RelativeLayout rlyNewHuoYuanListAds;
         @BindView(R.id.tv_new_huoyuanlist_hz_name)
@@ -229,15 +248,55 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
             activity.startActivity(intent);
         }
         NewEditBaoJiaDialog neweditBaoJiaDialog;
+        NewHuoZhuEditBaoJiaDialog newHuoZhuEditBaoJiaDialog;
         @BindView(R.id.tv_new_huoyuanlist_bj)
         TextView tvNewHuoYuanListBJ;
         @OnClick(R.id.tv_new_huoyuanlist_bj)
         public void tvNewHuoYuanListBJOnclick(){
-            String hyId = huoYuanList.get(pos).getId();
-            neweditBaoJiaDialog = new NewEditBaoJiaDialog(activity,hyId).Build.build(activity);
+            baoJia();
+        }
 
+        private void baoJia(){
+            XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+            XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+            String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
+            if((loginId == null)||(loginId.isEmpty())){
+
+                Intent intent = new Intent(activity, NewHuoYuanDetailOtherActivity.class);
+                intent.putExtra("hyid",huoYuanList.get(pos).getId());
+                activity.startActivity(intent);
+                return;
+            }
+            String hyId = huoYuanList.get(pos).getId();
+            String login_Id = huoYuanList.get(pos).getLogin_id();
+            Toast.makeText(activity,"this is huoyuanlist"+login_Id,Toast.LENGTH_LONG).show();
+            if(loginId.equals(login_Id)){
+                String ddzt = huoYuanList.get(pos).getDingdanzt();
+                if(ddzt == null){
+                    ddzt = "";
+                }
+                newHuoZhuEditBaoJiaDialog = new NewHuoZhuEditBaoJiaDialog(activity,hyId,ddzt).Build.build(activity);
+                Toast.makeText(activity,"this is newHuoZhuEditBaoJiaDialog",Toast.LENGTH_LONG).show();
+                showHuoZhuNewEditBaoJiaDialog();
+                return;
+            }else{
+
+                neweditBaoJiaDialog = new NewEditBaoJiaDialog(activity,hyId).Build.build(activity);
+                Toast.makeText(activity,"this is neweditBaoJiaDialog",Toast.LENGTH_LONG).show();
        /* Toast.makeText(activity,"hyid:"+hyId,Toast.LENGTH_LONG).show();*/
-            showNewEditBaoJiaDialog();
+                showNewEditBaoJiaDialog();
+                return;
+            }
+        }
+
+        public void showHuoZhuNewEditBaoJiaDialog() {
+            if (neweditBaoJiaDialog != null && !neweditBaoJiaDialog.isShowing())
+                neweditBaoJiaDialog.show();
+        }
+
+        public void dissmissHuoZhuNewEditBaoJiaDialog() {
+            if (neweditBaoJiaDialog != null && neweditBaoJiaDialog.isShowing())
+                neweditBaoJiaDialog.dismiss();
         }
         public void showNewEditBaoJiaDialog() {
             if (neweditBaoJiaDialog != null && !neweditBaoJiaDialog.isShowing())

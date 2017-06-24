@@ -10,8 +10,10 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.mynewslayoutlib.Bean.NewAdsBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
 import com.shandian.lu.BaseController;
+import com.shandian.lu.NetWork.AdsNetWork;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
@@ -75,6 +77,7 @@ public class HuoYuanListController extends BaseController {
         activity = activity1;
         init();
         huoYuanListXRVAdapter = huoYuanListXRVAdapter1;
+        getAdsFromNet();
     }
 
 
@@ -86,6 +89,25 @@ public class HuoYuanListController extends BaseController {
 
     }
 
+    private void getAdsFromNet(){
+        AdsNetWork adsNetWork = new AdsNetWork();
+        adsNetWork.getAdsFromNet("1", new Observer<NewAdsBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewAdsBean newAdsBean) {
+                huoYuanListXRVAdapter.setImgAndUrl(newAdsBean.getNr().getImg(),newAdsBean.getNr().getUrl());
+            }
+        });
+    }
 
     public void getDataFromNet(String page,String typeName) {
 

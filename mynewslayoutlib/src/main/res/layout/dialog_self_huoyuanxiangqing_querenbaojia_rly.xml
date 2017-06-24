@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="4.5"
+            android:orientation="vertical"
+            android:background="@drawable/dialog_top_radius_bottom_right_angle_white_shape"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1.4"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray"
+                    android:text="点击输入报价金额"
+                    android:textSize="14sp"
+                    android:layout_centerInParent="true"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/cancel"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="2.5"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_centerInParent="true"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="总计"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <EditText
+                        android:id="@+id/et_dialog_self_hyxq_qrbj"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="请输入金额"
+                        android:textColorHint="@color/lightgray"
+                        android:textSize="25sp"
+                        android:textColor="#ff6a00"
+                        android:gravity="center"
+                        android:digits="0123456789"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:background="@null"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="元"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+
+                        />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zero"
+                android:layout_weight="1"
+                >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="请确认报价前已仔细核对过订单"
+                        android:textColor="@color/gray"
+                        android:textSize="13sp"
+                        android:layout_centerInParent="true"
+                        android:drawableLeft="@mipmap/content_detail"
+                        android:drawablePadding="5dp"
+
+                        />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rly_dialog_self_hyxq_qrbj_submit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="1.3"
+            android:background="@mipmap/dialog_orange_radius_bottom"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="确认报价"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

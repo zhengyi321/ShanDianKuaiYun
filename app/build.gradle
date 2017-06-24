@@ -192,6 +192,7 @@ dependencies {
     compile files('libs/jdom.jar')
     compile files('libs/httpclient-4.3.6.jar')
     compile project(':likeiosselectpopuplib')
+    compile files('libs/AMap_Location_V3.0.0_20160922.jar')
 }
 /*// 依赖插件脚本
 apply from: 'tinker-support.gradle'*/

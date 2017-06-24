@@ -12,7 +12,7 @@ public class NewHuoYuanDetailSelfBean {
     /**
      * status : 0
      * msg :
-     * nr : {"id":"676","login_id":"276","type_name":"1","good_name":"测试","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"7吨","xiangshu":"件","tiji":"m³","huowulx":"","ycsj":"不限","hyjiage":"1008611元","tjjiage":"暂无价格","people":"测试","iphone":"99","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"暂无备注！","pass_status":"1","create_time":"1497663812","num":"1","update_time":"1497683283","baojiaid":"0","dingdanzt":"0","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市双雁路458号 中国建设银行(乐清旭阳分理处)附近47米","cfzuobiao":"28.12278699989936,120.98181099999996","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市双雁路398号 中国建设银行(乐清旭阳分理处)西南66米","dazuobiao":"28.122190062636164,120.98119892709012","imgtu":["http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497663812V7Jz.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497683229MK5N.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497683283YmXc.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/27614976832835jej.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/27614976832831pAC.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497683283iT6T.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497683283QNQu.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497683283tRXr.jpg"],"lng":"120.98181099999996","lat":"28.12278699989936","juli":"","zuobiaohash":"wsypcp870e2wvwhdg067","gg":{"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"},"cflat":"28.12278699989936","cflng":"120.98181099999996","dalat":"28.122190062636164","dalng":"120.98119892709012","touxiang":"http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497663812V7Jz.jpg","name":null,"czmobile":null,"czlat":null,"czlng":null,"cztouxiang":"http://www.shandiannt.com/img/logo.png","czbj":"暂无报价","sfbj":"0","bjnr":"暂无价格","time":"2017-06-17 15:08:03"}
+     * nr : {"id":"685","login_id":"276","type_name":"1","good_name":"ca","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"88kg","xiangshu":"99件","tiji":"55m³","huowulx":"ca","ycsj":"2017-06-24","hyjiage":"555元","tjjiage":"暂无价格","people":"cs","iphone":"55","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"c","pass_status":"1","create_time":"1498123769","num":"1","update_time":"1498287678","baojiaid":"0","dingdanzt":"0","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市旭阳路150号  中国建设银行(乐清旭阳分理处)附近13米","cfzuobiao":"28.122515999888982,120.98172099999998","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市双雁路271号  双雁公园附近19米","dazuobiao":"28.119920141452003,120.97844112917538","imgtu":["http://ceshi.lianshiding.com/Uploads/2017-06-22/2761498123769Hqcf.jpg"],"lng":"120.98172099999998","lat":"28.122515999888982","juli":"464.0m","zuobiaohash":"wsypcp81w2vw65t4gg6p","cflat":"28.122515999888982","cflng":"120.98172099999998","dalat":"28.119920141452003","dalng":"120.97844112917538","touxiang":"http://ceshi.lianshiding.com/Uploads/2017-06-22/2761498123769Hqcf.jpg","name":null,"czmobile":null,"czlat":null,"czlng":null,"cztouxiang":"http://www.shandiannt.com/img/logo.png","ddcount":"0","czbj":"暂无报价","sfbj":"0","bjnr":"暂无价格","time":"2017-06-24 15:01:18"}
      */
 
     private String status;
@@ -45,10 +45,10 @@ public class NewHuoYuanDetailSelfBean {
 
     public static class NrBean {
         /**
-         * id : 676
+         * id : 685
          * login_id : 276
          * type_name : 1
-         * good_name : 测试
+         * good_name : ca
          * set_province_id : 0
          * set_city_id : 0
          * set_area_id : 0
@@ -62,15 +62,15 @@ public class NewHuoYuanDetailSelfBean {
          * address_out_detail :
          * address_pick_down :
          * address :
-         * weight : 7吨
-         * xiangshu : 件
-         * tiji : m³
-         * huowulx :
-         * ycsj : 不限
-         * hyjiage : 1008611元
+         * weight : 88kg
+         * xiangshu : 99件
+         * tiji : 55m³
+         * huowulx : ca
+         * ycsj : 2017-06-24
+         * hyjiage : 555元
          * tjjiage : 暂无价格
-         * people : 测试
-         * iphone : 99
+         * people : cs
+         * iphone : 55
          * img1 :
          * img2 :
          * img3 :
@@ -80,43 +80,43 @@ public class NewHuoYuanDetailSelfBean {
          * img7 :
          * img8 :
          * status : 0
-         * context : 暂无备注！
+         * context : c
          * pass_status : 1
-         * create_time : 1497663812
+         * create_time : 1498123769
          * num : 1
-         * update_time : 1497683283
+         * update_time : 1498287678
          * baojiaid : 0
          * dingdanzt : 0
          * cfsheng : 浙江省
          * cfshi : 温州市
          * cfqu : 乐清市
-         * cfdizhi : 浙江省温州市乐清市双雁路458号 中国建设银行(乐清旭阳分理处)附近47米
-         * cfzuobiao : 28.12278699989936,120.98181099999996
+         * cfdizhi : 浙江省温州市乐清市旭阳路150号  中国建设银行(乐清旭阳分理处)附近13米
+         * cfzuobiao : 28.122515999888982,120.98172099999998
          * dasheng : 浙江省
          * dashi : 温州市
          * daqu : 乐清市
-         * dadizhi : 浙江省温州市乐清市双雁路398号 中国建设银行(乐清旭阳分理处)西南66米
-         * dazuobiao : 28.122190062636164,120.98119892709012
-         * imgtu : ["http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497663812V7Jz.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497683229MK5N.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497683283YmXc.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/27614976832835jej.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/27614976832831pAC.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497683283iT6T.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497683283QNQu.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497683283tRXr.jpg"]
-         * lng : 120.98181099999996
-         * lat : 28.12278699989936
-         * juli :
-         * zuobiaohash : wsypcp870e2wvwhdg067
-         * gg : {"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"}
-         * cflat : 28.12278699989936
-         * cflng : 120.98181099999996
-         * dalat : 28.122190062636164
-         * dalng : 120.98119892709012
-         * touxiang : http://ceshi.lianshiding.com/Uploads/2017-06-17/2761497663812V7Jz.jpg
+         * dadizhi : 浙江省温州市乐清市双雁路271号  双雁公园附近19米
+         * dazuobiao : 28.119920141452003,120.97844112917538
+         * imgtu : ["http://ceshi.lianshiding.com/Uploads/2017-06-22/2761498123769Hqcf.jpg"]
+         * lng : 120.98172099999998
+         * lat : 28.122515999888982
+         * juli : 464.0m
+         * zuobiaohash : wsypcp81w2vw65t4gg6p
+         * cflat : 28.122515999888982
+         * cflng : 120.98172099999998
+         * dalat : 28.119920141452003
+         * dalng : 120.97844112917538
+         * touxiang : http://ceshi.lianshiding.com/Uploads/2017-06-22/2761498123769Hqcf.jpg
          * name : null
          * czmobile : null
          * czlat : null
          * czlng : null
          * cztouxiang : http://www.shandiannt.com/img/logo.png
+         * ddcount : 0
          * czbj : 暂无报价
          * sfbj : 0
          * bjnr : 暂无价格
-         * time : 2017-06-17 15:08:03
+         * time : 2017-06-24 15:01:18
          */
 
         private String id;
@@ -175,7 +175,6 @@ public class NewHuoYuanDetailSelfBean {
         private String lat;
         private String juli;
         private String zuobiaohash;
-        private GgBean gg;
         private String cflat;
         private String cflng;
         private String dalat;
@@ -186,6 +185,7 @@ public class NewHuoYuanDetailSelfBean {
         private Object czlat;
         private Object czlng;
         private String cztouxiang;
+        private String ddcount;
         private String czbj;
         private String sfbj;
         private String bjnr;
@@ -640,14 +640,6 @@ public class NewHuoYuanDetailSelfBean {
             this.zuobiaohash = zuobiaohash;
         }
 
-        public GgBean getGg() {
-            return gg;
-        }
-
-        public void setGg(GgBean gg) {
-            this.gg = gg;
-        }
-
         public String getCflat() {
             return cflat;
         }
@@ -728,6 +720,14 @@ public class NewHuoYuanDetailSelfBean {
             this.cztouxiang = cztouxiang;
         }
 
+        public String getDdcount() {
+            return ddcount;
+        }
+
+        public void setDdcount(String ddcount) {
+            this.ddcount = ddcount;
+        }
+
         public String getCzbj() {
             return czbj;
         }
@@ -766,32 +766,6 @@ public class NewHuoYuanDetailSelfBean {
 
         public void setImgtu(List<String> imgtu) {
             this.imgtu = imgtu;
-        }
-
-        public static class GgBean {
-            /**
-             * img : http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png
-             * url : http://www.baidu.com
-             */
-
-            private String img;
-            private String url;
-
-            public String getImg() {
-                return img;
-            }
-
-            public void setImg(String img) {
-                this.img = img;
-            }
-
-            public String getUrl() {
-                return url;
-            }
-
-            public void setUrl(String url) {
-                this.url = url;
-            }
         }
     }
 }

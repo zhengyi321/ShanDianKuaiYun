@@ -97,6 +97,7 @@
                             android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
                             android:layout_centerVertical="true"
                             android:background="@null"
+                            android:digits="0123456789"
                             />
                     </RelativeLayout>
                     <RelativeLayout
@@ -236,7 +237,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/right_arrow"
+                            android:background="@mipmap/map_loc"
                             android:layout_centerInParent="true"
                             />
                     </RelativeLayout>
@@ -296,7 +297,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/right_arrow"
+                            android:background="@mipmap/map_loc"
                             android:layout_centerInParent="true"
                             />
                     </RelativeLayout>

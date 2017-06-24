@@ -84,7 +84,7 @@
                         android:layout_height="wrap_content"
                         android:text="乐清市"
                         android:textColor="#1261ce"
-                        android:textSize="17sp"
+                        android:textSize="13sp"
                         />
                     <TextView
                         android:id="@+id/tv_new_huoyuanlist_barea"
@@ -116,7 +116,7 @@
                         android:layout_height="wrap_content"
                         android:text="北京市"
                         android:textColor="#1261ce"
-                        android:textSize="17sp"
+                        android:textSize="13sp"
                         />
                     <TextView
                         android:id="@+id/tv_new_huoyuanlist_earea"
@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/half_radius_light_green_edge_shape"
                     android:text="6箱"
-                    android:textSize="11sp"
+                    android:textSize="10sp"
                     android:textColor="#76bf0b"
                     android:paddingTop="2dp"
                     android:paddingBottom="2dp"
@@ -183,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/half_radius_light_green_edge_shape"
                     android:text="电器产品"
-                    android:textSize="11sp"
+                    android:textSize="10sp"
                     android:textColor="#76bf0b"
                     android:paddingTop="2dp"
                     android:paddingBottom="2dp"
@@ -198,7 +198,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/half_radius_light_green_edge_shape"
                     android:text="0.00m³"
-                    android:textSize="11sp"
+                    android:textSize="10sp"
                     android:textColor="#76bf0b"
                     android:paddingTop="2dp"
                     android:paddingBottom="2dp"
@@ -213,7 +213,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/half_radius_light_green_edge_shape"
                     android:text="0.0kg"
-                    android:textSize="11sp"
+                    android:textSize="10sp"
                     android:textColor="#76bf0b"
                     android:paddingTop="2dp"
                     android:paddingBottom="2dp"
@@ -243,7 +243,7 @@
                     android:layout_height="wrap_content"
                     android:text="查看路线"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:layout_centerVertical="true"
                     />
 
@@ -253,7 +253,7 @@
                     android:layout_height="wrap_content"
                     android:text="点击报价"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     />
@@ -381,10 +381,12 @@
         >
 
         <ImageView
+            android:id="@+id/iv_new_huoyuanlist_ads"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:scaleType="fitXY"
             android:background="@color/red"
             />
 

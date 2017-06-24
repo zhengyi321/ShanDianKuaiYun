@@ -26,7 +26,7 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.2"
+                    android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:visibility="invisible"
                     >
@@ -88,7 +88,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="浙江省乐清市"
-                                    android:textSize="13sp"
+                                    android:textSize="11sp"
                                     android:textColor="@color/black"
 
                                     />
@@ -104,7 +104,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="浙江省乐清市"
-                                    android:textSize="13sp"
+                                    android:textSize="11sp"
                                     android:textColor="@color/black"
 
                                     />
@@ -154,7 +154,7 @@
                         android:visibility="gone"
                         >
                         <TextView
-                            android:id="@+id/tv_new_other_hyxq_prov_city_area_e"
+                            android:id="@+id/tv_new_self_hyxq_prov_city_area_e"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -167,7 +167,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/tv_new_other_hyxq_addr_e"
+                            android:id="@+id/tv_new_self_hyxq_addr_e"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
@@ -182,14 +182,14 @@
                 </LinearLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rly_new_other_hyxq_dh_map"
+                    android:id="@+id/rly_new_self_hyxq_dh_map"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/rly_new_self_hyxq_hwline"
+                        android:id="@+id/lly_new_self_hyxq_hwline"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
@@ -275,7 +275,7 @@
                         android:layout_marginTop="20dp"
                         />
                     <TextView
-                        android:id="@+id/tv_new_other_hyxq_date"
+                        android:id="@+id/tv_new_self_hyxq_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="6月31日"
@@ -285,7 +285,7 @@
                         android:layout_marginTop="5dp"
                         />
                     <TextView
-                        android:id="@+id/tv_new_other_hyxq_time"
+                        android:id="@+id/tv_new_self_hyxq_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="上午 8:30~11:30"
@@ -320,7 +320,7 @@
                         android:layout_marginTop="20dp"
                         />
                     <TextView
-                        android:id="@+id/tv_new_other_hyxq_carlength"
+                        android:id="@+id/tv_new_self_hyxq_carlength"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="电器产品"
@@ -661,6 +661,11 @@
                  </LinearLayout>-->
 
             </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/lightgray"
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"

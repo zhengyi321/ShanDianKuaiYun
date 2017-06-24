@@ -120,12 +120,12 @@ public class NewHuoZhuEditBaoJiaDialog extends Dialog {
             final NewHuoZhuEditBaoJiaDialog releaseDialog = new NewHuoZhuEditBaoJiaDialog(context, R.style.MyDialogStyle);//默认调用带style的构造
             releaseDialog.setCanceledOnTouchOutside(true);//默认点击布局外不能取消dialog
            /* releaseDialog.setCancelable(true);*/
-            View view = mInflater.inflate(R.layout.dialog_other_huoyuanxiangqing_querenbaojia_rly, null);
+            View view = mInflater.inflate(R.layout.dialog_self_huoyuanxiangqing_querenbaojia_rly, null);
             releaseDialog.addContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
             releaseDialog.setContentView(view);
-            final EditText inputMoney = (EditText) view.findViewById(R.id.et_dialog_other_hyxq_qrbj);
-            RelativeLayout submit = (RelativeLayout)view.findViewById(R.id.rly_dialog_other_hyxq_qrbj_submit);
+            final EditText inputMoney = (EditText) view.findViewById(R.id.et_dialog_self_hyxq_qrbj);
+            RelativeLayout submit = (RelativeLayout)view.findViewById(R.id.rly_dialog_self_hyxq_qrbj_submit);
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

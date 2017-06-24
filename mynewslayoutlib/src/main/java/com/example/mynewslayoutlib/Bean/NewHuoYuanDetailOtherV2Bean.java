@@ -12,7 +12,7 @@ public class NewHuoYuanDetailOtherV2Bean {
     /**
      * status : 0
      * msg :
-     * nr : {"id":"660","login_id":"383","type_name":"1","good_name":"看看","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"23吨","xiangshu":"件","tiji":"m³","huowulx":"","ycsj":"不限","hyjiage":"元","tjjiage":"暂无价格","people":"看看","iphone":"5666666","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"暂无备注！","pass_status":"1","create_time":"1497443952","num":"1","update_time":"1497443952","baojiaid":"46","dingdanzt":"1","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市清远路139号 中国建设银行(清远路储蓄所)附近14米","cfzuobiao":"28.119593587390998,120.97436282216142","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市清远路139号 中国建设银行(清远路储蓄所)附近14米","dazuobiao":"28.119593587390998,120.97436282216142","imgtu":["http://ceshi.lianshiding.com/Uploads/2017-06-14/3831497443952JsBy.jpg"],"lng":"120.97436282216142","lat":"28.119593587390998","juli":"","zuobiaohash":"wsypbz4bdbnvmpy26su8","gg":{"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"},"cflat":"28.119593587390998","cflng":"120.97436282216142","dalat":"28.119593587390998","dalng":"120.97436282216142","touxiang":"http://ceshi.lianshiding.com/Uploads/2017-06-14/3831497443952JsBy.jpg","name":null,"czmobile":null,"fktime":"暂无","jhtime":"暂无","sdtime":"暂无","wctime":"暂无","czlat":"28.118176","czlng":"120.98853","cztouxiang":"http://www.shandiannt.com/img/logo.png","czbj":"暂无报价","sfbj":"0","bjnr":"暂无价格","time":"2017-06-14 20:39:12"}
+     * nr : {"id":"651","login_id":"256","type_name":"1","good_name":"撒大声地","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","address_set":"","address_set_detail":"","address_pick_up":"","address_out":"","address_out_detail":"","address_pick_down":"","address":"","weight":"20kg","xiangshu":"件","tiji":"m³","huowulx":"","ycsj":"不限","hyjiage":"元","tjjiage":"暂无价格","people":"闪电","iphone":"6566686","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","status":"0","context":"暂无备注！","pass_status":"1","create_time":"1497402733","num":"1","update_time":"1497402733","baojiaid":"0","dingdanzt":"0","cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市双雁路458号  中国建设银行(乐清旭阳分理处)附近47米","cfzuobiao":"28.122787402143455,120.98166604595512","dasheng":"北京市","dashi":"北京市","daqu":"东城区","dadizhi":"北京市东城区中华路甲10号  天安门内","dazuobiao":"39.91517478934503,116.40390118415964","imgtu":["http://ceshi.lianshiding.com/Uploads/2017-06-14/2561497402733jN35.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-14/2561497402733LHYH.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-14/2561497402733pji5.jpg"],"lng":"120.98166604595512","lat":"28.122787402143455","juli":"m","zuobiaohash":"wsypcp85j5s96fugz4eb","cflat":"28.122787402143455","cflng":"120.98166604595512","dalat":"39.91517478934503","dalng":"116.40390118415964","touxiang":"http://ceshi.lianshiding.com/Uploads/2017-06-14/2561497402733jN35.jpg","name":null,"czmobile":null,"czlat":null,"czlng":null,"cztouxiang":"http://www.shandiannt.com/img/logo.png","ddcount":"2","czbj":"元","sfbj":"1","bjnr":"1元","time":"2017-06-14 09:12:13"}
      */
 
     private String status;
@@ -45,10 +45,10 @@ public class NewHuoYuanDetailOtherV2Bean {
 
     public static class NrBean {
         /**
-         * id : 660
-         * login_id : 383
+         * id : 651
+         * login_id : 256
          * type_name : 1
-         * good_name : 看看
+         * good_name : 撒大声地
          * set_province_id : 0
          * set_city_id : 0
          * set_area_id : 0
@@ -62,15 +62,15 @@ public class NewHuoYuanDetailOtherV2Bean {
          * address_out_detail :
          * address_pick_down :
          * address :
-         * weight : 23吨
+         * weight : 20kg
          * xiangshu : 件
          * tiji : m³
          * huowulx :
          * ycsj : 不限
          * hyjiage : 元
          * tjjiage : 暂无价格
-         * people : 看看
-         * iphone : 5666666
+         * people : 闪电
+         * iphone : 6566686
          * img1 :
          * img2 :
          * img3 :
@@ -82,45 +82,41 @@ public class NewHuoYuanDetailOtherV2Bean {
          * status : 0
          * context : 暂无备注！
          * pass_status : 1
-         * create_time : 1497443952
+         * create_time : 1497402733
          * num : 1
-         * update_time : 1497443952
-         * baojiaid : 46
-         * dingdanzt : 1
+         * update_time : 1497402733
+         * baojiaid : 0
+         * dingdanzt : 0
          * cfsheng : 浙江省
          * cfshi : 温州市
          * cfqu : 乐清市
-         * cfdizhi : 浙江省温州市乐清市清远路139号 中国建设银行(清远路储蓄所)附近14米
-         * cfzuobiao : 28.119593587390998,120.97436282216142
-         * dasheng : 浙江省
-         * dashi : 温州市
-         * daqu : 乐清市
-         * dadizhi : 浙江省温州市乐清市清远路139号 中国建设银行(清远路储蓄所)附近14米
-         * dazuobiao : 28.119593587390998,120.97436282216142
-         * imgtu : ["http://ceshi.lianshiding.com/Uploads/2017-06-14/3831497443952JsBy.jpg"]
-         * lng : 120.97436282216142
-         * lat : 28.119593587390998
-         * juli :
-         * zuobiaohash : wsypbz4bdbnvmpy26su8
-         * gg : {"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"}
-         * cflat : 28.119593587390998
-         * cflng : 120.97436282216142
-         * dalat : 28.119593587390998
-         * dalng : 120.97436282216142
-         * touxiang : http://ceshi.lianshiding.com/Uploads/2017-06-14/3831497443952JsBy.jpg
+         * cfdizhi : 浙江省温州市乐清市双雁路458号  中国建设银行(乐清旭阳分理处)附近47米
+         * cfzuobiao : 28.122787402143455,120.98166604595512
+         * dasheng : 北京市
+         * dashi : 北京市
+         * daqu : 东城区
+         * dadizhi : 北京市东城区中华路甲10号  天安门内
+         * dazuobiao : 39.91517478934503,116.40390118415964
+         * imgtu : ["http://ceshi.lianshiding.com/Uploads/2017-06-14/2561497402733jN35.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-14/2561497402733LHYH.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-14/2561497402733pji5.jpg"]
+         * lng : 120.98166604595512
+         * lat : 28.122787402143455
+         * juli : m
+         * zuobiaohash : wsypcp85j5s96fugz4eb
+         * cflat : 28.122787402143455
+         * cflng : 120.98166604595512
+         * dalat : 39.91517478934503
+         * dalng : 116.40390118415964
+         * touxiang : http://ceshi.lianshiding.com/Uploads/2017-06-14/2561497402733jN35.jpg
          * name : null
          * czmobile : null
-         * fktime : 暂无
-         * jhtime : 暂无
-         * sdtime : 暂无
-         * wctime : 暂无
-         * czlat : 28.118176
-         * czlng : 120.98853
+         * czlat : null
+         * czlng : null
          * cztouxiang : http://www.shandiannt.com/img/logo.png
-         * czbj : 暂无报价
-         * sfbj : 0
-         * bjnr : 暂无价格
-         * time : 2017-06-14 20:39:12
+         * ddcount : 2
+         * czbj : 元
+         * sfbj : 1
+         * bjnr : 1元
+         * time : 2017-06-14 09:12:13
          */
 
         private String id;
@@ -179,7 +175,6 @@ public class NewHuoYuanDetailOtherV2Bean {
         private String lat;
         private String juli;
         private String zuobiaohash;
-        private GgBean gg;
         private String cflat;
         private String cflng;
         private String dalat;
@@ -187,13 +182,10 @@ public class NewHuoYuanDetailOtherV2Bean {
         private String touxiang;
         private Object name;
         private Object czmobile;
-        private String fktime;
-        private String jhtime;
-        private String sdtime;
-        private String wctime;
-        private String czlat;
-        private String czlng;
+        private Object czlat;
+        private Object czlng;
         private String cztouxiang;
+        private String ddcount;
         private String czbj;
         private String sfbj;
         private String bjnr;
@@ -648,14 +640,6 @@ public class NewHuoYuanDetailOtherV2Bean {
             this.zuobiaohash = zuobiaohash;
         }
 
-        public GgBean getGg() {
-            return gg;
-        }
-
-        public void setGg(GgBean gg) {
-            this.gg = gg;
-        }
-
         public String getCflat() {
             return cflat;
         }
@@ -712,51 +696,19 @@ public class NewHuoYuanDetailOtherV2Bean {
             this.czmobile = czmobile;
         }
 
-        public String getFktime() {
-            return fktime;
-        }
-
-        public void setFktime(String fktime) {
-            this.fktime = fktime;
-        }
-
-        public String getJhtime() {
-            return jhtime;
-        }
-
-        public void setJhtime(String jhtime) {
-            this.jhtime = jhtime;
-        }
-
-        public String getSdtime() {
-            return sdtime;
-        }
-
-        public void setSdtime(String sdtime) {
-            this.sdtime = sdtime;
-        }
-
-        public String getWctime() {
-            return wctime;
-        }
-
-        public void setWctime(String wctime) {
-            this.wctime = wctime;
-        }
-
-        public String getCzlat() {
+        public Object getCzlat() {
             return czlat;
         }
 
-        public void setCzlat(String czlat) {
+        public void setCzlat(Object czlat) {
             this.czlat = czlat;
         }
 
-        public String getCzlng() {
+        public Object getCzlng() {
             return czlng;
         }
 
-        public void setCzlng(String czlng) {
+        public void setCzlng(Object czlng) {
             this.czlng = czlng;
         }
 
@@ -766,6 +718,14 @@ public class NewHuoYuanDetailOtherV2Bean {
 
         public void setCztouxiang(String cztouxiang) {
             this.cztouxiang = cztouxiang;
+        }
+
+        public String getDdcount() {
+            return ddcount;
+        }
+
+        public void setDdcount(String ddcount) {
+            this.ddcount = ddcount;
         }
 
         public String getCzbj() {
@@ -806,32 +766,6 @@ public class NewHuoYuanDetailOtherV2Bean {
 
         public void setImgtu(List<String> imgtu) {
             this.imgtu = imgtu;
-        }
-
-        public static class GgBean {
-            /**
-             * img : http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png
-             * url : http://www.baidu.com
-             */
-
-            private String img;
-            private String url;
-
-            public String getImg() {
-                return img;
-            }
-
-            public void setImg(String img) {
-                this.img = img;
-            }
-
-            public String getUrl() {
-                return url;
-            }
-
-            public void setUrl(String url) {
-                this.url = url;
-            }
         }
     }
 }

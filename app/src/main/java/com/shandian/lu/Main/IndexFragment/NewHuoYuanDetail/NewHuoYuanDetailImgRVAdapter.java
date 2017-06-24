@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.R;
@@ -40,6 +41,7 @@ public class NewHuoYuanDetailImgRVAdapter extends RecyclerView.Adapter<NewHuoYua
     public void setAdapter(List<String> imgList1){
         imgList.clear();
         imgList.addAll(imgList1);
+   /*     Toast.makeText(activity,"imgList:"+imgList1.size(),Toast.LENGTH_LONG).show();*/
         notifyDataSetChanged();
     }
     @Override
