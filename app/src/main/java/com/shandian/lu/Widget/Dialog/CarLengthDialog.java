@@ -29,6 +29,10 @@ public class CarLengthDialog extends Dialog {
     public interface DialogCallBackListener{//通过该接口回调Dialog需要传递的值
         public void callBack(String tel);//具体方法
     }
+    public interface OnAdapterClickListener{
+        public void isClicked(boolean isClicked);
+    }
+    OnAdapterClickListener onAdapterClickListener;
     public CarLengthDialog(Context context1, TextView textView1 ) {
         super(context1);
         this.context = context1;
@@ -62,6 +66,8 @@ public class CarLengthDialog extends Dialog {
         private OnClickListener positiviOnclickListener;
         private OnClickListener negativeOnclickListener;
         private DialogCallBackListener mDialogCallBackListener;
+
+
         public Builder(Context mContext) {
             this.mContext = mContext;
         }
@@ -93,8 +99,8 @@ public class CarLengthDialog extends Dialog {
             return this;
         }
 
-        public Builder setCallBackListener(DialogCallBackListener mDialogCallBackListener){//设置回调
-            this.mDialogCallBackListener = mDialogCallBackListener;
+        public Builder setCallBackListener(OnAdapterClickListener onAdapterClickListener1){//设置回调
+           onAdapterClickListener = onAdapterClickListener1;
             return this;
         }
         /**
@@ -130,6 +136,16 @@ public class CarLengthDialog extends Dialog {
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context,3);
         carLengthDialogXRVAdapter = new CarLengthDialogXRVAdapter(context,carLongs,textView,cityChangeDialog);
+        carLengthDialogXRVAdapter.setSelectedCallBack(new CarLengthDialogXRVAdapter.OnSelectedListener() {
+            @Override
+            public void isSelected(boolean isSelected) {
+                if(isSelected){
+                    if(onAdapterClickListener != null){
+                        onAdapterClickListener.isClicked(true);
+                    }
+                }
+            }
+        });
         recyclerView.setAdapter(carLengthDialogXRVAdapter);
         recyclerView.setLayoutManager(gridLayoutManager);
     }

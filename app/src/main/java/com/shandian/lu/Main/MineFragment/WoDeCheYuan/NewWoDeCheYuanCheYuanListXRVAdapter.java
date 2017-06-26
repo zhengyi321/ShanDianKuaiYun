@@ -18,7 +18,7 @@ import com.example.mynewslayoutlib.Bean.NewWoDeCheYuanDeleteBean;
 import com.example.mynewslayoutlib.Utils.SystemUtils;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailSelflActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
-import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanActivity;
+import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanV2Activity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.NewQueryDeleteDialog;
@@ -255,7 +255,7 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
         LinearLayout llyNewWoDeCheYuanListXRVItemUpdate;
         @OnClick(R.id.lly_new_wodecheyuan_cheyuanlist_xrv_item_update)
         public void llyNewWoDeCheYuanListXRVItemUpdateOnclick(){
-            Intent intent = new Intent(activity, NewFaBuCheYuanActivity.class);
+            Intent intent = new Intent(activity, NewFaBuCheYuanV2Activity.class);
             String typeName = dataList.get(pos).getType_name();
             if(typeName == null){
                 typeName = "";

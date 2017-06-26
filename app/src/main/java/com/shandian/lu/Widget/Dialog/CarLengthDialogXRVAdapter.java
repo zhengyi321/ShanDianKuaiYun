@@ -28,6 +28,13 @@ public class CarLengthDialogXRVAdapter extends RecyclerView.Adapter<CarLengthDia
     private final int CITY_CHANGE_SELECTED = 99;
     private TextView textView;
     CarLengthDialog cityChangeDialog;
+    public interface OnSelectedListener{
+        public void isSelected(boolean isSelected);
+    }
+    public OnSelectedListener onSelectedListener;
+    public void setSelectedCallBack(OnSelectedListener onSelectedListener1){
+        onSelectedListener = onSelectedListener1;
+    }
     public CarLengthDialogXRVAdapter(Context context1, String[] stringList1, TextView textView1 ,CarLengthDialog cityChangeDialog1 ){
         stringList = stringList1;
         context = context1;
@@ -66,7 +73,9 @@ public class CarLengthDialogXRVAdapter extends RecyclerView.Adapter<CarLengthDia
         public void rlymainReleaseCarLengthOnclick(){
             textView.setText(tvMainReleaseCarLength.getText().toString());
             cityChangeDialog.hide();
-
+            if(onSelectedListener != null){
+                onSelectedListener.isSelected(true);
+            }
 
           /*  ((Activity) context).finish();*/
         }

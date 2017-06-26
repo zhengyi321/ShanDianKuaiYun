@@ -18,6 +18,7 @@ import com.example.mynewslayoutlib.Utils.SystemUtils;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanActivity;
+import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanV2Activity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanV2Activity;
 import com.shandian.lu.R;
@@ -81,7 +82,7 @@ public class ReleaseDialogController extends BaseController {
         System.out.print("\nloginId:"+loginId);
         System.out.print("\nloginId:"+loginId);
         if(rbDialogReleaseChe.isChecked()){
-            intent = new Intent(view.getContext(), NewFaBuCheYuanActivity.class);
+            intent = new Intent(view.getContext(), NewFaBuCheYuanV2Activity.class);
             intent.putExtra("type_name","1");
             view.getContext().startActivity(intent);
         }
@@ -108,7 +109,7 @@ public class ReleaseDialogController extends BaseController {
             return;
         }
         if(rbDialogReleaseChe.isChecked()){
-            intent = new Intent(view.getContext(), NewFaBuCheYuanActivity.class);
+            intent = new Intent(view.getContext(), NewFaBuCheYuanV2Activity.class);
             intent.putExtra("type_name","2");
             view.getContext().startActivity(intent);
         }
@@ -135,7 +136,7 @@ public class ReleaseDialogController extends BaseController {
             return;
         }
         if(rbDialogReleaseChe.isChecked()){
-            intent = new Intent(view.getContext(), NewFaBuCheYuanActivity.class);
+            intent = new Intent(view.getContext(), NewFaBuCheYuanV2Activity.class);
             intent.putExtra("type_name","3");
             view.getContext().startActivity(intent);
         }
@@ -162,7 +163,7 @@ public class ReleaseDialogController extends BaseController {
             return;
         }
         if(rbDialogReleaseChe.isChecked()){
-            intent = new Intent(view.getContext(), NewFaBuCheYuanActivity.class);
+            intent = new Intent(view.getContext(), NewFaBuCheYuanV2Activity.class);
             intent.putExtra("type_name","4");
             view.getContext().startActivity(intent);
         }

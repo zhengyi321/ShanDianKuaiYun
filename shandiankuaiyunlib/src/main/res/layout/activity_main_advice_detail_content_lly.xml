@@ -54,8 +54,8 @@
                 <TextView
                     android:id="@+id/tv_main_advice_detail_content_news"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/zero"
-                    android:layout_weight="10"
+                    android:layout_height="wrap_content"
+
                     android:text="温州港首条至东南亚集装箱航线盛装首航"
                     android:textColor="@color/color_main_advice_detail_content_black_word_textcolor"
                     android:textSize="@dimen/main_advice_detail_content_word_size"

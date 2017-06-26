@@ -28,6 +28,14 @@ public class CarTypeDialogXRVAdapter extends RecyclerView.Adapter<CarTypeDialogX
     private final int CITY_CHANGE_SELECTED = 99;
     private TextView textView;
     CarTypeDialog cityChangeDialog;
+    public interface OnSelectListener{
+        public void onClick(boolean isSelected);
+    }
+    public OnSelectListener onSelectListener;
+    public void setOnSelectedCallBack(OnSelectListener onSelectListener1){
+        this.onSelectListener = onSelectListener1;
+    }
+
     public CarTypeDialogXRVAdapter(Context context1, String[] stringList1, TextView textView1, CarTypeDialog cityChangeDialog1){
         stringList = stringList1;
         context = context1;
@@ -67,6 +75,9 @@ public class CarTypeDialogXRVAdapter extends RecyclerView.Adapter<CarTypeDialogX
         @OnClick(R.id.rly_main_release_cartype)
         public void rlymainReleaseCarTypeOnclick(){
             textView.setText(tvMainReleaseCarType.getText().toString());
+            if(onSelectListener != null) {
+                onSelectListener.onClick(true);
+            }
             cityChangeDialog.dismiss();
           /*  ((Activity) context).finish();*/
         }

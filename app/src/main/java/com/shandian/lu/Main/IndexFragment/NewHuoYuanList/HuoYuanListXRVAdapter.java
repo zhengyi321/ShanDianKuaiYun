@@ -45,7 +45,7 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
     private Activity activity;
     public List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList;
     private LayoutInflater inflater;
-    private String img,imgUrl;
+    private String img="",imgUrl="";
     public HuoYuanListXRVAdapter(Activity activity1, List<NewHuoYuanListBean.NrBean.ListBean> huoYuanList1){
         activity = activity1;
         huoYuanList = huoYuanList1;
@@ -137,6 +137,46 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
             }
         }
 
+        String memberLevel = huoYuanList.get(position).getHydengji();
+        switch (memberLevel){
+            case "1":
+                holder.ivNewHuoYuanListLevel1.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel2.setVisibility(View.GONE);
+                holder.ivNewHuoYuanListLevel3.setVisibility(View.GONE);
+                holder.ivNewHuoYuanListLevel4.setVisibility(View.GONE);
+                holder.ivNewHuoYuanListLevel5.setVisibility(View.GONE);
+                break;
+            case "2":
+                holder.ivNewHuoYuanListLevel1.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel2.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel3.setVisibility(View.GONE);
+                holder.ivNewHuoYuanListLevel4.setVisibility(View.GONE);
+                holder.ivNewHuoYuanListLevel5.setVisibility(View.GONE);
+                break;
+            case "3":
+                holder.ivNewHuoYuanListLevel1.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel2.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel3.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel4.setVisibility(View.GONE);
+                holder.ivNewHuoYuanListLevel5.setVisibility(View.GONE);
+                break;
+            case "4":
+                holder.ivNewHuoYuanListLevel1.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel2.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel3.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel4.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel5.setVisibility(View.GONE);
+                break;
+            case "5":
+                holder.ivNewHuoYuanListLevel1.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel2.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel3.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel4.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel5.setVisibility(View.VISIBLE);
+                break;
+
+        }
+
        /* if(huoYuanList.get(position).getGg() == null){
             return;
         }*/
@@ -148,6 +188,9 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
    /*     Toast.makeText(activity,""+huoYuanList.get(position).getId(),Toast.LENGTH_LONG).show();
 */
     }
+
+
+
 
     @Override
     public int getItemCount() {
@@ -202,7 +245,17 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
         TextView tvNewHuoYuanListTiJi;
         @BindView(R.id.tv_new_huoyuanlist_weight)
         TextView tvNewHuoYuanListWeight;
-        @BindView(R.id.tv_new_huoyuanlist_route)
+        @BindView(R.id.iv_new_huoyuanlist_level1)
+        ImageView ivNewHuoYuanListLevel1;
+        @BindView(R.id.iv_new_huoyuanlist_level2)
+        ImageView ivNewHuoYuanListLevel2;
+        @BindView(R.id.iv_new_huoyuanlist_level3)
+        ImageView ivNewHuoYuanListLevel3;
+        @BindView(R.id.iv_new_huoyuanlist_level4)
+        ImageView ivNewHuoYuanListLevel4;
+        @BindView(R.id.iv_new_huoyuanlist_level5)
+        ImageView ivNewHuoYuanListLevel5;
+       /* @BindView(R.id.tv_new_huoyuanlist_route)
         TextView tvNewHuoYuanListRoute;
         @OnClick(R.id.tv_new_huoyuanlist_route)
         public void tvNewHuoYuanListRouteOnclick(){
@@ -246,7 +299,7 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
             intent.putExtra("czlon",cheLon);
             intent.putExtra("czTouXiang",cheTouXiang);
             activity.startActivity(intent);
-        }
+        }*/
         NewEditBaoJiaDialog neweditBaoJiaDialog;
         NewHuoZhuEditBaoJiaDialog newHuoZhuEditBaoJiaDialog;
         @BindView(R.id.tv_new_huoyuanlist_bj)
@@ -269,20 +322,20 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
             }
             String hyId = huoYuanList.get(pos).getId();
             String login_Id = huoYuanList.get(pos).getLogin_id();
-            Toast.makeText(activity,"this is huoyuanlist"+login_Id,Toast.LENGTH_LONG).show();
+    /*        Toast.makeText(activity,"this is huoyuanlist"+login_Id,Toast.LENGTH_LONG).show();*/
             if(loginId.equals(login_Id)){
                 String ddzt = huoYuanList.get(pos).getDingdanzt();
                 if(ddzt == null){
                     ddzt = "";
                 }
                 newHuoZhuEditBaoJiaDialog = new NewHuoZhuEditBaoJiaDialog(activity,hyId,ddzt).Build.build(activity);
-                Toast.makeText(activity,"this is newHuoZhuEditBaoJiaDialog",Toast.LENGTH_LONG).show();
+              /*  Toast.makeText(activity,"this is newHuoZhuEditBaoJiaDialog",Toast.LENGTH_LONG).show();*/
                 showHuoZhuNewEditBaoJiaDialog();
                 return;
             }else{
 
                 neweditBaoJiaDialog = new NewEditBaoJiaDialog(activity,hyId).Build.build(activity);
-                Toast.makeText(activity,"this is neweditBaoJiaDialog",Toast.LENGTH_LONG).show();
+     /*           Toast.makeText(activity,"this is neweditBaoJiaDialog",Toast.LENGTH_LONG).show();*/
        /* Toast.makeText(activity,"hyid:"+hyId,Toast.LENGTH_LONG).show();*/
                 showNewEditBaoJiaDialog();
                 return;
@@ -290,13 +343,13 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
         }
 
         public void showHuoZhuNewEditBaoJiaDialog() {
-            if (neweditBaoJiaDialog != null && !neweditBaoJiaDialog.isShowing())
-                neweditBaoJiaDialog.show();
+            if (newHuoZhuEditBaoJiaDialog != null && !newHuoZhuEditBaoJiaDialog.isShowing())
+                newHuoZhuEditBaoJiaDialog.show();
         }
 
         public void dissmissHuoZhuNewEditBaoJiaDialog() {
-            if (neweditBaoJiaDialog != null && neweditBaoJiaDialog.isShowing())
-                neweditBaoJiaDialog.dismiss();
+            if (newHuoZhuEditBaoJiaDialog != null && newHuoZhuEditBaoJiaDialog.isShowing())
+                newHuoZhuEditBaoJiaDialog.dismiss();
         }
         public void showNewEditBaoJiaDialog() {
             if (neweditBaoJiaDialog != null && !neweditBaoJiaDialog.isShowing())

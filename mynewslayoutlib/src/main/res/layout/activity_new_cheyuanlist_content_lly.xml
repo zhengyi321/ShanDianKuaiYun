@@ -8,13 +8,13 @@
         android:orientation="horizontal"
         >
         <RelativeLayout
-            android:id="@+id/rly_new_huoyuanlist_baddr"
+            android:id="@+id/rly_new_cheyuanlist_baddr"
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             android:layout_weight="1"
             >
             <TextView
-                android:id="@+id/tv_new_huoyuanlist_baddr"
+                android:id="@+id/tv_new_cheyuanlist_baddr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="出发地"
@@ -34,13 +34,13 @@
             android:layout_marginBottom="@dimen/main_index_peihuozhongxin_tabbar_split_margin_top_bottom_size"
             />
         <RelativeLayout
-            android:id="@+id/rly_new_huoyuanlist_eaddr"
+            android:id="@+id/rly_new_cheyuanlist_eaddr"
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             android:layout_weight="1"
             >
             <TextView
-                android:id="@+id/tv_new_huoyuanlist_eaddr"
+                android:id="@+id/tv_new_cheyuanlist_eaddr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="目的地"
@@ -60,13 +60,13 @@
             android:layout_marginBottom="@dimen/main_index_peihuozhongxin_tabbar_split_margin_top_bottom_size"
             />
         <RelativeLayout
-            android:id="@+id/rly_new_huoyuanlist_goodstype"
+            android:id="@+id/rly_new_cheyuanlist_cartype"
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             android:layout_weight="1"
             >
             <TextView
-                android:id="@+id/tv_new_huoyuanlist_goodstype"
+                android:id="@+id/tv_new_cheyuanlist_cartype"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="车型"
@@ -86,13 +86,13 @@
             android:layout_marginBottom="@dimen/main_index_peihuozhongxin_tabbar_split_margin_top_bottom_size"
             />
         <RelativeLayout
-            android:id="@+id/rly_new_huoyuanlist_all"
+            android:id="@+id/rly_new_cheyuanlist_carlangth"
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             android:layout_weight="1"
             >
             <TextView
-                android:id="@+id/tv_new_huoyuanlist_all"
+                android:id="@+id/tv_new_cheyuanlist_carlangth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="车长"

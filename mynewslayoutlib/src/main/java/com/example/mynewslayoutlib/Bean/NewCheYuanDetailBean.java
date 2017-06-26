@@ -12,7 +12,7 @@ public class NewCheYuanDetailBean {
     /**
      * status : 0
      * msg :
-     * nr : {"id":"9949","login_id":"276","type_name":"3","typename":"旧版类型接口","car_title":"广人","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","set_tid":"0","out_tid":"0","address_set":"","address_out":"","address_set_detail":"","address_out_detail":"","iphone":"99","people":"ivh","address":"","car_type":"危险品车","car_lange":"5","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","is_pass":"1","status":"0","type":"0","content":"暂无备注！","num":"1","create_time":"1497165345","update_time":"1497678801","imgtu":["https://www.lianshiding.com/Uploads/2017-06-14/27614973701137eol.jpg"],"cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"中国浙江省温州市乐清市旭阳路150号 在中国建设银行(乐清旭阳分理处)附近","cfzuobiao":"28.122452,120.981792","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市玉箫路 双阳商务宾馆南192米","dazuobiao":"28.120111294582323,120.98040841824158","lng":"120.981792","lat":"28.122452","zt":"1","juli":"2000","zuobiaohash":"wsypcp830j48","gg":"0","cflat":"28.122452","cflng":"120.981792","dalat":"28.120111294582323","dalng":"120.98040841824158","czlat":"28.122861","czlng":"120.981972","cztouxiang":"https://www.lianshiding.com/Uploads/2017-06-14/27614973701137eol.jpg","time":"2017-06-17 13:53:21"}
+     * nr : {"id":"9979","login_id":"276","type_name":"1","typename":"","car_title":"","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","set_tid":"0","out_tid":"0","address_set":"","address_out":"","address_set_detail":"","address_out_detail":"","iphone":"55","people":"测试","address":"","car_type":"危险品车","car_lange":"7.2","fcsj":"","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","is_pass":"1","status":"0","type":"0","content":"暂无备注！","num":"1","create_time":"1498442103","update_time":"1498443783","imgtu":["http://ceshi.lianshiding.com/Uploads/2017-06-26/2761498442103dWxz.jpg"],"cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市双雁路538号  双雁花苑附近39米","cfzuobiao":"28.122685,120.981404","cflat":"28.122685","cflng":"120.981404","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市双雁路458号  中国建设银行(乐清旭阳分理处)附近43米","dazuobiao":"28.122387999884083,120.98134499999998","dalat":"28.122387999884083","dalng":"120.98134499999998","lng":"120.981404","lat":"28.122685","zt":"1","juli":"2000","zuobiaohash":"wsypbzxfx03n","gg":{"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"},"czlat":"28.122685","czlng":"120.981404","cztouxiang":"http://ceshi.lianshiding.com/Uploads/2017-06-26/2761498442103dWxz.jpg","time":"2017-06-26 10:23:03"}
      */
 
     private String status;
@@ -45,11 +45,11 @@ public class NewCheYuanDetailBean {
 
     public static class NrBean {
         /**
-         * id : 9949
+         * id : 9979
          * login_id : 276
-         * type_name : 3
-         * typename : 旧版类型接口
-         * car_title : 广人
+         * type_name : 1
+         * typename :
+         * car_title :
          * set_province_id : 0
          * set_city_id : 0
          * set_area_id : 0
@@ -62,11 +62,12 @@ public class NewCheYuanDetailBean {
          * address_out :
          * address_set_detail :
          * address_out_detail :
-         * iphone : 99
-         * people : ivh
+         * iphone : 55
+         * people : 测试
          * address :
          * car_type : 危险品车
-         * car_lange : 5
+         * car_lange : 7.2
+         * fcsj :
          * img1 :
          * img2 :
          * img3 :
@@ -80,33 +81,33 @@ public class NewCheYuanDetailBean {
          * type : 0
          * content : 暂无备注！
          * num : 1
-         * create_time : 1497165345
-         * update_time : 1497678801
-         * imgtu : ["https://www.lianshiding.com/Uploads/2017-06-14/27614973701137eol.jpg"]
+         * create_time : 1498442103
+         * update_time : 1498443783
+         * imgtu : ["http://ceshi.lianshiding.com/Uploads/2017-06-26/2761498442103dWxz.jpg"]
          * cfsheng : 浙江省
          * cfshi : 温州市
          * cfqu : 乐清市
-         * cfdizhi : 中国浙江省温州市乐清市旭阳路150号 在中国建设银行(乐清旭阳分理处)附近
-         * cfzuobiao : 28.122452,120.981792
+         * cfdizhi : 浙江省温州市乐清市双雁路538号  双雁花苑附近39米
+         * cfzuobiao : 28.122685,120.981404
+         * cflat : 28.122685
+         * cflng : 120.981404
          * dasheng : 浙江省
          * dashi : 温州市
          * daqu : 乐清市
-         * dadizhi : 浙江省温州市乐清市玉箫路 双阳商务宾馆南192米
-         * dazuobiao : 28.120111294582323,120.98040841824158
-         * lng : 120.981792
-         * lat : 28.122452
+         * dadizhi : 浙江省温州市乐清市双雁路458号  中国建设银行(乐清旭阳分理处)附近43米
+         * dazuobiao : 28.122387999884083,120.98134499999998
+         * dalat : 28.122387999884083
+         * dalng : 120.98134499999998
+         * lng : 120.981404
+         * lat : 28.122685
          * zt : 1
          * juli : 2000
-         * zuobiaohash : wsypcp830j48
-         * gg : 0
-         * cflat : 28.122452
-         * cflng : 120.981792
-         * dalat : 28.120111294582323
-         * dalng : 120.98040841824158
-         * czlat : 28.122861
-         * czlng : 120.981972
-         * cztouxiang : https://www.lianshiding.com/Uploads/2017-06-14/27614973701137eol.jpg
-         * time : 2017-06-17 13:53:21
+         * zuobiaohash : wsypbzxfx03n
+         * gg : {"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"}
+         * czlat : 28.122685
+         * czlng : 120.981404
+         * cztouxiang : http://ceshi.lianshiding.com/Uploads/2017-06-26/2761498442103dWxz.jpg
+         * time : 2017-06-26 10:23:03
          */
 
         private String id;
@@ -131,6 +132,7 @@ public class NewCheYuanDetailBean {
         private String address;
         private String car_type;
         private String car_lange;
+        private String fcsj;
         private String img1;
         private String img2;
         private String img3;
@@ -151,21 +153,21 @@ public class NewCheYuanDetailBean {
         private String cfqu;
         private String cfdizhi;
         private String cfzuobiao;
+        private String cflat;
+        private String cflng;
         private String dasheng;
         private String dashi;
         private String daqu;
         private String dadizhi;
         private String dazuobiao;
+        private String dalat;
+        private String dalng;
         private String lng;
         private String lat;
         private String zt;
         private String juli;
         private String zuobiaohash;
-        private String gg;
-        private String cflat;
-        private String cflng;
-        private String dalat;
-        private String dalng;
+        private GgBean gg;
         private String czlat;
         private String czlng;
         private String cztouxiang;
@@ -348,6 +350,14 @@ public class NewCheYuanDetailBean {
             this.car_lange = car_lange;
         }
 
+        public String getFcsj() {
+            return fcsj;
+        }
+
+        public void setFcsj(String fcsj) {
+            this.fcsj = fcsj;
+        }
+
         public String getImg1() {
             return img1;
         }
@@ -508,6 +518,22 @@ public class NewCheYuanDetailBean {
             this.cfzuobiao = cfzuobiao;
         }
 
+        public String getCflat() {
+            return cflat;
+        }
+
+        public void setCflat(String cflat) {
+            this.cflat = cflat;
+        }
+
+        public String getCflng() {
+            return cflng;
+        }
+
+        public void setCflng(String cflng) {
+            this.cflng = cflng;
+        }
+
         public String getDasheng() {
             return dasheng;
         }
@@ -546,6 +572,22 @@ public class NewCheYuanDetailBean {
 
         public void setDazuobiao(String dazuobiao) {
             this.dazuobiao = dazuobiao;
+        }
+
+        public String getDalat() {
+            return dalat;
+        }
+
+        public void setDalat(String dalat) {
+            this.dalat = dalat;
+        }
+
+        public String getDalng() {
+            return dalng;
+        }
+
+        public void setDalng(String dalng) {
+            this.dalng = dalng;
         }
 
         public String getLng() {
@@ -588,44 +630,12 @@ public class NewCheYuanDetailBean {
             this.zuobiaohash = zuobiaohash;
         }
 
-        public String getGg() {
+        public GgBean getGg() {
             return gg;
         }
 
-        public void setGg(String gg) {
+        public void setGg(GgBean gg) {
             this.gg = gg;
-        }
-
-        public String getCflat() {
-            return cflat;
-        }
-
-        public void setCflat(String cflat) {
-            this.cflat = cflat;
-        }
-
-        public String getCflng() {
-            return cflng;
-        }
-
-        public void setCflng(String cflng) {
-            this.cflng = cflng;
-        }
-
-        public String getDalat() {
-            return dalat;
-        }
-
-        public void setDalat(String dalat) {
-            this.dalat = dalat;
-        }
-
-        public String getDalng() {
-            return dalng;
-        }
-
-        public void setDalng(String dalng) {
-            this.dalng = dalng;
         }
 
         public String getCzlat() {
@@ -666,6 +676,32 @@ public class NewCheYuanDetailBean {
 
         public void setImgtu(List<String> imgtu) {
             this.imgtu = imgtu;
+        }
+
+        public static class GgBean {
+            /**
+             * img : http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png
+             * url : http://www.baidu.com
+             */
+
+            private String img;
+            private String url;
+
+            public String getImg() {
+                return img;
+            }
+
+            public void setImg(String img) {
+                this.img = img;
+            }
+
+            public String getUrl() {
+                return url;
+            }
+
+            public void setUrl(String url) {
+                this.url = url;
+            }
         }
     }
 }

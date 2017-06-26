@@ -108,7 +108,7 @@ public class HuoYuanListController extends BaseController {
             }
         });
     }
-
+/*
     public void getDataFromNet(String page,String typeName) {
 
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
@@ -138,7 +138,7 @@ public class HuoYuanListController extends BaseController {
             public void onNext(NewHuoYuanListBean newHuoYuanListBean) {
 
                 if (newHuoYuanListBean.getStatus().equals("0")) {
-                 /*   int size = newHuoYuanListBean.getNr().getList().size();
+                 *//*   int size = newHuoYuanListBean.getNr().getList().size();
                     int count = tempBeanList.size();
                     noAdsBeanList.clear();
                     adsBeanList.clear();
@@ -179,12 +179,12 @@ public class HuoYuanListController extends BaseController {
                     }
                     tempBeanList.clear();
                     tempBeanList.addAll(adsBeanList);
-                    tempBeanList.addAll(noAdsBeanList);*/
+                    tempBeanList.addAll(noAdsBeanList);*//*
                     huoYuanListXRVAdapter.setAdapter(newHuoYuanListBean.getNr().getList());
                 }
             }
         });
-    }
+    }*/
 
     public void getData2FromNet(final String page, String typeName, String bP, String bC, String bA, String eP, String eC, String eA){
 

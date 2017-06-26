@@ -1,5 +1,7 @@
 package com.shandian.lu.Main.IndexFragment.NewCheYuanList;
 
+import android.widget.Toast;
+
 import com.shandian.lu.BaseActivity;
 import com.shandian.lu.R;
 
@@ -26,5 +28,11 @@ public class CheYuanListActivity extends BaseActivity {
 
     private void initController(){
         cheYuanListController = new CheYuanListController(this);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
     }
 }

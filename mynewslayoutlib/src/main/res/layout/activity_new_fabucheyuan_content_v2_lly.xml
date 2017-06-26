@@ -205,19 +205,21 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4.5"
                     >
-                    <EditText
-                        android:id="@+id/et_new_fabucheyuan_carlength"
+                    <TextView
+                        android:id="@+id/tv_new_fabucheyuan_carlength"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="请输入车长"
+                        android:hint="请选择车长"
                         android:textColorHint="@color/color_main_release_tezhongyunshu_content_gray_word_textcolor"
                         android:textColor="@color/color_main_release_tezhongyunshu_content_black_word_textcolor"
                         android:textSize="11sp"
                         android:background="@null"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentLeft="true"
-                        android:digits="0123456789"
+                       android:gravity="center_vertical"
                         android:layout_alignParentStart="true" />
+
+                    <!--android:digits="0123456789"-->
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="@dimen/zero"
@@ -440,8 +442,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="4.5"
                 >
-                <EditText
-                    android:id="@+id/et_new_fabucheyuan_time"
+                <TextView
+                    android:id="@+id/tv_new_fabucheyuan_time"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="请选择一个时间段"
@@ -450,8 +452,9 @@
                     android:textColor="@color/color_main_release_tezhongyunshu_content_black_word_textcolor"
                     android:textSize="11sp"
                     android:layout_centerVertical="true"
-                    android:digits="0123456789"
+                    android:gravity="center_vertical"
                     />
+                <!--android:digits="0123456789"-->
             </RelativeLayout>
 
             <RelativeLayout

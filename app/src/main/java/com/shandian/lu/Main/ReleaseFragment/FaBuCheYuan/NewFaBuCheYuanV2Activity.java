@@ -19,6 +19,8 @@ import com.shandian.lu.Main.ReleaseFragment.SelectAddAddress.SelectAddAddressAct
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.NetWork.NewFaBuNetWork;
 import com.shandian.lu.R;
+import com.shandian.lu.Widget.Dialog.CarLengthDialog;
+import com.shandian.lu.Widget.Utils.Util;
 import com.yanzhenjie.album.Album;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
@@ -33,6 +35,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Observer;
+import zhyan.likeiosselectpopuplib.TimePickerView;
 
 /**
  * Created by Administrator on 2017/6/8.
@@ -43,7 +46,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
     private String typeName ;
     private boolean isUpdate = false;
     private String id = "";
-    private NewFaBuCheYuanController newFaBuCheYuanController;
+    private NewFaBuCheYuanV2Controller newFaBuCheYuanV2Controller;
     private  final int ACTIVITY_REQUEST_SELECT_PHOTO = 100;
 
     private final int ACTIVITY_SELECT_ADDRESS_BEGIN = 105;
@@ -58,6 +61,12 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
     private ArrayList imgTuList;
     @BindView(R.id.pb_new_fabucheyuan)
     ProgressBar pbNewFaBuCheYuan;
+    @BindView(R.id.tv_new_fabucheyuan_time)
+    TextView tvNewFaBuCheYuanTime;
+    @OnClick(R.id.tv_new_fabucheyuan_time)
+    public void tvNewFaBuCheYuanTimeOnclick(){
+        getTime();
+    }
     @BindView(R.id.tv_new_fabucheyuan_submit)
     TextView tvNewFaBuCheYuanSubmit;
     @BindView(R.id.rly_new_fabucheyuan_submit)
@@ -65,18 +74,18 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
     @OnClick(R.id.rly_new_fabucheyuan_submit)
     public void  rlyNewFaBuCheYuanSubmitOnclick(){
         pbNewFaBuCheYuan.setVisibility(View.VISIBLE);
-        int imgSize = newFaBuCheYuanController.addPicRVAdapter.getNetImageList().size();
+        int imgSize = newFaBuCheYuanV2Controller.addPicRVAdapter.getNetImageList().size();
 
         if(imgSize <= 0){
             Toast.makeText(this,"请至少上传1张图片",Toast.LENGTH_LONG).show();
             pbNewFaBuCheYuan.setVisibility(View.GONE);
             return;
         }
-        if(newFaBuCheYuanController.addPicRVAdapter.isPicFinished) {
+        if(newFaBuCheYuanV2Controller.addPicRVAdapter.isPicFinished) {
             if(checkParam()) {
 
                 if(isUpdate){
-                    updateHuoYuanToNet();
+                    updateCheYuanToNet();
 
                 }else
                 {
@@ -93,11 +102,11 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
     }
     private boolean checkParam(){
 
-        String title = etNewFaBuCheYuanTitle.getText().toString();
+  /*      String title = etNewFaBuCheYuanTitle.getText().toString();
         if(title.length() == 0){
             Toast.makeText(this,"请输入车源标题",Toast.LENGTH_LONG).show();
             return false;
-        }
+        }*/
         String bAddr = tvNewFaBuCheYuanBegin.getText().toString();
         if(bAddr.length() == 0){
             Toast.makeText(this,"请输入出发地",Toast.LENGTH_LONG).show();
@@ -108,7 +117,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
             Toast.makeText(this,"请选择目的地",Toast.LENGTH_LONG).show();
             return false;
         }
-        String length = etNewFaBuCheYuanCalLength.getText().toString();
+        String length = tvNewFaBuCheYuanCalLength.getText().toString();
         if(length.length() == 0){
             Toast.makeText(this,"请输入车长",Toast.LENGTH_LONG).show();
             return false;
@@ -163,11 +172,26 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
         intent.putExtra("lon",elon);
         startActivityForResult(intent,ACTIVITY_SELECT_ADDRESS_END);
     }
+    CarLengthDialog carLengthDialog;
+/*    @BindView(R.id.et_new_fabucheyuan_title)
+    EditText etNewFaBuCheYuanTitle;*/
+    @BindView(R.id.tv_new_fabucheyuan_carlength)
+    TextView tvNewFaBuCheYuanCalLength;
+    @OnClick(R.id.tv_new_fabucheyuan_carlength)
+    public void tvNewFaBuCheYuanCalLengthOnclick(){
+        carLengthDialog = new CarLengthDialog(this,tvNewFaBuCheYuanCalLength).Build.build(this);
+        showDialog2();
 
-    @BindView(R.id.et_new_fabucheyuan_title)
-    EditText etNewFaBuCheYuanTitle;
-    @BindView(R.id.et_new_fabucheyuan_carlength)
-    EditText etNewFaBuCheYuanCalLength;
+    }
+    public void showDialog2() {
+        if (carLengthDialog != null && !carLengthDialog.isShowing())
+            carLengthDialog.show();
+    }
+
+    public void dissmissDialog2() {
+        if (carLengthDialog != null && carLengthDialog.isShowing())
+            carLengthDialog.dismiss();
+    }
     @BindView(R.id.et_new_fabucheyuan_name)
     EditText etNewFaBuCheYuanName;
     @BindView(R.id.et_new_fabucheyuan_tel)
@@ -185,7 +209,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
     TextView tvNewFaBuCheYuanCarType;
     @Override
     protected void setContentView() {
-        setContentView(R.layout.activity_new_fabucheyuan_lly);
+        setContentView(R.layout.activity_new_fabucheyuan_v2_lly);
     }
 
     @Override
@@ -225,7 +249,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
                 }
                 imgTuList.clear();
                 imgTuList.addAll(tempList);
-                newFaBuCheYuanController.addPicRVAdapter.setNetImageList(imgTuList);
+                newFaBuCheYuanV2Controller.addPicRVAdapter.setNetImageList(imgTuList);
             }
             getDataFromNet();
             tvNewFaBuCheYuanSubmit.setText("确认修改");
@@ -258,7 +282,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
         });
     }
     private void initDetail(NewCheYuanDetailBean newCheYuanDetailBean){
-        etNewFaBuCheYuanTitle.setText(newCheYuanDetailBean.getNr().getCar_title());
+  /*      etNewFaBuCheYuanTitle.setText(newCheYuanDetailBean.getNr().getCar_title());*/
         tvNewFaBuCheYuanBegin.setText(newCheYuanDetailBean.getNr().getCfdizhi());
         tvNewFaBuCheYuanEnd.setText(newCheYuanDetailBean.getNr().getDadizhi());
         String length = newCheYuanDetailBean.getNr().getCar_lange();
@@ -269,7 +293,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
         if(indexOfMi > 0){
             length = length.substring(0,indexOfMi);
         }
-        etNewFaBuCheYuanCalLength.setText(length);
+        tvNewFaBuCheYuanCalLength.setText(length);
         /*Toast.makeText(this,newCheYuanDetailBean.getNr().getCar_type(),Toast.LENGTH_LONG).show();*/
         tvNewFaBuCheYuanCarType.setText(newCheYuanDetailBean.getNr().getCar_type());
         etNewFaBuCheYuanName.setText(newCheYuanDetailBean.getNr().getPeople());
@@ -287,8 +311,8 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
         blon = newCheYuanDetailBean.getNr().getCflng();
         elat = newCheYuanDetailBean.getNr().getDalat();
         elon = newCheYuanDetailBean.getNr().getDalng();
-        newFaBuCheYuanController.addPicRVAdapter.setUpdateList(newCheYuanDetailBean.getNr().getImgtu());
-
+        newFaBuCheYuanV2Controller.addPicRVAdapter.setUpdateList(newCheYuanDetailBean.getNr().getImgtu());
+        tvNewFaBuCheYuanTime.setText(newCheYuanDetailBean.getNr().getFcsj());
     }
     private void getType(){
         typeName = getIntent().getStringExtra("type_name");
@@ -313,7 +337,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
     }
 
     private void initController(){
-        newFaBuCheYuanController = new NewFaBuCheYuanController(this);
+        newFaBuCheYuanV2Controller = new NewFaBuCheYuanV2Controller(this);
     }
 
 
@@ -322,7 +346,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
         if(data == null){
             return;
         }
-        newFaBuCheYuanController.addPicRVAdapter.isPicFinished = true;
+        newFaBuCheYuanV2Controller.addPicRVAdapter.isPicFinished = true;
         switch (requestCode) {
             case ACTIVITY_REQUEST_SELECT_PHOTO: {
                 if (resultCode == RESULT_OK) { // Successfully.
@@ -378,7 +402,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
         ArrayList<String> nowSelectImgList = new ArrayList<>();
         currentImgList.clear();
 
-        currentImgList.addAll(newFaBuCheYuanController.addPicRVAdapter.getAllImgList());
+        currentImgList.addAll(newFaBuCheYuanV2Controller.addPicRVAdapter.getAllImgList());
         if(!isUpdate) {
             if (isFirst) {
                 currentImgList.clear();
@@ -439,8 +463,8 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
             System.out.print("\nnowSelectImgList"+nowSelectImgList.get(i));
         }*/
 
-        newFaBuCheYuanController.addPicRVAdapter.setAdapterImage(mImageList);
-        newFaBuCheYuanController.addPicRVAdapter.setNewImgList(nowSelectImgList);
+        newFaBuCheYuanV2Controller.addPicRVAdapter.setAdapterImage(mImageList);
+        newFaBuCheYuanV2Controller.addPicRVAdapter.setNewImgList(nowSelectImgList);
         isFirst = false;
     }/*
     private void isSamePicDelete(){
@@ -504,12 +528,12 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
             return paramMap;
         }
         paramMap.put("type_name",typeName);
-        String title = etNewFaBuCheYuanTitle.getText().toString();
+  /*      String title = etNewFaBuCheYuanTitle.getText().toString();
         if(title == null){
             title = "";
         }
 
-        paramMap.put("car_title",title);
+        paramMap.put("car_title",title);*/
         String goodsName = etNewFaBuCheYuanName.getText().toString();
         if(goodsName == null){
             goodsName = "";
@@ -545,7 +569,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
         paramMap.put("daqu",eArea);
         String dZuoBiao = elat+ ","+elon;
         paramMap.put("dazuobiao",dZuoBiao);
-        String carLength = etNewFaBuCheYuanCalLength.getText().toString();
+        String carLength = tvNewFaBuCheYuanCalLength.getText().toString();
         if(null == carLength){
             carLength = "" ;
         }
@@ -567,18 +591,24 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
         }
 
         paramMap.put("iphone",iphone);
+        String fcsj = tvNewFaBuCheYuanTime.getText().toString();
+        if(fcsj == null){
+            fcsj = "";
+        }
+
+        paramMap.put("fcsj",fcsj);
         String content = etNewFaBuCheYuanDesc.getText().toString();
         if(content  == null){
             content = "";
         }
         paramMap.put("content",content);
-        List<String> lastNetImageList = newFaBuCheYuanController.addPicRVAdapter.getNetImageList();
+        List<String> lastNetImageList = newFaBuCheYuanV2Controller.addPicRVAdapter.getNetImageList();
         if(lastNetImageList == null){
             lastNetImageList = new ArrayList<>();
         }
         paramMap.put("imgtu",lastNetImageList);
 /*        paramMap.put("imgtu",netImageList);*/
-        List<String> deleteImageList = newFaBuCheYuanController.addPicRVAdapter.getDeleteImageLists();
+        List<String> deleteImageList = newFaBuCheYuanV2Controller.addPicRVAdapter.getDeleteImageLists();
         if(deleteImageList == null){
             deleteImageList = new ArrayList<>();
         }
@@ -630,12 +660,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
             pbNewFaBuCheYuan.setVisibility(View.GONE);
             return;
         }
-        String carLength = etNewFaBuCheYuanCalLength.getText().toString();
-        if(!phoneFormatCheckUtils.isNumber(carLength)){
-            Toast.makeText(this,"车长请输入数字",Toast.LENGTH_LONG).show();
-            pbNewFaBuCheYuan.setVisibility(View.GONE);
-            return;
-        }
+
 
         NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
         newFaBuNetWork.faBuOrUpdateCheYuanToNet(getFaBuParamMap(), new Observer<NewFaBuCheYuanBean>() {
@@ -665,7 +690,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
     }
 
 
-    private void updateHuoYuanToNet(){
+    private void updateCheYuanToNet(){
         pbNewFaBuCheYuan.setVisibility(View.VISIBLE);
 
         PhoneFormatCheckUtils phoneFormatCheckUtils = new PhoneFormatCheckUtils();
@@ -675,12 +700,12 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
             pbNewFaBuCheYuan.setVisibility(View.GONE);
             return;
         }
-        String weight = etNewFaBuCheYuanCalLength.getText().toString();
+   /*     String weight = .getText().toString();
         if(!phoneFormatCheckUtils.isNumber(weight)){
             Toast.makeText(this,"重量请输入数字",Toast.LENGTH_LONG).show();
             pbNewFaBuCheYuan.setVisibility(View.GONE);
             return;
-        }
+        }*/
 
 
 
@@ -706,7 +731,23 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
                 }
             }
         });
-    }/*
+    }
+
+    private void getTime(){
+        String format = "";
+        TimePickerView.Type type = null;
+        type = TimePickerView.Type.YEAR_MONTH_DAY;
+        format = "yyyy-MM-dd";
+        Util.alertTimerPicker(this, type, format, new Util.TimerPickerCallBack() {
+            @Override
+            public void onTimeSelect(String date) {
+                /*Toast.makeText(NewFaBuHuoYuanV2Activity.this, date, Toast.LENGTH_SHORT).show();*/
+                tvNewFaBuCheYuanTime.setText(date);
+            }
+        });
+    }
+
+    /*
 
     //图片压缩
     private Bitmap compressImageFromFile(String srcPath) {

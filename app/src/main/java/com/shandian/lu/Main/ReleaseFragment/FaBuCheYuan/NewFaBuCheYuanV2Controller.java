@@ -58,7 +58,7 @@ public class NewFaBuCheYuanV2Controller extends BaseController {
 
 
     private List<String> tempList ;
-    public NewFaBuCheYuanAddPicRVAdapter addPicRVAdapter;
+    public NewFaBuCheYuanAddPicV2RVAdapter addPicRVAdapter;
     public NewFaBuCheYuanV2Controller(Activity activity1){
         activity = activity1;
         init();
@@ -76,7 +76,7 @@ public class NewFaBuCheYuanV2Controller extends BaseController {
         tempList = new ArrayList<>();
         tempList.add("");
 
-        addPicRVAdapter = new NewFaBuCheYuanAddPicRVAdapter(activity,tempList,pbNewFaBuCheYuan);
+        addPicRVAdapter = new NewFaBuCheYuanAddPicV2RVAdapter(activity,tempList,pbNewFaBuCheYuan);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvMainReleaseNewFaBuHuoYuanAddPic.setAdapter(addPicRVAdapter);

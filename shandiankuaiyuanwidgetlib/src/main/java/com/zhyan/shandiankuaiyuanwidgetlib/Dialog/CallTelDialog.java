@@ -85,8 +85,8 @@ public class CallTelDialog extends Dialog {
             return this;
         }
 
-        public Builder setCallBackListener(DialogCallBackListener mDialogCallBackListener){//设置回调
-            this.mDialogCallBackListener = mDialogCallBackListener;
+        public Builder setCallBackListener(DialogCallBackListener mDialogCallBackListener1){//设置回调
+            this.mDialogCallBackListener = mDialogCallBackListener1;
             return this;
         }
         /**

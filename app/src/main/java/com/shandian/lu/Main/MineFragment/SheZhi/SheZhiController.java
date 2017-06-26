@@ -2,6 +2,9 @@ package com.shandian.lu.Main.MineFragment.SheZhi;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,6 +21,8 @@ import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.umeng.socialize.utils.DeviceConfig.context;
 
 /**
  * Created by az on 2017/5/4.
@@ -55,7 +60,8 @@ public class SheZhiController extends BaseController {
         Intent intent = new Intent(activity, XiaoXiSheZhiActivity.class);
         activity.startActivity(intent);
     }
-
+    @BindView(R.id.tv_main_mine_shezhi_version)
+    TextView tvMainMineSheZhiVersion;
 
     public SheZhiController(Activity activity1){
         activity = activity1;
@@ -66,11 +72,30 @@ public class SheZhiController extends BaseController {
     protected void init() {
         ButterKnife.bind(this,activity);
         initDiskCacheSize();
+        initVersion();
     }
 
     private void initDiskCacheSize(){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         String size = xcCacheManager.getDiskSize()+"M";
         tvMainMineSheZhiDiskSize.setText(size);
+    }
+    private void initVersion(){
+        String versionName = "";
+        int versioncode = 0;
+        try {
+            // ---get the package info---
+            PackageManager pm = activity.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(activity.getPackageName(), 0);
+            versionName = pi.versionName;
+            versioncode = pi.versionCode;
+            if (versionName == null || versionName.length() <= 0) {
+                tvMainMineSheZhiVersion.setText("0");
+            }else {
+                tvMainMineSheZhiVersion.setText("VersionName:"+versionName+" "+"VersionCode:"+versioncode);
+            }
+        } catch (Exception e) {
+            Log.e("VersionInfo", "Exception", e);
+        }
     }
 }
