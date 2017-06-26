@@ -2,6 +2,8 @@ package zhyan.likeiosselectpopuplib;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +12,17 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 import java.util.List;
 
+import zhyan.likeiosselectpopuplib.Bean.JsonBean;
 import zhyan.likeiosselectpopuplib.lib.ProCityAreaWheelView;
 import zhyan.likeiosselectpopuplib.listener.CustomListener;
 import zhyan.likeiosselectpopuplib.view.ProCityAreaBasePickerView;
@@ -132,7 +141,7 @@ public class ProvCityAreaOptionsPickerView<T> extends ProCityAreaBasePickerView 
 
     //建造器
     public static class Builder {
-        private int layoutRes = R.layout.pickerview_options;
+        private int layoutRes = R.layout.prov_city_area_pickerview_options;
         private CustomListener customListener;
         private Context context;
         private OnOptionsSelectListener optionsSelectListener;
