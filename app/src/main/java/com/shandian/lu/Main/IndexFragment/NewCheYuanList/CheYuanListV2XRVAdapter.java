@@ -16,14 +16,13 @@ import android.widget.TextView;
 import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailOtherActivity;
-import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailSelflActivity;
+import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailSelfActivity;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
 import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
 import com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView;
-import com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView;
 
 import java.util.List;
 
@@ -74,15 +73,15 @@ public class CheYuanListV2XRVAdapter extends RecyclerView.Adapter<CheYuanListV2X
         holder.pos = position;
         if(position == 0){
 
-            holder.llyNewCheYuanListXRVItemItem.setVisibility(View.VISIBLE);
+
             holder.rlyNewCheYuanListXRVItemAds.setVisibility(View.GONE);
         }else {
             if (position % 6 == 0) {
-                holder.llyNewCheYuanListXRVItemItem.setVisibility(View.GONE);
+
                 holder.rlyNewCheYuanListXRVItemAds.setVisibility(View.VISIBLE);
                 ImageLoader.getInstance().displayImage(img,holder.ivNewCheYuanListXRVItemAds,ImageLoaderUtils.options1);
             } else {
-                holder.llyNewCheYuanListXRVItemItem.setVisibility(View.VISIBLE);
+
                 holder.rlyNewCheYuanListXRVItemAds.setVisibility(View.GONE);
             }
         }
@@ -253,7 +252,7 @@ public class CheYuanListV2XRVAdapter extends RecyclerView.Adapter<CheYuanListV2X
             }
 
             if(loginId.equals(cheYuanList.get(pos).getLogin_id())){
-                Intent intent = new Intent(activity, NewCheYuanDetailSelflActivity.class);
+                Intent intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
                 intent.putExtra("cyid",cheYuanList.get(pos).getId());
                 activity.startActivity(intent);
                 return;

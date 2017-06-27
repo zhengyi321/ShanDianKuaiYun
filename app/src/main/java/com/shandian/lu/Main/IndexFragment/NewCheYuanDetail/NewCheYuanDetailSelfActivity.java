@@ -9,14 +9,14 @@ import butterknife.ButterKnife;
  * Created by Administrator on 2017/6/9.
  */
 
-public class NewCheYuanDetailSelflActivity extends BaseActivity {
+public class NewCheYuanDetailSelfActivity extends BaseActivity {
 
 
-    private NewCheYuanDetailSelflController newCheYuanDetailSelflController;
+    private NewCheYuanDetailSelfV2Controller newCheYuanDetailSelfV2Controller;
 
     @Override
     protected void setContentView() {
-        setContentView(R.layout.activity_new_self_cheyuanxiangqing_lly);
+        setContentView(R.layout.activity_new_self_cheyuanxiangqing_v2_lly);
     }
 
     @Override
@@ -26,6 +26,6 @@ public class NewCheYuanDetailSelflActivity extends BaseActivity {
     }
 
     private void initController(){
-        newCheYuanDetailSelflController = new NewCheYuanDetailSelflController(this);
+        newCheYuanDetailSelfV2Controller = new NewCheYuanDetailSelfV2Controller(this);
     }
 }

@@ -814,7 +814,7 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             />
-        <activity android:name=".Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailSelflActivity"
+        <activity android:name=".Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailSelfActivity"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             android:windowSoftInputMode="adjustPan"

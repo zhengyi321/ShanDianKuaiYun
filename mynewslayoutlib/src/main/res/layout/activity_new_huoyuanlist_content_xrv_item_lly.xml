@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="120.5dp"
+    android:layout_height="wrap_content"
     android:background="#f4f4f4">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@color/white"
         android:id="@+id/lly_new_huoyuanlist_item"
@@ -459,23 +459,24 @@
         android:background="@color/lightgray"
 
         />
-    </LinearLayout>
-    <RelativeLayout
-        android:id="@+id/rly_new_huoyuanlist_ads"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        >
 
-        <ImageView
-            android:id="@+id/iv_new_huoyuanlist_ads"
+        <RelativeLayout
+            android:id="@+id/rly_new_huoyuanlist_ads"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:scaleType="fitXY"
-            android:background="@color/red"
-            />
+            android:layout_height="120dp"
+            android:visibility="gone"
+            >
 
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/iv_new_huoyuanlist_ads"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:scaleType="fitXY"
+                android:background="@color/red"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
 </FrameLayout>

@@ -27,7 +27,7 @@ import rx.Observer;
  * Created by Administrator on 2017/6/9.
  */
 
-public class NewCheYuanDetailSelflController extends BaseController {
+public class NewCheYuanDetailSelfController extends BaseController {
 
     private String bLat,bLon,eLat,eLon,cheLat,cheLon,cheTouXiang;
     @BindView(R.id.rly_new_self_cyxq_back)
@@ -88,7 +88,7 @@ public class NewCheYuanDetailSelflController extends BaseController {
     private String cyId ;
     private NewCheYuanDetailImgRVAdapter adapter;
     private List<String> imgList;
-    public NewCheYuanDetailSelflController(Activity activity1){
+    public NewCheYuanDetailSelfController(Activity activity1){
         activity = activity1;
         init();
     }

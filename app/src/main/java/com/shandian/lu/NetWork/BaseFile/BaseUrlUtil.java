@@ -6,8 +6,8 @@ package com.shandian.lu.NetWork.BaseFile;
 
 public class BaseUrlUtil {
 
-    public String BaseServiceUrl = "http://www.lianshiding.com";//正式
-   /* public String BaseServiceUrl = "http://ceshi.lianshiding.com";//测试*/
+    /*public String BaseServiceUrl = "http://www.lianshiding.com";//正式*/
+    public String BaseServiceUrl = "http://ceshi.lianshiding.com";//测试
 
 
 }

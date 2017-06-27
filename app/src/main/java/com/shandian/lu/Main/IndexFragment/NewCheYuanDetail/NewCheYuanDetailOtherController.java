@@ -187,9 +187,7 @@ public class NewCheYuanDetailOtherController extends BaseController {
     }
     private void initRV(){
         imgList = new ArrayList<>();
-        imgList.add("");
-        imgList.add("");
-        imgList.add("");
+
         adapter = new NewCheYuanDetailImgRVAdapter(activity,imgList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);

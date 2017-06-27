@@ -160,9 +160,10 @@ public class MyReceiver extends BroadcastReceiver {
             JSONObject extraJson = new JSONObject(extras);
             if (null != extraJson && extraJson.length() > 0) {
                     /*String sound = extraJson.getString("sound");*///自定义字段解析
+                cyid = extraJson.getString("cyid");//自定义字段解析
                 lx = extraJson.getString("lx");//自定义字段解析
                 hyId = extraJson.getString("hyid");//自定义字段解析
-                cyid = extraJson.getString("cyid");//自定义字段解析
+
                 System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
                 System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
                 System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);

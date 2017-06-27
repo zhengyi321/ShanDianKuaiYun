@@ -81,13 +81,15 @@ public class CheYuanListController extends BaseController {
         changeListActivity();
     }
 
+
+
     @BindView(R.id.tv_new_cheyuanlist_baddr)
     TextView tvNewCheYuanListBAddr;
     @BindView(R.id.rly_new_cheyuanlist_baddr)
     RelativeLayout rlyNewCheYuanListBAddr;
     @OnClick(R.id.rly_new_cheyuanlist_baddr)
     public void rlyNewCheYuanListBAddrOnclick(){
-        ShowPickerView();
+        ShowPickerView(true);
     }
     @BindView(R.id.tv_new_cheyuanlist_eaddr)
     TextView tvNewCheYuanListEAddr;
@@ -95,12 +97,12 @@ public class CheYuanListController extends BaseController {
     RelativeLayout rlyNewCheYuanListEAddr;
     @OnClick(R.id.rly_new_cheyuanlist_eaddr)
     public void rlyNewCheYuanListEAddrOnclick(){
-        ShowPickerView();
+        ShowPickerView(false);
     }
 
 
 
-    private void ShowPickerView() {// 弹出选择器
+    private void ShowPickerView(final boolean isYourSHiXiong) {// 弹出选择器
 
         ProvCityAreaOptionsPickerView pvOptions = new ProvCityAreaOptionsPickerView.Builder(activity, new ProvCityAreaOptionsPickerView.OnOptionsSelectListener() {
             @Override
@@ -109,15 +111,30 @@ public class CheYuanListController extends BaseController {
                 String tx = options1Items.get(options1).getPickerViewText()+
                         options2Items.get(options1).get(options2)+
                         options3Items.get(options1).get(options2).get(options3);
+                if(isYourSHiXiong) {
+                    bProv =  options1Items.get(options1).getPickerViewText();
+                    bCity = options2Items.get(options1).get(options2);
+                    bArea =  options3Items.get(options1).get(options2).get(options3);
+                    tvNewCheYuanListBAddr.setText(bArea);
+                    page = 1;
+                    getData2FromNet();
+                }else{
 
-                Toast.makeText(activity,tx,Toast.LENGTH_SHORT).show();
+                    eProv =  options1Items.get(options1).getPickerViewText();
+                    eCity = options2Items.get(options1).get(options2);
+                    eArea =  options3Items.get(options1).get(options2).get(options3);
+                    tvNewCheYuanListEAddr.setText(eArea);
+                    page = 1;
+                    getData2FromNet();
+                }
+             /*   Toast.makeText(activity,tx,Toast.LENGTH_SHORT).show();*/
             }
         })
 
                 .setTitleText("城市选择")
                 .setDividerColor(Color.BLACK)
                 .setTextColorCenter(Color.BLACK) //设置选中项文字颜色
-                .setContentTextSize(20)
+                .setContentTextSize(15)
                 .setOutSideCancelable(false)// default is true
                 .build();
 
@@ -137,7 +154,8 @@ public class CheYuanListController extends BaseController {
             @Override
             public void isOnclick(boolean isOnclick) {
                 if(isOnclick){
-                    getData2FromNet("1");
+                    page = 1;
+                    getData2FromNet();
                 }
             }
         }).build(activity);
@@ -155,6 +173,9 @@ public class CheYuanListController extends BaseController {
     }
 
     CarLengthDialog carLengthDialog;
+
+
+
     @BindView(R.id.tv_new_cheyuanlist_carlangth)
     TextView tvNewCheYuanListCarLangth;
     @BindView(R.id.rly_new_cheyuanlist_carlangth)
@@ -165,7 +186,8 @@ public class CheYuanListController extends BaseController {
             @Override
             public void isClicked(boolean isClicked) {
                 if(isClicked){
-                    getData2FromNet("1");
+                    page = 1;
+                    getData2FromNet();
                 }
             }
         }).build(activity);
@@ -284,7 +306,7 @@ public class CheYuanListController extends BaseController {
                     public void run() {
 
                         page=1;
-                        getData2FromNet(page+"");
+                        getData2FromNet();
 
                         xrvNewCheYuanList.refreshComplete();
                     }
@@ -298,7 +320,7 @@ public class CheYuanListController extends BaseController {
                     new Handler().postDelayed(new Runnable(){
                         public void run() {
                             page++;
-                            getData2FromNet(page+"");
+                            getData2FromNet();
                             xrvNewCheYuanList.loadMoreComplete();
 
                         }
@@ -307,7 +329,7 @@ public class CheYuanListController extends BaseController {
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
                             page++;
-                            getData2FromNet(page+"");
+                            getData2FromNet();
                             xrvNewCheYuanList.setNoMore(true);
 
                         }
@@ -372,7 +394,7 @@ public class CheYuanListController extends BaseController {
 
 
 /*    public void getData2FromNet(final String page,  String bP, String bC, String bA, String eP, String eC, String eA,String carType,String carLangth){*/
-    public void getData2FromNet(final String page  ){
+    public void getData2FromNet(){
 
         String carType = tvNewCheYuanListCarType.getText().toString();
         String carLangth = tvNewCheYuanListCarLangth.getText().toString();
@@ -388,7 +410,7 @@ public class CheYuanListController extends BaseController {
             currentLon = "";
         }
         NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
-        newCheHuoListNetWork.getCheListV2FromNet(typeName, currentLat, currentLon, page, bProv, bCity, bArea, eProv, eCity, eArea, carType, carLangth, new Observer<NewCheYuanListBean>() {
+        newCheHuoListNetWork.getCheListV2FromNet(typeName, currentLat, currentLon, page+"", bProv, bCity, bArea, eProv, eCity, eArea, carType, carLangth, new Observer<NewCheYuanListBean>() {
             @Override
             public void onCompleted() {
 
@@ -401,7 +423,7 @@ public class CheYuanListController extends BaseController {
 
             @Override
             public void onNext(NewCheYuanListBean newCheYuanListBean) {
-                if(page.equals("1")){
+                if(page == 1 ){
                     cheYuanListXRVAdapter.cheYuanList.clear();
                 }
                 cheYuanListXRVAdapter.setAdapter(newCheYuanListBean.getNr().getList());

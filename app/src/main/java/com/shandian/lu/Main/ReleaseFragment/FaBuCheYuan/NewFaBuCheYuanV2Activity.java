@@ -10,6 +10,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.mapapi.search.route.BikingRouteResult;
+import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
+import com.baidu.mapapi.search.route.DrivingRouteResult;
+import com.baidu.mapapi.search.route.IndoorRouteResult;
+import com.baidu.mapapi.search.route.MassTransitRouteResult;
+import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
+import com.baidu.mapapi.search.route.PlanNode;
+import com.baidu.mapapi.search.route.RoutePlanSearch;
+import com.baidu.mapapi.search.route.TransitRouteResult;
+import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewFaBuCheYuanBean;
 import com.shandian.lu.BaseActivity;
@@ -41,8 +53,9 @@ import zhyan.likeiosselectpopuplib.TimePickerView;
  * Created by Administrator on 2017/6/8.
  */
 
-public class NewFaBuCheYuanV2Activity extends BaseActivity  {
-
+public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRoutePlanResultListener {
+    private float dis;
+    private String juli;
     private String typeName ;
     private boolean isUpdate = false;
     private String id = "";
@@ -53,6 +66,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
     private final int ACTIVITY_SELECT_ADDRESS_END = 106;
     private ArrayList<String> mImageList;
     private boolean isFirst = true;
+    RoutePlanSearch mSearch = null;    // 搜索模块，也可去掉地图模块独立使用
     int picSize = 0;
     int i = 0;
 
@@ -220,10 +234,25 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
         imgTuList = new ArrayList<>();
         getId();
         getType();
-
+        initRouteOverLay();
 
     }
+    private void initRouteOverLay(){
+        // 初始化搜索模块，注册事件监听
+        mSearch = RoutePlanSearch.newInstance();
+        mSearch.setOnGetRoutePlanResultListener(this);
+    }
+    private void searchProcessByLLG(LatLng begLlg , LatLng endLlg){
 
+
+
+
+        PlanNode stNode,enNode;
+        stNode = PlanNode.withLocation(begLlg);
+        enNode = PlanNode.withLocation(endLlg);
+
+        mSearch.drivingSearch(new DrivingRoutePlanOption().from(stNode).to(enNode));
+    }
     private void getId(){
         id = getIntent().getStringExtra("id");
 
@@ -313,6 +342,22 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
         elon = newCheYuanDetailBean.getNr().getDalng();
         newFaBuCheYuanV2Controller.addPicRVAdapter.setUpdateList(newCheYuanDetailBean.getNr().getImgtu());
         tvNewFaBuCheYuanTime.setText(newCheYuanDetailBean.getNr().getFcsj());
+        juli = newCheYuanDetailBean.getNr().getJuli();
+        if(blat == null){
+            blat = "0.0";
+        }
+        if(blon == null){
+            blon = "0.0";
+        }
+        if(elat == null){
+            elat = "0.0";
+        }
+        if(elon == null){
+            elon = "0.0";
+        }
+        LatLng bllg = new LatLng(Double.parseDouble(blat),Double.parseDouble(blon));
+        LatLng ellg = new LatLng(Double.parseDouble(elat),Double.parseDouble(elon));
+        searchProcessByLLG(bllg,ellg);
     }
     private void getType(){
         typeName = getIntent().getStringExtra("type_name");
@@ -371,6 +416,21 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
                 blon = begin.getString("lon");
                 beginAddr = begin.getString("addr");
                 tvNewFaBuCheYuanBegin.setText(beginAddr);
+                if(blat == null){
+                    blat = "0.0";
+                }
+                if(blon == null){
+                    blon = "0.0";
+                }
+                if(elat == null){
+                    elat = "0.0";
+                }
+                if(elon == null){
+                    elon = "0.0";
+                }
+                LatLng bllg = new LatLng(Double.parseDouble(blat),Double.parseDouble(blon));
+                LatLng ellg = new LatLng(Double.parseDouble(elat),Double.parseDouble(elon));
+                searchProcessByLLG(bllg,ellg);
                 break;
             }
             case ACTIVITY_SELECT_ADDRESS_END:{
@@ -384,6 +444,21 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
                 elon = begin.getString("lon");
                 endAddr = begin.getString("addr");
                 tvNewFaBuCheYuanEnd.setText(endAddr);
+                if(blat == null){
+                    blat = "0.0";
+                }
+                if(blon == null){
+                    blon = "0.0";
+                }
+                if(elat == null){
+                    elat = "0.0";
+                }
+                if(elon == null){
+                    elon = "0.0";
+                }
+                LatLng bllg = new LatLng(Double.parseDouble(blat),Double.parseDouble(blon));
+                LatLng ellg = new LatLng(Double.parseDouble(elat),Double.parseDouble(elon));
+                searchProcessByLLG(bllg,ellg);
                 break;
             }
             default:
@@ -538,6 +613,10 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
         if(goodsName == null){
             goodsName = "";
         }
+        if(juli  == null){
+            juli = "";
+        }
+        paramMap.put("juli",juli);
         paramMap.put("good_name",goodsName);
         if(bProvince == null){
             bProvince = "";
@@ -621,26 +700,6 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
             endAddr = "";
         }
         paramMap.put("dadizhi",endAddr);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
         System.out.print("\nparamMap"+paramMap);
         System.out.print("\nparamMap"+paramMap);
         System.out.print("\nparamMap"+paramMap);
@@ -745,6 +804,63 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  {
                 tvNewFaBuCheYuanTime.setText(date);
             }
         });
+    }
+
+    @Override
+    public void onGetWalkingRouteResult(WalkingRouteResult walkingRouteResult) {
+
+    }
+
+    @Override
+    public void onGetTransitRouteResult(TransitRouteResult transitRouteResult) {
+
+    }
+
+    @Override
+    public void onGetMassTransitRouteResult(MassTransitRouteResult massTransitRouteResult) {
+
+    }
+
+    @Override
+    public void onGetDrivingRouteResult(DrivingRouteResult result) {
+        if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
+          /*  Toast.makeText(this, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();*/
+        }
+        if (result.error == SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR) {
+            // 起终点或途经点地址有岐义，通过以下接口获取建议查询信息
+            // result.getSuggestAddrInfo()
+            return;
+        }
+        if (result.error == SearchResult.ERRORNO.NO_ERROR) {
+
+
+
+            if (result.getRouteLines().size() > 0) {
+                dis = result.getRouteLines().get(0).getDistance();
+                int size = result.getRouteLines().size();
+                float tempDis = 0;
+                for(int i=0;i<size;i++){
+                    float routeLines = result.getRouteLines().get(i).getDistance();
+                    if(routeLines < dis){
+                        dis = routeLines;
+                    }
+                }
+                juli = dis+"";
+
+                Toast.makeText(this,"juli:"+dis,Toast.LENGTH_LONG).show();
+            }
+
+        }
+    }
+
+    @Override
+    public void onGetIndoorRouteResult(IndoorRouteResult indoorRouteResult) {
+
+    }
+
+    @Override
+    public void onGetBikingRouteResult(BikingRouteResult bikingRouteResult) {
+
     }
 
     /*

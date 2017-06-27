@@ -77,7 +77,7 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
     @Override
     public void onBindViewHolder(MyItemHolder holder, int position) {
 
-        ImageLoader.getInstance().displayImage(img,holder.ivNewHuoYuanListAds,ImageLoaderUtils.options1);
+
 
 
         holder.pos = position;
@@ -125,14 +125,14 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
         ImageLoader.getInstance().displayImage(huoYuanList.get(position).getTouxiang(),holder.rcivNewHuoYuanListTouXiang, ImageLoaderUtils.options1);
         if(position == 0){
 
-            holder.llyNewHuoYuanListItem.setVisibility(View.VISIBLE);
             holder.rlyNewHuoYuanListAds.setVisibility(View.GONE);
         }else {
             if (position % 6 == 0) {
-                holder.llyNewHuoYuanListItem.setVisibility(View.GONE);
+
                 holder.rlyNewHuoYuanListAds.setVisibility(View.VISIBLE);
+                ImageLoader.getInstance().displayImage(img,holder.ivNewHuoYuanListAds,ImageLoaderUtils.options1);
             } else {
-                holder.llyNewHuoYuanListItem.setVisibility(View.VISIBLE);
+
                 holder.rlyNewHuoYuanListAds.setVisibility(View.GONE);
             }
         }
