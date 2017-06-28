@@ -256,6 +256,18 @@ public class CheYuanListController extends BaseController {
                 activity.startActivity(intent);
                 activity.finish();
                 break;
+            case "5":
+                tvNewCheYuanListTitle.setText("人人快递");
+                intent = new Intent(activity, ZhuanXianWuLiuActivity.class);
+                activity.startActivity(intent);
+                activity.finish();
+                break;
+            case "6":
+                tvNewCheYuanListTitle.setText("搬家");
+                intent = new Intent(activity, ZhuanXianWuLiuActivity.class);
+                activity.startActivity(intent);
+                activity.finish();
+                break;
         }
 
 
@@ -278,6 +290,12 @@ public class CheYuanListController extends BaseController {
                 break;
             case "4":
                 tvNewCheYuanListTitle.setText("专线物流");
+                break;
+            case "5":
+                tvNewCheYuanListTitle.setText("人人快递");
+                break;
+            case "6":
+                tvNewCheYuanListTitle.setText("搬家");
                 break;
         }
     }

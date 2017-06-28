@@ -35,4 +35,5 @@ public class CheYuanListActivity extends BaseActivity {
         super.onResume();
 
     }
+
 }

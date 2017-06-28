@@ -12,7 +12,7 @@
         />
     <!--tgbj_orange_white_redius_bg-->
     <LinearLayout
-        android:id="@+id/lly_new_self_cyxq_bottom"
+        android:id="@+id/lly_new_other_cyxq_bottom"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:orientation="horizontal"
@@ -22,7 +22,7 @@
         android:layout_gravity="center_vertical"
         >
         <RelativeLayout
-            android:id="@+id/rly_new_self_cyxq_bottom_tel"
+            android:id="@+id/rly_new_other_cyxq_bottom_tel"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -42,7 +42,7 @@
             android:layout_marginBottom="5dp"
             />
         <RelativeLayout
-            android:id="@+id/rly_new_self_cyxq_bottom_message"
+            android:id="@+id/rly_new_other_cyxq_bottom_message"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -69,14 +69,14 @@
 
         </RelativeLayout>
         <RelativeLayout
-            android:id="@+id/rly_new_self_cyxq_bottom_tgbj_submit"
+            android:id="@+id/rly_new_other_cyxq_bottom_tgbj_submit"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.4"
 
             >
             <TextView
-                android:id="@+id/tv_new_self_cyxq_bottom_tgbj_submit"
+                android:id="@+id/tv_new_other_cyxq_bottom_tgbj_submit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="接单中"

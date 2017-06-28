@@ -34,7 +34,7 @@ import butterknife.OnClick;
  */
 
 public class ReleaseDialogController extends BaseController {
-    private int offset = 0;// 动画图片偏移量
+    private double offset = 0;// 动画图片偏移量
     private int bmpW = 70;// 动画图片宽度
     private int currIndex = 0;// 当前页卡编号
 
@@ -49,6 +49,10 @@ public class ReleaseDialogController extends BaseController {
     TextView tvDialogCheTC;
     @BindView(R.id.tv_dialog_che_tz)
     TextView tvDialogCheTZ;
+    @BindView(R.id.tv_dialog_che_rrkd)
+    TextView tvDialogCheRRKD;
+    @BindView(R.id.tv_dialog_che_bj)
+    TextView tvDialogCheBJ;
 
     @BindView(R.id.tv_dialog_huo_ct)
     TextView tvDialogHuoCT;
@@ -74,11 +78,6 @@ public class ReleaseDialogController extends BaseController {
             view.getContext().startActivity(intent);
             return;
         }
-        System.out.print("\nloginId:"+loginId);
-        System.out.print("\nloginId:"+loginId);
-        System.out.print("\nloginId:"+loginId);
-        System.out.print("\nloginId:"+loginId);
-        System.out.print("\nloginId:"+loginId);
         System.out.print("\nloginId:"+loginId);
         System.out.print("\nloginId:"+loginId);
         if(rbDialogReleaseChe.isChecked()){
@@ -175,6 +174,46 @@ public class ReleaseDialogController extends BaseController {
         }
     }
 
+    @BindView(R.id.lly_dialog_che_rrkd)
+    LinearLayout llyDialogCheRRKD;
+    @OnClick(R.id.lly_dialog_che_rrkd)
+    public void llyDialogCheRRKDOnclick(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
+        Intent intent;
+        if((loginId == null)||(loginId.isEmpty())){
+            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+            intent = new Intent(view.getContext(), LoginActivity.class);
+            view.getContext().startActivity(intent);
+            return;
+        }
+        if(rbDialogReleaseChe.isChecked()){
+            intent = new Intent(view.getContext(), NewFaBuCheYuanV2Activity.class);
+            intent.putExtra("type_name","5");
+            view.getContext().startActivity(intent);
+        }
+    }
+    @BindView(R.id.lly_dialog_che_bj)
+    LinearLayout llyDialogCheBJ;
+    @OnClick(R.id.lly_dialog_che_bj)
+    public void llyDialogCheBJOnclick(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
+        Intent intent;
+        if((loginId == null)||(loginId.isEmpty())){
+            Toast.makeText(view.getContext(),"请登录",Toast.LENGTH_LONG).show();
+            intent = new Intent(view.getContext(), LoginActivity.class);
+            view.getContext().startActivity(intent);
+            return;
+        }
+        if(rbDialogReleaseChe.isChecked()){
+            intent = new Intent(view.getContext(), NewFaBuCheYuanV2Activity.class);
+            intent.putExtra("type_name","6");
+            view.getContext().startActivity(intent);
+        }
+    }
 
 
     @BindView(R.id.rb_dialog_release_che)
@@ -217,16 +256,18 @@ public class ReleaseDialogController extends BaseController {
         DisplayMetrics dm = new DisplayMetrics();
         ((Activity)view.getContext()).getWindowManager().getDefaultDisplay().getMetrics(dm);
         int screenW = dm.widthPixels;// 获取分辨率宽度
-        offset = (screenW / 2 - bmpW) / 4;// 计算偏移量 满屏 screenW/有几个tab 就除以几 dialog 则为dialog的宽度除以tab数量
+      /*  offset = (screenW / 2 - bmpW) / 4;// 计算偏移量 满屏 screenW/有几个tab 就除以几 dialog 则为dialog的宽度除以tab数量*/
+        offset = 37.5;// 计算偏移量 满屏 screenW/有几个tab 就除以几 dialog 则为dialog的宽度除以tab数量
         Matrix matrix = new Matrix();
-        matrix.postTranslate(offset, 0);
+        matrix.postTranslate((int)offset, 0);
         ivDialogReleaseCheHuo.setImageMatrix(matrix);
        /* ivDialogReleaseCheHuo.setLayoutParams(params);*/
     }
 
 
     public void initTabBar(int arg0){
-        double one = offset*2.8 + bmpW;// 页卡1 -> 页卡2 偏移量
+      /*  double one = offset*2.8 + bmpW;// 页卡1 -> 页卡2 偏移量*/
+        double one = offset*5 + 150;// 页卡1 -> 页卡2 偏移量
        /* int two = one * 2;*/// 页卡1 -> 页卡3 偏移量
         Animation animation = null;
         switch (arg0) {
@@ -264,6 +305,8 @@ public class ReleaseDialogController extends BaseController {
         tvDialogCheTC.setTextColor(0xff000000);
         tvDialogCheTZ.setTextColor(0xff000000);
         tvDialogCheZX.setTextColor(0xff000000);
+        tvDialogCheRRKD.setTextColor(0xff000000);
+        tvDialogCheBJ.setTextColor(0xff000000);
         tvDialogHuoCT.setTextColor(0xff808080);
         tvDialogHuoTC.setTextColor(0xff808080);
         tvDialogHuoTZ.setTextColor(0xff808080);
@@ -279,6 +322,8 @@ public class ReleaseDialogController extends BaseController {
         tvDialogCheTC.setTextColor(0xff808080);
         tvDialogCheTZ.setTextColor(0xff808080);
         tvDialogCheZX.setTextColor(0xff808080);
+        tvDialogCheRRKD.setTextColor(0xff808080);
+        tvDialogCheBJ.setTextColor(0xff808080);
         tvDialogHuoCT.setTextColor(0xff000000);
         tvDialogHuoTC.setTextColor(0xff000000);
         tvDialogHuoTZ.setTextColor(0xff000000);

@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -101,6 +102,18 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
                 break;
             case "4":
                 holder.tvNewWoDeCheYuanListXRVItemGoodsType.setText("专线物流");
+                break;
+            case "5":
+                holder.tvNewWoDeCheYuanListXRVItemGoodsType.setText("人人快递");
+                holder.tvNewWoDeCheYuanListXRVItemBCity.setText(dataList.get(position).getCfsheng()+dataList.get(position).getCfshi()+dataList.get(position).getCfqu());
+                holder.ivNewWoDeCheYuanCheYuanListXRVItemRightArrow.setVisibility(View.GONE);
+                holder.tvNewWoDeCheYuanListXRVItemBArea.setVisibility(View.GONE);
+                break;
+            case "6":
+                holder.tvNewWoDeCheYuanListXRVItemGoodsType.setText("搬家");
+                holder.tvNewWoDeCheYuanListXRVItemBCity.setText(dataList.get(position).getCfsheng()+dataList.get(position).getCfshi()+dataList.get(position).getCfqu());
+                holder.ivNewWoDeCheYuanCheYuanListXRVItemRightArrow.setVisibility(View.GONE);
+                holder.tvNewWoDeCheYuanListXRVItemBArea.setVisibility(View.GONE);
                 break;
         }
         holder.tvNewWoDeCheYuanListXRVItemDis.setText(dataList.get(position).getJuli());
@@ -211,6 +224,8 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
         TextView tvNewWoDeCheYuanListXRVItemBCity;
         @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_barea)
         TextView tvNewWoDeCheYuanListXRVItemBArea;
+        @BindView(R.id.iv_new_wodecheyuan_cheyuanlist_xrv_item_right_arrow)
+        ImageView ivNewWoDeCheYuanCheYuanListXRVItemRightArrow;
         @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_ecity)
         TextView tvNewWoDeCheYuanListXRVItemECity;
         @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_earea)

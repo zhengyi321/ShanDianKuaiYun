@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
+import com.shandian.lu.Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity;
 import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailOtherActivity;
 import com.shandian.lu.Main.IndexFragment.NewHuoYuanDetail.NewHuoYuanDetailSelfActivity;
 import com.shandian.lu.R;
@@ -228,6 +229,12 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
         ImageView ivNewHuoYuanListAds;
         @BindView(R.id.rly_new_huoyuanlist_ads)
         RelativeLayout rlyNewHuoYuanListAds;
+        @OnClick(R.id.rly_new_huoyuanlist_ads)
+        public void rlyNewHuoYuanListAdsOnclick(){
+            Intent intent = new Intent(activity, NewAdsDetailActivity.class);
+            intent.putExtra("url",imgUrl);
+            activity.startActivity(intent);
+        }
         @BindView(R.id.tv_new_huoyuanlist_hz_name)
         TextView tvNewHuoYuanListHZName;
         @BindView(R.id.tv_new_huoyuanlist_time)

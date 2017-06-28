@@ -12,11 +12,11 @@ import butterknife.ButterKnife;
 public class NewCheYuanDetailOtherActivity extends BaseActivity {
 
 
-    private NewCheYuanDetailOtherController newCheYuanOtherController;
+    private NewCheYuanDetailOtherV2Controller newCheYuanOtherV2Controller;
 
     @Override
     protected void setContentView() {
-        setContentView(R.layout.activity_new_other_cheyuanxiangqing_lly);
+        setContentView(R.layout.activity_new_other_cheyuanxiangqing_v2_lly);
     }
 
     @Override
@@ -27,6 +27,6 @@ public class NewCheYuanDetailOtherActivity extends BaseActivity {
 
 
     private void initController(){
-        newCheYuanOtherController = new NewCheYuanDetailOtherController(this);
+        newCheYuanOtherV2Controller = new NewCheYuanDetailOtherV2Controller(this);
     }
 }

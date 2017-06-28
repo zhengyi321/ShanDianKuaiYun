@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -75,6 +76,8 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
     private ArrayList imgTuList;
     @BindView(R.id.pb_new_fabucheyuan)
     ProgressBar pbNewFaBuCheYuan;
+    @BindView(R.id.lly_new_fabucheyuan_time)
+    LinearLayout llyNewFaBuCheYuanTime;
     @BindView(R.id.tv_new_fabucheyuan_time)
     TextView tvNewFaBuCheYuanTime;
     @OnClick(R.id.tv_new_fabucheyuan_time)
@@ -126,10 +129,14 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
             Toast.makeText(this,"请输入出发地",Toast.LENGTH_LONG).show();
             return false;
         }
-        String eAddr = tvNewFaBuCheYuanEnd.getText().toString();
-        if(eAddr.length() == 0){
-            Toast.makeText(this,"请选择目的地",Toast.LENGTH_LONG).show();
-            return false;
+        if(typeName.equals("5")||typeName.equals("6")){
+
+        }else {
+            String eAddr = tvNewFaBuCheYuanEnd.getText().toString();
+            if (eAddr.length() == 0) {
+                Toast.makeText(this, "请选择目的地", Toast.LENGTH_LONG).show();
+                return false;
+            }
         }
         String length = tvNewFaBuCheYuanCalLength.getText().toString();
         if(length.length() == 0){
@@ -137,7 +144,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
             return false;
         }
         String type = tvNewFaBuCheYuanCarType.getText().toString();
-        if(length.length() == 0){
+        if(type.length() == 0){
             Toast.makeText(this,"请输入车型",Toast.LENGTH_LONG).show();
             return false;
         }
@@ -151,9 +158,20 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
             Toast.makeText(this,"请输入电话",Toast.LENGTH_LONG).show();
             return false;
         }
+        if(typeName.equals("5")||typeName.equals("6")){
+
+        }else {
+            String time = tvNewFaBuCheYuanTime.getText().toString();
+            if (time.length() == 0) {
+                Toast.makeText(this, "请输入发车时间", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
 
         return true;
     }
+    @BindView(R.id.tv_new_fabucheyuan_begin_title)
+    TextView tvNewFaBuCheYuanBeginTitle;
     @BindView(R.id.lly_new_fabucheyuan_begin)
     LinearLayout llyNewFaBuCheYuanBegin;
     @OnClick(R.id.lly_new_fabucheyuan_begin)
@@ -170,6 +188,8 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
         intent.putExtra("lon",blon);
         startActivityForResult(intent,ACTIVITY_SELECT_ADDRESS_BEGIN);
     }
+    @BindView(R.id.iv_new_fabucheyuan_end_splite)
+    ImageView ivNewFaBuCheYuanEndSplite;
     @BindView(R.id.lly_new_fabucheyuan_end)
     LinearLayout llyNewFaBuCheYuanEnd;
     @OnClick(R.id.lly_new_fabucheyuan_end)
@@ -215,6 +235,8 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
 
     @BindView(R.id.tv_new_fabucheyuan_topbar_title)
     TextView tvNewFaBuCheYuanTopBarTitle;
+    @BindView(R.id.iv_new_fabucheyuan_time_splite)
+    ImageView ivNewFaBuCheYuanTimeSplite;
     @BindView(R.id.tv_new_fabucheyuan_begin)
     TextView tvNewFaBuCheYuanBegin;
     @BindView(R.id.tv_new_fabucheyuan_end)
@@ -243,9 +265,6 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
         mSearch.setOnGetRoutePlanResultListener(this);
     }
     private void searchProcessByLLG(LatLng begLlg , LatLng endLlg){
-
-
-
 
         PlanNode stNode,enNode;
         stNode = PlanNode.withLocation(begLlg);
@@ -318,10 +337,10 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
         if(length == null){
             length = "";
         }
-        int indexOfMi= length.indexOf("米");
+      /*  int indexOfMi= length.indexOf("米");
         if(indexOfMi > 0){
             length = length.substring(0,indexOfMi);
-        }
+        }*/
         tvNewFaBuCheYuanCalLength.setText(length);
         /*Toast.makeText(this,newCheYuanDetailBean.getNr().getCar_type(),Toast.LENGTH_LONG).show();*/
         tvNewFaBuCheYuanCarType.setText(newCheYuanDetailBean.getNr().getCar_type());
@@ -377,6 +396,22 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
                 break;
             case "4":
                 tvNewFaBuCheYuanTopBarTitle.setText("专线物流");
+                break;
+            case "5":
+                tvNewFaBuCheYuanTopBarTitle.setText("人人快递");
+                tvNewFaBuCheYuanBeginTitle.setText("服务范围");
+                llyNewFaBuCheYuanTime.setVisibility(View.GONE);
+                ivNewFaBuCheYuanEndSplite.setVisibility(View.GONE);
+                ivNewFaBuCheYuanTimeSplite.setVisibility(View.GONE);
+                llyNewFaBuCheYuanEnd.setVisibility(View.GONE);
+                break;
+            case "6":
+                tvNewFaBuCheYuanTopBarTitle.setText("搬家");
+                tvNewFaBuCheYuanBeginTitle.setText("服务范围");
+                llyNewFaBuCheYuanTime.setVisibility(View.GONE);
+                ivNewFaBuCheYuanEndSplite.setVisibility(View.GONE);
+                ivNewFaBuCheYuanTimeSplite.setVisibility(View.GONE);
+                llyNewFaBuCheYuanEnd.setVisibility(View.GONE);
                 break;
         }
     }
@@ -637,17 +672,30 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
         if(eProvince == null){
             eProvince = "";
         }
-        paramMap.put("dasheng",eProvince);
-        if(eCity == null){
-            eCity = "";
+        if(beginAddr == null){
+            beginAddr = "";
         }
-        paramMap.put("dashi",eCity);
-        if(eArea == null){
-            eArea = "";
-        }
-        paramMap.put("daqu",eArea);
-        String dZuoBiao = elat+ ","+elon;
-        paramMap.put("dazuobiao",dZuoBiao);
+        paramMap.put("cfdizhi",beginAddr);
+
+     /*   if(typeName.equals("5")||typeName.equals("6")){
+
+        }else {*/
+            paramMap.put("dasheng", eProvince);
+            if (eCity == null) {
+                eCity = "";
+            }
+            paramMap.put("dashi", eCity);
+            if (eArea == null) {
+                eArea = "";
+            }
+            paramMap.put("daqu", eArea);
+            String dZuoBiao = elat + "," + elon;
+            paramMap.put("dazuobiao", dZuoBiao);
+            if(endAddr == null){
+                endAddr = "";
+            }
+            paramMap.put("dadizhi",endAddr);
+        /*}*/
         String carLength = tvNewFaBuCheYuanCalLength.getText().toString();
         if(null == carLength){
             carLength = "" ;
@@ -674,8 +722,11 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
         if(fcsj == null){
             fcsj = "";
         }
+ /*       if(typeName.equals("5")||typeName.equals("6")){
 
-        paramMap.put("fcsj",fcsj);
+        }else {*/
+            paramMap.put("fcsj", fcsj);
+      /*  }*/
         String content = etNewFaBuCheYuanDesc.getText().toString();
         if(content  == null){
             content = "";
@@ -692,14 +743,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
             deleteImageList = new ArrayList<>();
         }
         paramMap.put("deltu",deleteImageList);
-        if(beginAddr == null){
-            beginAddr = "";
-        }
-        paramMap.put("cfdizhi",beginAddr);
-        if(endAddr == null){
-            endAddr = "";
-        }
-        paramMap.put("dadizhi",endAddr);
+
         System.out.print("\nparamMap"+paramMap);
         System.out.print("\nparamMap"+paramMap);
         System.out.print("\nparamMap"+paramMap);
@@ -847,7 +891,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
                 }
                 juli = dis+"";
 
-                Toast.makeText(this,"juli:"+dis,Toast.LENGTH_LONG).show();
+           /*     Toast.makeText(this,"juli:"+dis,Toast.LENGTH_LONG).show();*/
             }
 
         }

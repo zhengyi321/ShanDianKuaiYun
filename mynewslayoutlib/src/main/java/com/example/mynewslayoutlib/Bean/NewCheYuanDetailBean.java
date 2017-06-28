@@ -12,7 +12,7 @@ public class NewCheYuanDetailBean {
     /**
      * status : 0
      * msg :
-     * nr : {"id":"9979","login_id":"276","type_name":"1","typename":"","car_title":"","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","set_tid":"0","out_tid":"0","address_set":"","address_out":"","address_set_detail":"","address_out_detail":"","iphone":"55","people":"测试","address":"","car_type":"危险品车","car_lange":"7.2","fcsj":"","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","is_pass":"1","status":"0","type":"0","content":"暂无备注！","num":"1","create_time":"1498442103","update_time":"1498443783","imgtu":["http://ceshi.lianshiding.com/Uploads/2017-06-26/2761498442103dWxz.jpg"],"cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市双雁路538号  双雁花苑附近39米","cfzuobiao":"28.122685,120.981404","cflat":"28.122685","cflng":"120.981404","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市双雁路458号  中国建设银行(乐清旭阳分理处)附近43米","dazuobiao":"28.122387999884083,120.98134499999998","dalat":"28.122387999884083","dalng":"120.98134499999998","lng":"120.981404","lat":"28.122685","zt":"1","juli":"2000","zuobiaohash":"wsypbzxfx03n","gg":{"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"},"czlat":"28.122685","czlng":"120.981404","cztouxiang":"http://ceshi.lianshiding.com/Uploads/2017-06-26/2761498442103dWxz.jpg","time":"2017-06-26 10:23:03"}
+     * nr : {"id":"9979","login_id":"276","type_name":"1","typename":"","car_title":"","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","set_tid":"0","out_tid":"0","address_set":"","address_out":"","address_set_detail":"","address_out_detail":"","iphone":"55","people":"测试","address":"","car_type":"危险品车","car_lange":"7.2","fcsj":"2017-12-26","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","is_pass":"1","status":"0","type":"0","content":"暂无备注！","num":"1","create_time":"1498442103","update_time":"1498551422","imgtu":["http://ceshi.lianshiding.com/Uploads/2017-06-26/2761498442103dWxz.jpg"],"cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市双雁路538号  双雁花苑附近39米","cfzuobiao":"28.122383,120.981347","cflat":"28.122383","cflng":"120.981347","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市双雁路458号  中国建设银行(乐清旭阳分理处)附近43米","dazuobiao":"28.122387999768172,120.98134499999996","dalat":"28.122387999768172","dalng":"120.98134499999996","lng":"120.981372","lat":"28.122558","zt":0,"juli":"454.0m","zuobiaohash":"wsypbzxcy2c2","gg":{"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"},"czlat":"28.122383","czlng":"120.981347","cztouxiang":"http://ceshi.lianshiding.com/Uploads/2017-06-26/2761498442103dWxz.jpg","dingjin":"0","chengjiao":"0","cankao":"0","time":"2017-06-27 16:17:02"}
      */
 
     private String status;
@@ -67,7 +67,7 @@ public class NewCheYuanDetailBean {
          * address :
          * car_type : 危险品车
          * car_lange : 7.2
-         * fcsj :
+         * fcsj : 2017-12-26
          * img1 :
          * img2 :
          * img3 :
@@ -82,32 +82,35 @@ public class NewCheYuanDetailBean {
          * content : 暂无备注！
          * num : 1
          * create_time : 1498442103
-         * update_time : 1498443783
+         * update_time : 1498551422
          * imgtu : ["http://ceshi.lianshiding.com/Uploads/2017-06-26/2761498442103dWxz.jpg"]
          * cfsheng : 浙江省
          * cfshi : 温州市
          * cfqu : 乐清市
          * cfdizhi : 浙江省温州市乐清市双雁路538号  双雁花苑附近39米
-         * cfzuobiao : 28.122685,120.981404
-         * cflat : 28.122685
-         * cflng : 120.981404
+         * cfzuobiao : 28.122383,120.981347
+         * cflat : 28.122383
+         * cflng : 120.981347
          * dasheng : 浙江省
          * dashi : 温州市
          * daqu : 乐清市
          * dadizhi : 浙江省温州市乐清市双雁路458号  中国建设银行(乐清旭阳分理处)附近43米
-         * dazuobiao : 28.122387999884083,120.98134499999998
-         * dalat : 28.122387999884083
-         * dalng : 120.98134499999998
-         * lng : 120.981404
-         * lat : 28.122685
-         * zt : 1
-         * juli : 2000
-         * zuobiaohash : wsypbzxfx03n
+         * dazuobiao : 28.122387999768172,120.98134499999996
+         * dalat : 28.122387999768172
+         * dalng : 120.98134499999996
+         * lng : 120.981372
+         * lat : 28.122558
+         * zt : 0
+         * juli : 454.0m
+         * zuobiaohash : wsypbzxcy2c2
          * gg : {"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"}
-         * czlat : 28.122685
-         * czlng : 120.981404
+         * czlat : 28.122383
+         * czlng : 120.981347
          * cztouxiang : http://ceshi.lianshiding.com/Uploads/2017-06-26/2761498442103dWxz.jpg
-         * time : 2017-06-26 10:23:03
+         * dingjin : 0
+         * chengjiao : 0
+         * cankao : 0
+         * time : 2017-06-27 16:17:02
          */
 
         private String id;
@@ -164,13 +167,16 @@ public class NewCheYuanDetailBean {
         private String dalng;
         private String lng;
         private String lat;
-        private String zt;
+        private int zt;
         private String juli;
         private String zuobiaohash;
         private GgBean gg;
         private String czlat;
         private String czlng;
         private String cztouxiang;
+        private String dingjin;
+        private String chengjiao;
+        private String cankao;
         private String time;
         private List<String> imgtu;
 
@@ -606,11 +612,11 @@ public class NewCheYuanDetailBean {
             this.lat = lat;
         }
 
-        public String getZt() {
+        public int getZt() {
             return zt;
         }
 
-        public void setZt(String zt) {
+        public void setZt(int zt) {
             this.zt = zt;
         }
 
@@ -660,6 +666,30 @@ public class NewCheYuanDetailBean {
 
         public void setCztouxiang(String cztouxiang) {
             this.cztouxiang = cztouxiang;
+        }
+
+        public String getDingjin() {
+            return dingjin;
+        }
+
+        public void setDingjin(String dingjin) {
+            this.dingjin = dingjin;
+        }
+
+        public String getChengjiao() {
+            return chengjiao;
+        }
+
+        public void setChengjiao(String chengjiao) {
+            this.chengjiao = chengjiao;
+        }
+
+        public String getCankao() {
+            return cankao;
+        }
+
+        public void setCankao(String cankao) {
+            this.cankao = cankao;
         }
 
         public String getTime() {

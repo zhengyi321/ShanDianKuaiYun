@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -69,6 +70,17 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
     public void rlyNewBaiDuRoutePlanBackOnclick(){
         activity.finish();
     }
+    @BindView(R.id.tv_new_baidu_route_plan_topbar_title)
+    TextView tvNewBaiDuRoutePlanTopBarTitle;
+
+    @BindView(R.id.lly_new_baidu_route_plan_baddr)
+    LinearLayout llyNewBaiDuRoutePlanBAddr;
+    @BindView(R.id.tv_new_baidu_route_plan_baddr)
+    TextView tvNewBaiDuRoutePlanBAddr;
+    @BindView(R.id.lly_new_baidu_route_plan_eaddr)
+    LinearLayout llyNewBaiDuRoutePlanEAddr;
+    @BindView(R.id.tv_new_baidu_route_plan_eaddr)
+    TextView tvNewBaiDuRoutePlanEAddr;
 
     @BindView(R.id.mv_new_baidu_route_plan)
     MapView mvNewBaiDuRoutePlan;
@@ -83,6 +95,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
     int nowSearchType = -1 ; // 当前进行的检索，供判断浏览节点时结果使用。
     int nodeIndex = -1; // 节点索引,供浏览节点时使用
     private LatLng bLl,eLl;
+
     private MyLocationConfiguration.LocationMode mCurrentMode;
     public NewBaiDuRoutePlanController(Activity activity1){
         activity = activity1;
@@ -98,11 +111,37 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
         mBaidumap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
         // 地图点击事件处理
         mBaidumap.setOnMapClickListener(this);
-
+        initGetTitle();
         initRouteOverLay();
         initLLg();
         searchProcessByLLG(bLl,eLl);
         initSiJiLoc();
+    }
+    private void initGetTitle(){
+        String title = activity.getIntent().getStringExtra("title");
+        String bAddr = activity.getIntent().getStringExtra("baddr");
+        if(bAddr != null){
+            tvNewBaiDuRoutePlanBAddr.setText(bAddr);
+        }
+        String eAddr = activity.getIntent().getStringExtra("eaddr");
+        if(eAddr != null){
+            tvNewBaiDuRoutePlanEAddr.setText(eAddr);
+        }
+        if((title != null)){
+            if(title.equals("hcdw")) {
+                tvNewBaiDuRoutePlanTopBarTitle.setText("货车定位");
+                llyNewBaiDuRoutePlanBAddr.setVisibility(View.GONE);
+                llyNewBaiDuRoutePlanEAddr.setVisibility(View.GONE);
+            }else if(title.equals("qdwz")){
+                tvNewBaiDuRoutePlanTopBarTitle.setText("起点位置");
+                llyNewBaiDuRoutePlanBAddr.setVisibility(View.VISIBLE);
+                llyNewBaiDuRoutePlanEAddr.setVisibility(View.GONE);
+            }else if(title.equals("zdwz")){
+                tvNewBaiDuRoutePlanTopBarTitle.setText("终点位置");
+                llyNewBaiDuRoutePlanBAddr.setVisibility(View.GONE);
+                llyNewBaiDuRoutePlanEAddr.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     private void initSiJiLoc(){
@@ -126,6 +165,9 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
        /* Toast.makeText(activity,"chelat:"+cheLat+" chelon:"+cheLon+" chetouxiang:"+cheTouXiang,Toast.LENGTH_LONG).show();*/
         View view = LayoutInflater.from(activity).inflate(R.layout.dialog_che_loc_lly, null);
         RoundImageView touxiang = (RoundImageView) view.findViewById(R.id.riv_dialog_loc_touxiang);
+        if(cheTouXiang.isEmpty()){
+            touxiang.setVisibility(View.GONE);
+        }
         ImageLoader.getInstance().displayImage(cheTouXiang,touxiang, ImageLoaderUtils.options1);
      /*   BitmapDescriptor markerIcon = BitmapDescriptorFactory.fromBitmap(getViewBitmap(view));*/
 
@@ -146,7 +188,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
                 0, 0));
         LatLng lng = new LatLng(cLat,cLon);
         MapStatus.Builder builder = new MapStatus.Builder();
-        builder.target(lng).zoom(9.0f);
+        builder.target(lng).zoom(25.0f);
 
         mBaidumap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
 
@@ -228,7 +270,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
     @Override
     public void onGetDrivingRouteResult(DrivingRouteResult result) {
         if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
-            Toast.makeText(activity, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();
+           /* Toast.makeText(activity, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();*/
         }
         if (result.error == SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR) {
             // 起终点或途经点地址有岐义，通过以下接口获取建议查询信息

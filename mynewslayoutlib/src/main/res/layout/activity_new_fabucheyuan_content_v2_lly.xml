@@ -71,7 +71,7 @@
                     android:layout_weight="1.5"
                     >
                     <TextView
-
+                        android:id="@+id/tv_new_fabucheyuan_begin_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/begin_place"
@@ -168,6 +168,7 @@
                 </RelativeLayout>
             </LinearLayout>
             <ImageView
+                android:id="@+id/iv_new_fabucheyuan_end_splite"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/split_width_or_height"
                 android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
@@ -233,6 +234,7 @@
                         android:textColor="@color/black"
                         android:textSize="13sp"
                         android:layout_centerInParent="true"
+                        android:visibility="gone"
                         />
                 </RelativeLayout>
             </LinearLayout>
@@ -417,6 +419,7 @@
             android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
             />
         <LinearLayout
+            android:id="@+id/lly_new_fabucheyuan_time"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -467,6 +470,7 @@
             </RelativeLayout>
         </LinearLayout>
         <ImageView
+            android:id="@+id/iv_new_fabucheyuan_time_splite"
             android:layout_width="match_parent"
             android:layout_height="@dimen/split_width_or_height"
             android:background="@color/color_main_release_tezhongyunshu_content_splite_line"

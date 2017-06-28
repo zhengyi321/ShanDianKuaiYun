@@ -23,6 +23,7 @@ import com.example.mynewslayoutlib.Utils.OpenLocalMapUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
+import com.shandian.lu.Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.NetWork.AdsNetWork;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
@@ -50,10 +51,12 @@ import rx.Observer;
  */
 
 public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
-    private String bAddr,eAddr,bCity;
+    private String bAddr="",eAddr="",bCity="";
     private boolean isOpened = false;
     private  String APP_NAME = "ShanDianKuaiYun";
+    private String bLat,bLon,eLat,eLon;
     private String hyId ,tel;
+    private String adsUrl= "";
     @BindView(R.id.rly_new_other_hyxq_back)
     RelativeLayout rlyNewOtherHYXQBack;
     @OnClick(R.id.rly_new_other_hyxq_back)
@@ -66,13 +69,33 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
     ImageButton ibNewOtherHYXQAds;
     @OnClick(R.id.ib_new_other_hyxq_ads)
     public void ibNewOtherHYXQAdsOnclick(){
-
+        Intent intent = new Intent(activity, NewAdsDetailActivity.class);
+        intent.putExtra("url",adsUrl);
+        activity.startActivity(intent);
     }
     @BindView(R.id.tv_new_other_hyxq_prov_city_b)
     TextView tvNewOtherHYXQProvCityB;
+    @OnClick(R.id.tv_new_other_hyxq_prov_city_b)
+    public void tvNewOtherHYXQProvCityBOnclick(){
+        Intent intent = new Intent(activity, NewBaiDuRoutePlanActivity.class);//查看起点位置
+        intent.putExtra("czlat",bLat);
+        intent.putExtra("czlon",bLon);
+        intent.putExtra("baddr",bAddr);
+        intent.putExtra("title","qdwz");
+        activity.startActivity(intent);
+    }
 
     @BindView(R.id.tv_new_other_hyxq_prov_city_e)
     TextView tvNewOtherHYXQProvCityE;
+    @OnClick(R.id.tv_new_other_hyxq_prov_city_e)
+    public void tvNewOtherHYXQProvCityEOnclick(){
+        Intent intent = new Intent(activity, NewBaiDuRoutePlanActivity.class);//查看终点位置
+        intent.putExtra("czlat",eLat);
+        intent.putExtra("czlon",eLon);
+        intent.putExtra("eaddr",eAddr);
+        intent.putExtra("title","zdwz");
+        activity.startActivity(intent);
+    }
 
     @BindView(R.id.tv_new_other_hyxq_fbtime)
     TextView tvNewOtherHYXQFBTime;
@@ -188,7 +211,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
     }
 
 
-    private String bLat,bLon,eLat,eLon;
+
     @BindView(R.id.rly_new_other_hyxq_mapline)
     RelativeLayout rlyNewOtherHYXQMapLine;
     @OnClick(R.id.rly_new_other_hyxq_mapline)
@@ -210,6 +233,8 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         intent.putExtra("blon",bLon);
         intent.putExtra("elat",eLat);
         intent.putExtra("elon",eLon);
+        intent.putExtra("baddr",bAddr);
+        intent.putExtra("eaddr",eAddr);
         activity.startActivity(intent);
 
     }
@@ -678,7 +703,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
             public void onNext(NewAdsBean newAdsBean) {
                 ImageLoader.getInstance().displayImage(newAdsBean.getNr().getImg(),ibNewOtherHYXQAds, ImageLoaderUtils.options1);
                 /*ImageLoader.getInstance().displayImage(newAdsBean.getNr().getImg(),ibNewSelfHYXQAds, ImageLoaderUtils.options1);*/
-
+                adsUrl = newAdsBean.getNr().getUrl();
             }
         });
     }

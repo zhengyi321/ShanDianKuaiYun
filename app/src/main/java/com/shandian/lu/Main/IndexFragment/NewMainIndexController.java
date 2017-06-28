@@ -151,7 +151,9 @@ public class NewMainIndexController extends BaseController{
     @OnClick(R.id.ib_new_main_index_rrwl)
     public void ibNewMainIndexRRWLOnclick(){
 
-        Intent intent = new Intent(view.getContext(), RenRenWuLiuActivity.class);
+        /*Intent intent = new Intent(view.getContext(), RenRenWuLiuActivity.class);*/
+        Intent intent = new Intent(view.getContext(), CheYuanListActivity.class);
+        intent.putExtra("typeName","5");
         view.getContext().startActivity(intent);
 
     }
@@ -160,8 +162,10 @@ public class NewMainIndexController extends BaseController{
     ImageButton ibNewMainIndexBJ;
     @OnClick(R.id.ib_new_main_index_bj)
     public void ibNewMainIndexBJOnclick(){
-
-        Intent intent = new Intent(view.getContext(), BanJiaActivity.class);
+/*
+        Intent intent = new Intent(view.getContext(), BanJiaActivity.class);*/
+        Intent intent = new Intent(view.getContext(), CheYuanListActivity.class);
+        intent.putExtra("typeName","6");
         ((Activity)view.getContext()).startActivity(intent);
 
     }

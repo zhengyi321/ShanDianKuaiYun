@@ -26,7 +26,7 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.3"
                     android:orientation="vertical"
                     android:visibility="invisible"
                     >
@@ -88,8 +88,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="浙江省乐清市"
-                                    android:textSize="11sp"
-                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/blue"
 
                                     />
                                 <ImageView
@@ -104,8 +104,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="浙江省乐清市"
-                                    android:textSize="11sp"
-                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/blue"
 
                                     />
                             </LinearLayout>
@@ -182,7 +182,7 @@
                 </LinearLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rly_new_self_cyxq_dh_map"
+                    android:id="@+id/rly_new_self_cyxq_hc_loc"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -197,15 +197,15 @@
 
 
                         <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                            android:background="@mipmap/dh_map" />
+                            android:background="@mipmap/huoche_loc" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="装货路线"
+                            android:text="货车定位"
                             android:textColor="@color/black"
                             android:textSize="11sp" />
                     </LinearLayout>
@@ -238,6 +238,14 @@
                             android:textSize="11sp" />
                     </LinearLayout>
                 </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    >
+
+
+                </LinearLayout>
 
             </LinearLayout>
             <RelativeLayout
@@ -352,7 +360,7 @@
                     android:layout_marginRight="2.5dp"
                     android:layout_marginLeft="5dp"
                     android:background="@mipmap/sjbj"
-
+                    android:visibility="gone"
                     >
                     <LinearLayout
                         android:id="@+id/lly_new_self_cyxq_sjbj"
@@ -415,15 +423,15 @@
                             android:text="成交价"
                             android:textColor="@color/black"
                             android:textSize="12sp"
-
+                            android:layout_gravity="center_horizontal"
                             />
                         <TextView
                             android:id="@+id/tv_new_self_cyxq_cjj"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0元"
+                            android:text="暂未成交"
                             android:textColor="@color/black"
-                            android:textSize="12sp"
+                            android:textSize="15sp"
                             android:gravity="center_horizontal"
                             android:layout_gravity="center_horizontal"
                             />
@@ -451,7 +459,7 @@
                             android:text="行业参考价"
                             android:textColor="@color/black"
                             android:textSize="12sp"
-
+                            android:layout_gravity="center_horizontal"
                             />
                         <TextView
                             android:id="@+id/tv_new_self_cyxq_hyckj"
@@ -459,7 +467,7 @@
                             android:layout_height="wrap_content"
                             android:text="0元"
                             android:textColor="@color/black"
-                            android:textSize="12sp"
+                            android:textSize="15sp"
                             android:gravity="center_horizontal"
                             android:layout_gravity="center_horizontal"
                             />

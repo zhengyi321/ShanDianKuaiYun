@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.shandian.lu.Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailOtherActivity;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailSelfActivity;
 import com.shandian.lu.R;
@@ -185,6 +186,12 @@ public class CheYuanListV2XRVAdapter extends RecyclerView.Adapter<CheYuanListV2X
 
         @BindView(R.id.iv_new_cheyuanlist_xrv_item_ads)
         ImageView ivNewCheYuanListXRVItemAds;
+        @OnClick(R.id.iv_new_cheyuanlist_xrv_item_ads)
+        public void ivNewCheYuanListXRVItemAdsOnclick(){
+            Intent intent = new Intent(activity, NewAdsDetailActivity.class);
+            intent.putExtra("url",imgUrl);
+            activity.startActivity(intent);
+        }
 
 
         @BindView(R.id.rciv_new_cheyuanlist_xrv_item_touxiang)

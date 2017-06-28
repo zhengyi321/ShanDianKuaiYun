@@ -889,7 +889,12 @@
             android:hardwareAccelerated="false"
             android:windowSoftInputMode="adjustPan"
             />
-        <activity android:name=".Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanV2Activity" />
+        <activity android:name=".Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanV2Activity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            android:windowSoftInputMode="adjustPan"
+            />
+        <activity android:name=".Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
 
     </application>
