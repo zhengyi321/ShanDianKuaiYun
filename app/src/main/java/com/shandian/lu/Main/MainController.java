@@ -17,6 +17,7 @@ import com.shandian.lu.BaseController;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
+import com.zhyan.shandiankuaiyunlib.Utils.SharedPreferencesUtils;
 import com.zhyan.shandiankuaiyunlib.Widget.ImmersionBar.SystemBarTintManager;
 
 import java.util.Set;
@@ -66,8 +67,23 @@ public class MainController extends BaseController {
     protected void init() {
         ButterKnife.bind(this,activity);
         initAliasJpush();
+        initLoginId();
     }
 
+    public void initLoginId(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        SharedPreferencesUtils sharedPreferencesUtils = new SharedPreferencesUtils();
+        String loginId=(String)sharedPreferencesUtils.getParam(activity,xcCacheSaveName.logId,"");
+        String loginStatus=(String)sharedPreferencesUtils.getParam(activity,xcCacheSaveName.loginStatus,"");
+        String userName=(String)sharedPreferencesUtils.getParam(activity,xcCacheSaveName.userName,"");
+        String userTel=(String)sharedPreferencesUtils.getParam(activity,xcCacheSaveName.userTel,"");
+
+        xcCacheManager.writeCache(xcCacheSaveName.logId, loginId);
+        xcCacheManager.writeCache(xcCacheSaveName.loginStatus,loginStatus);
+        xcCacheManager.writeCache(xcCacheSaveName.userName,userName);
+        xcCacheManager.writeCache(xcCacheSaveName.userTel,userTel);
+    }
 
 
 

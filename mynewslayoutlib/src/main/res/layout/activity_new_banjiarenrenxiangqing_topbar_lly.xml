@@ -5,7 +5,7 @@
     android:background="@mipmap/top_small_blue_bg"
     >
     <RelativeLayout
-        android:id="@+id/rly_new_banjiarenrenxiangqing_back"
+        android:id="@+id/rly_new_bjrrxq_back"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -25,7 +25,7 @@
         android:layout_weight="5"
         >
         <TextView
-            android:id="@+id/tv_new_banjiarenrenxiangqing_title"
+            android:id="@+id/tv_new_bjrrxq_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="车源详情"

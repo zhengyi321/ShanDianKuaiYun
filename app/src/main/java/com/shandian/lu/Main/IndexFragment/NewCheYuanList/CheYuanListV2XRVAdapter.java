@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.mynewslayoutlib.Bean.NewCheYuanListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity;
+import com.shandian.lu.Main.IndexFragment.NewBanJiaRenRenKuaiDi.NewBanJiaRenRenDetailActivity;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailOtherActivity;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailSelfActivity;
 import com.shandian.lu.R;
@@ -93,7 +94,10 @@ public class CheYuanListV2XRVAdapter extends RecyclerView.Adapter<CheYuanListV2X
         holder.tvNewCheYuanListXRVItemECityArea.setText(cheYuanList.get(position).getDashi()+cheYuanList.get(position).getDaqu());
         holder.tvNewCheYuanListXRVItemCarType.setText(cheYuanList.get(position).getCar_type());
         holder.tvNewCheYuanListXRVItemCarLength.setText(cheYuanList.get(position).getCar_lange());
-
+        String typeName = cheYuanList.get(position).getType_name();
+        if(typeName.equals("5")||typeName.equals("6")){
+            holder.ivNewCheYuanListArrowSplite.setVisibility(View.GONE);
+        }
         ImageLoader.getInstance().displayImage(cheYuanList.get(position).getTouxiang(),holder.rcivNewCheYuanListXRVItemTouXiang, ImageLoaderUtils.options1);
         if(cheYuanList.get(position).getGg() == null){
             return;
@@ -197,6 +201,8 @@ public class CheYuanListV2XRVAdapter extends RecyclerView.Adapter<CheYuanListV2X
         @BindView(R.id.rciv_new_cheyuanlist_xrv_item_touxiang)
         RoundCornerImageView rcivNewCheYuanListXRVItemTouXiang;
 
+        @BindView(R.id.iv_new_cheyuanlist_arrow_splite)
+        ImageView ivNewCheYuanListArrowSplite;
         @BindView(R.id.iv_new_cheyuanlist_xrv_item_cal)
         ImageView ivNewCheYuanListXRVItemCal;
 
@@ -257,7 +263,13 @@ public class CheYuanListV2XRVAdapter extends RecyclerView.Adapter<CheYuanListV2X
                 activity.startActivity(intent);
                 return;
             }
-
+            String typeName = cheYuanList.get(pos).getType_name();
+            if(typeName.equals("5")||typeName.equals("6")){
+                Intent intent = new Intent(activity, NewBanJiaRenRenDetailActivity.class);
+                intent.putExtra("cyid",cheYuanList.get(pos).getId());
+                activity.startActivity(intent);
+                return;
+            }
             if(loginId.equals(cheYuanList.get(pos).getLogin_id())){
                 Intent intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
                 intent.putExtra("cyid",cheYuanList.get(pos).getId());

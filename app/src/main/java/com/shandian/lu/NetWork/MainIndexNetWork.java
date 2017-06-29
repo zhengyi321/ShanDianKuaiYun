@@ -1,5 +1,6 @@
 package com.shandian.lu.NetWork;
 
+import com.example.mynewslayoutlib.Bean.NewQiangHongBaoBean;
 import com.example.mynewslayoutlib.Bean.NewUpSelfLocToNetBean;
 import com.shandian.lu.Bean.SecondCityChangeBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
@@ -60,6 +61,11 @@ public class MainIndexNetWork extends BaseNetWork {
         @POST("index.php/app/chyuan/zuobiaogengxin")
         Observable<NewUpSelfLocToNetBean> upSelfLocToNet(@FieldMap Map<String,String> paramMap);
         /*上传坐标地址*/
+        /*抢红包*/
+        @FormUrlEncoded
+        @POST("index.php/App/Index/hongbaolingqu")
+        Observable<NewQiangHongBaoBean> getHongBaoFromNet(@FieldMap Map<String,String> paramMap);
+        /*上传坐标地址*/
     }
 
     public  void getAdFromNet(Observer<MainIndexAdBean> observer){
@@ -79,6 +85,9 @@ public class MainIndexNetWork extends BaseNetWork {
     }
     public  void upSelfLocToNet(Map<String,String> paramMap,Observer<NewUpSelfLocToNetBean> observer){
         setSubscribe(service.upSelfLocToNet(paramMap),observer);
+    }
+    public  void getHongBaoFromNet(Map<String,String> paramMap,Observer<NewQiangHongBaoBean> observer){
+        setSubscribe(service.getHongBaoFromNet(paramMap),observer);
     }
 
 }

@@ -313,6 +313,7 @@ public class NewWoDeCheYuanController extends BaseController {
                 animation.setFillAfter(true);// True:图片停在动画结束位置
                 animation.setDuration(200);
                 ivNewWoDeCheYuanTabBottom.startAnimation(animation);
+                xrvNewWoDeCheYuanCheYuanList.refresh();
                 /*initCheYuanText();*/
                 break;
             case 1:
@@ -327,6 +328,7 @@ public class NewWoDeCheYuanController extends BaseController {
                 animation.setFillAfter(true);// True:图片停在动画结束位置
                 animation.setDuration(200);
                 ivNewWoDeCheYuanTabBottom.startAnimation(animation);
+                xrvNewWoDeCheYuanYiBaoJia.refresh();
                /* initHuoYuanText();*/
                 break;
            /* case 2:
@@ -422,10 +424,10 @@ public class NewWoDeCheYuanController extends BaseController {
     public void onResume(){
         switch (type){
             case "0":
-                xrvNewWoDeCheYuanCheYuanList.refresh();
+
                 break;
             case "1":
-                xrvNewWoDeCheYuanYiBaoJia.refresh();
+
                 break;
         }
     }

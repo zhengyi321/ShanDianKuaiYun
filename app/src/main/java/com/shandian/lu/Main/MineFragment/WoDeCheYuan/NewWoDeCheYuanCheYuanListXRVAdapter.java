@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.mynewslayoutlib.Bean.NewWoDeCheYuanBean;
 import com.example.mynewslayoutlib.Bean.NewWoDeCheYuanDeleteBean;
 import com.example.mynewslayoutlib.Utils.SystemUtils;
+import com.shandian.lu.Main.IndexFragment.NewBanJiaRenRenKuaiDi.NewBanJiaRenRenDetailActivity;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailSelfActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanV2Activity;
@@ -171,6 +172,13 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
         LinearLayout llyNewWoDeCheYuanListXRVItem;
         @OnClick(R.id.lly_new_wodecheyuan_cheyuanlist_xrv_item)
         public void llyNewWoDeCheYuanListXRVItemOnclick(){
+            String typeName = dataList.get(pos).getType_name();
+            if(typeName.equals("5")||typeName.equals("6")){
+                Intent intent = new Intent(activity, NewBanJiaRenRenDetailActivity.class);
+                intent.putExtra("cyid",dataList.get(pos).getId());
+                activity.startActivity(intent);
+                return;
+            }
             Intent intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
             intent.putExtra("cyid",dataList.get(pos).getId());
             activity.startActivity(intent);
@@ -182,6 +190,14 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
         RelativeLayout rlyNewWoDeCheYuanListXRVItemCount;
         @OnClick(R.id.rly_new_wodecheyuan_cheyuanlist_xrv_item_count)
         public void rlyNewWoDeCheYuanListXRVItemCountOnclick(){
+
+            String typeName = dataList.get(pos).getType_name();
+            if(typeName.equals("5")||typeName.equals("6")){
+                Intent intent = new Intent(activity, NewBanJiaRenRenDetailActivity.class);
+                intent.putExtra("cyid",dataList.get(pos).getId());
+                activity.startActivity(intent);
+                return;
+            }
 
             Intent intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
             intent.putExtra("cyid",dataList.get(pos).getId());

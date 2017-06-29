@@ -278,7 +278,7 @@ public class NewCheYuanDetailSelfV2Controller extends BaseController {
         cheLat = newCheYuanDetailBean.getNr().getCzlat();
         cheLon = newCheYuanDetailBean.getNr().getCzlng();
         cheTouXiang = newCheYuanDetailBean.getNr().getCztouxiang();
-        if(newCheYuanDetailBean.getNr().getZt() == 0){
+        if(newCheYuanDetailBean.getNr().getZt().equals("0")){
             tvNewSelfCYXQBottomTGBJSubmit.setText("接单中");
             llyNewSelfCYXQBottom.setBackgroundResource(R.mipmap.bottom_gray);
         }else{

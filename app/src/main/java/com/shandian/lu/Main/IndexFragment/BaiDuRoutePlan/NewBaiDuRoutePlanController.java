@@ -188,7 +188,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
                 0, 0));
         LatLng lng = new LatLng(cLat,cLon);
         MapStatus.Builder builder = new MapStatus.Builder();
-        builder.target(lng).zoom(25.0f);
+        builder.target(lng).zoom(16.0f);
 
         mBaidumap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
 

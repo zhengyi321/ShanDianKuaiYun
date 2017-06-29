@@ -29,8 +29,11 @@ import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.utils.Log;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.LianXiKeFuDialog;
 import com.zhyan.shandiankuaiyunlib.Bean.MainIndexAdBean;
+import com.zhyan.shandiankuaiyunlib.Utils.SharedPreferencesUtils;
 import com.zhyan.shandiankuaiyunlib.Widget.ViewPage.ImageCycleView;
 
 import java.util.ArrayList;
@@ -308,6 +311,7 @@ public class NewMainIndexController extends BaseController{
     @Override
     protected void init() {
         ButterKnife.bind(this,view);
+
 /*        initViews();*/
 
     }

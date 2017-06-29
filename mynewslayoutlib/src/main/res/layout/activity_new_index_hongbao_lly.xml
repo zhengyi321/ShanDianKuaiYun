@@ -6,4 +6,13 @@
 
     <include layout="@layout/activity_new_index_hongbao_content_lly"/>
     <include layout="@layout/activity_new_index_hongbao_topbar_lly"/>
+    <ProgressBar
+        android:id="@+id/pb_new_index_hongbao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/white"
+        android:alpha="0.5"
+        android:visibility="gone"
+        />
 </RelativeLayout>

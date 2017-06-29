@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    >
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:background="@mipmap/hongbao_get_money"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/dialog_call_tel_margin_left_right_size"
+        android:layout_marginRight="@dimen/dialog_call_tel_margin_left_right_size"
+        >
+
+        <TextView
+            android:id="@+id/tv_new_get_hongbao_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="95dp"
+
+            />
+
+        <RelativeLayout
+            android:id="@+id/dialog_new_get_hongbao_check_wallet"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="160dp"
+            >
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dialog_new_get_hongbao_back"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="25dp"
+            android:layout_alignParentBottom="true"
+            >
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+</RelativeLayout>

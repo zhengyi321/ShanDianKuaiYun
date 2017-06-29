@@ -27,7 +27,7 @@
 
         </RelativeLayout>
         <RelativeLayout
-            android:id="@+id/chb"
+            android:id="@+id/rly_new_index_hongbao_get"
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
             android:layout_weight="1"

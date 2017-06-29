@@ -28,6 +28,7 @@ import com.shandian.lu.Main.MineFragment.Login.Register.RegisterActivity;
 import com.shandian.lu.NetWork.UserNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyunlib.Bean.LoginBean;
+import com.zhyan.shandiankuaiyunlib.Utils.SharedPreferencesUtils;
 
 import java.util.Set;
 
@@ -163,10 +164,15 @@ public class LoginController extends BaseController {
                     handler.sendMessage(message);
                     XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
                     XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+                    SharedPreferencesUtils sharedPreferencesUtils = new SharedPreferencesUtils();
                     xcCacheManager.writeCache(xcCacheSaveName.logId, loginId);
                     xcCacheManager.writeCache(xcCacheSaveName.loginStatus,"yes");
                     xcCacheManager.writeCache(xcCacheSaveName.userName,name);
                     xcCacheManager.writeCache(xcCacheSaveName.userTel,mobile);
+                    sharedPreferencesUtils.setParam(activity,xcCacheSaveName.logId, loginId);
+                    sharedPreferencesUtils.setParam(activity,xcCacheSaveName.loginStatus,"yes");
+                    sharedPreferencesUtils.setParam(activity,xcCacheSaveName.userName,name);
+                    sharedPreferencesUtils.setParam(activity,xcCacheSaveName.userTel,mobile);
                     /*activity.finish();*/
                     try {
                         EMClient.getInstance().logout(true);

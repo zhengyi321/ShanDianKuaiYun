@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-        <include layout="@layout/activity_new_other_cheyuanxiangqing_topbar_v2_lly"/>
+        <include layout="@layout/activity_new_banjiarenrenxiangqing_topbar_lly"/>
 
 
     <LinearLayout
@@ -12,8 +12,8 @@
         android:orientation="vertical"
         android:layout_weight="1"
         >
-        <include layout="@layout/activity_new_other_cheyuanxiangqing_content_v2_ssv"/>
+        <include layout="@layout/activity_new_banjiarenrenxiangqing_content_ssv"/>
 
     </LinearLayout>
-    <include layout="@layout/activity_new_other_cheyuanxiangqing_bottom_v2_lly"/>
+    <include layout="@layout/activity_new_banjiarenrenxiangqing_bottom_lly"/>
 </LinearLayout>

@@ -206,7 +206,7 @@ public class NewWoDeHuoYuanController extends BaseController {
                 times ++;
             }
         });
-        xrvNewWoDeHuoYuan.refresh();
+/*        xrvNewWoDeHuoYuan.refresh();*/
     }
 
 
@@ -229,6 +229,7 @@ public class NewWoDeHuoYuanController extends BaseController {
                 animation.setFillAfter(true);// True:图片停在动画结束位置
                 animation.setDuration(200);
                 ivNewWoDeHuoYuanTabBottom.startAnimation(animation);
+                xrvNewWoDeHuoYuan.refresh();
                 /*initCheYuanText();*/
                 break;
             case 1:
@@ -243,6 +244,7 @@ public class NewWoDeHuoYuanController extends BaseController {
                 animation.setFillAfter(true);// True:图片停在动画结束位置
                 animation.setDuration(200);
                 ivNewWoDeHuoYuanTabBottom.startAnimation(animation);
+                xrvNewWoDeHuoYuan.refresh();
                /* initHuoYuanText();*/
                 break;
             case 2:
@@ -257,6 +259,7 @@ public class NewWoDeHuoYuanController extends BaseController {
                 animation.setFillAfter(true);// True:图片停在动画结束位置
                 animation.setDuration(200);
                 ivNewWoDeHuoYuanTabBottom.startAnimation(animation);
+                xrvNewWoDeHuoYuan.refresh();
                /* initHuoYuanText();*/
                 break;
 
@@ -297,7 +300,7 @@ public class NewWoDeHuoYuanController extends BaseController {
 
 
     public void onResume(){
-        xrvNewWoDeHuoYuan.refresh();
+
         /*getDataFromNet(type+"","1");*/
     }
 }

@@ -279,7 +279,7 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
         cheLat = newCheYuanDetailBean.getNr().getCzlat();
         cheLon = newCheYuanDetailBean.getNr().getCzlng();
         cheTouXiang = newCheYuanDetailBean.getNr().getCztouxiang();
-        if(newCheYuanDetailBean.getNr().getZt() == 0){
+        if(newCheYuanDetailBean.getNr().getZt().equals("0")){
             tvNewOtherCYXQBottomTGBJSubmit.setText("接单中");
             llyNewOtherCYXQBottom.setBackgroundResource(R.mipmap.bottom_gray);
         }else{

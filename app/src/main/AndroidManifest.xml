@@ -895,6 +895,7 @@
             android:windowSoftInputMode="adjustPan"
             />
         <activity android:name=".Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity" />
+        <activity android:name=".Main.IndexFragment.NewBanJiaRenRenKuaiDi.NewBanJiaRenRenDetailActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
 
     </application>
