@@ -65,7 +65,7 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
     private String typeName ;
     private boolean isUpdate = false;
     private String id = "";
-    private NewFaBuHuoYuanController newFaBuHuoYuanController;
+    private NewFaBuHuoYuanV2Controller newFaBuHuoYuanController;
     private  final int ACTIVITY_REQUEST_SELECT_PHOTO = 100;
 
     private final int ACTIVITY_SELECT_ADDRESS_BEGIN = 105;
@@ -442,7 +442,7 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
     }
 
     private void initController(){
-        newFaBuHuoYuanController = new NewFaBuHuoYuanController(this);
+        newFaBuHuoYuanController = new NewFaBuHuoYuanV2Controller(this);
     }
 
 
@@ -912,10 +912,16 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
 
     }
 
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        mSearch.destroy();
+    }
+
 /*    //图片压缩
     private Bitmap compressImageFromFile(String srcPath) {
 
-        BitmapUtils bitmapUtils = new BitmapUtils();
+        BitmapUtils bitmapUtils = new BitmapURtils();
         Bitmap bitmap = bitmapUtils.getimage(srcPath);
         bitmap = bitmapUtils.compressImage(bitmap);
         bitmap = bitmapUtils.comp(bitmap);

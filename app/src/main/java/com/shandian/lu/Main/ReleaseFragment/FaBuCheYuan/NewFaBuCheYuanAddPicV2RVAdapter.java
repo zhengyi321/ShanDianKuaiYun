@@ -362,6 +362,7 @@ public class NewFaBuCheYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
                 if (pos >= netImgSize) {
                     return;
                 }
+
                 tempList.remove(pos);
                 String img = netImageList.get(pos);
                 deleteImageList.add(img);
@@ -375,7 +376,11 @@ public class NewFaBuCheYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
                 if (!isPicFinished) {
                     return;
                 }
-                int netImgSize = tempList.size();
+                int tempImgSize = tempList.size();
+                if (pos >= tempImgSize) {
+                    return;
+                }
+                int netImgSize = netImageList.size();
                 if (pos >= netImgSize) {
                     return;
                 }

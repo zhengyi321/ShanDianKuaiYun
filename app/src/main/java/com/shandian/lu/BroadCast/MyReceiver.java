@@ -128,7 +128,7 @@ public class MyReceiver extends BroadcastReceiver {
         NotificationCompat.Builder	notification = new NotificationCompat.Builder(context).setSmallIcon(R.mipmap.logo)
                 .setContentText(title);
         notification.build();
-        setNotification4(context);
+        setNotification1(context);
    /*     createLocalMp3();*/
       /*  notificationManager.notify(1,notification.build());*/
 
@@ -235,7 +235,14 @@ public class MyReceiver extends BroadcastReceiver {
 
 
 
-
+    //自定义报警通知（震动铃声都要）
+    public void setNotification1(Context context){
+        BasicPushNotificationBuilder builder = new BasicPushNotificationBuilder(context);
+        builder.statusBarDrawable = R.mipmap.logo;//消息栏显示的图标
+        builder.notificationFlags = Notification.FLAG_AUTO_CANCEL;  //设置为自动消失
+        builder.notificationDefaults = Notification.DEFAULT_SOUND| Notification.DEFAULT_VIBRATE|Notification.DEFAULT_LIGHTS;// 设置为铃声与震动都要
+        JPushInterface.setDefaultPushNotificationBuilder(builder);
+    }
 
     //自定义报警通知（震动铃声都不要）  http://blog.csdn.net/fuzhongbin/article/details/51162228
     public void setNotification4(Context context){

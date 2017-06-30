@@ -1,18 +1,24 @@
 package com.shandian.lu.Main.IndexFragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Views.MyGiftView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaseController;
+
+
+import com.shandian.lu.ErWeiMa.CaptureActivity;
 import com.shandian.lu.Main.IndexFragment.BanJia.BanJiaActivity;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanList.CheYuanListActivity;
 import com.shandian.lu.Main.IndexFragment.HongBao.HongBaoActivity;
@@ -32,19 +38,22 @@ import com.umeng.socialize.utils.Log;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.LianXiKeFuDialog;
+import com.zhyan.shandiankuaiyuanwidgetlib.Utils.PermissionUtil;
 import com.zhyan.shandiankuaiyunlib.Bean.MainIndexAdBean;
 import com.zhyan.shandiankuaiyunlib.Utils.SharedPreferencesUtils;
 import com.zhyan.shandiankuaiyunlib.Widget.ViewPage.ImageCycleView;
-
+import com.zhyan.shandiankuaiyuanwidgetlib.Utils.PermissionUtil.RequestCode;
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Observer;
-
+import android.Manifest.permission;
 import static com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils.options;
-
+import com.zhyan.shandiankuaiyuanwidgetlib.Utils.PermissionUtil.AfterPermissionGranted;
+import com.zhyan.shandiankuaiyuanwidgetlib.Utils.PermissionUtil.PermissionCallback;
 /*import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -55,7 +64,7 @@ import com.umeng.socialize.utils.Log;*/
  * Created by az on 2017/4/27.
  */
 
-public class NewMainIndexController extends BaseController{
+public class NewMainIndexController extends BaseController implements PermissionCallback{
     public NewMainIndexController(View view1){
         view = view1;
         init();
@@ -84,7 +93,46 @@ public class NewMainIndexController extends BaseController{
         pbNewMainIndex.setVisibility(View.GONE);
     }
 
+    @BindView(R.id.rly_main_index_erweima)
+    RelativeLayout rlyMainIndexErWeiMa;
+    @OnClick(R.id.rly_main_index_erweima)
+    public void rlyMainIndexErWeiMaOnclick(){
+        try {
+            startSao();
+        } catch (Exception e) {
+            Toast.makeText(view.getContext(), "您已拒绝拍摄权限，请到系统设置打开权限！",0).show();
+            e.printStackTrace();
+        }
+    }
+    @AfterPermissionGranted(RequestCode.CAMERA_CAPTURE)
+    public void startSao() {
+        if (checkPermission(permission.CAMERA)) {
+            Intent intent = new Intent(view.getContext(), CaptureActivity.class);
+            view.getContext().startActivity(intent);
+        }else{
+            requestPermissions(RequestCode.CAMERA_CAPTURE,
+                    permission.CAMERA);
+        }
 
+    }
+    /**
+     * 检查权限
+     *
+     * @param permissions
+     * @return
+     */
+    public boolean checkPermission(@NonNull String... permissions) {
+        return PermissionUtil.checkPermission(view.getContext(), permissions);
+    }
+    /**
+     * 请求权限
+     *
+     * @param requestCode
+     * @param permissions
+     */
+    public void requestPermissions(int requestCode, String... permissions) {
+        PermissionUtil.requestPermissions(view.getContext(), requestCode, permissions);
+    }
     @BindView(R.id.ib_new_main_index_ctwl)
     ImageButton ibNewMainIndexCTWL;
     @OnClick(R.id.ib_new_main_index_ctwl)
@@ -415,5 +463,22 @@ public class NewMainIndexController extends BaseController{
     public void dissmissDialog() {
         if (lianXiKeFuDialog != null && lianXiKeFuDialog.isShowing())
             lianXiKeFuDialog.dismiss();
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, List<String> perms) {
+
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, List<String> perms) {
+        Toast.makeText(view.getContext(), "您已拒绝拍摄权限，请到系统设置打开权限！",0).show();
+    }
+    @SuppressLint("NewApi")
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+       /* super.onRequestPermissionsResult(requestCode, permissions, grantResults);*/
+        PermissionUtil.onRequestPermissionsResult(requestCode, permissions,
+                grantResults, this);
     }
 }

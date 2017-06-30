@@ -6,6 +6,24 @@
  <!--   package="com.shandian.lu">-->
 
     <!--权限-->
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!-- 允许应用程序更改主屏幕中的设置和快捷方式 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
     <!--腾讯升级-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -892,10 +910,13 @@
         <activity android:name=".Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanV2Activity"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
-            android:windowSoftInputMode="adjustPan"
+
             />
+        <!--android:windowSoftInputMode="adjustPan"-->
         <activity android:name=".Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity" />
         <activity android:name=".Main.IndexFragment.NewBanJiaRenRenKuaiDi.NewBanJiaRenRenDetailActivity" />
+        <activity android:name=".ErWeiMa.CaptureActivity" />
+        <activity android:name=".ErWeiMa.lib.CaptureActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
 
     </application>

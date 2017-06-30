@@ -906,6 +906,11 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
     public void onGetBikingRouteResult(BikingRouteResult bikingRouteResult) {
 
     }
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        mSearch.destroy();
+    }
 
     /*
 

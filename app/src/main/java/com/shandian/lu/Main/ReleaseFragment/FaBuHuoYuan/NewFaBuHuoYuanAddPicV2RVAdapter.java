@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -57,7 +58,7 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
     private List<Bitmap> bitmapList;
     private ProgressBar pbNewFaBuHuoYuan;
     private int i,picSize;
-
+    private List<MyItemViewHolder> myItemViewHolders;
     private Handler mHandler = new Handler(){
 
 
@@ -84,7 +85,7 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
         bitmapList = new ArrayList<>();
         allImageList = new ArrayList<>();
         pbNewFaBuHuoYuan = progressBar1;
-
+        myItemViewHolders = new ArrayList<>();
     }
 
     @Override
@@ -162,11 +163,13 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
         }
         i = 0;
 
+
         sendPicToNet();
     }
     @Override
     public void onBindViewHolder(MyItemViewHolder holder, int position) {
         holder.pos = position;
+        myItemViewHolders.add(holder);
         int count = tempList.size();
         if(count <= 1){
             holder.rcivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
@@ -286,8 +289,8 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
                     return;
                 }
 
-
-            pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);
+            myItemViewHolders.get(i).pbNewFaBuHuoYuanPicItem.setVisibility(View.VISIBLE);
+          /*  pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);*/
             isPicFinished = false;
             NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
             newFaBuNetWork.upPicToNet(getParamMap(), new Observer<NewFaBuPicBean>() {
@@ -306,8 +309,10 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
                 public void onNext(NewFaBuPicBean newFaBuPicBean) {
                     if(newFaBuPicBean.getStatus().equals("0")){
                         netImageList.add("\""+newFaBuPicBean.getImgurl()+"\"");
-                        pbNewFaBuHuoYuan.setVisibility(View.GONE);
-                        isPicFinished = true;
+                        /*pbNewFaBuHuoYuan.setVisibility(View.GONE);*/
+                        myItemViewHolders.get(i).pbNewFaBuHuoYuanPicItem.setVisibility(View.GONE);
+
+
                      /*   Toast.makeText(activity,"size"+netImageList.size()+newFaBuPicBean.getImgurl(),Toast.LENGTH_LONG).show();*/
                         notifyDataSetChanged();
                         i++;
@@ -316,7 +321,8 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
                 }
             });
         }else{
-            pbNewFaBuHuoYuan.setVisibility(View.GONE);
+        /*    pbNewFaBuHuoYuan.setVisibility(View.GONE);*/
+
             isPicFinished = true;
         }
 /*        System.out.print("\nbase64:"+base64_00);*/
@@ -373,7 +379,8 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
 
     public class MyItemViewHolder extends RecyclerView.ViewHolder{
         int pos = 0;
-
+        @BindView(R.id.pb_new_fabuhuoyuan_pic_item)
+        ProgressBar pbNewFaBuHuoYuanPicItem;
         @BindView(R.id.rciv_new_main_release_fabuhuoyuan_add)
         RoundCornerImageView rcivNewMainReleaseFaBuHuoYuanAdd;
         @OnClick(R.id.rciv_new_main_release_fabuhuoyuan_add)

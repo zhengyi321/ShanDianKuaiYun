@@ -1,5 +1,6 @@
 package com.shandian.lu.NetWork;
 
+import com.example.mynewslayoutlib.Bean.NewSiJiLocBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
 import com.zhyan.shandiankuaiyunlib.Bean.IsRegisterBean;
 import com.zhyan.shandiankuaiyunlib.Bean.LoginBean;
@@ -67,6 +68,14 @@ public class UserNetWork extends BaseNetWork {
         @GET("client/my_car_info.php")
         Observable<MyCarSourceBean> getMyCarSourceFromNet(@Query("login_id") String login_id);
         /*我的车源*/
+
+
+
+        /*司机实时定位*/
+        @FormUrlEncoded
+        @POST("index.php/app/chyuan/huoqusiji")
+        Observable<NewSiJiLocBean> getSiJiLocFromNet(@FieldMap Map<String,String> paramMap);
+        /*司机实时定位*/
     }
 
     public  void userLogin(String mobile, String password, Observer<LoginBean> observer){
@@ -91,5 +100,10 @@ public class UserNetWork extends BaseNetWork {
     }
     public  void getMyCarSourceFromNet(String login_id,Observer<MyCarSourceBean> observer){
         setSubscribe(service.getMyCarSourceFromNet(login_id),observer);
+    }
+
+
+    public  void getSiJiLocFromNet(Map<String,String> paramMap,Observer<NewSiJiLocBean> observer){
+        setSubscribe(service.getSiJiLocFromNet(paramMap),observer);
     }
 }

@@ -32,6 +32,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static cz.msebera.android.httpclient.client.methods.RequestBuilder.put;
+
 /**
  * Created by Administrator on 2017/6/9.
  */
@@ -253,30 +255,35 @@ public class CheYuanListV2XRVAdapter extends RecyclerView.Adapter<CheYuanListV2X
         LinearLayout llyNewCheYuanListXRVItemItem;
         @OnClick(R.id.lly_new_cheyuanlist_xrv_item_item)
         public void llyNewCheYuanListXRVItemItemOnclick(){
+            String typeName = cheYuanList.get(pos).getType_name();
             XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
             XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
             String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
             if((loginId == null)||(loginId.isEmpty())){
 
                 Intent intent = new Intent(activity, NewCheYuanDetailOtherActivity.class);
+                intent.putExtra("type_name",typeName);
                 intent.putExtra("cyid",cheYuanList.get(pos).getId());
                 activity.startActivity(intent);
                 return;
             }
-            String typeName = cheYuanList.get(pos).getType_name();
+
             if(typeName.equals("5")||typeName.equals("6")){
                 Intent intent = new Intent(activity, NewBanJiaRenRenDetailActivity.class);
+                intent.putExtra("type_name",typeName);
                 intent.putExtra("cyid",cheYuanList.get(pos).getId());
                 activity.startActivity(intent);
                 return;
             }
             if(loginId.equals(cheYuanList.get(pos).getLogin_id())){
                 Intent intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
+                intent.putExtra("type_name",typeName);
                 intent.putExtra("cyid",cheYuanList.get(pos).getId());
                 activity.startActivity(intent);
                 return;
             }else{
                 Intent intent = new Intent(activity, NewCheYuanDetailOtherActivity.class);
+                intent.putExtra("type_name",typeName);
                 intent.putExtra("cyid",cheYuanList.get(pos).getId());
                 activity.startActivity(intent);
                 return;

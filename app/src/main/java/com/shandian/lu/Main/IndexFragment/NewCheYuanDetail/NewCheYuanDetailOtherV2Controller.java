@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewAdsBean;
 import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
@@ -48,7 +49,8 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
         activity.finish();
     }
 
-
+    @BindView(R.id.tv_new_other_cyxq_topbar_title)
+    TextView tvNewOtherCYXQTopBarTitle;
     @BindView(R.id.tv_new_other_cyxq_city_area_b)
     TextView tvNewOtherCYXQCityAreaB;
     @OnClick(R.id.tv_new_other_cyxq_city_area_b)
@@ -229,6 +231,14 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
         if(cyId == null){
             cyId = "";
         }
+        String typeName = activity.getIntent().getStringExtra("type_name");
+ /*       Toast.makeText(activity,typeName,Toast.LENGTH_LONG).show();*/
+        if((typeName != null)&&(typeName.equals("5"))){
+            tvNewOtherCYXQTopBarTitle.setText("快递详情");
+        }
+        if((typeName != null)&&(typeName.equals("6"))){
+            tvNewOtherCYXQTopBarTitle.setText("搬家详情");
+        }
        /* Toast.makeText(activity,"cyId:"+cyId,Toast.LENGTH_LONG).show();*/
     }
     private void initRV(){
@@ -281,10 +291,10 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
         cheTouXiang = newCheYuanDetailBean.getNr().getCztouxiang();
         if(newCheYuanDetailBean.getNr().getZt().equals("0")){
             tvNewOtherCYXQBottomTGBJSubmit.setText("接单中");
-            llyNewOtherCYXQBottom.setBackgroundResource(R.mipmap.bottom_gray);
+           /* llyNewOtherCYXQBottom.setBackgroundResource(R.mipmap.bottom_gray);*/
         }else{
             tvNewOtherCYXQBottomTGBJSubmit.setText("运输中");
-            llyNewOtherCYXQBottom.setBackgroundResource(R.mipmap.tgbj_orange_white_redius_bg);
+           /* llyNewOtherCYXQBottom.setBackgroundResource(R.mipmap.tgbj_orange_white_redius_bg);*/
         }
 
     /*    String dingjin = newCheYuanDetailBean.getNr().getDingjin();

@@ -159,6 +159,14 @@ public class NewBanJiaRenRenDetailController extends BaseController {
         if(cyId == null){
             cyId = "";
         }
+
+        String typeName = activity.getIntent().getStringExtra("type_name");
+        if((typeName != null)&&(typeName.equals("5"))){
+            tvNewBJRRXQTitle.setText("快递详情");
+        }
+        if((typeName != null)&&(typeName.equals("6"))){
+            tvNewBJRRXQTitle.setText("搬家详情");
+        }
        /* Toast.makeText(activity,"cyId:"+cyId,Toast.LENGTH_LONG).show();*/
     }
     private void initRV(){

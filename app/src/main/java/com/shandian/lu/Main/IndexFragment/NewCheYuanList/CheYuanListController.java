@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -83,6 +84,8 @@ public class CheYuanListController extends BaseController {
 
 
 
+    @BindView(R.id.lly_new_cheyuanlist_tab)
+    LinearLayout llyNewCheYuanListTab;
     @BindView(R.id.tv_new_cheyuanlist_baddr)
     TextView tvNewCheYuanListBAddr;
     @BindView(R.id.rly_new_cheyuanlist_baddr)
@@ -293,6 +296,7 @@ public class CheYuanListController extends BaseController {
                 break;
             case "5":
                 tvNewCheYuanListTitle.setText("人人快递");
+                llyNewCheYuanListTab.setVisibility(View.GONE);
                 break;
             case "6":
                 tvNewCheYuanListTitle.setText("搬家");

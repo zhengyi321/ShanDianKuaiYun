@@ -3,6 +3,7 @@ package com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan;
 import android.app.Activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
@@ -29,10 +30,13 @@ public class NewFaBuHuoYuanV2Controller extends BaseController {
         activity.finish();
     }
 
+
+    @BindView(R.id.lly_new_fabuhuoyuan_content_v2)
+    LinearLayout llyNewFaBuHuoYuanContentV2;
     @BindView(R.id.rv_main_release_new_fabuhuoyuan_add_pic)
     RecyclerView rvMainReleaseNewFaBuHuoYuanAddPic;
     private ArrayList<String> tempList ;
-    public NewFaBuHuoYuanAddPicRVAdapter addPicRVAdapter;
+    public NewFaBuHuoYuanAddPicV2RVAdapter addPicRVAdapter;
     public NewFaBuHuoYuanV2Controller(Activity activity1){
         activity = activity1;
         init();
@@ -50,7 +54,7 @@ public class NewFaBuHuoYuanV2Controller extends BaseController {
         tempList = new ArrayList<>();
         tempList.add("");
 
-        addPicRVAdapter = new NewFaBuHuoYuanAddPicRVAdapter(activity,tempList,pbNewFaBuHuoYuan);
+        addPicRVAdapter = new NewFaBuHuoYuanAddPicV2RVAdapter(activity,tempList,pbNewFaBuHuoYuan);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvMainReleaseNewFaBuHuoYuanAddPic.setAdapter(addPicRVAdapter);
