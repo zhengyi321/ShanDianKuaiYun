@@ -24,6 +24,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity;
+import com.shandian.lu.Main.MessageFragment.Chat.ChatActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.NetWork.AdsNetWork;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
@@ -31,6 +32,7 @@ import com.shandian.lu.R;
 import com.shandian.lu.Widget.Dialog.NewEditBaoJiaDialog;
 import com.shandian.lu.Widget.Dialog.NewMapDaoHangDialog;
 import com.shandian.lu.Widget.Dialog.NewQueryDialog;
+import com.zhyan.myhuanxin.EaseConstant;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
@@ -57,6 +59,8 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
     private String bLat,bLon,eLat,eLon;
     private String hyId ,tel;
     private String adsUrl= "";
+    private String czid = "";
+    private String id = "";
     @BindView(R.id.rly_new_other_hyxq_back)
     RelativeLayout rlyNewOtherHYXQBack;
     @OnClick(R.id.rly_new_other_hyxq_back)
@@ -81,6 +85,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         intent.putExtra("czlat",bLat);
         intent.putExtra("czlon",bLon);
         intent.putExtra("baddr",bAddr);
+        intent.putExtra("czid",czid);
         intent.putExtra("title","qdwz");
         activity.startActivity(intent);
     }
@@ -93,6 +98,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         intent.putExtra("czlat",eLat);
         intent.putExtra("czlon",eLon);
         intent.putExtra("eaddr",eAddr);
+        intent.putExtra("czid",czid);
         intent.putExtra("title","zdwz");
         activity.startActivity(intent);
     }
@@ -141,6 +147,18 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
     NewEditBaoJiaDialog neweditBaoJiaDialog;
     @BindView(R.id.tv_new_other_hyxq_bottom_tgbj_submit)
     TextView tvNewOtherHYXQBottomTGBJSubmit;
+    @OnClick(R.id.tv_new_other_hyxq_bottom_tgbj_submit)
+    public void tvNewOtherHYXQBottomTGBJSubmitOnclick(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((loginId == null)||(loginId.isEmpty())){
+            Intent intent = new Intent(activity, LoginActivity.class);
+            activity.startActivity(intent);
+            return;
+        }
+        clickOperation();
+    }
     @BindView(R.id.rly_new_other_hyxq_bottom_tgbj_submit)
     RelativeLayout rlyNewOtherHYXQBottomTGBJSubmit;
     @OnClick(R.id.rly_new_other_hyxq_bottom_tgbj_submit)
@@ -235,6 +253,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         intent.putExtra("elon",eLon);
         intent.putExtra("baddr",bAddr);
         intent.putExtra("eaddr",eAddr);
+        intent.putExtra("czid",czid);
         activity.startActivity(intent);
 
     }
@@ -258,10 +277,24 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
     RelativeLayout rlyNewOtherHYXQBottomMessage;
     @OnClick(R.id.rly_new_other_hyxq_bottom_message)
     public void rlyNewOtherHYXQBottomMessageOnclick(){
-        if((tel == null)||(tel.isEmpty())){
+
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((login_id == null)||(login_id.isEmpty())){
+            activity.startActivity(new Intent(activity,LoginActivity.class));
             return;
         }
-        doSendSMSTo(tel,"" );
+
+        activity.startActivity(new Intent(activity,ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, id));
+
+
+
+
+    /*    if((tel == null)||(tel.isEmpty())){
+            return;
+        }
+        doSendSMSTo(tel,"" );*/
     }
 
     /**
@@ -334,7 +367,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
     }
 
     private NewHuoYuanDetailImgRVAdapter adapter;
-    private List<String> imgList;
+    private ArrayList<String> imgList;
     public NewHuoYuanDetailOtherBaoJiaV2Controller(Activity activity1){
         activity = activity1;
         init();
@@ -367,9 +400,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
     }*/
     private void initRV(){
         imgList = new ArrayList<>();
-        imgList.add("");
-        imgList.add("");
-        imgList.add("");
+
         adapter = new NewHuoYuanDetailImgRVAdapter(activity,imgList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -683,6 +714,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         bAddr = newHuoYuanDetailBean.getNr().getCfdizhi();
         eAddr = newHuoYuanDetailBean.getNr().getDadizhi();
         bCity = newHuoYuanDetailBean.getNr().getCfshi();
+        id = newHuoYuanDetailBean.getNr().getLogin_id();
         initstatus();
     }
 

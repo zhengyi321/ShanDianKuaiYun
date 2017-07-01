@@ -29,10 +29,10 @@ import butterknife.OnClick;
 public class NewHuoYuanDetailImgRVAdapter extends RecyclerView.Adapter<NewHuoYuanDetailImgRVAdapter.MyItemViewHold> {
 
     private Activity activity;
-    private List<String> imgList;
+    private ArrayList<String> imgList;
     private LayoutInflater inflater;
     private int ACTIVITY_REQUEST_PREVIEW_PHOTO = 111;
-    public NewHuoYuanDetailImgRVAdapter(Activity activity1, List<String> imgList1){
+    public NewHuoYuanDetailImgRVAdapter(Activity activity1, ArrayList<String> imgList1){
         activity = activity1;
         imgList = imgList1;
         inflater = LayoutInflater.from(activity1);
@@ -80,7 +80,7 @@ public class NewHuoYuanDetailImgRVAdapter extends RecyclerView.Adapter<NewHuoYua
                     .toolBarColor(ContextCompat.getColor(activity, R.color.colorPrimary)) // Toolbar color.
                     .statusBarColor(ContextCompat.getColor(activity, R.color.colorPrimaryDark)) // StatusBar color.
                     .navigationBarColor(ActivityCompat.getColor(activity, R.color.colorPrimaryBlack)) // NavigationBar color.
-                    .checkedList((ArrayList<String>) imgList) // Image list.
+                    .checkedList(imgList) // Image list.
                     .currentPosition(position) // Preview first to show the first few.
                     .checkFunction(true) // Does the user have an anti-selection when previewing.
                     .start();

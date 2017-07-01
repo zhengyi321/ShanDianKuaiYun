@@ -114,7 +114,7 @@ public class NewHuoYuanDetailOtherBaoJiaWaitController extends BaseController {
 
 
     private NewHuoYuanDetailImgRVAdapter adapter;
-    private List<String> imgList;
+    private ArrayList<String> imgList;
     public NewHuoYuanDetailOtherBaoJiaWaitController(Activity activity1){
         activity = activity1;
         init();

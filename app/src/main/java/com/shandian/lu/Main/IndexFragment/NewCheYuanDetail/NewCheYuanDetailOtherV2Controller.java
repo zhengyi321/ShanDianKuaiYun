@@ -19,9 +19,14 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity;
+import com.shandian.lu.Main.MessageFragment.Chat.ChatActivity;
+import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.NetWork.AdsNetWork;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
+import com.zhyan.myhuanxin.EaseConstant;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
 import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
 
@@ -42,6 +47,8 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
     private String bLat,bLon,eLat,eLon,cheLat,cheLon,cheTouXiang;
     private String adsUrl = "";
     private String bAddr = "",eAddr="";
+    private String czid = "";
+    private String id = "0";
     @BindView(R.id.rly_new_other_cyxq_back)
     RelativeLayout rlyNewOtherCYXQBack;
     @OnClick(R.id.rly_new_other_cyxq_back)
@@ -59,6 +66,7 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
         intent.putExtra("czlat",bLat);
         intent.putExtra("czlon",bLon);
         intent.putExtra("baddr",bAddr);
+        intent.putExtra("czid",czid);
         intent.putExtra("title","qdwz");
         activity.startActivity(intent);
     }
@@ -71,6 +79,7 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
         intent.putExtra("czlat",eLat);
         intent.putExtra("czlon",eLon);
         intent.putExtra("eaddr",eAddr);
+        intent.putExtra("czid",czid);
         intent.putExtra("title","zdwz");
         activity.startActivity(intent);
     }
@@ -109,6 +118,24 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
     TextView tvNewOtherCYXQCarType;
     @BindView(R.id.tv_new_other_cyxq_mile)
     TextView tvNewOtherCYXQMile;
+    @BindView(R.id.rly_new_other_cyxq_bottom_message)
+    RelativeLayout rlyNewOtherCYXQBottomMessage;
+    @OnClick(R.id.rly_new_other_cyxq_bottom_message)
+    public void rlyNewOtherCYXQBottomMessageOnclick(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((login_id == null)||(login_id.isEmpty())){
+            activity.startActivity(new Intent(activity,LoginActivity.class));
+            return;
+        }
+
+        activity.startActivity(new Intent(activity,ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, id));
+    }
+
+
+
+
     private String iphone;
     CallTelDialog callTelDialog;
     @BindView(R.id.rly_new_other_cyxq_bottom_tel)
@@ -176,6 +203,7 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
         intent.putExtra("czlat",cheLat);
         intent.putExtra("czlon",cheLon);
         intent.putExtra("czTouXiang",cheTouXiang);
+        intent.putExtra("czid",czid);
         intent.putExtra("title","hcdw");
         activity.startActivity(intent);
     }
@@ -206,6 +234,7 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
         intent.putExtra("czlon",cheLon);
         intent.putExtra("baddr",bAddr);
         intent.putExtra("eaddr",eAddr);
+        intent.putExtra("czid",czid);
         intent.putExtra("czTouXiang",cheTouXiang);
         activity.startActivity(intent);
     }
@@ -290,10 +319,10 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
         cheLon = newCheYuanDetailBean.getNr().getCzlng();
         cheTouXiang = newCheYuanDetailBean.getNr().getCztouxiang();
         if(newCheYuanDetailBean.getNr().getZt().equals("0")){
-            tvNewOtherCYXQBottomTGBJSubmit.setText("接单中");
+            tvNewOtherCYXQBottomTGBJSubmit.setText("空车");
            /* llyNewOtherCYXQBottom.setBackgroundResource(R.mipmap.bottom_gray);*/
         }else{
-            tvNewOtherCYXQBottomTGBJSubmit.setText("运输中");
+            tvNewOtherCYXQBottomTGBJSubmit.setText("拉货中");
            /* llyNewOtherCYXQBottom.setBackgroundResource(R.mipmap.tgbj_orange_white_redius_bg);*/
         }
 
@@ -315,6 +344,8 @@ public class NewCheYuanDetailOtherV2Controller extends BaseController {
         iphone = newCheYuanDetailBean.getNr().getIphone();
         bAddr = newCheYuanDetailBean.getNr().getCfdizhi();
         eAddr = newCheYuanDetailBean.getNr().getDadizhi();
+        czid = newCheYuanDetailBean.getNr().getLogin_id();
+        id = newCheYuanDetailBean.getNr().getLogin_id();
     }
 
     private void getAdsFromNet(){

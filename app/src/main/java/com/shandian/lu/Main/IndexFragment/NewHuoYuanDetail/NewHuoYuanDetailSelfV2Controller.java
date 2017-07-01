@@ -58,6 +58,7 @@ public class NewHuoYuanDetailSelfV2Controller extends BaseController {
     private  String APP_NAME = "ShanDianKuaiYun";
     private String bLat, bLon, eLat, eLon;
     private String cheLat, cheLon, cheTouXiang;
+    private String czid="";
     String status;
     NewHuoZhuEditBaoJiaDialog newHuoZhuEditBaoJiaDialog;
 
@@ -88,9 +89,9 @@ public class NewHuoYuanDetailSelfV2Controller extends BaseController {
     LinearLayout llyNewSelfHYXQBottomType1;
     @BindView(R.id.lly_new_self_hyxq_bottom_type2)
     LinearLayout llyNewSelfHYXQBottomType2;
+
     @BindView(R.id.rly_new_self_hyxq_bottom_tgbj_submit)
     RelativeLayout rlyNewSelfHYXQBottomTGBJSubmit;
-
     @OnClick(R.id.rly_new_self_hyxq_bottom_tgbj_submit)
     public void rlyNewSelfHYXQBottomTGBJSubmitOnclick() {
         payByStatus();
@@ -98,6 +99,10 @@ public class NewHuoYuanDetailSelfV2Controller extends BaseController {
 
     @BindView(R.id.tv_new_self_hyxq_bottom_tgbj_submit)
     TextView tvNewSelfHYXQBottomTGBJSubmit;
+    @OnClick(R.id.tv_new_self_hyxq_bottom_tgbj_submit)
+    public void tvNewSelfHYXQBottomTGBJSubmitOnclick(){
+        payByStatus();
+    }
     @BindView(R.id.lly_new_self_hyxq_bottom_item)
     LinearLayout llyNewSelfHYXQBottomItem;
 /*    @BindView(R.id.rly_new_self_hyxq_bottom_message)
@@ -111,6 +116,7 @@ public class NewHuoYuanDetailSelfV2Controller extends BaseController {
         intent.putExtra("czlat",bLat);
         intent.putExtra("czlon",bLon);
         intent.putExtra("baddr",bAddr);
+        intent.putExtra("czid",czid);
         intent.putExtra("title","qdwz");
         activity.startActivity(intent);
     }
@@ -124,6 +130,7 @@ public class NewHuoYuanDetailSelfV2Controller extends BaseController {
         intent.putExtra("czlat",eLat);
         intent.putExtra("czlon",eLon);
         intent.putExtra("eaddr",eAddr);
+        intent.putExtra("czid",czid);
         intent.putExtra("title","zdwz");
         activity.startActivity(intent);
     }
@@ -259,6 +266,7 @@ public class NewHuoYuanDetailSelfV2Controller extends BaseController {
         intent.putExtra("czlon",cheLon);
         intent.putExtra("baddr",bAddr);
         intent.putExtra("eaddr",eAddr);
+        intent.putExtra("czid",czid);
         intent.putExtra("czTouXiang",cheTouXiang);
         activity.startActivity(intent);
 
@@ -272,10 +280,11 @@ public class NewHuoYuanDetailSelfV2Controller extends BaseController {
     RelativeLayout rlyNewSelfHYXQBottomMessage;
     @OnClick(R.id.rly_new_self_hyxq_bottom_message)
     public void rlyNewSelfHYXQBottomMessageOnclick(){
-        if((tel == null)||(tel.isEmpty())){
+       /* if((tel == null)||(tel.isEmpty())){
             return;
         }
-        doSendSMSTo(tel,"" );
+        doSendSMSTo(tel,"" );*/
+       Toast.makeText(activity,"不能和自己聊天",Toast.LENGTH_SHORT).show();
     }
     @BindView(R.id.rly_new_self_hyxq_bottom_message2)
     RelativeLayout rlyNewSelfHYXQBottomMessage2;
@@ -385,7 +394,7 @@ public class NewHuoYuanDetailSelfV2Controller extends BaseController {
 
 
     private NewHuoYuanDetailImgRVAdapter adapter;
-    private List<String> imgList;
+    private ArrayList<String> imgList;
     public NewHuoYuanDetailSelfV2Controller(Activity activity1){
         activity = activity1;
 
@@ -634,7 +643,7 @@ public class NewHuoYuanDetailSelfV2Controller extends BaseController {
         bAddr = newHuoYuanDetailBean.getNr().getCfdizhi();
         eAddr = newHuoYuanDetailBean.getNr().getDadizhi();
         bCity = newHuoYuanDetailBean.getNr().getCfshi();
-
+        czid = newHuoYuanDetailBean.getNr().getLogin_id();
     }
     private void getAdsFromNet(){
         AdsNetWork adsNetWork = new AdsNetWork();

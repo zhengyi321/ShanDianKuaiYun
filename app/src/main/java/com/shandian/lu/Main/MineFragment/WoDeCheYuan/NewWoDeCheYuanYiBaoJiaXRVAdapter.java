@@ -181,9 +181,10 @@ public class NewWoDeCheYuanYiBaoJiaXRVAdapter extends RecyclerView.Adapter<NewWo
             intent.putExtra("status",status);
             activity.startActivity(intent);
             System.out.print("\nhyId:"+dataList.get(pos).getId()+" bjid:"+dataList.get(pos).getBjid()+" loginId:"+dataList.get(pos).getLogin_id());
+            /*
             System.out.print("\nhyId:"+dataList.get(pos).getId()+" bjid:"+dataList.get(pos).getBjid()+" loginId:"+dataList.get(pos).getLogin_id());
             System.out.print("\nhyId:"+dataList.get(pos).getId()+" bjid:"+dataList.get(pos).getBjid()+" loginId:"+dataList.get(pos).getLogin_id());
-            System.out.print("\nhyId:"+dataList.get(pos).getId()+" bjid:"+dataList.get(pos).getBjid()+" loginId:"+dataList.get(pos).getLogin_id());
+            System.out.print("\nhyId:"+dataList.get(pos).getId()+" bjid:"+dataList.get(pos).getBjid()+" loginId:"+dataList.get(pos).getLogin_id());*/
         }
         NewQueryDialog newQueryDialog;
         @BindView(R.id.tv_new_wodecheyuan_yibaojia_xrv_item_count)

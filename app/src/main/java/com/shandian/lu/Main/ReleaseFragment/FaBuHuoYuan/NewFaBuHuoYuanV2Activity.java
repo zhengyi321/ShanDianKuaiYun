@@ -165,11 +165,14 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
             return false;
         }
         String time = tvNewFabuHuoYuanCarTime.getText().toString();
-        if(time.length() == 0){
-            Toast.makeText(this,"请选择用车时间",Toast.LENGTH_LONG).show();
-            return false;
-        }
+        if(typeName.equals("5")||typeName.equals("6")){
 
+        }else {
+            if (time.length() == 0) {
+                Toast.makeText(this, "请选择用车时间", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        }
         return true;
     }
 
@@ -223,6 +226,9 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
     EditText etNewFaBuHuoYuanNums;
     @BindView(R.id.et_new_fabuhuoyuan_price)
     EditText etNewFaBuHuoYuanPrice;
+
+    @BindView(R.id.lly_new_fabuhuoyuan_car_time)
+    LinearLayout llyNewFaBuHuoYuanCarTime;
     @BindView(R.id.tv_new_fabuhuoyuan_car_time)
     TextView tvNewFabuHuoYuanCarTime;
     @OnClick(R.id.tv_new_fabuhuoyuan_car_time)
@@ -437,6 +443,14 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
                 break;
             case "4":
                 tvNewFaBuHuoYuanTopBarTitle.setText("专线货源");
+                break;
+            case "5":
+                tvNewFaBuHuoYuanTopBarTitle.setText("人人快递");
+                llyNewFaBuHuoYuanCarTime.setVisibility(View.GONE);
+                break;
+            case "6":
+                tvNewFaBuHuoYuanTopBarTitle.setText("搬家");
+                llyNewFaBuHuoYuanCarTime.setVisibility(View.GONE);
                 break;
         }
     }
@@ -758,12 +772,12 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
 
 
 
+        System.out.print("\n begin paramMap"+paramMap);/*
         System.out.print("\n begin paramMap"+paramMap);
         System.out.print("\n begin paramMap"+paramMap);
         System.out.print("\n begin paramMap"+paramMap);
         System.out.print("\n begin paramMap"+paramMap);
-        System.out.print("\n begin paramMap"+paramMap);
-        System.out.print("\n begin paramMap"+paramMap);
+        System.out.print("\n begin paramMap"+paramMap);*/
         return paramMap;
     }
 

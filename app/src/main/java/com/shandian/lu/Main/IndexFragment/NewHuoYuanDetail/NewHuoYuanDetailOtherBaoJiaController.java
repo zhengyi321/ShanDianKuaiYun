@@ -206,7 +206,7 @@ public class NewHuoYuanDetailOtherBaoJiaController extends BaseController {
     }
 
     private NewHuoYuanDetailImgRVAdapter adapter;
-    private List<String> imgList;
+    private ArrayList<String> imgList;
     public NewHuoYuanDetailOtherBaoJiaController(Activity activity1){
         activity = activity1;
         init();
@@ -229,9 +229,7 @@ public class NewHuoYuanDetailOtherBaoJiaController extends BaseController {
     }
     private void initRV(){
         imgList = new ArrayList<>();
-        imgList.add("");
-        imgList.add("");
-        imgList.add("");
+
         adapter = new NewHuoYuanDetailImgRVAdapter(activity,imgList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);

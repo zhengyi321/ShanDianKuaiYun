@@ -88,7 +88,7 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
         }else{
             holder.llyNewWoDeHuoYuanXRVItemNews.setVisibility(View.GONE);
         }*/
-       holder.ivNewWoDeHuoYuanXRVItemNews.setVisibility(View.GONE);
+        holder.ivNewWoDeHuoYuanXRVItemNews.setVisibility(View.GONE);
         holder.tvNewWoDeHuoYuanXRVItemNews.setText(ztName);
         holder.tvNewWoDeHuoYuanXRVItemBCity.setText(dataList.get(position).getCfshi());
         holder.tvNewWoDeHuoYuanXRVItemBArea.setText(dataList.get(position).getCfqu());
@@ -111,6 +111,12 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
                 break;
             case "4":
                 holder.tvNewWoDeHuoYuanXRVItemGoodsType.setText("专线货源");
+                break;
+            case "5":
+                holder.tvNewWoDeHuoYuanXRVItemGoodsType.setText("人人快递");
+                break;
+            case "6":
+                holder.tvNewWoDeHuoYuanXRVItemGoodsType.setText("搬家");
                 break;
         }
       holder.tvNewWoDeHuoYuanXRVItemDis.setText(dataList.get(position).getJuli());
@@ -185,6 +191,7 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
         RelativeLayout rlyNewWoDeHuoYuanXRVItemCount;
         @OnClick(R.id.rly_new_wodehuoyuan_xrv_item_count)
         public void rlyNewWoDeHuoYuanXRVItemCountOnclick(){
+
             String ddzt = dataList.get(pos).getDingdanzt();
             Intent intent;
             if((ddzt == null)||(ddzt.isEmpty())){
@@ -198,11 +205,12 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
                 case "1":
                         intent = new Intent(activity, TwoStepPaySubmitActivity.class);
                         System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                    /*
                         System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
                         System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
                         System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
                         System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
-                        System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());
+                        System.out.print("\nhyId"+dataList.get(pos).getId()+" baojiaId:"+dataList.get(pos).getBaojiaid());*/
                         intent.putExtra("hyId",dataList.get(pos).getId());
                         intent.putExtra("baojiaId",dataList.get(pos).getBaojiaid());
                         intent.putExtra("status","dingjin");
@@ -216,7 +224,7 @@ public class NewWoDeHuoYuanXRVAdapter extends RecyclerView.Adapter<NewWoDeHuoYua
 
                     break;
                 case "4":
-                     intent = new Intent(activity, TwoStepPaySubmitActivity.class);
+                    intent = new Intent(activity, TwoStepPaySubmitActivity.class);
                     intent.putExtra("hyId",dataList.get(pos).getId());
                     intent.putExtra("baojiaId",dataList.get(pos).getBaojiaid());
                     intent.putExtra("status","weikuan");

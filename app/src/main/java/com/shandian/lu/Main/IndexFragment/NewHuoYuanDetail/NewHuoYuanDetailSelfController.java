@@ -219,7 +219,7 @@ public class NewHuoYuanDetailSelfController extends BaseController {
 
 
     private NewHuoYuanDetailImgRVAdapter adapter;
-    private List<String> imgList;
+    private ArrayList<String> imgList;
     public NewHuoYuanDetailSelfController(Activity activity1){
         activity = activity1;
 

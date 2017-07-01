@@ -52,9 +52,9 @@ import zhyan.likeiosselectpopuplib.ProvCityAreaOptionsPickerView;
 
 public class CheYuanListController extends BaseController {
     private Thread thread;
-    private static final int MSG_LOAD_DATA = 0x0001;
-    private static final int MSG_LOAD_SUCCESS = 0x0002;
-    private static final int MSG_LOAD_FAILED = 0x0003;
+    private  final int MSG_LOAD_DATA = 0x0001;
+    private  final int MSG_LOAD_SUCCESS = 0x0002;
+    private  final int MSG_LOAD_FAILED = 0x0003;
     private boolean isLoaded = false;
     int page = 1;
     private int refreshTime = 0;
@@ -105,7 +105,7 @@ public class CheYuanListController extends BaseController {
 
 
 
-    private void ShowPickerView(final boolean isYourSHiXiong) {// 弹出选择器
+    private void ShowPickerView(final boolean isBeginShengShiXian) {// 弹出选择器
 
         ProvCityAreaOptionsPickerView pvOptions = new ProvCityAreaOptionsPickerView.Builder(activity, new ProvCityAreaOptionsPickerView.OnOptionsSelectListener() {
             @Override
@@ -114,21 +114,35 @@ public class CheYuanListController extends BaseController {
                 String tx = options1Items.get(options1).getPickerViewText()+
                         options2Items.get(options1).get(options2)+
                         options3Items.get(options1).get(options2).get(options3);
-                if(isYourSHiXiong) {
+                if(isBeginShengShiXian) {
                     bProv =  options1Items.get(options1).getPickerViewText();
                     bCity = options2Items.get(options1).get(options2);
                     bArea =  options3Items.get(options1).get(options2).get(options3);
-                    tvNewCheYuanListBAddr.setText(bArea);
-                    page = 1;
-                    getData2FromNet();
+                    int indexOfQuan = bArea.indexOf("全");
+                    if(indexOfQuan >= 0){
+                        bArea = "";
+                        tvNewCheYuanListBAddr.setText(bCity);
+                    }else {
+                        tvNewCheYuanListBAddr.setText(bArea);
+                    }
+             /*       page = 1;
+                    getData2FromNet();*/
+                    xrvNewCheYuanList.refresh();
                 }else{
 
                     eProv =  options1Items.get(options1).getPickerViewText();
                     eCity = options2Items.get(options1).get(options2);
                     eArea =  options3Items.get(options1).get(options2).get(options3);
-                    tvNewCheYuanListEAddr.setText(eArea);
-                    page = 1;
-                    getData2FromNet();
+                    int indexOfQuan = eArea.indexOf("全");
+                    if(indexOfQuan >= 0){
+                        eArea = "";
+                        tvNewCheYuanListEAddr.setText(eCity);
+                    }else {
+                        tvNewCheYuanListEAddr.setText(eArea);
+                    }
+                    /*page = 1;
+                    getData2FromNet();*/
+                    xrvNewCheYuanList.refresh();
                 }
              /*   Toast.makeText(activity,tx,Toast.LENGTH_SHORT).show();*/
             }
@@ -157,8 +171,9 @@ public class CheYuanListController extends BaseController {
             @Override
             public void isOnclick(boolean isOnclick) {
                 if(isOnclick){
-                    page = 1;
-                    getData2FromNet();
+                    /*page = 1;
+                    getData2FromNet();*/
+                    xrvNewCheYuanList.refresh();
                 }
             }
         }).build(activity);
@@ -189,21 +204,24 @@ public class CheYuanListController extends BaseController {
             @Override
             public void isClicked(boolean isClicked) {
                 if(isClicked){
-                    page = 1;
-                    getData2FromNet();
+                    /*page = 1;
+                    getData2FromNet();*/
+                    xrvNewCheYuanList.refresh();
                 }
             }
         }).build(activity);
         showCarLengthDialog();
     }
     public void showCarLengthDialog() {
-        if (carLengthDialog != null && !carLengthDialog.isShowing())
+        if (carLengthDialog != null && !carLengthDialog.isShowing()) {
             carLengthDialog.show();
+        }
     }
 
     public void dissmissCarLengthDialog() {
-        if (carLengthDialog != null && carLengthDialog.isShowing())
+        if (carLengthDialog != null && carLengthDialog.isShowing()) {
             carLengthDialog.dismiss();
+        }
     }
 
 
@@ -330,7 +348,7 @@ public class CheYuanListController extends BaseController {
                         page=1;
                         getData2FromNet();
 
-                        xrvNewCheYuanList.refreshComplete();
+
                     }
 
                 }, 1000);            //refresh data here
@@ -447,6 +465,7 @@ public class CheYuanListController extends BaseController {
             public void onNext(NewCheYuanListBean newCheYuanListBean) {
                 if(page == 1 ){
                     cheYuanListXRVAdapter.cheYuanList.clear();
+                    xrvNewCheYuanList.refreshComplete();
                 }
                 cheYuanListXRVAdapter.setAdapter(newCheYuanListBean.getNr().getList());
             }

@@ -59,6 +59,7 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
     private ProgressBar pbNewFaBuHuoYuan;
     private int i,picSize;
     private List<MyItemViewHolder> myItemViewHolders;
+    private int viewPos = -1;
     private Handler mHandler = new Handler(){
 
 
@@ -170,6 +171,8 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
     public void onBindViewHolder(MyItemViewHolder holder, int position) {
         holder.pos = position;
         myItemViewHolders.add(holder);
+        viewPos = position;
+
         int count = tempList.size();
         if(count <= 1){
             holder.rcivNewMainReleaseFaBuHuoYuanAdd.setImageResource(R.mipmap.pic_add);
@@ -288,20 +291,25 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
                     sendPicToNet();
                     return;
                 }
-
-            myItemViewHolders.get(i).pbNewFaBuHuoYuanPicItem.setVisibility(View.VISIBLE);
+            if(viewPos != -1) {
+                myItemViewHolders.get(0).pbNewFaBuHuoYuanPicItem.setVisibility(View.VISIBLE);
+            }
           /*  pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);*/
             isPicFinished = false;
             NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
             newFaBuNetWork.upPicToNet(getParamMap(), new Observer<NewFaBuPicBean>() {
                 @Override
                 public void onCompleted() {
-
+                    if(viewPos != -1) {
+                        myItemViewHolders.get(0).pbNewFaBuHuoYuanPicItem.setVisibility(View.GONE);
+                    }
                 }
 
                 @Override
                 public void onError(Throwable e) {
-
+                    if(viewPos != -1) {
+                        myItemViewHolders.get(0).pbNewFaBuHuoYuanPicItem.setVisibility(View.GONE);
+                    }
                  /*   Toast.makeText(activity,"Throwable:"+e,Toast.LENGTH_LONG).show();*/
                 }
 
@@ -310,7 +318,9 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
                     if(newFaBuPicBean.getStatus().equals("0")){
                         netImageList.add("\""+newFaBuPicBean.getImgurl()+"\"");
                         /*pbNewFaBuHuoYuan.setVisibility(View.GONE);*/
-                        myItemViewHolders.get(i).pbNewFaBuHuoYuanPicItem.setVisibility(View.GONE);
+                        if(viewPos != -1) {
+                            myItemViewHolders.get(0).pbNewFaBuHuoYuanPicItem.setVisibility(View.GONE);
+                        }
 
 
                      /*   Toast.makeText(activity,"size"+netImageList.size()+newFaBuPicBean.getImgurl(),Toast.LENGTH_LONG).show();*/
@@ -322,7 +332,9 @@ public class NewFaBuHuoYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
             });
         }else{
         /*    pbNewFaBuHuoYuan.setVisibility(View.GONE);*/
-
+            if(viewPos != -1) {
+                myItemViewHolders.get(0).pbNewFaBuHuoYuanPicItem.setVisibility(View.GONE);
+            }
             isPicFinished = true;
         }
 /*        System.out.print("\nbase64:"+base64_00);*/

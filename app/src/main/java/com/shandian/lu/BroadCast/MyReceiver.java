@@ -119,6 +119,18 @@ public class MyReceiver extends BroadcastReceiver {
         String message = bundle.getString(JPushInterface.EXTRA_MESSAGE);
         String title = bundle.getString(JPushInterface.EXTRA_NOTIFICATION_TITLE);
         String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
+        System.out.print("\nextras:"+extras);
+        System.out.print("\nextras:"+extras);
+        System.out.print("\nextras:"+extras);
+        System.out.print("\nextras:"+extras);
+        System.out.print("\nextras:"+extras);
+        System.out.print("\nextras:"+extras);
+        System.out.print("\nextras:"+extras);
+        System.out.print("\nextras:"+extras);
+        System.out.print("\nextras:"+extras);
+        System.out.print("\nextras:"+extras);
+        System.out.print("\nextras:"+extras);
+        System.out.print("\nextras:"+extras);
         context1 = context;
         this.bundle1 = bundle;
      /*   setNotification4(context);*/
@@ -161,6 +173,28 @@ public class MyReceiver extends BroadcastReceiver {
             if (null != extraJson && extraJson.length() > 0) {
                     /*String sound = extraJson.getString("sound");*///自定义字段解析
                 cyid = extraJson.getString("cyid");//自定义字段解析
+                lx = extraJson.getString("lx");//自定义字段解析
+            /*    hyId = extraJson.getString("hyid");//自定义字段解析*/
+
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+                System.out.print("\nthis is lx:"+lx+" hyId:"+hyId);
+            }
+        } catch (JSONException e) {
+
+        }
+        try {
+            JSONObject extraJson = new JSONObject(extras);
+            if (null != extraJson && extraJson.length() > 0) {
+                    /*String sound = extraJson.getString("sound");*///自定义字段解析
+               /* cyid = extraJson.getString("cyid");//自定义字段解析*/
                 lx = extraJson.getString("lx");//自定义字段解析
                 hyId = extraJson.getString("hyid");//自定义字段解析
 

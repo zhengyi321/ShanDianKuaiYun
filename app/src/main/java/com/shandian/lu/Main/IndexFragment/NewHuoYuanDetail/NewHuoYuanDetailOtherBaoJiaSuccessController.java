@@ -236,7 +236,7 @@ public class NewHuoYuanDetailOtherBaoJiaSuccessController extends BaseController
 
 
     private NewHuoYuanDetailImgRVAdapter adapter;
-    private List<String> imgList;
+    private ArrayList<String> imgList;
     public NewHuoYuanDetailOtherBaoJiaSuccessController(Activity activity1){
         activity = activity1;
         init();

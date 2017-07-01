@@ -62,7 +62,10 @@ public class ReleaseDialogController extends BaseController {
     TextView tvDialogHuoTC;
     @BindView(R.id.tv_dialog_huo_tz)
     TextView tvDialogHuoTZ;
-
+    @BindView(R.id.tv_dialog_huo_rrkd)
+    TextView tvDialogHuoRRKD;
+    @BindView(R.id.tv_dialog_huo_bj)
+    TextView tvDialogHuoBJ;
 
     @BindView(R.id.lly_dialog_che_huo_ct)
     LinearLayout llyDialogCheHuoCT;
@@ -174,10 +177,10 @@ public class ReleaseDialogController extends BaseController {
         }
     }
 
-    @BindView(R.id.lly_dialog_che_rrkd)
-    LinearLayout llyDialogCheRRKD;
-    @OnClick(R.id.lly_dialog_che_rrkd)
-    public void llyDialogCheRRKDOnclick(){
+    @BindView(R.id.lly_dialog_che_huo_rrkd)
+    LinearLayout llyDialogCheHuoRRKD;
+    @OnClick(R.id.lly_dialog_che_huo_rrkd)
+    public void llyDialogCheHuoRRKDOnclick(){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
@@ -193,11 +196,18 @@ public class ReleaseDialogController extends BaseController {
             intent.putExtra("type_name","5");
             view.getContext().startActivity(intent);
         }
+        if(rbDialogReleaseHuo.isChecked()){
+            /*intent = new Intent(view.getContext(), NewFaBuHuoYuanActivity.class);*/
+            intent = new Intent(view.getContext(), NewFaBuHuoYuanV2Activity.class);
+            intent.putExtra("type_name","5");
+            view.getContext().startActivity(intent);
+        }
     }
-    @BindView(R.id.lly_dialog_che_bj)
-    LinearLayout llyDialogCheBJ;
-    @OnClick(R.id.lly_dialog_che_bj)
-    public void llyDialogCheBJOnclick(){
+
+    @BindView(R.id.lly_dialog_che_huo_bj)
+    LinearLayout llyDialogCheHuoBJ;
+    @OnClick(R.id.lly_dialog_che_huo_bj)
+    public void llyDialogCheHuoBJOnclick(){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
@@ -210,6 +220,12 @@ public class ReleaseDialogController extends BaseController {
         }
         if(rbDialogReleaseChe.isChecked()){
             intent = new Intent(view.getContext(), NewFaBuCheYuanV2Activity.class);
+            intent.putExtra("type_name","6");
+            view.getContext().startActivity(intent);
+        }
+        if(rbDialogReleaseHuo.isChecked()){
+            /*intent = new Intent(view.getContext(), NewFaBuHuoYuanActivity.class);*/
+            intent = new Intent(view.getContext(), NewFaBuHuoYuanV2Activity.class);
             intent.putExtra("type_name","6");
             view.getContext().startActivity(intent);
         }
@@ -311,7 +327,8 @@ public class ReleaseDialogController extends BaseController {
         tvDialogHuoTC.setTextColor(0xff808080);
         tvDialogHuoTZ.setTextColor(0xff808080);
         tvDialogHuoZX.setTextColor(0xff808080);
-
+        tvDialogHuoRRKD.setTextColor(0xff808080);
+        tvDialogHuoBJ.setTextColor(0xff808080);
 
 
     }
@@ -328,5 +345,7 @@ public class ReleaseDialogController extends BaseController {
         tvDialogHuoTC.setTextColor(0xff000000);
         tvDialogHuoTZ.setTextColor(0xff000000);
         tvDialogHuoZX.setTextColor(0xff000000);
+        tvDialogHuoRRKD.setTextColor(0xff000000);
+        tvDialogHuoBJ.setTextColor(0xff000000);
     }
 }

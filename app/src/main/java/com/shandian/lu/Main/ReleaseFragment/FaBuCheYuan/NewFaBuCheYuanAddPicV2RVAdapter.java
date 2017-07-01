@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.mynewslayoutlib.Bean.NewFaBuPicBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanAddPicV2RVAdapter;
 import com.shandian.lu.NetWork.NewFaBuNetWork;
 import com.shandian.lu.R;
 import com.yanzhenjie.album.Album;
@@ -58,6 +59,8 @@ public class NewFaBuCheYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
     private ProgressBar pbNewFaBuHuoYuan;
     private boolean isFirst = true;
     private int i,picSize;
+    private int viewPos = -1;
+    private List<MyItemViewHolder> myItemViewHolders;
     private Handler mHandler = new Handler(){
 
 
@@ -84,6 +87,7 @@ public class NewFaBuCheYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
         bitmapList = new ArrayList<>();
         allImageList = new ArrayList<>();
         pbNewFaBuHuoYuan = progressBar1;
+        myItemViewHolders = new ArrayList<>();
     }
 
     @Override
@@ -145,6 +149,8 @@ public class NewFaBuCheYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
     @Override
     public void onBindViewHolder(MyItemViewHolder holder, int position) {
         holder.pos = position;
+        myItemViewHolders.add(holder);
+        viewPos = position;
         int count = tempList.size();
 
         if(count <= 1){
@@ -251,27 +257,36 @@ public class NewFaBuCheYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
                 return;
             }
 
-
-            pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);
+            if(viewPos != -1) {
+                myItemViewHolders.get(0).pbNewFaBuCheYuanPicItem.setVisibility(View.VISIBLE);
+            }
+           /* pbNewFaBuHuoYuan.setVisibility(View.VISIBLE);*/
             isPicFinished = false;
 
             NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
             newFaBuNetWork.upPicToNet(getParamMap(), new Observer<NewFaBuPicBean>() {
                 @Override
                 public void onCompleted() {
-
+                    if(viewPos != -1) {
+                        myItemViewHolders.get(0).pbNewFaBuCheYuanPicItem.setVisibility(View.GONE);
+                    }
                 }
 
                 @Override
                 public void onError(Throwable e) {
-
+                    if(viewPos != -1) {
+                        myItemViewHolders.get(0).pbNewFaBuCheYuanPicItem.setVisibility(View.GONE);
+                    }
                 }
 
                 @Override
                 public void onNext(NewFaBuPicBean newFaBuPicBean) {
                     if(newFaBuPicBean.getStatus().equals("0")){
                         netImageList.add("\""+newFaBuPicBean.getImgurl()+"\"");
-                        pbNewFaBuHuoYuan.setVisibility(View.GONE);
+                        /*pbNewFaBuHuoYuan.setVisibility(View.GONE);*/
+                        if(viewPos != -1) {
+                            myItemViewHolders.get(viewPos).pbNewFaBuCheYuanPicItem.setVisibility(View.GONE);
+                        }
                         isPicFinished = true;
                         notifyDataSetChanged();
 
@@ -281,8 +296,10 @@ public class NewFaBuCheYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
                 }
             });
         }else{
-
-            pbNewFaBuHuoYuan.setVisibility(View.GONE);
+            if(viewPos != -1) {
+                myItemViewHolders.get(0).pbNewFaBuCheYuanPicItem.setVisibility(View.GONE);
+            }
+          /*  pbNewFaBuHuoYuan.setVisibility(View.GONE);*/
             isPicFinished = true;
         }
 /*        System.out.print("\nbase64:"+base64_00);*/
@@ -340,7 +357,8 @@ public class NewFaBuCheYuanAddPicV2RVAdapter extends RecyclerView.Adapter<NewFaB
 
     public class MyItemViewHolder extends RecyclerView.ViewHolder{
         int pos = 0;
-
+        @BindView(R.id.pb_new_fabucheyuan_pic_item)
+        ProgressBar pbNewFaBuCheYuanPicItem;
         @BindView(R.id.rciv_new_main_release_fabucheyuan_add)
         RoundCornerImageView rcivNewMainReleaseFaBuCheYuanAdd;
         @OnClick(R.id.rciv_new_main_release_fabucheyuan_add)

@@ -72,11 +72,13 @@ public class HuoYuanListController extends BaseController {
 
     HuoYuanListXRVAdapter huoYuanListXRVAdapter;
 
+    XRecyclerView xRecyclerView;
 
-    public HuoYuanListController(Activity activity1,HuoYuanListXRVAdapter huoYuanListXRVAdapter1){
+    public HuoYuanListController(Activity activity1,HuoYuanListXRVAdapter huoYuanListXRVAdapter1,XRecyclerView xRecyclerView1){
         activity = activity1;
         init();
         huoYuanListXRVAdapter = huoYuanListXRVAdapter1;
+        xRecyclerView = xRecyclerView1;
         getAdsFromNet();
     }
 
@@ -262,6 +264,7 @@ public class HuoYuanListController extends BaseController {
                    /* tempBeanList.addAll(newHuoYuanListBean.getNr().getList());*/
                    if(page.equals("1")){
                        huoYuanListXRVAdapter.huoYuanList.clear();
+                       xRecyclerView.refreshComplete();
                    }
                     huoYuanListXRVAdapter.setAdapter(newHuoYuanListBean.getNr().getList());
 

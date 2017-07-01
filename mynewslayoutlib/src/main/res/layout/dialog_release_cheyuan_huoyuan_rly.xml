@@ -226,7 +226,7 @@
                 android:background="@color/lightgray"
                 />
             <LinearLayout
-                android:id="@+id/lly_dialog_che_rrkd"
+                android:id="@+id/lly_dialog_che_huo_rrkd"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:layout_height="@dimen/zero"
@@ -245,10 +245,10 @@
                     android:gravity="center_horizontal"
                     />
                 <TextView
-
+                    android:id="@+id/tv_dialog_huo_rrkd"
                     android:layout_width="@dimen/zero"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="人人快递"
                     android:textColor="@color/gray"
                     android:textSize="15sp"
                     android:layout_centerVertical="true"
@@ -264,7 +264,7 @@
                 android:background="@color/lightgray"
                 />
             <LinearLayout
-                android:id="@+id/lly_dialog_che_bj"
+                android:id="@+id/lly_dialog_che_huo_bj"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:layout_height="@dimen/zero"
@@ -274,7 +274,7 @@
                     android:id="@+id/tv_dialog_che_bj"
                     android:layout_width="@dimen/zero"
                     android:layout_height="wrap_content"
-                     android:text="搬家"
+                    android:text="搬家"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:layout_centerVertical="true"
@@ -283,9 +283,10 @@
                     android:gravity="center_horizontal"
                     />
                 <TextView
+                    android:id="@+id/tv_dialog_huo_bj"
                     android:layout_width="@dimen/zero"
                     android:layout_height="wrap_content"
-                     android:text=""
+                    android:text="搬家"
                     android:textColor="@color/gray"
                     android:textSize="15sp"
                     android:layout_centerVertical="true"

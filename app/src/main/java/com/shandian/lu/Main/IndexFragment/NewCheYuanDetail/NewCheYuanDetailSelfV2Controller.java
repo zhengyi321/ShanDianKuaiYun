@@ -19,9 +19,14 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity;
+import com.shandian.lu.Main.MessageFragment.Chat.ChatActivity;
+import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.NetWork.AdsNetWork;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
+import com.zhyan.myhuanxin.EaseConstant;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
 import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
 
@@ -42,6 +47,7 @@ public class NewCheYuanDetailSelfV2Controller extends BaseController {
     private String bLat,bLon,eLat,eLon,cheLat,cheLon,cheTouXiang;
     private String adsUrl = "";
     private String bAddr="",eAddr="";
+    private String id = "";
     @BindView(R.id.rly_new_self_cyxq_back)
     RelativeLayout rlyNewSelfCYXQBack;
     @OnClick(R.id.rly_new_self_cyxq_back)
@@ -126,6 +132,21 @@ public class NewCheYuanDetailSelfV2Controller extends BaseController {
             }
         }).build(activity);
         showTelDialog();
+    }
+    @BindView(R.id.rly_new_self_cyxq_bottom_message)
+    RelativeLayout rlyNewSelfCYXQBottomMessage;
+    @OnClick(R.id.rly_new_self_cyxq_bottom_message)
+    public void rlyNewSelfCYXQBottomMessageOnclick(){
+       /* XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((login_id == null)||(login_id.isEmpty())){
+            activity.startActivity(new Intent(activity,LoginActivity.class));
+            return;
+        }
+
+        activity.startActivity(new Intent(activity,ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, id));*/
+       Toast.makeText(activity,"不能与自己聊天",Toast.LENGTH_SHORT).show();
     }
     private void startCallTel(String number) {
         /*PhoneFormatCheckUtils phoneFormatCheckUtils = new PhoneFormatCheckUtils();
@@ -288,10 +309,10 @@ public class NewCheYuanDetailSelfV2Controller extends BaseController {
         cheLon = newCheYuanDetailBean.getNr().getCzlng();
         cheTouXiang = newCheYuanDetailBean.getNr().getCztouxiang();
         if(newCheYuanDetailBean.getNr().getZt().equals("0")){
-            tvNewSelfCYXQBottomTGBJSubmit.setText("接单中");
+            tvNewSelfCYXQBottomTGBJSubmit.setText("空车");
           /*  llyNewSelfCYXQBottom.setBackgroundResource(R.mipmap.bottom_gray);*/
         }else{
-            tvNewSelfCYXQBottomTGBJSubmit.setText("运输中");
+            tvNewSelfCYXQBottomTGBJSubmit.setText("拉货中");
           /*  llyNewSelfCYXQBottom.setBackgroundResource(R.mipmap.tgbj_orange_white_redius_bg);*/
         }
 
@@ -313,6 +334,7 @@ public class NewCheYuanDetailSelfV2Controller extends BaseController {
         iphone = newCheYuanDetailBean.getNr().getIphone();
         bAddr = newCheYuanDetailBean.getNr().getCfdizhi();
         eAddr = newCheYuanDetailBean.getNr().getDadizhi();
+        id = newCheYuanDetailBean.getNr().getId();
     }
 
     private void getAdsFromNet(){

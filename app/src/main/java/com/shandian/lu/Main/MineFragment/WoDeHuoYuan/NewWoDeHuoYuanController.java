@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.mynewslayoutlib.Bean.NewWoDeHuoYuanBean;
 import com.example.mynewslayoutlib.Utils.SystemUtils;
@@ -176,7 +177,7 @@ public class NewWoDeHuoYuanController extends BaseController {
                         page=1;
                         getDataFromNet(""+type,page+"");
 
-                        xrvNewWoDeHuoYuan.refreshComplete();
+
                     }
 
                 }, 1000);            //refresh data here
@@ -206,7 +207,7 @@ public class NewWoDeHuoYuanController extends BaseController {
                 times ++;
             }
         });
-/*        xrvNewWoDeHuoYuan.refresh();*/
+        xrvNewWoDeHuoYuan.refresh();
     }
 
 
@@ -290,6 +291,7 @@ public class NewWoDeHuoYuanController extends BaseController {
                 if(newWoDeHuoYuanBean.getStatus().equals("0")){
                     if(p.equals("1")){
                         dataList.clear();
+                        xrvNewWoDeHuoYuan.refreshComplete();
                     }
                     adapter.setAdapter(newWoDeHuoYuanBean.getNr().getList());
                 }
@@ -300,7 +302,16 @@ public class NewWoDeHuoYuanController extends BaseController {
 
 
     public void onResume(){
-
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String payStatus = xcCacheManager.readCache(xcCacheSaveName.payStatus);
+        if(payStatus != null){
+            if(payStatus.equals("1")){
+                xrvNewWoDeHuoYuan.refresh();
+               /* Toast.makeText(activity,"this is refresh",Toast.LENGTH_LONG).show();*/
+                xcCacheManager.writeCache(xcCacheSaveName.payStatus,"0");
+            }
+        }
         /*getDataFromNet(type+"","1");*/
     }
 }

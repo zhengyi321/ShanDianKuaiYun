@@ -13,6 +13,8 @@ import com.shandian.lu.BaseController;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 import com.shandian.lu.ThirdPay.ZFB.ZhiFuBaoUtil;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -108,7 +110,10 @@ public class TwoStepPaySubmitController extends BaseController {
         ButterKnife.bind(this,activity);
         zhiFuBaoUtil = new ZhiFuBaoUtil(activity);
         getId();
-
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        xcCacheManager.writeCache(xcCacheSaveName.payStatus,"1");
+       /* Toast.makeText(activity,"this is payStatus",Toast.LENGTH_LONG).show();*/
     }
 
 
@@ -274,7 +279,11 @@ public class TwoStepPaySubmitController extends BaseController {
             @Override
             public void isSuccessful(boolean isSuccessful) {
 
-            activity.finish();
+                XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+                XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+                xcCacheManager.writeCache(xcCacheSaveName.payStatus,"1");
+
+                activity.finish();
             }
         });
                     /*去支付金钱*/

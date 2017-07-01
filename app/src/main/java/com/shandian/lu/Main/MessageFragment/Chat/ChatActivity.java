@@ -35,7 +35,7 @@ public class ChatActivity/* extends Activity */ extends EaseBaseActivity {
         //pass parameters to chat fragment
 
         Bundle args = new Bundle();
-        args.putInt(EaseConstant.EXTRA_CHAT_TYPE, EaseConstant.CHATTYPE_GROUP);
+        args.putInt(EaseConstant.EXTRA_CHAT_TYPE, EaseConstant.CHATTYPE_SINGLE);
         args.putString(EaseConstant.EXTRA_USER_ID, toChatUsername);
         chatFragment.setArguments(args);
         getSupportFragmentManager().beginTransaction().add(R.id.main_message_chat, chatFragment).commit();

@@ -905,7 +905,7 @@
         <activity android:name=".Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanV2Activity"
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
-            android:windowSoftInputMode="adjustPan"
+
             />
         <activity android:name=".Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanV2Activity"
             android:screenOrientation="portrait"
