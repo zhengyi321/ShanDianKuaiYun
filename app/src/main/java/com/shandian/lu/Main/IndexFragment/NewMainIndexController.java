@@ -29,6 +29,7 @@ import com.shandian.lu.Main.IndexFragment.WebView.WebViewActivity;
 import com.shandian.lu.Main.IndexFragment.ZhengCheHuoYun.ZhengCheHuoYunActivity;
 import com.shandian.lu.NetWork.MainIndexNetWork;
 import com.shandian.lu.R;
+import com.shandian.lu.Widget.XuanFu.MserServes;
 import com.shandian.lu.Widget.YouMeng.Defaultcontent;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
@@ -359,7 +360,7 @@ public class NewMainIndexController extends BaseController implements Permission
     @Override
     protected void init() {
         ButterKnife.bind(this,view);
-
+       view.getContext().startService(new Intent( view.getContext(), MserServes.class));
 /*        initViews();*/
 
     }

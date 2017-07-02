@@ -246,6 +246,7 @@
                             app:gif="@raw/anniu"
                             android:layout_centerVertical="true"
                             android:layout_alignParentRight="true"
+                            android:visibility="gone"
 
                             />
 
