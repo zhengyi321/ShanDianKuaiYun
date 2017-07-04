@@ -207,7 +207,7 @@ public class HuoYuanListActivity extends BaseActivity {
         initXRV();
         initJsonData();
         initController();
-        xrvNewHuoYuanList.refresh();
+
        /* reFreshData("1","0");*/
     }
 
@@ -261,7 +261,7 @@ public class HuoYuanListActivity extends BaseActivity {
         }
     }
 
-    private void reFreshData(String page,String type){
+    private void reFreshData(String page1,String type){
 
         if(bProvince == null){
             bProvince = "";
@@ -281,13 +281,13 @@ public class HuoYuanListActivity extends BaseActivity {
         if(eArea == null){
             eArea = "";
         }
+/*        System.out.print("\npage:"+page+"type:"+type+"bProvince:"+bProvince+"bCity:"+bCity+"bArea:"+bArea+"eProvince:"+eProvince+"eCity:"+eCity+"eArea:"+eArea);
         System.out.print("\npage:"+page+"type:"+type+"bProvince:"+bProvince+"bCity:"+bCity+"bArea:"+bArea+"eProvince:"+eProvince+"eCity:"+eCity+"eArea:"+eArea);
         System.out.print("\npage:"+page+"type:"+type+"bProvince:"+bProvince+"bCity:"+bCity+"bArea:"+bArea+"eProvince:"+eProvince+"eCity:"+eCity+"eArea:"+eArea);
         System.out.print("\npage:"+page+"type:"+type+"bProvince:"+bProvince+"bCity:"+bCity+"bArea:"+bArea+"eProvince:"+eProvince+"eCity:"+eCity+"eArea:"+eArea);
         System.out.print("\npage:"+page+"type:"+type+"bProvince:"+bProvince+"bCity:"+bCity+"bArea:"+bArea+"eProvince:"+eProvince+"eCity:"+eCity+"eArea:"+eArea);
         System.out.print("\npage:"+page+"type:"+type+"bProvince:"+bProvince+"bCity:"+bCity+"bArea:"+bArea+"eProvince:"+eProvince+"eCity:"+eCity+"eArea:"+eArea);
-        System.out.print("\npage:"+page+"type:"+type+"bProvince:"+bProvince+"bCity:"+bCity+"bArea:"+bArea+"eProvince:"+eProvince+"eCity:"+eCity+"eArea:"+eArea);
-        huoYuanListController.getData2FromNet(page,type,bProvince,bCity,bArea,eProvince,eCity,eArea);
+ */       huoYuanListController.getData2FromNet(page1,type,bProvince,bCity,bArea,eProvince,eCity,eArea);
       /*  if((blat != null)&&(blon != null)&&(elat!=null)&&(elon != null)){
 
         }else{
@@ -327,7 +327,7 @@ public class HuoYuanListActivity extends BaseActivity {
 
                     }
 
-                }, 1000);            //refresh data here
+                }, 0);            //refresh data here
             }
 
             @Override
@@ -337,23 +337,24 @@ public class HuoYuanListActivity extends BaseActivity {
                         public void run() {
                             page++;
                             reFreshData(page+"",type1);
-                            xrvNewHuoYuanList.loadMoreComplete();
+                        /*    xrvNewHuoYuanList.loadMoreComplete();*/
 
                         }
-                    }, 1000);
+                    }, 0);
                 } else {
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
                             page++;
                             reFreshData(page+"",type1);
-                            xrvNewHuoYuanList.setNoMore(true);
+                     /*       xrvNewHuoYuanList.setNoMore(true);*/
 
                         }
-                    }, 1000);
+                    }, 0);
                 }
                 times ++;
             }
         });
+       /* reFreshData(page+"",type1);*/
         xrvNewHuoYuanList.refresh();
 
     }

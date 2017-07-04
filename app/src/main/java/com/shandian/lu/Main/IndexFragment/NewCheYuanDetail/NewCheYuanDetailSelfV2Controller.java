@@ -48,6 +48,7 @@ public class NewCheYuanDetailSelfV2Controller extends BaseController {
     private String adsUrl = "";
     private String bAddr="",eAddr="";
     private String id = "";
+    private String czid = "";
     @BindView(R.id.rly_new_self_cyxq_back)
     RelativeLayout rlyNewSelfCYXQBack;
     @OnClick(R.id.rly_new_self_cyxq_back)
@@ -195,6 +196,7 @@ public class NewCheYuanDetailSelfV2Controller extends BaseController {
         intent.putExtra("czlat",cheLat);
         intent.putExtra("czlon",cheLon);
         intent.putExtra("czTouXiang",cheTouXiang);
+        intent.putExtra("czid",czid);
         intent.putExtra("title","hcdw");
         activity.startActivity(intent);
     }
@@ -335,6 +337,7 @@ public class NewCheYuanDetailSelfV2Controller extends BaseController {
         bAddr = newCheYuanDetailBean.getNr().getCfdizhi();
         eAddr = newCheYuanDetailBean.getNr().getDadizhi();
         id = newCheYuanDetailBean.getNr().getId();
+        czid = newCheYuanDetailBean.getNr().getLogin_id();
     }
 
     private void getAdsFromNet(){

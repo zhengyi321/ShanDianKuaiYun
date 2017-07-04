@@ -1,8 +1,11 @@
 package com.shandian.lu.Main.MineFragment;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -37,9 +40,13 @@ import com.umeng.socialize.utils.Log;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.LianXiKeFuDialog;
+import com.zhyan.shandiankuaiyuanwidgetlib.Fragment.MyFragment;
 import com.zhyan.shandiankuaiyunlib.Bean.MyMessageBean;
 import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
 import com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,6 +63,7 @@ public class NewMainMineController extends BaseController {
 
     private LianXiKeFuDialog lianXiKeFuDialog;
     private String nick = "",sex="",myInviteCode = "",wz="",youxiang="",wx="",qq="";
+
 
     @BindView(R.id.fly_new_main_mine_login_or_update_gerenxinxi)
     FrameLayout flyNewMainMineLoginOrUpdateGeRenXinXi;
@@ -91,7 +99,7 @@ public class NewMainMineController extends BaseController {
             return;
         }
         /*Intent intent = new Intent(view.getContext(), NewWoDeRenZhengActivity.class);*/
-        Intent intent = new Intent(view.getContext(), RenZhengActivity.class);
+        Intent intent = new Intent(view.getContext(), NewWoDeRenZhengActivity.class);
         view.getContext().startActivity(intent);
     }
 
@@ -282,6 +290,7 @@ public class NewMainMineController extends BaseController {
     protected void init() {
         ButterKnife.bind(this,view);
         loader=ImageLoader.getInstance();
+
     }
 
 
@@ -408,4 +417,5 @@ public class NewMainMineController extends BaseController {
         if (lianXiKeFuDialog != null && lianXiKeFuDialog.isShowing())
             lianXiKeFuDialog.dismiss();
     }
+
 }

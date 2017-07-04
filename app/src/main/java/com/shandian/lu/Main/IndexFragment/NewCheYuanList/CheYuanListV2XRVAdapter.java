@@ -108,42 +108,42 @@ public class CheYuanListV2XRVAdapter extends RecyclerView.Adapter<CheYuanListV2X
         switch (memberLevel){
 
             case "1":
-                holder.ivNewCheYuanListXRVItemLevel1.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel2.setVisibility(View.GONE);
-                holder.ivNewCheYuanListXRVItemLevel3.setVisibility(View.GONE);
-                holder.ivNewCheYuanListXRVItemLevel4.setVisibility(View.GONE);
-                holder.ivNewCheYuanListXRVItemLevel5.setVisibility(View.GONE);
+                holder.ivNewCheYuanListXRVItemLevel1.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel2.setImageResource(R.mipmap.star2);
+                holder.ivNewCheYuanListXRVItemLevel3.setImageResource(R.mipmap.star2);
+                holder.ivNewCheYuanListXRVItemLevel4.setImageResource(R.mipmap.star2);
+                holder.ivNewCheYuanListXRVItemLevel5.setImageResource(R.mipmap.star2);
                 break;
             case "2":
 
-                holder.ivNewCheYuanListXRVItemLevel1.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel2.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel3.setVisibility(View.GONE);
-                holder.ivNewCheYuanListXRVItemLevel4.setVisibility(View.GONE);
-                holder.ivNewCheYuanListXRVItemLevel5.setVisibility(View.GONE);
+                holder.ivNewCheYuanListXRVItemLevel1.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel2.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel3.setImageResource(R.mipmap.star2);
+                holder.ivNewCheYuanListXRVItemLevel4.setImageResource(R.mipmap.star2);
+                holder.ivNewCheYuanListXRVItemLevel5.setImageResource(R.mipmap.star2);
                 break;
             case "3":
 
-                holder.ivNewCheYuanListXRVItemLevel1.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel2.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel3.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel4.setVisibility(View.GONE);
-                holder.ivNewCheYuanListXRVItemLevel5.setVisibility(View.GONE);
+                holder.ivNewCheYuanListXRVItemLevel1.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel2.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel3.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel4.setImageResource(R.mipmap.star2);
+                holder.ivNewCheYuanListXRVItemLevel5.setImageResource(R.mipmap.star2);
                 break;
             case "4":
-                holder.ivNewCheYuanListXRVItemLevel1.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel2.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel3.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel4.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel5.setVisibility(View.GONE);
+                holder.ivNewCheYuanListXRVItemLevel1.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel2.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel3.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel4.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel5.setImageResource(R.mipmap.star2);
 
                 break;
             case "5":
-                holder.ivNewCheYuanListXRVItemLevel1.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel2.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel3.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel4.setVisibility(View.INVISIBLE);
-                holder.ivNewCheYuanListXRVItemLevel5.setVisibility(View.INVISIBLE);
+                holder.ivNewCheYuanListXRVItemLevel1.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel2.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel3.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel4.setImageResource(R.mipmap.star);
+                holder.ivNewCheYuanListXRVItemLevel5.setImageResource(R.mipmap.star);
 
                 break;
 

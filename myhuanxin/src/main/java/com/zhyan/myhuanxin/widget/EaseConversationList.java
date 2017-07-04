@@ -27,7 +27,7 @@ public class EaseConversationList extends ListView{
     protected final int MSG_REFRESH_ADAPTER_DATA = 0;
     
     protected Context context;
-    protected EaseConversationAdapter adapter;
+    public EaseConversationAdapter adapter;
     protected List<EMConversation> conversations = new ArrayList<EMConversation>();
     protected List<EMConversation> passedListRef = null;
     

@@ -1,6 +1,7 @@
 package com.zhyan.myhuanxin.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
+import android.widget.Toast;
 
 import com.hyphenate.chat.EMChatRoom;
 import com.hyphenate.chat.EMClient;
@@ -53,13 +55,15 @@ public class EaseConversationAdapter extends ArrayAdapter<EMConversation> {
     protected int primarySize;
     protected int secondarySize;
     protected float timeSize;
-
+    private int unReadCountTotal = 0;
+    private Context context1;
     public EaseConversationAdapter(Context context, int resource,
                                    List<EMConversation> objects) {
         super(context, resource, objects);
         conversationList = objects;
         copyConversationList = new ArrayList<EMConversation>();
         copyConversationList.addAll(objects);
+        context1 = context;
     }
 
     @Override
@@ -80,10 +84,16 @@ public class EaseConversationAdapter extends ArrayAdapter<EMConversation> {
         return position;
     }
 
+    public String getUnReadCount(){
+        return ""+unReadCountTotal;
+    }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.ease_row_chat_history, parent, false);
+        }
+        if(position == 0){
+            unReadCountTotal = 0;
         }
         ViewHolder holder = (ViewHolder) convertView.getTag();
         if (holder == null) {
@@ -103,8 +113,9 @@ public class EaseConversationAdapter extends ArrayAdapter<EMConversation> {
         // get conversation
         EMConversation conversation = getItem(position);
         // get username or group id
-        String username = conversation.conversationId();
-        
+        /*String username = conversation.conversationId();*/
+        String username = conversation.getLastMessage().getUserName();
+       /* Toast.makeText(context1,"username:"+username,Toast.LENGTH_LONG).show();*/
         if (conversation.getType() == EMConversationType.GroupChat) {
             String groupId = conversation.conversationId();
             if(EaseAtMessageHelper.get().hasAtMeMsg(groupId)){
@@ -140,6 +151,9 @@ public class EaseConversationAdapter extends ArrayAdapter<EMConversation> {
                 avatarView.setRadius(avatarOptions.getAvatarRadius());
         }
         if (conversation.getUnreadMsgCount() > 0) {
+            int count = conversation.getUnreadMsgCount();
+            unReadCountTotal += count;
+
             // show unread message count
             holder.unreadLabel.setText(String.valueOf(conversation.getUnreadMsgCount()));
             holder.unreadLabel.setVisibility(View.VISIBLE);
@@ -177,6 +191,8 @@ public class EaseConversationAdapter extends ArrayAdapter<EMConversation> {
             holder.message.setTextSize(TypedValue.COMPLEX_UNIT_PX, secondarySize);
         if(timeSize != 0)
             holder.time.setTextSize(TypedValue.COMPLEX_UNIT_PX, timeSize);
+
+
 
         return convertView;
     }

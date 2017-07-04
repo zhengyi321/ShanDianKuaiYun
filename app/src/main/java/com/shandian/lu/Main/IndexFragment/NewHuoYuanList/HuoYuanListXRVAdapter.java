@@ -141,39 +141,39 @@ public class HuoYuanListXRVAdapter extends RecyclerView.Adapter<HuoYuanListXRVAd
         String memberLevel = huoYuanList.get(position).getHydengji();
         switch (memberLevel){
             case "1":
-                holder.ivNewHuoYuanListLevel1.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel2.setVisibility(View.GONE);
-                holder.ivNewHuoYuanListLevel3.setVisibility(View.GONE);
-                holder.ivNewHuoYuanListLevel4.setVisibility(View.GONE);
-                holder.ivNewHuoYuanListLevel5.setVisibility(View.GONE);
+                holder.ivNewHuoYuanListLevel1.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel2.setImageResource(R.mipmap.star2);
+                holder.ivNewHuoYuanListLevel3.setImageResource(R.mipmap.star2);
+                holder.ivNewHuoYuanListLevel4.setImageResource(R.mipmap.star2);
+                holder.ivNewHuoYuanListLevel5.setImageResource(R.mipmap.star2);
                 break;
             case "2":
-                holder.ivNewHuoYuanListLevel1.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel2.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel3.setVisibility(View.GONE);
-                holder.ivNewHuoYuanListLevel4.setVisibility(View.GONE);
-                holder.ivNewHuoYuanListLevel5.setVisibility(View.GONE);
+                holder.ivNewHuoYuanListLevel1.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel2.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel3.setImageResource(R.mipmap.star2);
+                holder.ivNewHuoYuanListLevel4.setImageResource(R.mipmap.star2);
+                holder.ivNewHuoYuanListLevel5.setImageResource(R.mipmap.star2);
                 break;
             case "3":
-                holder.ivNewHuoYuanListLevel1.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel2.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel3.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel4.setVisibility(View.GONE);
-                holder.ivNewHuoYuanListLevel5.setVisibility(View.GONE);
+                holder.ivNewHuoYuanListLevel1.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel2.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel3.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel4.setImageResource(R.mipmap.star2);
+                holder.ivNewHuoYuanListLevel5.setImageResource(R.mipmap.star2);
                 break;
             case "4":
-                holder.ivNewHuoYuanListLevel1.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel2.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel3.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel4.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel5.setVisibility(View.GONE);
+                holder.ivNewHuoYuanListLevel1.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel2.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel3.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel4.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel5.setImageResource(R.mipmap.star2);
                 break;
             case "5":
-                holder.ivNewHuoYuanListLevel1.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel2.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel3.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel4.setVisibility(View.VISIBLE);
-                holder.ivNewHuoYuanListLevel5.setVisibility(View.VISIBLE);
+                holder.ivNewHuoYuanListLevel1.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel2.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel3.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel4.setImageResource(R.mipmap.star);
+                holder.ivNewHuoYuanListLevel5.setImageResource(R.mipmap.star);
                 break;
 
         }

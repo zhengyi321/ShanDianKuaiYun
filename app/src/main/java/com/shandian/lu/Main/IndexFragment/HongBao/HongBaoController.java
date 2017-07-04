@@ -50,6 +50,7 @@ public class HongBaoController extends BaseController {
         activity = activity1;
         init();
     }
+    private boolean isFirst = true;
 
 
     @Override
@@ -84,7 +85,9 @@ public class HongBaoController extends BaseController {
 
             @Override
             public void onNext(NewQiangHongBaoBean newQiangHongBaoBean) {
-                Toast.makeText(activity,newQiangHongBaoBean.getMsg(),Toast.LENGTH_LONG).show();
+             /*   if(isFirst) {*/
+                    Toast.makeText(activity, newQiangHongBaoBean.getMsg(), 3000).show();
+           /*     }*/
                 newHongBaoGetDialog = new NewHongBaoGetDialog(activity,newQiangHongBaoBean.getNr().getJine()).Build.build(activity);
                 showDialog();
                 pbNewIndexHongBao.setVisibility(View.GONE);

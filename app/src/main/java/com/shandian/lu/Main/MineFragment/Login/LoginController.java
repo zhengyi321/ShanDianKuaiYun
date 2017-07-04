@@ -15,6 +15,7 @@ import com.hyphenate.EMCallBack;
 import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;*/
+import com.example.mynewslayoutlib.Bean.NewLoginBean;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
@@ -30,6 +31,8 @@ import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyunlib.Bean.LoginBean;
 import com.zhyan.shandiankuaiyunlib.Utils.SharedPreferencesUtils;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import butterknife.BindView;
@@ -64,7 +67,7 @@ public class LoginController extends BaseController {
         }
     };
     /*极光别名注册*/
-    private String loginId= "",name="",mobile="";
+    private String loginId= "",name="",mobile="",headImgUrl="";
     @BindView(R.id.rly_main_mine_login_cancel)
     RelativeLayout rlyMainMineLoginCancel;
     @OnClick(R.id.rly_main_mine_login_cancel)
@@ -132,9 +135,95 @@ public class LoginController extends BaseController {
             Toast.makeText(activity,"请输入密码",Toast.LENGTH_LONG).show();
             return;
         }
-       loginHuanXin(tel,pass);
+       /*loginHuanXin(tel,pass);*/
+        newLogin(tel,pass);
 
 
+    }
+
+
+    private void newLogin(final String tel,final String pass){
+        Map<String,String> paramMap = new HashMap<>();
+        paramMap.put("mobile",tel);
+        paramMap.put("password",pass);
+        UserNetWork userNetWork = new UserNetWork();
+        userNetWork.userLoginToNetNew(paramMap, new Observer<NewLoginBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewLoginBean newLoginBean) {
+                if(newLoginBean.getStatus().equals("0")){
+                    loginId = newLoginBean.getNr().getId();
+                    name = newLoginBean.getNr().getName();
+                    mobile = newLoginBean.getNr().getMobile();
+                    headImgUrl = newLoginBean.getNr().getImage();
+                    Message message = new Message();
+                    message.what = 1;
+                    handler.sendMessage(message);
+                    XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+                    XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+                    SharedPreferencesUtils sharedPreferencesUtils = new SharedPreferencesUtils();
+                    xcCacheManager.writeCache(xcCacheSaveName.logId, loginId);
+                    xcCacheManager.writeCache(xcCacheSaveName.loginStatus,"yes");
+                    xcCacheManager.writeCache(xcCacheSaveName.userName,name);
+                    xcCacheManager.writeCache(xcCacheSaveName.userTel,mobile);
+                    xcCacheManager.writeCache(xcCacheSaveName.userHeadImgUrl,headImgUrl);
+                    sharedPreferencesUtils.setParam(activity,xcCacheSaveName.logId, loginId);
+                    sharedPreferencesUtils.setParam(activity,xcCacheSaveName.loginStatus,"yes");
+                    sharedPreferencesUtils.setParam(activity,xcCacheSaveName.userName,name);
+                    sharedPreferencesUtils.setParam(activity,xcCacheSaveName.userTel,mobile);
+                    sharedPreferencesUtils.setParam(activity,xcCacheSaveName.userHeadImgUrl,headImgUrl);
+                    /*activity.finish();*/
+                    try {
+                        EMClient.getInstance().logout(true);
+                        EMClient.getInstance().createAccount(newLoginBean.getNr().getId(), "shandiankuaiyun");
+                    } catch (HyphenateException e) {
+                        e.printStackTrace();
+                    }
+                    regHuanXin();
+                    EMClient.getInstance().login(newLoginBean.getNr().getId(),"sdwl",new EMCallBack() {//回调
+                        @Override
+                        public void onSuccess() {
+                            EMClient.getInstance().groupManager().loadAllGroups();
+                            EMClient.getInstance().chatManager().loadAllConversations();
+                            Log.d("main", "登录聊天服务器成功！");
+                            Message message = new Message();
+                            message.what = 1;
+                            handler.sendMessage(message);
+                          /*  XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+                            XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+                            xcCacheManager.writeCache(xcCacheSaveName.logId, loginId);
+                            xcCacheManager.writeCache(xcCacheSaveName.loginStatus,"yes");
+                            xcCacheManager.writeCache(xcCacheSaveName.userName,name);
+                            xcCacheManager.writeCache(xcCacheSaveName.userTel,mobile);*/
+
+                            activity.finish();
+                        }
+
+                        @Override
+                        public void onProgress(int progress, String status) {
+
+                        }
+
+                        @Override
+                        public void onError(int code, String message) {
+                            Log.d("main", "登录聊天服务器失败！"+code+" mess"+message);
+                            ResumeLogin(loginId);
+                        }
+                    });
+                }else {
+                    Toast.makeText(activity,newLoginBean.getMsg(),Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
 

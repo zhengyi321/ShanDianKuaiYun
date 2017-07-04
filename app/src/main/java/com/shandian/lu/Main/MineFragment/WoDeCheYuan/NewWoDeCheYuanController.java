@@ -210,10 +210,10 @@ public class NewWoDeCheYuanController extends BaseController {
                         page1=1;
                         getYiBaoJiaDataFromNet(""+page1);
 
-                        xrvNewWoDeCheYuanYiBaoJia.refreshComplete();
+
                     }
 
-                }, 1000);            //refresh data here
+                }, 0);            //refresh data here
             }
 
             @Override
@@ -223,19 +223,19 @@ public class NewWoDeCheYuanController extends BaseController {
                         public void run() {
                             page1++;
                             getYiBaoJiaDataFromNet(""+page1);
-                            xrvNewWoDeCheYuanYiBaoJia.loadMoreComplete();
+              /*              xrvNewWoDeCheYuanYiBaoJia.loadMoreComplete();*/
 
                         }
-                    }, 1000);
+                    }, 0);
                 } else {
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
                             page1++;
                             getYiBaoJiaDataFromNet(""+page1);
-                            xrvNewWoDeCheYuanYiBaoJia.setNoMore(true);
+                /*            xrvNewWoDeCheYuanYiBaoJia.setNoMore(true);*/
 
                         }
-                    }, 1000);
+                    }, 0);
                 }
                 times1 ++;
             }
@@ -257,10 +257,10 @@ public class NewWoDeCheYuanController extends BaseController {
                         page=1;
                         getCheYuanListDataFromNet(page+"");
 
-                        xrvNewWoDeCheYuanCheYuanList.refreshComplete();
+             /*           xrvNewWoDeCheYuanCheYuanList.refreshComplete();*/
                     }
 
-                }, 1000);            //refresh data here
+                }, 0);            //refresh data here
             }
 
             @Override
@@ -270,19 +270,19 @@ public class NewWoDeCheYuanController extends BaseController {
                         public void run() {
                             page++;
                             getCheYuanListDataFromNet(page+"");
-                            xrvNewWoDeCheYuanCheYuanList.loadMoreComplete();
+                           /* xrvNewWoDeCheYuanCheYuanList.loadMoreComplete();*/
 
                         }
-                    }, 1000);
+                    }, 0);
                 } else {
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
                             page++;
                             getCheYuanListDataFromNet(page+"");
-                            xrvNewWoDeCheYuanCheYuanList.setNoMore(true);
+                         /*   xrvNewWoDeCheYuanCheYuanList.setNoMore(true);*/
 
                         }
-                    }, 1000);
+                    }, 0);
                 }
                 times ++;
             }
@@ -373,6 +373,12 @@ public class NewWoDeCheYuanController extends BaseController {
                 if(newWoDeCheYuanBean.getStatus().equals("0")){
                     if(pages.equals("1")){
                         dataList.clear();
+                        xrvNewWoDeCheYuanCheYuanList.refreshComplete();
+                    }else {
+                        xrvNewWoDeCheYuanCheYuanList.loadMoreComplete();
+                    }
+                    if(newWoDeCheYuanBean.getNr().getList().size() == 0){
+                        xrvNewWoDeCheYuanCheYuanList.setNoMore(true);
                     }
                     xrvNewWoDeCheYuanCheYuanList.setVisibility(View.VISIBLE);
                     xrvNewWoDeCheYuanYiBaoJia.setVisibility(View.GONE);
@@ -409,6 +415,12 @@ public class NewWoDeCheYuanController extends BaseController {
                 if(newYiBaoJiaBean.getStatus().equals("0")){
                     if(pages.equals("1")){
                         dataList1.clear();
+                        xrvNewWoDeCheYuanYiBaoJia.refreshComplete();
+                    }else {
+                        xrvNewWoDeCheYuanYiBaoJia.loadMoreComplete();
+                    }
+                    if(newYiBaoJiaBean.getNr().getList().size() == 0){
+                        xrvNewWoDeCheYuanYiBaoJia.setNoMore(true);
                     }
 
                     xrvNewWoDeCheYuanYiBaoJia.setVisibility(View.VISIBLE);

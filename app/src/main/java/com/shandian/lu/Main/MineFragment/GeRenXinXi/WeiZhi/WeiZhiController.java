@@ -1,13 +1,18 @@
 package com.shandian.lu.Main.MineFragment.GeRenXinXi.WeiZhi;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mynewslayoutlib.Bean.NewGeRenXinXiSubmitBean;
+import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.shandian.lu.BaseController;
@@ -36,27 +41,33 @@ public class WeiZhiController extends BaseController {
     public void rlyMainMineGeRenXinXiWeiZhiBackOnclick(){
         activity.finish();
     }
+    @BindView(R.id.pb_new_main_mine_gerenxinxi_weizhi)
+    ProgressBar pbNewMainMineGeRenXinXiWeiZhi;
     @BindView(R.id.tv_main_mine_gerenxinxi_weizhi_addr)
     TextView tvMainMineGeRenXinXiWeiZhiAddr;
     @BindView(R.id.et_main_mine_gerenxinxi_weizhi_addr)
     EditText etMainMineGeRenXinXiWeiZhiAddr;
     @BindView(R.id.rly_main_mine_gerenxinxi_weizhi_get_addr)
     RelativeLayout rlyMainMineGeRenXinXIWeiZHiGetAddr;
-    @OnClick(R.id.rly_main_mine_gerenxinxi_weizhi_get_addr)
+/*    @OnClick(R.id.rly_main_mine_gerenxinxi_weizhi_get_addr)
     public void rlyMainMineGeRenXinXIWeiZHiGetAddrOnclick(){
 
-    }
+    }*/
+
+
     @BindView(R.id.lly_main_mine_gerenxinxi_weizhi_get_addr)
     LinearLayout llyMainMineGeRenXinXiWeiZhiGetAddr;
     @OnClick(R.id.lly_main_mine_gerenxinxi_weizhi_get_addr)
     public void llyMainMineGeRenXinXiWeiZhiGetAddrOnclick(){
-
+        String addr = tvMainMineGeRenXinXiWeiZhiAddr.getText().toString();
+        etMainMineGeRenXinXiWeiZhiAddr.setText(addr);
     }
     @BindView(R.id.bt_main_mine_gerenxinxi_weizhi_submit)
     Button btMainMineGeRenXinXiWeiZhiSubmit;
     @OnClick(R.id.bt_main_mine_gerenxinxi_weizhi_submit)
     public void btMainMineGeRenXinXiWeiZhiSubmitOnclick(){
-        submitAddrToNet();
+  /*      submitAddrToNet();*/
+        newUpdateTelToNet();
     }
 
     public WeiZhiController(Activity activity1){
@@ -129,5 +140,51 @@ public class WeiZhiController extends BaseController {
                 activity.finish();
             }
         });
+    }
+
+
+
+
+
+
+    private void newUpdateTelToNet(){
+        pbNewMainMineGeRenXinXiWeiZhi.setVisibility(View.VISIBLE);
+        UserNetWork userNetWork = new UserNetWork();
+        userNetWork.submitNewGeRenXinXiToNet(getNewParamMap(), new Observer<NewGeRenXinXiSubmitBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewGeRenXinXiSubmitBean newGeRenXinXiSubmitBean) {
+                Toast.makeText(activity,newGeRenXinXiSubmitBean.getMsg(),3000).show();
+                pbNewMainMineGeRenXinXiWeiZhi.setVisibility(View.GONE);
+            }
+        });
+
+    }
+    private Map<String,Object>  getNewParamMap(){
+        Map<String,Object> paramMap = new HashMap<>();
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        String loginId= xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((loginId == null)||(loginId.isEmpty())){
+            Toast.makeText(activity,"请登录",3000).show();
+            Intent intent = new Intent(activity, LoginActivity.class);
+            activity.startActivity(intent);
+            return paramMap;
+        }
+
+        paramMap.put("login_id",loginId);
+        String addr = etMainMineGeRenXinXiWeiZhiAddr.getText().toString().trim() ;
+        addr = addr.replaceAll(" ","");
+        paramMap.put("address",addr);
+        return paramMap;
     }
 }

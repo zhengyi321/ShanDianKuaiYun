@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.mynewslayoutlib.Bean.NewGeRenXinXiBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.Main.MineFragment.GeRenXinXi.BianJiNiChen.BianJiNiChenActivity;
 import com.shandian.lu.Main.MineFragment.GeRenXinXi.QQ.QQActivity;
@@ -26,6 +27,9 @@ import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
 import com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView;
 
 import android.widget.Toast;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -156,9 +160,40 @@ public class GeRenXinXiController extends BaseController {
     protected void init() {
         ButterKnife.bind(this,activity);
         loader=ImageLoader.getInstance();
-
-        getMyMessageFromNet();
+        getNewDetailFromNet();
+    /*    getMyMessageFromNet();*/
     }
+
+    private void getNewDetailFromNet(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId).toString().trim();
+        if((login_id == null)||(login_id.isEmpty())){
+            Toast.makeText(activity,"请登录",Toast.LENGTH_LONG).show();
+            return;
+        }
+        Map<String,String> paramMap = new HashMap<>();
+        paramMap.put("login_id",login_id);
+        UserNetWork userNetWork = new UserNetWork();
+        userNetWork.getNewGeRenXinXiFromNet(paramMap, new Observer<NewGeRenXinXiBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewGeRenXinXiBean newGeRenXinXiBean) {
+                initDetail(newGeRenXinXiBean);
+            }
+        });
+    }
+
+
     public void getMyMessageFromNet(){
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
@@ -190,6 +225,54 @@ public class GeRenXinXiController extends BaseController {
                 }
             }
         });
+    }
+
+
+    private  void initDetail(NewGeRenXinXiBean newGeRenXinXiBean){
+        if(newGeRenXinXiBean.getNr().getNickename() != null){
+            tvMainMineGeRenXinXiContentNick.setText(newGeRenXinXiBean.getNr().getNickename());
+        }
+
+        if(newGeRenXinXiBean.getNr().getSex().equals("1")){
+            tvMainMineGeRenXinXiContentSex.setText("男");
+        }else{
+            tvMainMineGeRenXinXiContentSex.setText("女");
+        }
+        if(newGeRenXinXiBean.getNr().getOne_code() != null) {
+            tvMainMineGeRenXinXiContentMyInviteCode.setText(newGeRenXinXiBean.getNr().getOne_code());
+        }
+        if(newGeRenXinXiBean.getNr().getAddress() != null) {
+            tvMainMineGeRenXinXiContentWZ.setText(newGeRenXinXiBean.getNr().getAddress().toString());
+        }
+        if(newGeRenXinXiBean.getNr().getEmail() != null) {
+            tvMainMineGeRenXinXiContentYouXiang.setText(newGeRenXinXiBean.getNr().getEmail().toString());
+        }
+        if(newGeRenXinXiBean.getNr().getWei_code() != null) {
+            tvMainMineGeRenXinXiContentWX.setText(newGeRenXinXiBean.getNr().getWei_code().toString());
+        }
+        if(newGeRenXinXiBean.getNr().getQq_code() != null) {
+            tvMainMineGeRenXinXiContentQQ.setText(newGeRenXinXiBean.getNr().getQq_code().toString() );
+        }
+
+        if(newGeRenXinXiBean.getNr().getImage() != null) {
+            loader.displayImage(newGeRenXinXiBean.getNr().getImage(), rivMainMineGeRenXinXiContentHeadImg, ImageLoaderUtils.options1);
+        }
+        if(newGeRenXinXiBean.getNr().getQr_code() != null){
+            loader.displayImage(newGeRenXinXiBean.getNr().getQr_code(), ivMainMineGeRenXinXiContentEWM, ImageLoaderUtils.options1);
+        }
+        if(newGeRenXinXiBean.getNr().getName() != null){
+            tvMainMineGeRenXinXiContentName.setText(newGeRenXinXiBean.getNr().getName());
+        }
+
+        if(newGeRenXinXiBean.getNr().getMobile() != null){
+            tvMainMineGeRenXinXiContentTel.setText(newGeRenXinXiBean.getNr().getMobile());
+        }
+
+
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+
+        xcCacheManager.writeCache(xcCacheSaveName.userEWMUrl,newGeRenXinXiBean.getNr().getQr_code());
     }
 
 
@@ -236,7 +319,9 @@ public class GeRenXinXiController extends BaseController {
 
     }
 
-
+    public void onResume(){
+        getNewDetailFromNet();
+    }
 
 
 

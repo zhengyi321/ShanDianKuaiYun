@@ -2,9 +2,13 @@ package com.shandian.lu.Widget.XuanFu;
 
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PixelFormat;
+import android.os.Build;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,6 +16,7 @@ import android.view.WindowManager;
 import android.view.View.OnTouchListener;
 import android.widget.Toast;
 
+import com.example.mynewslayoutlib.Utils.SystemUtils;
 import com.shandian.lu.Main.IndexFragment.HongBao.HongBaoActivity;
 import com.shandian.lu.R;
 
@@ -37,9 +42,11 @@ public class TableShowView extends View {
 		public void fun() {
 			// 设置载入view WindowManager参数
 			mWM = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
+
 			win = LayoutInflater.from(c).inflate(R.layout.activity_xuanfu, null);
 			win.setBackgroundColor(Color.TRANSPARENT);
 			// 这里是随便载入的一个布局文件
+			initLoc();
 			
 			win.setOnTouchListener(new OnTouchListener() {
 				// 触屏监听
@@ -90,14 +97,47 @@ public class TableShowView extends View {
 
 			WindowManager wm = mWM;
 			WindowManager.LayoutParams wmParams = new WindowManager.LayoutParams();
+			int width = wm.getDefaultDisplay().getWidth();
+			int height = wm.getDefaultDisplay().getHeight();
+			/*Toast.makeText(c,"width:"+width,Toast.LENGTH_LONG).show();
+			System.out.print("\nwidth:"+width);
+			System.out.print("\nwidth:"+width);
+			System.out.print("\nwidth:"+width);
+			System.out.print("\nwidth:"+width);
+			System.out.print("\nwidth:"+width);
+			System.out.print("\nwidth:"+width);
+			System.out.print("\nwidth:"+width);
+			System.out.print("\nwidth:"+width);
+			System.out.print("\nheight:"+height);
+			System.out.print("\nheight:"+height);
+			System.out.print("\nheight:"+height);
+			System.out.print("\nheight:"+height);
+			System.out.print("\nheight:"+height);
+			System.out.print("\nheight:"+height);
+			System.out.print("\nheight:"+height);
+			System.out.print("\nheight:"+height);
+			System.out.print("\nheight:"+height);
+			System.out.print("\nheight:"+height);*/
+			//http://blog.csdn.net/xyq046463/article/details/51840586?_t_t_t=0.5665693903744122
+		/*	wmParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+					| WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;*/
+/*			wmParams.gravity = Gravity.CENTER_VERTICAL | Gravity.RIGHT;*/
 			mWMParams = wmParams;
-			wmParams.type = 2003; // type是关键，这里的2002表示系统级窗口，你也可以试试2003。
-			wmParams.flags = 40;// 这句设置桌面可控
-
-			wmParams.width = 60;
-			wmParams.height = 60;
+			/*wmParams.type = 2003; // type是关键，这里的2002表示系统级窗口，你也可以试试2003。
+			wmParams.flags = 40;// 这句设置桌面可控*/
+			height = height/2;
+			wmParams.x = width;
+			wmParams.y = 0;
+			wmParams.width = 85;
+			wmParams.height = 85;
 			wmParams.format = -3; // 透明
 
+			wmParams.type = WindowManager.LayoutParams.TYPE_TOAST;
+			if (Build.VERSION.SDK_INT < 19 ) {
+				wmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+			}
+			wmParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+					| WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
 			wm.addView(win, wmParams);// 这句是重点 给WindowManager中丢入刚才设置的值
 										// 只有addview后才能显示到页面上去。
 			// 注册到WindowManager win是要刚才随便载入的layout，wmParams是刚才设置的WindowManager参数集
@@ -106,6 +146,19 @@ public class TableShowView extends View {
 			
 			
 
+		}
+
+
+		private void initLoc(){
+
+/*			SystemUtils systemUtils = new SystemUtils((Activity) c);
+			float width = systemUtils.getWindowWidth();
+			float height = systemUtils.getWindowHeight();*/
+/*			mWMParams.x = (int) (width); // 偏移量
+			mWMParams.y += (int) (height/2); // 偏移量
+
+			tag = 1;
+			mWM.updateViewLayout(win, mWMParams);*/
 		}
 
 }

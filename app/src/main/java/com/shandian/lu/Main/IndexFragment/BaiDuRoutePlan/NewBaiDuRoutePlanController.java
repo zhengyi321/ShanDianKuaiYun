@@ -195,8 +195,8 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
                 initSiJiLoc();
             }
         }else {
-            Thread siJiThread = new SiJiLocThread();
-            siJiThread.start();
+           /* Thread siJiThread = new SiJiLocThread();
+            siJiThread.start();*/
         }
 
 
@@ -288,7 +288,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
         });
     }
     private void initSiJiLogo(String lat,String lon){
-
+      /*  Toast.makeText(activity,"this is sijiloc"+lat+" "+lon,3000).show();*/
         View view = LayoutInflater.from(activity).inflate(R.layout.dialog_che_loc_lly, null);
         RoundImageView touxiang = (RoundImageView) view.findViewById(R.id.riv_dialog_loc_touxiang);
         if(cheTouXiang.isEmpty()){
@@ -316,7 +316,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
         MapStatus.Builder builder = new MapStatus.Builder();
         builder.target(lng).zoom(16.0f);
 
-      /*  mBaidumap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));*/
+        mBaidumap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
     }
 
     /**

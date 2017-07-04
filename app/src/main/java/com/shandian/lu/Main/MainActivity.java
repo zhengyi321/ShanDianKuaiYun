@@ -1,7 +1,9 @@
 package com.shandian.lu.Main;
 
+import android.app.Notification;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
@@ -12,8 +14,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /*
@@ -37,6 +41,8 @@ import com.tencent.bugly.Bugly;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.android.api.BasicPushNotificationBuilder;
+import cn.jpush.android.api.JPushInterface;
 
 public class MainActivity extends FragmentActivity {
 /*
@@ -73,11 +79,15 @@ public class MainActivity extends FragmentActivity {
 
     /*private MainIndexFragment mainIndexFragment;*/
 
+    private boolean isFirst = true;
+    @BindView(R.id.tv_new_main_bottom_message_unread)
+    TextView tvNewMainBottomMessageUnRead;
     @BindView(R.id.rb_new_main_bottom_index)
     RadioButton rbMainBottomIndex;
     @OnClick(R.id.rb_new_main_bottom_index)
     public void rbMainBottomIndexOnclick(){
         getFragment("index");
+        mainController.isSound = true;
     }
 
     @BindView(R.id.rb_new_main_bottom_advice)
@@ -85,12 +95,16 @@ public class MainActivity extends FragmentActivity {
     @OnClick(R.id.rb_new_main_bottom_advice)
     public void rbNewMainBottomAdviceOnclick(){
         getFragment("advice");
+        mainController.isSound = true;
     }
     @BindView(R.id.rb_new_main_bottom_chat)
     RadioButton rbNewMainBottomMessage;
     @OnClick(R.id.rb_new_main_bottom_chat)
     public void rbNewMainBottomMessageOnclick(){
         getFragment("message");
+        tvNewMainBottomMessageUnRead.setText("0");
+        tvNewMainBottomMessageUnRead.setVisibility(View.GONE);
+        mainController.isSound = false;
      /*   Intent intent = new Intent(this, HuiTouCheActivity.class);
         startActivity(intent);*/
     }
@@ -123,6 +137,7 @@ public class MainActivity extends FragmentActivity {
     @OnClick(R.id.rb_new_main_bottom_mine)
     public void rbMainBottomMineOnclick(){
         getFragment("mine");
+        mainController.isSound = true;
     }
 
 
@@ -135,7 +150,7 @@ public class MainActivity extends FragmentActivity {
 
 
 
-
+    FragmentManager manager;
     private NewMainIndexFragment mainIndexFragment;
     private MainReleaseFragment mainReleaseFragment;
     private MainAdviceFragment mainAdviceFragment;
@@ -157,7 +172,7 @@ public class MainActivity extends FragmentActivity {
     private void init(){
         ButterKnife.bind(this);
         initController();
-        /*initFragment();*/
+
         getFragment("index");
 
     /*    initYouMeng();*/
@@ -199,9 +214,9 @@ public class MainActivity extends FragmentActivity {
         }
     }
     /* 初始化fragment*/
-    private void initFragment(){
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
+    private void initFragment(FragmentTransaction transaction){
+        /* manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();*/
         if(mainIndexFragment == null){
            /* mainController.initStatusBar("index");*/
           /*  mainIndexFragment = new MainIndexFragment();*/
@@ -226,12 +241,16 @@ public class MainActivity extends FragmentActivity {
             transaction.add(R.id.fly_new_main_content, mainMineFragment, "mine");
         }
        /* transaction.show(mainIndexFragment);*/
-        transaction.commit();
+    /*    transaction.commit();*/
     }
 
     private void getFragment(String type){
-        FragmentManager manager = getSupportFragmentManager();
+        manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
+        if(isFirst) {
+            initFragment(transaction);
+            isFirst = false;
+        }
         hideFragment(transaction);
         // 动态增加Fragment
         switch (type){
@@ -277,6 +296,7 @@ public class MainActivity extends FragmentActivity {
 
                     transaction.add(R.id.fly_new_main_content, chatMessageFragmentl, "message");
                 }
+
                 break;
             case "mine":
                 mainController.initStatusBar("mine");
@@ -309,8 +329,15 @@ public class MainActivity extends FragmentActivity {
         super.onResume();
         Bugly.init(getApplicationContext(), "17b9bbc524", false);
         dissmissDialog();
+        mainController.isNotice = false;
+        mainController.onResume();
     }
-
+    @Override
+    protected void onStop(){
+        super.onStop();
+        mainController.onStop();
+        mainController.isNotice = true;
+    }
 
 
 
@@ -384,4 +411,7 @@ public class MainActivity extends FragmentActivity {
 //	        mToast.setGravity(gravity, offx, offy);
         mToast.show();
     }
+
+
+
 }

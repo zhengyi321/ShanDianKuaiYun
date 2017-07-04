@@ -7,6 +7,9 @@
     android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,7 +40,7 @@
             android:orientation="vertical"
             >
             <TextView
-                android:id="@+id/tv_new_rz_status"
+                android:id="@+id/tv_new_rz_status1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
@@ -47,7 +50,8 @@
                 android:textColor="@color/black"
 
                 />
-            <TextView
+         <!--   <TextView
+                android:id="@+id/tv_new_rz_status2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="实名认证未通过"
@@ -55,7 +59,8 @@
                 android:textSize="10sp"
                 android:layout_gravity="right"
                 android:layout_marginTop="5dp"
-                />
+                android:visibility="gone"
+                />-->
         </LinearLayout>
 
     </RelativeLayout>
@@ -64,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero"
         android:layout_marginTop="5dp"
-        android:layout_weight="6"
+        android:layout_weight="8"
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
         android:background="@color/white"
@@ -103,46 +108,83 @@
             android:layout_height="0.5dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+
             android:background="@color/lightgray" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/zero"
             android:layout_weight="7">
-
-            <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
-                android:id="@+id/rciv_new_rz_sm_p1"
+            <RelativeLayout
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginLeft="30dp"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/pic_add"
-                app:riv_corner_radius="10dip"
-                app:riv_oval="false"
-                />
-
-            <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
-                android:id="@+id/rciv_new_rz_sm_p2"
+                >
+                <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
+                    android:id="@+id/rciv_new_rz_sm_p1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/pic_add"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="false"
+                    />
+                <ProgressBar
+                    android:id="@+id/pb_new_rz_sm_p1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_centerInParent="true"
-                android:src="@mipmap/pic_add"
-                app:riv_corner_radius="10dip"
-                app:riv_oval="false" />
+                >
+                <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
+                    android:id="@+id/rciv_new_rz_sm_p2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@mipmap/pic_add"
+                    android:scaleType="fitXY"
+                    app:riv_corner_radius="10dip"
+                    app:riv_oval="false" />
+                <ProgressBar
+                    android:id="@+id/pb_new_rz_sm_p2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    />
+            </RelativeLayout>
 
-            <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
-                android:id="@+id/rciv_new_rz_sm_p3"
+            <RelativeLayout
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-
                 android:layout_marginRight="30dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
 
+                >
+            <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
+                android:id="@+id/rciv_new_rz_sm_p3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:src="@mipmap/pic_add"
+                android:scaleType="fitXY"
                 app:riv_corner_radius="10dip"
                 app:riv_oval="false"
                 />
+                <ProgressBar
+                    android:id="@+id/pb_new_rz_sm_p3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    />
+            </RelativeLayout>
         </RelativeLayout>
 
         <RelativeLayout
@@ -168,7 +210,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero"
 
-        android:layout_weight="6"
+        android:layout_weight="8"
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
         android:orientation="vertical"
@@ -223,17 +265,32 @@
                 android:src="@mipmap/pic_add"
                 app:riv_corner_radius="10dip"
                 app:riv_oval="false"
-
+                android:visibility="gone"
                  />
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                >
+
             <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
                 android:id="@+id/rciv_new_rz_qy_p2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@mipmap/pic_add"
+                android:scaleType="fitXY"
                 app:riv_corner_radius="10dip"
                 app:riv_oval="false"
-                android:layout_centerInParent="true"
+
                  />
+                <ProgressBar
+                    android:id="@+id/pb_new_rz_qy_p2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    />
+            </RelativeLayout>
             <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
                 android:id="@+id/rciv_new_rz_qy_p3"
                 android:layout_width="60dp"
@@ -243,6 +300,7 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="30dp"
+                android:visibility="gone"
                 />
         </RelativeLayout>
 
@@ -268,7 +326,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero"
 
-        android:layout_weight="6"
+        android:layout_weight="8"
 
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
@@ -318,15 +376,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/zero"
                     android:layout_weight="7">
-
+                    <RelativeLayout
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_centerInParent="true"
+                        >
                     <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
                         android:id="@+id/rciv_new_rz_jsz"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:layout_centerInParent="true"
                         android:src="@mipmap/pic_add"
+                        android:scaleType="fitXY"
                         app:riv_corner_radius="10dip" />
-
+                        <ProgressBar
+                            android:id="@+id/pb_new_rz_jsz"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:visibility="gone"
+                            />
+                    </RelativeLayout>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -398,16 +467,27 @@
                     android:layout_height="@dimen/zero"
                     android:layout_weight="7"
                     >
-
-                    <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
-                        android:id="@+id/rciv_new_rz_xsz"
+                    <RelativeLayout
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:src="@mipmap/pic_add"
-                        app:riv_corner_radius="10dip"
                         android:layout_centerInParent="true"
-                        />
-
+                        >
+                        <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
+                            android:id="@+id/rciv_new_rz_xsz"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@mipmap/pic_add"
+                            android:scaleType="fitXY"
+                            app:riv_corner_radius="10dip"
+                            />
+                        <ProgressBar
+                            android:id="@+id/pb_new_rz_xsz"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:visibility="gone"
+                            />
+                    </RelativeLayout>
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -494,4 +574,15 @@
     </RelativeLayout>
 
     </LinearLayout>
+        <ProgressBar
+            android:id="@+id/pb_new_rz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:alpha="0.5"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+
+            />
+    </RelativeLayout>
 </com.zhyan.shandiankuaiyunlib.Widget.ScrollerView.SpringScrollView>

@@ -7,12 +7,18 @@ import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mynewslayoutlib.Bean.NewFaBuPicBean;
+import com.example.mynewslayoutlib.Bean.NewGeRenXinXiSubmitBean;
+import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.shandian.lu.NetWork.NewFaBuNetWork;
 import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.util.DisplayUtils;
 import com.zhyan.shandiankuaiyuanwidgetlib.AlertView.AlertView;
@@ -24,6 +30,7 @@ import com.shandian.lu.BaseActivity;
 import com.shandian.lu.NetWork.UserNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyunlib.Bean.UpdateResultBean;
+import com.zhyan.shandiankuaiyunlib.Utils.SharedPreferencesUtils;
 import com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView;
 
 import java.io.File;
@@ -69,11 +76,15 @@ public class GeRenXinXiActivity extends BaseActivity {
     private  final int ACTIVITY_REQUEST_PREVIEW_PHOTO = 102;
     private String MyPhotobase64;
     private boolean isPhoto = false;
-
+    private List<String> resultImgList;
     private GeRenXinXiController geRenXinXiController;
 
     @BindView(R.id.riv_main_mine_gerenxinxi_content_headimg)
     RoundImageView rivMainMineGeRenXinXiContentHeadImg;
+    @BindView(R.id.pb_main_mine_gerenxinxi_content_headimg)
+    ProgressBar pbMainMineGeRenXinXiContentHeadImg;
+    @BindView(R.id.pb_new_main_mine_gerenxinxi)
+    ProgressBar pbNewMainMineGeRenXinXi;
     @BindView(R.id.tv_main_mine_gerenxinxi_content_name)
     TextView tvMainMineGeRenXinXiContentName;
     @BindView(R.id.tv_main_mine_gerenxinxi_content_nick)
@@ -109,7 +120,15 @@ public class GeRenXinXiActivity extends BaseActivity {
         xcCacheManager.writeCache(xcCacheSaveName.logId,"");
         xcCacheManager.writeCache(xcCacheSaveName.loginStatus,"no");
         Toast.makeText(this,"已成功退出登录",Toast.LENGTH_LONG).show();
+        SharedPreferencesUtils sharedPreferencesUtils = new SharedPreferencesUtils();
+        sharedPreferencesUtils.setParam(this,xcCacheSaveName.logId, "");
+        sharedPreferencesUtils.setParam(this,xcCacheSaveName.loginStatus,"no");
+        sharedPreferencesUtils.setParam(this,xcCacheSaveName.userName,"");
+        sharedPreferencesUtils.setParam(this,xcCacheSaveName.userTel,"");
+        sharedPreferencesUtils.setParam(this,xcCacheSaveName.userHeadImgUrl,"");
         mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, "zzz"));
+
+
         this.finish();
     }
 
@@ -191,6 +210,7 @@ public class GeRenXinXiActivity extends BaseActivity {
     }
     private void initImgList(){
         mImageList = new ArrayList<>();
+        resultImgList = new ArrayList<>();
     }
     private void initController(){
         geRenXinXiController = new GeRenXinXiController(this);
@@ -253,18 +273,19 @@ public class GeRenXinXiActivity extends BaseActivity {
         switch (requestCode) {
             case ACTIVITY_REQUEST_SELECT_PHOTO:
                 if (resultCode == RESULT_OK) { // Successfully.
-                    isPhoto = true;
+                  /*  isPhoto = true;*/
                     mImageList.clear();
                     mImageList = Album.parseResult(data); // Parse select result.
+                    upPicToNet();
 
                   /*  Toast.makeText(this,"ACTIVITY_REQUEST_SELECT_PHOTO:"+mImageList.get(0),Toast.LENGTH_LONG).show();*/
-                    DisplayUtils.initScreen(this);
+          /*          DisplayUtils.initScreen(this);
                     Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.decoration_white, null);
- /*       rvMainReleaseZhuanXiaWuLiuSelectPhoto.addItemDecoration(new AlbumVerticalGirdDecoration(drawable));*/
+ *//*       rvMainReleaseZhuanXiaWuLiuSelectPhoto.addItemDecoration(new AlbumVerticalGirdDecoration(drawable));*//*
 
                     assert drawable != null;
                     int itemSize = (DisplayUtils.screenWidth - (drawable.getIntrinsicWidth() * 4)) / 3;
-                    Album.getAlbumConfig().getImageLoader().loadImage(rivMainMineGeRenXinXiContentHeadImg, mImageList.get(0), 0, 0);
+                    Album.getAlbumConfig().getImageLoader().loadImage(rivMainMineGeRenXinXiContentHeadImg, mImageList.get(0), 0, 0);*/
 
                     /*previewImage(0);*/
                 } else if (resultCode == RESULT_CANCELED) { // User canceled.
@@ -274,12 +295,13 @@ public class GeRenXinXiActivity extends BaseActivity {
                 break;
             case ACTIVITY_REQUEST_TAKE_PICTURE:
                 if (resultCode == RESULT_OK) { // Successfully.
-                    isPhoto = true;
+                   /* isPhoto = true;*/
                     List<String> imageList = Album.parseResult(data); // Parse path.
                     mImageList.clear();
                     mImageList.addAll(imageList);
+                    upPicToNet();
 
-                    Album.getAlbumConfig().getImageLoader().loadImage(rivMainMineGeRenXinXiContentHeadImg, mImageList.get(0), 0, 0);
+        /*            Album.getAlbumConfig().getImageLoader().loadImage(rivMainMineGeRenXinXiContentHeadImg, mImageList.get(0), 0, 0);*/
 
                 } else if (resultCode == RESULT_CANCELED) { // User canceled.
 
@@ -416,15 +438,119 @@ public class GeRenXinXiActivity extends BaseActivity {
         });
     }
 
+
+    private Map<String,String> getUpPicParamMap( Bitmap bm){
+        Map<String,String> paramMap = new HashMap<>();
+         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(this);
+        String loginId= xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((loginId == null)||(loginId.isEmpty())){
+            Toast.makeText(this,"请登录",3000).show();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            return paramMap;
+        }
+
+        paramMap.put("login_id",loginId);
+
+        BitmapUtils bitmapUtils = new BitmapUtils();
+
+        //将图片显示到ImageView中
+        String base64_00 = bitmapUtils.bitmapConvertBase64(bm);
+        paramMap.put("tu",base64_00);
+
+        return paramMap;
+
+    }
+
+    private void upPicToNet(){
+        NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
+        pbMainMineGeRenXinXiContentHeadImg.setVisibility(View.VISIBLE);
+        final Bitmap bitmap = compressImageFromFile(mImageList.get(0));
+        newFaBuNetWork.upPicToNet(getUpPicParamMap(bitmap), new Observer<NewFaBuPicBean>() {
+            @Override
+            public void onCompleted() {
+    /*            progressBar.setVisibility(View.GONE);*/
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+         /*       progressBar.setVisibility(View.GONE);*/
+
+                 /*   Toast.makeText(activity,"Throwable:"+e,Toast.LENGTH_LONG).show();*/
+            }
+
+            @Override
+            public void onNext(NewFaBuPicBean newFaBuPicBean) {
+                if(newFaBuPicBean.getStatus().equals("0")){
+                    resultImgList.clear();
+                    /*resultImgList.add("\""+newFaBuPicBean.getImgurl()+"\"");*/
+                    resultImgList.add(newFaBuPicBean.getImgurl());
+               /*     upPicCount--;*/
+                    rivMainMineGeRenXinXiContentHeadImg.setImageBitmap(bitmap);
+                        /*pbNewFaBuHuoYuan.setVisibility(View.GONE);*/
+                    pbMainMineGeRenXinXiContentHeadImg.setVisibility(View.GONE);
+                    submitPicToNet();
+                }
+            }
+        });
+    }
+
+
+    private Map<String,Object> getSubmitPicToNetParamMap(){
+        Map<String,Object> paramMap = new HashMap<>();
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(this);
+        String loginId= xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((loginId == null)||(loginId.isEmpty())){
+            Toast.makeText(this,"请登录",3000).show();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            return paramMap;
+        }
+
+        paramMap.put("login_id",loginId);
+        paramMap.put("image",resultImgList.get(0));
+        return paramMap;
+
+    }
+
+    private void submitPicToNet(){
+        pbNewMainMineGeRenXinXi.setVisibility(View.VISIBLE);
+        UserNetWork userNetWork = new UserNetWork();
+        userNetWork.submitNewGeRenXinXiToNet(getSubmitPicToNetParamMap(), new Observer<NewGeRenXinXiSubmitBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewGeRenXinXiSubmitBean newGeRenXinXiSubmitBean) {
+                Toast.makeText(GeRenXinXiActivity.this,newGeRenXinXiSubmitBean.getMsg(),3000).show();
+                pbNewMainMineGeRenXinXi.setVisibility(View.GONE);
+            }
+        });
+
+    }
+
+
+
     @Override
     protected void onResume(){
         super.onResume();
        /* geRenXinXiController.getMyMessageFromNet();*/
-        if(isPhoto){
-            updateInfoToNet();
+      /*  if(isPhoto){
+           *//* updateInfoToNet();*//*
             isPhoto = false;
         }else{
             geRenXinXiController.getMyMessageFromNet();
-        }
+        }*/
+        geRenXinXiController.onResume();
     }
 }

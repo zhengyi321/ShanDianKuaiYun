@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:imagecontrol="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_main_mine_gerenxinxi_content_bg"
     android:padding="@dimen/main_mine_gerenxinxi_content_padding">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
 
     <LinearLayout
         android:id="@+id/lly_main_mine_gerenxinxi_content_headimg"
@@ -13,54 +20,65 @@
         android:layout_height="@dimen/zero"
         android:layout_weight="2.5"
         android:orientation="horizontal">
+
         <RelativeLayout
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:text="@string/touxiang"
                 android:textColor="@color/color_main_mine_gerenxinxi_content_black_word_textcolor"
                 android:textSize="@dimen/main_mine_gerenxinxi_content_word_size"
-                android:textStyle="bold"
-                android:layout_centerVertical="true"
-                />
+                android:textStyle="bold" />
 
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
-            android:layout_weight="4.5"
-            >
-
+            android:layout_weight="4.5">
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                >
             <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
                 android:id="@+id/riv_main_mine_gerenxinxi_content_headimg"
-                android:layout_width="@dimen/main_mine_gerenxinxi_content_headimg_width"
-                android:layout_height="@dimen/main_mine_gerenxinxi_content_headimg_height"
-                android:src="@mipmap/touxiang"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+
+                android:background="@color/color_main_mine_gerenxinxi_content_bg"
                 android:scaleType="fitXY"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
+                android:src="@mipmap/touxiang"
                 imagecontrol:border_inside_color="@color/wheat"
                 imagecontrol:border_outside_color="@color/black"
-                imagecontrol:border_thickness="1dp"
-                android:background="@color/color_main_mine_gerenxinxi_content_bg"
-                />
+                imagecontrol:border_thickness="1dp" />
+                <ProgressBar
+                    android:id="@+id/pb_main_mine_gerenxinxi_content_headimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone"
+                    />
+            </RelativeLayout>
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="@dimen/zero"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            >
+            android:layout_weight="0.5">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/right_arrow"
-                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
-                />
+                android:layout_centerVertical="true"
+                android:background="@mipmap/right_arrow" />
 
         </RelativeLayout>
     </LinearLayout>
@@ -709,4 +727,14 @@
         >
 
     </LinearLayout>
-</LinearLayout>
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/pb_new_main_mine_gerenxinxi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/white"
+        android:alpha="0.5"
+        android:visibility="gone"
+        />
+</RelativeLayout>

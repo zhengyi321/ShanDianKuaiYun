@@ -1,11 +1,16 @@
 package com.shandian.lu.Main.MineFragment.GeRenXinXi.WeiXin;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.mynewslayoutlib.Bean.NewGeRenXinXiSubmitBean;
+import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.shandian.lu.BaseController;
@@ -33,13 +38,16 @@ public class WeiXinController extends BaseController {
     public void rlyMainMineGeRenXinXiBackOnclick(){
         activity.finish();
     }
+    @BindView(R.id.pb_new_main_mine_gerenxinxi_weixin)
+    ProgressBar pbNewMainMineGeRenXinXiWeiXin;
     @BindView(R.id.et_main_mine_gerenxinxi_weixin)
     EditText etMainMineGeRenXinXiWeiXin;
     @BindView(R.id.bt_main_mine_gerenxinxi_weixin)
     Button btMainMineGeRenXinXiWeiXin;
     @OnClick(R.id.bt_main_mine_gerenxinxi_weixin)
     public void btMainMineGeRenXinXiWeiXinOnclick(){
-        updateWeiXinToNet();
+        /*updateWeiXinToNet();*/
+        newUpdateTelToNet();
     }
     public WeiXinController(Activity activity1){
         activity = activity1;
@@ -116,4 +124,48 @@ public class WeiXinController extends BaseController {
         });
     }
 
+
+
+
+    private void newUpdateTelToNet(){
+        pbNewMainMineGeRenXinXiWeiXin.setVisibility(View.VISIBLE);
+        UserNetWork userNetWork = new UserNetWork();
+        userNetWork.submitNewGeRenXinXiToNet(getNewParamMap(), new Observer<NewGeRenXinXiSubmitBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewGeRenXinXiSubmitBean newGeRenXinXiSubmitBean) {
+                Toast.makeText(activity,newGeRenXinXiSubmitBean.getMsg(),3000).show();
+                pbNewMainMineGeRenXinXiWeiXin.setVisibility(View.GONE);
+            }
+        });
+
+    }
+    private Map<String,Object>  getNewParamMap(){
+        Map<String,Object> paramMap = new HashMap<>();
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        String loginId= xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((loginId == null)||(loginId.isEmpty())){
+            Toast.makeText(activity,"请登录",3000).show();
+            Intent intent = new Intent(activity, LoginActivity.class);
+            activity.startActivity(intent);
+            return paramMap;
+        }
+
+        paramMap.put("login_id",loginId);
+        String wecat = etMainMineGeRenXinXiWeiXin.getText().toString().trim();
+
+        wecat = wecat.replaceAll(" ","");
+        paramMap.put("wei_code",wecat);
+        return paramMap;
+    }
 }

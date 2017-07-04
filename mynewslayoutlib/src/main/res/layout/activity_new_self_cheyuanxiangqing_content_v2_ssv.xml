@@ -824,7 +824,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:scaleType="fitXY"
-            android:background="@color/red"
+            android:background="@color/white"
             >
 
         </ImageButton>

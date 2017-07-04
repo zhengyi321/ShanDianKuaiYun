@@ -22,6 +22,7 @@ import com.shandian.lu.Widget.DBHuanXin.UserInfoCacheSvc;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -96,7 +97,9 @@ public class ChatMessageFragment extends EaseConversationListFragment {
     @Override
     public void onMessageReceived(List<EMMessage> messages) {
         for (EMMessage emMessage : messages) {
+
             try {
+
                 refresh();
                 //获取消息扩展
                 String HXid = emMessage.getStringAttribute(SharePrefConstant.ChatUserId);
@@ -186,13 +189,14 @@ public class ChatMessageFragment extends EaseConversationListFragment {
         EMClient.getInstance().chatManager().addMessageListener(messageListener);
 
     }
-        @Override
-        public void onStop() {
-            EMClient.getInstance().chatManager().removeMessageListener(messageListener);
-            super.onStop();
-        }
-        @Override
-        public void onDestroy() {
-            super.onDestroy();
-        }
+    @Override
+    public void onStop() {
+
+        super.onStop();
+    }
+    @Override
+    public void onDestroy() {
+        EMClient.getInstance().chatManager().removeMessageListener(messageListener);
+        super.onDestroy();
+    }
 }

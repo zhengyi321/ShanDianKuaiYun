@@ -2,8 +2,17 @@ package com.shandian.lu.ErWeiMa;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 
+import com.example.mynewslayoutlib.Bean.NewQrCodeSubmitBean;
+import com.j256.ormlite.stmt.query.In;
+import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.shandian.lu.Main.MineFragment.WoDeYaoQing.WoDeTuiJianRen.WoDeTuiJianRenActivity;
+import com.shandian.lu.NetWork.WoDeYaoQingNetWork;
 import com.shandian.lu.R;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 /*import com.shandian.lu.activity.RegistActivity;*/
 
 import net.sourceforge.zbar.Config;
@@ -33,6 +42,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import rx.Observer;
 
 public class CaptureActivity extends Activity {
 
@@ -165,16 +177,53 @@ public class CaptureActivity extends Activity {
 					resultStr = sym.getData();
 				}
 			}
-
+			/*Toast.makeText(CaptureActivity.this,resultStr,Toast.LENGTH_LONG).show();*/
 			if (!TextUtils.isEmpty(resultStr)) {
 				previewing = false;
 				mCamera.setPreviewCallback(null);
 				mCamera.stopPreview();
-         if(resultStr.indexOf("one_code")!=-1){
-    /*    	  String code=resultStr.substring(resultStr.length()-6,resultStr.length());
+				System.out.print("\nresultStr:"+resultStr);
+				System.out.print("\nresultStr:"+resultStr);
+				System.out.print("\nresultStr:"+resultStr);
+				System.out.print("\nresultStr:"+resultStr);
+				System.out.print("\nresultStr:"+resultStr);
+				int indexOfTgCode = resultStr.indexOf("tgcode_");
+				if(indexOfTgCode != -1){
+					String code = resultStr.substring(7,resultStr.length());
+					System.out.print("\nindexOfTgCode:"+code);
+					System.out.print("\nindexOfTgCode:"+code);
+					System.out.print("\nindexOfTgCode:"+code);
+					System.out.print("\nindexOfTgCode:"+code);
+					XCCacheManager xcCacheManager = XCCacheManager.getInstance(CaptureActivity.this);
+					XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+					xcCacheManager.writeCache(xcCacheSaveName.tgCode,code);
+					String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
+
+					if((loginId == null)||(loginId.isEmpty())){
+						Intent intent = new Intent(CaptureActivity.this, LoginActivity.class);
+						startActivity(intent);
+						finish();
+					}else {
+						submitNewQrCodeToNet(code,loginId);
+
+					}
+					barcodeScanned = true;
+				}else {
+					Intent intent = new Intent();
+					intent.setAction("android.intent.action.VIEW");
+					Uri content_url = Uri.parse(resultStr);
+					intent.setData(content_url);
+					startActivity(intent);
+					finish();
+					Log.i("info","result-->"+resultStr);
+					barcodeScanned = true;
+				}
+
+/*         if(resultStr.indexOf("one_code")!=-1){
+        	  String code=resultStr.substring(resultStr.length()-6,resultStr.length());
         	  Intent oneCode=new Intent(CaptureActivity.this,RegistActivity.class);
         	  oneCode.putExtra("one_code", code);
-        	  startActivity(oneCode);*/
+        	  startActivity(oneCode);
         	  finish(); 
         	  barcodeScanned = true;
          }else{
@@ -187,7 +236,7 @@ public class CaptureActivity extends Activity {
         	 finish(); 
         	 Log.i("info","result-->"+resultStr);
         	 barcodeScanned = true;
-         }
+         }*/
 			}
 		}
 	};
@@ -198,6 +247,33 @@ public class CaptureActivity extends Activity {
 			autoFocusHandler.postDelayed(doAutoFocus, 1000);
 		}
 	};
+
+
+	private void submitNewQrCodeToNet(String code,String loginId){
+		Map<String,Object> paramMap = new HashMap<>();
+		paramMap.put("login_id",loginId);
+		paramMap.put("code",code);
+		WoDeYaoQingNetWork woDeYaoQingNetWork = new WoDeYaoQingNetWork();
+		woDeYaoQingNetWork.submitNewQrCodeToNet(paramMap, new Observer<NewQrCodeSubmitBean>() {
+			@Override
+			public void onCompleted() {
+
+			}
+
+			@Override
+			public void onError(Throwable e) {
+
+			}
+
+			@Override
+			public void onNext(NewQrCodeSubmitBean newQrCodeSubmitBean) {
+				Toast.makeText(CaptureActivity.this,newQrCodeSubmitBean.getMsg(),Toast.LENGTH_LONG).show();
+				Intent intent = new Intent(CaptureActivity.this,WoDeTuiJianRenActivity.class);
+				startActivity(intent);
+				finish();
+			}
+		});
+	}
 
 	/**
 	 * 鍒濆鍖栨埅鍙栫殑鐭╁舰鍖哄煙

@@ -37,4 +37,6 @@ public class XCCacheSaveName {
     public String currentlon = "currentLon";
 
     public String payStatus = "payStatus";
+
+    public String tgCode = "tgCode";
 }

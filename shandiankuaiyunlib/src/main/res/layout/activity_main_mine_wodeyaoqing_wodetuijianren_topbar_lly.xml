@@ -5,6 +5,7 @@
     android:background="@color/color_main_mine_wodeyaoqing_wodetuijianren_topbar_bg"
     >
     <RelativeLayout
+        android:id="@+id/rly_new_main_mine_tjr_back"
         android:layout_width="@dimen/zero"
         android:layout_height="match_parent"
         android:layout_weight="1"

@@ -265,6 +265,12 @@ public class HuoYuanListController extends BaseController {
                    if(page.equals("1")){
                        huoYuanListXRVAdapter.huoYuanList.clear();
                        xRecyclerView.refreshComplete();
+                   }else {
+                        xRecyclerView.loadMoreComplete();
+                   }
+
+                   if(newHuoYuanListBean.getNr().getList().size() == 0){
+                       xRecyclerView.setNoMore(true);
                    }
                     huoYuanListXRVAdapter.setAdapter(newHuoYuanListBean.getNr().getList());
 

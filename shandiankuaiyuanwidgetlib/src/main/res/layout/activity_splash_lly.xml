@@ -5,8 +5,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/splash"
+
         >
+        <ImageView
+            android:id="@+id/iv_splash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/splash"
+            android:scaleType="fitXY"
+            />
         <Button
             android:id="@+id/bt_sp"
             android:layout_width="80dp"

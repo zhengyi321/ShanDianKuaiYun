@@ -180,7 +180,7 @@ public class NewWoDeHuoYuanController extends BaseController {
 
                     }
 
-                }, 1000);            //refresh data here
+                }, 0);            //refresh data here
             }
 
             @Override
@@ -190,24 +190,24 @@ public class NewWoDeHuoYuanController extends BaseController {
                         public void run() {
                             page++;
                             getDataFromNet(""+type,page+"");
-                            xrvNewWoDeHuoYuan.loadMoreComplete();
+                           /* xrvNewWoDeHuoYuan.loadMoreComplete();*/
 
                         }
-                    }, 1000);
+                    }, 0);
                 } else {
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
                             page++;
                             getDataFromNet(""+type,page+"");
-                            xrvNewWoDeHuoYuan.setNoMore(true);
+                        /*    xrvNewWoDeHuoYuan.setNoMore(true);*/
 
                         }
-                    }, 1000);
+                    }, 0);
                 }
                 times ++;
             }
         });
-        xrvNewWoDeHuoYuan.refresh();
+
     }
 
 
@@ -292,6 +292,11 @@ public class NewWoDeHuoYuanController extends BaseController {
                     if(p.equals("1")){
                         dataList.clear();
                         xrvNewWoDeHuoYuan.refreshComplete();
+                    }else {
+                        xrvNewWoDeHuoYuan.loadMoreComplete();
+                    }
+                    if(newWoDeHuoYuanBean.getNr().getList().size() == 0){
+                        xrvNewWoDeHuoYuan.setNoMore(true);
                     }
                     adapter.setAdapter(newWoDeHuoYuanBean.getNr().getList());
                 }

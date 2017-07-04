@@ -1,5 +1,7 @@
 package com.shandian.lu.NetWork;
 
+import com.example.mynewslayoutlib.Bean.NewMyRenZhengDetailBean;
+import com.example.mynewslayoutlib.Bean.NewRenZhengSubmitResultBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
 import com.zhyan.shandiankuaiyunlib.Bean.AuthCarBean;
 import com.zhyan.shandiankuaiyunlib.Bean.AuthCompanyBean;
@@ -77,6 +79,20 @@ public class RenZhengNetWork extends BaseNetWork {
         Observable<AuthInFoBean> getAuthInfoFromNet(@Query("login_id") String login_id);
         /*认证情况*/
 
+        /*新的认证获取资料*/
+        @FormUrlEncoded
+        @POST("index.php/app/chyuan/woderenzheng")
+        /*Observable<CarSourceBean> releaseZhuanXianWuLiuToNet( @QueryMap Map<String , Object> usermaps,@Part("img1") String img1,@Part("img2") String img2,@Part("img3") String img3,@Part("img4") String img4,@Part("img5") String img5,@Part("img6") String img6,@Part("img7") String img7,@Part("img8") String img8);*/
+        /*Observable<CarSourceBean> releaseZhuanXianWuLiuToNet( @FieldMap Map<String , Object> usermaps,@Part("img1")  MultipartBody.Part img1,@Part("img2")  MultipartBody.Part img2,@Part("img3")  MultipartBody.Part img3,@Part("img4")  MultipartBody.Part img4,@Part("img5")  MultipartBody.Part img5,@Part("img6")  MultipartBody.Part img6,@Part("img7")  MultipartBody.Part img7,@Part("img8")  MultipartBody.Part img8);*/
+        Observable<NewMyRenZhengDetailBean> getRenZhengDetailFromNet(@FieldMap Map<String, String> usermaps);
+        /*新的认证获取资料*/
+        /*新的认证提交资料*/
+        @FormUrlEncoded
+        @POST("index.php/app/chyuan/woderenzheng")
+        /*Observable<CarSourceBean> releaseZhuanXianWuLiuToNet( @QueryMap Map<String , Object> usermaps,@Part("img1") String img1,@Part("img2") String img2,@Part("img3") String img3,@Part("img4") String img4,@Part("img5") String img5,@Part("img6") String img6,@Part("img7") String img7,@Part("img8") String img8);*/
+        /*Observable<CarSourceBean> releaseZhuanXianWuLiuToNet( @FieldMap Map<String , Object> usermaps,@Part("img1")  MultipartBody.Part img1,@Part("img2")  MultipartBody.Part img2,@Part("img3")  MultipartBody.Part img3,@Part("img4")  MultipartBody.Part img4,@Part("img5")  MultipartBody.Part img5,@Part("img6")  MultipartBody.Part img6,@Part("img7")  MultipartBody.Part img7,@Part("img8")  MultipartBody.Part img8);*/
+        Observable<NewRenZhengSubmitResultBean> submitNewRenZhengToNet(@FieldMap Map<String, Object> usermaps);
+        /*新的认证提交资料*/
     }
 
     /*public  void releaseZhuanXianWuLiuToNet(Map<String , Object> usermaps,String img1,String img2,String img3,String img4,String img5,String img6,String img7,String img8,Observer<CarSourceBean> observer){*/
@@ -99,7 +115,12 @@ public class RenZhengNetWork extends BaseNetWork {
     public  void getAuthInfoFromNet(String login_id,Observer<AuthInFoBean> observer){
         setSubscribe(service.getAuthInfoFromNet(login_id),observer);
     }
-
+    public  void getRenZhengDetailFromNet(Map<String , String> usermaps,Observer<NewMyRenZhengDetailBean> observer){
+        setSubscribe(service.getRenZhengDetailFromNet(usermaps),observer);
+    }
+    public  void submitNewRenZhengToNet(Map<String , Object> usermaps,Observer<NewRenZhengSubmitResultBean> observer){
+        setSubscribe(service.submitNewRenZhengToNet(usermaps),observer);
+    }
 
 
 }

@@ -245,7 +245,7 @@ public class CheYuanListController extends BaseController {
         getTypeName();
         initJsonData();
         rlyNewCheYuanListChange.setVisibility(View.INVISIBLE);
-        getDataFromNet(""+page);
+       /* getDataFromNet(""+page);*/
         getAdsFromNet();
     }
 
@@ -351,7 +351,7 @@ public class CheYuanListController extends BaseController {
 
                     }
 
-                }, 1000);            //refresh data here
+                }, 0);            //refresh data here
             }
 
             @Override
@@ -361,19 +361,19 @@ public class CheYuanListController extends BaseController {
                         public void run() {
                             page++;
                             getData2FromNet();
-                            xrvNewCheYuanList.loadMoreComplete();
+                         /*   xrvNewCheYuanList.loadMoreComplete();*/
 
                         }
-                    }, 1000);
+                    }, 0);
                 } else {
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
                             page++;
                             getData2FromNet();
-                            xrvNewCheYuanList.setNoMore(true);
+                           /* xrvNewCheYuanList.setNoMore(true);*/
 
                         }
-                    }, 1000);
+                    }, 0);
                 }
                 times ++;
             }
@@ -466,6 +466,11 @@ public class CheYuanListController extends BaseController {
                 if(page == 1 ){
                     cheYuanListXRVAdapter.cheYuanList.clear();
                     xrvNewCheYuanList.refreshComplete();
+                }else {
+                    xrvNewCheYuanList.loadMoreComplete();
+                }
+                if(newCheYuanListBean.getNr().getList().size() == 0){
+                    xrvNewCheYuanList.setNoMore(true);
                 }
                 cheYuanListXRVAdapter.setAdapter(newCheYuanListBean.getNr().getList());
             }

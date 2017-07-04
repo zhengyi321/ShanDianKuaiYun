@@ -1,5 +1,9 @@
 package com.shandian.lu.NetWork;
 
+import com.example.mynewslayoutlib.Bean.NewGeRenXinXiBean;
+import com.example.mynewslayoutlib.Bean.NewGeRenXinXiSubmitBean;
+import com.example.mynewslayoutlib.Bean.NewLoginBean;
+import com.example.mynewslayoutlib.Bean.NewRegisterBean;
 import com.example.mynewslayoutlib.Bean.NewSiJiLocBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
 import com.zhyan.shandiankuaiyunlib.Bean.IsRegisterBean;
@@ -39,6 +43,12 @@ public class UserNetWork extends BaseNetWork {
         @GET("client/denglu.php")
         Observable<LoginBean> userLogin(@Query("mobile") String mobile, @Query("password") String password);
        /*用户登录*/
+
+       /*用户登录新接口*/
+        @FormUrlEncoded
+        @POST("index.php/app/chyuan/denglu")
+        Observable<NewLoginBean> userLoginToNetNew(@FieldMap Map<String,String> paramMap);
+       /*用户登录新接口*/
         /*检测用户名是否已经被注册*/
        @GET("client/mobile.php")
        Observable<IsRegisterBean> isRegisterByNet(@Query("mobile") String mobile);
@@ -48,7 +58,11 @@ public class UserNetWork extends BaseNetWork {
         @GET("client/register.php")
         Observable<RegisterBean> registerToNet(@Query("mobile") String mobile, @Query("password") String password, @Query("code") String code, @Query("name") String name);
         /*注册*/
-
+       /*新注册*/
+        @FormUrlEncoded
+        @POST("index.php/app/chyuan/zhuce")
+        Observable<NewRegisterBean> newRegisterToNet(@FieldMap Map<String,String> paramMap);
+       /*新注册*/
 
         /*获取头像*/
         @GET("client/my_info_list.php")
@@ -76,17 +90,38 @@ public class UserNetWork extends BaseNetWork {
         @POST("index.php/app/chyuan/huoqusiji")
         Observable<NewSiJiLocBean> getSiJiLocFromNet(@FieldMap Map<String,String> paramMap);
         /*司机实时定位*/
+        /*获取个人信息*/
+        @FormUrlEncoded
+        @POST("index.php/app/chyuan/gerenxinxi")
+        Observable<NewGeRenXinXiBean> getNewGeRenXinXiFromNet(@FieldMap Map<String,String> paramMap);
+        /*获取个人信息*/
+        /*个人信息提交*/
+        @FormUrlEncoded
+        @POST("index.php/app/chyuan/gerenxinxitj")
+        Observable<NewGeRenXinXiSubmitBean> submitNewGeRenXinXiToNet(@FieldMap Map<String,Object> paramMap);
+        /*个人信息提交*/
+
+
+
     }
 
     public  void userLogin(String mobile, String password, Observer<LoginBean> observer){
         setSubscribe(service.userLogin(mobile, password),observer);
     }
 
+    public  void userLoginToNetNew(Map<String,String> paramMap, Observer<NewLoginBean> observer){
+        setSubscribe(service.userLoginToNetNew(paramMap),observer);
+    }
+
+
     public  void isRegisterByNet(String mobile ,Observer<IsRegisterBean> observer){
         setSubscribe(service.isRegisterByNet(mobile),observer);
     }
     public  void registerToNet(String mobile ,String password,String code,String name,Observer<RegisterBean> observer){
         setSubscribe(service.registerToNet(mobile,password,code,name),observer);
+    }
+    public  void newRegisterToNet(Map<String,String> paramMap, Observer<NewRegisterBean> observer){
+        setSubscribe(service.newRegisterToNet(paramMap),observer);
     }
     public  void getMyMessageFromNet(String login_id,Observer<MyMessageBean> observer){
         setSubscribe(service.getMyMessageFromNet(login_id),observer);
@@ -101,9 +136,13 @@ public class UserNetWork extends BaseNetWork {
     public  void getMyCarSourceFromNet(String login_id,Observer<MyCarSourceBean> observer){
         setSubscribe(service.getMyCarSourceFromNet(login_id),observer);
     }
-
-
     public  void getSiJiLocFromNet(Map<String,String> paramMap,Observer<NewSiJiLocBean> observer){
         setSubscribe(service.getSiJiLocFromNet(paramMap),observer);
+    }
+    public  void getNewGeRenXinXiFromNet(Map<String,String> paramMap,Observer<NewGeRenXinXiBean> observer){
+        setSubscribe(service.getNewGeRenXinXiFromNet(paramMap),observer);
+    }
+    public  void submitNewGeRenXinXiToNet(Map<String,Object> paramMap,Observer<NewGeRenXinXiSubmitBean> observer){
+        setSubscribe(service.submitNewGeRenXinXiToNet(paramMap),observer);
     }
 }

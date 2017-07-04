@@ -5,5 +5,23 @@
     android:background="@color/color_main_mine_gerenxinxi_weixin_content_bg"
     >
     <include layout="@layout/activity_main_mine_gerenxinxi_weixin_topbar_lly"/>
-    <include layout="@layout/activity_main_mine_gerenxinxi_weixin_content_lly"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_weight="1"
+        >
+
+
+         <include layout="@layout/activity_main_mine_gerenxinxi_weixin_content_lly"/>
+        <ProgressBar
+            android:id="@+id/pb_new_main_mine_gerenxinxi_weixin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:alpha="0.5"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
 </LinearLayout>

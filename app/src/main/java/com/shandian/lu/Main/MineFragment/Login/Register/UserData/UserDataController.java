@@ -10,6 +10,9 @@ import android.widget.Toast;
 /*
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;*/
+import com.example.mynewslayoutlib.Bean.NewRegisterBean;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Utils.PhoneFormatCheckUtils;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.NetWork.UserNetWork;
@@ -17,6 +20,9 @@ import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyunlib.Bean.RegisterBean;
 
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -74,6 +80,14 @@ public class UserDataController extends BaseController{
         if(tel != null){
             etMainMineLoginRegUserDataContentTel.setText(tel);
         }
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String tgCode = xcCacheManager.readCache(xcCacheSaveName.tgCode);
+        if((tgCode == null)||(tgCode.isEmpty())){
+
+        }else {
+            etMainMineLoginRegUserDataContentYQM.setText(tgCode);
+        }
     }
 
     private void regDataCheck(){
@@ -115,9 +129,32 @@ public class UserDataController extends BaseController{
             Toast.makeText(activity,"注册失败",Toast.LENGTH_LONG).show();
             return;
         }*/
-
+        Map<String,String> paramMap = new HashMap<>();
+        paramMap.put("mobile",tel);
+        paramMap.put("password",pass);
+        paramMap.put("code",code);
+        paramMap.put("name",name);
         UserNetWork userNetWork = new UserNetWork();
-        userNetWork.registerToNet(tel, pass, code, name, new Observer<RegisterBean>() {
+        userNetWork.newRegisterToNet(paramMap, new Observer<NewRegisterBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewRegisterBean newRegisterBean) {
+                Toast.makeText(activity,newRegisterBean.getMsg(),Toast.LENGTH_LONG).show();
+                if(newRegisterBean.getStatus().equals("0")) {
+                    activity.finish();
+                }
+            }
+        });
+       /* userNetWork.registerToNet(tel, pass, code, name, new Observer<RegisterBean>() {
             @Override
             public void onCompleted() {
 
@@ -135,7 +172,7 @@ public class UserDataController extends BaseController{
                     activity.finish();
                 }
             }
-        });
+        });*/
     }
 
     private void mobSMSRegister(){

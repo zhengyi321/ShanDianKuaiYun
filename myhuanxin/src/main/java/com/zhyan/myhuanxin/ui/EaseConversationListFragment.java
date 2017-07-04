@@ -1,6 +1,7 @@
 package com.zhyan.myhuanxin.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -19,6 +20,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.hyphenate.EMConnectionListener;
 import com.hyphenate.EMConversationListener;
@@ -46,7 +48,7 @@ public class EaseConversationListFragment extends EaseBaseFragment{
     protected List<EMConversation> conversationList = new ArrayList<EMConversation>();
     protected EaseConversationList conversationListView;
     protected FrameLayout errorItemContainer;
-
+    private int unReadCountTotal = 0;
     protected boolean isConflict;
     
     protected EMConversationListener convListener = new EMConversationListener(){
@@ -163,9 +165,18 @@ public class EaseConversationListFragment extends EaseBaseFragment{
             
             case MSG_REFRESH:
 	            {
+
+
+          /*  Toast.makeText(context1,"send count:"+count,3000).show();*/
+
 	            	conversationList.clear();
 	                conversationList.addAll(loadConversationList());
 	                conversationListView.refresh();
+               /*     String count = conversationListView.adapter.getUnReadCount();*/
+                    /*Toast.makeText(getContext(),"count:"+unReadCountTotal,3000).show();*/
+                    Intent intent=new Intent("unReadMessage");
+                    intent.putExtra("count",""+unReadCountTotal);
+                    getContext().sendBroadcast(intent);
 	                break;
 	            }
             default:
@@ -205,6 +216,7 @@ public class EaseConversationListFragment extends EaseBaseFragment{
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         +    */
     protected List<EMConversation> loadConversationList(){
         // get all conversations
+        unReadCountTotal = 0;
         Map<String, EMConversation> conversations = EMClient.getInstance().chatManager().getAllConversations();
         List<Pair<Long, EMConversation>> sortList = new ArrayList<Pair<Long, EMConversation>>();
         /**
@@ -213,8 +225,11 @@ public class EaseConversationListFragment extends EaseBaseFragment{
          */
         synchronized (conversations) {
             for (EMConversation conversation : conversations.values()) {
+                int count = conversation.getUnreadMsgCount();
+                unReadCountTotal += count;
                 if (conversation.getAllMessages().size() != 0) {
                     sortList.add(new Pair<Long, EMConversation>(conversation.getLastMessage().getMsgTime(), conversation));
+
                 }
             }
         }

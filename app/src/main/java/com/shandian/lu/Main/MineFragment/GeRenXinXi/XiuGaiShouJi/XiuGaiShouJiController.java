@@ -2,15 +2,24 @@ package com.shandian.lu.Main.MineFragment.GeRenXinXi.XiuGaiShouJi;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mynewslayoutlib.Bean.NewGeRenXinXiSubmitBean;
+import com.shandian.lu.Main.MineFragment.GeRenXinXi.GeRenXinXiActivity;
+import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.shandian.lu.NetWork.UserNetWork;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.RegisterSendIdentifyDialog;
 import com.zhyan.shandiankuaiyuanwidgetlib.Utils.PhoneFormatCheckUtils;
 import com.shandian.lu.BaseController;
@@ -19,6 +28,9 @@ import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyunlib.Bean.UpdateTelBean;
 
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +49,8 @@ public class XiuGaiShouJiController extends BaseController {
     RegisterSendIdentifyDialog registerSendIdentifyDialog;
     @BindView(R.id.rly_main_mine_gerenxinxi_xiugaishouji_back)
     RelativeLayout rlyMainMineGeRenXinXiXiuGaiShouJiBack;
+    @BindView(R.id.pb_new_main_mine_gerenxinxi_xiugaishouji)
+    ProgressBar pbNewMainMineGeRenXinXiXiuGaiShouJi;
     @OnClick(R.id.rly_main_mine_gerenxinxi_xiugaishouji_back)
     public void rlyMainMineGeRenXinXiXiuGaiShouJiBackOnclick(){
         activity.finish();
@@ -205,7 +219,8 @@ public class XiuGaiShouJiController extends BaseController {
             if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE)
             {
          /*       regSubmit();*/
-                updateTelToNet();
+              /*  updateTelToNet();*/
+                newUpdateTelToNet();
             }
             //已发送验证码
             else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE)
@@ -273,6 +288,49 @@ public class XiuGaiShouJiController extends BaseController {
         });
 
     }
+
+
+    private void newUpdateTelToNet(){
+        pbNewMainMineGeRenXinXiXiuGaiShouJi.setVisibility(View.VISIBLE);
+        UserNetWork userNetWork = new UserNetWork();
+        userNetWork.submitNewGeRenXinXiToNet(getNewParamMap(), new Observer<NewGeRenXinXiSubmitBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(NewGeRenXinXiSubmitBean newGeRenXinXiSubmitBean) {
+                Toast.makeText(activity,newGeRenXinXiSubmitBean.getMsg(),3000).show();
+                pbNewMainMineGeRenXinXiXiuGaiShouJi.setVisibility(View.GONE);
+            }
+        });
+
+    }
+    private Map<String,Object>  getNewParamMap(){
+        Map<String,Object> paramMap = new HashMap<>();
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        String loginId= xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((loginId == null)||(loginId.isEmpty())){
+            Toast.makeText(activity,"请登录",3000).show();
+            Intent intent = new Intent(activity, LoginActivity.class);
+            activity.startActivity(intent);
+            return paramMap;
+        }
+
+        paramMap.put("login_id",loginId);
+        String new_tel = etMainMineGeRenXinXiXiuGaiShouJiTel.getText().toString().trim();
+        new_tel = new_tel.replaceAll(" ","");
+        paramMap.put("iphone",new_tel);
+        return paramMap;
+    }
+
     public void onDestroy(){
 
         SMSSDK.unregisterAllEventHandler();
