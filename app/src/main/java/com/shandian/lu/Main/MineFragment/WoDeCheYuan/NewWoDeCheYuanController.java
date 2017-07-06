@@ -424,6 +424,7 @@ public class NewWoDeCheYuanController extends BaseController {
                     }
 
                     xrvNewWoDeCheYuanYiBaoJia.setVisibility(View.VISIBLE);
+                    xrvNewWoDeCheYuanCheYuanList.setVisibility(View.GONE);
                     adapter1.setAdapter(newYiBaoJiaBean.getNr().getList());
 
 

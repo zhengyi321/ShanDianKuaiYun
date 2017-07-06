@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
+import android.telephony.PhoneNumberUtils;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,11 +17,15 @@ import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;*/
 import com.example.mynewslayoutlib.Bean.NewLoginBean;
+import com.example.mynewslayoutlib.Bean.NewUpSelfLocToNetBean;
+import com.example.mynewslayoutlib.Utils.DeviceUtil;
+import com.example.mynewslayoutlib.Utils.SystemUtils;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.EMError;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.shandian.lu.Main.MineFragment.Login.FindPass.FindPassActivity;
+import com.shandian.lu.NetWork.MainIndexNetWork;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Utils.PhoneFormatCheckUtils;
@@ -56,7 +61,9 @@ public class LoginController extends BaseController {
             switch (msg.what) {
                 case MSG_SET_ALIAS:
 
-                    JPushInterface.setAliasAndTags(activity, (String) msg.obj, null, mAliasCallback);
+                    /*JPushInterface.setAliasAndTags(activity, (String) msg.obj, null, mAliasCallback);*/
+                    JPushInterface.setAliasAndTags(activity, (String) msg.obj,null,  mAliasCallback);
+
                     break;
 
 
@@ -111,7 +118,7 @@ public class LoginController extends BaseController {
             switch (message.what){
                 case 1:
                     Toast.makeText(activity,"登录成功",Toast.LENGTH_LONG).show();
-                    initAliasJpush();
+                  /*  initAliasJpush();*/
                     activity.finish();
                     break;
             }
@@ -165,9 +172,10 @@ public class LoginController extends BaseController {
                     name = newLoginBean.getNr().getName();
                     mobile = newLoginBean.getNr().getMobile();
                     headImgUrl = newLoginBean.getNr().getImage();
-                    Message message = new Message();
+                 /*   Message message = new Message();
                     message.what = 1;
-                    handler.sendMessage(message);
+                    handler.sendMessage(message);*/
+                    upStatusToNet();
                     XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
                     XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
                     SharedPreferencesUtils sharedPreferencesUtils = new SharedPreferencesUtils();
@@ -181,6 +189,7 @@ public class LoginController extends BaseController {
                     sharedPreferencesUtils.setParam(activity,xcCacheSaveName.userName,name);
                     sharedPreferencesUtils.setParam(activity,xcCacheSaveName.userTel,mobile);
                     sharedPreferencesUtils.setParam(activity,xcCacheSaveName.userHeadImgUrl,headImgUrl);
+                    initAliasJpush();
                     /*activity.finish();*/
                     try {
                         EMClient.getInstance().logout(true);
@@ -218,10 +227,77 @@ public class LoginController extends BaseController {
                             Log.d("main", "登录聊天服务器失败！"+code+" mess"+message);
                             ResumeLogin(loginId);
                         }
+
                     });
+
+
+                    Toast.makeText(activity,"登录成功",Toast.LENGTH_LONG).show();
+                  /*  initAliasJpush();*/
+                    activity.finish();
                 }else {
                     Toast.makeText(activity,newLoginBean.getMsg(),Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+    }
+
+
+    private void upStatusToNet(){
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        String curLat = xcCacheManager.readCache(xcCacheSaveName.currentLat);
+        if(curLat == null){
+            curLat = "";
+        }
+        String curLng = xcCacheManager.readCache(xcCacheSaveName.currentLon);
+        if(curLng == null){
+            curLng = "";
+        }
+        String prov = xcCacheManager.readCache(xcCacheSaveName.currentProvince);
+        if(prov == null){
+            prov = "";
+        }
+        String city = xcCacheManager.readCache(xcCacheSaveName.currentCity);
+        if(city == null){
+            city = "";
+        }
+        String area = xcCacheManager.readCache(xcCacheSaveName.currentArea);
+        if(area == null){
+            area = "";
+        }
+        DeviceUtil deviceUtil = new DeviceUtil();
+        String deviceId = deviceUtil.getDeviceId(activity);
+        if((deviceId== null)||(deviceId.isEmpty())){
+            upStatusToNet();
+            return;
+        }
+        Map<String,String> paramMap = new HashMap<>();
+        paramMap.put("login_id",loginId);
+        paramMap.put("lat",curLat);
+        paramMap.put("lng",curLng);
+        paramMap.put("cfsheng",prov);
+        paramMap.put("cfshi",city);
+        paramMap.put("cfqu",area);
+        paramMap.put("sbh",deviceId);
+        paramMap.put("dl","1");
+        MainIndexNetWork mainIndexNetWork = new MainIndexNetWork();
+        mainIndexNetWork.upSelfLocToNet(paramMap, new Observer<NewUpSelfLocToNetBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                upStatusToNet();
+            }
+
+            @Override
+            public void onNext(NewUpSelfLocToNetBean newUpSelfLocToNetBean) {
+                      /*  Toast.makeText(getContext(),newUpSelfLocToNetBean.getMsg(),Toast.LENGTH_LONG).show();*/
+                       if(!newUpSelfLocToNetBean.getStatus().equals("0")){
+                           upStatusToNet();
+                       }
             }
         });
     }
@@ -251,6 +327,7 @@ public class LoginController extends BaseController {
                     Message message = new Message();
                     message.what = 1;
                     handler.sendMessage(message);
+
                     XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
                     XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
                     SharedPreferencesUtils sharedPreferencesUtils = new SharedPreferencesUtils();
@@ -262,6 +339,7 @@ public class LoginController extends BaseController {
                     sharedPreferencesUtils.setParam(activity,xcCacheSaveName.loginStatus,"yes");
                     sharedPreferencesUtils.setParam(activity,xcCacheSaveName.userName,name);
                     sharedPreferencesUtils.setParam(activity,xcCacheSaveName.userTel,mobile);
+                    initAliasJpush();
                     /*activity.finish();*/
                     try {
                         EMClient.getInstance().logout(true);
@@ -275,7 +353,7 @@ public class LoginController extends BaseController {
                         public void onSuccess() {
                             EMClient.getInstance().groupManager().loadAllGroups();
                             EMClient.getInstance().chatManager().loadAllConversations();
-                Log.d("main", "登录聊天服务器成功！");
+                            Log.d("main", "登录聊天服务器成功！");
                             Message message = new Message();
                             message.what = 1;
                             handler.sendMessage(message);
@@ -402,10 +480,13 @@ public class LoginController extends BaseController {
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((loginId == null)||(loginId.isEmpty())){
+            mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, ""));
+            JPushInterface.stopPush(activity);
             return;
         }
         String alias = "SDKY"+loginId;
         mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, alias));
+        JPushInterface.resumePush(activity);
         /*mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, "保证此处是唯一的标识"));*/
     }
 
@@ -419,6 +500,7 @@ public class LoginController extends BaseController {
             switch (code) {
                 case 0:
                     logs = "Set tag and alias success";
+                    Log.i("success",logs);
                    /* Toast.makeText(activity,"here is success:"+alias+" "+tags,Toast.LENGTH_LONG).show();*/
                /*     NotificationCompat.Builder	notification = new NotificationCompat.Builder(activity).setSmallIcon(R.mipmap.logo)
                             .setSound(Uri.parse("android.resource://" + activity.getPackageName() + "/" + R.raw.shandian));*/

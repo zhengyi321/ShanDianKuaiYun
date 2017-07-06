@@ -1,15 +1,16 @@
 package com.example.mynewslayoutlib.Bean;
 
 /**
- * Created by Administrator on 2017/6/15.
+ * Created by Administrator on 2017/7/5.
  */
 
-public class NewUpSelfLocToNetBean {
+public class NewTuiSongStatusBean {
+
 
     /**
      * status : 0
-     * msg : ok
-     * nr : {"dlzt":"1"}
+     * msg :
+     * nr : {"tszt":"1"}
      */
 
     private String status;
@@ -42,17 +43,17 @@ public class NewUpSelfLocToNetBean {
 
     public static class NrBean {
         /**
-         * dlzt : 1
+         * tszt : 1
          */
 
-        private String dlzt;
+        private String tszt;
 
-        public String getDlzt() {
-            return dlzt;
+        public String getTszt() {
+            return tszt;
         }
 
-        public void setDlzt(String dlzt) {
-            this.dlzt = dlzt;
+        public void setTszt(String tszt) {
+            this.tszt = tszt;
         }
     }
 }

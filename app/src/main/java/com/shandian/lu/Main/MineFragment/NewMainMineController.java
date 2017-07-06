@@ -310,7 +310,7 @@ public class NewMainMineController extends BaseController {
         }
         if((loginStatus != null)&&(loginStatus.equals("no"))){
             rivNewMainMinHeadImg.setImageResource(R.mipmap.mylogin);
-            tvNewMainMineName.setText("");
+            tvNewMainMineName.setText("我叫闪电");
             tvNewMainMineTel.setText("");
             return;
         }

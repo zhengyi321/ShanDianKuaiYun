@@ -25,6 +25,7 @@ import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
@@ -108,7 +109,9 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
     int nowSearchType = -1 ; // 当前进行的检索，供判断浏览节点时结果使用。
     int nodeIndex = -1; // 节点索引,供浏览节点时使用
     private LatLng bLl,eLl;
+    private boolean isFirstLoc = true;
 
+    private  double i = 0;
     Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -301,6 +304,11 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
 
         double cLat = Double.parseDouble(lat);
         double cLon = Double.parseDouble(lon);
+
+/*        cLat += i;
+        cLon += i;
+        i = (i+ 0.001);
+        Toast.makeText(activity,"i:"+i,Toast.LENGTH_LONG).show();*/
         /*定位蓝色点*/
         MyLocationData locData = new MyLocationData.Builder()
                 .accuracy(100)
@@ -314,9 +322,14 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
                 0, 0));
         LatLng lng = new LatLng(cLat,cLon);
         MapStatus.Builder builder = new MapStatus.Builder();
-        builder.target(lng).zoom(16.0f);
+        builder.target(lng).zoom(15.0f);
+       /* builder.target(lng);*/
 
-        mBaidumap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+       if(isFirstLoc) {
+           mBaidumap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+           isFirstLoc = false;
+       }
+/*        mBaidumap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));*/
     }
 
     /**

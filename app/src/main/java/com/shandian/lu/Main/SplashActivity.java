@@ -43,6 +43,10 @@ public class SplashActivity extends BaseActivity {
     public void ivSplashOnclick(){
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
+        if((url == null)||(url.isEmpty())){
+            second = 1;
+            return;
+        }
         Uri content_url = Uri.parse(url);
         intent.setData(content_url);
         startActivity(intent);

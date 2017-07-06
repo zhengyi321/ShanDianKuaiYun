@@ -5,6 +5,8 @@ import com.example.mynewslayoutlib.Bean.NewGeRenXinXiSubmitBean;
 import com.example.mynewslayoutlib.Bean.NewLoginBean;
 import com.example.mynewslayoutlib.Bean.NewRegisterBean;
 import com.example.mynewslayoutlib.Bean.NewSiJiLocBean;
+import com.example.mynewslayoutlib.Bean.NewTuiSongStatusBean;
+import com.example.mynewslayoutlib.Bean.NewTuiSongStatusSubmitBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
 import com.zhyan.shandiankuaiyunlib.Bean.IsRegisterBean;
 import com.zhyan.shandiankuaiyunlib.Bean.LoginBean;
@@ -100,6 +102,16 @@ public class UserNetWork extends BaseNetWork {
         @POST("index.php/app/chyuan/gerenxinxitj")
         Observable<NewGeRenXinXiSubmitBean> submitNewGeRenXinXiToNet(@FieldMap Map<String,Object> paramMap);
         /*个人信息提交*/
+        /*获取消息推送设置*/
+        @FormUrlEncoded
+        @POST("index.php/app/baojia/tszt")
+        Observable<NewTuiSongStatusBean> getTuiSongStatusFromNet(@FieldMap Map<String,Object> paramMap);
+        /*获取消息推送设置*/
+        /*消息推送设置提交*/
+        @FormUrlEncoded
+        @POST("index.php/app/baojia/tszt")
+        Observable<NewTuiSongStatusSubmitBean> submitTuiSongStatusToNet(@FieldMap Map<String,Object> paramMap);
+        /*消息推送设置提交*/
 
 
 
@@ -144,5 +156,11 @@ public class UserNetWork extends BaseNetWork {
     }
     public  void submitNewGeRenXinXiToNet(Map<String,Object> paramMap,Observer<NewGeRenXinXiSubmitBean> observer){
         setSubscribe(service.submitNewGeRenXinXiToNet(paramMap),observer);
+    }
+    public  void getTuiSongStatusFromNet(Map<String,Object> paramMap,Observer<NewTuiSongStatusBean> observer){
+        setSubscribe(service.getTuiSongStatusFromNet(paramMap),observer);
+    }
+    public  void submitTuiSongStatusToNet(Map<String,Object> paramMap,Observer<NewTuiSongStatusSubmitBean> observer){
+        setSubscribe(service.submitTuiSongStatusToNet(paramMap),observer);
     }
 }

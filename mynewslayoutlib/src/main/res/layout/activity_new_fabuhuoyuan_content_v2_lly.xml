@@ -403,7 +403,7 @@
                             android:id="@+id/et_new_fabuhuoyuan_tiji"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="请输入单位长宽高"
+                            android:hint="请输入体积"
                             android:textColorHint="@color/color_main_release_tezhongyunshu_content_gray_word_textcolor"
                             android:textColor="@color/color_main_release_tezhongyunshu_content_black_word_textcolor"
                             android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"

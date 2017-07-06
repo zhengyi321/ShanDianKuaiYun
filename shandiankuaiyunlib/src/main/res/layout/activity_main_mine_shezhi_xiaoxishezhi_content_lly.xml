@@ -41,12 +41,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             >
-            <ImageView
+            <CheckBox
+                android:id="@+id/cb_main_mine_sz_push"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/push"
+
                 android:layout_centerInParent="true"
+                android:button="@null"
                 />
+            <!--android:background="@mipmap/push"-->
         </RelativeLayout>
 
     </LinearLayout>

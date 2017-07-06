@@ -21,6 +21,7 @@ public class XCCacheSaveName {
 
     public String modlestatus = "index";
 
+    public String currentProvince = "currentProvince";
     public String currentCity = "currentCity";
     public String currentArea = "currentArea";
 
@@ -34,7 +35,7 @@ public class XCCacheSaveName {
 
     public String currentLat = "currentLat";
 
-    public String currentlon = "currentLon";
+    public String currentLon = "currentLon";
 
     public String payStatus = "payStatus";
 

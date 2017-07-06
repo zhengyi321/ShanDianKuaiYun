@@ -324,7 +324,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         if(currentLat == null){
             currentLat = "";
         }
-        String currentLon = xcCacheManager.readCache(xcCacheSaveName.currentlon);
+        String currentLon = xcCacheManager.readCache(xcCacheSaveName.currentLon);
         if(currentLon == null){
             currentLon = "";
         }

@@ -5,7 +5,7 @@
     android:background="@color/color_main_mine_shezhi_xiaoxishezhi_topbar_bg"
     >
     <RelativeLayout
-        android:id="@+id/rly_main_mine_shezhi_xiaoxishezhi_topbar_cancel"
+        android:id="@+id/rly_main_mine_sz_push_back"
         android:layout_width="@dimen/zero"
         android:layout_height="match_parent"
         android:layout_weight="1"

@@ -917,6 +917,7 @@
         <activity android:name=".Main.IndexFragment.NewBanJiaRenRenKuaiDi.NewBanJiaRenRenDetailActivity" />
         <activity android:name=".ErWeiMa.CaptureActivity" />
         <activity android:name=".ErWeiMa.lib.CaptureActivity" />
+        <activity android:name=".Main.ReleaseFragment.FaBuCheYuan.NewFaBuBanJiaActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
         <!-- 服务区域Start -->
 

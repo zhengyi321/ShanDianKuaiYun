@@ -197,7 +197,7 @@ public class HuoYuanListController extends BaseController {
             currentLat = "";
         }
 
-        String currentLon = xcCacheManager.readCache(xcCacheSaveName.currentlon);
+        String currentLon = xcCacheManager.readCache(xcCacheSaveName.currentLon);
         if(currentLon == null){
             currentLon = "";
         }

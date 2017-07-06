@@ -230,7 +230,7 @@ public class ZhengCheHuoYunController extends BaseController {
         if(lat == null){
             return;
         }
-        String lon = xcCacheManager.readCache(xcCacheSaveName.currentlon);
+        String lon = xcCacheManager.readCache(xcCacheSaveName.currentLon);
         if(lon == null){
             return;
         }

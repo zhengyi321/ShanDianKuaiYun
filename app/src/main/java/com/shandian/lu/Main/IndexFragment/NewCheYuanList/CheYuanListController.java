@@ -389,7 +389,7 @@ public class CheYuanListController extends BaseController {
             currentLat = "";
         }
 
-        String currentLon = xcCacheManager.readCache(xcCacheSaveName.currentlon);
+        String currentLon = xcCacheManager.readCache(xcCacheSaveName.currentLon);
         if(currentLon == null){
             currentLon = "";
         }
@@ -445,7 +445,7 @@ public class CheYuanListController extends BaseController {
             currentLat = "";
         }
 
-        String currentLon = xcCacheManager.readCache(xcCacheSaveName.currentlon);
+        String currentLon = xcCacheManager.readCache(xcCacheSaveName.currentLon);
         if(currentLon == null){
             currentLon = "";
         }

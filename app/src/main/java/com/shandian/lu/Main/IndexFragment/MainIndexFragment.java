@@ -181,7 +181,7 @@ public class MainIndexFragment extends BaseFragment {
                 if (lon == null) {
                     lon = "";
                 }
-                xcCacheManager.writeCache(xcCacheSaveName.currentlon, lon);
+                xcCacheManager.writeCache(xcCacheSaveName.currentLon, lon);
                 String currentLocRadius = location.getRadius()+"";
                 if (currentLocRadius == null) {
                     currentLocRadius = "";

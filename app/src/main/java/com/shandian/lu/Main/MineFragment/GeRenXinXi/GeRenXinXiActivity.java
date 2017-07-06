@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -60,7 +61,8 @@ public class GeRenXinXiActivity extends BaseActivity {
             switch (msg.what) {
                 case MSG_SET_ALIAS:
 
-                    JPushInterface.setAliasAndTags(GeRenXinXiActivity.this, (String) msg.obj, null, mAliasCallback);
+                    /*JPushInterface.setAliasAndTags(GeRenXinXiActivity.this, (String) msg.obj, null, mAliasCallback);*/
+                    JPushInterface.setAliasAndTags(GeRenXinXiActivity.this, (String) msg.obj,null,  mAliasCallback);
                     break;
 
 
@@ -119,6 +121,9 @@ public class GeRenXinXiActivity extends BaseActivity {
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(this);
         xcCacheManager.writeCache(xcCacheSaveName.logId,"");
         xcCacheManager.writeCache(xcCacheSaveName.loginStatus,"no");
+        xcCacheManager.writeCache(xcCacheSaveName.userName,"");
+        xcCacheManager.writeCache(xcCacheSaveName.userTel,"");
+        xcCacheManager.writeCache(xcCacheSaveName.userHeadImgUrl,"");
         Toast.makeText(this,"已成功退出登录",Toast.LENGTH_LONG).show();
         SharedPreferencesUtils sharedPreferencesUtils = new SharedPreferencesUtils();
         sharedPreferencesUtils.setParam(this,xcCacheSaveName.logId, "");
@@ -126,7 +131,8 @@ public class GeRenXinXiActivity extends BaseActivity {
         sharedPreferencesUtils.setParam(this,xcCacheSaveName.userName,"");
         sharedPreferencesUtils.setParam(this,xcCacheSaveName.userTel,"");
         sharedPreferencesUtils.setParam(this,xcCacheSaveName.userHeadImgUrl,"");
-        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, "zzz"));
+        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, ""));
+        JPushInterface.stopPush(this);
 
 
         this.finish();
@@ -143,6 +149,7 @@ public class GeRenXinXiActivity extends BaseActivity {
             switch (code) {
                 case 0:
                     logs = "Set tag and alias success";
+                    Log.i("success",logs);
                  /*   Toast.makeText(activity,"here is success:"+alias+" "+tags,Toast.LENGTH_LONG).show();*/
                /*     NotificationCompat.Builder	notification = new NotificationCompat.Builder(activity).setSmallIcon(R.mipmap.logo)
                             .setSound(Uri.parse("android.resource://" + activity.getPackageName() + "/" + R.raw.shandian));*/

@@ -19,6 +19,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.Window;
@@ -83,7 +84,8 @@ public class MainController extends BaseController {
             switch (msg.what) {
                 case MSG_SET_ALIAS:
 
-                    JPushInterface.setAliasAndTags(activity, (String) msg.obj, null, mAliasCallback);
+                    /*JPushInterface.setAliasAndTags(activity, (String) msg.obj, null, mAliasCallback);*/
+                    JPushInterface.setAliasAndTags(activity, (String) msg.obj,null,  mAliasCallback);
                     break;
 
 
@@ -140,10 +142,13 @@ public class MainController extends BaseController {
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
         if((loginId == null)||(loginId.isEmpty())){
+            mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, ""));
+            JPushInterface.stopPush(activity);
             return;
         }
         String alias = "SDKY"+loginId;
         mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, alias));
+        JPushInterface.resumePush(activity);
         /*mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, "保证此处是唯一的标识"));*/
     }
 
@@ -157,6 +162,7 @@ public class MainController extends BaseController {
             switch (code) {
                 case 0:
                     logs = "Set tag and alias success";
+                    Log.i("success",logs);
                  /*   Toast.makeText(activity,"here is success:"+alias+" "+tags,Toast.LENGTH_LONG).show();*/
                /*     NotificationCompat.Builder	notification = new NotificationCompat.Builder(activity).setSmallIcon(R.mipmap.logo)
                             .setSound(Uri.parse("android.resource://" + activity.getPackageName() + "/" + R.raw.shandian));*/

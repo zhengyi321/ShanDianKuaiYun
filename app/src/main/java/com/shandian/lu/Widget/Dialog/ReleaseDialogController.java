@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.mynewslayoutlib.Utils.SystemUtils;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuBanJiaActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanV2Activity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuHuoYuan.NewFaBuHuoYuanActivity;
@@ -219,7 +220,7 @@ public class ReleaseDialogController extends BaseController {
             return;
         }
         if(rbDialogReleaseChe.isChecked()){
-            intent = new Intent(view.getContext(), NewFaBuCheYuanV2Activity.class);
+            intent = new Intent(view.getContext(), NewFaBuBanJiaActivity.class);
             intent.putExtra("type_name","6");
             view.getContext().startActivity(intent);
         }
@@ -227,7 +228,7 @@ public class ReleaseDialogController extends BaseController {
             /*intent = new Intent(view.getContext(), NewFaBuHuoYuanActivity.class);*/
             intent = new Intent(view.getContext(), NewFaBuHuoYuanV2Activity.class);
             intent.putExtra("type_name","6");
-            view.getContext().startActivity(intent);
+/*            view.getContext().startActivity(intent);*/
         }
     }
 

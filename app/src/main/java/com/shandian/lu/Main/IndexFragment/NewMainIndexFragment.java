@@ -3,6 +3,8 @@ package com.shandian.lu.Main.IndexFragment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +17,26 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.example.mynewslayoutlib.Bean.NewUpSelfLocToNetBean;
+import com.example.mynewslayoutlib.Utils.DeviceUtil;
 import com.example.mynewslayoutlib.Utils.SystemUtils;
 import com.shandian.lu.Main.BaseFragment;
 import com.shandian.lu.Main.IndexFragment.CityChange.CityChangeActivity;
+import com.shandian.lu.Main.MineFragment.GeRenXinXi.GeRenXinXiActivity;
 import com.shandian.lu.NetWork.MainIndexNetWork;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
 import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
+import com.zhyan.shandiankuaiyunlib.Utils.SharedPreferencesUtils;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 import retrofit2.http.Query;
 import rx.Observer;
 
@@ -37,6 +45,63 @@ import rx.Observer;
  */
 
 public class NewMainIndexFragment extends BaseFragment {
+
+
+    private boolean isFirstSetJpushAlias = true;
+    private final int MSG_SET_ALIAS = 1001;
+    protected final Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(android.os.Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case MSG_SET_ALIAS:
+                    if(view1 == null){
+                        return;
+                    }
+                    /*JPushInterface.setAliasAndTags(view1.getContext(), (String) msg.obj, null, mAliasCallback);*/
+                    JPushInterface.setAliasAndTags(view1.getContext(), (String) msg.obj,null,  mAliasCallback);
+                    break;
+
+
+
+                default:
+
+            }
+        }
+    };
+
+
+    private final TagAliasCallback mAliasCallback = new TagAliasCallback() {
+
+
+        @Override
+        public void gotResult(int code, String alias, Set<String> tags) {
+            String logs;
+            switch (code) {
+                case 0:
+                    logs = "Set tag and alias success";
+                    Log.i("success",logs);
+                 /*   Toast.makeText(activity,"here is success:"+alias+" "+tags,Toast.LENGTH_LONG).show();*/
+               /*     NotificationCompat.Builder	notification = new NotificationCompat.Builder(activity).setSmallIcon(R.mipmap.logo)
+                            .setSound(Uri.parse("android.resource://" + activity.getPackageName() + "/" + R.raw.shandian));*/
+                            /*.setContentText(title);*/
+                    break;
+
+                case 6002:
+                    logs = "Failed to set alias and tags due to timeout. Try again after 60s.";
+
+
+                    break;
+
+                default:
+                    logs = "Failed with errorCode = " + code;
+
+            }
+
+
+        }
+
+    };
     @BindView(R.id.tv_main_index_city)
     TextView tvMainIndexCity;
     @BindView(R.id.rly_main_index_changecity)
@@ -178,17 +243,22 @@ public class NewMainIndexFragment extends BaseFragment {
                 String lon = location.getLongitude() + "";
                 XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
                 XCCacheManager xcCacheManager = XCCacheManager.getInstance(view.getContext());
-                String city = location.getDistrict();
-
+                String prov = location.getProvince();
                /* Toast.makeText(view1.getContext(),"city:"+ location.getLocType(),Toast.LENGTH_LONG).show();*/
                /* Toast.makeText(view.getContext(),"city:"+city,Toast.LENGTH_LONG).show();*/
 
+                if (prov == null) {
+                    prov = "";
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentProvince, prov);
+                String city = location.getCity();
+               /* Toast.makeText(view1.getContext(),"city:"+ location.getLocType(),Toast.LENGTH_LONG).show();*/
+               /* Toast.makeText(view.getContext(),"city:"+city,Toast.LENGTH_LONG).show();*/
 
-
-                    if (city == null) {
-                        city = "";
-                    }
-                    xcCacheManager.writeCache(xcCacheSaveName.currentCity, city);
+                if (city == null) {
+                    city = "";
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentCity, city);
                 String area = location.getDistrict();
 
                /* Toast.makeText(view1.getContext(),"city:"+ location.getLocType(),Toast.LENGTH_LONG).show();*/
@@ -196,28 +266,28 @@ public class NewMainIndexFragment extends BaseFragment {
 
 
 
-                    if (area == null) {
-                        area = "";
-                    }
-                    xcCacheManager.writeCache(xcCacheSaveName.currentArea, area);
-                    if (lat == null) {
-                        lat ="";
-                    }
-                    xcCacheManager.writeCache(xcCacheSaveName.currentLat, lat);
-                    if (lon == null) {
-                        lon = "";
-                    }
-                    xcCacheManager.writeCache(xcCacheSaveName.currentlon, lon);
-                    String currentLocRadius = location.getRadius()+"";
-                    if (currentLocRadius == null) {
-                        currentLocRadius = "";
-                    }
-                    xcCacheManager.writeCache(xcCacheSaveName.currentLocRadius, currentLocRadius);
-                    String currentLocAddrStr = location.getAddrStr() + " " + location.getLocationDescribe();
-                    if (currentLocAddrStr == null) {
-                        currentLocAddrStr = "";
-                    }
-                    xcCacheManager.writeCache(xcCacheSaveName.currentLocAddrStr, currentLocAddrStr);
+                if (area == null) {
+                    area = "";
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentArea, area);
+                if (lat == null) {
+                    lat ="";
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentLat, lat);
+                if (lon == null) {
+                    lon = "";
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentLon, lon);
+                String currentLocRadius = location.getRadius()+"";
+                if (currentLocRadius == null) {
+                    currentLocRadius = "";
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentLocRadius, currentLocRadius);
+                String currentLocAddrStr = location.getAddrStr() + " " + location.getLocationDescribe();
+                if (currentLocAddrStr == null) {
+                    currentLocAddrStr = "";
+                }
+                xcCacheManager.writeCache(xcCacheSaveName.currentLocAddrStr, currentLocAddrStr);
                 String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
                 if((loginId == null)||(loginId.isEmpty())){
                     return;
@@ -237,7 +307,11 @@ public class NewMainIndexFragment extends BaseFragment {
                 System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
                 System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());
                 System.out.print("\nlat:"+location.getLatitude()+" lon:"+location.getLongitude());*/
-
+                DeviceUtil deviceUtil = new DeviceUtil();
+                String deviceId = deviceUtil.getDeviceId(view.getContext());
+                if((deviceId== null)||(deviceId.isEmpty())){
+                    return;
+                }
                 Map<String,String> paramMap = new HashMap<>();
                 paramMap.put("login_id",loginId);
                 paramMap.put("lat",location.getLatitude()+"");
@@ -245,6 +319,7 @@ public class NewMainIndexFragment extends BaseFragment {
                 paramMap.put("cfsheng",location.getProvince()+"");
                 paramMap.put("cfshi",location.getCity()+"");
                 paramMap.put("cfqu",location.getDistrict()+"");
+                paramMap.put("sbh",deviceId);
                 mainIndexNetWork.upSelfLocToNet(paramMap, new Observer<NewUpSelfLocToNetBean>() {
                     @Override
                     public void onCompleted() {
@@ -259,6 +334,17 @@ public class NewMainIndexFragment extends BaseFragment {
                     @Override
                     public void onNext(NewUpSelfLocToNetBean newUpSelfLocToNetBean) {
                        /* Toast.makeText(getContext(),newUpSelfLocToNetBean.getMsg(),Toast.LENGTH_LONG).show();*/
+                       if(newUpSelfLocToNetBean.getNr().getDlzt().equals("0")){
+                           if(isFirstSetJpushAlias) {
+                               loginOut();
+                               isFirstSetJpushAlias = false;
+                           }
+                       }else {
+                           if(isFirstSetJpushAlias) {
+                               initAliasJpush();
+                               isFirstSetJpushAlias = false;
+                           }
+                       }
                     }
                 });
               /*      System.out.print("this is lat\n:"+lat);
@@ -283,12 +369,56 @@ public class NewMainIndexFragment extends BaseFragment {
 
     }
 
+    private void loginOut(){
+        if(view1 == null){
+            return;
+        }
 
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view1.getContext());
+        xcCacheManager.writeCache(xcCacheSaveName.logId,"");
+        xcCacheManager.writeCache(xcCacheSaveName.loginStatus,"no");
+        xcCacheManager.writeCache(xcCacheSaveName.userName,"");
+        xcCacheManager.writeCache(xcCacheSaveName.userTel,"");
+        xcCacheManager.writeCache(xcCacheSaveName.userHeadImgUrl,"");
+        Toast.makeText(view1.getContext(),"您的手机已在别处登录",Toast.LENGTH_LONG).show();
+        SharedPreferencesUtils sharedPreferencesUtils = new SharedPreferencesUtils();
+        sharedPreferencesUtils.setParam(view1.getContext(),xcCacheSaveName.logId, "");
+        sharedPreferencesUtils.setParam(view1.getContext(),xcCacheSaveName.loginStatus,"no");
+        sharedPreferencesUtils.setParam(view1.getContext(),xcCacheSaveName.userName,"");
+        sharedPreferencesUtils.setParam(view1.getContext(),xcCacheSaveName.userTel,"");
+        sharedPreferencesUtils.setParam(view1.getContext(),xcCacheSaveName.userHeadImgUrl,"");
+        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, ""));
+        JPushInterface.stopPush(view.getContext());
+        Intent intent=new Intent("loginOut");
+
+        getContext().sendBroadcast(intent);
+
+
+    }
+    private void initAliasJpush(){
+        if(view1 == null){
+            return;
+        }
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(view1.getContext());
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String loginId = xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((loginId == null)||(loginId.isEmpty())){
+            mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, ""));
+            JPushInterface.stopPush(view1.getContext());
+            return;
+        }
+        String alias = "SDKY"+loginId;
+        mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, alias));
+        JPushInterface.resumePush(view1.getContext());
+        /*mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, "保证此处是唯一的标识"));*/
+    }
 
 
     @Override
     public void onResume(){
         super.onResume();
+        isFirstSetJpushAlias = true;
         newMainIndexController.onResume();
     /*    if(!isFirst) {*/
             selectResult();

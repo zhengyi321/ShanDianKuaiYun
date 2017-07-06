@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/split_width_or_height"
+        android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
+        />
+  <com.example.mynewslayoutlib.SwipeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <LinearLayout
+          android:id="@+id/lly_main_release_tezhongyunshu_content_weight"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:orientation="horizontal"
+          android:layout_marginLeft="15dp"
+          >
+          <RelativeLayout
+              android:layout_width="@dimen/zero"
+              android:layout_height="match_parent"
+              android:layout_weight="1.5"
+              >
+              <ImageView
+                  android:layout_width="45dp"
+                  android:layout_height="45dp"
+                  android:layout_centerVertical="true"
+                  android:background="@mipmap/splash"
+                  android:scaleType="fitXY"
+                  />
+          </RelativeLayout>
+          <RelativeLayout
+              android:layout_width="@dimen/zero"
+              android:layout_height="match_parent"
+              android:layout_weight="4.5"
+              >
+              <TextView
+                  android:id="@+id/tv_new_fabuhuoyuan_weight"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:hint="大型平板/90m³/1.5吨"
+                  android:textColorHint="@color/color_main_release_tezhongyunshu_content_gray_word_textcolor"
+                  android:textColor="@color/color_main_release_tezhongyunshu_content_black_word_textcolor"
+                  android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
+                  android:layout_centerVertical="true"
+                  android:background="@null"
+                  android:gravity="center_vertical"
+                  />
+          </RelativeLayout>
+          <RelativeLayout
+              android:layout_width="@dimen/zero"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              >
+              <ImageView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@mipmap/edit"
+                  android:layout_centerInParent="true"
+                  />
+          </RelativeLayout>
+      </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:background="@color/red"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+
+
+
+  </com.example.mynewslayoutlib.SwipeLayout>
+
+</LinearLayout>

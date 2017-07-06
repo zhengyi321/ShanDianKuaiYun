@@ -8,19 +8,19 @@ public class testBean {
 
     /**
      * status : 0
-     * msg : 成功
-     * content : {"two_code":"0","three_code":"1","four_code":"0","two_points":0,"three_points":10,"four_points":0,"sumpoints":"305","sum":1,"login_id":"383","image":"http://www.lianshiding.com/Public/asset/auth/my_info//Uploads/2017-07-03/3831499078362WN4e.jpg"}
+     * msg :
+     * nr : {"id":"6","img":"http://www.lianshiding.com/Uploads/2017-03-03/58b8e0518d24d.png","list":"2","type":"1","infoid":null,"url":"http://www.lianshiding.com/xiazai/","create_time":"2017-07-03 17:03:52","miaoshu":"2","fwsj":"1499311041"}
      */
 
-    private int status;
+    private String status;
     private String msg;
-    private ContentBean content;
+    private NrBean nr;
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -32,117 +32,107 @@ public class testBean {
         this.msg = msg;
     }
 
-    public ContentBean getContent() {
-        return content;
+    public NrBean getNr() {
+        return nr;
     }
 
-    public void setContent(ContentBean content) {
-        this.content = content;
+    public void setNr(NrBean nr) {
+        this.nr = nr;
     }
 
-    public static class ContentBean {
+    public static class NrBean {
         /**
-         * two_code : 0
-         * three_code : 1
-         * four_code : 0
-         * two_points : 0
-         * three_points : 10
-         * four_points : 0
-         * sumpoints : 305
-         * sum : 1
-         * login_id : 383
-         * image : http://www.lianshiding.com/Public/asset/auth/my_info//Uploads/2017-07-03/3831499078362WN4e.jpg
+         * id : 6
+         * img : http://www.lianshiding.com/Uploads/2017-03-03/58b8e0518d24d.png
+         * list : 2
+         * type : 1
+         * infoid : null
+         * url : http://www.lianshiding.com/xiazai/
+         * create_time : 2017-07-03 17:03:52
+         * miaoshu : 2
+         * fwsj : 1499311041
          */
 
-        private String two_code;
-        private String three_code;
-        private String four_code;
-        private int two_points;
-        private int three_points;
-        private int four_points;
-        private String sumpoints;
-        private int sum;
-        private String login_id;
-        private String image;
+        private String id;
+        private String img;
+        private String list;
+        private String type;
+        private Object infoid;
+        private String url;
+        private String create_time;
+        private String miaoshu;
+        private String fwsj;
 
-        public String getTwo_code() {
-            return two_code;
+        public String getId() {
+            return id;
         }
 
-        public void setTwo_code(String two_code) {
-            this.two_code = two_code;
+        public void setId(String id) {
+            this.id = id;
         }
 
-        public String getThree_code() {
-            return three_code;
+        public String getImg() {
+            return img;
         }
 
-        public void setThree_code(String three_code) {
-            this.three_code = three_code;
+        public void setImg(String img) {
+            this.img = img;
         }
 
-        public String getFour_code() {
-            return four_code;
+        public String getList() {
+            return list;
         }
 
-        public void setFour_code(String four_code) {
-            this.four_code = four_code;
+        public void setList(String list) {
+            this.list = list;
         }
 
-        public int getTwo_points() {
-            return two_points;
+        public String getType() {
+            return type;
         }
 
-        public void setTwo_points(int two_points) {
-            this.two_points = two_points;
+        public void setType(String type) {
+            this.type = type;
         }
 
-        public int getThree_points() {
-            return three_points;
+        public Object getInfoid() {
+            return infoid;
         }
 
-        public void setThree_points(int three_points) {
-            this.three_points = three_points;
+        public void setInfoid(Object infoid) {
+            this.infoid = infoid;
         }
 
-        public int getFour_points() {
-            return four_points;
+        public String getUrl() {
+            return url;
         }
 
-        public void setFour_points(int four_points) {
-            this.four_points = four_points;
+        public void setUrl(String url) {
+            this.url = url;
         }
 
-        public String getSumpoints() {
-            return sumpoints;
+        public String getCreate_time() {
+            return create_time;
         }
 
-        public void setSumpoints(String sumpoints) {
-            this.sumpoints = sumpoints;
+        public void setCreate_time(String create_time) {
+            this.create_time = create_time;
         }
 
-        public int getSum() {
-            return sum;
+        public String getMiaoshu() {
+            return miaoshu;
         }
 
-        public void setSum(int sum) {
-            this.sum = sum;
+        public void setMiaoshu(String miaoshu) {
+            this.miaoshu = miaoshu;
         }
 
-        public String getLogin_id() {
-            return login_id;
+        public String getFwsj() {
+            return fwsj;
         }
 
-        public void setLogin_id(String login_id) {
-            this.login_id = login_id;
-        }
-
-        public String getImage() {
-            return image;
-        }
-
-        public void setImage(String image) {
-            this.image = image;
+        public void setFwsj(String fwsj) {
+            this.fwsj = fwsj;
         }
     }
 }

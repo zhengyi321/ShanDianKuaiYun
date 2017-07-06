@@ -183,7 +183,7 @@ public class NewHuoYuanDetailOtherBaoJiaV2Controller extends BaseController {
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String curLat = xcCacheManager.readCache(xcCacheSaveName.currentLat);
-        String curLon = xcCacheManager.readCache(xcCacheSaveName.currentlon);
+        String curLon = xcCacheManager.readCache(xcCacheSaveName.currentLon);
         String curAddr = xcCacheManager.readCache(xcCacheSaveName.currentLocAddrStr);
 
         if((curAddr == null)){
