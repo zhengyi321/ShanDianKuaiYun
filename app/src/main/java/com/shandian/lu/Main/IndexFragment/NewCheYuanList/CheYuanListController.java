@@ -314,7 +314,7 @@ public class CheYuanListController extends BaseController {
                 break;
             case "5":
                 tvNewCheYuanListTitle.setText("人人快递");
-                llyNewCheYuanListTab.setVisibility(View.GONE);
+               /* llyNewCheYuanListTab.setVisibility(View.GONE);*/
                 break;
             case "6":
                 tvNewCheYuanListTitle.setText("搬家");
@@ -449,6 +449,7 @@ public class CheYuanListController extends BaseController {
         if(currentLon == null){
             currentLon = "";
         }
+      /*  Toast.makeText(activity,""+typeName,Toast.LENGTH_LONG).show();*/
         NewCheHuoListNetWork newCheHuoListNetWork = new NewCheHuoListNetWork();
         newCheHuoListNetWork.getCheListV2FromNet(typeName, currentLat, currentLon, page+"", bProv, bCity, bArea, eProv, eCity, eArea, carType, carLangth, new Observer<NewCheYuanListBean>() {
             @Override

@@ -913,11 +913,26 @@
 
             />
         <!--android:windowSoftInputMode="adjustPan"-->
-        <activity android:name=".Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity" />
-        <activity android:name=".Main.IndexFragment.NewBanJiaRenRenKuaiDi.NewBanJiaRenRenDetailActivity" />
-        <activity android:name=".ErWeiMa.CaptureActivity" />
-        <activity android:name=".ErWeiMa.lib.CaptureActivity" />
-        <activity android:name=".Main.ReleaseFragment.FaBuCheYuan.NewFaBuBanJiaActivity" />
+        <activity android:name=".Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.IndexFragment.NewBanJiaRenRenKuaiDi.NewBanJiaRenRenDetailActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".ErWeiMa.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".ErWeiMa.lib.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
+        <activity android:name=".Main.ReleaseFragment.FaBuCheYuan.NewFaBuBanJiaActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="false"
+            />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
         <!-- 服务区域Start -->
 

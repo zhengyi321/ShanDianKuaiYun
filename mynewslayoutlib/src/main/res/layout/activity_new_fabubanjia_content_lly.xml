@@ -63,7 +63,7 @@
                             android:textSize="@dimen/main_release_tezhongyunshu_content_word_size"
                             android:layout_centerVertical="true"
                             android:background="@null"
-                            android:digits="0123456789"
+
                             />
                     </RelativeLayout>
                     <RelativeLayout
@@ -96,7 +96,7 @@
                     android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
                     />
                 <LinearLayout
-                    android:id="@+id/lly_new_fabuhuoyuan_begin"
+                    android:id="@+id/lly_new_fabubanjia_begin"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:orientation="horizontal"
@@ -124,7 +124,7 @@
                         android:layout_weight="4.5"
                         >
                         <TextView
-                            android:id="@+id/tv_new_fabuhuoyuan_begin"
+                            android:id="@+id/tv_new_fabubanjia_begin"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:hint="请输入出发地或点击地图选择"
@@ -326,7 +326,7 @@
                 android:layout_weight="4.5"
                 >
                 <EditText
-                    android:id="@+id/et_new_fabuhuoyuan_name"
+                    android:id="@+id/et_new_fabubanjia_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="请输入公司名称"
@@ -378,7 +378,7 @@
                 android:layout_weight="4.5"
                 >
                 <EditText
-                    android:id="@+id/et_new_fabuhuoyuan_tel"
+                    android:id="@+id/et_new_fabubanjia_tel"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="请输入联系人电话"
@@ -433,7 +433,7 @@
                 android:layout_weight="4.5"
                 >
                 <EditText
-                    android:id="@+id/et_new_fabuhuoyuan_company_introd"
+                    android:id="@+id/et_new_fabubanjia_company_introdu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="请输入一段简约的话来展示公司实力"
@@ -537,7 +537,7 @@
                 android:layout_weight="4.5"
                 >
                 <EditText
-                    android:id="@+id/et_new_fabuhuoyuan_desc"
+                    android:id="@+id/et_new_fabubanjia_desc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="如有需要请务必输入您的留言备注"

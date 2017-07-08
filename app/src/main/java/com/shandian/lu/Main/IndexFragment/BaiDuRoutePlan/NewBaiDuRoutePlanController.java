@@ -282,7 +282,7 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
                /* if(newSiJiLocBean.equals("0")){*/
                     String lat = newSiJiLocBean.getNr().getLat();
                     String lon = newSiJiLocBean.getNr().getLng();
-                  /*  Toast.makeText(activity,"lat:"+lat,Toast.LENGTH_LONG).show();
+                 /*   Toast.makeText(activity,"lat:"+lat,Toast.LENGTH_LONG).show();
                     Toast.makeText(activity,"lon:"+lat,Toast.LENGTH_LONG).show();*/
 
                     initSiJiLogo(lat,lon);

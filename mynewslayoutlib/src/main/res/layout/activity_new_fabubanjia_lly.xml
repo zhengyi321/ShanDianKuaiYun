@@ -15,7 +15,7 @@
         >
         <include layout="@layout/activity_new_fabubanjia_content_lly"/>
         <ProgressBar
-            android:id="@+id/pb_new_fabuhuoyuan"
+            android:id="@+id/pb_new_fabubanjia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

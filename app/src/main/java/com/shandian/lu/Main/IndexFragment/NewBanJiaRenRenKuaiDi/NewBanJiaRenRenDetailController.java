@@ -40,7 +40,7 @@ public class NewBanJiaRenRenDetailController extends BaseController {
     private String bLat,bLon,eLat,eLon,cheLat,cheLon,cheTouXiang;
     private String adsUrl = "";
     private String bAddr="",eAddr="";
-    private String cyId ;
+    private String cyId ,czid;
     private String iphone;
     private NewCheYuanDetailImgRVAdapter adapter;
     private List<String> imgList;
@@ -75,6 +75,7 @@ public class NewBanJiaRenRenDetailController extends BaseController {
         intent.putExtra("czlat",cheLat);
         intent.putExtra("czlon",cheLon);
         intent.putExtra("czTouXiang",cheTouXiang);
+        intent.putExtra("czid",czid);
         intent.putExtra("title","hcdw");
         activity.startActivity(intent);
     }
@@ -158,6 +159,10 @@ public class NewBanJiaRenRenDetailController extends BaseController {
         cyId = activity.getIntent().getStringExtra("cyid");
         if(cyId == null){
             cyId = "";
+        }
+        czid = activity.getIntent().getStringExtra("czid");
+        if(czid == null){
+            czid = "";
         }
 
         String typeName = activity.getIntent().getStringExtra("type_name");

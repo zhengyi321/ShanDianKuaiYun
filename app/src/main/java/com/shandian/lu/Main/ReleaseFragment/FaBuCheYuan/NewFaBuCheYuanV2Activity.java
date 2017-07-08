@@ -652,7 +652,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
             juli = "";
         }
         paramMap.put("juli",juli);
-        paramMap.put("good_name",goodsName);
+        paramMap.put("car_title",goodsName);
         if(bProvince == null){
             bProvince = "";
         }
@@ -680,21 +680,21 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
      /*   if(typeName.equals("5")||typeName.equals("6")){
 
         }else {*/
-            paramMap.put("dasheng", eProvince);
-            if (eCity == null) {
-                eCity = "";
-            }
-            paramMap.put("dashi", eCity);
-            if (eArea == null) {
-                eArea = "";
-            }
-            paramMap.put("daqu", eArea);
-            String dZuoBiao = elat + "," + elon;
-            paramMap.put("dazuobiao", dZuoBiao);
-            if(endAddr == null){
-                endAddr = "";
-            }
-            paramMap.put("dadizhi",endAddr);
+        paramMap.put("dasheng", eProvince);
+        if (eCity == null) {
+            eCity = "";
+        }
+        paramMap.put("dashi", eCity);
+        if (eArea == null) {
+            eArea = "";
+        }
+        paramMap.put("daqu", eArea);
+        String dZuoBiao = elat + "," + elon;
+        paramMap.put("dazuobiao", dZuoBiao);
+        if(endAddr == null){
+            endAddr = "";
+        }
+        paramMap.put("dadizhi",endAddr);
         /*}*/
         String carLength = tvNewFaBuCheYuanCalLength.getText().toString();
         if(null == carLength){
@@ -744,9 +744,9 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
         }
         paramMap.put("deltu",deleteImageList);
 
+/*        System.out.print("\nparamMap"+paramMap);
         System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
-        System.out.print("\nparamMap"+paramMap);
+        System.out.print("\nparamMap"+paramMap);*/
         return paramMap;
     }
 

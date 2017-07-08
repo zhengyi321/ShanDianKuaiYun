@@ -11,21 +11,24 @@
         android:background="@color/color_main_release_tezhongyunshu_content_splite_line"
         />
   <com.example.mynewslayoutlib.SwipeLayout
+      android:id="@+id/sly_new_fabubanjia_rv_item"
       android:layout_width="match_parent"
       android:layout_height="wrap_content">
       <LinearLayout
-          android:id="@+id/lly_main_release_tezhongyunshu_content_weight"
+
           android:layout_width="match_parent"
           android:layout_height="50dp"
           android:orientation="horizontal"
-          android:layout_marginLeft="15dp"
+
           >
           <RelativeLayout
               android:layout_width="@dimen/zero"
               android:layout_height="match_parent"
               android:layout_weight="1.5"
+              android:layout_marginLeft="15dp"
               >
               <ImageView
+                  android:id="@+id/iv_new_fabubanjia_rv_item_headimg"
                   android:layout_width="45dp"
                   android:layout_height="45dp"
                   android:layout_centerVertical="true"
@@ -39,7 +42,7 @@
               android:layout_weight="4.5"
               >
               <TextView
-                  android:id="@+id/tv_new_fabuhuoyuan_weight"
+                  android:id="@+id/tv_new_fabubanjia_rv_item_cartype"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:hint="大型平板/90m³/1.5吨"
@@ -52,6 +55,7 @@
                   />
           </RelativeLayout>
           <RelativeLayout
+              android:id="@+id/rly_new_fabubanjia_rv_item_edit"
               android:layout_width="@dimen/zero"
               android:layout_height="match_parent"
               android:layout_weight="1"
@@ -67,6 +71,7 @@
 
 
         <RelativeLayout
+            android:id="@+id/rly_new_fabubanjia_rv_item_delete"
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:background="@color/red"

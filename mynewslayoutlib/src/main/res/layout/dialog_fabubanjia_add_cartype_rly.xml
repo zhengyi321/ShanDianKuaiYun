@@ -26,6 +26,7 @@
                 >
 
                 <ImageView
+                    android:id="@+id/iv_dialog_fbbj_cartype_close"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
                     android:background="@mipmap/cancel"
@@ -136,6 +137,7 @@
                         android:textSize="13sp"
                         android:hint="请输入体积(m³)"
                         android:textColorHint="@color/gray"
+                        android:digits="0123456789"
                         />
 
                 </LinearLayout>
@@ -167,6 +169,7 @@
                         android:textSize="13sp"
                         android:hint="请输入最大载重量"
                         android:textColorHint="@color/gray"
+                        android:digits="0123456789"
                         />
 
                 </LinearLayout>
@@ -182,6 +185,7 @@
             android:background="@mipmap/dialog_addads_bottom_submits"
             >
             <TextView
+                android:id="@+id/tv_dialog_fbbj_cartype_submit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="确认添加"
