@@ -933,6 +933,7 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="false"
             />
+        <activity android:name=".Main.IndexFragment.NewCheYuanList.NewBanJiaListActivity" />
         <!-- <activity android:name=".Widget.Dialog.ShareDialog.CommonSharePopWindowActivity" />-->
         <!-- 服务区域Start -->
 

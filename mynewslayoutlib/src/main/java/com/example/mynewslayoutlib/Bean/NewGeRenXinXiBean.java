@@ -6,10 +6,11 @@ package com.example.mynewslayoutlib.Bean;
 
 public class NewGeRenXinXiBean {
 
+
     /**
      * status : 0
      * msg :
-     * nr : {"id":"276","name":"zhyan","nickename":"kkkk","mobile":"18767775244","openid":"","password":"6fb42da0e32e07b61c9f0251fe627a9c","one_code":"18767775244","two_code":null,"three_code":null,"four_code":null,"sex":"1","email":"777","wei_code":"4789","qq_code":"56469784","qr_code":"http://www.lianshiding.com/index.php/App/Chyuan/tuiguangewm/val/tgcode_18767775244.html?lx=.jpg","image":"http://www.lianshiding.com2765290.jpg","address":"浙江省温州市乐清市旭阳路150号双眼大厦","points":"540","content":null,"type":"1","grade":"1","daoqitime":"","city":"","company":"","status":"1","create_time":"2017-04-24 16:44:45","qiandaoduanceng":"1497947008","qiandaomczj":"10","qiandaoyuefen":"06","sxtime":"","sxcs":"0","hongbaoxinxi":"{\"time\":1499040487,\"cs\":1,\"scfx\":\"0\"}","gzhb":"0","pczuobiao":"0,0","zhjine":"1.26","lat":"4.9E-324","lng":"4.9E-324"}
+     * nr : {"id":"330","name":"老六","nickename":null,"mobile":"15988732241","openid":"","password":"f1ccb194b369f922779ce4bcc199dade","one_code":"15988732241","two_code":null,"three_code":null,"four_code":null,"sex":null,"email":null,"wei_code":null,"qq_code":null,"qr_code":"http://www.lianshiding.com/index.php/App/Chyuan/tuiguangewm/val/tgcode_15988732241.html?lx=.jpg","image":"http://www.lianshiding.com/Uploads/2017-07-11/3301499758154Ules.jpg","address":null,"points":"305","content":null,"type":"0","grade":"1","daoqitime":"","city":"浙江温州","company":"移动","status":"0","create_time":"2017-05-14 15:43:44","qiandaoduanceng":"1494747953","qiandaomczj":"10","qiandaoyuefen":"05","sxtime":"","sxcs":"0","hongbaoxinxi":"","gzhb":"0","pczuobiao":"0,0","zhjine":"0","lat":"28.122576","lng":"120.981666","tszt":"1"}
      */
 
     private String status;
@@ -42,48 +43,49 @@ public class NewGeRenXinXiBean {
 
     public static class NrBean {
         /**
-         * id : 276
-         * name : zhyan
-         * nickename : kkkk
-         * mobile : 18767775244
+         * id : 330
+         * name : 老六
+         * nickename : null
+         * mobile : 15988732241
          * openid :
-         * password : 6fb42da0e32e07b61c9f0251fe627a9c
-         * one_code : 18767775244
+         * password : f1ccb194b369f922779ce4bcc199dade
+         * one_code : 15988732241
          * two_code : null
          * three_code : null
          * four_code : null
-         * sex : 1
-         * email : 777
-         * wei_code : 4789
-         * qq_code : 56469784
-         * qr_code : http://www.lianshiding.com/index.php/App/Chyuan/tuiguangewm/val/tgcode_18767775244.html?lx=.jpg
-         * image : http://www.lianshiding.com2765290.jpg
-         * address : 浙江省温州市乐清市旭阳路150号双眼大厦
-         * points : 540
+         * sex : null
+         * email : null
+         * wei_code : null
+         * qq_code : null
+         * qr_code : http://www.lianshiding.com/index.php/App/Chyuan/tuiguangewm/val/tgcode_15988732241.html?lx=.jpg
+         * image : http://www.lianshiding.com/Uploads/2017-07-11/3301499758154Ules.jpg
+         * address : null
+         * points : 305
          * content : null
-         * type : 1
+         * type : 0
          * grade : 1
          * daoqitime :
-         * city :
-         * company :
-         * status : 1
-         * create_time : 2017-04-24 16:44:45
-         * qiandaoduanceng : 1497947008
+         * city : 浙江温州
+         * company : 移动
+         * status : 0
+         * create_time : 2017-05-14 15:43:44
+         * qiandaoduanceng : 1494747953
          * qiandaomczj : 10
-         * qiandaoyuefen : 06
+         * qiandaoyuefen : 05
          * sxtime :
          * sxcs : 0
-         * hongbaoxinxi : {"time":1499040487,"cs":1,"scfx":"0"}
+         * hongbaoxinxi :
          * gzhb : 0
          * pczuobiao : 0,0
-         * zhjine : 1.26
-         * lat : 4.9E-324
-         * lng : 4.9E-324
+         * zhjine : 0
+         * lat : 28.122576
+         * lng : 120.981666
+         * tszt : 1
          */
 
         private String id;
         private String name;
-        private String nickename;
+        private Object nickename;
         private String mobile;
         private String openid;
         private String password;
@@ -91,13 +93,13 @@ public class NewGeRenXinXiBean {
         private Object two_code;
         private Object three_code;
         private Object four_code;
-        private String sex;
-        private String email;
-        private String wei_code;
-        private String qq_code;
+        private Object sex;
+        private Object email;
+        private Object wei_code;
+        private Object qq_code;
         private String qr_code;
         private String image;
-        private String address;
+        private Object address;
         private String points;
         private Object content;
         private String type;
@@ -118,6 +120,7 @@ public class NewGeRenXinXiBean {
         private String zhjine;
         private String lat;
         private String lng;
+        private String tszt;
 
         public String getId() {
             return id;
@@ -135,11 +138,11 @@ public class NewGeRenXinXiBean {
             this.name = name;
         }
 
-        public String getNickename() {
+        public Object getNickename() {
             return nickename;
         }
 
-        public void setNickename(String nickename) {
+        public void setNickename(Object nickename) {
             this.nickename = nickename;
         }
 
@@ -199,35 +202,35 @@ public class NewGeRenXinXiBean {
             this.four_code = four_code;
         }
 
-        public String getSex() {
+        public Object getSex() {
             return sex;
         }
 
-        public void setSex(String sex) {
+        public void setSex(Object sex) {
             this.sex = sex;
         }
 
-        public String getEmail() {
+        public Object getEmail() {
             return email;
         }
 
-        public void setEmail(String email) {
+        public void setEmail(Object email) {
             this.email = email;
         }
 
-        public String getWei_code() {
+        public Object getWei_code() {
             return wei_code;
         }
 
-        public void setWei_code(String wei_code) {
+        public void setWei_code(Object wei_code) {
             this.wei_code = wei_code;
         }
 
-        public String getQq_code() {
+        public Object getQq_code() {
             return qq_code;
         }
 
-        public void setQq_code(String qq_code) {
+        public void setQq_code(Object qq_code) {
             this.qq_code = qq_code;
         }
 
@@ -247,11 +250,11 @@ public class NewGeRenXinXiBean {
             this.image = image;
         }
 
-        public String getAddress() {
+        public Object getAddress() {
             return address;
         }
 
-        public void setAddress(String address) {
+        public void setAddress(Object address) {
             this.address = address;
         }
 
@@ -413,6 +416,14 @@ public class NewGeRenXinXiBean {
 
         public void setLng(String lng) {
             this.lng = lng;
+        }
+
+        public String getTszt() {
+            return tszt;
+        }
+
+        public void setTszt(String tszt) {
+            this.tszt = tszt;
         }
     }
 }

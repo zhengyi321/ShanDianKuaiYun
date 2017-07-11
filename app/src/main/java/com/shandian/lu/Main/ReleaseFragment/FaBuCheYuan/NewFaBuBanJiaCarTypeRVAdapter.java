@@ -22,6 +22,9 @@ import com.zhyan.shandiankuaiyuanwidgetlib.Utils.BitmapUtils;
 import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
 import com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -124,12 +127,21 @@ public class NewFaBuBanJiaCarTypeRVAdapter extends RecyclerView.Adapter<NewFaBuB
         if((img == null)||(img.isEmpty())){
             return;
         }
-        Map<String,Object> paramMap = new HashMap<>();
-        paramMap.put("img",img);
-        paramMap.put("name",name);
-        paramMap.put("tj",tj);
-        paramMap.put("zz",zz);
-        carTypeFaBuList.add(paramMap);
+        /*Map<String,Object> paramMap = new HashMap<>();*/
+        JSONObject jsonObject = new JSONObject();
+        try {
+         /*   jsonObject.put("img","\""+img+"\"");*/
+            jsonObject.put("img",img);
+         /*   jsonObject.put("name","\""+name+"\"");*/
+            jsonObject.put("name",name);
+       /*     jsonObject.put("tj","\""+tj+"\"");*/
+            jsonObject.put("tj",tj);
+        /*    jsonObject.put("zz","\""+zz+"\"");*/
+            jsonObject.put("zz",zz);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        carTypeFaBuList.add(jsonObject);
     }
 
     @Override

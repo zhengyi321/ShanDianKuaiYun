@@ -1,5 +1,6 @@
 package com.shandian.lu.NetWork;
 
+import com.example.mynewslayoutlib.Bean.NewBanJiaListBean;
 import com.example.mynewslayoutlib.Bean.NewEditBaoJiaResultBean;
 import com.example.mynewslayoutlib.Bean.NewBaoJiaListBean;
 import com.example.mynewslayoutlib.Bean.NewHuoYuanDetailOtherBean;
@@ -111,6 +112,10 @@ public class NewCheHuoListNetWork extends BaseNetWork {
         @GET("index.php/app/chyuan/cheyuan")
         Observable<NewCheYuanListBean> getCheListV2FromNet(@Query("type_name") String type_name, @Query("lat") String lat, @Query("lng") String lng, @Query("p") String p, @Query("cfsheng") String cfsheng, @Query("cfshi") String cfshi, @Query("cfqu") String cfqu, @Query("dasheng") String dasheng, @Query("dashi") String dashi, @Query("daqu") String daqu, @Query("car_type") String car_type, @Query("car_lange") String car_lange);
         /*车源列表2*/
+        /*搬家列表*/
+        @GET("index.php/app/chyuan/cheyuan")
+        Observable<NewBanJiaListBean> getBanJiaListFromNet(@Query("type_name") String type_name, @Query("lat") String lat, @Query("lng") String lng, @Query("p") String p, @Query("cfsheng") String cfsheng, @Query("cfshi") String cfshi, @Query("cfqu") String cfqu, @Query("dasheng") String dasheng, @Query("dashi") String dashi, @Query("daqu") String daqu, @Query("car_type") String car_type, @Query("car_lange") String car_lange);
+        /*搬家列表*/
         /*车源详情*/
         @GET("index.php/app/chyuan/cheyuanxq")
         Observable<NewCheYuanDetailBean> getCheYuanDetailFromNet(@Query("cyid") String cyid);
@@ -182,6 +187,9 @@ public class NewCheHuoListNetWork extends BaseNetWork {
 
     public  void getCheListV2FromNet(String type_name, String lat, String lng,String p, String cfsheng,String cfshi,String cfqu,String dasheng,String dashi,String daqu, String car_type, String car_lange,Observer<NewCheYuanListBean> observer){
         setSubscribe(service.getCheListV2FromNet(type_name,lat,lng,p,cfsheng,cfshi,cfqu,dasheng,dashi,daqu,car_type,car_lange),observer);
+    }
+    public  void getBanJiaListFromNet(String type_name, String lat, String lng,String p, String cfsheng,String cfshi,String cfqu,String dasheng,String dashi,String daqu, String car_type, String car_lange,Observer<NewBanJiaListBean> observer){
+        setSubscribe(service.getBanJiaListFromNet(type_name,lat,lng,p,cfsheng,cfshi,cfqu,dasheng,dashi,daqu,car_type,car_lange),observer);
     }
     public  void editBaoJiaToNet(Map<String,String> paramMap,Observer<NewEditBaoJiaResultBean> observer){
         setSubscribe(service.editBaoJiaToNet(paramMap),observer);

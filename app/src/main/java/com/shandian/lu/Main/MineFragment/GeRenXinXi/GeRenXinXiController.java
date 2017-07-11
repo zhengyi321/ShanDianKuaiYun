@@ -2,8 +2,10 @@ package com.shandian.lu.Main.MineFragment.GeRenXinXi;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -71,6 +73,8 @@ public class GeRenXinXiController extends BaseController {
     @BindView(R.id.tv_main_mine_gerenxinxi_content_qq)
     TextView tvMainMineGeRenXinXiContentQQ;
 
+    @BindView(R.id.pb_main_mine_gerenxinxi)
+    ProgressBar pbMainMineGeRenXinXi;
     @BindView(R.id.lly_main_mine_gerenxinxi_nichen)
     LinearLayout llyMainMineGeRenXinXiNiChen;
     @OnClick(R.id.lly_main_mine_gerenxinxi_nichen)
@@ -165,6 +169,7 @@ public class GeRenXinXiController extends BaseController {
     }
 
     private void getNewDetailFromNet(){
+
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
         String login_id = xcCacheManager.readCache(xcCacheSaveName.logId).toString().trim();
@@ -174,21 +179,23 @@ public class GeRenXinXiController extends BaseController {
         }
         Map<String,String> paramMap = new HashMap<>();
         paramMap.put("login_id",login_id);
+        pbMainMineGeRenXinXi.setVisibility(View.VISIBLE);
         UserNetWork userNetWork = new UserNetWork();
         userNetWork.getNewGeRenXinXiFromNet(paramMap, new Observer<NewGeRenXinXiBean>() {
             @Override
             public void onCompleted() {
-
+                pbMainMineGeRenXinXi.setVisibility(View.GONE);
             }
 
             @Override
             public void onError(Throwable e) {
-
+                pbMainMineGeRenXinXi.setVisibility(View.GONE);
             }
 
             @Override
             public void onNext(NewGeRenXinXiBean newGeRenXinXiBean) {
                 initDetail(newGeRenXinXiBean);
+                pbMainMineGeRenXinXi.setVisibility(View.GONE);
             }
         });
     }
@@ -230,7 +237,7 @@ public class GeRenXinXiController extends BaseController {
 
     private  void initDetail(NewGeRenXinXiBean newGeRenXinXiBean){
         if(newGeRenXinXiBean.getNr().getNickename() != null){
-            tvMainMineGeRenXinXiContentNick.setText(newGeRenXinXiBean.getNr().getNickename());
+            tvMainMineGeRenXinXiContentNick.setText(newGeRenXinXiBean.getNr().getNickename()+"");
         }
 
         if(newGeRenXinXiBean.getNr().getSex().equals("1")){

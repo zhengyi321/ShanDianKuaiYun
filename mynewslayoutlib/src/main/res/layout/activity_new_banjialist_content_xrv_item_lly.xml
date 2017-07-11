@@ -9,8 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-
         >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/lightgray"
+            />
         <LinearLayout
             android:id="@+id/lly_new_banjialist_xrv_item_item"
             android:layout_width="match_parent"
@@ -163,7 +167,7 @@
                     android:orientation="horizontal"
                     android:layout_marginBottom="3dp"
                     android:layout_weight="1"
-                    android:visibility="gone"
+
                     >
                     <TextView
                         android:id="@+id/tv_new_banjialist_xrv_item_cartype"
@@ -254,7 +258,7 @@
                             android:id="@+id/iv_new_banjialist_xrv_item_level4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/star"
+                            android:background="@mipmap/star2"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="5dp"
                             />
@@ -262,7 +266,7 @@
                             android:id="@+id/iv_new_banjialist_xrv_item_level5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@mipmap/star"
+                            android:background="@mipmap/star2"
                             android:layout_gravity="center_vertical"
                             android:layout_marginLeft="5dp"
                             />
@@ -315,11 +319,98 @@
                         />-->
                 </RelativeLayout>
             </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="@dimen/zero"
                 android:layout_height="match_parent"
                 android:layout_weight="1.2"
                 android:layout_marginRight="12.5dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical"
+                    >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="4.5"
+                        android:layout_marginTop="1.5dp"
+                        >
+                        <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundCornerImageView.RoundCornerImageView
+                            android:id="@+id/rciv_new_banjialist_xrv_item_touxiang"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_centerVertical="true"
+                            android:src="@color/green"
+                            android:scaleType="fitXY"
+                            android:layout_centerInParent="true"
+                            app:riv_corner_radius="10dip"
+                            app:riv_oval="false"
+                            />
+                    </RelativeLayout>
+                    <com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView
+
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/gray_round_shape"
+                        android:visibility="gone"
+                        >
+
+
+                    </com.zhyan.shandiankuaiyunlib.Widget.ImageView.RoundImageView>
+                    <TextView
+                        android:id="@+id/tv_new_cheyuanlist_xrv_item_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="赵德汗"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="3dp"
+                        android:visibility="gone"
+
+                        />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="#f4f4f4"
+                        android:layout_marginTop="0.5dp"
+
+                        />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/zero"
+                        android:layout_weight="1.5"
+                        >
+
+
+
+                        <ImageView
+                            android:id="@+id/iv_new_banjialist_xrv_item_cal"
+                            android:layout_marginTop="3dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/cal_tel"
+                            android:layout_centerInParent="true"
+                            />
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:layout_marginRight="12.5dp"
+                android:visibility="gone"
+
+
                 >
 
                 <LinearLayout
@@ -339,7 +430,6 @@
 
 
                         <ImageView
-                            android:id="@+id/iv_new_banjialist_xrv_item_cal"
                             android:layout_marginTop="3dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

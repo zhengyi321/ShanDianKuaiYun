@@ -23,6 +23,7 @@ import com.shandian.lu.Main.IndexFragment.BanJia.BanJiaActivity;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanList.CheYuanListActivity;
 import com.shandian.lu.Main.IndexFragment.HongBao.HongBaoActivity;
 import com.shandian.lu.Main.IndexFragment.NearByDriver.NearByDriverActivity;
+import com.shandian.lu.Main.IndexFragment.NewCheYuanList.NewBanJiaListActivity;
 import com.shandian.lu.Main.IndexFragment.NewHuoYuanList.HuoYuanListActivity;
 import com.shandian.lu.Main.IndexFragment.RenRenWuLiu.RenRenWuLiuActivity;
 import com.shandian.lu.Main.IndexFragment.WebView.WebViewActivity;
@@ -216,7 +217,8 @@ public class NewMainIndexController extends BaseController implements Permission
     public void ibNewMainIndexBJOnclick(){
 /*
         Intent intent = new Intent(view.getContext(), BanJiaActivity.class);*/
-        Intent intent = new Intent(view.getContext(), CheYuanListActivity.class);
+        /*Intent intent = new Intent(view.getContext(), CheYuanListActivity.class);*/
+        Intent intent = new Intent(view.getContext(), NewBanJiaListActivity.class);
         intent.putExtra("typeName","6");
         ((Activity)view.getContext()).startActivity(intent);
 
