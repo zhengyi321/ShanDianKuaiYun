@@ -42,7 +42,7 @@
             android:layout_marginBottom="5dp"
             />
         <RelativeLayout
-            android:id="@+id/lly_new_bjrrxq_bottom_chat"
+            android:id="@+id/rly_new_bjrrxq_bottom_chat"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

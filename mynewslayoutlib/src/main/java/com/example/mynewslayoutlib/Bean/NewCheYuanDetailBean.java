@@ -12,7 +12,7 @@ public class NewCheYuanDetailBean {
     /**
      * status : 0
      * msg :
-     * nr : {"id":"9975","login_id":"276","type_name":"4","typename":"","car_title":"测试","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","set_tid":"0","out_tid":"0","address_set":"","address_out":"","address_set_detail":"","address_out_detail":"","iphone":"8888","people":"测试","address":"","car_type":"保温车","car_lange":"13.5","fcsj":"2017-06-28","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","is_pass":"1","status":"0","type":"0","content":"测试测试","num":"1","create_time":"1498005880","update_time":"1498635146","imgtu":["http://ceshi.lianshiding.com/Uploads/2017-06-21/2761498005880Pzan.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-21/2761498005880dpBl.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-21/2761498005880OuFh.jpg"],"cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市旭阳路150号  中国建设银行(乐清旭阳分理处)附近25米","cfzuobiao":"28.122568999891016,120.98188199999997","cflat":"28.122568999891016","cflng":"120.98188199999997","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市东沙路  半沙村西285米","dazuobiao":"28.137496824195964,120.99485317083727","dalat":"28.137496824195964","dalng":"120.99485317083727","lng":"120.98188199999997","lat":"28.122568999891016","zt":"0","juli":"2.7km","zuobiaohash":"wsypcp83f4vdeb8eunfb","gg":{"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"},"czlat":"28.122527","czlng":"120.981321","cztouxiang":"http://ceshi.lianshiding.com/Uploads/2017-06-21/2761498005880Pzan.jpg","dingjin":"0","chengjiao":"0","cankao":"0","time":"2017-06-28 15:32:26"}
+     * nr : {"id":"17476","login_id":"276","type_name":"6","typename":"","car_title":"测试","set_province_id":"0","set_city_id":"0","set_area_id":"0","out_province_id":"0","out_city_id":"0","out_area_id":"0","set_tid":"0","out_tid":"0","address_set":"","address_out":"","address_set_detail":"","address_out_detail":"","iphone":"18767775244","people":"闪电网络","jianjie":"","car_type":"","car_lange":"","fcsj":"2017-07-12","img1":"","img2":"","img3":"","img4":"","img5":"","img6":"","img7":"","img8":"","is_pass":"1","status":"0","type":"0","content":"暂无备注！","num":"1","create_time":"1499838893","update_time":"1499838893","imgtu":["http://www.shandiannt.com/img/logo.png"],"cfsheng":"浙江省","cfshi":"温州市","cfqu":"乐清市","cfdizhi":"浙江省温州市乐清市双雁路458号  中国建设银行(乐清旭阳分理处)附近40米","cfzuobiao":"28.122709999896422,120.98187899999999","cflat":"28.122709999896422","cflng":"120.98187899999999","dasheng":"浙江省","dashi":"温州市","daqu":"乐清市","dadizhi":"浙江省温州市乐清市  新希望幼儿园第二分园西南763米","dazuobiao":"28.101711227321797,120.95987315429028","dalat":"28.101711227321797","dalng":"120.95987315429028","lng":"120.98187899999999","lat":"28.122709999896422","zt":"0","juli":"m","zuobiaohash":"wsypcp86dj57s5vbp73c","bjcxixni":[{"img":"http://www.lianshiding.com/Uploads/2017-07-12/2761499838893eyIS.jpg","name":"测试","tj":"5","zz":"8"},{"img":"http://www.lianshiding.com/Uploads/2017-07-12/27614998388931JRh.jpg","name":"测试","tj":"5","zz":"8"},{"img":"http://www.lianshiding.com/Uploads/2017-07-12/2761499838893PDeW.jpg","name":"装的好","tj":"88","zz":"9"}],"gg":{"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"},"czlat":"28.122579","czlng":"120.981705","cztouxiang":"http://www.shandiannt.com/img/logo.png","dingjin":"0","chengjiao":"0","cankao":"0","time":"2017-07-12 13:54:53"}
      */
 
     private String status;
@@ -45,9 +45,9 @@ public class NewCheYuanDetailBean {
 
     public static class NrBean {
         /**
-         * id : 9975
+         * id : 17476
          * login_id : 276
-         * type_name : 4
+         * type_name : 6
          * typename :
          * car_title : 测试
          * set_province_id : 0
@@ -62,12 +62,12 @@ public class NewCheYuanDetailBean {
          * address_out :
          * address_set_detail :
          * address_out_detail :
-         * iphone : 8888
-         * people : 测试
-         * address :
-         * car_type : 保温车
-         * car_lange : 13.5
-         * fcsj : 2017-06-28
+         * iphone : 18767775244
+         * people : 闪电网络
+         * jianjie :
+         * car_type :
+         * car_lange :
+         * fcsj : 2017-07-12
          * img1 :
          * img2 :
          * img3 :
@@ -79,38 +79,39 @@ public class NewCheYuanDetailBean {
          * is_pass : 1
          * status : 0
          * type : 0
-         * content : 测试测试
+         * content : 暂无备注！
          * num : 1
-         * create_time : 1498005880
-         * update_time : 1498635146
-         * imgtu : ["http://ceshi.lianshiding.com/Uploads/2017-06-21/2761498005880Pzan.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-21/2761498005880dpBl.jpg","http://ceshi.lianshiding.com/Uploads/2017-06-21/2761498005880OuFh.jpg"]
+         * create_time : 1499838893
+         * update_time : 1499838893
+         * imgtu : ["http://www.shandiannt.com/img/logo.png"]
          * cfsheng : 浙江省
          * cfshi : 温州市
          * cfqu : 乐清市
-         * cfdizhi : 浙江省温州市乐清市旭阳路150号  中国建设银行(乐清旭阳分理处)附近25米
-         * cfzuobiao : 28.122568999891016,120.98188199999997
-         * cflat : 28.122568999891016
-         * cflng : 120.98188199999997
+         * cfdizhi : 浙江省温州市乐清市双雁路458号  中国建设银行(乐清旭阳分理处)附近40米
+         * cfzuobiao : 28.122709999896422,120.98187899999999
+         * cflat : 28.122709999896422
+         * cflng : 120.98187899999999
          * dasheng : 浙江省
          * dashi : 温州市
          * daqu : 乐清市
-         * dadizhi : 浙江省温州市乐清市东沙路  半沙村西285米
-         * dazuobiao : 28.137496824195964,120.99485317083727
-         * dalat : 28.137496824195964
-         * dalng : 120.99485317083727
-         * lng : 120.98188199999997
-         * lat : 28.122568999891016
+         * dadizhi : 浙江省温州市乐清市  新希望幼儿园第二分园西南763米
+         * dazuobiao : 28.101711227321797,120.95987315429028
+         * dalat : 28.101711227321797
+         * dalng : 120.95987315429028
+         * lng : 120.98187899999999
+         * lat : 28.122709999896422
          * zt : 0
-         * juli : 2.7km
-         * zuobiaohash : wsypcp83f4vdeb8eunfb
+         * juli : m
+         * zuobiaohash : wsypcp86dj57s5vbp73c
+         * bjcxixni : [{"img":"http://www.lianshiding.com/Uploads/2017-07-12/2761499838893eyIS.jpg","name":"测试","tj":"5","zz":"8"},{"img":"http://www.lianshiding.com/Uploads/2017-07-12/27614998388931JRh.jpg","name":"测试","tj":"5","zz":"8"},{"img":"http://www.lianshiding.com/Uploads/2017-07-12/2761499838893PDeW.jpg","name":"装的好","tj":"88","zz":"9"}]
          * gg : {"img":"http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png","url":"http://www.baidu.com"}
-         * czlat : 28.122527
-         * czlng : 120.981321
-         * cztouxiang : http://ceshi.lianshiding.com/Uploads/2017-06-21/2761498005880Pzan.jpg
+         * czlat : 28.122579
+         * czlng : 120.981705
+         * cztouxiang : http://www.shandiannt.com/img/logo.png
          * dingjin : 0
          * chengjiao : 0
          * cankao : 0
-         * time : 2017-06-28 15:32:26
+         * time : 2017-07-12 13:54:53
          */
 
         private String id;
@@ -132,7 +133,7 @@ public class NewCheYuanDetailBean {
         private String address_out_detail;
         private String iphone;
         private String people;
-        private String address;
+        private String jianjie;
         private String car_type;
         private String car_lange;
         private String fcsj;
@@ -179,6 +180,7 @@ public class NewCheYuanDetailBean {
         private String cankao;
         private String time;
         private List<String> imgtu;
+        private List<BjcxixniBean> bjcxixni;
 
         public String getId() {
             return id;
@@ -332,12 +334,12 @@ public class NewCheYuanDetailBean {
             this.people = people;
         }
 
-        public String getAddress() {
-            return address;
+        public String getJianjie() {
+            return jianjie;
         }
 
-        public void setAddress(String address) {
-            this.address = address;
+        public void setJianjie(String jianjie) {
+            this.jianjie = jianjie;
         }
 
         public String getCar_type() {
@@ -708,6 +710,14 @@ public class NewCheYuanDetailBean {
             this.imgtu = imgtu;
         }
 
+        public List<BjcxixniBean> getBjcxixni() {
+            return bjcxixni;
+        }
+
+        public void setBjcxixni(List<BjcxixniBean> bjcxixni) {
+            this.bjcxixni = bjcxixni;
+        }
+
         public static class GgBean {
             /**
              * img : http://u1.img.mobile.sina.cn/public/files/image/660x165_img594cb2f907f55.png
@@ -731,6 +741,52 @@ public class NewCheYuanDetailBean {
 
             public void setUrl(String url) {
                 this.url = url;
+            }
+        }
+
+        public static class BjcxixniBean {
+            /**
+             * img : http://www.lianshiding.com/Uploads/2017-07-12/2761499838893eyIS.jpg
+             * name : 测试
+             * tj : 5
+             * zz : 8
+             */
+
+            private String img;
+            private String name;
+            private String tj;
+            private String zz;
+
+            public String getImg() {
+                return img;
+            }
+
+            public void setImg(String img) {
+                this.img = img;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public String getTj() {
+                return tj;
+            }
+
+            public void setTj(String tj) {
+                this.tj = tj;
+            }
+
+            public String getZz() {
+                return zz;
+            }
+
+            public void setZz(String zz) {
+                this.zz = zz;
             }
         }
     }

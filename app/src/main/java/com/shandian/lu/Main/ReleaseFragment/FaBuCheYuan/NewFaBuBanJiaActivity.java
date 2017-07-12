@@ -12,12 +12,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.mapapi.search.route.BikingRouteResult;
+import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
+import com.baidu.mapapi.search.route.DrivingRouteResult;
+import com.baidu.mapapi.search.route.IndoorRouteResult;
+import com.baidu.mapapi.search.route.MassTransitRouteResult;
+import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
+import com.baidu.mapapi.search.route.PlanNode;
+import com.baidu.mapapi.search.route.RoutePlanSearch;
+import com.baidu.mapapi.search.route.TransitRouteResult;
+import com.baidu.mapapi.search.route.WalkingRouteResult;
+import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.example.mynewslayoutlib.Bean.NewFaBuCheYuanBean;
 import com.example.mynewslayoutlib.Bean.NewFaBuPicBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.Main.MineFragment.WoDeCheYuan.NewWoDeCheYuanActivity;
 import com.shandian.lu.Main.ReleaseFragment.SelectAddAddress.SelectAddAddressActivity;
+import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.NetWork.NewFaBuNetWork;
 import com.shandian.lu.Widget.Dialog.NewFaBuBanJiaAddCarTypeDialog;
 import com.shandian.lu.BaseActivity;
@@ -44,7 +57,7 @@ import rx.Observer;
  * Created by Administrator on 2017/7/6.
  */
 
-public class NewFaBuBanJiaActivity extends BaseActivity {
+public class NewFaBuBanJiaActivity extends BaseActivity implements OnGetRoutePlanResultListener {
 
 
     private String bProvince,eProvince,bCity,eCity,bArea,eArea,beginAddr,endAddr;
@@ -52,6 +65,7 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
     private final int ACTIVITY_SELECT_ADDRESS_BEGIN = 105;
     private final int ACTIVITY_SELECT_ADDRESS_END = 106;
     private final int PICK_PHOTO_FROM_PHONE_CARTYPE_HEADIMG = 100;
+    private final int UPDATE_PHOTO_FROM_PHONE_CARTYPE_HEADIMG = 101;
     NewFaBuBanJiaAddCarTypeDialog newFaBuBanJiaAddCarTypeDialog;
     RoundCornerImageView rcivHeadImageView;
     ProgressBar rcivProgressBar;
@@ -64,13 +78,24 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
     private String netImgUrl = "";
     private String picPath = "";
     private Bitmap touXiangBitmap;
-
+    private float dis;
+    private String juli;
+    private String cyId = "";
+    private String id = "";
+    private int pos1 = 0;
+    private boolean isUpdate = false;
     @BindView(R.id.rly_new_fabubanjia_submit)
     RelativeLayout rlyNewFaBuBanJiaSubmit;
     @OnClick(R.id.rly_new_fabubanjia_submit)
     public void rlyNewFaBuBanJiaSubmitOnclick(){
-        faBuBanJiaToNet();
+        if(isUpdate){
+            updateBanJiaToNet();
+        }else {
+            faBuBanJiaToNet();
+        }
     }
+    @BindView(R.id.tv_new_fabubanjia_submit)
+    TextView tvNewFaBuBanJiaSubmit;
     @BindView(R.id.pb_new_fabubanjia)
     ProgressBar pbNewFaBuBanJia;
     @BindView(R.id.tv_new_fabubanjia_topbar_title)
@@ -111,6 +136,7 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
         intent.putExtra("lon",elon);
         startActivityForResult(intent,ACTIVITY_SELECT_ADDRESS_END);
     }
+    RoutePlanSearch mSearch = null;    // 搜索模块，也可去掉地图模块独立使用
     @BindView(R.id.tv_new_fabubanjia_end)
     TextView tvNewFaBuBanJiaEnd;
     @BindView(R.id.et_new_fabubanjia_name)
@@ -133,7 +159,7 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
             }
         }).setMsgCallBackListener(new MsgCallBackListener() {
             @Override
-            public void msgCallBack(String name, String tj, String zz) {
+            public void msgCallBack(String name, String tj, String zz,int pos) {
                 if( !isTouXiangUpFinished ){
                     Toast.makeText(NewFaBuBanJiaActivity.this,"等待头像上传完毕",3000).show();
                     return;
@@ -154,14 +180,28 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
                     Toast.makeText(NewFaBuBanJiaActivity.this,"载重不能为空",3000).show();
                     return;
                 }
-                carTypeMap = new HashMap<String, Object>();
-                carTypeMap.put("img",touXiangBitmap);
-                carTypeMap.put("picPath",picPath);
-                carTypeMap.put("name",name);
-                carTypeMap.put("tj",tj);
-                carTypeMap.put("zz",zz);
-                carTypeList.add(carTypeMap);
-                netImgList.add(netImgUrl);
+              /*  Toast.makeText(NewFaBuBanJiaActivity.this,"not",3000).show();*/
+           /*     if(isUpdate){
+                    Toast.makeText(NewFaBuBanJiaActivity.this,"isUpdate",3000).show();
+                    carTypeMap = (HashMap<String,Object>) carTypeList.get(pos);
+                    carTypeMap.put("img", touXiangBitmap);
+                    carTypeMap.put("picPath", picPath);
+                    carTypeMap.put("name", name);
+                    carTypeMap.put("tj", tj);
+                    carTypeMap.put("zz", zz);
+                    carTypeList.set(pos,carTypeMap);
+                    netImgList.set(pos,netImgUrl);
+                }else {*/
+                    /*Toast.makeText(NewFaBuBanJiaActivity.this,"noUpdate",3000).show();*/
+                    carTypeMap = new HashMap<String, Object>();
+                    carTypeMap.put("img", touXiangBitmap);
+                    carTypeMap.put("picPath", picPath);
+                    carTypeMap.put("name", name);
+                    carTypeMap.put("tj", tj);
+                    carTypeMap.put("zz", zz);
+                    carTypeList.add(carTypeMap);
+                    netImgList.add(netImgUrl);
+              /*  }*/
                 if(newFaBuBanJiaController != null){
                     newFaBuBanJiaController.newFaBuBanJiaCarTypeRVAdapter.setAdapter(carTypeList,netImgList);
                     dimssAddCarTypeDialog();
@@ -194,15 +234,81 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
     protected void init() {
         ButterKnife.bind(this);
         getType();
+        initRouteOverLay();
         initController();
+        getCYId();
+        getNewCheYuanDetailFromNet();
         carTypeList = new ArrayList<>();
         imgList = new ArrayList<>();
         netImgList = new ArrayList<>();
     }
     private void initController(){
         newFaBuBanJiaController = new NewFaBuBanJiaController(this);
+        newFaBuBanJiaController.newFaBuBanJiaCarTypeRVAdapter.setAdapterUpdateImageViewCallBack(new NewFaBuBanJiaCarTypeRVAdapter.AdapterUpdateImageViewListener() {
+            @Override
+            public void updateRcivCallBack(RoundCornerImageView rcivImageView, ProgressBar rcivIvPB, int pos) {
+                rcivHeadImageView = rcivImageView;
+                rcivProgressBar = rcivIvPB;
+                pos1 = pos;
+            }
+        });
+        newFaBuBanJiaController.newFaBuBanJiaCarTypeRVAdapter.setAdapterMsgCallBackListener(new NewFaBuBanJiaCarTypeRVAdapter.AdapterMsgCallBackListener() {
+            @Override
+            public void msgCallBack(String name, String tj, String zz, int pos) {
+                if( !isTouXiangUpFinished ){
+                    Toast.makeText(NewFaBuBanJiaActivity.this,"等待头像上传完毕",3000).show();
+                    return;
+                }
+                if((touXiangBitmap == null)||( picPath == null)){
+                    Toast.makeText(NewFaBuBanJiaActivity.this,"头像不能为空",3000).show();
+                    return;
+                }
+                if(name.isEmpty()){
+                    Toast.makeText(NewFaBuBanJiaActivity.this,"名称不能为空",3000).show();
+                    return;
+                }
+                if(tj.isEmpty()){
+                    Toast.makeText(NewFaBuBanJiaActivity.this,"体积不能为空",3000).show();
+                    return;
+                }
+                if(zz.isEmpty()){
+                    Toast.makeText(NewFaBuBanJiaActivity.this,"载重不能为空",3000).show();
+                    return;
+                }
+
+
+                   /* Toast.makeText(NewFaBuBanJiaActivity.this,"isUpdate",3000).show();*/
+                carTypeMap = (HashMap<String,Object>) carTypeList.get(pos);
+                carTypeMap.put("img", touXiangBitmap);
+                carTypeMap.put("picPath", picPath);
+                carTypeMap.put("name", name);
+                carTypeMap.put("tj", tj);
+                carTypeMap.put("zz", zz);
+                carTypeList.set(pos,carTypeMap);
+                netImgList.set(pos,netImgUrl);
+                if(newFaBuBanJiaController != null){
+                    newFaBuBanJiaController.newFaBuBanJiaCarTypeRVAdapter.setAdapter(carTypeList,netImgList);
+                    dimssAddCarTypeDialog();
+                }
+            }
+        });
     }
 
+
+
+    private void initRouteOverLay(){
+        // 初始化搜索模块，注册事件监听
+        mSearch = RoutePlanSearch.newInstance();
+        mSearch.setOnGetRoutePlanResultListener(this);
+    }
+    private void searchProcessByLLG(LatLng begLlg , LatLng endLlg){
+
+        PlanNode stNode,enNode;
+        stNode = PlanNode.withLocation(begLlg);
+        enNode = PlanNode.withLocation(endLlg);
+
+        mSearch.drivingSearch(new DrivingRoutePlanOption().from(stNode).to(enNode));
+    }
     private void getType(){
         typeName = getIntent().getStringExtra("type_name");
         if(typeName == null){
@@ -241,7 +347,20 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
             if (resultCode == RESULT_OK) { // Successfully.
                 imgList.clear();
                 imgList = Album.parseResult(data); // Parse select result.
-                   /* Toast.makeText(this,"ACTIVITY_REQUEST_SELECT_PHOTO:"+mImageList.get(0),3000).show();*/
+                   /* Toast.makeText(this,"ACTIVITY_REQUEST_SELECT_PHOTO:"+imgList.size(),3000).show();*/
+                if(imgList.size() != 0){
+                    refreshImg();
+                }
+            } else if (resultCode == RESULT_CANCELED) { // User canceled.
+                   /* Snackbar.make(noneView, R.string.cancel_select_photo_hint, Snackbar.LENGTH_LONG).show();*/
+                   /* mImageList.clear();*/
+            }
+            break;
+            case UPDATE_PHOTO_FROM_PHONE_CARTYPE_HEADIMG:
+            if (resultCode == RESULT_OK) { // Successfully.
+                imgList.clear();
+                imgList = Album.parseResult(data); // Parse select result.
+                /*    Toast.makeText(this,"ACTIVITY_REQUEST_SELECT_PHOTO:"+imgList.size(),3000).show();*/
                 if(imgList.size() != 0){
                     refreshImg();
                 }
@@ -275,7 +394,9 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
                 }
 /*                LatLng bllg = new LatLng(Double.parseDouble(blat),Double.parseDouble(blon));
                 LatLng ellg = new LatLng(Double.parseDouble(elat),Double.parseDouble(elon));*/
-
+                LatLng bllg = new LatLng(Double.parseDouble(blat),Double.parseDouble(blon));
+                LatLng ellg = new LatLng(Double.parseDouble(elat),Double.parseDouble(elon));
+                searchProcessByLLG(bllg,ellg);
                 break;
             }
             case ACTIVITY_SELECT_ADDRESS_END:{
@@ -303,7 +424,9 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
                 }
 /*                LatLng bllg = new LatLng(Double.parseDouble(blat),Double.parseDouble(blon));
                 LatLng ellg = new LatLng(Double.parseDouble(elat),Double.parseDouble(elon));*/
-
+                LatLng bllg = new LatLng(Double.parseDouble(blat),Double.parseDouble(blon));
+                LatLng ellg = new LatLng(Double.parseDouble(elat),Double.parseDouble(elon));
+                searchProcessByLLG(bllg,ellg);
                 break;
             }
         }
@@ -397,6 +520,7 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
         }
         paramMap.put("login_id",loginId);
         List<Object> carTypeList = newFaBuBanJiaController.newFaBuBanJiaCarTypeRVAdapter.getFaBuList();
+
         if(carTypeList == null){
             return paramMap;
         }
@@ -406,6 +530,7 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
             return paramMap;
         }
         paramMap.put("type_name",typeName);
+
         String carTitle = etNewFaBuBanJiaTitle.getText().toString();
         if(carTitle == null){
             carTitle = "";
@@ -472,7 +597,10 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
             content = "";
         }
         paramMap.put("content",content);
-
+        if(juli  == null){
+            juli = "";
+        }
+        paramMap.put("juli",juli);
 
         return paramMap;
     }
@@ -506,5 +634,183 @@ public class NewFaBuBanJiaActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onGetWalkingRouteResult(WalkingRouteResult walkingRouteResult) {
+
+    }
+
+    @Override
+    public void onGetTransitRouteResult(TransitRouteResult transitRouteResult) {
+
+    }
+
+    @Override
+    public void onGetMassTransitRouteResult(MassTransitRouteResult massTransitRouteResult) {
+
+    }
+
+    @Override
+    public void onGetDrivingRouteResult(DrivingRouteResult result) {
+        if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
+          /*  Toast.makeText(this, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();*/
+        }
+        if (result.error == SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR) {
+            // 起终点或途经点地址有岐义，通过以下接口获取建议查询信息
+            // result.getSuggestAddrInfo()
+            return;
+        }
+        if (result.error == SearchResult.ERRORNO.NO_ERROR) {
+
+
+
+            if (result.getRouteLines().size() > 0) {
+                dis = result.getRouteLines().get(0).getDistance();
+                int size = result.getRouteLines().size();
+                float tempDis = 0;
+                for(int i=0;i<size;i++){
+                    float routeLines = result.getRouteLines().get(i).getDistance();
+                    if(routeLines < dis){
+                        dis = routeLines;
+                    }
+                }
+                juli = dis+"";
+
+           /*     Toast.makeText(this,"juli:"+dis,Toast.LENGTH_LONG).show();*/
+            }
+
+        }
+    }
+
+    @Override
+    public void onGetIndoorRouteResult(IndoorRouteResult indoorRouteResult) {
+
+    }
+
+    @Override
+    public void onGetBikingRouteResult(BikingRouteResult bikingRouteResult) {
+
+    }
+
+
+
+
+
+
+
+    private void getCYId(){
+        cyId = getIntent().getStringExtra("cyid");
+        if((cyId == null)||(cyId.isEmpty())){
+            cyId = "";
+        }else {
+            tvNewFaBuBanJiaSubmit.setText("确认修改");
+            isUpdate = true;
+        }
+
+    }
+
+    private void getNewCheYuanDetailFromNet(){
+        pbNewFaBuBanJia.setVisibility(View.VISIBLE);
+        NewCheHuoListNetWork cheHuoListNetWork = new NewCheHuoListNetWork();
+        cheHuoListNetWork.getCheYuanDetailFromNet(cyId, new Observer<NewCheYuanDetailBean>() {
+            @Override
+            public void onCompleted() {
+                pbNewFaBuBanJia.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                pbNewFaBuBanJia.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onNext(NewCheYuanDetailBean newCheYuanDetailBean) {
+                initDetail(newCheYuanDetailBean);
+                pbNewFaBuBanJia.setVisibility(View.GONE);
+            }
+        });
+    }
+    private void initDetail(NewCheYuanDetailBean newCheYuanDetailBean){
+        blat = newCheYuanDetailBean.getNr().getCflat();
+        bProvince = newCheYuanDetailBean.getNr().getCfsheng();
+        bCity = newCheYuanDetailBean.getNr().getCfshi();
+        bArea = newCheYuanDetailBean.getNr().getCfqu();
+        elat = newCheYuanDetailBean.getNr().getDalat();
+        eProvince = newCheYuanDetailBean.getNr().getDasheng();
+        eCity = newCheYuanDetailBean.getNr().getDashi();
+        eArea = newCheYuanDetailBean.getNr().getDaqu();
+        beginAddr = newCheYuanDetailBean.getNr().getCfdizhi();
+        tvNewFaBuBanJiaBegin.setText(beginAddr);
+        endAddr = newCheYuanDetailBean.getNr().getDadizhi();
+        juli = newCheYuanDetailBean.getNr().getJuli();
+        tvNewFaBuBanJiaEnd.setText(endAddr);
+        etNewFaBuBanJiaTitle.setText(newCheYuanDetailBean.getNr().getCar_title());
+        etNewFaBuBanJiaName.setText(newCheYuanDetailBean.getNr().getPeople());
+        etNewFaBuBanJiaTel.setText(newCheYuanDetailBean.getNr().getIphone());
+        etNewFaBuBanJiaCompanyIntrodu.setText(newCheYuanDetailBean.getNr().getJianjie());
+        etNewFabuBanJiaDesc.setText(newCheYuanDetailBean.getNr().getContent());
+        id = newCheYuanDetailBean.getNr().getId();
+        List<NewCheYuanDetailBean.NrBean.BjcxixniBean> dataList = newCheYuanDetailBean.getNr().getBjcxixni();
+        if(dataList == null){
+            return;
+        }
+        int size = dataList.size();
+
+
+
+        for(int i=0;i<size;i++){
+            Map<String,Object> paramMap = new HashMap<>();
+            String imgUrl = dataList.get(i).getImg();
+            String name = dataList.get(i).getName();
+            String tj = dataList.get(i).getTj();
+            String zz = dataList.get(i).getZz();
+            netImgList.add(imgUrl);
+            paramMap.put("img",null);
+            paramMap.put("name",name);
+            paramMap.put("tj",tj);
+            paramMap.put("zz",zz);
+            carTypeList.add(paramMap);
+        }
+
+        newFaBuBanJiaController.newFaBuBanJiaCarTypeRVAdapter.setAdapter(carTypeList,netImgList);
+    }
+
+
+
+    private void updateBanJiaToNet(){
+
+        pbNewFaBuBanJia.setVisibility(View.VISIBLE);
+        NewFaBuNetWork newFaBuNetWork = new NewFaBuNetWork();
+        newFaBuNetWork.updateCheYuanToNet( id,getFuBuParamMap(), new Observer<NewFaBuCheYuanBean>() {
+            @Override
+            public void onCompleted() {
+                pbNewFaBuBanJia.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                pbNewFaBuBanJia.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onNext(NewFaBuCheYuanBean newFaBuCheYuanBean) {
+                Toast.makeText(NewFaBuBanJiaActivity.this,newFaBuCheYuanBean.getMsg(),Toast.LENGTH_LONG).show();
+                pbNewFaBuBanJia.setVisibility(View.GONE);
+                if(newFaBuCheYuanBean.getStatus().equals("0")){
+                    finish();
+                }
+            }
+        });
+    }
+
+
+
+
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        mSearch.destroy();
     }
 }

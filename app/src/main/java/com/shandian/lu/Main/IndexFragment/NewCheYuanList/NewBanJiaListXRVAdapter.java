@@ -9,11 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.mynewslayoutlib.Bean.NewBanJiaListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewBanJiaDetailActivity;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
 import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
@@ -145,6 +147,16 @@ public class NewBanJiaListXRVAdapter extends RecyclerView.Adapter<NewBanJiaListX
 
 
         int pos = 0;
+
+        @BindView(R.id.lly_new_banjialist_xrv_item)
+        LinearLayout llyNewBanJiaListXRVItem;
+        @OnClick(R.id.lly_new_banjialist_xrv_item)
+        public void llyNewBanJiaListXRVItemOnclick(){
+            Intent intent = new Intent(activity, NewBanJiaDetailActivity.class);
+            intent.putExtra("cyid",dataList.get(pos).getId());
+            intent.putExtra("czid",dataList.get(pos).getLogin_id());
+            activity.startActivity(intent);
+        }
         @BindView(R.id.tv_new_banjialist_xrv_item_cz_name)
         TextView tvNewBanJiaListXRVItemCZName;
         @BindView(R.id.tv_new_banjialist_xrv_item_time)

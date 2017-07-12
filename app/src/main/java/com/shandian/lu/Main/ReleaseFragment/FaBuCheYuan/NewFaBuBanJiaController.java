@@ -5,7 +5,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.RelativeLayout;
 
+import com.example.mynewslayoutlib.Bean.NewCheYuanDetailBean;
 import com.shandian.lu.BaseController;
+import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
 
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.Observer;
 
 /**
  * Created by Administrator on 2017/7/6.
@@ -43,6 +46,7 @@ public class NewFaBuBanJiaController extends BaseController {
     @Override
     protected void init() {
         ButterKnife.bind(this,activity);
+
         initRV();
     }
 
@@ -54,7 +58,5 @@ public class NewFaBuBanJiaController extends BaseController {
         rvNewFaBuHuoYuanCarType.setAdapter(newFaBuBanJiaCarTypeRVAdapter);
         rvNewFaBuHuoYuanCarType.setLayoutManager(linearLayoutManager);
     }
-
-
 
 }

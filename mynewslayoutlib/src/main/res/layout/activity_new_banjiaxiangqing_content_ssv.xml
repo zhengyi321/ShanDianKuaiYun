@@ -16,17 +16,32 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#ffe9d9"
+                >
+                <TextView
+                    android:id="@+id/tv_new_banjiadetail_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="标题文字"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:layout_centerInParent="true"
+                    />
 
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="100dp"
                 android:background="@color/white"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:orientation="vertical"
                     android:visibility="invisible"
                     >
@@ -56,7 +71,7 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="13"
+                    android:layout_weight="5"
                     android:orientation="vertical"
                     >
 
@@ -84,12 +99,12 @@
                                 >
 
                                 <TextView
-                                    android:id="@+id/tv_new_self_cyxq_city_area_b"
+                                    android:id="@+id/tv_new_banjiadetail_city_area_b"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="浙江省乐清市"
-                                    android:textSize="11sp"
-                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/blue"
 
                                     />
                                 <ImageView
@@ -100,12 +115,12 @@
                                     android:layout_marginRight="3dp"
                                     />
                                 <TextView
-                                    android:id="@+id/tv_new_self_cyxq_city_area_e"
+                                    android:id="@+id/tv_new_banjiadetail_city_area_e"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="浙江省乐清市"
-                                    android:textSize="11sp"
-                                    android:textColor="@color/black"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/blue"
 
                                     />
                             </LinearLayout>
@@ -115,17 +130,17 @@
                                 android:orientation="horizontal"
                                 >
                                 <TextView
-
+                                    android:id="@+id/tv_new_banjiadetail_detailservice_contact_by_tel"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
-                                    android:text="发布时间:"
+                                    android:text="详细服务区域敬请电话联系"
                                     android:textSize="10sp"
                                     android:textColor="@color/gray"
                                     android:layout_marginTop="5dp"
                                     />
                                 <TextView
-                                    android:id="@+id/tv_new_self_cyxq_fbtime"
+
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
@@ -134,6 +149,7 @@
                                     android:textColor="@color/gray"
                                     android:layout_marginTop="5dp"
                                     android:layout_marginLeft="5dp"
+                                    android:visibility="gone"
                                     />
 
                             </LinearLayout>
@@ -181,7 +197,47 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                <RelativeLayout
+                    android:id="@+id/rly_new_banjiadetail_hc_loc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.5"
+                    android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerInParent="true"
+                        >
 
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/blue_map"
+                            android:layout_gravity="center_horizontal"
+
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="货车定位"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            />
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    >
+
+
+
+                </RelativeLayout>
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -277,24 +333,67 @@
                 </LinearLayout>
 
             </LinearLayout>-->
+            <RelativeLayout
 
-            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:orientation="horizontal"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@color/transparent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 >
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_new_banjiadetail_cartype"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    >
 
-            </LinearLayout>
+
+                </android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                >
+                <TextView
+                    android:id="@+id/tv_new_banjiadetail_company_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="公司名称显示的文字"
+                    android:textColorHint="@color/gray"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/black"
+                    android:gravity="center_vertical"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"
+
+                android:layout_marginBottom="10dp"
+                >
+                <TextView
+                    android:id="@+id/tv_new_banjiadetail_company_introdu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="公司简介显示的文字"
+                    android:textColorHint="@color/gray"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/black"
+                    android:gravity="center_vertical"
+                    />
+            </RelativeLayout>
 
 
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="140dp"
 
                 android:orientation="horizontal"
                 android:background="@color/white"
@@ -303,18 +402,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    >
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="订单备注"
+                        android:text="备注"
                         android:textColor="@color/black"
                         android:textSize="13sp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         />
                     <TextView
-                        android:id="@+id/tv_new_self_cyxq_remark"
+                        android:id="@+id/tv_new_banjiadetail_remark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=""
@@ -324,33 +425,24 @@
                         android:layout_marginTop="10dp"
                         />
                 </LinearLayout>
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:background="@mipmap/order_remark"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
-                    />
             </RelativeLayout>
+            <ImageButton
+                android:id="@+id/ib_new_banjiadetail_ads"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="fitXY"
+                android:background="@color/white"
+                >
+
+            </ImageButton>
 
         </LinearLayout>
 
 
 
-        <ImageButton
-            android:id="@+id/ib_new_self_cyxq_ads"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:scaleType="fitXY"
-            android:background="@color/red"
-            >
 
-        </ImageButton>
 
 
 

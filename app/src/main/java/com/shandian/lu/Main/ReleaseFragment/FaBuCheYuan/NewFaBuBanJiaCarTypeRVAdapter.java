@@ -53,14 +53,21 @@ public class NewFaBuBanJiaCarTypeRVAdapter extends RecyclerView.Adapter<NewFaBuB
     public interface AdapterUpdateImageViewListener{
         public void updateRcivCallBack(RoundCornerImageView rcivImageView,ProgressBar rcivIvPB,int pos);//具体方法
     }
+
+
     public interface AdapterMsgCallBackListener{
-        public void msgCallBack(String name,String tj,String zz);
+        public void msgCallBack(String name,String tj,String zz,int pos);
     }
     private AdapterUpdateImageViewListener adapterUpdateImageViewListener;
 
 
     public void setAdapterUpdateImageViewCallBack(AdapterUpdateImageViewListener adapterUpdateImageViewListener1){
         adapterUpdateImageViewListener = adapterUpdateImageViewListener1;
+    }
+
+    private AdapterMsgCallBackListener adapterMsgCallBackListener;
+    public void setAdapterMsgCallBackListener(AdapterMsgCallBackListener adapterMsgCallBackListener1){
+        adapterMsgCallBackListener = adapterMsgCallBackListener1;
     }
 
     public NewFaBuBanJiaCarTypeRVAdapter(Activity activity1, List<Object> carTypeList1){
@@ -76,6 +83,7 @@ public class NewFaBuBanJiaCarTypeRVAdapter extends RecyclerView.Adapter<NewFaBuB
             return;
         }
         carTypeList.clear();
+        carTypeFaBuList.clear();
         carTypeList.addAll(carTypeList1);
         netImgList = netImgList1;
 
@@ -99,6 +107,7 @@ public class NewFaBuBanJiaCarTypeRVAdapter extends RecyclerView.Adapter<NewFaBuB
             holder.ivNewFaBuBanJiaRVItemHeadImg.setImageBitmap(img);
         }else {
             String imgUrl = netImgList.get(position);
+           /* Toast.makeText(activity,"imgUrl:"+imgUrl,3000).show();*/
             if ((imgUrl != null) && (!imgUrl.isEmpty())) {
                 ImageLoader.getInstance().displayImage(imgUrl,holder.ivNewFaBuBanJiaRVItemHeadImg, ImageLoaderUtils.options1);
             }
@@ -118,7 +127,7 @@ public class NewFaBuBanJiaCarTypeRVAdapter extends RecyclerView.Adapter<NewFaBuB
 
 
         holder.tvNewFaBuBanJiaRVItemCarType.setText(name+"/"+tj+"m³/"+zz+"kg");
-        holder.pos = position;
+        holder.pos1 = position;
         setFaBuParam(position,name,tj,zz);
     }
 
@@ -146,6 +155,7 @@ public class NewFaBuBanJiaCarTypeRVAdapter extends RecyclerView.Adapter<NewFaBuB
 
     @Override
     public int getItemCount() {
+
         return carTypeList.size();
     }
 
@@ -154,13 +164,13 @@ public class NewFaBuBanJiaCarTypeRVAdapter extends RecyclerView.Adapter<NewFaBuB
 
     class MyItemViewHolder extends RecyclerView.ViewHolder{
 
-        int pos = 0;
+        int pos1 = 0;
         NewFaBuBanJiaAddCarTypeDialog newFaBuBanJiaAddCarTypeDialog;
         @BindView(R.id.rly_new_fabubanjia_rv_item_edit)
         RelativeLayout rlyNewFaBuBanJiaRVItemEdit;
         @OnClick(R.id.rly_new_fabubanjia_rv_item_edit)
         public void rlyNewFaBuBanJiaRVItemEditOnclick(){
-            Map<String,Object> paramMap = (Map<String,Object>)carTypeList.get(pos);
+            Map<String,Object> paramMap = (Map<String,Object>)carTypeList.get(pos1);
             String picPath = (String) paramMap.get("picPath");
             ArrayList<String> imgList = new ArrayList<>();
             if((picPath != null)&&(!picPath.isEmpty())){
@@ -170,8 +180,8 @@ public class NewFaBuBanJiaCarTypeRVAdapter extends RecyclerView.Adapter<NewFaBuB
             String name = (String) paramMap.get("name");
             String tj = (String) paramMap.get("tj");
             String zz = (String) paramMap.get("zz");
-            String imgUrl = netImgList.get(pos);
-            newFaBuBanJiaAddCarTypeDialog = new NewFaBuBanJiaAddCarTypeDialog(activity,imgList,bitmap,imgUrl,name,tj,zz,pos,true).Build.setUpdateRoundCornerImageViewCallBackListener(new NewFaBuBanJiaAddCarTypeDialog.UpdateRoundCornerImageViewCallBackListener() {
+            String imgUrl = netImgList.get(pos1);
+            newFaBuBanJiaAddCarTypeDialog = new NewFaBuBanJiaAddCarTypeDialog(activity,imgList,bitmap,imgUrl,name,tj,zz,pos1,true).Build.setUpdateRoundCornerImageViewCallBackListener(new NewFaBuBanJiaAddCarTypeDialog.UpdateRoundCornerImageViewCallBackListener() {
                 @Override
                 public void updateRoundCornerImageViewCallBack(RoundCornerImageView rcivImageView, ProgressBar rcivIvPB, int pos) {
                     if(adapterUpdateImageViewListener != null){
@@ -180,12 +190,17 @@ public class NewFaBuBanJiaCarTypeRVAdapter extends RecyclerView.Adapter<NewFaBuB
                 }
             }).setMsgCallBackListener(new NewFaBuBanJiaAddCarTypeDialog.MsgCallBackListener() {
                 @Override
-                public void msgCallBack(String name, String tj, String zz) {
-                    Map<String,Object> paramMap = (Map<String,Object>)carTypeList.get(pos);
+                public void msgCallBack(String name, String tj, String zz,int pos) {
+                    /*Map<String,Object> paramMap = (Map<String,Object>)carTypeList.get(pos1);
                     paramMap.put("name",name);
                     paramMap.put("tj",tj);
                     paramMap.put("zz",zz);
-                    notifyDataSetChanged();
+                    carTypeList.set(pos1,paramMap);
+                    carTypeFaBuList.clear();
+                    notifyDataSetChanged();*/
+                    if(adapterMsgCallBackListener != null){
+                        adapterMsgCallBackListener.msgCallBack(name,tj,zz,pos);
+                    }
                 }
             }).build(activity);
             showAddCarTypeDialog();
@@ -213,8 +228,9 @@ public class NewFaBuBanJiaCarTypeRVAdapter extends RecyclerView.Adapter<NewFaBuB
         RelativeLayout rlyNewFaBuBanJiaRVItemDelete;
         @OnClick(R.id.rly_new_fabubanjia_rv_item_delete)
         public void rlyNewFaBuBanJiaRVItemDeleteOnclick(){
-            netImgList.remove(pos);
-            carTypeList.remove(pos);
+            netImgList.remove(pos1);
+            carTypeList.remove(pos1);
+            carTypeFaBuList.clear();
             notifyDataSetChanged();
         }
 

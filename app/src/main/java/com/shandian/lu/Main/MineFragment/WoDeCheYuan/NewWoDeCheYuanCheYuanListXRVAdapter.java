@@ -18,8 +18,10 @@ import com.example.mynewslayoutlib.Bean.NewWoDeCheYuanBean;
 import com.example.mynewslayoutlib.Bean.NewWoDeCheYuanDeleteBean;
 import com.example.mynewslayoutlib.Utils.SystemUtils;
 import com.shandian.lu.Main.IndexFragment.NewBanJiaRenRenKuaiDi.NewBanJiaRenRenDetailActivity;
+import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewBanJiaDetailActivity;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailSelfActivity;
 import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
+import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuBanJiaActivity;
 import com.shandian.lu.Main.ReleaseFragment.FaBuCheYuan.NewFaBuCheYuanV2Activity;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
@@ -106,15 +108,15 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
                 break;
             case "5":
                 holder.tvNewWoDeCheYuanListXRVItemGoodsType.setText("人人快递");
-                holder.tvNewWoDeCheYuanListXRVItemBCity.setText(dataList.get(position).getCfsheng()+dataList.get(position).getCfshi()+dataList.get(position).getCfqu());
+                holder.tvNewWoDeCheYuanListXRVItemBCity.setText(dataList.get(position).getCfshi());
                 holder.ivNewWoDeCheYuanCheYuanListXRVItemRightArrow.setVisibility(View.GONE);
                 holder.tvNewWoDeCheYuanListXRVItemBArea.setVisibility(View.GONE);
                 break;
             case "6":
                 holder.tvNewWoDeCheYuanListXRVItemGoodsType.setText("搬家");
-                holder.tvNewWoDeCheYuanListXRVItemBCity.setText(dataList.get(position).getCfsheng()+dataList.get(position).getCfshi()+dataList.get(position).getCfqu());
-                holder.ivNewWoDeCheYuanCheYuanListXRVItemRightArrow.setVisibility(View.GONE);
-                holder.tvNewWoDeCheYuanListXRVItemBArea.setVisibility(View.GONE);
+                holder.tvNewWoDeCheYuanListXRVItemBCity.setText(dataList.get(position).getCfshi());
+/*                holder.ivNewWoDeCheYuanCheYuanListXRVItemRightArrow.setVisibility(View.GONE);*/
+/*                holder.tvNewWoDeCheYuanListXRVItemBArea.setVisibility(View.GONE);*/
                 break;
         }
         holder.tvNewWoDeCheYuanListXRVItemDis.setText(dataList.get(position).getJuli());
@@ -172,6 +174,51 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
         LinearLayout llyNewWoDeCheYuanListXRVItem;
         @OnClick(R.id.lly_new_wodecheyuan_cheyuanlist_xrv_item)
         public void llyNewWoDeCheYuanListXRVItemOnclick(){
+
+
+
+            String typeName = dataList.get(pos).getType_name();
+            if(typeName == null){
+                typeName = "";
+            }
+            Intent intent;
+            switch (typeName){
+                case "1":
+                    intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    activity.startActivity(intent);
+                    break;
+                case "2":
+                    intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    activity.startActivity(intent);
+                    break;
+                case "3":
+                    intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    activity.startActivity(intent);
+                    break;
+                case "4":
+                    intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    activity.startActivity(intent);
+                    break;
+                case "5":
+                    intent = new Intent(activity, NewBanJiaRenRenDetailActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    activity.startActivity(intent);
+                    break;
+
+                case "6":
+                    intent = new Intent(activity, NewBanJiaDetailActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    intent.putExtra("czid",dataList.get(pos).getLogin_id());
+                    activity.startActivity(intent);
+                    break;
+            }
+
+
+            /*
             String typeName = dataList.get(pos).getType_name();
             if(typeName.equals("5")||typeName.equals("6")){
                 Intent intent = new Intent(activity, NewBanJiaRenRenDetailActivity.class);
@@ -181,7 +228,7 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
             }
             Intent intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
             intent.putExtra("cyid",dataList.get(pos).getId());
-            activity.startActivity(intent);
+            activity.startActivity(intent);*/
         }
 
         @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_count)
@@ -192,16 +239,52 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
         public void rlyNewWoDeCheYuanListXRVItemCountOnclick(){
 
             String typeName = dataList.get(pos).getType_name();
-            if(typeName.equals("5")||typeName.equals("6")){
-                Intent intent = new Intent(activity, NewBanJiaRenRenDetailActivity.class);
-                intent.putExtra("cyid",dataList.get(pos).getId());
-                activity.startActivity(intent);
-                return;
+            if(typeName == null){
+                typeName = "";
             }
+            Intent intent;
+            switch (typeName){
+                case "1":
+                    intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    activity.startActivity(intent);
+                    break;
+                case "2":
+                    intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    activity.startActivity(intent);
+                    break;
+                case "3":
+                    intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    activity.startActivity(intent);
+                    break;
+                case "4":
+                    intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    activity.startActivity(intent);
+                    break;
+                case "5":
+                     intent = new Intent(activity, NewBanJiaRenRenDetailActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    activity.startActivity(intent);
+                    break;
 
-            Intent intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
+                case "6":
+                     intent = new Intent(activity, NewBanJiaDetailActivity.class);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    intent.putExtra("czid",dataList.get(pos).getLogin_id());
+                    activity.startActivity(intent);
+                    break;
+            }
+      /*      if(typeName.equals("5")||typeName.equals("6")){
+
+                return;
+            }*/
+
+    /*        Intent intent = new Intent(activity, NewCheYuanDetailSelfActivity.class);
             intent.putExtra("cyid",dataList.get(pos).getId());
-            activity.startActivity(intent);
+            activity.startActivity(intent);*/
             String zt = dataList.get(pos).getZt();
             if((zt == null)||(zt.isEmpty())){
                 zt = "";
@@ -286,26 +369,72 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
         LinearLayout llyNewWoDeCheYuanListXRVItemUpdate;
         @OnClick(R.id.lly_new_wodecheyuan_cheyuanlist_xrv_item_update)
         public void llyNewWoDeCheYuanListXRVItemUpdateOnclick(){
-            Intent intent = new Intent(activity, NewFaBuCheYuanV2Activity.class);
             String typeName = dataList.get(pos).getType_name();
             if(typeName == null){
                 typeName = "";
             }
+            Intent intent;
             String id = dataList.get(pos).getId();
-            if(typeName == null){
-                typeName = "";
-            }
-            intent.putExtra("type_name",typeName);
             ArrayList imgList = (ArrayList<String>)dataList.get(pos).getImgtu();
-
             if(imgList == null){
                 imgList = new ArrayList<>();
             }
             Bundle bundle = new Bundle();
-            bundle.putStringArrayList("imgTu",imgList);
-            intent.putExtras(bundle);
-            intent.putExtra("id",id);
-            activity.startActivity(intent);
+            switch (typeName){
+                case "1":
+                    intent = new Intent(activity, NewFaBuCheYuanV2Activity.class);
+                    intent.putExtra("type_name",typeName);
+                    bundle.putStringArrayList("imgTu",imgList);
+                    intent.putExtras(bundle);
+                    intent.putExtra("id",id);
+                    activity.startActivity(intent);
+                    break;
+                case "2":
+                    intent = new Intent(activity, NewFaBuCheYuanV2Activity.class);
+                    bundle.putStringArrayList("imgTu",imgList);
+                    intent.putExtras(bundle);
+                    intent.putExtra("type_name",typeName);
+                    intent.putExtra("id",id);
+                    activity.startActivity(intent);
+                    break;
+                case "3":
+                    intent = new Intent(activity, NewFaBuCheYuanV2Activity.class);
+                    intent.putExtra("type_name",typeName);
+                    bundle.putStringArrayList("imgTu",imgList);
+                    intent.putExtras(bundle);
+                    intent.putExtra("id",id);
+                    activity.startActivity(intent);
+                    break;
+                case "4":
+                    intent = new Intent(activity, NewFaBuCheYuanV2Activity.class);
+                    intent.putExtra("type_name",typeName);
+                    bundle.putStringArrayList("imgTu",imgList);
+                    intent.putExtras(bundle);
+                    intent.putExtra("id",id);
+                    activity.startActivity(intent);
+                    break;
+                case "5":
+                    intent = new Intent(activity, NewFaBuCheYuanV2Activity.class);
+                    intent.putExtra("type_name",typeName);
+                    bundle.putStringArrayList("imgTu",imgList);
+                    intent.putExtras(bundle);
+                    intent.putExtra("id",id);
+                    activity.startActivity(intent);
+                    break;
+                case "6":
+                    intent = new Intent(activity, NewFaBuBanJiaActivity.class);
+                    intent.putExtra("type_name",typeName);
+                    intent.putExtra("cyid",dataList.get(pos).getId());
+                    intent.putExtra("czid",dataList.get(pos).getLogin_id());
+                    activity.startActivity(intent);
+                    break;
+            }
+
+
+
+
+
+
         }
         @BindView(R.id.tv_new_wodecheyuan_cheyuanlist_xrv_item_update)
         TextView tvNewWoDeCheYuanListXRVItemUpdate;

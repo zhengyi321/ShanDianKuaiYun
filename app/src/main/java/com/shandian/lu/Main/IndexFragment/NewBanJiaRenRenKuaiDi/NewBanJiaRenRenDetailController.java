@@ -18,9 +18,14 @@ import com.shandian.lu.BaseController;
 import com.shandian.lu.Main.IndexFragment.BaiDuRoutePlan.NewBaiDuRoutePlanActivity;
 import com.shandian.lu.Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewCheYuanDetailImgRVAdapter;
+import com.shandian.lu.Main.MessageFragment.Chat.ChatActivity;
+import com.shandian.lu.Main.MineFragment.Login.LoginActivity;
 import com.shandian.lu.NetWork.AdsNetWork;
 import com.shandian.lu.NetWork.NewCheHuoListNetWork;
 import com.shandian.lu.R;
+import com.zhyan.myhuanxin.EaseConstant;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheManager.XCCacheManager;
+import com.zhyan.shandiankuaiyuanwidgetlib.DBCache.XCCacheSaveName.XCCacheSaveName;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
 import com.zhyan.shandiankuaiyunlib.Utils.ImageLoaderUtils;
 
@@ -42,6 +47,7 @@ public class NewBanJiaRenRenDetailController extends BaseController {
     private String bAddr="",eAddr="";
     private String cyId ,czid;
     private String iphone;
+    private String id = "0";
     private NewCheYuanDetailImgRVAdapter adapter;
     private List<String> imgList;
     @BindView(R.id.rly_new_bjrrxq_back)
@@ -114,6 +120,20 @@ public class NewBanJiaRenRenDetailController extends BaseController {
             }
         }).build(activity);
         showTelDialog();
+    }
+    @BindView(R.id.rly_new_bjrrxq_bottom_chat)
+    RelativeLayout rlyNewBJRRXQBottomChat;
+    @OnClick(R.id.rly_new_bjrrxq_bottom_chat)
+    public void rlyNewBJRRXQBottomChatOnclick(){
+        XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
+        XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();
+        String login_id = xcCacheManager.readCache(xcCacheSaveName.logId);
+        if((login_id == null)||(login_id.isEmpty())){
+            activity.startActivity(new Intent(activity,LoginActivity.class));
+            return;
+        }
+
+        activity.startActivity(new Intent(activity,ChatActivity.class).putExtra(EaseConstant.EXTRA_USER_ID, id));
     }
     private void startCallTel(String number) {
         /*PhoneFormatCheckUtils phoneFormatCheckUtils = new PhoneFormatCheckUtils();
@@ -219,6 +239,7 @@ public class NewBanJiaRenRenDetailController extends BaseController {
         iphone = newCheYuanDetailBean.getNr().getIphone();
         bAddr = newCheYuanDetailBean.getNr().getCfdizhi();
         eAddr = newCheYuanDetailBean.getNr().getDadizhi();
+        id = newCheYuanDetailBean.getNr().getLogin_id();
     }
 
     private void getAdsFromNet(){

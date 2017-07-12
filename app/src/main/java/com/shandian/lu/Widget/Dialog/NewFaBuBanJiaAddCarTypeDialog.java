@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.shandian.lu.R;
@@ -45,7 +46,7 @@ public class NewFaBuBanJiaAddCarTypeDialog extends Dialog {
     }
 
     public interface MsgCallBackListener{
-        public void msgCallBack(String name,String tj,String zz);
+        public void msgCallBack(String name,String tj,String zz,int pos);
     }
 
     public NewFaBuBanJiaAddCarTypeDialog(Context context1, ArrayList<String> imgList1, Bitmap imgBit,String imgUrl1,String name1,String tj1,String zz1,int pos,boolean isUpdate1) {
@@ -147,10 +148,13 @@ public class NewFaBuBanJiaAddCarTypeDialog extends Dialog {
             View view = mInflater.inflate(R.layout.dialog_fabubanjia_add_cartype_rly, null);
             companyCustomTelDialog.addContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             final RoundCornerImageView roundCornerImageView = (RoundCornerImageView) view.findViewById(R.id.rciv_dialog_fbbj_cartype_headimg);
+            /*Toast.makeText(context,"imgUrl"+imgUrl+"",Toast.LENGTH_LONG).show();*/
             if(imgBitMap1 != null){
+                /*Toast.makeText(context,"imgUrl111",Toast.LENGTH_LONG).show();*/
                 roundCornerImageView.setImageBitmap(imgBitMap1);
             }else {
-                if((imgUrl != null)&&(imgUrl.isEmpty())){
+                if((imgUrl != null)&&(!imgUrl.isEmpty())){
+                  /*  Toast.makeText(context,"imgUrl2222",Toast.LENGTH_LONG).show();*/
                     ImageLoader.getInstance().displayImage(imgUrl,roundCornerImageView, ImageLoaderUtils.options1);
                 }
             }
@@ -203,7 +207,7 @@ public class NewFaBuBanJiaAddCarTypeDialog extends Dialog {
                     String tj = tjET.getText().toString();
                     String zz = zzET.getText().toString();
                     if(msgCallBackListener != null){
-                        msgCallBackListener.msgCallBack(name,tj,zz);
+                        msgCallBackListener.msgCallBack(name,tj,zz,postion);
                         companyCustomTelDialog.dismiss();
                     }
                 }
