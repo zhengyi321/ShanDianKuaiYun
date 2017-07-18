@@ -10,7 +10,7 @@ public class NewGeRenXinXiBean {
     /**
      * status : 0
      * msg :
-     * nr : {"id":"330","name":"老六","nickename":null,"mobile":"15988732241","openid":"","password":"f1ccb194b369f922779ce4bcc199dade","one_code":"15988732241","two_code":null,"three_code":null,"four_code":null,"sex":null,"email":null,"wei_code":null,"qq_code":null,"qr_code":"http://www.lianshiding.com/index.php/App/Chyuan/tuiguangewm/val/tgcode_15988732241.html?lx=.jpg","image":"http://www.lianshiding.com/Uploads/2017-07-11/3301499758154Ules.jpg","address":null,"points":"305","content":null,"type":"0","grade":"1","daoqitime":"","city":"浙江温州","company":"移动","status":"0","create_time":"2017-05-14 15:43:44","qiandaoduanceng":"1494747953","qiandaomczj":"10","qiandaoyuefen":"05","sxtime":"","sxcs":"0","hongbaoxinxi":"","gzhb":"0","pczuobiao":"0,0","zhjine":"0","lat":"28.122576","lng":"120.981666","tszt":"1"}
+     * nr : {"id":"256","name":"策","nickename":null,"mobile":"18629191053","openid":"","password":"842cb98a4b8824686a8beed38bd69fe1","one_code":"18629191053","two_code":null,"three_code":null,"four_code":null,"sex":null,"email":null,"wei_code":null,"qq_code":null,"qr_code":"http://www.lianshiding.com/index.php/App/Chyuan/tuiguangewm/val/tgcode_18629191053.html?lx=.jpg","image":"http://www.lianshiding.com/Uploads/2017-07-04/2561499130285X40j.jpg","address":"中国浙江省温州市乐清市双雁路458号在中国建设银行(乐清旭阳分理处)附近","points":"310","content":null,"type":"1","grade":"5","daoqitime":"1498406400","city":"陕西西安","company":"联通","status":"1","create_time":"2017-04-01 15:36:36","qiandaoduanceng":"1493881256","qiandaomczj":"10","qiandaoyuefen":"05","sxtime":"","sxcs":"0","hongbaoxinxi":"{\"time\":1499739089,\"cs\":1,\"scfx\":\"0\"}","gzhb":"0","pczuobiao":"28.122762,120.981712","zhjine":"0.47","lat":"28.117809","lng":"120.98871","tszt":"1"}
      */
 
     private String status;
@@ -43,13 +43,13 @@ public class NewGeRenXinXiBean {
 
     public static class NrBean {
         /**
-         * id : 330
-         * name : 老六
+         * id : 256
+         * name : 策
          * nickename : null
-         * mobile : 15988732241
+         * mobile : 18629191053
          * openid :
-         * password : f1ccb194b369f922779ce4bcc199dade
-         * one_code : 15988732241
+         * password : 842cb98a4b8824686a8beed38bd69fe1
+         * one_code : 18629191053
          * two_code : null
          * three_code : null
          * four_code : null
@@ -57,29 +57,29 @@ public class NewGeRenXinXiBean {
          * email : null
          * wei_code : null
          * qq_code : null
-         * qr_code : http://www.lianshiding.com/index.php/App/Chyuan/tuiguangewm/val/tgcode_15988732241.html?lx=.jpg
-         * image : http://www.lianshiding.com/Uploads/2017-07-11/3301499758154Ules.jpg
-         * address : null
-         * points : 305
+         * qr_code : http://www.lianshiding.com/index.php/App/Chyuan/tuiguangewm/val/tgcode_18629191053.html?lx=.jpg
+         * image : http://www.lianshiding.com/Uploads/2017-07-04/2561499130285X40j.jpg
+         * address : 中国浙江省温州市乐清市双雁路458号在中国建设银行(乐清旭阳分理处)附近
+         * points : 310
          * content : null
-         * type : 0
-         * grade : 1
-         * daoqitime :
-         * city : 浙江温州
-         * company : 移动
-         * status : 0
-         * create_time : 2017-05-14 15:43:44
-         * qiandaoduanceng : 1494747953
+         * type : 1
+         * grade : 5
+         * daoqitime : 1498406400
+         * city : 陕西西安
+         * company : 联通
+         * status : 1
+         * create_time : 2017-04-01 15:36:36
+         * qiandaoduanceng : 1493881256
          * qiandaomczj : 10
          * qiandaoyuefen : 05
          * sxtime :
          * sxcs : 0
-         * hongbaoxinxi :
+         * hongbaoxinxi : {"time":1499739089,"cs":1,"scfx":"0"}
          * gzhb : 0
-         * pczuobiao : 0,0
-         * zhjine : 0
-         * lat : 28.122576
-         * lng : 120.981666
+         * pczuobiao : 28.122762,120.981712
+         * zhjine : 0.47
+         * lat : 28.117809
+         * lng : 120.98871
          * tszt : 1
          */
 
@@ -99,7 +99,7 @@ public class NewGeRenXinXiBean {
         private Object qq_code;
         private String qr_code;
         private String image;
-        private Object address;
+        private String address;
         private String points;
         private Object content;
         private String type;
@@ -250,11 +250,11 @@ public class NewGeRenXinXiBean {
             this.image = image;
         }
 
-        public Object getAddress() {
+        public String getAddress() {
             return address;
         }
 
-        public void setAddress(Object address) {
+        public void setAddress(String address) {
             this.address = address;
         }
 

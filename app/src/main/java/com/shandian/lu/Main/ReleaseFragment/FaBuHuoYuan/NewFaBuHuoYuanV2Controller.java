@@ -35,10 +35,11 @@ public class NewFaBuHuoYuanV2Controller extends BaseController {
     LinearLayout llyNewFaBuHuoYuanContentV2;
     @BindView(R.id.rv_main_release_new_fabuhuoyuan_add_pic)
     RecyclerView rvMainReleaseNewFaBuHuoYuanAddPic;
-    private ArrayList<String> tempList ;
-    public NewFaBuHuoYuanAddPicV2RVAdapter addPicRVAdapter;
-    public NewFaBuHuoYuanV2Controller(Activity activity1){
+    private ArrayList<String> mImageList ;
+    public NewFaBuHuoYuanAddPicV3RVAdapter addPicRVAdapter;
+    public NewFaBuHuoYuanV2Controller(Activity activity1,ArrayList<String> mImageList1){
         activity = activity1;
+        mImageList = mImageList1;
         init();
     }
 
@@ -51,10 +52,8 @@ public class NewFaBuHuoYuanV2Controller extends BaseController {
         initRV();
     }
     private void initRV(){
-        tempList = new ArrayList<>();
-        tempList.add("");
-
-        addPicRVAdapter = new NewFaBuHuoYuanAddPicV2RVAdapter(activity,tempList,pbNewFaBuHuoYuan);
+        mImageList.add("");
+        addPicRVAdapter = new NewFaBuHuoYuanAddPicV3RVAdapter(activity,mImageList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvMainReleaseNewFaBuHuoYuanAddPic.setAdapter(addPicRVAdapter);

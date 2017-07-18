@@ -251,9 +251,10 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
     @Override
     protected void init() {
         ButterKnife.bind(this);
-        initController();
         mImageList = new ArrayList<>();
-        imgTuList = new ArrayList<>();
+        initController();
+
+
         getId();
         getType();
         initRouteOverLay();
@@ -370,7 +371,7 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
         blon = newHuoYuanDetailBean.getNr().getCflng();
         elat = newHuoYuanDetailBean.getNr().getDalat();
         elon = newHuoYuanDetailBean.getNr().getDalng();
-        newFaBuHuoYuanController.addPicRVAdapter.setUpdateList(newHuoYuanDetailBean.getNr().getImgtu());
+        newFaBuHuoYuanController.addPicRVAdapter.setUpdateAdapter(newHuoYuanDetailBean.getNr().getImgtu());
 
         if(blat == null){
             blat = "0.0";
@@ -396,14 +397,14 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
        /* Toast.makeText(this,"imgTuList:"+imgTuList.size(),Toast.LENGTH_LONG).show();*/
         if((id != null)&&(!id.isEmpty())){
             isUpdate = true;
-            Bundle bundle = getIntent().getExtras();
+           /* Bundle bundle = getIntent().getExtras();
             if(bundle == null){
                 bundle = new Bundle();
             }
             imgTuList = bundle.getStringArrayList("imgTu");
             int size = imgTuList.size();
             if(size > 0) {
-          /*  Toast.makeText(this, "size:" + imgTuList.size() + imgTuList.get(0), Toast.LENGTH_LONG).show();*/
+          *//*  Toast.makeText(this, "size:" + imgTuList.size() + imgTuList.get(0), Toast.LENGTH_LONG).show();*//*
 
                 List<String> tempList= new ArrayList<>();
                 for(int i=0;i<size;i++){
@@ -415,8 +416,8 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
                 }
                 imgTuList.clear();
                 imgTuList.addAll(tempList);
-                newFaBuHuoYuanController.addPicRVAdapter.setNetImageList(imgTuList);
-            }
+                newFaBuHuoYuanController.addPicRVAdapter.setUpdateAdapter(imgTuList);
+            }*/
             getDataFromNet();
             tvNewFaBuHuoYuanSubmit.setText("确认修改");
         }else{
@@ -456,7 +457,7 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
     }
 
     private void initController(){
-        newFaBuHuoYuanController = new NewFaBuHuoYuanV2Controller(this);
+        newFaBuHuoYuanController = new NewFaBuHuoYuanV2Controller(this,mImageList);
     }
 
 
@@ -545,8 +546,10 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
                 break;
         }
     }
-
-
+    private void refreshImage(){
+        newFaBuHuoYuanController.addPicRVAdapter.setUpdateAdapter(mImageList);
+    }
+/*
     private void refreshImage(){
         List<String> currentImgList = new ArrayList<>();
         List<String> tempImgList = new ArrayList<>();
@@ -577,10 +580,10 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
                 }
             }
         }
-/*
+*//*
         for(int i=0;i<tempImgList.size();i++) {
             System.out.print("\ntempImgList"+tempImgList.get(i));
-        }*/
+        }*//*
         int size = tempImgList.size();
         int allImgSize = size + currentSize;
         if(allImgSize > 8){
@@ -595,9 +598,9 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
             }
         }
 
-   /*     for(int i=0;i<currentImgList.size();i++) {
+   *//*     for(int i=0;i<currentImgList.size();i++) {
             System.out.print("\ncurrentImgList"+currentImgList.get(i));
-        }*/
+        }*//*
         nowSelectImgList.addAll(tempImgList);
         if(nowSelectImgList.size() > 0 ) {
             mImageList.clear();
@@ -609,27 +612,27 @@ public class NewFaBuHuoYuanV2Activity extends BaseActivity implements OnGetRoute
                 mImageList.clear();
                 mImageList.addAll(currentImgList);
             }
-        }/*
+        }*//*
         for(int i=0;i<mImageList.size();i++) {
             System.out.print("\nmImageList"+mImageList.get(i));
         }
         for(int i=0;i<nowSelectImgList.size();i++) {
             System.out.print("\nnowSelectImgList"+nowSelectImgList.get(i));
-        }*/
+        }*//*
 
         newFaBuHuoYuanController.addPicRVAdapter.setAdapterImage(mImageList);
         newFaBuHuoYuanController.addPicRVAdapter.setNewImgList(nowSelectImgList);
         isFirst = false;
-      /*  Toast.makeText(this,"size:"+mImageList.size(),Toast.LENGTH_LONG).show();*/
-/*        picSize = mImageList.size();
+      *//*  Toast.makeText(this,"size:"+mImageList.size(),Toast.LENGTH_LONG).show();*//*
+*//*        picSize = mImageList.size();
         if(picSize <= 0){
             return;
         }
-        i = 0;*/
+        i = 0;*//*
 
- /*       Thread thread = new PicToNetThread();
-        thread.run();*/
-    }
+ *//*       Thread thread = new PicToNetThread();
+        thread.run();*//*
+    }*/
 /*    class PicToNetThread extends Thread{
         @Override
         public void run(){

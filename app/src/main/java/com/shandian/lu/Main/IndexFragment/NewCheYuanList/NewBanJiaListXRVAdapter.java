@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.mynewslayoutlib.Bean.NewBanJiaListBean;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.shandian.lu.Main.IndexFragment.NewAdsDetail.NewAdsDetailActivity;
 import com.shandian.lu.Main.IndexFragment.NewCheYuanDetail.NewBanJiaDetailActivity;
 import com.shandian.lu.R;
 import com.zhyan.shandiankuaiyuanwidgetlib.Dialog.CallTelDialog;
@@ -185,6 +186,12 @@ public class NewBanJiaListXRVAdapter extends RecyclerView.Adapter<NewBanJiaListX
         RelativeLayout rlyNewBanJiaListXRVItemAds;
         @BindView(R.id.iv_new_banjialist_xrv_item_ads)
         ImageView ivNewBanJiaListXRVItemAds;
+        @OnClick(R.id.iv_new_banjialist_xrv_item_ads)
+        public void ivNewBanJiaListXRVItemAdsOnclick(){
+            Intent intent = new Intent(activity, NewAdsDetailActivity.class);
+            intent.putExtra("url",imgUrl);
+            activity.startActivity(intent);
+        }
 
         CallTelDialog callTelDialog;
         @BindView(R.id.iv_new_banjialist_xrv_item_cal)

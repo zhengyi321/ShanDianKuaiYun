@@ -73,7 +73,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
 
     private String bProvince,eProvince,bCity,eCity,bArea,eArea,beginAddr,endAddr;
     private String blat,blon,elat,elon;
-    private ArrayList imgTuList;
+
     @BindView(R.id.pb_new_fabucheyuan)
     ProgressBar pbNewFaBuCheYuan;
     @BindView(R.id.lly_new_fabucheyuan_time)
@@ -251,9 +251,9 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
     @Override
     protected void init() {
         ButterKnife.bind(this);
-        initController();
         mImageList = new ArrayList<>();
-        imgTuList = new ArrayList<>();
+        initController();
+
         getId();
         getType();
         initRouteOverLay();
@@ -278,14 +278,14 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
        /* Toast.makeText(this,"imgTuList:"+imgTuList.size(),Toast.LENGTH_LONG).show();*/
         if((id != null)&&(!id.isEmpty())){
             isUpdate = true;
-            Bundle bundle = getIntent().getExtras();
+            /*Bundle bundle = getIntent().getExtras();
             if(bundle == null){
                 bundle = new Bundle();
             }
             imgTuList = bundle.getStringArrayList("imgTu");
             int size = imgTuList.size();
             if(size > 0) {
-          /*  Toast.makeText(this, "size:" + imgTuList.size() + imgTuList.get(0), Toast.LENGTH_LONG).show();*/
+          *//*  Toast.makeText(this, "size:" + imgTuList.size() + imgTuList.get(0), Toast.LENGTH_LONG).show();*//*
 
                 List<String> tempList= new ArrayList<>();
                 for(int i=0;i<size;i++){
@@ -297,8 +297,8 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
                 }
                 imgTuList.clear();
                 imgTuList.addAll(tempList);
-                newFaBuCheYuanV2Controller.addPicRVAdapter.setNetImageList(imgTuList);
-            }
+                newFaBuCheYuanV2Controller.addPicRVAdapter.setAdapterImage(imgTuList);
+            }*/
             getDataFromNet();
             tvNewFaBuCheYuanSubmit.setText("确认修改");
         }else{
@@ -359,7 +359,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
         blon = newCheYuanDetailBean.getNr().getCflng();
         elat = newCheYuanDetailBean.getNr().getDalat();
         elon = newCheYuanDetailBean.getNr().getDalng();
-        newFaBuCheYuanV2Controller.addPicRVAdapter.setUpdateList(newCheYuanDetailBean.getNr().getImgtu());
+        newFaBuCheYuanV2Controller.addPicRVAdapter.setUpdateAdapter(newCheYuanDetailBean.getNr().getImgtu());
         tvNewFaBuCheYuanTime.setText(newCheYuanDetailBean.getNr().getFcsj());
         juli = newCheYuanDetailBean.getNr().getJuli();
         if(blat == null){
@@ -417,7 +417,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
     }
 
     private void initController(){
-        newFaBuCheYuanV2Controller = new NewFaBuCheYuanV2Controller(this);
+        newFaBuCheYuanV2Controller = new NewFaBuCheYuanV2Controller(this,mImageList);
     }
 
 
@@ -502,8 +502,11 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
 
         }
     }
+    private void refreshImage(){
+        newFaBuCheYuanV2Controller.addPicRVAdapter.setUpdateAdapter(mImageList);
+    }
 
-
+/*
     private void refreshImage(){
         List<String> currentImgList = new ArrayList<>();
         List<String> tempImgList = new ArrayList<>();
@@ -536,9 +539,9 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
         }
 
 
-   /*     for(int i=0;i<currentImgList.size();i++) {
+   *//*     for(int i=0;i<currentImgList.size();i++) {
             System.out.print("\ncurrentImgList"+currentImgList.get(i));
-        }*/
+        }*//*
         int size = tempImgList.size();
         int allImgSize = size + currentSize;
         if(allImgSize > 8){
@@ -549,7 +552,7 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
                 System.out.print("\ntempImgList__delete  pic"+pic);
                 tempImgList.remove(pic);
 
-                System.out.print("\ntempImgList__delete"+pic);
+               *//* System.out.print("\ntempImgList__delete"+pic);*//*
             }
         }
 
@@ -565,18 +568,18 @@ public class NewFaBuCheYuanV2Activity extends BaseActivity  implements OnGetRout
                 mImageList.clear();
                 mImageList.addAll(currentImgList);
             }
-        }/*
+        }*//*
         for(int i=0;i<mImageList.size();i++) {
             System.out.print("\nmImageList"+mImageList.get(i));
         }
         for(int i=0;i<nowSelectImgList.size();i++) {
             System.out.print("\nnowSelectImgList"+nowSelectImgList.get(i));
-        }*/
+        }*//*
 
         newFaBuCheYuanV2Controller.addPicRVAdapter.setAdapterImage(mImageList);
         newFaBuCheYuanV2Controller.addPicRVAdapter.setNewImgList(nowSelectImgList);
         isFirst = false;
-    }/*
+    }*//*
     private void isSamePicDelete(){
         currentNameNetImageList.clear();
         currentNameNetImageList.addAll(newFaBuCheYuanController.addPicRVAdapter.getCurrentNetImageList());

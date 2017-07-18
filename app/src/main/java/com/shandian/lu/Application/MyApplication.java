@@ -29,6 +29,7 @@ import com.yanzhenjie.album.impl.AlbumImageLoader;
 import com.yanzhenjie.album.task.LocalImageLoader;
 import com.zhyan.myhuanxin.EaseUI;
 import com.zhyan.shandiankuaiyuanwidgetlib.Utils.AppThirdDataUtils;
+import com.zhyan.shandiankuaiyunlib.Utils.ShellUtils;
 
 import java.io.File;
 
@@ -74,7 +75,7 @@ public class MyApplication extends Application {
                         .setImageLoader(new GlideImageLoader()) // 使用默认loader.
                         .build()
         );
-
+        ShellUtils.checkRootPermission();
 
         /*腾讯应用更新*/
        /* Bugly.init(getApplicationContext(), "17b9bbc524", false);//现在在main的onresume中初始化*/

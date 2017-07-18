@@ -236,45 +236,71 @@ public class GeRenXinXiController extends BaseController {
 
 
     private  void initDetail(NewGeRenXinXiBean newGeRenXinXiBean){
-        if(newGeRenXinXiBean.getNr().getNickename() != null){
-            tvMainMineGeRenXinXiContentNick.setText(newGeRenXinXiBean.getNr().getNickename()+"");
-        }
 
-        if(newGeRenXinXiBean.getNr().getSex().equals("1")){
+        String nickName = (String) newGeRenXinXiBean.getNr().getNickename();
+        if(nickName == null){
+            nickName = "";
+        }
+        tvMainMineGeRenXinXiContentNick.setText(nickName);
+        String sex = (String) newGeRenXinXiBean.getNr().getSex();
+        if(sex == null){
+            sex = "";
+        }
+        if(sex.equals("1")){
             tvMainMineGeRenXinXiContentSex.setText("男");
         }else{
             tvMainMineGeRenXinXiContentSex.setText("女");
         }
-        if(newGeRenXinXiBean.getNr().getOne_code() != null) {
-            tvMainMineGeRenXinXiContentMyInviteCode.setText(newGeRenXinXiBean.getNr().getOne_code());
-        }
-        if(newGeRenXinXiBean.getNr().getAddress() != null) {
-            tvMainMineGeRenXinXiContentWZ.setText(newGeRenXinXiBean.getNr().getAddress().toString());
-        }
-        if(newGeRenXinXiBean.getNr().getEmail() != null) {
-            tvMainMineGeRenXinXiContentYouXiang.setText(newGeRenXinXiBean.getNr().getEmail().toString());
-        }
-        if(newGeRenXinXiBean.getNr().getWei_code() != null) {
-            tvMainMineGeRenXinXiContentWX.setText(newGeRenXinXiBean.getNr().getWei_code().toString());
-        }
-        if(newGeRenXinXiBean.getNr().getQq_code() != null) {
-            tvMainMineGeRenXinXiContentQQ.setText(newGeRenXinXiBean.getNr().getQq_code().toString() );
-        }
 
-        if(newGeRenXinXiBean.getNr().getImage() != null) {
-            loader.displayImage(newGeRenXinXiBean.getNr().getImage(), rivMainMineGeRenXinXiContentHeadImg, ImageLoaderUtils.options1);
+        String One_code = newGeRenXinXiBean.getNr().getOne_code();
+        if(One_code == null) {
+            One_code = "";
         }
-        if(newGeRenXinXiBean.getNr().getQr_code() != null){
-            loader.displayImage(newGeRenXinXiBean.getNr().getQr_code(), ivMainMineGeRenXinXiContentEWM, ImageLoaderUtils.options1);
-        }
-        if(newGeRenXinXiBean.getNr().getName() != null){
-            tvMainMineGeRenXinXiContentName.setText(newGeRenXinXiBean.getNr().getName());
-        }
+        tvMainMineGeRenXinXiContentMyInviteCode.setText(One_code);
+        String address = newGeRenXinXiBean.getNr().getAddress();
 
-        if(newGeRenXinXiBean.getNr().getMobile() != null){
-            tvMainMineGeRenXinXiContentTel.setText(newGeRenXinXiBean.getNr().getMobile());
+        if(address == null) {
+           address = "";
         }
+        tvMainMineGeRenXinXiContentWZ.setText(address);
 
+        String email = (String) newGeRenXinXiBean.getNr().getEmail();
+        if(email == null) {
+            email = "";
+        }
+        tvMainMineGeRenXinXiContentYouXiang.setText(email);
+
+        String Wei_code = (String) newGeRenXinXiBean.getNr().getWei_code();
+        if(Wei_code == null) {
+            Wei_code = "";
+        }
+        tvMainMineGeRenXinXiContentWX.setText(Wei_code);
+        String Qq_code = (String) newGeRenXinXiBean.getNr().getQq_code();
+        if(Qq_code == null) {
+            Qq_code = "";
+        }
+        tvMainMineGeRenXinXiContentQQ.setText(Qq_code);
+        String image = newGeRenXinXiBean.getNr().getImage();
+        if(image == null) {
+            image = "";
+        }
+        loader.displayImage(image, rivMainMineGeRenXinXiContentHeadImg, ImageLoaderUtils.options1);
+        String Qr_code = (String) newGeRenXinXiBean.getNr().getQr_code();
+        if(Qr_code == null){
+            Qr_code = "";
+        }
+        loader.displayImage(Qr_code, ivMainMineGeRenXinXiContentEWM, ImageLoaderUtils.options1);
+
+        String name = newGeRenXinXiBean.getNr().getName();
+        if(name == null){
+            name = "";
+        }
+        tvMainMineGeRenXinXiContentName.setText(name);
+        String mobile = newGeRenXinXiBean.getNr().getMobile();
+        if(mobile == null){
+            mobile = "";
+        }
+        tvMainMineGeRenXinXiContentTel.setText(mobile);
 
         XCCacheManager xcCacheManager = XCCacheManager.getInstance(activity);
         XCCacheSaveName xcCacheSaveName = new XCCacheSaveName();

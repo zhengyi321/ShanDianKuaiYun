@@ -205,7 +205,9 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
                     break;
                 case "5":
                     intent = new Intent(activity, NewBanJiaRenRenDetailActivity.class);
+                    intent.putExtra("type_name",typeName);
                     intent.putExtra("cyid",dataList.get(pos).getId());
+                    intent.putExtra("czid",dataList.get(pos).getLogin_id());
                     activity.startActivity(intent);
                     break;
 
@@ -266,7 +268,10 @@ public class NewWoDeCheYuanCheYuanListXRVAdapter extends RecyclerView.Adapter<Ne
                     break;
                 case "5":
                      intent = new Intent(activity, NewBanJiaRenRenDetailActivity.class);
+               /*     intent.putExtra("cyid",dataList.get(pos).getId());*/
+                    intent.putExtra("type_name",typeName);
                     intent.putExtra("cyid",dataList.get(pos).getId());
+                    intent.putExtra("czid",dataList.get(pos).getLogin_id());
                     activity.startActivity(intent);
                     break;
 
