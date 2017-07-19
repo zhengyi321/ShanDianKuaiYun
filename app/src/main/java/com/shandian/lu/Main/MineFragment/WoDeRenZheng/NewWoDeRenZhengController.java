@@ -247,7 +247,7 @@ public class NewWoDeRenZhengController extends BaseController {
             ImageLoader.getInstance().displayImage(yyzz,rcivNewRZQYP2, ImageLoaderUtils.options1);
             ImageLoader.getInstance().displayImage(jsz,rcivNewRZJSZ, ImageLoaderUtils.options1);
             ImageLoader.getInstance().displayImage(xsz,rcivNewRZXSZ, ImageLoaderUtils.options1);
-
+            activity.finish();
         }
 
     }

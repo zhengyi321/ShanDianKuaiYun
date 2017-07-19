@@ -52,8 +52,8 @@ public class NewBanJiaDetailRVAdapter extends RecyclerView.Adapter<NewBanJiaDeta
     public void onBindViewHolder(MyItemViewHolder holder, int position) {
         ImageLoader.getInstance().displayImage(dataList.get(position).getImg(),holder.ivNewBanJiaXiangQingRVItemLogo, ImageLoaderUtils.options1);
         holder.tvNewBanJiaXiangQingRVItemName.setText(dataList.get(position).getName());
-        holder.tvNewBanJiaXiangQingRVItemTJ.setText(dataList.get(position).getTj());
-        holder.tvNewBanJiaXiangQingRVItemZZ.setText(dataList.get(position).getZz());
+        holder.tvNewBanJiaXiangQingRVItemTJ.setText(dataList.get(position).getTj()+"m³");
+        holder.tvNewBanJiaXiangQingRVItemZZ.setText(dataList.get(position).getZz()+"kg");
     }
 
     @Override

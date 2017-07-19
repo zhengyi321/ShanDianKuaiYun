@@ -2,21 +2,29 @@ package com.shandian.lu.Main.AdviceFragment.AdviceDetail;
 
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.text.Html;
-import android.text.method.LinkMovementMethod;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.mynewslayoutlib.TextView.HTMLView;
 import com.shandian.lu.BaseController;
 import com.shandian.lu.NetWork.AdviceNetWork;
 import com.shandian.lu.R;
+import com.shandian.lu.Widget.Utils.MyTagHandler;
 import com.zhyan.shandiankuaiyunlib.Bean.AdviceDetailBean;
-import com.zhyan.shandiankuaiyunlib.Widget.TextViewWithHtml.MxgsaTagHandler;
+
 
 import java.net.URL;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,6 +49,8 @@ public class AdviceDetailController extends BaseController {
     TextView tvMainAdviceDetailContentTitle;
     @BindView(R.id.tv_main_advice_detail_content_time)
     TextView tvMainAdviceDetailContentTime;
+    @BindView(R.id.wv_main_advice_detail_content_news)
+    WebView wvMainAdviceDetailContentNews;
     @BindView(R.id.tv_main_advice_detail_content_news)
     TextView tvMainAdviceDetailContentNews;
     @BindView(R.id.tv_main_advice_detail_content_previous)
@@ -108,6 +118,7 @@ public class AdviceDetailController extends BaseController {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void initAdviceDetailByNet(AdviceDetailBean adviceDetailBean){
         if(adviceDetailBean.getContent().getLast_one() == null){
             llyMainAdviceDetailContentPrevius.setVisibility(View.GONE);
@@ -126,8 +137,59 @@ public class AdviceDetailController extends BaseController {
         tvMainAdviceDetailContentTitle.setText(adviceDetailBean.getContent().getList().getTitle().toString());
         tvMainAdviceDetailContentTime.setText(adviceDetailBean.getContent().getList().getCreate_time());
         String content = adviceDetailBean.getContent().getList().getContent();
-        CharSequence charSequence = Html.fromHtml(content);
-        tvMainAdviceDetailContentNews.setText(content);
+        System.out.print("\nhtml:"+content);
+        System.out.print("\nhtml:"+content);
+        System.out.print("\nhtml:"+content);
+        int indexOfImg = content.indexOf("img");
+        if(indexOfImg < 0){
+            content = content.replaceAll(" ","");
+        }
+
+       /* content = content.replaceAll("<imgsrc","<img src");*/
+        int indexOfAnd = content.indexOf("&");
+        if(indexOfAnd >= 0){
+           /* Toast.makeText(activity,"yes",3000).show();*/
+            Spanned spCon = Html.fromHtml(content);
+            String html = "";
+            if(indexOfImg >= 0){
+                html = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>" +
+                        "</head><body>"+spCon+"</body></html>";
+                wvMainAdviceDetailContentNews.loadDataWithBaseURL(null,html, "text/html", "utf-8", null);
+                WebSettings settings = wvMainAdviceDetailContentNews.getSettings();
+                settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
+                settings.setUseWideViewPort(true);
+                settings.setLoadWithOverviewMode(true);
+            }else {
+                html = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>" +
+                        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /></head><body>"+spCon+"</body></html>";
+                wvMainAdviceDetailContentNews.loadDataWithBaseURL(null,html, "text/html", "utf-8", null);
+
+            }
+   /*     System.out.print("\nhtml:"+content);  <meta name="viewport" content="width=device-width, initial-scale=0.2" />
+        System.out.print("\nhtml:"+content);
+        System.out.print("\nhtml:"+content);
+        System.out.print("\nhtml:"+content);*/
+
+
+            tvMainAdviceDetailContentNews.setVisibility(View.GONE);
+            wvMainAdviceDetailContentNews.setVisibility(View.VISIBLE);
+        }else {
+            /*Toast.makeText(activity,"no",3000).show();*/
+            tvMainAdviceDetailContentNews.setVisibility(View.VISIBLE);
+            wvMainAdviceDetailContentNews.setVisibility(View.GONE);
+            tvMainAdviceDetailContentNews.setText(content);
+        }
+
+
+      /*  DownLoadUtil.setHtmlText(htvMainAdviceDetailContentNews,content,480,320);*/
+       /* htvMainAdviceDetailContentNews.setHtml(content,
+                new HtmlResImageGetter(htvMainAdviceDetailContentNews));*/
+        /*Spanned charSequence =  Html.fromHtml(content);
+      *//*  String strCont = charSequence.toString();
+        strCont = strCont.replaceAll("<p>","\n");
+        strCont = strCont.replaceAll("</p>","");
+        strCont = strCont.replaceAll("<br/>","");*//*
+        tvMainAdviceDetailContentNews.setText(charSequence);*/
 
         tvMainAdviceDetailContentNext.setText(adviceDetailBean.getContent().getNext_one().getTitle());
         tvMainAdviceDetailContentPrevious.setText(adviceDetailBean.getContent().getLast_one().getTitle());
@@ -135,6 +197,7 @@ public class AdviceDetailController extends BaseController {
        /* nextId = adviceDetailBean.getContent().getNext_one().getId();*/
 
     }
+
 
 
     Html.ImageGetter imgGetter = new Html.ImageGetter() {

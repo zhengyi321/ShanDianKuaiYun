@@ -196,6 +196,10 @@ dependencies {
     compile files('libs/AMap_Location_V3.0.0_20160922.jar')
     compile files('libs/ZBarDecoder.jar')
 
+
+    /*显示htmltextview*/
+    compile 'org.sufficientlysecure:html-textview:3.4'
+    /*显示htmltextview*/
     /*二维码*/
 /*    compile 'com.yanzhenjie.zbar:zbar:1.0.0'*/
     /*二维码*/

@@ -5,6 +5,7 @@ import com.example.mynewslayoutlib.Bean.NewGeRenXinXiSubmitBean;
 import com.example.mynewslayoutlib.Bean.NewMyTuiJianRenBean;
 import com.example.mynewslayoutlib.Bean.NewQrCodeSubmitBean;
 import com.example.mynewslayoutlib.Bean.NewSiJiLocBean;
+import com.example.mynewslayoutlib.Bean.NewYaoQingBean;
 import com.shandian.lu.NetWork.BaseFile.BaseNetWork;
 import com.zhyan.shandiankuaiyunlib.Bean.IsRegisterBean;
 import com.zhyan.shandiankuaiyunlib.Bean.LoginBean;
@@ -47,12 +48,11 @@ public class WoDeYaoQingNetWork extends BaseNetWork {
         /*我的推荐人*/
         @GET("index.php/app/index/mytj")
         Observable<NewMyTuiJianRenBean> getMyTuiJianRenFromNet(@Query("id") String id);
-
-        /*个人信息提交*/
-        @FormUrlEncoded
-        @POST("index.php/app/chyuan/gerenxinxitj")
-        Observable<NewGeRenXinXiSubmitBean> submitNewGeRenXinXiToNet(@FieldMap Map<String, Object> paramMap);
-        /*个人信息提交*/
+        /*我的推荐人*/
+        /*邀请人信息*/
+        @GET("index.php/app/index/yaoqingren")
+        Observable<NewYaoQingBean> getYaoQingRenFromNet(@Query("id") String id,@Query("dj") String dj);
+        /*邀请人信息*/
 
 
 
@@ -64,5 +64,8 @@ public class WoDeYaoQingNetWork extends BaseNetWork {
     }
     public  void getMyTuiJianRenFromNet(String id,Observer<NewMyTuiJianRenBean> observer){
         setSubscribe(service.getMyTuiJianRenFromNet(id),observer);
+    }
+    public  void getYaoQingRenFromNet(String id,String dj,Observer<NewYaoQingBean> observer){
+        setSubscribe(service.getYaoQingRenFromNet(id,dj),observer);
     }
 }

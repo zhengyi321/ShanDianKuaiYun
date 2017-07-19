@@ -246,6 +246,7 @@
                 android:layout_weight="2.5"
                 >
                 <TextView
+                    android:id="@+id/tv_main_mine_wodeyaoqing_yaoqingyi_peoplenums"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -270,6 +271,7 @@
                 >
 
                 <TextView
+                    android:id="@+id/tv_main_mine_wodeyaoqing_yaoqingyi_jifen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -333,6 +335,7 @@
                 android:layout_weight="2.5"
                 >
                 <TextView
+                    android:id="@+id/tv_main_mine_wodeyaoqing_yaoqinger_peoplenums"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -357,6 +360,7 @@
                 android:layout_weight="0.5">
 
                 <TextView
+                    android:id="@+id/tv_main_mine_wodeyaoqing_yaoqinger_jifen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -420,6 +424,7 @@
                 android:layout_weight="2.5"
                 >
                 <TextView
+                    android:id="@+id/tv_main_mine_wodeyaoqing_yaoqingsan_peoplenums"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -444,6 +449,7 @@
                 >
 
                 <TextView
+                    android:id="@+id/tv_main_mine_wodeyaoqing_yaoqingsan_jifen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"

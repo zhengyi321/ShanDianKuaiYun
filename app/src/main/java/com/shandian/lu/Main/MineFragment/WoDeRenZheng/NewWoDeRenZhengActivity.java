@@ -414,6 +414,7 @@ public class NewWoDeRenZhengActivity extends BaseActivity {
             @Override
             public void onCompleted() {
                 pbNewRZ.setVisibility(View.GONE);
+                finish();
             }
 
             @Override
@@ -423,12 +424,13 @@ public class NewWoDeRenZhengActivity extends BaseActivity {
 
             @Override
             public void onNext(NewRenZhengSubmitResultBean newRenZhengSubmitResultBean) {
-                Toast.makeText(NewWoDeRenZhengActivity.this,newRenZhengSubmitResultBean.getMsg(),3000).show();
+                Toast.makeText(NewWoDeRenZhengActivity.this,newRenZhengSubmitResultBean.getMsg(),2000).show();
                 pbNewRZ.setVisibility(View.GONE);
                 newWoDeRenZhengController.initDetailAfterSubmit(newRenZhengSubmitResultBean);
-
+                finish();
             }
         });
+        finish();
     }
 
 }

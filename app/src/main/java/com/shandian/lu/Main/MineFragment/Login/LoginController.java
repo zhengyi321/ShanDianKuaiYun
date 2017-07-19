@@ -117,7 +117,7 @@ public class LoginController extends BaseController {
         public void handleMessage(Message message){
             switch (message.what){
                 case 1:
-                    Toast.makeText(activity,"登录成功",Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity,"登录成功",3000).show();
                   /*  initAliasJpush();*/
                     activity.finish();
                     break;
@@ -135,11 +135,11 @@ public class LoginController extends BaseController {
         String tel = etMainMineLoginTel.getText().toString();
         String pass = etMainMineLoginPas.getText().toString();
         if((!phoneFormatCheckUtils.isNumber(tel))||(tel.length() != 11)){
-            Toast.makeText(activity,"请输入正确的手机号",Toast.LENGTH_LONG).show();
+            Toast.makeText(activity,"请输入正确的手机号",3000).show();
             return;
         }
         if(pass.length() == 0){
-            Toast.makeText(activity,"请输入密码",Toast.LENGTH_LONG).show();
+            Toast.makeText(activity,"请输入密码",3000).show();
             return;
         }
        /*loginHuanXin(tel,pass);*/
@@ -231,11 +231,11 @@ public class LoginController extends BaseController {
                     });
 
 
-                    Toast.makeText(activity,"登录成功",Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity,"登录成功",3000).show();
                   /*  initAliasJpush();*/
                     activity.finish();
                 }else {
-                    Toast.makeText(activity,newLoginBean.getMsg(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity,newLoginBean.getMsg(),3000).show();
                 }
             }
         });
@@ -294,7 +294,7 @@ public class LoginController extends BaseController {
 
             @Override
             public void onNext(NewUpSelfLocToNetBean newUpSelfLocToNetBean) {
-                      /*  Toast.makeText(getContext(),newUpSelfLocToNetBean.getMsg(),Toast.LENGTH_LONG).show();*/
+                      /*  Toast.makeText(getContext(),newUpSelfLocToNetBean.getMsg(),3000).show();*/
                        if(!newUpSelfLocToNetBean.getStatus().equals("0")){
                            upStatusToNet();
                        }
@@ -309,12 +309,12 @@ public class LoginController extends BaseController {
         userNetWork.userLogin(tel, pass, new Observer<LoginBean>() {
             @Override
             public void onCompleted() {
-              /*  Toast.makeText(activity,"onCompleted:",Toast.LENGTH_LONG).show();*/
+              /*  Toast.makeText(activity,"onCompleted:",3000).show();*/
             }
 
             @Override
             public void onError(Throwable e) {
-                /*Toast.makeText(activity,"onError:"+e,Toast.LENGTH_LONG).show();*/
+                /*Toast.makeText(activity,"onError:"+e,3000).show();*/
             }
 
             @Override
@@ -378,11 +378,11 @@ public class LoginController extends BaseController {
                             ResumeLogin(loginId);
                         }
                     });
-                   /* Toast.makeText(activity,"regis succ",Toast.LENGTH_LONG).show();*/
+                   /* Toast.makeText(activity,"regis succ",3000).show();*/
 
 
                 }else{
-                    Toast.makeText(activity,loginBean.getMsg(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity,loginBean.getMsg(),3000).show();
                 }
 
             }
@@ -501,7 +501,7 @@ public class LoginController extends BaseController {
                 case 0:
                     logs = "Set tag and alias success";
                     Log.i("success",logs);
-                   /* Toast.makeText(activity,"here is success:"+alias+" "+tags,Toast.LENGTH_LONG).show();*/
+                   /* Toast.makeText(activity,"here is success:"+alias+" "+tags,3000).show();*/
                /*     NotificationCompat.Builder	notification = new NotificationCompat.Builder(activity).setSmallIcon(R.mipmap.logo)
                             .setSound(Uri.parse("android.resource://" + activity.getPackageName() + "/" + R.raw.shandian));*/
                             /*.setContentText(title);*/

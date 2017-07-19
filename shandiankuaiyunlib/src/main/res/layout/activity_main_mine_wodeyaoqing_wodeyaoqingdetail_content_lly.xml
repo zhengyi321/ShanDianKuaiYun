@@ -18,6 +18,7 @@
             android:layout_weight="1"
             >
             <TextView
+                android:id="@+id/tv_main_mine_wodeyaoqing_wodeyaoqingdetail_yaoqing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/yaoqingyi"
@@ -33,6 +34,7 @@
             android:layout_weight="1"
             >
             <TextView
+                android:id="@+id/tv_main_mine_wodeyaoqing_wodeyaoqingdetail_peoplenums"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -48,6 +50,7 @@
             android:layout_weight="1"
             >
             <TextView
+                android:id="@+id/tv_main_mine_wodeyaoqing_wodeyaoqingdetail_jifen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0积分"
@@ -64,7 +67,12 @@
         android:layout_height="match_parent"
         android:background="@color/color_main_mine_wodeyaoqing_wodeyaoqingdetail_content_item_bg"
         >
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_main_mine_wodeyaoqing_wodeyaoqingdetail_record"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+        </android.support.v7.widget.RecyclerView>
 
     </RelativeLayout>
 </LinearLayout>
