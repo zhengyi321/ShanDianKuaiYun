@@ -212,12 +212,12 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
         intent.putExtra("czTouXiang",cheTouXiang);*/
         String cheLat = activity.getIntent().getStringExtra("czlat");
         if((cheLat == null)||(cheLat.isEmpty())){
-            cheLat = "0";
+            cheLat = "0.0";
             return;
         }
         String cheLon = activity.getIntent().getStringExtra("czlon");
         if((cheLon == null)||(cheLon.isEmpty())){
-            cheLon = "0";
+            cheLon = "0.0";
         }
         String cheTouXiang = activity.getIntent().getStringExtra("czTouXiang");
         if(cheTouXiang == null){
@@ -233,7 +233,14 @@ public class NewBaiDuRoutePlanController extends BaseController implements Baidu
      /*   BitmapDescriptor markerIcon = BitmapDescriptorFactory.fromBitmap(getViewBitmap(view));*/
 
         BitmapDescriptor mCurrentMarker = BitmapDescriptorFactory.fromView(view);
-
+        System.out.print("\ncheLat"+cheLat);
+        System.out.print("\ncheLat"+cheLat);
+        System.out.print("\ncheLat"+cheLat);
+        System.out.print("\ncheLat"+cheLat);
+        System.out.print("\nchelon"+cheLon);
+        System.out.print("\nchelon"+cheLon);
+        System.out.print("\nchelon"+cheLon);
+        System.out.print("\nchelon"+cheLon);
         double cLat = Double.parseDouble(cheLat);
         double cLon = Double.parseDouble(cheLon);
         /*定位蓝色点*/

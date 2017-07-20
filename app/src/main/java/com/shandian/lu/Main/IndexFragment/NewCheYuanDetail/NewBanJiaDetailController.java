@@ -238,11 +238,35 @@ public class NewBanJiaDetailController extends BaseController {
         tvNewBanJiaDetailCompanyIntrodu.setText(newCheYuanDetailBean.getNr().getJianjie());
         tvNewBanJiaDetailRemark.setText(newCheYuanDetailBean.getNr().getContent());
         bLat = newCheYuanDetailBean.getNr().getCflat();
+        if((bLat == null)||(bLat.isEmpty())||(bLat.equals("null"))){
+            bLat = "0.0";
+        }
         bLon = newCheYuanDetailBean.getNr().getCflng();
+        if((bLon == null)||(bLon.isEmpty())||(bLon.equals("null"))){
+            bLon = "0.0";
+        }
         eLat = newCheYuanDetailBean.getNr().getDalat();
+        if((eLat == null)||(eLat.isEmpty())||(eLat.equals("null"))){
+            eLat = "0.0";
+        }
         eLon = newCheYuanDetailBean.getNr().getDalng();
+        if((eLon == null)||(eLon.isEmpty())||(eLon.equals("null"))){
+            eLon = "0.0";
+        }
         cheLat = newCheYuanDetailBean.getNr().getCzlat();
+        if((cheLat == null)||(cheLat.isEmpty())||(cheLat.equals("null"))){
+            cheLat = "0.0";
+        }
         cheLon = newCheYuanDetailBean.getNr().getCzlng();
+        if((cheLon == null)||(cheLon.isEmpty())||(cheLon.equals("null"))){
+            cheLon = "0.0";
+        }
+        System.out.print("\nbLat"+bLat);
+        System.out.print("\nbLon"+bLon);
+        System.out.print("\neLat"+eLat);
+        System.out.print("\neLon"+eLon);
+        System.out.print("\ncheLat"+cheLat);
+        System.out.print("\ncheLon"+cheLon);
         cheTouXiang = newCheYuanDetailBean.getNr().getCztouxiang();
         if(newCheYuanDetailBean.getNr().getZt().equals("0")){
             tvNewBanJiaDetailTJBJSubmit.setText("空车");

@@ -183,7 +183,7 @@ public class SelectAddAddressController extends BaseController implements OnGetG
         type = activity.getIntent().getStringExtra("type");
         String lat = activity.getIntent().getStringExtra("lat");
         String lon = activity.getIntent().getStringExtra("lon");
-        if((lat != null)&&(!lat.isEmpty())){
+        if((lat != null)&&(!lat.isEmpty())&&(lon != null)&&(!lon.isEmpty())){
             selfLat = Double.parseDouble(lat);
             selfLon = Double.parseDouble(lon);
             LatLng llg = new LatLng(selfLat,selfLon);
